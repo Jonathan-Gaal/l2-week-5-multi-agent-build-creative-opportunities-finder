@@ -63,11 +63,11 @@
   .loopbadge { display: inline-block; margin-top: 4px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; font-size: 10px; letter-spacing: .06em; }
   .loopbadge.off { background: transparent; border: 1px solid var(--muted-dk); color: var(--muted-dk); }
   /* "What makes these agents?" button and pop-up panel */
-  .whatbtn { position: absolute; right: 24px; top: 0; background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; }
+  .whatbtn { background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; white-space: nowrap; flex: 0 0 auto; }
   .whatbtn:hover { background: var(--marigold); color: var(--ink); }
   .agentpanel { display: none; position: absolute; inset: -12px 0 0 0; background: var(--ink); border: 2px solid var(--marigold); border-radius: 22px; padding: 28px 32px; z-index: 9; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
   .agentpanel.open { display: block; }
-  .agentpanel .whatbtn.close { top: 20px; right: 24px; }
+  .agentpanel .whatbtn.close { position: absolute; top: 20px; right: 24px; }
   .agentpanel h3 { font-size: 24px; max-width: 900px; margin-bottom: 18px; }
   .atable { width: 100%; border-collapse: collapse; font-size: 15px; color: var(--paper); }
   .atable th { text-align: left; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--marigold); padding: 6px 10px; border-bottom: 2px solid var(--plum); }
@@ -100,7 +100,8 @@
   @keyframes dashflow { to { stroke-dashoffset: -18; } }
   .looplabel { position: absolute; transform: translateX(-50%); background: var(--coral); color: var(--ink); font-weight: 700; font-size: 14px; border-radius: 999px; padding: 6px 16px; opacity: 0; transition: opacity .4s; white-space: nowrap; }
   .looplabel.show { opacity: 1; }
-  .fcap { margin-top: 6px; min-height: 56px; font-size: 19px; color: var(--paper); max-width: 1100px; }
+  .fcaprow { margin-top: 6px; min-height: 56px; max-width: 1320px; display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; }
+  .fcap { font-size: 19px; color: var(--paper); flex: 1 1 420px; margin: 0; }
   .fdraft { margin-top: 8px; font-size: 13px; color: var(--muted-dk); }
   @media (max-width: 1000px) { .fgrid { flex-direction: column; } .farrow { transform: rotate(90deg); } .token, .floopsvg, .looplabel { display: none; } }
 
@@ -234,20 +235,7 @@
     .hand i { transform: rotate(90deg); }
   }
 
-  /* ---------- Handoffs ---------- */
-  .handoffs { margin-top: 36px; display: grid; gap: 12px; }
-  .handoff { display: grid; grid-template-columns: 260px 1fr; gap: 20px; background: var(--ink-2); border-radius: 16px; padding: 16px 22px; align-items: center; }
-  .handoff b { font-size: 18px; }
-  .handoff code { font-family: 'Courier New', monospace; color: var(--marigold); font-size: 16px; overflow-wrap: anywhere; }
-  @media (max-width: 760px) { .handoff { grid-template-columns: 1fr; gap: 6px; } }
   .fine { margin-top: 20px; color: var(--muted-dk); font-size: 16px; }
-
-  /* ---------- Trust tiers (coral statement band) ---------- */
-  .statement { background: var(--coral); color: var(--ink); }
-  .statement h2 { font-size: clamp(40px, 7vw, 92px); font-style: italic; max-width: 900px; }
-  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 44px; }
-  .tier { background: var(--ink); color: var(--paper); border-radius: 20px; padding: 24px; }
-  .tier small { display: block; color: var(--marigold); font-weight: 700; letter-spacing: .12em; font-size: 13px; margin-bottom: 6px; }
 
   /* ---------- Before / after toggle ---------- */
   .toggle { display: inline-flex; background: var(--ink); border-radius: 999px; padding: 5px; margin-top: 28px; }
@@ -260,14 +248,6 @@
   .ba.before .big { color: var(--marigold); } .ba.after .big { color: var(--coral-dk); }
   .ba ul { margin: 18px 0 0; padding-left: 22px; font-size: 20px; }
   .ba li { margin: 6px 0; }
-
-  /* ---------- Scope ---------- */
-  .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 36px; }
-  .scope .card h3 { color: var(--ink); }
-  .scope ul { margin: 12px 0 0; padding-left: 22px; color: var(--muted); }
-  .scope li { margin: 6px 0; }
-  .scope .in { border-color: var(--coral); border-width: 2px; }
-  @media (max-width: 760px) { .scope { grid-template-columns: 1fr; } }
 
   footer { background: var(--ink); color: var(--muted-dk); padding: 48px 0; font-size: 15px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -282,9 +262,8 @@
     <a class="logo" href="#top"><i></i>Artist Atlas</a>
     <nav aria-label="Main">
       <a href="#problem">The problem</a>
-      <a href="#who">Who it's for</a>
       <a href="#how">How it works</a>
-      <a href="#trust">Trust</a>
+      <a href="#guardrails">Guardrails</a>
     </nav>
     <a class="btn" href="#try">Try it</a>
   </div>
@@ -333,30 +312,23 @@
       <span class="sticker">CaFE</span><span class="sticker">NYFA</span><span class="sticker">ArtConnect</span>
       <span class="sticker">NYC Parks events</span><span class="sticker">DCLA</span><span class="sticker">Ticketmaster</span>
     </div>
-    <div class="cards3">
-      <div class="card"><h3>Missed deadlines</h3><p>No single place to see what closes soon.</p></div>
-      <div class="card"><h3>Poor-fit applications</h3><p>Time and fees spent on programs that were never right.</p></div>
-      <div class="card"><h3>Stale listings</h3><p>Hours spent re-checking pages that may be out of date.</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- ================= WHO IT'S FOR ================= -->
-<section id="who">
-  <div class="wrap">
-    <p class="eyebrow">Who it's for</p>
-    <h2>Working artists with no insider network</h2>
-    <div class="cards3">
+    <p class="eyebrow" style="margin-top:40px">Who it's for</p>
+    <h3>Working artists with no insider network</h3>
+    <div class="cards3" style="margin-top:18px">
       <div class="card"><div class="icon c1">1</div><h3 class="dark-h">Early-career artist</h3>
-        <p class="need">Needs</p><p>Open calls and residencies that fit a medium and a budget.</p>
-        <p class="need">Gets</p><p>A ranked list filtered by borough, type and deadline.</p></div>
+        <p class="need">Needs</p><p>Open calls and residencies that fit a medium and a budget.</p></div>
       <div class="card"><div class="icon c2">2</div><h3 class="dark-h">Multidisciplinary creator</h3>
-        <p class="need">Needs</p><p>Venues and community programs, not only grants.</p>
-        <p class="need">Gets</p><p>Opportunity types kept apart, each ranked on its own.</p></div>
+        <p class="need">Needs</p><p>Venues and community programs, not only grants, with each opportunity type ranked on its own.</p></div>
       <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Anyone judging trust</h3>
-        <p class="need">Needs</p><p>To know whether a listing is still current.</p>
-        <p class="need">Gets</p><p>A source, a check date and a tier label on every result.</p></div>
+        <p class="need">Needs</p><p>To know whether a listing is still current.</p></div>
     </div>
+
+    <div class="toggle" role="group" aria-label="Compare before and after" style="margin-top:40px">
+      <button type="button" id="btnBefore" aria-pressed="true">Before</button>
+      <button type="button" id="btnAfter" aria-pressed="false">After</button>
+    </div>
+    <div class="ba before" id="ba" aria-live="polite"></div>
   </div>
 </section>
 
@@ -373,7 +345,7 @@
         <div class="step"><small>SOURCES</small><b>NYC Parks, DCLA, seed sites</b></div><span class="arrow">&rarr;</span>
         <div class="step"><small>CODE</small><b>Backfill script</b></div><span class="arrow">&rarr;</span>
         <div class="step llm"><small>LLM</small><b>Extractor</b></div><span class="arrow">&rarr;</span>
-        <div class="step store"><small>STORE</small><b>Snapshot</b></div>
+        <div class="step store"><small>STORE</small><b>Snapshot</b><span style="display:block;margin-top:8px;font-size:12px;font-weight:400;opacity:.85">Single writer &middot; dedupe_key &middot; staged publish</span></div>
       </div>
     </div>
     <div class="lane">
@@ -387,7 +359,7 @@
         <div class="step store"><small>OUTPUT</small><b>Labeled result</b></div>
       </div>
     </div>
-    <p class="legend">Coral and gold boxes are the model steps. Outlined boxes are ordinary code.</p>
+    <p class="legend">Coral and gold boxes are the model steps. Outlined boxes are ordinary code. The Snapshot box's guardrails get their own animated slide: One snapshot, no silent conflicts.</p>
 
   </div>
 </section>
@@ -397,7 +369,6 @@
   <div class="wrap" style="max-width:1320px;position:relative">
     <p class="eyebrow">One search, start to finish</p>
     <h2>Jon is a visual artist and a musician in Brooklyn</h2>
-    <button class="whatbtn" id="whatbtn" type="button" aria-expanded="false">What makes these agents?</button>
 
     <!-- Pop-up panel: each part checked against observe, decide, act, loop -->
     <div class="agentpanel" id="agentpanel" role="dialog" aria-label="What makes these agents">
@@ -423,7 +394,7 @@
           <p><b>I'm a:</b> &#9745; Visual artist &#9745; Musician &#9744; Actor &#9744; Writer</p>
           <p><b>Where:</b> Brooklyn</p>
           <p><b>Looking for:</b> Open calls, residencies</p>
-          <div class="chip"><em>Handed on</em><code>{borough, disciplines, opportunity_types}</code></div>
+          <div class="chip"><em>Handed on</em><code>Borough, artist type, and opportunity type</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard">
@@ -437,20 +408,20 @@
           <small>3 &middot; RANKER &middot; AGENT <span class="trybadge" id="tryBadge">Try 1 of 3</span> <span class="loopbadge">&#8635; IN THE LOOP</span></small>
           <p>Puts the short list in order for Jon and writes why.</p>
           <p>Gallery application #1, open mic #2, and so on.</p>
-          <div class="chip"><em>Handed on</em><code>{ranked_ids, scores, rationale}</code></div>
+          <div class="chip"><em>Handed on</em><code>A ranked list, with a reason for each spot</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard llm2">
           <small>4 &middot; REVIEWER &middot; AGENT <span class="loopbadge">&#8635; IN THE LOOP</span></small>
           <p>Asks: does this list fit Jon?</p>
           <p id="rvText"><b>Waiting for the ranking&hellip;</b></p>
-          <div class="chip"><em id="rvChipLabel">Handed on</em><code id="rvChipCode">{verdict: accept, results, tier, checked_at}</code></div>
+          <div class="chip"><em id="rvChipLabel">Rejected</em><code id="rvChipCode">Sent back to the Ranker with a short reason</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard out">
           <small>5 &middot; JON SEES</small>
-          <div class="res"><b>1. Gallery open call</b><span>Deadline [date] &middot; Source [link] &middot; Checked [date]</span><i>VERIFIED</i></div>
-          <div class="res"><b>2. Open mic residency</b><span>Deadline [date] &middot; Source [link] &middot; Checked [date]</span><i>VERIFIED</i></div>
+          <div class="res"><b>1. BRIC Biennial: Call for Brooklyn Artists</b><span>Deadline Nov 14 &middot; bricartsmedia.org &middot; Checked Oct 20</span><i>VERIFIED</i></div>
+          <div class="res"><b>2. Pete's Candy Store Songwriter Residency</b><span>Deadline Dec 1 &middot; petescandystore.com &middot; Checked Oct 20</span><i>VERIFIED</i></div>
           <p class="tiny res">3 expired listings removed.</p>
         </div>
       </div>
@@ -462,7 +433,10 @@
       <div class="token" id="token"></div>
     </div>
 
-    <p class="fcap" id="fcap" aria-live="polite"></p>
+    <div class="fcaprow">
+      <p class="fcap" id="fcap" aria-live="polite"></p>
+      <button class="whatbtn" id="whatbtn" type="button" aria-expanded="false">What makes these agents?</button>
+    </div>
     <p class="fdraft">Draft: asking for disciplines (visual artist, musician, actor&hellip;) is proposed and is not in the lean PRD yet. Nothing is saved about Jon after the search.</p>
   </div>
 </section>
@@ -495,19 +469,14 @@
       </div>
       <div class="controls">
         <button class="replay" id="replay" type="button">Replay</button>
+        <button class="replay alt" id="prev" type="button">Prev step</button>
         <button class="replay alt" id="next" type="button">Next step</button>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ================= LOOP RULES (its own slide) ================= -->
-<section id="rules" class="dark">
-  <div class="wrap">
-    <p class="eyebrow">The loop's rules</p>
-    <h2>Three tries, no loosening, no self-grading</h2>
-    <div class="rules" style="margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));color:var(--paper)">
+    <p class="eyebrow" style="margin-top:40px">The loop's rules</p>
+    <h3>Three tries, no loosening, no self-grading</h3>
+    <div class="rules" style="margin-top:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));color:var(--paper)">
       <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">3 tries, then stop</b><span style="color:var(--muted-dk)">One first try and two retries. After that, the artist gets the best attempt, labeled "not fully checked".</span></div>
       <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">Borough, type and dates never loosen</b><span style="color:var(--muted-dk)">Enforced on every try, fallback included.</span></div>
       <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">Nobody grades their own work</b><span style="color:var(--muted-dk)">The Reviewer runs on a separate prompt from the Ranker.</span></div>
@@ -516,62 +485,45 @@
   </div>
 </section>
 
-<!-- ================= HANDOFFS (its own slide) ================= -->
-<section id="handoffs" class="dark">
+<!-- ================= CONCURRENCY GUARDRAILS (its own slide, animated) ================= -->
+<section id="guardrails" class="dark">
   <div class="wrap">
-    <div>
-      <p class="eyebrow">Handoffs</p>
-      <h2>What gets passed along, exactly</h2>
+    <p class="eyebrow">Concurrency and shared state</p>
+    <h2>One snapshot, no silent conflicts</h2>
+    <p class="lead">The backfill is the only writer. Filter, Ranker and Reviewer only read it. Watch one listing move through three guardrails before anyone can see it.</p>
+
+    <div class="journey" id="gjourney">
+      <div class="stations">
+        <div class="st" data-gst="0"><small>SOURCES</small><b>Two listings, one event</b><span>DCLA and a seed site both describe it</span></div>
+        <div class="hand" data-gh="0"><i>&rarr;</i><em>two raw records</em></div>
+        <div class="st llm" data-gst="1"><small>GUARDRAIL 1</small><b>Dedupe key</b><span>Title + borough + deadline, normalized</span></div>
+        <div class="hand" data-gh="1"><i>&rarr;</i><em>merged, not duplicated</em></div>
+        <div class="st" data-gst="2"><small>GUARDRAIL 2</small><b>Single writer</b><span>Only the backfill script writes</span></div>
+        <div class="hand" data-gh="2"><i>&rarr;</i><em>written to staging</em></div>
+        <div class="st llm2" data-gst="3"><small>GUARDRAIL 3</small><b>Staged publish</b><span>Checks run before anything is live</span></div>
+        <div class="hand" data-gh="3"><i>&rarr;</i><em>one atomic swap</em></div>
+        <div class="st" data-gst="4"><small>LIVE</small><b>Snapshot</b><span>Requests read only this, never mid-write</span></div>
+      </div>
+      <div class="caption" aria-live="polite">
+        <p class="say" id="gsay"></p>
+        <p class="tech"><span>Technical detail</span><code id="gtech"></code></p>
+      </div>
+      <div class="controls">
+        <button class="replay" id="greplay" type="button">Replay</button>
+        <button class="replay alt" id="gprev" type="button">Prev step</button>
+        <button class="replay alt" id="gnext" type="button">Next step</button>
+      </div>
     </div>
-    <div class="handoffs">
-      <div class="handoff"><b>Request to Filter</b><code>{borough, opportunity_type}</code></div>
-      <div class="handoff"><b>Ranker to Reviewer</b><code>{request_id, attempt, ranked_ids, scores, rationale}</code></div>
-      <div class="handoff"><b>Reviewer back to Ranker</b><code>{verdict: reject, critique, failed_checks}</code></div>
-      <div class="handoff"><b>Reviewer to Output</b><code>{verdict: accept, results, tier, checked_at}</code></div>
-    </div>
-    <p class="fine">One request_id follows the request through every handoff. A payload that fails validation is never retried silently; it drops to a labeled fallback tier. Field names come from the working PRD and may change as we build.</p>
+    <p class="fine">Enough for v1: the backfill runs once, so there's nothing to coordinate between live writers &mdash; but the dedupe key and staged publish still matter, since the same listing shows up across sources and a failed run must never replace a working snapshot.</p>
   </div>
 </section>
 
-<!-- ================= TRUST TIERS ================= -->
-<section id="trust" class="statement">
-  <div class="wrap">
-    <p class="eyebrow" style="color:var(--ink)">Honest by design</p>
-    <h2>Nothing looks verified unless it was.</h2>
-    <div class="tiers">
-      <div class="tier"><small>TIER 0 &middot; VERIFIED</small>Checked, not expired, and accepted by the Reviewer.</div>
-      <div class="tier"><small>TIER 2 &middot; NOT FULLY CHECKED</small>Best attempt that passed the hard filters, labeled as such.</div>
-      <div class="tier"><small>TIER 3 &middot; NO RESULT</small>An empty list with the reason, never a guess.</div>
-    </div>
-    <p style="margin-top:22px;font-weight:700">Expired listings are removed, and we show a count so nothing disappears silently.</p>
-  </div>
-</section>
-
-<!-- ================= BEFORE / AFTER ================= -->
-<section id="change">
-  <div class="wrap">
-    <p class="eyebrow">What changes for the artist</p>
-    <h2>From days of searching to minutes</h2>
-    <div class="toggle" role="group" aria-label="Compare before and after">
-      <button type="button" id="btnBefore" aria-pressed="true">Before</button>
-      <button type="button" id="btnAfter" aria-pressed="false">After</button>
-    </div>
-    <div class="ba before" id="ba" aria-live="polite"></div>
-  </div>
-</section>
-
-<!-- ================= SCOPE ================= -->
-<section id="scope">
-  <div class="wrap">
-    <p class="eyebrow">Scope for v1</p>
-    <h2>Two choices in, one honest list out</h2>
-    <p class="lead">Borough and opportunity type are the only inputs. The output is a ranked, unexpired NYC list with a source and check date on every result.</p>
-    <div class="scope">
-      <div class="card in"><h3>In v1</h3>
-        <ul><li>One-time backfill of NYC opportunities into a snapshot</li><li>Filter, rank and review against that snapshot</li><li>Source and check date on every result</li><li>A 30-request golden set with written answers</li></ul></div>
-      <div class="card"><h3>Out of v1</h3>
-        <ul><li>Weekly or live refresh (a v2 candidate)</li><li>Live web search on each request</li><li>Free-text requests</li><li>Accounts, payments or applications sent for you</li><li>Anything outside NYC</li></ul></div>
-    </div>
+<!-- ================= THANK YOU (closing slide) ================= -->
+<section id="thanks" class="dark">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow" style="text-align:center">Artist Atlas</p>
+    <h2>Thank you.</h2>
+    <p class="lead" style="margin:16px auto 0">Built by Jon and Mara.</p>
   </div>
 </section>
 
@@ -646,13 +598,57 @@
       timers.push(setTimeout(function () { showFrame(i); }, i * 3800));
     });
   }
-  // Next step: for presenting. Stops the autoplay and moves one frame at a time.
+  // Next / Prev step: for presenting. Stops the autoplay and moves one frame at a time.
   document.getElementById('next').addEventListener('click', function () {
     stopTimers();
     showFrame((current + 1) % frames.length);
   });
+  document.getElementById('prev').addEventListener('click', function () {
+    stopTimers();
+    showFrame((current - 1 + frames.length) % frames.length);
+  });
   document.getElementById('replay').addEventListener('click', playLoop);
   showFrame(0);
+
+  // ---- Concurrency guardrails: animated journey for one listing through the three guardrails ----
+  var gFrames = [
+    { st: 0, h: -1, say: 'The same listing can come from two different sources on one backfill run, say DCLA and a seed site.', tech: 'Two raw records describing one event' },
+    { st: 1, h: 0, say: 'Guardrail 1: a dedupe_key built from a normalized title, borough and deadline is unique per snapshot. The second record becomes a merge, not a copy.', tech: 'Unique constraint on (snapshot_id, dedupe_key)' },
+    { st: 2, h: 1, say: 'Guardrail 2: only the backfill script ever writes to the snapshot. Filter, Ranker and Reviewer only read it, so no record ever has two writers and no write needs a lock.', tech: 'Writers: backfill only. Readers: Filter, Ranker, Reviewer.' },
+    { st: 3, h: 2, say: 'Guardrail 3: the backfill writes to a staging snapshot first and runs its schema and deadline checks there, before anything is visible to a request.', tech: 'Write target: a staging snapshot, not the live one' },
+    { st: 4, h: 3, say: 'One atomic step then points every request at the new snapshot and retires the old one. A request never reads a half-written run.', tech: 'Atomic swap: staging to live, old snapshot retired' }
+  ];
+  var gStationEls = document.querySelectorAll('#gjourney .st');
+  var gHandEls = document.querySelectorAll('#gjourney .hand');
+  var gCurrent = -1;
+  var gTimers = [];
+  function gStopTimers() { gTimers.forEach(clearTimeout); gTimers = []; }
+  function gShowFrame(i) {
+    var f = gFrames[i];
+    gCurrent = i;
+    gStationEls.forEach(function (el, n) { el.classList.toggle('on', n === f.st); });
+    gHandEls.forEach(function (el, n) { el.classList.toggle('on', n === f.h); });
+    document.getElementById('gsay').textContent = f.say;
+    document.getElementById('gtech').textContent = f.tech;
+  }
+  // Replay: step through every frame automatically, a few seconds each.
+  function gPlayLoop() {
+    gStopTimers();
+    gFrames.forEach(function (f, i) {
+      gTimers.push(setTimeout(function () { gShowFrame(i); }, i * 3800));
+    });
+  }
+  // Next / Prev step: for presenting. Stops the autoplay and moves one frame at a time.
+  document.getElementById('gnext').addEventListener('click', function () {
+    gStopTimers();
+    gShowFrame((gCurrent + 1) % gFrames.length);
+  });
+  document.getElementById('gprev').addEventListener('click', function () {
+    gStopTimers();
+    gShowFrame((gCurrent - 1 + gFrames.length) % gFrames.length);
+  });
+  document.getElementById('greplay').addEventListener('click', gPlayLoop);
+  gShowFrame(0);
 
   // ---- First slide: Jon's search, animated ----
   // A glowing dot carries the request from card to card. When the Reviewer rejects,
@@ -678,10 +674,11 @@
     function alive() { return run === flowRun; }
     function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
     function say(t) { cap.textContent = t; }
-    // Middle of a card, measured from the top-left of the stage.
+    // Below the middle of a card, measured from the top-left of the stage.
+    // Below, not on top of, the card so the dot never covers the text people are reading.
     function center(card) {
       var s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
-      return { x: c.left - s.left + c.width / 2, y: c.top - s.top + c.height / 2 };
+      return { x: c.left - s.left + c.width / 2, y: c.bottom - s.top + 18 };
     }
     function place(p) { token.style.left = p.x + 'px'; token.style.top = p.y + 'px'; }
     // Light one card; earlier cards stay a little bright.
@@ -715,8 +712,8 @@
       loopLabel.classList.remove('show');
       tryBadge.textContent = 'Try 1 of 3';
       rvText.innerHTML = '<b>Waiting for the ranking…</b>';
-      rvChipLabel.textContent = 'Handed back to the Ranker';
-      rvChipCode.textContent = '{verdict: reject, critique, failed_checks}';
+      rvChipLabel.textContent = 'Rejected';
+      rvChipCode.textContent = 'Sent back to the Ranker with a short reason';
       token.classList.add('nofx'); token.style.opacity = 0;
       place(center(cards[0]));
     }
@@ -770,8 +767,8 @@
       await hop(3); if (!alive()) return;
       light(3); loopLabel.classList.remove('show'); loopPath.classList.remove('on');
       rvText.innerHTML = '<b>Try 2:</b> every item fits Jon. <b>Approved.</b>';
-      rvChipLabel.textContent = 'Handed on';
-      rvChipCode.textContent = '{verdict: accept, results, tier, checked_at}';
+      rvChipLabel.textContent = 'Accepted';
+      rvChipCode.textContent = 'Results go to Jon, labeled with a tier';
       say('The Reviewer approves. Nothing reaches Jon until this approval.');
       await wait(3400); if (!alive()) return;
 
@@ -810,22 +807,18 @@
     document.getElementById('nextSlide').style.visibility = i === slides.length - 1 ? 'hidden' : 'visible';
     // Landing on the agent loop slide starts its animation from the beginning.
     if (slides[i].id === 'loop') { playLoop(); } else { stopTimers(); }
+    // Landing on the guardrails slide starts its animation from the beginning.
+    if (slides[i].id === 'guardrails') { gPlayLoop(); } else { gStopTimers(); }
     // The first slide runs its own animation while it is showing.
     if (slides[i].id === 'flow') { startFlow(); } else { stopFlow(); }
     setPanel(false); // always close the agents panel when changing slides
     try { history.replaceState(null, '', '#' + slides[i].id); } catch (e) {}
   }
 
-  // Forward / back. On the agent loop slide the arrows walk through the journey
-  // steps first, and only then move to the next or previous slide.
-  function forward() {
-    if (slides[slideNow].id === 'loop' && current < frames.length - 1) { stopTimers(); showFrame(current + 1); }
-    else { goTo(slideNow + 1); }
-  }
-  function back() {
-    if (slides[slideNow].id === 'loop' && current > 0) { stopTimers(); showFrame(current - 1); }
-    else { goTo(slideNow - 1); }
-  }
+  // Forward / back always move between slides. Stepping through a diagram's own
+  // frames is handled only by that diagram's Replay / Prev step / Next step buttons.
+  function forward() { goTo(slideNow + 1); }
+  function back() { goTo(slideNow - 1); }
   document.getElementById('nextSlide').addEventListener('click', forward);
   document.getElementById('prevSlide').addEventListener('click', back);
   document.addEventListener('keydown', function (e) {
@@ -863,7 +856,7 @@
   var btnB = document.getElementById('btnBefore');
   var btnA = document.getElementById('btnAfter');
   var views = {
-    before: '<div class="big">Days</div><ul><li>Check six or more sites by hand</li><li>Guess which listings are still open</li><li>No filter for borough or type</li><li>Wonder if a program really fits</li></ul>',
+    before: '<div class="big">Days</div><ul><li>Check six or more sites by hand, with no filter for borough or type</li><li>No single place to see what closes soon, so deadlines get missed</li><li>Guess whether a listing is still open or already stale</li><li>Spend time and fees on programs that were never the right fit</li></ul>',
     after: '<div class="big">Minutes</div><ul><li>Pick a borough and a type</li><li>Get a ranked list, best fit first</li><li>See the source and check date on every result</li><li>Expired listings already removed, with a count</li></ul>'
   };
   function setView(which) {

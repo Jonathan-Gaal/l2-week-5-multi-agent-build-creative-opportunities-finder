@@ -1,6 +1,6 @@
 # Multi-Agent Opportunity Discovery: PRD (Lean v1)
 
-Owners: Jon and Mara · As of 2026-10-21
+Owners: Jon and Mara · Updated 2026-10-22
 
 ## 1. Problem
 
@@ -28,7 +28,7 @@ Two LLM roles and everything else is plain code.
 
 | Component | Type | Runs | Job |
 | --- | --- | --- | --- |
-| Backfill script | Code | Once, for v1 | Fetch sources, validate schema, check deadlines, store records |
+| Backfill script | Code | Once, for v1 | Fetch sources, validate schema, check deadlines, store records to a staging snapshot, publish |
 | Extractor | LLM | During backfill only | Read listings that fail clean parsing and extract eligibility, fee, and deadline with source quotes |
 | Filter | Code | Per request | Select records by borough and type, drop expired ones |
 | Ranker | LLM | Per request | Score the filtered records for fit to the request |
@@ -44,8 +44,24 @@ Two LLM roles and everything else is plain code.
 ## 4. Data and the snapshot
 
 - **Sources for v1:** NYC Parks events, DCLA organizations, and seed sites for open calls and residencies (CaFE, NYFA, ArtConnect, TransArtists). Seed sites are gated on a terms-of-service review. See section 12.
-- **Backfill:** one run for v1. Fetch, validate, extract, check deadlines, store. The demo reads only from the stored snapshot.
+- **Backfill:** one run for v1. Fetch, validate, extract, check deadlines, store, publish. The demo reads only from the published snapshot.
 - **Provenance:** every record stores `source_url`, `checked_at` (the backfill time), and `fetched_at`.
+
+## 4a. Concurrency and shared state
+
+Even with one backfill run, several agents and sources touch the same data. These rules keep the snapshot consistent.
+
+**Ownership:** the backfill script is the only writer to the snapshot. The Filter, Ranker, and Reviewer only read. Per-request results go to the trace log (section 10), not the snapshot.
+
+| Conflict | Risk | Fix |
+| --- | --- | --- |
+| Duplicate work | The same listing comes from two sources (for example, DCLA and a seed site) and is stored twice | Database-enforced dedupe. Each record has a `dedupe_key` built from a normalized title, borough, and deadline. A unique constraint on `(snapshot_id, dedupe_key)` turns repeat inserts into updates that merge provenance. |
+| Lost updates | Two writes to one record silently overwrite each other | Single writer (above). No record has two writers, so no write needs a lock. |
+| Stale or partial reads | A request reads the snapshot while the backfill is still writing | Staged publish. The backfill writes to a `staging` snapshot and runs the schema and deadline checks. A single atomic step then points readers at it and retires the old snapshot. Requests never see a half-written run. |
+
+**Schema additions (section 5):** `snapshot_id`, `dedupe_key`, and `source`. The `(snapshot_id, dedupe_key)` pair is the primary key.
+
+**Why this is enough for v1:** the backfill runs once, so there are no live writers to coordinate. The dedupe key and staged publish still matter, because the same listing appears across sources and a failed run must not replace a working snapshot.
 
 ## 5. Record schema
 
@@ -59,6 +75,7 @@ Two LLM roles and everything else is plain code.
 | `deadline` | Date, or `rolling` | `null`, shown as "Deadline not listed" |
 | `source_url` | Where the listing came from | Required |
 | `checked_at` | When the backfill read the listing | Required |
+| `snapshot_id`, `dedupe_key`, `source` | Snapshot the record belongs to, duplicate key, and origin source | Required (see section 4a) |
 
 ## 6. Definitions
 
@@ -104,6 +121,7 @@ Four tiers became three. Tier 1 (stale) is removed because expired records are e
 - Expired records shown: must be 0.
 - Precision at 5 on normal requests: report the number, with a target of 0.8 as a starting point.
 - Adversarial instructions followed: must be 0.
+- Duplicate records shown in one result: must be 0 (enforced by the dedupe key).
 
 **Required comparison:** run every golden request twice, once ranker-only and once ranker plus reviewer. This is the only evidence that the loop is worth having, so it is required for the demo, not a stretch goal.
 
@@ -131,6 +149,7 @@ Cost is a per-run cap on model calls. If the cap is hit, the request returns Tie
 - Snapshot, not live search.
 - Expired records removed, with a count shown.
 - Borough and type are the only request inputs.
+- Single writer (backfill only), database-enforced dedupe via `dedupe_key`, and staged snapshot publish (section 4a).
 
 **Open**
 - [ ] Seed-site terms-of-service decision for CaFE, NYFA, ArtConnect, and TransArtists. If it blocks, the v1 demo uses NYC Parks and DCLA only, and the PRD says so.
@@ -140,3 +159,4 @@ Cost is a per-run cap on model calls. If the cap is hit, the request returns Tie
 **Risks**
 - The snapshot may contain few real open calls. The Monday gate checks this before building the rest.
 - Eligibility quality depends on the Extractor. Listings it can't parse show "unknown," which the demo must admit.
+- Dedupe is strict: listings whose titles differ by more than case or spacing may still appear twice. Fuzzy matching is out of scope for v1.
