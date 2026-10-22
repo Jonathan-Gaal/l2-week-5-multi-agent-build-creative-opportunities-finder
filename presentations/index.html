@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Artist Atlas finds open calls, residencies and grants for NYC artists and ranks them by fit, with a source and check date on every result.">
-<meta name="theme-color" content="#1B1626">
+<meta name="theme-color" content="#220E43">
 <title>Artist Atlas | Find your next opportunity in NYC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +12,22 @@
 <style>
   /* ---------- Colors and basics (one place to change the look) ---------- */
   :root {
-    --ink: #1B1626;        /* deep plum-black */
-    --ink-2: #271F36;      /* slightly lighter panel on dark */
-    --plum: #3A2A55;
-    --paper: #F5EFE6;      /* warm off-white page */
-    --card: #FBF8F2;
+    --ink: #220E43;        /* brand purple */
+    --ink-2: #2F1859;      /* slightly lighter panel on dark */
+    --plum: #46297A;
+    --paper: #FEF9EF;      /* brand cream */
+    --card: #FFFCF6;
     --line: #E2D8C8;
-    --coral: #E4572E;
-    --coral-dk: #B93A17;   /* coral dark enough for small text on paper */
-    --marigold: #F2B134;
+    --coral: #FD1A99;       /* brand pink */
+    --coral-dk: #C20B72;   /* pink dark enough for small text on cream */
+    --marigold: #DCFC05;   /* brand lime */
     --muted: #5B5262;      /* body text on paper */
     --muted-dk: #CFC6DA;   /* body text on ink */
     --serif: 'Fraunces', Georgia, serif;
     --sans: 'DM Sans', Arial, sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
+  body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
   h1, h2, h3 { font-family: var(--serif); line-height: 1.08; margin: 0; }
   h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 700; }
   h3 { font-size: 26px; font-weight: 700; }
@@ -52,19 +52,19 @@
   .fgrid { display: flex; align-items: stretch; gap: 6px; }
   .fcard { flex: 1 1 0; background: var(--ink-2); border: 2px solid var(--plum); color: var(--paper); border-radius: 18px; padding: 16px; font-size: 15px; display: flex; flex-direction: column; gap: 8px; opacity: .4; transition: opacity .4s, transform .4s, box-shadow .4s, border-color .4s; }
   .fcard.seen { opacity: .75; }
-  .fcard.lit { opacity: 1; border-color: var(--marigold); transform: translateY(-6px); box-shadow: 0 0 0 4px rgba(242,177,52,.3), 0 0 34px rgba(242,177,52,.35); }
+  .fcard.lit { opacity: 1; border-color: var(--marigold); transform: translateY(-6px); box-shadow: 0 0 0 4px rgba(220,252,5,.3), 0 0 34px rgba(220,252,5,.35); }
   .fcard small { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--marigold); }
   .fcard p { margin: 0; line-height: 1.35; }
-  .fcard.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
-  .fcard.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
-  .fcard.llm small, .fcard.llm2 small { color: var(--ink); }
+  .fcard.llm { background: var(--coral); border-color: var(--coral); color: #000; }
+  .fcard.llm2 { background: var(--marigold); border-color: var(--marigold); color: #000; }
+  .fcard.llm small, .fcard.llm2 small { color: #000; }
   .trybadge { display: inline-block; margin-left: 6px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; letter-spacing: .04em; }
   .fcard .tiny { font-size: 13px; color: var(--muted-dk); }
   .loopbadge { display: inline-block; margin-top: 4px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; font-size: 10px; letter-spacing: .06em; }
   .loopbadge.off { background: transparent; border: 1px solid var(--muted-dk); color: var(--muted-dk); }
   /* "What makes these agents?" button and pop-up panel */
   .whatbtn { background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; white-space: nowrap; flex: 0 0 auto; }
-  .whatbtn:hover { background: var(--marigold); color: var(--ink); }
+  .whatbtn:hover { background: var(--marigold); color: #000; }
   .agentpanel { display: none; position: absolute; inset: -12px 0 0 0; background: var(--ink); border: 2px solid var(--marigold); border-radius: 22px; padding: 28px 32px; z-index: 9; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
   .agentpanel.open { display: block; }
   .agentpanel .whatbtn.close { position: absolute; top: 20px; right: 24px; }
@@ -91,39 +91,54 @@
   .res i { display: inline-block; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; margin-top: 3px; }
   .fcard.out .tiny { color: var(--muted); }
   /* The glowing dot that carries Jon's request from one step to the next */
-  .token { position: absolute; left: 0; top: 0; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 6px rgba(242,177,52,.3), 0 0 26px 6px rgba(242,177,52,.8); opacity: 0; z-index: 5; pointer-events: none; transition: left .9s ease-in-out, top .9s ease-in-out, opacity .3s; }
+  .token { position: absolute; left: 0; top: 0; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 6px rgba(220,252,5,.3), 0 0 26px 6px rgba(220,252,5,.8); opacity: 0; z-index: 5; pointer-events: none; transition: left .9s ease-in-out, top .9s ease-in-out, opacity .3s; }
   .token.nofx { transition: opacity .3s; }
   /* The curved line that carries a rejected list back from Reviewer to Ranker */
   .floopsvg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
   .floopsvg path#floopPath { fill: none; stroke: var(--coral); stroke-width: 3; stroke-dasharray: 9 9; opacity: 0; transition: opacity .4s; }
   .floopsvg path#floopPath.on { opacity: 1; animation: dashflow .8s linear infinite; }
   @keyframes dashflow { to { stroke-dashoffset: -18; } }
-  .looplabel { position: absolute; transform: translateX(-50%); background: var(--coral); color: var(--ink); font-weight: 700; font-size: 14px; border-radius: 999px; padding: 6px 16px; opacity: 0; transition: opacity .4s; white-space: nowrap; }
+  .looplabel { position: absolute; transform: translateX(-50%); background: var(--coral); color: #000; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 6px 16px; opacity: 0; transition: opacity .4s; white-space: nowrap; }
   .looplabel.show { opacity: 1; }
   .fcaprow { margin-top: 6px; min-height: 56px; max-width: 1320px; display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; }
   .fcap { font-size: 19px; color: var(--paper); flex: 1 1 420px; margin: 0; }
   .fdraft { margin-top: 8px; font-size: 13px; color: var(--muted-dk); }
   @media (max-width: 1000px) { .fgrid { flex-direction: column; } .farrow { transform: rotate(90deg); } .token, .floopsvg, .looplabel { display: none; } }
 
+  /* ---------- Cover: logo plus what the product is ---------- */
+  #intro { background: rgb(32,14,66); color: var(--paper); }
+  #intro .wrap { display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center; max-width: 1100px; }
+  #intro .logobig { height: min(62vh, 560px); width: auto; display: block; }
+  #intro h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 700; }
+  #intro h1 em { color: var(--marigold); font-style: italic; }
+  #intro .lead { color: var(--muted-dk); font-size: 21px; max-width: 560px; }
+  #intro .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  #intro .pills span { background: var(--coral); color: #000; font-weight: 700; border-radius: 999px; padding: 8px 18px; font-size: 16px; }
+  #intro .pills span:nth-child(2) { background: var(--marigold); }
+  #intro .pills span:nth-child(3) { background: var(--paper); }
+  #intro .start { margin-top: 30px; font-size: 15px; color: var(--muted-dk); }
+  @media (max-width: 860px) { #intro .wrap { grid-template-columns: 1fr; gap: 24px; text-align: center; } #intro .logobig { height: 34vh; margin: 0 auto; } #intro .lead { margin-left: auto; margin-right: auto; } #intro .pills { justify-content: center; } }
+
 /* Two round arrow buttons pinned to the bottom corners of the screen (no bar) */
   .arrowbtn { position: fixed; bottom: 20px; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--paper); background: var(--ink); color: var(--paper); font-size: 24px; line-height: 1; z-index: 20; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
-  .arrowbtn:hover { background: var(--coral); border-color: var(--coral); color: var(--ink); }
+  .arrowbtn:hover { background: var(--coral); border-color: var(--coral); color: #000; }
   #prevSlide { left: 20px; }
   #nextSlide { right: 20px; }
   section { padding-bottom: 88px; }
   .dark { background: var(--ink); color: var(--paper); }
+  .dark .toggle { background: var(--ink-2); }
   .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--coral-dk); margin-bottom: 14px; }
   .dark .eyebrow { color: var(--marigold); }
   .lead { font-size: 20px; color: var(--muted); max-width: 640px; margin-top: 16px; }
   .dark .lead { color: var(--muted-dk); }
-  .btn { display: inline-block; background: var(--coral); color: var(--ink); font-weight: 700; border: 0; border-radius: 999px; padding: 14px 28px; text-decoration: none; }
+  .btn { display: inline-block; background: var(--coral); color: #000; font-weight: 700; border: 0; border-radius: 999px; padding: 14px 28px; text-decoration: none; }
   .btn:hover { background: var(--marigold); }
 
   /* ---------- Top navigation ---------- */
-  header.nav { flex: 0 0 auto; z-index: 10; background: rgba(27,22,38,.94); backdrop-filter: blur(8px); }
+  header.nav { flex: 0 0 auto; z-index: 10; background: rgba(34,14,67,.94); backdrop-filter: blur(8px); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
   .logo { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--paper); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-  .logo i { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--marigold), var(--coral) 60%, #6B2B5C); display: inline-block; }
+  .logo img { height: 40px; width: auto; display: block; }
   .nav nav { display: flex; gap: 26px; }
   .nav nav a { color: var(--muted-dk); text-decoration: none; font-size: 15px; font-weight: 500; }
   .nav nav a:hover { color: var(--marigold); }
@@ -152,14 +167,14 @@
   .result b { display: block; font-size: 17px; }
   .result span { font-size: 14px; color: var(--muted); }
   .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; padding: 2px 10px; border-radius: 999px; background: var(--ink); color: var(--marigold); margin-top: 6px; }
-  .tag.t2 { background: var(--coral); color: var(--ink); }
+  .tag.t2 { background: var(--coral); color: #000; }
   .finder .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } .blob.b { display: none; } }
 
   /* ---------- Problem ---------- */
   .stickers { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-  .sticker { font-weight: 700; padding: 12px 24px; border-radius: 999px; font-size: 18px; }
+  .sticker { color: #000; font-weight: 700; padding: 12px 24px; border-radius: 999px; font-size: 18px; }
   .sticker:nth-child(1) { background: var(--coral); transform: rotate(-4deg); }
   .sticker:nth-child(2) { background: var(--marigold); transform: rotate(3deg); }
   .sticker:nth-child(3) { background: var(--plum); color: var(--paper); transform: rotate(-2deg); }
@@ -170,7 +185,7 @@
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; }
   .card h3 { color: var(--coral-dk); margin-bottom: 8px; }
   .card p { color: var(--muted); }
-  .card .icon { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 28px; margin-bottom: 18px; }
+  .card .icon { color: #000; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 28px; margin-bottom: 18px; }
   .card .icon.c1 { background: var(--coral); } .card .icon.c2 { background: var(--marigold); } .card .icon.c3 { background: var(--plum); color: var(--paper); }
   .card .need { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--coral-dk); margin-top: 14px; }
   .card h3.dark-h { color: var(--ink); }
@@ -182,8 +197,8 @@
   .step { flex: 1 1 150px; border-radius: 18px; padding: 16px 18px; border: 2px solid var(--muted-dk); }
   .step small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; opacity: .85; }
   .step b { font-size: 19px; }
-  .step.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
-  .step.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .step.llm { background: var(--coral); border-color: var(--coral); color: #000; }
+  .step.llm2 { background: var(--marigold); border-color: var(--marigold); color: #000; }
   .step.store { background: var(--plum); border-color: var(--plum); }
   .arrow { align-self: center; color: var(--marigold); font-size: 22px; }
   @media (max-width: 700px) { .arrow { display: none; } }
@@ -200,7 +215,7 @@
   .rule { border-top: 2px solid var(--line); padding-top: 14px; }
   .rule b { font-size: 19px; display: block; }
   .rule span { color: var(--muted); }
-  .replay { margin-top: 18px; background: var(--coral); color: var(--ink); border: 0; border-radius: 999px; padding: 12px 24px; font-weight: 700; }
+  .replay { margin-top: 18px; background: var(--coral); color: #000; border: 0; border-radius: 999px; padding: 12px 24px; font-weight: 700; }
   .replay:hover { background: var(--marigold); }
   @media (max-width: 860px) { .loopbox { grid-template-columns: 1fr; } }
 
@@ -211,8 +226,8 @@
   .st small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
   .st b { display: block; font-size: 20px; font-family: var(--serif); }
   .st span { font-size: 14px; }
-  .st.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
-  .st.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .st.llm { background: var(--coral); border-color: var(--coral); color: #000; }
+  .st.llm2 { background: var(--marigold); border-color: var(--marigold); color: #000; }
   .st.on { opacity: 1; transform: translateY(-6px); box-shadow: 0 0 0 4px var(--marigold); }
   .hand { flex: 0 0 96px; text-align: center; align-self: center; opacity: .35; transition: opacity .3s; }
   .hand i { display: block; font-style: normal; font-size: 28px; color: var(--marigold); }
@@ -240,14 +255,21 @@
   /* ---------- Before / after toggle ---------- */
   .toggle { display: inline-flex; background: var(--ink); border-radius: 999px; padding: 5px; margin-top: 28px; }
   .toggle button { border: 0; background: transparent; color: var(--muted-dk); padding: 10px 26px; border-radius: 999px; font-weight: 700; }
-  .toggle button[aria-pressed="true"] { background: var(--coral); color: var(--ink); }
-  .ba { margin-top: 26px; border-radius: 26px; padding: 40px; min-height: 280px; }
-  .ba.before { background: var(--ink); color: var(--paper); }
+  .toggle button[aria-pressed="true"] { background: var(--coral); color: #000; }
+  .ba { margin-top: 26px; border-radius: 26px; padding: 28px 32px; min-height: 0; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: center; }
+  /* Empty space on the right of each card, kept free for a character image */
+  .bapic { min-height: 200px; border: 2px dashed var(--muted-dk); border-radius: 18px; display: grid; place-items: center; text-align: center; padding: 12px; font-size: 14px; color: var(--muted); }
+  /* Once a real image is in, drop the dashed outline and let it sit directly on the white card */
+  .bapic.hasimg { border: 0; padding: 0; min-height: 0; background: transparent; aspect-ratio: 3 / 2; width: 100%; }
+  .bapic img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  @media (max-width: 760px) { .ba { grid-template-columns: 1fr; } }
+  .ba.before { background: var(--card); color: var(--ink); border: 3px solid var(--muted-dk); }
   .ba.after { background: var(--card); border: 3px solid var(--coral); }
-  .ba .big { font-family: var(--serif); font-weight: 700; font-size: clamp(48px, 8vw, 88px); line-height: 1; }
-  .ba.before .big { color: var(--marigold); } .ba.after .big { color: var(--coral-dk); }
-  .ba ul { margin: 18px 0 0; padding-left: 22px; font-size: 20px; }
-  .ba li { margin: 6px 0; }
+  .ba .big { font-family: var(--serif); font-weight: 700; font-size: clamp(34px, 5vw, 56px); line-height: 1; }
+  .ba.before .big, .ba.after .big { color: var(--coral-dk); }
+  .ba, .ba li { color: var(--ink); }
+  .ba ul { margin: 14px 0 0; padding-left: 22px; font-size: 16px; }
+  .ba li { margin: 4px 0; }
 
   footer { background: var(--ink); color: var(--muted-dk); padding: 48px 0; font-size: 15px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -259,51 +281,33 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top"><i></i>Artist Atlas</a>
+    <a class="logo" href="#top"><img src="assets/logo-mark.png" alt="">Artist Atlas</a>
     <nav aria-label="Main">
       <a href="#problem">The problem</a>
       <a href="#how">How it works</a>
       <a href="#guardrails">Guardrails</a>
     </nav>
-    <a class="btn" href="#try">Try it</a>
   </div>
 </header>
 
 <main id="top">
 
-<!-- ================= HERO + TRY-IT FINDER ================= -->
-<section class="hero" id="try">
-  <div class="blob a"></div><div class="blob b"></div>
+<!-- ================= COVER: INTRODUCING ARTIST ATLAS ================= -->
+<section id="intro">
   <div class="wrap">
+    <img class="logobig" src="assets/logo.png" alt="Artist Atlas NYC logo: a figure holding up a globe">
     <div>
-      <p class="eyebrow" style="color:var(--marigold)">For NYC artists</p>
-      <h1>Find your next <em>open call</em>, residency or grant.</h1>
-      <p class="lead">Artist Atlas gathers opportunities from across the city, ranks them for fit, and shows where each one came from and when it was last checked.</p>
+      <p class="eyebrow" style="color:var(--marigold)">Introducing Artist Atlas</p>
+      <h1>Find your next <em>open call</em>, residency or grant in NYC.</h1>
+      <p class="lead">Artist Atlas is a multi-agent tool for NYC artists. It gathers opportunities from across the city, ranks them by fit, and puts a source and a check date on every result.</p>
+      <div class="pills"><span>Open calls</span><span>Residencies</span><span>Grants</span></div>
+      <p class="start">Press the right arrow to begin.</p>
     </div>
-    <form class="finder" id="finder" aria-label="Try Artist Atlas">
-      <div class="row">
-        <div>
-          <label for="borough">Borough</label>
-          <select id="borough">
-            <option>Manhattan</option><option selected>Brooklyn</option><option>Queens</option><option>The Bronx</option><option>Staten Island</option><option>Citywide</option>
-          </select>
-        </div>
-        <div>
-          <label for="type">Opportunity type</label>
-          <select id="type">
-            <option selected>Open call</option><option>Residency</option><option>Grant</option><option>Event</option>
-          </select>
-        </div>
-      </div>
-      <button class="btn" type="submit">Show opportunities</button>
-      <div class="results" id="results" aria-live="polite"></div>
-      <p class="note">Sample layout only. Real, checked listings arrive once the backfill is built.</p>
-    </form>
   </div>
 </section>
 
 <!-- ================= PROBLEM ================= -->
-<section id="problem">
+<section id="problem" class="dark">
   <div class="wrap">
     <p class="eyebrow">The problem</p>
     <h2>Opportunities exist.<br>Finding them is the problem.</h2>
@@ -323,12 +327,6 @@
       <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Anyone judging trust</h3>
         <p class="need">Needs</p><p>To know whether a listing is still current.</p></div>
     </div>
-
-    <div class="toggle" role="group" aria-label="Compare before and after" style="margin-top:40px">
-      <button type="button" id="btnBefore" aria-pressed="true">Before</button>
-      <button type="button" id="btnAfter" aria-pressed="false">After</button>
-    </div>
-    <div class="ba before" id="ba" aria-live="polite"></div>
   </div>
 </section>
 
@@ -426,7 +424,7 @@
         </div>
       </div>
       <svg class="floopsvg" id="floopsvg" aria-hidden="true">
-        <defs><marker id="loophead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E4572E"/></marker></defs>
+        <defs><marker id="loophead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FD1A99"/></marker></defs>
         <path id="floopPath" d="" marker-end="url(#loophead)"/>
       </svg>
       <div class="looplabel" id="looplabel">&#8630; Not good enough: sent back to the Ranker with a note</div>
@@ -521,7 +519,14 @@
 <!-- ================= THANK YOU (closing slide) ================= -->
 <section id="thanks" class="dark">
   <div class="wrap" style="text-align:center">
-    <p class="eyebrow" style="text-align:center">Artist Atlas</p>
+    <!-- Before / after: sits on top of the thank-you message -->
+    <p class="eyebrow">What changes for the artist</p>
+    <div class="toggle" role="group" aria-label="Compare before and after" style="margin-top:6px">
+      <button type="button" id="btnBefore" aria-pressed="true">Before</button>
+      <button type="button" id="btnAfter" aria-pressed="false">After</button>
+    </div>
+    <div class="ba before" id="ba" aria-live="polite" style="text-align:left;max-width:1000px;margin:20px auto 0"></div>
+    <p class="eyebrow" style="text-align:center;margin-top:28px">Artist Atlas</p>
     <h2>Thank you.</h2>
     <p class="lead" style="margin:16px auto 0">Built by Jon and Mara.</p>
   </div>
@@ -534,34 +539,6 @@
 <button class="arrowbtn" id="nextSlide" type="button" aria-label="Next slide">&rarr;</button>
 
 <script>
-  // ---- Try-it finder: shows a SAMPLE layout (no real listings yet) ----
-  var finder = document.getElementById('finder');
-  var resultsEl = document.getElementById('results');
-
-  // Escape text before putting it in the page.
-  function esc(s) {
-    return String(s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-    });
-  }
-
-  function showSample() {
-    var borough = document.getElementById('borough').value;
-    var type = document.getElementById('type').value;
-    var rows = [
-      { title: 'Sample ' + type.toLowerCase() + ' #1', tag: 'TIER 0 · VERIFIED', cls: '' },
-      { title: 'Sample ' + type.toLowerCase() + ' #2', tag: 'TIER 0 · VERIFIED', cls: '' },
-      { title: 'Sample ' + type.toLowerCase() + ' #3', tag: 'TIER 2 · NOT FULLY CHECKED', cls: 't2' }
-    ];
-    resultsEl.innerHTML = rows.map(function (r, i) {
-      return '<div class="result"><div class="n">' + (i + 1) + '</div><div><b>' + esc(r.title) + '</b>' +
-        '<span>' + esc(borough) + ' · Deadline [date] · Checked [date] · Source [link]</span><br>' +
-        '<span class="tag ' + r.cls + '">' + esc(r.tag) + '</span></div></div>';
-    }).join('') + '<p class="note" style="margin-top:2px">2 expired listings removed (example).</p>';
-  }
-  finder.addEventListener('submit', function (e) { e.preventDefault(); showSample(); });
-  showSample();
-
   // ---- Agent loop replay: lights up each step in order ----
   // Each frame = one moment in a single request: which station is lit, which handoff
   // arrow is lit, whether the "send it back" bar is lit, the plain-English caption,
@@ -859,9 +836,15 @@
     before: '<div class="big">Days</div><ul><li>Check six or more sites by hand, with no filter for borough or type</li><li>No single place to see what closes soon, so deadlines get missed</li><li>Guess whether a listing is still open or already stale</li><li>Spend time and fees on programs that were never the right fit</li></ul>',
     after: '<div class="big">Minutes</div><ul><li>Pick a borough and a type</li><li>Get a ranked list, best fit first</li><li>See the source and check date on every result</li><li>Expired listings already removed, with a count</li></ul>'
   };
+  // The picture beside each card: the musician stuck on his phone, then playing a confirmed gig.
+  var pics = {
+    before: '<img src="assets/musician-before.png" alt="A musician slumped on a stool, scrolling his phone, his guitar leaning beside him">',
+    after: '<img src="assets/gig-notifications.png" alt="The same musician playing a gig to a cheering crowd, with a Gig confirmed notification from Artist Atlas">'
+  };
   function setView(which) {
     ba.className = 'ba ' + which;
-    ba.innerHTML = views[which];
+    // Text on the left; the dashed box on the right is where the character image goes.
+    ba.innerHTML = '<div>' + views[which] + '</div><div class="bapic hasimg">' + pics[which] + '</div>';
     btnB.setAttribute('aria-pressed', which === 'before');
     btnA.setAttribute('aria-pressed', which === 'after');
   }
