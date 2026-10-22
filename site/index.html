@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Artist Atlas finds open calls, residencies and grants for NYC artists and ranks them by fit, with a source and check date on every result.">
+<meta name="theme-color" content="#1B1626">
+<title>Artist Atlas | Find your next opportunity in NYC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+  /* ---------- Colors and basics (one place to change the look) ---------- */
+  :root {
+    --ink: #1B1626;        /* deep plum-black */
+    --ink-2: #271F36;      /* slightly lighter panel on dark */
+    --plum: #3A2A55;
+    --paper: #F5EFE6;      /* warm off-white page */
+    --card: #FBF8F2;
+    --line: #E2D8C8;
+    --coral: #E4572E;
+    --coral-dk: #B93A17;   /* coral dark enough for small text on paper */
+    --marigold: #F2B134;
+    --muted: #5B5262;      /* body text on paper */
+    --muted-dk: #CFC6DA;   /* body text on ink */
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'DM Sans', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.08; margin: 0; }
+  h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 700; }
+  h3 { font-size: 26px; font-weight: 700; }
+  p { margin: 0; }
+  a { color: inherit; }
+  button { font: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  /* ---------- Slide deck layout: one full-screen slide at a time, no page scroll ---------- */
+  html, body { height: 100%; overflow: hidden; }
+  body { display: flex; flex-direction: column; }
+  main { flex: 1; position: relative; min-height: 0; }
+  section { position: absolute; inset: 0; padding: 24px 0; display: flex; overflow-y: auto;
+    opacity: 0; visibility: hidden; transform: translateX(56px);
+    transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+  section.before { transform: translateX(-56px); }
+  section.active { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease; }
+  section > .wrap { width: 100%; margin: auto; }
+  section h2 { font-size: clamp(30px, 4.2vw, 52px); }
+  /* ---------- First slide: Jon's search as an animated flow (dark) ---------- */
+  .fstage { position: relative; margin-top: 26px; padding-bottom: 92px; }
+  .fgrid { display: flex; align-items: stretch; gap: 6px; }
+  .fcard { flex: 1 1 0; background: var(--ink-2); border: 2px solid var(--plum); color: var(--paper); border-radius: 18px; padding: 16px; font-size: 15px; display: flex; flex-direction: column; gap: 8px; opacity: .4; transition: opacity .4s, transform .4s, box-shadow .4s, border-color .4s; }
+  .fcard.seen { opacity: .75; }
+  .fcard.lit { opacity: 1; border-color: var(--marigold); transform: translateY(-6px); box-shadow: 0 0 0 4px rgba(242,177,52,.3), 0 0 34px rgba(242,177,52,.35); }
+  .fcard small { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--marigold); }
+  .fcard p { margin: 0; line-height: 1.35; }
+  .fcard.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
+  .fcard.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .fcard.llm small, .fcard.llm2 small { color: var(--ink); }
+  .trybadge { display: inline-block; margin-left: 6px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; letter-spacing: .04em; }
+  .fcard .tiny { font-size: 13px; color: var(--muted-dk); }
+  .loopbadge { display: inline-block; margin-top: 4px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; font-size: 10px; letter-spacing: .06em; }
+  .loopbadge.off { background: transparent; border: 1px solid var(--muted-dk); color: var(--muted-dk); }
+  /* "What makes these agents?" button and pop-up panel */
+  .whatbtn { position: absolute; right: 24px; top: 0; background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; }
+  .whatbtn:hover { background: var(--marigold); color: var(--ink); }
+  .agentpanel { display: none; position: absolute; inset: -12px 0 0 0; background: var(--ink); border: 2px solid var(--marigold); border-radius: 22px; padding: 28px 32px; z-index: 9; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
+  .agentpanel.open { display: block; }
+  .agentpanel .whatbtn.close { top: 20px; right: 24px; }
+  .agentpanel h3 { font-size: 24px; max-width: 900px; margin-bottom: 18px; }
+  .atable { width: 100%; border-collapse: collapse; font-size: 15px; color: var(--paper); }
+  .atable th { text-align: left; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--marigold); padding: 6px 10px; border-bottom: 2px solid var(--plum); }
+  .atable td { padding: 10px; border-bottom: 1px solid var(--plum); vertical-align: top; }
+  .atable td small { color: var(--muted-dk); }
+  .atable td.yes { color: var(--marigold); font-weight: 700; }
+  .atable td.no { color: var(--muted-dk); }
+  .apoint { margin-top: 16px; font-size: 17px; color: var(--paper); max-width: 960px; }
+  .chip { margin-top: auto; background: #0F0B17; color: var(--paper); border-radius: 10px; padding: 8px 10px; opacity: 0; transform: translateY(10px) scale(.94); transition: opacity .4s, transform .4s; }
+  .chip.show { opacity: 1; transform: none; }
+  .chip em { display: block; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--marigold); }
+  .chip code { font-family: 'Courier New', monospace; font-size: 12px; color: var(--marigold); overflow-wrap: anywhere; }
+  .farrow { align-self: center; font-size: 24px; color: var(--plum); font-weight: 700; transition: color .3s; }
+  .farrow.on { color: var(--marigold); }
+  .fcard.out { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .fcard.out small { color: var(--coral-dk); }
+  .res { opacity: 0; transform: translateY(10px); transition: opacity .5s, transform .5s; }
+  .res.show { opacity: 1; transform: none; }
+  .res b { display: block; font-size: 15px; }
+  .res span { display: block; font-size: 12px; color: var(--muted); }
+  .res i { display: inline-block; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; margin-top: 3px; }
+  .fcard.out .tiny { color: var(--muted); }
+  /* The glowing dot that carries Jon's request from one step to the next */
+  .token { position: absolute; left: 0; top: 0; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 6px rgba(242,177,52,.3), 0 0 26px 6px rgba(242,177,52,.8); opacity: 0; z-index: 5; pointer-events: none; transition: left .9s ease-in-out, top .9s ease-in-out, opacity .3s; }
+  .token.nofx { transition: opacity .3s; }
+  /* The curved line that carries a rejected list back from Reviewer to Ranker */
+  .floopsvg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .floopsvg path#floopPath { fill: none; stroke: var(--coral); stroke-width: 3; stroke-dasharray: 9 9; opacity: 0; transition: opacity .4s; }
+  .floopsvg path#floopPath.on { opacity: 1; animation: dashflow .8s linear infinite; }
+  @keyframes dashflow { to { stroke-dashoffset: -18; } }
+  .looplabel { position: absolute; transform: translateX(-50%); background: var(--coral); color: var(--ink); font-weight: 700; font-size: 14px; border-radius: 999px; padding: 6px 16px; opacity: 0; transition: opacity .4s; white-space: nowrap; }
+  .looplabel.show { opacity: 1; }
+  .fcap { margin-top: 6px; min-height: 56px; font-size: 19px; color: var(--paper); max-width: 1100px; }
+  .fdraft { margin-top: 8px; font-size: 13px; color: var(--muted-dk); }
+  @media (max-width: 1000px) { .fgrid { flex-direction: column; } .farrow { transform: rotate(90deg); } .token, .floopsvg, .looplabel { display: none; } }
+
+/* Two round arrow buttons pinned to the bottom corners of the screen (no bar) */
+  .arrowbtn { position: fixed; bottom: 20px; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--paper); background: var(--ink); color: var(--paper); font-size: 24px; line-height: 1; z-index: 20; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+  .arrowbtn:hover { background: var(--coral); border-color: var(--coral); color: var(--ink); }
+  #prevSlide { left: 20px; }
+  #nextSlide { right: 20px; }
+  section { padding-bottom: 88px; }
+  .dark { background: var(--ink); color: var(--paper); }
+  .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--coral-dk); margin-bottom: 14px; }
+  .dark .eyebrow { color: var(--marigold); }
+  .lead { font-size: 20px; color: var(--muted); max-width: 640px; margin-top: 16px; }
+  .dark .lead { color: var(--muted-dk); }
+  .btn { display: inline-block; background: var(--coral); color: var(--ink); font-weight: 700; border: 0; border-radius: 999px; padding: 14px 28px; text-decoration: none; }
+  .btn:hover { background: var(--marigold); }
+
+  /* ---------- Top navigation ---------- */
+  header.nav { flex: 0 0 auto; z-index: 10; background: rgba(27,22,38,.94); backdrop-filter: blur(8px); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--paper); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo i { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--marigold), var(--coral) 60%, #6B2B5C); display: inline-block; }
+  .nav nav { display: flex; gap: 26px; }
+  .nav nav a { color: var(--muted-dk); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav nav a:hover { color: var(--marigold); }
+  .nav .btn { padding: 9px 20px; font-size: 15px; }
+  @media (max-width: 860px) { .nav nav { display: none; } }
+
+  /* ---------- Hero with the try-it finder ---------- */
+  .hero { background: var(--ink); color: var(--paper); position: absolute; overflow: hidden; }
+  .hero .blob { position: absolute; border-radius: 50%; pointer-events: none; }
+  .blob.a { width: 520px; height: 520px; right: -120px; top: -140px; background: radial-gradient(circle at 35% 30%, var(--marigold), var(--coral) 55%, #6B2B5C); opacity: .9; }
+  .blob.b { width: 240px; height: 240px; right: 360px; top: 380px; background: radial-gradient(circle at 30% 30%, #8A6DB8, var(--plum)); opacity: .8; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .hero h1 { font-size: clamp(44px, 7vw, 84px); font-weight: 700; }
+  .hero h1 em { color: var(--marigold); font-style: italic; }
+  .hero .lead { color: var(--muted-dk); font-size: 21px; }
+  .finder { background: var(--card); color: var(--ink); border-radius: 24px; padding: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+  .finder label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .finder .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .finder select { width: 100%; font: inherit; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  .finder .btn { width: 100%; text-align: center; }
+  .results { margin-top: 18px; display: grid; gap: 10px; min-height: 40px; }
+  .result { background: var(--paper); border-radius: 14px; padding: 14px 16px; display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: start; animation: rise .35s ease both; }
+  .result .n { width: 38px; height: 38px; border-radius: 50%; background: var(--coral); display: grid; place-items: center; font-weight: 700; }
+  .result:nth-child(2) .n { background: var(--marigold); }
+  .result:nth-child(3) .n { background: var(--plum); color: var(--paper); }
+  .result b { display: block; font-size: 17px; }
+  .result span { font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; padding: 2px 10px; border-radius: 999px; background: var(--ink); color: var(--marigold); margin-top: 6px; }
+  .tag.t2 { background: var(--coral); color: var(--ink); }
+  .finder .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } .blob.b { display: none; } }
+
+  /* ---------- Problem ---------- */
+  .stickers { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .sticker { font-weight: 700; padding: 12px 24px; border-radius: 999px; font-size: 18px; }
+  .sticker:nth-child(1) { background: var(--coral); transform: rotate(-4deg); }
+  .sticker:nth-child(2) { background: var(--marigold); transform: rotate(3deg); }
+  .sticker:nth-child(3) { background: var(--plum); color: var(--paper); transform: rotate(-2deg); }
+  .sticker:nth-child(4) { background: var(--marigold); transform: rotate(-3deg); }
+  .sticker:nth-child(5) { background: var(--coral); transform: rotate(2deg); }
+  .sticker:nth-child(6) { background: var(--plum); color: var(--paper); transform: rotate(-4deg); }
+  .cards3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 44px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; }
+  .card h3 { color: var(--coral-dk); margin-bottom: 8px; }
+  .card p { color: var(--muted); }
+  .card .icon { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 28px; margin-bottom: 18px; }
+  .card .icon.c1 { background: var(--coral); } .card .icon.c2 { background: var(--marigold); } .card .icon.c3 { background: var(--plum); color: var(--paper); }
+  .card .need { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--coral-dk); margin-top: 14px; }
+  .card h3.dark-h { color: var(--ink); }
+
+  /* ---------- How it works ---------- */
+  .lane { margin-top: 36px; }
+  .lane h4 { margin: 0 0 12px; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-dk); }
+  .flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+  .step { flex: 1 1 150px; border-radius: 18px; padding: 16px 18px; border: 2px solid var(--muted-dk); }
+  .step small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; opacity: .85; }
+  .step b { font-size: 19px; }
+  .step.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
+  .step.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .step.store { background: var(--plum); border-color: var(--plum); }
+  .arrow { align-self: center; color: var(--marigold); font-size: 22px; }
+  @media (max-width: 700px) { .arrow { display: none; } }
+  .legend { margin-top: 22px; font-size: 15px; color: var(--muted-dk); }
+
+  /* ---------- The loop (replayable) ---------- */
+  .loopbox { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 44px; align-items: start; }
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .timeline li { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; opacity: .35; transition: opacity .3s, border-color .3s, transform .3s; }
+  .timeline li.on { opacity: 1; border-color: var(--coral); transform: translateX(6px); }
+  .timeline li b { display: block; }
+  .timeline li span { color: var(--muted); font-size: 15px; }
+  .rules { display: grid; gap: 18px; }
+  .rule { border-top: 2px solid var(--line); padding-top: 14px; }
+  .rule b { font-size: 19px; display: block; }
+  .rule span { color: var(--muted); }
+  .replay { margin-top: 18px; background: var(--coral); color: var(--ink); border: 0; border-radius: 999px; padding: 12px 24px; font-weight: 700; }
+  .replay:hover { background: var(--marigold); }
+  @media (max-width: 860px) { .loopbox { grid-template-columns: 1fr; } }
+
+  /* ---------- Animated journey: stations, handoff arrows, retry bar, caption ---------- */
+  .journey { margin-top: 44px; }
+  .stations { display: flex; align-items: stretch; gap: 6px; }
+  .st { flex: 1 1 0; border: 2px solid var(--muted-dk); border-radius: 18px; padding: 14px; opacity: .4; transition: opacity .3s, transform .3s, box-shadow .3s; }
+  .st small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+  .st b { display: block; font-size: 20px; font-family: var(--serif); }
+  .st span { font-size: 14px; }
+  .st.llm { background: var(--coral); border-color: var(--coral); color: var(--ink); }
+  .st.llm2 { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+  .st.on { opacity: 1; transform: translateY(-6px); box-shadow: 0 0 0 4px var(--marigold); }
+  .hand { flex: 0 0 96px; text-align: center; align-self: center; opacity: .35; transition: opacity .3s; }
+  .hand i { display: block; font-style: normal; font-size: 28px; color: var(--marigold); }
+  .hand em { display: block; font-style: normal; font-size: 12px; line-height: 1.2; color: var(--muted-dk); }
+  .hand.on { opacity: 1; }
+  .retry { margin-top: 18px; padding: 10px 18px; border: 2px dashed var(--coral); border-radius: 14px; color: var(--coral); opacity: .25; transition: opacity .3s; font-size: 15px; }
+  .retry i { font-style: normal; font-size: 22px; margin-right: 6px; }
+  .retry.on { opacity: 1; }
+  .caption { margin-top: 18px; background: var(--ink-2); border-radius: 18px; padding: 20px 24px; min-height: 150px; }
+  .caption .say { font-size: 21px; color: var(--paper); }
+  .caption .tech { margin-top: 12px; font-size: 14px; color: var(--muted-dk); }
+  .caption .tech span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--marigold); }
+  .caption .tech code { font-family: 'Courier New', monospace; color: var(--marigold); font-size: 15px; overflow-wrap: anywhere; }
+  .controls { display: flex; gap: 12px; }
+  .replay.alt { background: transparent; color: var(--paper); border: 2px solid var(--muted-dk); }
+  .replay.alt:hover { background: var(--plum); }
+  @media (max-width: 860px) {
+    .stations { flex-direction: column; }
+    .hand { flex: 0 0 auto; display: flex; gap: 10px; align-items: center; }
+    .hand i { transform: rotate(90deg); }
+  }
+
+  /* ---------- Handoffs ---------- */
+  .handoffs { margin-top: 36px; display: grid; gap: 12px; }
+  .handoff { display: grid; grid-template-columns: 260px 1fr; gap: 20px; background: var(--ink-2); border-radius: 16px; padding: 16px 22px; align-items: center; }
+  .handoff b { font-size: 18px; }
+  .handoff code { font-family: 'Courier New', monospace; color: var(--marigold); font-size: 16px; overflow-wrap: anywhere; }
+  @media (max-width: 760px) { .handoff { grid-template-columns: 1fr; gap: 6px; } }
+  .fine { margin-top: 20px; color: var(--muted-dk); font-size: 16px; }
+
+  /* ---------- Trust tiers (coral statement band) ---------- */
+  .statement { background: var(--coral); color: var(--ink); }
+  .statement h2 { font-size: clamp(40px, 7vw, 92px); font-style: italic; max-width: 900px; }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 44px; }
+  .tier { background: var(--ink); color: var(--paper); border-radius: 20px; padding: 24px; }
+  .tier small { display: block; color: var(--marigold); font-weight: 700; letter-spacing: .12em; font-size: 13px; margin-bottom: 6px; }
+
+  /* ---------- Before / after toggle ---------- */
+  .toggle { display: inline-flex; background: var(--ink); border-radius: 999px; padding: 5px; margin-top: 28px; }
+  .toggle button { border: 0; background: transparent; color: var(--muted-dk); padding: 10px 26px; border-radius: 999px; font-weight: 700; }
+  .toggle button[aria-pressed="true"] { background: var(--coral); color: var(--ink); }
+  .ba { margin-top: 26px; border-radius: 26px; padding: 40px; min-height: 280px; }
+  .ba.before { background: var(--ink); color: var(--paper); }
+  .ba.after { background: var(--card); border: 3px solid var(--coral); }
+  .ba .big { font-family: var(--serif); font-weight: 700; font-size: clamp(48px, 8vw, 88px); line-height: 1; }
+  .ba.before .big { color: var(--marigold); } .ba.after .big { color: var(--coral-dk); }
+  .ba ul { margin: 18px 0 0; padding-left: 22px; font-size: 20px; }
+  .ba li { margin: 6px 0; }
+
+  /* ---------- Scope ---------- */
+  .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 36px; }
+  .scope .card h3 { color: var(--ink); }
+  .scope ul { margin: 12px 0 0; padding-left: 22px; color: var(--muted); }
+  .scope li { margin: 6px 0; }
+  .scope .in { border-color: var(--coral); border-width: 2px; }
+  @media (max-width: 760px) { .scope { grid-template-columns: 1fr; } }
+
+  footer { background: var(--ink); color: var(--muted-dk); padding: 48px 0; font-size: 15px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Artist Atlas</a>
+    <nav aria-label="Main">
+      <a href="#problem">The problem</a>
+      <a href="#who">Who it's for</a>
+      <a href="#how">How it works</a>
+      <a href="#trust">Trust</a>
+    </nav>
+    <a class="btn" href="#try">Try it</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO + TRY-IT FINDER ================= -->
+<section class="hero" id="try">
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--marigold)">For NYC artists</p>
+      <h1>Find your next <em>open call</em>, residency or grant.</h1>
+      <p class="lead">Artist Atlas gathers opportunities from across the city, ranks them for fit, and shows where each one came from and when it was last checked.</p>
+    </div>
+    <form class="finder" id="finder" aria-label="Try Artist Atlas">
+      <div class="row">
+        <div>
+          <label for="borough">Borough</label>
+          <select id="borough">
+            <option>Manhattan</option><option selected>Brooklyn</option><option>Queens</option><option>The Bronx</option><option>Staten Island</option><option>Citywide</option>
+          </select>
+        </div>
+        <div>
+          <label for="type">Opportunity type</label>
+          <select id="type">
+            <option selected>Open call</option><option>Residency</option><option>Grant</option><option>Event</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" type="submit">Show opportunities</button>
+      <div class="results" id="results" aria-live="polite"></div>
+      <p class="note">Sample layout only. Real, checked listings arrive once the backfill is built.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section id="problem">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>Opportunities exist.<br>Finding them is the problem.</h2>
+    <p class="lead">Open calls, residencies and grants for NYC artists are scattered across many sites, and none of them match a creator's medium or goals.</p>
+    <div class="stickers" aria-label="Sources we plan to pull from">
+      <span class="sticker">CaFE</span><span class="sticker">NYFA</span><span class="sticker">ArtConnect</span>
+      <span class="sticker">NYC Parks events</span><span class="sticker">DCLA</span><span class="sticker">Ticketmaster</span>
+    </div>
+    <div class="cards3">
+      <div class="card"><h3>Missed deadlines</h3><p>No single place to see what closes soon.</p></div>
+      <div class="card"><h3>Poor-fit applications</h3><p>Time and fees spent on programs that were never right.</p></div>
+      <div class="card"><h3>Stale listings</h3><p>Hours spent re-checking pages that may be out of date.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO IT'S FOR ================= -->
+<section id="who">
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2>Working artists with no insider network</h2>
+    <div class="cards3">
+      <div class="card"><div class="icon c1">1</div><h3 class="dark-h">Early-career artist</h3>
+        <p class="need">Needs</p><p>Open calls and residencies that fit a medium and a budget.</p>
+        <p class="need">Gets</p><p>A ranked list filtered by borough, type and deadline.</p></div>
+      <div class="card"><div class="icon c2">2</div><h3 class="dark-h">Multidisciplinary creator</h3>
+        <p class="need">Needs</p><p>Venues and community programs, not only grants.</p>
+        <p class="need">Gets</p><p>Opportunity types kept apart, each ranked on its own.</p></div>
+      <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Anyone judging trust</h3>
+        <p class="need">Needs</p><p>To know whether a listing is still current.</p>
+        <p class="need">Gets</p><p>A source, a check date and a tier label on every result.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Two models, everything else plain code</h2>
+    <p class="lead">A one-time backfill builds a snapshot of NYC opportunities. Every request then runs against that snapshot, so results are repeatable.</p>
+
+    <div class="lane">
+      <h4>Once: build the snapshot</h4>
+      <div class="flow">
+        <div class="step"><small>SOURCES</small><b>NYC Parks, DCLA, seed sites</b></div><span class="arrow">&rarr;</span>
+        <div class="step"><small>CODE</small><b>Backfill script</b></div><span class="arrow">&rarr;</span>
+        <div class="step llm"><small>LLM</small><b>Extractor</b></div><span class="arrow">&rarr;</span>
+        <div class="step store"><small>STORE</small><b>Snapshot</b></div>
+      </div>
+    </div>
+    <div class="lane">
+      <h4>Every request</h4>
+      <div class="flow">
+        <div class="step"><small>INPUT</small><b>Borough + type</b></div><span class="arrow">&rarr;</span>
+        <div class="step"><small>CODE</small><b>Filter</b></div><span class="arrow">&rarr;</span>
+        <div class="step llm"><small>LLM</small><b>Ranker</b></div><span class="arrow">&rarr;</span>
+        <div class="step"><small>CODE</small><b>Checks</b></div><span class="arrow">&rarr;</span>
+        <div class="step llm2"><small>LLM</small><b>Reviewer</b></div><span class="arrow">&rarr;</span>
+        <div class="step store"><small>OUTPUT</small><b>Labeled result</b></div>
+      </div>
+    </div>
+    <p class="legend">Coral and gold boxes are the model steps. Outlined boxes are ordinary code.</p>
+
+  </div>
+</section>
+
+<!-- ================= FIRST SLIDE: ONE ARTIST'S SEARCH, START TO FINISH (draft, animated) ================= -->
+<section id="flow" class="dark">
+  <div class="wrap" style="max-width:1320px;position:relative">
+    <p class="eyebrow">One search, start to finish</p>
+    <h2>Jon is a visual artist and a musician in Brooklyn</h2>
+    <button class="whatbtn" id="whatbtn" type="button" aria-expanded="false">What makes these agents?</button>
+
+    <!-- Pop-up panel: each part checked against observe, decide, act, loop -->
+    <div class="agentpanel" id="agentpanel" role="dialog" aria-label="What makes these agents">
+      <button class="whatbtn close" id="whatclose" type="button">Close</button>
+      <p class="eyebrow">What makes these agents?</p>
+      <h3 style="color:var(--paper)">An agent loops: it looks, decides, acts, then goes round again with what it learned.</h3>
+      <table class="atable">
+        <tr><th>Part</th><th>Looks at</th><th>Decides</th><th>Does</th><th>Loops?</th></tr>
+        <tr><td><b>Extractor</b><br><small>before Jon arrives</small></td><td>One raw listing</td><td>The deadline, fee, eligibility, discipline</td><td>Saves those fields with source quotes</td><td class="no">No. One pass per listing.</td></tr>
+        <tr><td><b>Filter</b><br><small>plain code</small></td><td>Jon's form and the snapshot</td><td>Fixed rules</td><td>Cuts the list</td><td class="no">Not an agent.</td></tr>
+        <tr><td><b>Ranker</b></td><td>The short list, and the Reviewer's note on a retry</td><td>The order, and why</td><td>Hands over a ranking</td><td class="yes">Yes, when sent back.</td></tr>
+        <tr><td><b>Reviewer</b></td><td>The ranking and what Jon asked for</td><td>Does it fit?</td><td>Accepts, or rejects with a note</td><td class="yes">Yes. It sends it round again.</td></tr>
+        <tr><td><b>Checks, Output</b><br><small>plain code</small></td><td>Each result</td><td>Source and date present? Which label?</td><td>Pass or fail, then label</td><td class="no">Not agents.</td></tr>
+      </table>
+      <p class="apoint"><b>The one real loop:</b> Ranker proposes, Reviewer judges, the note goes back, up to 3 tries. Everything else is a single pass or plain code. In other words, a generator and a critic working in a review loop.</p>
+    </div>
+
+    <!-- The stage: five cards, a glowing dot that travels between them, and a curved loop-back line -->
+    <div class="fstage" id="fstage">
+      <div class="fgrid">
+        <div class="fcard">
+          <small>1 &middot; JON FILLS A FORM</small>
+          <p><b>I'm a:</b> &#9745; Visual artist &#9745; Musician &#9744; Actor &#9744; Writer</p>
+          <p><b>Where:</b> Brooklyn</p>
+          <p><b>Looking for:</b> Open calls, residencies</p>
+          <div class="chip"><em>Handed on</em><code>{borough, disciplines, opportunity_types}</code></div>
+        </div>
+        <div class="farrow">&rarr;</div>
+        <div class="fcard">
+          <small>2 &middot; FILTER &middot; PLAIN CODE <span class="loopbadge off">NO LOOP</span></small>
+          <p>Keeps Brooklyn listings tagged visual art or music.</p>
+          <p>Drops anything expired and counts how many.</p>
+          <div class="chip"><em>Handed on</em><code>the short list (e.g. 14 listings)</code></div>
+        </div>
+        <div class="farrow">&rarr;</div>
+        <div class="fcard llm">
+          <small>3 &middot; RANKER &middot; AGENT <span class="trybadge" id="tryBadge">Try 1 of 3</span> <span class="loopbadge">&#8635; IN THE LOOP</span></small>
+          <p>Puts the short list in order for Jon and writes why.</p>
+          <p>Gallery application #1, open mic #2, and so on.</p>
+          <div class="chip"><em>Handed on</em><code>{ranked_ids, scores, rationale}</code></div>
+        </div>
+        <div class="farrow">&rarr;</div>
+        <div class="fcard llm2">
+          <small>4 &middot; REVIEWER &middot; AGENT <span class="loopbadge">&#8635; IN THE LOOP</span></small>
+          <p>Asks: does this list fit Jon?</p>
+          <p id="rvText"><b>Waiting for the ranking&hellip;</b></p>
+          <div class="chip"><em id="rvChipLabel">Handed on</em><code id="rvChipCode">{verdict: accept, results, tier, checked_at}</code></div>
+        </div>
+        <div class="farrow">&rarr;</div>
+        <div class="fcard out">
+          <small>5 &middot; JON SEES</small>
+          <div class="res"><b>1. Gallery open call</b><span>Deadline [date] &middot; Source [link] &middot; Checked [date]</span><i>VERIFIED</i></div>
+          <div class="res"><b>2. Open mic residency</b><span>Deadline [date] &middot; Source [link] &middot; Checked [date]</span><i>VERIFIED</i></div>
+          <p class="tiny res">3 expired listings removed.</p>
+        </div>
+      </div>
+      <svg class="floopsvg" id="floopsvg" aria-hidden="true">
+        <defs><marker id="loophead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E4572E"/></marker></defs>
+        <path id="floopPath" d="" marker-end="url(#loophead)"/>
+      </svg>
+      <div class="looplabel" id="looplabel">&#8630; Not good enough: sent back to the Ranker with a note</div>
+      <div class="token" id="token"></div>
+    </div>
+
+    <p class="fcap" id="fcap" aria-live="polite"></p>
+    <p class="fdraft">Draft: asking for disciplines (visual artist, musician, actor&hellip;) is proposed and is not in the lean PRD yet. Nothing is saved about Jon after the search.</p>
+  </div>
+</section>
+
+<!-- ================= THE AGENT LOOP (its own slide) ================= -->
+<section id="loop" class="dark">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">The agent loop</p>
+      <h2>Follow one request through the agents</h2>
+    </div>
+
+    <!-- Animated journey: lights up one station at a time, with a plain-English caption -->
+    <div class="journey" id="journey">
+      <div class="stations">
+        <div class="st" data-st="0"><small>IN</small><b>The artist</b><span>Picks a borough and a type</span></div>
+        <div class="hand" data-h="0"><i>&rarr;</i><em>their two choices</em></div>
+        <div class="st code" data-st="1"><small>PLAIN CODE</small><b>Filter</b><span>Keeps matches, drops expired</span></div>
+        <div class="hand" data-h="1"><i>&rarr;</i><em>the short list</em></div>
+        <div class="st llm" data-st="2"><small>AGENT</small><b>Ranker</b><span>Puts the list in order</span></div>
+        <div class="hand" data-h="2"><i>&rarr;</i><em>ranked list + reasons</em></div>
+        <div class="st llm2" data-st="3"><small>AGENT</small><b>Reviewer</b><span>Approves or sends back</span></div>
+        <div class="hand" data-h="3"><i>&rarr;</i><em>approved results</em></div>
+        <div class="st" data-st="4"><small>OUT</small><b>The artist</b><span>Sees the labeled list</span></div>
+      </div>
+      <div class="retry" id="retry"><i>&#8630;</i> Not good enough: the Reviewer sends it back to the Ranker with a note. <b id="tries">Try 1 of 3</b></div>
+      <div class="caption" aria-live="polite">
+        <p class="say" id="say"></p>
+        <p class="tech"><span>Technical handoff</span><code id="tech"></code></p>
+      </div>
+      <div class="controls">
+        <button class="replay" id="replay" type="button">Replay</button>
+        <button class="replay alt" id="next" type="button">Next step</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= LOOP RULES (its own slide) ================= -->
+<section id="rules" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">The loop's rules</p>
+    <h2>Three tries, no loosening, no self-grading</h2>
+    <div class="rules" style="margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));color:var(--paper)">
+      <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">3 tries, then stop</b><span style="color:var(--muted-dk)">One first try and two retries. After that, the artist gets the best attempt, labeled "not fully checked".</span></div>
+      <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">Borough, type and dates never loosen</b><span style="color:var(--muted-dk)">Enforced on every try, fallback included.</span></div>
+      <div class="rule" style="border-color:var(--plum)"><b style="color:var(--marigold)">Nobody grades their own work</b><span style="color:var(--muted-dk)">The Reviewer runs on a separate prompt from the Ranker.</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= HANDOFFS (its own slide) ================= -->
+<section id="handoffs" class="dark">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Handoffs</p>
+      <h2>What gets passed along, exactly</h2>
+    </div>
+    <div class="handoffs">
+      <div class="handoff"><b>Request to Filter</b><code>{borough, opportunity_type}</code></div>
+      <div class="handoff"><b>Ranker to Reviewer</b><code>{request_id, attempt, ranked_ids, scores, rationale}</code></div>
+      <div class="handoff"><b>Reviewer back to Ranker</b><code>{verdict: reject, critique, failed_checks}</code></div>
+      <div class="handoff"><b>Reviewer to Output</b><code>{verdict: accept, results, tier, checked_at}</code></div>
+    </div>
+    <p class="fine">One request_id follows the request through every handoff. A payload that fails validation is never retried silently; it drops to a labeled fallback tier. Field names come from the working PRD and may change as we build.</p>
+  </div>
+</section>
+
+<!-- ================= TRUST TIERS ================= -->
+<section id="trust" class="statement">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--ink)">Honest by design</p>
+    <h2>Nothing looks verified unless it was.</h2>
+    <div class="tiers">
+      <div class="tier"><small>TIER 0 &middot; VERIFIED</small>Checked, not expired, and accepted by the Reviewer.</div>
+      <div class="tier"><small>TIER 2 &middot; NOT FULLY CHECKED</small>Best attempt that passed the hard filters, labeled as such.</div>
+      <div class="tier"><small>TIER 3 &middot; NO RESULT</small>An empty list with the reason, never a guess.</div>
+    </div>
+    <p style="margin-top:22px;font-weight:700">Expired listings are removed, and we show a count so nothing disappears silently.</p>
+  </div>
+</section>
+
+<!-- ================= BEFORE / AFTER ================= -->
+<section id="change">
+  <div class="wrap">
+    <p class="eyebrow">What changes for the artist</p>
+    <h2>From days of searching to minutes</h2>
+    <div class="toggle" role="group" aria-label="Compare before and after">
+      <button type="button" id="btnBefore" aria-pressed="true">Before</button>
+      <button type="button" id="btnAfter" aria-pressed="false">After</button>
+    </div>
+    <div class="ba before" id="ba" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ================= SCOPE ================= -->
+<section id="scope">
+  <div class="wrap">
+    <p class="eyebrow">Scope for v1</p>
+    <h2>Two choices in, one honest list out</h2>
+    <p class="lead">Borough and opportunity type are the only inputs. The output is a ranked, unexpired NYC list with a source and check date on every result.</p>
+    <div class="scope">
+      <div class="card in"><h3>In v1</h3>
+        <ul><li>One-time backfill of NYC opportunities into a snapshot</li><li>Filter, rank and review against that snapshot</li><li>Source and check date on every result</li><li>A 30-request golden set with written answers</li></ul></div>
+      <div class="card"><h3>Out of v1</h3>
+        <ul><li>Weekly or live refresh (a v2 candidate)</li><li>Live web search on each request</li><li>Free-text requests</li><li>Accounts, payments or applications sent for you</li><li>Anything outside NYC</li></ul></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Slide controls: back and forward arrows in the bottom corners -->
+<button class="arrowbtn" id="prevSlide" type="button" aria-label="Previous slide">&larr;</button>
+<button class="arrowbtn" id="nextSlide" type="button" aria-label="Next slide">&rarr;</button>
+
+<script>
+  // ---- Try-it finder: shows a SAMPLE layout (no real listings yet) ----
+  var finder = document.getElementById('finder');
+  var resultsEl = document.getElementById('results');
+
+  // Escape text before putting it in the page.
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function showSample() {
+    var borough = document.getElementById('borough').value;
+    var type = document.getElementById('type').value;
+    var rows = [
+      { title: 'Sample ' + type.toLowerCase() + ' #1', tag: 'TIER 0 · VERIFIED', cls: '' },
+      { title: 'Sample ' + type.toLowerCase() + ' #2', tag: 'TIER 0 · VERIFIED', cls: '' },
+      { title: 'Sample ' + type.toLowerCase() + ' #3', tag: 'TIER 2 · NOT FULLY CHECKED', cls: 't2' }
+    ];
+    resultsEl.innerHTML = rows.map(function (r, i) {
+      return '<div class="result"><div class="n">' + (i + 1) + '</div><div><b>' + esc(r.title) + '</b>' +
+        '<span>' + esc(borough) + ' · Deadline [date] · Checked [date] · Source [link]</span><br>' +
+        '<span class="tag ' + r.cls + '">' + esc(r.tag) + '</span></div></div>';
+    }).join('') + '<p class="note" style="margin-top:2px">2 expired listings removed (example).</p>';
+  }
+  finder.addEventListener('submit', function (e) { e.preventDefault(); showSample(); });
+  showSample();
+
+  // ---- Agent loop replay: lights up each step in order ----
+  // Each frame = one moment in a single request: which station is lit, which handoff
+  // arrow is lit, whether the "send it back" bar is lit, the plain-English caption,
+  // and the technical handoff underneath it.
+  var frames = [
+    { st: 0, h: 0, retry: false, tries: 1, say: 'The artist picks a borough and a type, say Brooklyn and Residency, and presses search.', tech: 'Request to Filter: {borough, opportunity_type}' },
+    { st: 1, h: 1, retry: false, tries: 1, say: 'The filter is plain code, no AI. It keeps only Brooklyn residencies and throws out anything already expired. The short list moves on.', tech: 'The filtered records (the short list)' },
+    { st: 2, h: 2, retry: false, tries: 1, say: 'Try 1. The Ranker puts the short list in order, best fit first, and writes down why. Plain code checks every item has a source and a check date. Then the ranking goes to the Reviewer.', tech: 'Ranker to Reviewer: {request_id, attempt: 1, ranked_ids, scores, rationale}' },
+    { st: 3, h: -1, retry: true, tries: 1, say: 'The Reviewer says not good enough and sends the list back to the Ranker with a note on what was wrong. This is the loop.', tech: 'Reviewer back to Ranker: {verdict: reject, critique, failed_checks}' },
+    { st: 2, h: -1, retry: true, tries: 2, say: 'Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.', tech: 'Ranker receives: candidate records, previous ranking, critique' },
+    { st: 3, h: 3, retry: false, tries: 2, say: 'The Reviewer checks again and this time approves. Nothing is shown to the artist until this approval.', tech: 'Reviewer to Output: {verdict: accept, results, tier, checked_at}' },
+    { st: 4, h: -1, retry: false, tries: 2, say: 'The artist sees a ranked list. Each result has its deadline, fee, source link and a "checked on" date, plus a count of expired listings removed. If all 3 tries had failed, they would get the best attempt labeled "not fully checked".', tech: 'Every result carries: source_url, checked_at, tier' }
+  ];
+  var stationEls = document.querySelectorAll('#journey .st');
+  var handEls = document.querySelectorAll('#journey .hand');
+  var retryEl = document.getElementById('retry');
+  var current = -1;
+  var timers = [];
+  function stopTimers() { timers.forEach(clearTimeout); timers = []; }
+  function showFrame(i) {
+    var f = frames[i];
+    current = i;
+    stationEls.forEach(function (el, n) { el.classList.toggle('on', n === f.st); });
+    handEls.forEach(function (el, n) { el.classList.toggle('on', n === f.h); });
+    retryEl.classList.toggle('on', f.retry);
+    document.getElementById('tries').textContent = 'Try ' + f.tries + ' of 3';
+    document.getElementById('say').textContent = f.say;
+    document.getElementById('tech').textContent = f.tech;
+  }
+  // Replay: step through every frame automatically, a few seconds each.
+  function playLoop() {
+    stopTimers();
+    frames.forEach(function (f, i) {
+      timers.push(setTimeout(function () { showFrame(i); }, i * 3800));
+    });
+  }
+  // Next step: for presenting. Stops the autoplay and moves one frame at a time.
+  document.getElementById('next').addEventListener('click', function () {
+    stopTimers();
+    showFrame((current + 1) % frames.length);
+  });
+  document.getElementById('replay').addEventListener('click', playLoop);
+  showFrame(0);
+
+  // ---- First slide: Jon's search, animated ----
+  // A glowing dot carries the request from card to card. When the Reviewer rejects,
+  // the dot rides a curved line back to the Ranker. Then it goes on to the results.
+  var flowRun = 0; // goes up each time the flow starts or stops, so an old run quietly ends
+  function stopFlow() { flowRun++; }
+  async function startFlow() {
+    var run = ++flowRun;
+    var stage = document.getElementById('fstage');
+    var cards = stage.querySelectorAll('.fcard');
+    var arrows = stage.querySelectorAll('.farrow');
+    var chips = stage.querySelectorAll('.chip');
+    var results = stage.querySelectorAll('.res');
+    var token = document.getElementById('token');
+    var loopPath = document.getElementById('floopPath');
+    var loopLabel = document.getElementById('looplabel');
+    var tryBadge = document.getElementById('tryBadge');
+    var rvText = document.getElementById('rvText');
+    var rvChipLabel = document.getElementById('rvChipLabel');
+    var rvChipCode = document.getElementById('rvChipCode');
+    var cap = document.getElementById('fcap');
+
+    function alive() { return run === flowRun; }
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+    function say(t) { cap.textContent = t; }
+    // Middle of a card, measured from the top-left of the stage.
+    function center(card) {
+      var s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
+      return { x: c.left - s.left + c.width / 2, y: c.top - s.top + c.height / 2 };
+    }
+    function place(p) { token.style.left = p.x + 'px'; token.style.top = p.y + 'px'; }
+    // Light one card; earlier cards stay a little bright.
+    function light(n) {
+      cards.forEach(function (c, i) { c.classList.toggle('lit', i === n); if (i < n) c.classList.add('seen'); });
+    }
+    // Slide the dot straight to a card.
+    async function hop(n) { place(center(cards[n])); await wait(1000); }
+    // Ride the dot along the curved line, frame by frame.
+    function ride(ms) {
+      return new Promise(function (resolve) {
+        var len = loopPath.getTotalLength(), t0 = null;
+        token.classList.add('nofx');
+        function frame(t) {
+          if (!alive()) { resolve(); return; }
+          if (t0 === null) t0 = t;
+          var k = Math.min((t - t0) / ms, 1);
+          var p = loopPath.getPointAtLength(len * k);
+          place(p);
+          if (k < 1) requestAnimationFrame(frame); else { token.classList.remove('nofx'); resolve(); }
+        }
+        requestAnimationFrame(frame);
+      });
+    }
+    function reset() {
+      cards.forEach(function (c) { c.classList.remove('lit', 'seen'); });
+      arrows.forEach(function (a) { a.classList.remove('on'); });
+      chips.forEach(function (c) { c.classList.remove('show'); });
+      results.forEach(function (r) { r.classList.remove('show'); });
+      loopPath.classList.remove('on');
+      loopLabel.classList.remove('show');
+      tryBadge.textContent = 'Try 1 of 3';
+      rvText.innerHTML = '<b>Waiting for the ranking…</b>';
+      rvChipLabel.textContent = 'Handed back to the Ranker';
+      rvChipCode.textContent = '{verdict: reject, critique, failed_checks}';
+      token.classList.add('nofx'); token.style.opacity = 0;
+      place(center(cards[0]));
+    }
+
+    while (alive()) {
+      reset();
+      await wait(100); token.classList.remove('nofx');
+      if (!alive()) return;
+
+      // 1. Jon fills in the form
+      token.style.opacity = 1; light(0); chips[0].classList.add('show');
+      say('Jon ticks visual artist and musician, picks Brooklyn and open calls or residencies, and presses search. Those answers travel on as one package.');
+      await wait(3600); if (!alive()) return;
+
+      // 2. Filter (plain code)
+      arrows[0].classList.add('on'); await hop(1); if (!alive()) return;
+      light(1); chips[1].classList.add('show');
+      say('The filter is plain code, no AI. It keeps Brooklyn listings for visual art or music and drops anything expired. It hands on a short list.');
+      await wait(3400); if (!alive()) return;
+
+      // 3. Ranker, try 1
+      arrows[1].classList.add('on'); await hop(2); if (!alive()) return;
+      light(2); chips[2].classList.add('show');
+      say('Try 1. The Ranker puts the short list in order for Jon and writes down why. It hands the ranking to the Reviewer.');
+      await wait(3400); if (!alive()) return;
+
+      // 4. Reviewer says no
+      arrows[2].classList.add('on'); await hop(3); if (!alive()) return;
+      light(3); chips[3].classList.add('show');
+      rvText.innerHTML = '<b>Try 1:</b> #3 is a theater workshop. Not for Jon. <b>Send back.</b>';
+      say('The Reviewer checks the list against what Jon asked for. One item does not fit, so it says not good enough.');
+      await wait(3600); if (!alive()) return;
+
+      // 5. The loop: the list goes back to the Ranker with a note
+      var s = stage.getBoundingClientRect();
+      var c3 = cards[2].getBoundingClientRect(), c4 = cards[3].getBoundingClientRect();
+      var x4 = c4.left - s.left + c4.width / 2, x3 = c3.left - s.left + c3.width / 2, yb = c4.bottom - s.top;
+      loopPath.setAttribute('d', 'M' + x4 + ' ' + yb + ' C' + x4 + ' ' + (yb + 78) + ' ' + x3 + ' ' + (yb + 78) + ' ' + x3 + ' ' + yb);
+      loopLabel.style.left = (x3 + x4) / 2 + 'px'; loopLabel.style.top = (yb + 52) + 'px';
+      loopPath.classList.add('on'); loopLabel.classList.add('show');
+      say('This is the loop. The list goes back to the Ranker with a note on what was wrong. Up to 3 tries in total.');
+      place({ x: x4, y: yb }); await wait(1000); if (!alive()) return;
+      await ride(1800); if (!alive()) return;
+      place(center(cards[2])); light(2);
+      tryBadge.textContent = 'Try 2 of 3';
+      chips[2].classList.remove('show'); await wait(300); chips[2].classList.add('show');
+      say('Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.');
+      await wait(3600); if (!alive()) return;
+
+      // 6. Reviewer approves
+      await hop(3); if (!alive()) return;
+      light(3); loopLabel.classList.remove('show'); loopPath.classList.remove('on');
+      rvText.innerHTML = '<b>Try 2:</b> every item fits Jon. <b>Approved.</b>';
+      rvChipLabel.textContent = 'Handed on';
+      rvChipCode.textContent = '{verdict: accept, results, tier, checked_at}';
+      say('The Reviewer approves. Nothing reaches Jon until this approval.');
+      await wait(3400); if (!alive()) return;
+
+      // 7. Jon sees the results
+      arrows[3].classList.add('on'); await hop(4); if (!alive()) return;
+      light(4);
+      say('Jon sees a ranked list. Every result shows its deadline, a source link and a “checked on” date, plus a count of expired listings removed.');
+      for (var i = 0; i < results.length; i++) { results[i].classList.add('show'); await wait(700); if (!alive()) return; }
+      await wait(5200); // rest on the final result, then play again
+    }
+  }
+
+  // "What makes these agents?" panel: open with the button, close with Close or Escape.
+  var agentPanel = document.getElementById('agentpanel');
+  function setPanel(open) {
+    agentPanel.classList.toggle('open', open);
+    document.getElementById('whatbtn').setAttribute('aria-expanded', open);
+  }
+  document.getElementById('whatbtn').addEventListener('click', function () { setPanel(true); });
+  document.getElementById('whatclose').addEventListener('click', function () { setPanel(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setPanel(false); });
+
+  // ---- Slide deck: one slide at a time, arrows, dots and keyboard ----
+  var slides = Array.prototype.slice.call(document.querySelectorAll('main > section'));
+  var slideNow = 0;
+
+  function goTo(i) {
+    if (i < 0 || i >= slides.length) return;
+    slideNow = i;
+    slides.forEach(function (s, n) {
+      s.classList.toggle('active', n === i);
+      s.classList.toggle('before', n < i);
+    });
+    // Hide the back arrow on the first slide and the forward arrow on the last.
+    document.getElementById('prevSlide').style.visibility = i === 0 ? 'hidden' : 'visible';
+    document.getElementById('nextSlide').style.visibility = i === slides.length - 1 ? 'hidden' : 'visible';
+    // Landing on the agent loop slide starts its animation from the beginning.
+    if (slides[i].id === 'loop') { playLoop(); } else { stopTimers(); }
+    // The first slide runs its own animation while it is showing.
+    if (slides[i].id === 'flow') { startFlow(); } else { stopFlow(); }
+    setPanel(false); // always close the agents panel when changing slides
+    try { history.replaceState(null, '', '#' + slides[i].id); } catch (e) {}
+  }
+
+  // Forward / back. On the agent loop slide the arrows walk through the journey
+  // steps first, and only then move to the next or previous slide.
+  function forward() {
+    if (slides[slideNow].id === 'loop' && current < frames.length - 1) { stopTimers(); showFrame(current + 1); }
+    else { goTo(slideNow + 1); }
+  }
+  function back() {
+    if (slides[slideNow].id === 'loop' && current > 0) { stopTimers(); showFrame(current - 1); }
+    else { goTo(slideNow - 1); }
+  }
+  document.getElementById('nextSlide').addEventListener('click', forward);
+  document.getElementById('prevSlide').addEventListener('click', back);
+  document.addEventListener('keydown', function (e) {
+    var tag = e.target.tagName;
+    if (tag === 'SELECT' || tag === 'INPUT' || tag === 'TEXTAREA') return; // let form fields keep their keys
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); forward(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); back(); }
+    else if (e.key === 'Home') { goTo(0); }
+    else if (e.key === 'End') { goTo(slides.length - 1); }
+  });
+  // Swipe left / right on touch screens.
+  var touchX = null;
+  document.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 60) { dx < 0 ? forward() : back(); }
+  });
+  // Top-nav links jump to the slide with that id (instead of scrolling).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var idx = slides.findIndex(function (s) { return s.id === id; });
+      if (id === 'top') idx = 0;
+      if (idx >= 0) { e.preventDefault(); goTo(idx); }
+    });
+  });
+  // Open on the slide named in the address, else the first one.
+  var startIdx = slides.findIndex(function (s) { return s.id === location.hash.slice(1); });
+  goTo(startIdx >= 0 ? startIdx : 0);
+
+  // ---- Before / after toggle ----
+  var ba = document.getElementById('ba');
+  var btnB = document.getElementById('btnBefore');
+  var btnA = document.getElementById('btnAfter');
+  var views = {
+    before: '<div class="big">Days</div><ul><li>Check six or more sites by hand</li><li>Guess which listings are still open</li><li>No filter for borough or type</li><li>Wonder if a program really fits</li></ul>',
+    after: '<div class="big">Minutes</div><ul><li>Pick a borough and a type</li><li>Get a ranked list, best fit first</li><li>See the source and check date on every result</li><li>Expired listings already removed, with a count</li></ul>'
+  };
+  function setView(which) {
+    ba.className = 'ba ' + which;
+    ba.innerHTML = views[which];
+    btnB.setAttribute('aria-pressed', which === 'before');
+    btnA.setAttribute('aria-pressed', which === 'after');
+  }
+  btnB.addEventListener('click', function () { setView('before'); });
+  btnA.addEventListener('click', function () { setView('after'); });
+  setView('before');
+</script>
+</body>
+</html>
