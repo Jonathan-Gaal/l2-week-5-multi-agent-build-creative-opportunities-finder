@@ -69,6 +69,8 @@
   .fcard .tiny { font-size: 13px; color: var(--muted-dk); }
   .loopbadge { display: inline-block; margin-top: 4px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; font-size: 10px; letter-spacing: .06em; }
   .loopbadge.off { background: transparent; border: 1px solid var(--muted-dk); color: var(--muted-dk); }
+  /* On Jon's cards the loop badge sits on its own line, underneath the title */
+  .fcard small .loopbadge { display: block; width: max-content; margin-top: 6px; }
   /* "What makes these agents?" button and pop-up panel */
   .whatbtn { background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; white-space: nowrap; flex: 0 0 auto; }
   .whatbtn:hover { background: var(--marigold); color: #000; }
@@ -126,6 +128,59 @@
   #intro .start { margin-top: 30px; font-size: 15px; color: var(--muted-dk); }
   @media (max-width: 860px) { #intro .wrap { grid-template-columns: 1fr; gap: 24px; text-align: center; } #intro .logobig { height: 34vh; margin: 0 auto; } #intro .lead { margin-left: auto; margin-right: auto; } #intro .pills { justify-content: center; } }
 
+  /* ---------- Agent loop slide: two rings, each agent observes, decides, acts, then goes round again ---------- */
+  .ringsvg { display: block; width: 100%; height: auto; margin-top: 4px; overflow: visible; }
+  .ringsvg text { font-family: var(--sans); }
+  .rtrack { fill: none; stroke: var(--plum); stroke-width: 3; transition: stroke .3s; }
+  .rtrack.on { stroke: var(--muted-dk); stroke-dasharray: 10 8; animation: dashflow 1s linear infinite; }
+  .rchev { fill: var(--plum); transition: fill .3s; }
+  .rchev.on { fill: var(--muted-dk); }
+  .rnode circle { fill: var(--ink-2); stroke: var(--muted-dk); stroke-width: 2; transition: fill .3s, stroke .3s; }
+  .rnode text { fill: var(--paper); font-size: 13px; font-weight: 700; text-anchor: middle; dominant-baseline: central; transition: fill .3s; }
+  .rnode.on text { fill: #000; }
+  .rnode.pink.on circle { fill: var(--coral); stroke: var(--coral); }
+  .rnode.lime.on circle { fill: var(--marigold); stroke: var(--marigold); }
+  .rnode.on { filter: drop-shadow(0 0 12px rgba(220,252,5,.55)); }
+  .rnode.pink.on { filter: drop-shadow(0 0 12px rgba(253,26,153,.7)); }
+  .rtitle { fill: var(--paper); font-size: 17px; font-weight: 700; letter-spacing: .12em; text-anchor: middle; }
+  .rsub { fill: var(--muted-dk); font-size: 12px; text-anchor: middle; }
+  .rtry { fill: var(--marigold); font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .rpath { fill: none; stroke: var(--plum); stroke-width: 3; stroke-dasharray: 8 8; transition: stroke .3s; }
+  .rpath.on { stroke: var(--marigold); animation: dashflow .8s linear infinite; }
+  .rpath.reject.on { stroke: var(--coral); }
+  .rpathlabel { fill: var(--coral); font-size: 14px; font-weight: 700; text-anchor: middle; opacity: .25; transition: opacity .3s; }
+  .rpathlabel.on { opacity: 1; }
+  .rend rect { fill: var(--ink-2); stroke: var(--muted-dk); stroke-width: 2; transition: fill .3s, stroke .3s; }
+  .rend text { fill: var(--paper); font-size: 15px; font-weight: 700; text-anchor: middle; transition: fill .3s; }
+  .rend.on rect { fill: var(--paper); stroke: var(--paper); }
+  .rend.on text { fill: #000; }
+  /* A glowing halo that travels the rings and sits around each stop, so the labels stay readable */
+  .rdot { fill: none; stroke: var(--marigold); stroke-width: 4; transition: opacity .4s; filter: drop-shadow(0 0 8px rgba(220,252,5,.9)); }
+
+  /* The Extractor row, the library box and the labels added to the agent loop picture */
+  .rnode.cream.on circle { fill: var(--paper); stroke: var(--paper); }
+  .rnode.cream.on { filter: drop-shadow(0 0 12px rgba(254,249,239,.5)); }
+  .rtitle.left, .rsub.left { text-anchor: start; }
+  .rpath.conn.on { stroke: var(--muted-dk); animation: none; stroke-dasharray: none; }
+  .rend text.small { font-size: 12px; font-weight: 400; }
+  #loop .rnode text { font-size: 15px; }
+  #loop .rtitle { font-size: 19px; }
+  #loop .rsub { font-size: 14px; }
+  #loop .rtry { font-size: 14px; }
+  #loop .rend text { font-size: 16px; }
+  #loop .rpathlabel { font-size: 15px; }
+  #loop h2 { font-size: clamp(28px, 3.4vw, 42px); }
+  /* Caption on the left, buttons on the right, to save height */
+  #journey { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: 8px; }
+  #journey .ringsvg { flex: 0 0 100%; }
+  #journey .caption { flex: 1 1 420px; margin-top: 0; min-height: 0; padding: 14px 20px; }
+  #journey .caption .say { font-size: 19px; }
+  #journey .controls { flex: 0 0 auto; flex-wrap: wrap; }
+  #journey .replay { margin-top: 0; padding: 10px 18px; font-size: 15px; }
+
+  /* Small replay and step buttons on Jon's slide, so they take little room */
+  .fctl { display: flex; gap: 6px; flex: 0 0 auto; }
+  .fctl .replay { margin-top: 0; padding: 5px 14px; font-size: 13px; }
 /* Two round arrow buttons pinned to the bottom corners of the screen (no bar) */
   .arrowbtn { position: fixed; bottom: 20px; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--paper); background: var(--ink); color: var(--paper); font-size: 24px; line-height: 1; z-index: 20; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
   .arrowbtn:hover { background: var(--coral); border-color: var(--coral); color: #000; }
@@ -352,7 +407,7 @@
 <section id="how" class="dark">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
-    <h2>Two models, everything else plain code</h2>
+    <h2>Three Agents, everything else plain code</h2>
     <p class="lead">A one-time backfill builds a snapshot of NYC opportunities. Every request then runs against that snapshot, so results are repeatable.</p>
 
     <div class="lane">
@@ -361,7 +416,7 @@
         <div class="step"><small>SOURCES</small><b>NYC Parks, DCLA, seed sites</b></div><span class="arrow">&rarr;</span>
         <div class="step"><small>CODE</small><b>Backfill script</b></div><span class="arrow">&rarr;</span>
         <div class="step llm"><small>LLM</small><b>Extractor</b></div><span class="arrow">&rarr;</span>
-        <div class="step store"><small>STORE</small><b>Snapshot</b><span style="display:block;margin-top:8px;font-size:12px;font-weight:400;opacity:.85">Single writer &middot; dedupe_key &middot; staged publish</span></div>
+        <div class="step store"><small>STORE</small><b>Snapshot</b><span style="display:block;margin-top:8px;font-size:12px;font-weight:400;opacity:.85">Single writer &middot; No duplicates &middot; Checked and ready to search</span></div>
       </div>
     </div>
     <div class="lane">
@@ -386,22 +441,6 @@
     <p class="eyebrow">One search, start to finish</p>
     <h2>Jon is a visual artist and a musician in Brooklyn</h2>
 
-    <!-- Pop-up panel: each part checked against observe, decide, act, loop -->
-    <div class="agentpanel" id="agentpanel" role="dialog" aria-label="What makes these agents">
-      <button class="whatbtn close" id="whatclose" type="button">Close</button>
-      <p class="eyebrow">What makes these agents?</p>
-      <h3 style="color:var(--paper)">An agent loops: it looks, decides, acts, then goes round again with what it learned.</h3>
-      <table class="atable">
-        <tr><th>Part</th><th>Looks at</th><th>Decides</th><th>Does</th><th>Loops?</th></tr>
-        <tr><td><b>Extractor</b><br><small>before Jon arrives</small></td><td>One raw listing</td><td>The deadline, fee, eligibility, discipline</td><td>Saves those fields with source quotes</td><td class="no">No. One pass per listing.</td></tr>
-        <tr><td><b>Filter</b><br><small>plain code</small></td><td>Jon's form and the snapshot</td><td>Fixed rules</td><td>Cuts the list</td><td class="no">Not an agent.</td></tr>
-        <tr><td><b>Ranker</b></td><td>The short list, and the Reviewer's note on a retry</td><td>The order, and why</td><td>Hands over a ranking</td><td class="yes">Yes, when sent back.</td></tr>
-        <tr><td><b>Reviewer</b></td><td>The ranking and what Jon asked for</td><td>Does it fit?</td><td>Accepts, or rejects with a note</td><td class="yes">Yes. It sends it round again.</td></tr>
-        <tr><td><b>Checks, Output</b><br><small>plain code</small></td><td>Each result</td><td>Source and date present? Which label?</td><td>Pass or fail, then label</td><td class="no">Not agents.</td></tr>
-      </table>
-      <p class="apoint"><b>The one real loop:</b> Ranker proposes, Reviewer judges, the note goes back, up to 3 tries. Everything else is a single pass or plain code. In other words, a generator and a critic working in a review loop.</p>
-    </div>
-
     <!-- The stage: five cards, a glowing dot that travels between them, and a curved loop-back line -->
     <div class="fstage" id="fstage">
       <div class="fgrid">
@@ -414,21 +453,21 @@
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard">
-          <small>2 &middot; FILTER &middot; PLAIN CODE <span class="loopbadge off">NO LOOP</span></small>
+          <small>2 &middot; THE FILTER <span class="loopbadge off">NO LOOP</span></small>
           <p>Keeps Brooklyn listings tagged visual art or music.</p>
           <p>Drops anything expired and counts how many.</p>
           <div class="chip"><em>Handed on</em><code>the short list (e.g. 14 listings)</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard llm">
-          <small>3 &middot; RANKER &middot; AGENT <span class="trybadge" id="tryBadge">Try 1 of 3</span> <span class="loopbadge">&#8635; IN THE LOOP</span></small>
+          <small>3 &middot; THE RANKER <span class="trybadge" id="tryBadge">Try 1 of 3</span> <span class="loopbadge">&#8635; IN THE LOOP</span></small>
           <p>Puts the short list in order for Jon and writes why.</p>
           <p>Gallery application #1, open mic #2, and so on.</p>
           <div class="chip"><em>Handed on</em><code>A ranked list, with a reason for each spot</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard llm2">
-          <small>4 &middot; REVIEWER &middot; AGENT <span class="loopbadge">&#8635; IN THE LOOP</span></small>
+          <small>4 &middot; THE REVIEWER <span class="loopbadge">&#8635; IN THE LOOP</span></small>
           <p>Asks: does this list fit Jon?</p>
           <p id="rvText"><b>Waiting for the ranking&hellip;</b></p>
           <div class="chip"><em id="rvChipLabel">Rejected</em><code id="rvChipCode">Sent back to the Ranker with a short reason</code></div>
@@ -451,42 +490,51 @@
 
     <div class="fcaprow">
       <p class="fcap" id="fcap" aria-live="polite"></p>
-      <button class="whatbtn" id="whatbtn" type="button" aria-expanded="false">What makes these agents?</button>
+      <div class="fctl">
+        <button class="replay" id="freplay" type="button">Replay</button>
+        <button class="replay alt" id="fprev" type="button">Prev</button>
+        <button class="replay alt" id="fnext" type="button">Next</button>
+      </div>
     </div>
-    <p class="fdraft">Draft: asking for disciplines (visual artist, musician, actor&hellip;) is proposed and is not in the lean PRD yet. Nothing is saved about Jon after the search.</p>
   </div>
 </section>
 
 <!-- ================= THE AGENT LOOP (its own slide) ================= -->
 <section id="loop" class="dark">
-  <div class="wrap">
+  <div class="wrap" style="position:relative;max-width:1300px">
     <div>
       <p class="eyebrow">The agent loop</p>
       <h2>Follow one request through the agents</h2>
     </div>
 
-    <!-- Animated journey: lights up one station at a time, with a plain-English caption -->
+    <!-- Pop-up panel: each part checked against observe, decide, act, loop -->
+    <div class="agentpanel" id="agentpanel" role="dialog" aria-label="What makes these agents">
+      <button class="whatbtn close" id="whatclose" type="button">Close</button>
+      <p class="eyebrow">What makes these agents?</p>
+      <h3 style="color:var(--paper)">An agent loops: it looks, decides, acts, then goes round again with what it learned.</h3>
+      <table class="atable">
+        <tr><th>Part</th><th>Looks at</th><th>Decides</th><th>Does</th><th>Loops?</th></tr>
+        <tr><td><b>Extractor</b><br><small>before anyone searches</small></td><td>One raw listing</td><td>The deadline, fee and eligibility</td><td>Saves those fields with source quotes</td><td class="no">No. One pass per listing.</td></tr>
+        <tr><td><b>Filter</b><br><small>plain code</small></td><td>The artist's form and the snapshot</td><td>Fixed rules</td><td>Cuts the list</td><td class="no">Not an agent.</td></tr>
+        <tr><td><b>Ranker</b></td><td>The short list, and the Reviewer's note on a retry</td><td>The order, and why</td><td>Hands over a ranking</td><td class="yes">Yes, when sent back.</td></tr>
+        <tr><td><b>Reviewer</b></td><td>The ranking and what the artist asked for</td><td>Does it fit?</td><td>Accepts, or rejects with a note</td><td class="yes">Yes. It sends it round again.</td></tr>
+        <tr><td><b>Checks, Output</b><br><small>plain code</small></td><td>Each result</td><td>Source and date present? Which label?</td><td>Pass or fail, then label</td><td class="no">Not agents.</td></tr>
+      </table>
+      <p class="apoint"><b>The one real loop:</b> Ranker proposes, Reviewer judges, the note goes back, up to 3 tries. Everything else is a single pass or plain code. In other words, a generator and a critic working in a review loop.</p>
+    </div>
+
+
+    <!-- Animated agent loop: each agent is a ring (Observe, Decide, Act) and a dot circles it -->
     <div class="journey" id="journey">
-      <div class="stations">
-        <div class="st" data-st="0"><small>IN</small><b>The artist</b><span>Picks a borough and a type</span></div>
-        <div class="hand" data-h="0"><i>&rarr;</i><em>their two choices</em></div>
-        <div class="st code" data-st="1"><small>PLAIN CODE</small><b>Filter</b><span>Keeps matches, drops expired</span></div>
-        <div class="hand" data-h="1"><i>&rarr;</i><em>the short list</em></div>
-        <div class="st llm" data-st="2"><small>AGENT</small><b>Ranker</b><span>Puts the list in order</span></div>
-        <div class="hand" data-h="2"><i>&rarr;</i><em>ranked list + reasons</em></div>
-        <div class="st llm2" data-st="3"><small>AGENT</small><b>Reviewer</b><span>Approves or sends back</span></div>
-        <div class="hand" data-h="3"><i>&rarr;</i><em>approved results</em></div>
-        <div class="st" data-st="4"><small>OUT</small><b>The artist</b><span>Sees the labeled list</span></div>
-      </div>
-      <div class="retry" id="retry"><i>&#8630;</i> Not good enough: the Reviewer sends it back to the Ranker with a note. <b id="tries">Try 1 of 3</b></div>
+      <svg class="ringsvg" id="ringsvg" viewBox="0 0 1330 485" role="img" aria-label="The Extractor observes, decides and acts once and saves listings to a library. The Ranker and Reviewer each observe, decide and act, then go round again. The Reviewer can send the list back to the Ranker."></svg>
       <div class="caption" aria-live="polite">
         <p class="say" id="say"></p>
-        <p class="tech"><span>Technical handoff</span><code id="tech"></code></p>
       </div>
       <div class="controls">
         <button class="replay" id="replay" type="button">Replay</button>
         <button class="replay alt" id="prev" type="button">Prev step</button>
         <button class="replay alt" id="next" type="button">Next step</button>
+        <button class="replay alt" id="whatbtn" type="button" aria-expanded="false">What makes these agents?</button>
       </div>
     </div>
 
@@ -557,53 +605,215 @@
 <button class="arrowbtn" id="nextSlide" type="button" aria-label="Next slide">&rarr;</button>
 
 <script>
-  // ---- Agent loop replay: lights up each step in order ----
-  // Each frame = one moment in a single request: which station is lit, which handoff
-  // arrow is lit, whether the "send it back" bar is lit, the plain-English caption,
-  // and the technical handoff underneath it.
-  var frames = [
-    { st: 0, h: 0, retry: false, tries: 1, say: 'The artist picks a borough and a type, say Brooklyn and Residency, and presses search.', tech: 'Request to Filter: {borough, opportunity_type}' },
-    { st: 1, h: 1, retry: false, tries: 1, say: 'The filter is plain code, no AI. It keeps only Brooklyn residencies and throws out anything already expired. The short list moves on.', tech: 'The filtered records (the short list)' },
-    { st: 2, h: 2, retry: false, tries: 1, say: 'Try 1. The Ranker puts the short list in order, best fit first, and writes down why. Plain code checks every item has a source and a check date. Then the ranking goes to the Reviewer.', tech: 'Ranker to Reviewer: {request_id, attempt: 1, ranked_ids, scores, rationale}' },
-    { st: 3, h: -1, retry: true, tries: 1, say: 'The Reviewer says not good enough and sends the list back to the Ranker with a note on what was wrong. This is the loop.', tech: 'Reviewer back to Ranker: {verdict: reject, critique, failed_checks}' },
-    { st: 2, h: -1, retry: true, tries: 2, say: 'Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.', tech: 'Ranker receives: candidate records, previous ranking, critique' },
-    { st: 3, h: 3, retry: false, tries: 2, say: 'The Reviewer checks again and this time approves. Nothing is shown to the artist until this approval.', tech: 'Reviewer to Output: {verdict: accept, results, tier, checked_at}' },
-    { st: 4, h: -1, retry: false, tries: 2, say: 'The artist sees a ranked list. Each result has its deadline, fee, source link and a "checked on" date, plus a count of expired listings removed. If all 3 tries had failed, they would get the best attempt labeled "not fully checked".', tech: 'Every result carries: source_url, checked_at, tier' }
+  // ---- Agent loop slide: the Extractor (one pass) and two rings (Ranker, Reviewer) ----
+  // The Ranker and Reviewer each go round the same three stops: Observe, Decide, Act, then
+  // round again. The Extractor goes through the same three stops once, in a straight line
+  // with no way back, and saves what it finds into the library. A glowing halo travels the
+  // whole picture. When the Reviewer sends the list back, it rides the curved line to the Ranker.
+  var RING = [
+    { name: 'RANKER', sub: 'puts the list in order', cx: 525, cy: 285, cls: 'pink' },
+    { name: 'REVIEWER', sub: 'approves or sends back', cx: 925, cy: 285, cls: 'lime' }
   ];
-  var stationEls = document.querySelectorAll('#journey .st');
-  var handEls = document.querySelectorAll('#journey .hand');
-  var retryEl = document.getElementById('retry');
+  var R = 110, NODE_R = 33;
+  var STOP_NAMES = ['Observe', 'Decide', 'Act'];
+  var STOP_ANGLE = [270, 390, 510]; // degrees clockwise from the top: left, upper right, lower right
+  var EX = { y: 85, xs: [60, 175, 290] };           // the Extractor's three stops, in a row
+  var LIB = { x: 415, y: 85, w: 110, h: 60 };       // the library box, right above the Ranker's first stop
+  var REQ = { x: 27, y: 168, w: 250, h: 64 };       // what the artist asked for, under the Extractor row
+  var END = { x: 1110, y: 235, w: 180, h: 100 };    // where the approved list ends up
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function svgEl(name, attrs, parent, text) {
+    var e = document.createElementNS(SVGNS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  // A point on a ring, given the angle in degrees clockwise from the top.
+  function ringPoint(r, deg) {
+    var a = deg * Math.PI / 180;
+    return { x: RING[r].cx + R * Math.sin(a), y: RING[r].cy - R * Math.cos(a) };
+  }
+
+  var ringSvg = document.getElementById('ringsvg');
+  var tracks = [], chevs = [], nodes = [], xnodes = [], xconns = [], tryText;
+  var paths = {};
+  var libBox, reqBox, endBox, dot;
+  (function buildRings() {
+    var a2 = ringPoint(0, STOP_ANGLE[2]), o2 = ringPoint(1, STOP_ANGLE[0]);
+    var r2 = ringPoint(1, STOP_ANGLE[2]), o1 = ringPoint(0, STOP_ANGLE[0]);
+    // Lines between the pieces are drawn first, so the nodes and boxes sit on top of them.
+    paths.h1 = svgEl('path', { 'class': 'rpath', d: 'M' + a2.x + ' ' + a2.y + ' C' + (a2.x + 115) + ' ' + a2.y + ' ' + (o2.x - 115) + ' ' + o2.y + ' ' + o2.x + ' ' + o2.y }, ringSvg);
+    paths.approve = svgEl('path', { 'class': 'rpath', d: 'M' + r2.x + ' ' + r2.y + ' C' + (r2.x + 70) + ' ' + r2.y + ' ' + (END.x - 60) + ' 285 ' + END.x + ' 285' }, ringSvg);
+    paths.reject = svgEl('path', { 'class': 'rpath reject', d: 'M' + r2.x + ' ' + r2.y + ' C' + r2.x + ' 465 ' + o1.x + ' 465 ' + o1.x + ' ' + o1.y }, ringSvg);
+    paths.rejectLabel = svgEl('text', { 'class': 'rpathlabel', x: (o1.x + r2.x) / 2, y: 462 }, ringSvg, '↺ Not good enough: sent back with a note');
+    paths.toLib = svgEl('path', { 'class': 'rpath', d: 'M' + EX.xs[2] + ' ' + EX.y + ' L' + LIB.x + ' ' + LIB.y }, ringSvg);
+    paths.lib = svgEl('path', { 'class': 'rpath', d: 'M' + LIB.x + ' ' + LIB.y + ' L' + o1.x + ' ' + o1.y }, ringSvg);
+    paths.req = svgEl('path', { 'class': 'rpath', d: 'M' + (REQ.x + REQ.w) + ' ' + (REQ.y + REQ.h / 2) + ' C' + (REQ.x + REQ.w + 80) + ' ' + (REQ.y + REQ.h / 2) + ' ' + (o1.x - 90) + ' ' + o1.y + ' ' + o1.x + ' ' + o1.y }, ringSvg);
+
+    // The Extractor: three stops in a straight line, with no arrow back.
+    var xg = svgEl('g', {}, ringSvg);
+    svgEl('text', { 'class': 'rtitle left', x: 30, y: 24 }, xg, 'THE EXTRACTOR');
+    svgEl('text', { 'class': 'rsub left', x: 30, y: 42 }, xg, 'once, before anyone searches · one pass, no loop');
+    for (var i = 0; i < 2; i++) {
+      var x1 = EX.xs[i] + NODE_R, x2 = EX.xs[i + 1] - NODE_R;
+      xconns.push(svgEl('path', { 'class': 'rpath conn', d: 'M' + x1 + ' ' + EX.y + ' L' + x2 + ' ' + EX.y }, xg));
+      xconns.push(svgEl('path', { 'class': 'rchev', d: 'M-7,-6 L7,0 L-7,6 z', transform: 'translate(' + (x2 - 4) + ',' + EX.y + ')' }, xg));
+    }
+    EX.xs.forEach(function (x, n) {
+      var ng = svgEl('g', { 'class': 'rnode cream' }, xg);
+      svgEl('circle', { cx: x, cy: EX.y, r: NODE_R }, ng);
+      svgEl('text', { x: x, y: EX.y }, ng, STOP_NAMES[n]);
+      xnodes.push(ng);
+    });
+
+    // The library the Extractor fills and the Ranker reads.
+    libBox = svgEl('g', { 'class': 'rend' }, ringSvg);
+    svgEl('rect', { x: LIB.x - LIB.w / 2, y: LIB.y - LIB.h / 2, width: LIB.w, height: LIB.h, rx: 14 }, libBox);
+    svgEl('text', { x: LIB.x, y: LIB.y - 8 }, libBox, 'Library');
+    svgEl('text', { x: LIB.x, y: LIB.y + 12, 'class': 'small' }, libBox, 'of listings');
+
+    // What the artist asked for: the Ranker observes this too, next to the short list.
+    reqBox = svgEl('g', { 'class': 'rend' }, ringSvg);
+    svgEl('rect', { x: REQ.x, y: REQ.y, width: REQ.w, height: REQ.h, rx: 14 }, reqBox);
+    svgEl('text', { x: REQ.x + REQ.w / 2, y: REQ.y + 25 }, reqBox, 'What the artist asked for');
+    svgEl('text', { x: REQ.x + REQ.w / 2, y: REQ.y + 46, 'class': 'small' }, reqBox, 'borough and opportunity type');
+
+    // The Ranker and Reviewer rings.
+    RING.forEach(function (rg, r) {
+      var g = svgEl('g', {}, ringSvg);
+      tracks[r] = svgEl('circle', { 'class': 'rtrack', cx: rg.cx, cy: rg.cy, r: R }, g);
+      // Small arrowheads show the direction round the ring.
+      chevs[r] = [330, 90, 210].map(function (deg) {
+        var p = ringPoint(r, deg);
+        return svgEl('path', { 'class': 'rchev', d: 'M-7,-6 L7,0 L-7,6 z', transform: 'translate(' + p.x + ',' + p.y + ') rotate(' + deg + ')' }, g);
+      });
+      svgEl('text', { 'class': 'rtitle', x: rg.cx + 12, y: rg.cy - 4 }, g, rg.name);
+      svgEl('text', { 'class': 'rsub', x: rg.cx + 12, y: rg.cy + 16 }, g, rg.sub);
+      if (r === 0) tryText = svgEl('text', { 'class': 'rtry', x: rg.cx + 12, y: rg.cy + 38 }, g, 'Try 1 of 3');
+      nodes[r] = STOP_ANGLE.map(function (deg, n) {
+        var p = ringPoint(r, deg);
+        var ng = svgEl('g', { 'class': 'rnode ' + rg.cls }, g);
+        svgEl('circle', { cx: p.x, cy: p.y, r: NODE_R }, ng);
+        svgEl('text', { x: p.x, y: p.y }, ng, STOP_NAMES[n]);
+        return ng;
+      });
+    });
+
+    // Where the approved list ends up.
+    endBox = svgEl('g', { 'class': 'rend' }, ringSvg);
+    svgEl('rect', { x: END.x, y: END.y, width: END.w, height: END.h, rx: 18 }, endBox);
+    svgEl('text', { x: END.x + END.w / 2, y: 273 }, endBox, 'The artist sees');
+    svgEl('text', { x: END.x + END.w / 2, y: 297 }, endBox, 'the ranked list');
+    dot = svgEl('circle', { 'class': 'rdot', r: NODE_R + 9, cx: 0, cy: 0 }, ringSvg);
+  })();
+
+  // The story, one stop at a time. r: 0 Ranker, 1 Reviewer, 2 Extractor, 3 Library, -1 the artist.
+  // "how" says how the halo gets here from the last stop.
+  var frames = [
+    { r: 2, n: 0, how: 'jump', tries: 1, say: 'Before anyone searches, the Extractor observes: it reads one messy listing from a website.' },
+    { r: 2, n: 1, how: 'line', tries: 1, say: 'It decides what the facts are: the deadline, the fee and who can apply.' },
+    { r: 2, n: 2, how: 'line', tries: 1, say: 'It acts: it saves those facts, once. It does not go round again. One pass per listing.' },
+    { r: 3, n: 0, how: 'toLib', tries: 1, say: 'The library now holds every collected listing, each with its source and the date we collected it.' },
+    { r: 0, n: 0, how: 'lib', tries: 1, say: 'Now an artist searches. The Ranker observes: it reads the short list drawn from the library, and what the artist asked for.' },
+    { r: 0, n: 1, how: 'arc', tries: 1, say: 'It decides: what is the best order for this artist, and why does each one fit?' },
+    { r: 0, n: 2, how: 'arc', tries: 1, say: 'It acts: it writes out its ranked list, with a reason for every spot.' },
+    { r: 1, n: 0, how: 'h1', tries: 1, say: 'The Reviewer observes: it reads that ranked list next to what the artist asked for.' },
+    { r: 1, n: 1, how: 'arc', tries: 1, say: 'It decides: does this list really fit? Here, one item does not.' },
+    { r: 1, n: 2, how: 'arc', tries: 1, say: 'It acts: it sends the list back to the Ranker with a note on what was wrong.' },
+    { r: 0, n: 0, how: 'reject', tries: 2, say: 'That is the loop. The Ranker observes again, now with the Reviewer’s note. Try 2 of 3.' },
+    { r: 0, n: 1, how: 'arc', tries: 2, say: 'It decides a new order, using the note.' },
+    { r: 0, n: 2, how: 'arc', tries: 2, say: 'It acts: it writes the new ranked list.' },
+    { r: 1, n: 0, how: 'h1', tries: 2, say: 'The Reviewer observes the new list.' },
+    { r: 1, n: 1, how: 'arc', tries: 2, say: 'It decides: this time every item fits.' },
+    { r: 1, n: 2, how: 'arc', tries: 2, say: 'It acts: it approves the list.' },
+    { r: -1, n: 0, how: 'approve', tries: 2, say: 'The artist sees the ranked list. After 3 tries without an approval, they would get the best attempt marked “not fully checked”.' }
+  ];
   var current = -1;
   var timers = [];
-  function stopTimers() { timers.forEach(clearTimeout); timers = []; }
-  function showFrame(i) {
-    var f = frames[i];
-    current = i;
-    stationEls.forEach(function (el, n) { el.classList.toggle('on', n === f.st); });
-    handEls.forEach(function (el, n) { el.classList.toggle('on', n === f.h); });
-    retryEl.classList.toggle('on', f.retry);
-    document.getElementById('tries').textContent = 'Try ' + f.tries + ' of 3';
-    document.getElementById('say').textContent = f.say;
-    document.getElementById('tech').textContent = f.tech;
+  var moveId = 0; // goes up with every move, so an old animation stops when a new one starts
+  function stopTimers() { timers.forEach(clearTimeout); timers = []; moveId++; }
+  function dotAt(p) { dot.setAttribute('cx', p.x); dot.setAttribute('cy', p.y); }
+  function framePoint(f) {
+    if (f.r === 3) return { x: LIB.x, y: LIB.y };
+    if (f.r === 2) return { x: EX.xs[f.n], y: EX.y };
+    if (f.r < 0) return { x: END.x, y: 285 };
+    return ringPoint(f.r, STOP_ANGLE[f.n]);
   }
-  // Replay: step through every frame automatically, a few seconds each.
+  // Run a movement frame by frame: fn gets a number from 0 to 1.
+  function tween(ms, fn) {
+    var id = ++moveId, t0 = null;
+    function step(t) {
+      if (id !== moveId) return;
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / ms, 1);
+      var e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2; // ease in and out
+      fn(e);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function showFrame(i, animate) {
+    var f = frames[i], prev = frames[current];
+    current = i;
+    // Light the current stop, the ring or row it belongs to, and any line the halo is riding.
+    nodes.forEach(function (ring, r) {
+      ring.forEach(function (ng, n) { ng.classList.toggle('on', r === f.r && n === f.n); });
+      tracks[r].classList.toggle('on', r === f.r);
+      chevs[r].forEach(function (c) { c.classList.toggle('on', r === f.r); });
+    });
+    xnodes.forEach(function (ng, n) { ng.classList.toggle('on', f.r === 2 && n === f.n); });
+    xconns.forEach(function (c) { c.classList.toggle('on', f.r === 2); });
+    libBox.classList.toggle('on', f.r === 3);
+    reqBox.classList.toggle('on', f.r === 0 && f.n === 0);
+    endBox.classList.toggle('on', f.r < 0);
+    paths.h1.classList.toggle('on', f.how === 'h1');
+    paths.approve.classList.toggle('on', f.how === 'approve');
+    paths.toLib.classList.toggle('on', f.how === 'toLib');
+    paths.lib.classList.toggle('on', f.how === 'lib');
+    paths.req.classList.toggle('on', f.r === 0 && f.n === 0);
+    paths.reject.classList.toggle('on', f.how === 'reject' || (f.how === 'arc' && f.r === 1 && f.n === 2 && f.tries === 1));
+    paths.rejectLabel.classList.toggle('on', paths.reject.classList.contains('on'));
+    tryText.textContent = 'Try ' + f.tries + ' of 3';
+    document.getElementById('say').textContent = f.say;
+    // Move the halo. It fades out at the boxes, which light up instead.
+    dot.style.opacity = 1;
+    if (f.r < 0 || f.r === 3) timers.push(setTimeout(function () { dot.style.opacity = 0; }, 1500));
+    var to = framePoint(f);
+    if (!animate || !prev || f.how === 'jump') { moveId++; dotAt(to); return; }
+    var from = framePoint(prev);
+    if (f.how === 'arc') {
+      var a0 = STOP_ANGLE[prev.n], a1 = STOP_ANGLE[f.n];
+      if (a1 < a0) a1 += 360;
+      tween(1100, function (e) { dotAt(ringPoint(f.r, a0 + (a1 - a0) * e)); });
+    } else if (f.how === 'line' || f.how === 'toLib' || f.how === 'lib') {
+      tween(1000, function (e) { dotAt({ x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e }); });
+    } else {
+      var path = paths[f.how], len = path.getTotalLength();
+      tween(1400, function (e) { dotAt(path.getPointAtLength(len * e)); });
+    }
+  }
+  // Replay: go through every stop automatically, then start again.
   function playLoop() {
     stopTimers();
-    frames.forEach(function (f, i) {
-      timers.push(setTimeout(function () { showFrame(i); }, i * 3800));
-    });
+    function go(i) {
+      showFrame(i, i !== 0);
+      var wait = (i === frames.length - 1) ? 6000 : 3400;
+      timers.push(setTimeout(function () { go((i + 1) % frames.length); }, wait));
+    }
+    go(0);
   }
-  // Next / Prev step: for presenting. Stops the autoplay and moves one frame at a time.
+  // Next / Prev step: for presenting. Stops the autoplay and moves one stop at a time.
   document.getElementById('next').addEventListener('click', function () {
     stopTimers();
-    showFrame((current + 1) % frames.length);
+    showFrame((current + 1) % frames.length, true);
   });
   document.getElementById('prev').addEventListener('click', function () {
     stopTimers();
-    showFrame((current - 1 + frames.length) % frames.length);
+    showFrame((current - 1 + frames.length) % frames.length, false);
   });
   document.getElementById('replay').addEventListener('click', playLoop);
-  showFrame(0);
+  showFrame(0, false);
 
   // ---- Concurrency guardrails: animated journey for one listing through the three guardrails ----
   var gFrames = [
@@ -645,136 +855,155 @@
   document.getElementById('greplay').addEventListener('click', gPlayLoop);
   gShowFrame(0);
 
-  // ---- First slide: Jon's search, animated ----
+  // ---- Jon's search, animated one stop at a time ----
   // A glowing dot carries the request from card to card. When the Reviewer rejects,
   // the dot rides a curved line back to the Ranker. Then it goes on to the results.
-  var flowRun = 0; // goes up each time the flow starts or stops, so an old run quietly ends
-  function stopFlow() { flowRun++; }
-  async function startFlow() {
-    var run = ++flowRun;
-    var stage = document.getElementById('fstage');
-    var cards = stage.querySelectorAll('.fcard');
-    var arrows = stage.querySelectorAll('.farrow');
-    var chips = stage.querySelectorAll('.chip');
-    var results = stage.querySelectorAll('.res');
-    var token = document.getElementById('token');
-    var loopPath = document.getElementById('floopPath');
-    var loopLabel = document.getElementById('looplabel');
-    var tryBadge = document.getElementById('tryBadge');
-    var rvText = document.getElementById('rvText');
-    var rvChipLabel = document.getElementById('rvChipLabel');
-    var rvChipCode = document.getElementById('rvChipCode');
-    var cap = document.getElementById('fcap');
+  // Each stop sets the whole picture, so Replay, Prev step and Next step all work.
+  var fStage = document.getElementById('fstage');
+  var fCards = fStage.querySelectorAll('.fcard');
+  var fArrows = fStage.querySelectorAll('.farrow');
+  var fChips = fStage.querySelectorAll('.chip');
+  var fResults = fStage.querySelectorAll('.res');
+  var fToken = document.getElementById('token');
+  var fLoopPath = document.getElementById('floopPath');
+  var fLoopLabel = document.getElementById('looplabel');
+  var fTryBadge = document.getElementById('tryBadge');
+  var fRvText = document.getElementById('rvText');
+  var fRvChipLabel = document.getElementById('rvChipLabel');
+  var fRvChipCode = document.getElementById('rvChipCode');
+  var fCap = document.getElementById('fcap');
 
-    function alive() { return run === flowRun; }
-    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-    function say(t) { cap.textContent = t; }
-    // Below the middle of a card, measured from the top-left of the stage.
-    // Below, not on top of, the card so the dot never covers the text people are reading.
-    function center(card) {
-      var s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
-      return { x: c.left - s.left + c.width / 2, y: c.bottom - s.top + 18 };
+  var flowAuto = [];   // timers for the automatic play
+  var flowSeq = [];    // timers inside one stop (the loop ride, the results appearing)
+  var flowMoveId = 0;  // goes up whenever the flow stops, so an old animation ends quietly
+  var flowCurrent = -1;
+  function stopFlow() {
+    flowAuto.forEach(clearTimeout); flowAuto = [];
+    flowSeq.forEach(clearTimeout); flowSeq = [];
+    flowMoveId++;
+  }
+
+  // One stop = which card is lit, how far the arrows have lit, which handoff notes show,
+  // the Reviewer's wording, the try number, the sorting-loop line, and the caption.
+  var flowFrames = [
+    { card: 0, seen: 0, arrows: 0, chips: [0], tries: 1, rv: 'wait', loop: false, results: false, tok: 0, wait: 3600,
+      say: 'Jon ticks visual artist and musician, picks Brooklyn and open calls or residencies, and presses search. Those answers travel on as one package.' },
+    { card: 1, seen: 1, arrows: 1, chips: [0, 1], tries: 1, rv: 'wait', loop: false, results: false, tok: 1, wait: 3400,
+      say: 'The filter is a simple sorting step. It keeps Brooklyn listings for visual art or music, drops anything already expired, and passes on a short list.' },
+    { card: 2, seen: 2, arrows: 2, chips: [0, 1, 2], tries: 1, rv: 'wait', loop: false, results: false, tok: 2, wait: 3400,
+      say: 'Try 1. The Ranker puts the short list in order for Jon and writes down why. It hands the ranking to the Reviewer.' },
+    { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 1, rv: 'reject', loop: false, results: false, tok: 3, wait: 3600,
+      say: 'The Reviewer checks the list against what Jon asked for. One item does not fit, so it says not good enough.' },
+    { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 1, rv: 'reject', loop: true, results: false, tok: 2, wait: 4000, ride: true,
+      say: 'Not good enough, so the list goes back to the Ranker with a note on what was wrong. It can go around up to 3 times.' },
+    { card: 2, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 2, rv: 'reject', loop: true, results: false, tok: 2, wait: 3600, pulse: 2,
+      say: 'Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.' },
+    { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 2, rv: 'accept', loop: false, results: false, tok: 3, wait: 3400,
+      say: 'The Reviewer checks again and this time approves. Nothing reaches Jon until this approval.' },
+    { card: 4, seen: 4, arrows: 4, chips: [0, 1, 2, 3], tries: 2, rv: 'accept', loop: false, results: true, tok: 4, wait: 7000,
+      say: 'Jon sees a ranked list. Every result shows its deadline, a source link and a “checked on” date, plus a count of expired listings removed.' }
+  ];
+  // Just below a card, so the dot never covers the words people are reading.
+  function flowCenter(card) {
+    var s = fStage.getBoundingClientRect(), c = card.getBoundingClientRect();
+    return { x: c.left - s.left + c.width / 2, y: c.bottom - s.top + 18 };
+  }
+  function flowPlace(p) { fToken.style.left = p.x + 'px'; fToken.style.top = p.y + 'px'; }
+  // The curved line from the Reviewer back to the Ranker, measured from where the cards are now.
+  function flowLoopGeom() {
+    var s = fStage.getBoundingClientRect();
+    var c3 = fCards[2].getBoundingClientRect(), c4 = fCards[3].getBoundingClientRect();
+    var x4 = c4.left - s.left + c4.width / 2, x3 = c3.left - s.left + c3.width / 2, yb = c4.bottom - s.top;
+    fLoopPath.setAttribute('d', 'M' + x4 + ' ' + yb + ' C' + x4 + ' ' + (yb + 78) + ' ' + x3 + ' ' + (yb + 78) + ' ' + x3 + ' ' + yb);
+    fLoopLabel.style.left = (x3 + x4) / 2 + 'px';
+    fLoopLabel.style.top = (yb + 52) + 'px';
+    return { x4: x4, yb: yb };
+  }
+  // Ride the dot along the curved line, frame by frame.
+  function flowRide(ms, done) {
+    var id = flowMoveId, len = fLoopPath.getTotalLength(), t0 = null;
+    fToken.classList.add('nofx');
+    function frame(t) {
+      if (id !== flowMoveId) return;
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / ms, 1);
+      flowPlace(fLoopPath.getPointAtLength(len * k));
+      if (k < 1) requestAnimationFrame(frame); else { fToken.classList.remove('nofx'); done(); }
     }
-    function place(p) { token.style.left = p.x + 'px'; token.style.top = p.y + 'px'; }
-    // Light one card; earlier cards stay a little bright.
-    function light(n) {
-      cards.forEach(function (c, i) { c.classList.toggle('lit', i === n); if (i < n) c.classList.add('seen'); });
+    requestAnimationFrame(frame);
+  }
+  function showFlow(i, animate) {
+    var f = flowFrames[i], prev = flowFrames[flowCurrent];
+    flowSeq.forEach(clearTimeout); flowSeq = []; flowMoveId++;
+    flowCurrent = i;
+    var geom = flowLoopGeom();
+
+    // The whole picture for this stop.
+    fCards.forEach(function (c, n) {
+      c.classList.toggle('lit', n === f.card);
+      c.classList.toggle('seen', n < f.seen && n !== f.card);
+    });
+    fArrows.forEach(function (a, n) { a.classList.toggle('on', n < f.arrows); });
+    fChips.forEach(function (c, n) { c.classList.toggle('show', f.chips.indexOf(n) >= 0); });
+    fTryBadge.textContent = 'Try ' + f.tries + ' of 3';
+    if (f.rv === 'wait') fRvText.innerHTML = '<b>Waiting for the ranking…</b>';
+    if (f.rv === 'reject') fRvText.innerHTML = '<b>Try 1:</b> #3 is a theater workshop. Not for Jon. <b>Send back.</b>';
+    if (f.rv === 'accept') fRvText.innerHTML = '<b>Try 2:</b> every item fits Jon. <b>Approved.</b>';
+    fRvChipLabel.textContent = f.rv === 'accept' ? 'Accepted' : 'Rejected';
+    fRvChipCode.textContent = f.rv === 'accept' ? 'Results go to Jon, each marked as checked' : 'Sent back to the Ranker with a short reason';
+    fLoopPath.classList.toggle('on', f.loop);
+    fLoopLabel.classList.toggle('show', f.loop);
+    fCap.textContent = f.say;
+
+    // The results appear one by one when we arrive by playing forward, otherwise all at once.
+    if (!f.results) {
+      fResults.forEach(function (r) { r.classList.remove('show'); });
+    } else if (animate) {
+      fResults.forEach(function (r) { r.classList.remove('show'); });
+      fResults.forEach(function (r, n) { flowSeq.push(setTimeout(function () { r.classList.add('show'); }, 500 + n * 700)); });
+    } else {
+      fResults.forEach(function (r) { r.classList.add('show'); });
     }
-    // Slide the dot straight to a card.
-    async function hop(n) { place(center(cards[n])); await wait(1000); }
-    // Ride the dot along the curved line, frame by frame.
-    function ride(ms) {
-      return new Promise(function (resolve) {
-        var len = loopPath.getTotalLength(), t0 = null;
-        token.classList.add('nofx');
-        function frame(t) {
-          if (!alive()) { resolve(); return; }
-          if (t0 === null) t0 = t;
-          var k = Math.min((t - t0) / ms, 1);
-          var p = loopPath.getPointAtLength(len * k);
-          place(p);
-          if (k < 1) requestAnimationFrame(frame); else { token.classList.remove('nofx'); resolve(); }
-        }
-        requestAnimationFrame(frame);
-      });
-    }
-    function reset() {
-      cards.forEach(function (c) { c.classList.remove('lit', 'seen'); });
-      arrows.forEach(function (a) { a.classList.remove('on'); });
-      chips.forEach(function (c) { c.classList.remove('show'); });
-      results.forEach(function (r) { r.classList.remove('show'); });
-      loopPath.classList.remove('on');
-      loopLabel.classList.remove('show');
-      tryBadge.textContent = 'Try 1 of 3';
-      rvText.innerHTML = '<b>Waiting for the ranking…</b>';
-      rvChipLabel.textContent = 'Rejected';
-      rvChipCode.textContent = 'Sent back to the Ranker with a short reason';
-      token.classList.add('nofx'); token.style.opacity = 0;
-      place(center(cards[0]));
+    if (f.pulse !== undefined && animate) {
+      fChips[f.pulse].classList.remove('show');
+      flowSeq.push(setTimeout(function () { fChips[f.pulse].classList.add('show'); }, 300));
     }
 
-    while (alive()) {
-      reset();
-      await wait(100); token.classList.remove('nofx');
-      if (!alive()) return;
-
-      // 1. Jon fills in the form
-      token.style.opacity = 1; light(0); chips[0].classList.add('show');
-      say('Jon ticks visual artist and musician, picks Brooklyn and open calls or residencies, and presses search. Those answers travel on as one package.');
-      await wait(3600); if (!alive()) return;
-
-      // 2. Filter (plain code)
-      arrows[0].classList.add('on'); await hop(1); if (!alive()) return;
-      light(1); chips[1].classList.add('show');
-      say('The filter is plain code, no AI. It keeps Brooklyn listings for visual art or music and drops anything expired. It hands on a short list.');
-      await wait(3400); if (!alive()) return;
-
-      // 3. Ranker, try 1
-      arrows[1].classList.add('on'); await hop(2); if (!alive()) return;
-      light(2); chips[2].classList.add('show');
-      say('Try 1. The Ranker puts the short list in order for Jon and writes down why. It hands the ranking to the Reviewer.');
-      await wait(3400); if (!alive()) return;
-
-      // 4. Reviewer says no
-      arrows[2].classList.add('on'); await hop(3); if (!alive()) return;
-      light(3); chips[3].classList.add('show');
-      rvText.innerHTML = '<b>Try 1:</b> #3 is a theater workshop. Not for Jon. <b>Send back.</b>';
-      say('The Reviewer checks the list against what Jon asked for. One item does not fit, so it says not good enough.');
-      await wait(3600); if (!alive()) return;
-
-      // 5. The loop: the list goes back to the Ranker with a note
-      var s = stage.getBoundingClientRect();
-      var c3 = cards[2].getBoundingClientRect(), c4 = cards[3].getBoundingClientRect();
-      var x4 = c4.left - s.left + c4.width / 2, x3 = c3.left - s.left + c3.width / 2, yb = c4.bottom - s.top;
-      loopPath.setAttribute('d', 'M' + x4 + ' ' + yb + ' C' + x4 + ' ' + (yb + 78) + ' ' + x3 + ' ' + (yb + 78) + ' ' + x3 + ' ' + yb);
-      loopLabel.style.left = (x3 + x4) / 2 + 'px'; loopLabel.style.top = (yb + 52) + 'px';
-      loopPath.classList.add('on'); loopLabel.classList.add('show');
-      say('This is the loop. The list goes back to the Ranker with a note on what was wrong. Up to 3 tries in total.');
-      place({ x: x4, y: yb }); await wait(1000); if (!alive()) return;
-      await ride(1800); if (!alive()) return;
-      place(center(cards[2])); light(2);
-      tryBadge.textContent = 'Try 2 of 3';
-      chips[2].classList.remove('show'); await wait(300); chips[2].classList.add('show');
-      say('Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.');
-      await wait(3600); if (!alive()) return;
-
-      // 6. Reviewer approves
-      await hop(3); if (!alive()) return;
-      light(3); loopLabel.classList.remove('show'); loopPath.classList.remove('on');
-      rvText.innerHTML = '<b>Try 2:</b> every item fits Jon. <b>Approved.</b>';
-      rvChipLabel.textContent = 'Accepted';
-      rvChipCode.textContent = 'Results go to Jon, labeled with a tier';
-      say('The Reviewer approves. Nothing reaches Jon until this approval.');
-      await wait(3400); if (!alive()) return;
-
-      // 7. Jon sees the results
-      arrows[3].classList.add('on'); await hop(4); if (!alive()) return;
-      light(4);
-      say('Jon sees a ranked list. Every result shows its deadline, a source link and a “checked on” date, plus a count of expired listings removed.');
-      for (var i = 0; i < results.length; i++) { results[i].classList.add('show'); await wait(700); if (!alive()) return; }
-      await wait(5200); // rest on the final result, then play again
+    // The dot.
+    fToken.style.opacity = 1;
+    var to = flowCenter(fCards[f.tok]);
+    if (!animate || !prev || i === 0) {
+      fToken.classList.add('nofx'); flowPlace(to);
+      flowSeq.push(setTimeout(function () { fToken.classList.remove('nofx'); }, 60));
+    } else if (f.ride) {
+      // Down from the Reviewer, then along the curve back to the Ranker.
+      flowPlace(flowCenter(fCards[3]));
+      flowSeq.push(setTimeout(function () { flowPlace({ x: geom.x4, y: geom.yb }); }, 50));
+      flowSeq.push(setTimeout(function () { flowRide(1800, function () { flowPlace(to); }); }, 1100));
+    } else {
+      flowPlace(to);
     }
   }
+  // Replay: go through every stop automatically, then start again.
+  function playFlow() {
+    stopFlow();
+    function go(i) {
+      showFlow(i, i !== 0);
+      flowAuto.push(setTimeout(function () { go((i + 1) % flowFrames.length); }, flowFrames[i].wait));
+    }
+    go(0);
+  }
+  function startFlow() { playFlow(); }
+  // Next / Prev step: for presenting. Stops the automatic play and moves one stop at a time.
+  document.getElementById('fnext').addEventListener('click', function () {
+    stopFlow();
+    showFlow((flowCurrent + 1) % flowFrames.length, true);
+  });
+  document.getElementById('fprev').addEventListener('click', function () {
+    stopFlow();
+    showFlow((flowCurrent - 1 + flowFrames.length) % flowFrames.length, false);
+  });
+  document.getElementById('freplay').addEventListener('click', playFlow);
 
   // "What makes these agents?" panel: open with the button, close with Close or Escape.
   var agentPanel = document.getElementById('agentpanel');
