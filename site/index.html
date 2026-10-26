@@ -27,6 +27,13 @@
     --sans: 'DM Sans', Arial, sans-serif;
   }
   * { box-sizing: border-box; }
+  /* Scroll bars: thin, transparent track and a faint cream thumb so they sit in the background */
+  html { color-scheme: dark; }
+  * { scrollbar-width: thin; scrollbar-color: rgba(254,249,239,.18) transparent; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(254,249,239,.16); border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(254,249,239,.32); }
   body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
   h1, h2, h3 { font-family: var(--serif); line-height: 1.08; margin: 0; }
   h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 700; }
@@ -331,8 +338,8 @@
         <p class="need">Needs</p><p>Open calls and residencies that fit a medium and a budget.</p></div>
       <div class="card"><div class="icon c2">2</div><h3 class="dark-h">Multidisciplinary creator</h3>
         <p class="need">Needs</p><p>Venues and community programs, not only grants, with each opportunity type ranked on its own.</p></div>
-      <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Anyone judging trust</h3>
-        <p class="need">Needs</p><p>To know whether a listing is still current.</p></div>
+      <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Artist deciding what's worth applying to</h3>
+        <p class="need">Needs</p><p>To trust that a listing is real and still open, because every application costs time, and sometimes a fee.</p></div>
     </div>
   </div>
 </section>
