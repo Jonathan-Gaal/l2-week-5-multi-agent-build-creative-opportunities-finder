@@ -27,6 +27,13 @@
     --sans: 'DM Sans', Arial, sans-serif;
   }
   * { box-sizing: border-box; }
+  /* Scroll bars: thin, transparent track and a faint cream thumb so they sit in the background */
+  html { color-scheme: dark; }
+  * { scrollbar-width: thin; scrollbar-color: rgba(254,249,239,.18) transparent; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(254,249,239,.16); border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(254,249,239,.32); }
   body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
   h1, h2, h3 { font-family: var(--serif); line-height: 1.08; margin: 0; }
   h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 700; }
@@ -262,6 +269,17 @@
   /* Once a real image is in, drop the dashed outline and let it sit directly on the white card */
   .bapic.hasimg { border: 0; padding: 0; min-height: 0; background: transparent; aspect-ratio: 3 / 2; width: 100%; }
   .bapic img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  /* Before picture: a touch smaller than the frame, centered in its half of the card */
+  .ba.before .bapic.hasimg { width: 92%; justify-self: center; }
+  /* Both cards are the same height. In the After card the picture is sized to the card and sits flush on its bottom edge */
+  .ba { height: 340px; }
+  .ba.after { grid-template-columns: 1fr auto; padding: 24px 0 0 32px; overflow: hidden; align-items: stretch; }
+  .ba.after > div:first-child { align-self: center; padding-bottom: 24px; }
+  .ba.after .bapic { align-self: end; justify-self: end; height: 316px; width: auto; aspect-ratio: auto; position: relative; right: 50px; }
+  .ba.after .bapic img { height: 316px; width: auto; max-width: none; object-position: right bottom;
+    /* Hide the pink calendar in the top-right corner of the picture without editing the file: show everything except that corner */
+    clip-path: polygon(0 0, 89.2% 0, 89.2% 31%, 100% 31%, 100% 100%, 0 100%); }
+  @media (max-width: 760px) { .ba, .ba.after { height: auto; } .ba.after { grid-template-columns: 1fr; padding: 24px 0 0 24px; } .ba.after .bapic { height: auto; } .ba.after .bapic img { height: auto; } }
   @media (max-width: 760px) { .ba { grid-template-columns: 1fr; } }
   .ba.before { background: var(--card); color: var(--ink); border: 3px solid var(--muted-dk); }
   .ba.after { background: var(--card); border: 3px solid var(--coral); }
@@ -314,7 +332,7 @@
     <p class="lead">Open calls, residencies and grants for NYC artists are scattered across many sites, and none of them match a creator's medium or goals.</p>
     <div class="stickers" aria-label="Sources we plan to pull from">
       <span class="sticker">CaFE</span><span class="sticker">NYFA</span><span class="sticker">ArtConnect</span>
-      <span class="sticker">NYC Parks events</span><span class="sticker">DCLA</span><span class="sticker">Ticketmaster</span>
+      <span class="sticker">NYC Parks events</span><span class="sticker">DCLA</span><span class="sticker">TransArtists</span>
     </div>
 
     <p class="eyebrow" style="margin-top:40px">Who it's for</p>
@@ -324,8 +342,8 @@
         <p class="need">Needs</p><p>Open calls and residencies that fit a medium and a budget.</p></div>
       <div class="card"><div class="icon c2">2</div><h3 class="dark-h">Multidisciplinary creator</h3>
         <p class="need">Needs</p><p>Venues and community programs, not only grants, with each opportunity type ranked on its own.</p></div>
-      <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Anyone judging trust</h3>
-        <p class="need">Needs</p><p>To know whether a listing is still current.</p></div>
+      <div class="card"><div class="icon c3">3</div><h3 class="dark-h">Artist deciding what's worth applying to</h3>
+        <p class="need">Needs</p><p>To trust that a listing is real and still open, because every application costs time, and sometimes a fee.</p></div>
     </div>
   </div>
 </section>
@@ -839,7 +857,7 @@
   // The picture beside each card: the musician stuck on his phone, then playing a confirmed gig.
   var pics = {
     before: '<img src="assets/musician-before.png" alt="A musician slumped on a stool, scrolling his phone, his guitar leaning beside him">',
-    after: '<img src="assets/gig-notifications.png" alt="The same musician playing a gig to a cheering crowd, with a Gig confirmed notification from Artist Atlas">'
+    after: '<img src="assets/crowd-applauds-after.png" alt="The same musician playing a gig to a cheering crowd, with a Gig confirmed notification from Artist Atlas">'
   };
   function setView(which) {
     ba.className = 'ba ' + which;

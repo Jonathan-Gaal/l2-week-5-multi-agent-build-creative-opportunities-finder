@@ -2,3 +2,6 @@
 node_modules/
 .env
 .env.local
+
+# Local copy of the old slide deck source (kept on this computer only)
+slides/
