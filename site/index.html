@@ -269,12 +269,16 @@
   /* Once a real image is in, drop the dashed outline and let it sit directly on the white card */
   .bapic.hasimg { border: 0; padding: 0; min-height: 0; background: transparent; aspect-ratio: 3 / 2; width: 100%; }
   .bapic img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  /* Before picture: a touch smaller than the frame, centered in its half of the card */
+  .ba.before .bapic.hasimg { width: 92%; justify-self: center; }
   /* Both cards are the same height. In the After card the picture is sized to the card and sits flush on its bottom edge */
   .ba { height: 340px; }
   .ba.after { grid-template-columns: 1fr auto; padding: 24px 0 0 32px; overflow: hidden; align-items: stretch; }
   .ba.after > div:first-child { align-self: center; padding-bottom: 24px; }
   .ba.after .bapic { align-self: end; justify-self: end; height: 316px; width: auto; aspect-ratio: auto; position: relative; right: 50px; }
-  .ba.after .bapic img { height: 316px; width: auto; max-width: none; object-position: right bottom; }
+  .ba.after .bapic img { height: 316px; width: auto; max-width: none; object-position: right bottom;
+    /* Hide the pink calendar in the top-right corner of the picture without editing the file: show everything except that corner */
+    clip-path: polygon(0 0, 89.2% 0, 89.2% 31%, 100% 31%, 100% 100%, 0 100%); }
   @media (max-width: 760px) { .ba, .ba.after { height: auto; } .ba.after { grid-template-columns: 1fr; padding: 24px 0 0 24px; } .ba.after .bapic { height: auto; } .ba.after .bapic img { height: auto; } }
   @media (max-width: 760px) { .ba { grid-template-columns: 1fr; } }
   .ba.before { background: var(--card); color: var(--ink); border: 3px solid var(--muted-dk); }
