@@ -54,7 +54,7 @@
   section.active { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease; }
   section > .wrap { width: 100%; margin: auto; }
   section h2 { font-size: clamp(30px, 4.2vw, 52px); }
-  /* ---------- First slide: Jon's search as an animated flow (dark) ---------- */
+  /* ---------- First slide: Adrian's search as an animated flow (dark) ---------- */
   .fstage { position: relative; margin-top: 26px; padding-bottom: 92px; }
   .fgrid { display: flex; align-items: stretch; gap: 6px; }
   .fcard { flex: 1 1 0; background: var(--ink-2); border: 2px solid var(--plum); color: var(--paper); border-radius: 18px; padding: 16px; font-size: 15px; display: flex; flex-direction: column; gap: 8px; opacity: .4; transition: opacity .4s, transform .4s, box-shadow .4s, border-color .4s; }
@@ -69,7 +69,7 @@
   .fcard .tiny { font-size: 13px; color: var(--muted-dk); }
   .loopbadge { display: inline-block; margin-top: 4px; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; font-size: 10px; letter-spacing: .06em; }
   .loopbadge.off { background: transparent; border: 1px solid var(--muted-dk); color: var(--muted-dk); }
-  /* On Jon's cards the loop badge sits on its own line, underneath the title */
+  /* On Adrian's cards the loop badge sits on its own line, underneath the title */
   .fcard small .loopbadge { display: block; width: max-content; margin-top: 6px; }
   /* "What makes these agents?" button and pop-up panel */
   .whatbtn { background: transparent; color: var(--paper); border: 2px solid var(--marigold); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; z-index: 6; white-space: nowrap; flex: 0 0 auto; }
@@ -99,7 +99,7 @@
   .res span { display: block; font-size: 12px; color: var(--muted); }
   .res i { display: inline-block; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--ink); color: var(--marigold); border-radius: 999px; padding: 1px 8px; margin-top: 3px; }
   .fcard.out .tiny { color: var(--muted); }
-  /* The glowing dot that carries Jon's request from one step to the next */
+  /* The glowing dot that carries Adrian's request from one step to the next */
   .token { position: absolute; left: 0; top: 0; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 6px rgba(220,252,5,.3), 0 0 26px 6px rgba(220,252,5,.8); opacity: 0; z-index: 5; pointer-events: none; transition: left .9s ease-in-out, top .9s ease-in-out, opacity .3s; }
   .token.nofx { transition: opacity .3s; }
   /* The curved line that carries a rejected list back from Reviewer to Ranker */
@@ -178,7 +178,8 @@
   #journey .controls { flex: 0 0 auto; flex-wrap: wrap; }
   #journey .replay { margin-top: 0; padding: 10px 18px; font-size: 15px; }
 
-  /* Small replay and step buttons on Jon's slide, so they take little room */
+  /* Small replay and step buttons on Adrian's slide, so they take little room */
+  #flow h2 { font-size: clamp(26px, 3.5vw, 44px); }
   .fctl { display: flex; gap: 6px; flex: 0 0 auto; }
   .fctl .replay { margin-top: 0; padding: 5px 14px; font-size: 13px; }
 /* Two round arrow buttons pinned to the bottom corners of the screen (no bar) */
@@ -439,13 +440,13 @@
 <section id="flow" class="dark">
   <div class="wrap" style="max-width:1320px;position:relative">
     <p class="eyebrow">One search, start to finish</p>
-    <h2>Jon is a visual artist and a musician in Brooklyn</h2>
+    <h2>Adrian is a visual artist and a musician in Brooklyn</h2>
 
     <!-- The stage: five cards, a glowing dot that travels between them, and a curved loop-back line -->
     <div class="fstage" id="fstage">
       <div class="fgrid">
         <div class="fcard">
-          <small>1 &middot; JON FILLS A FORM</small>
+          <small>1 &middot; ADRIAN FILLS A FORM</small>
           <p><b>I'm a:</b> &#9745; Visual artist &#9745; Musician &#9744; Actor &#9744; Writer</p>
           <p><b>Where:</b> Brooklyn</p>
           <p><b>Looking for:</b> Open calls, residencies</p>
@@ -461,20 +462,20 @@
         <div class="farrow">&rarr;</div>
         <div class="fcard llm">
           <small>3 &middot; THE RANKER <span class="trybadge" id="tryBadge">Try 1 of 3</span> <span class="loopbadge">&#8635; IN THE LOOP</span></small>
-          <p>Puts the short list in order for Jon and writes why.</p>
+          <p>Puts the short list in order for Adrian and writes why.</p>
           <p>Gallery application #1, open mic #2, and so on.</p>
           <div class="chip"><em>Handed on</em><code>A ranked list, with a reason for each spot</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard llm2">
           <small>4 &middot; THE REVIEWER <span class="loopbadge">&#8635; IN THE LOOP</span></small>
-          <p>Asks: does this list fit Jon?</p>
+          <p>Asks: does this list fit Adrian?</p>
           <p id="rvText"><b>Waiting for the ranking&hellip;</b></p>
           <div class="chip"><em id="rvChipLabel">Rejected</em><code id="rvChipCode">Sent back to the Ranker with a short reason</code></div>
         </div>
         <div class="farrow">&rarr;</div>
         <div class="fcard out">
-          <small>5 &middot; JON SEES</small>
+          <small>5 &middot; ADRIAN SEES</small>
           <div class="res"><b>1. BRIC Biennial: Call for Brooklyn Artists</b><span>Deadline Nov 14 &middot; bricartsmedia.org &middot; Checked Oct 20</span><i>VERIFIED</i></div>
           <div class="res"><b>2. Pete's Candy Store Songwriter Residency</b><span>Deadline Dec 1 &middot; petescandystore.com &middot; Checked Oct 20</span><i>VERIFIED</i></div>
           <p class="tiny res">3 expired listings removed.</p>
@@ -855,7 +856,7 @@
   document.getElementById('greplay').addEventListener('click', gPlayLoop);
   gShowFrame(0);
 
-  // ---- Jon's search, animated one stop at a time ----
+  // ---- Adrian's search, animated one stop at a time ----
   // A glowing dot carries the request from card to card. When the Reviewer rejects,
   // the dot rides a curved line back to the Ranker. Then it goes on to the results.
   // Each stop sets the whole picture, so Replay, Prev step and Next step all work.
@@ -887,21 +888,21 @@
   // the Reviewer's wording, the try number, the sorting-loop line, and the caption.
   var flowFrames = [
     { card: 0, seen: 0, arrows: 0, chips: [0], tries: 1, rv: 'wait', loop: false, results: false, tok: 0, wait: 3600,
-      say: 'Jon ticks visual artist and musician, picks Brooklyn and open calls or residencies, and presses search. Those answers travel on as one package.' },
+      say: 'Adrian ticks visual artist and musician, picks Brooklyn and open calls or residencies, and presses search. Those answers travel on as one package.' },
     { card: 1, seen: 1, arrows: 1, chips: [0, 1], tries: 1, rv: 'wait', loop: false, results: false, tok: 1, wait: 3400,
       say: 'The filter is a simple sorting step. It keeps Brooklyn listings for visual art or music, drops anything already expired, and passes on a short list.' },
     { card: 2, seen: 2, arrows: 2, chips: [0, 1, 2], tries: 1, rv: 'wait', loop: false, results: false, tok: 2, wait: 3400,
-      say: 'Try 1. The Ranker puts the short list in order for Jon and writes down why. It hands the ranking to the Reviewer.' },
+      say: 'Try 1. The Ranker puts the short list in order for Adrian and writes down why. It hands the ranking to the Reviewer.' },
     { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 1, rv: 'reject', loop: false, results: false, tok: 3, wait: 3600,
-      say: 'The Reviewer checks the list against what Jon asked for. One item does not fit, so it says not good enough.' },
+      say: 'The Reviewer checks the list against what Adrian asked for. One item does not fit, so it says not good enough.' },
     { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 1, rv: 'reject', loop: true, results: false, tok: 2, wait: 4000, ride: true,
       say: 'Not good enough, so the list goes back to the Ranker with a note on what was wrong. It can go around up to 3 times.' },
     { card: 2, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 2, rv: 'reject', loop: true, results: false, tok: 2, wait: 3600, pulse: 2,
       say: 'Try 2. The Ranker sees the short list, its own last ranking and the Reviewer’s note, and ranks again.' },
     { card: 3, seen: 3, arrows: 3, chips: [0, 1, 2, 3], tries: 2, rv: 'accept', loop: false, results: false, tok: 3, wait: 3400,
-      say: 'The Reviewer checks again and this time approves. Nothing reaches Jon until this approval.' },
+      say: 'The Reviewer checks again and this time approves. Nothing reaches Adrian until this approval.' },
     { card: 4, seen: 4, arrows: 4, chips: [0, 1, 2, 3], tries: 2, rv: 'accept', loop: false, results: true, tok: 4, wait: 7000,
-      say: 'Jon sees a ranked list. Every result shows its deadline, a source link and a “checked on” date, plus a count of expired listings removed.' }
+      say: 'Adrian sees a ranked list. Every result shows its deadline, a source link and a “checked on” date, plus a count of expired listings removed.' }
   ];
   // Just below a card, so the dot never covers the words people are reading.
   function flowCenter(card) {
@@ -947,10 +948,10 @@
     fChips.forEach(function (c, n) { c.classList.toggle('show', f.chips.indexOf(n) >= 0); });
     fTryBadge.textContent = 'Try ' + f.tries + ' of 3';
     if (f.rv === 'wait') fRvText.innerHTML = '<b>Waiting for the ranking…</b>';
-    if (f.rv === 'reject') fRvText.innerHTML = '<b>Try 1:</b> #3 is a theater workshop. Not for Jon. <b>Send back.</b>';
-    if (f.rv === 'accept') fRvText.innerHTML = '<b>Try 2:</b> every item fits Jon. <b>Approved.</b>';
+    if (f.rv === 'reject') fRvText.innerHTML = '<b>Try 1:</b> #3 is a theater workshop. Not for Adrian. <b>Send back.</b>';
+    if (f.rv === 'accept') fRvText.innerHTML = '<b>Try 2:</b> every item fits Adrian. <b>Approved.</b>';
     fRvChipLabel.textContent = f.rv === 'accept' ? 'Accepted' : 'Rejected';
-    fRvChipCode.textContent = f.rv === 'accept' ? 'Results go to Jon, each marked as checked' : 'Sent back to the Ranker with a short reason';
+    fRvChipCode.textContent = f.rv === 'accept' ? 'Results go to Adrian, each marked as checked' : 'Sent back to the Ranker with a short reason';
     fLoopPath.classList.toggle('on', f.loop);
     fLoopLabel.classList.toggle('show', f.loop);
     fCap.textContent = f.say;
