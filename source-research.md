@@ -1,5 +1,7 @@
 # Source Research: where to find NYC artist opportunities
 
+Status summary for the team: [STATUS.md](STATUS.md). Dashboard: https://claude.ai/artifact/1KJoDsygR95xDTkuCN2dwU. Source coverage: https://claude.ai/artifact/HG3uL34umsY8VpDgYZjACG. Page code: [artifacts/](artifacts/).
+
 Checked 2026-10-27 · Owners: Jon and Mara · Feeds [multi-agent-prd-lean.md](multi-agent-prd-lean.md) section 4
 
 ## How this was checked

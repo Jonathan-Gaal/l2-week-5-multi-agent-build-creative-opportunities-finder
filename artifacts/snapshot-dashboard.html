@@ -1,0 +1,307 @@
+<style>
+  .ox { max-width: 72rem; margin-inline: auto; font-family: var(--font-anthropic-sans); color: var(--color-fg); display: flex; flex-direction: column; gap: var(--cds-gap-lg); }
+  .ox h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .ox h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .ox p { margin: 0; }
+  .ox-sub { color: var(--color-fg-muted); max-width: 60ch; margin-top: var(--cds-gap-xs) !important; }
+  .ox-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .ox-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--cds-gap-md); }
+  .ox-tile, .ox-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .ox-tile { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+  .ox-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2.25rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .ox-card { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+  .ox-scroll { overflow-x: auto; }
+  .ox-matrix { border-collapse: separate; border-spacing: 4px; width: 100%; min-width: 34rem; font-variant-numeric: tabular-nums; }
+  .ox-matrix th { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); text-align: center; padding: var(--cds-pad-xs); }
+  .ox-matrix th.ox-rowh { text-align: left; color: var(--color-fg); font-size: var(--cds-font-size-body); white-space: nowrap; }
+  .ox-matrix td { padding: 0; text-align: center; }
+  .ox-cell { display: block; width: 100%; min-height: 2.25rem; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--color-fg); font: inherit; font-variant-numeric: tabular-nums; cursor: pointer; }
+  .ox-cell:hover { border-color: var(--color-border-line); }
+  .ox-cell[aria-pressed="true"] { border-color: var(--color-fg); outline: 1px solid var(--color-fg); }
+  .ox-zero { color: var(--color-fg-muted); opacity: .5; }
+  .ox-total { font-weight: var(--cds-font-weight-medium); }
+  .ox-review { color: var(--color-fg-muted); }
+  .ox-bars { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+  .ox-bar { display: grid; grid-template-columns: 7rem 1fr 2rem; align-items: center; gap: var(--cds-gap-sm); border: 0; background: none; color: inherit; font: inherit; text-align: left; padding: 2px 0; cursor: pointer; }
+  .ox-bar[aria-pressed="true"] .ox-barlabel { font-weight: var(--cds-font-weight-medium); text-decoration: underline; }
+  .ox-track { height: 14px; background: var(--cds-chart-grid); border-radius: 4px; overflow: hidden; }
+  .ox-fill { height: 100%; border-radius: 4px; }
+  .ox-barn { text-align: right; font-variant-numeric: tabular-nums; }
+  .ox-filters { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: end; }
+  .ox-filters label { display: flex; flex-direction: column; gap: 2px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .ox-filters select, .ox-reset { font: inherit; color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: 6px; padding: 6px 8px; min-height: 2.25rem; }
+  .ox-reset { cursor: pointer; }
+  .ox-table { border-collapse: collapse; width: 100%; min-width: 40rem; }
+  .ox-table th { text-align: left; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); }
+  .ox-table td { padding: var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .ox-table td:nth-child(5), .ox-table td:nth-child(1) { font-variant-numeric: tabular-nums; }
+  .ox-table a { color: var(--color-fg); text-underline-offset: 2px; }
+  .ox-empty { color: var(--color-fg-muted); padding: var(--cds-pad-lg) 0; }
+  .ox-chip { display: inline-block; border: 1px solid var(--color-border-line); border-radius: 999px; padding: 1px 8px; font-size: var(--cds-font-size-caption); }
+  @media (max-width: 30rem) { .ox-bar { grid-template-columns: 6rem 1fr 1.75rem; } }
+</style>
+
+<div class="ox">
+  <header>
+    <h1 id="top">NYC opportunities for artists</h1>
+    <p class="ox-sub">Open calls, grants, residencies, auditions and open mics from the sources we have read so far, sorted by the kind of artist they suit and by borough. Last checked <span data-source="totals" data-row="0" data-field="checked">—</span>.</p>
+  </header>
+
+  <section class="ox-tiles" id="tiles">
+    <div class="ox-tile"><span class="ox-note">Listings</span><span class="ox-big" data-source="totals" data-row="0" data-field="n">—</span></div>
+    <div class="ox-tile"><span class="ox-note">Boroughs with listings</span><span class="ox-big"><span data-source="totals" data-row="0" data-field="boroughs">—</span><span class="ox-note"> of 5</span></span></div>
+    <div class="ox-tile"><span class="ox-note">Sources read</span><span class="ox-big" data-source="totals" data-row="0" data-field="sources">—</span></div>
+  </section>
+
+  <section class="ox-card" id="matrix-card">
+    <div>
+      <h2>Artist category by borough</h2>
+      <p class="ox-note">Pick a number to filter the list below. Pick it again to clear it.</p>
+    </div>
+    <div class="ox-scroll"><table class="ox-matrix" id="matrix"><thead></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="ox-card" id="types-card">
+    <div>
+      <h2>By opportunity type</h2>
+      <p class="ox-note">Pick a bar to filter the list.</p>
+    </div>
+    <div class="ox-bars" id="types" data-source="by_type"></div>
+  </section>
+
+  <section class="ox-card" id="list-card">
+    <div>
+      <h2>Every listing</h2>
+      <p class="ox-note">Soonest deadline first, then rolling ones. Each title links to the original listing.</p>
+    </div>
+    <div class="ox-filters">
+      <label for="f-artist">Artist category<select id="f-artist"></select></label>
+      <label for="f-type">Opportunity type<select id="f-type"></select></label>
+      <label for="f-borough">Borough<select id="f-borough"></select></label>
+      <button class="ox-reset" id="f-reset" type="button">Clear filters</button>
+    </div>
+    <div class="ox-scroll">
+      <table class="ox-table" id="list" data-source="opportunities" data-row-key="source_url">
+        <thead><tr>
+          <th data-field="title">Listing</th>
+          <th data-field="artist_category">Artist category</th>
+          <th data-field="opportunity_type">Type</th>
+          <th data-field="borough">Borough</th>
+          <th data-field="deadline">Deadline</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="ox-empty" id="empty" hidden>No listings match these filters.</p>
+  </section>
+
+  <p class="ox-note" id="foot">Artist category is a stand-in: each listing was read and given the discipline it suits, until the Extractor does this. “Needs review” marks listings that look promotional, ask for panelists, or are surveys rather than calls to apply. Open mics are recurring: the date shown is the next one, and each mic appears once. Gigs are listings from Craigslist and Playbill Jobs. Sources: Craigslist, Dance/NYC, FireMics, A4, Playbill Jobs, NYC Parks and the grant and residency pages of NYC arts organizations. Past deadlines are removed when the snapshot is built.</p>
+</div>
+
+<script>
+  const BOROUGHS = ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'];
+  const ARTIST_ORDER = ['Visual art', 'Comedy', 'Performing arts', 'Dance', 'Music', 'Singing', 'Film & media', 'Poetry', 'Writing & publishing', 'All disciplines', 'Needs review'];
+  const TYPE_ORDER = ['Open call', 'Grant', 'Residency', 'Audition', 'Open mic'];
+  const enc = (s) => String(s).replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D');
+  const rank = (order, x) => { const i = order.indexOf(x); return i < 0 ? 99 : i; };
+  const byOrder = (order) => (a, b) => rank(order, a) - rank(order, b) || a.localeCompare(b);
+
+  dash.calc('by_artist_borough', {
+    inputs: ['opportunities'],
+    title: 'Listings by artist category and borough',
+    description: 'Each listing counted once under its artist category and borough.',
+    fn: (opportunities) => {
+      const m = new Map();
+      for (const r of opportunities) {
+        const k = JSON.stringify([r.artist_category, r.borough]);
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return [...m].map(([k, n]) => { const [artist_category, borough] = JSON.parse(k); return { artist_category, borough, n }; });
+    },
+  });
+  dash.calc('by_artist', {
+    inputs: ['opportunities'],
+    title: 'Listings by artist category',
+    description: 'Each listing counted once under its artist category.',
+    fn: (opportunities) => {
+      const m = new Map();
+      for (const r of opportunities) m.set(r.artist_category, (m.get(r.artist_category) || 0) + 1);
+      return [...m].map(([artist_category, n]) => ({ artist_category, n }));
+    },
+  });
+  dash.calc('by_borough', {
+    inputs: ['opportunities'],
+    title: 'Listings by borough',
+    description: 'Each listing counted once under its borough.',
+    fn: (opportunities) => {
+      const m = new Map();
+      for (const r of opportunities) m.set(r.borough, (m.get(r.borough) || 0) + 1);
+      return [...m].map(([borough, n]) => ({ borough, n }));
+    },
+  });
+  dash.calc('by_type', {
+    inputs: ['opportunities'],
+    title: 'Listings by opportunity type',
+    description: 'Each listing counted once under its opportunity type.',
+    fn: (opportunities) => {
+      const m = new Map();
+      for (const r of opportunities) m.set(r.opportunity_type, (m.get(r.opportunity_type) || 0) + 1);
+      return [...m].map(([opportunity_type, n]) => ({ opportunity_type, n }));
+    },
+  });
+  dash.calc('totals', {
+    inputs: ['opportunities'],
+    title: 'Snapshot totals',
+    description: 'Listings, boroughs with at least one listing, sources, and the latest check date.',
+    fn: (opportunities) => {
+      const five = ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'];
+      const latest = opportunities.map((r) => r.checked_at).sort().pop() || '';
+      return [{
+        n: opportunities.length,
+        boroughs: five.filter((b) => opportunities.some((r) => r.borough === b)).length,
+        sources: new Set(opportunities.map((r) => r.source)).size,
+        checked: latest.slice(0, 10),
+      }];
+    },
+  });
+
+  const $ = (id) => document.getElementById(id);
+  // A number picks its row and column (a total picks one side); picking the same one again clears both.
+  $('matrix').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-a], button[data-b]');
+    if (!b) return;
+    const p = dash.params();
+    const target = { artist: b.dataset.a ?? null, borough: b.dataset.b ?? null };
+    const same = target.artist === (p.artist ?? null) && target.borough === (p.borough ?? null);
+    dash.setParams(same ? { artist: null, borough: null } : target);
+  });
+  $('types').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-t]');
+    if (!b) return;
+    const p = dash.params();
+    dash.setParams({ type: p.type === b.dataset.t ? null : b.dataset.t, artist: p.artist ?? null, borough: p.borough ?? null });
+  });
+  for (const [id, key] of [['f-artist', 'artist'], ['f-type', 'type'], ['f-borough', 'borough']]) {
+    $(id).addEventListener('change', () => dash.setParams({ [key]: $(id).value || null }));
+  }
+  $('f-reset').addEventListener('click', () => dash.setParams({ artist: null, type: null, borough: null }));
+
+  const fillSelect = (sel, all, values, current) => {
+    sel.replaceChildren(new Option(all, ''), ...values.map((v) => new Option(v)));
+    sel.value = current ?? '';
+  };
+  const deadKey = (d) => (/^\d/.test(d) ? '0' + d : d === 'Rolling' ? '1' : '2');
+
+  dash.onData(() => {
+    const need = ['opportunities', 'by_artist_borough', 'by_artist', 'by_borough', 'by_type', 'totals'].map((id) => dash.data(id));
+    if (need.some((d) => d.status !== 'ok')) {
+      if (need.some((d) => d.status === 'error' || d.status === 'missing')) {
+        $('matrix').querySelector('tbody').replaceChildren();
+        $('empty').hidden = false;
+        $('empty').textContent = 'The snapshot did not load.';
+      }
+      return;
+    }
+    const [opps, cells, artists, boroughsRows, types] = need.map((d) => d.data);
+    const p = dash.params();
+
+    // Matrix: artist category (rows) by borough (columns), unfiltered.
+    const artistNames = artists.map((r) => r.artist_category).sort(byOrder(ARTIST_ORDER));
+    const extra = boroughsRows.map((r) => r.borough).filter((b) => !BOROUGHS.includes(b)).sort();
+    const cols = [...BOROUGHS, ...extra];
+    const max = Math.max(1, ...cells.map((r) => r.n));
+    const thead = $('matrix').querySelector('thead');
+    const hr = document.createElement('tr');
+    hr.append(Object.assign(document.createElement('th'), { textContent: '' }));
+    for (const c of cols) hr.append(Object.assign(document.createElement('th'), { textContent: c }));
+    hr.append(Object.assign(document.createElement('th'), { textContent: 'Total' }));
+    thead.replaceChildren(hr);
+    const tbody = $('matrix').querySelector('tbody');
+    tbody.replaceChildren();
+    const makeCell = (n, source, where, a, b, shade, extraClass) => {
+      const td = document.createElement('td');
+      if (n == null) {
+        td.append(Object.assign(document.createElement('span'), { className: 'ox-cell ox-zero', textContent: '–' }));
+        return td;
+      }
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ox-cell' + (extraClass ? ' ' + extraClass : '');
+      btn.textContent = String(n);
+      btn.dataset.source = source;
+      btn.dataset.field = 'n';
+      btn.dataset.where = where;
+      if (a) btn.dataset.a = a;
+      if (b) btn.dataset.b = b;
+      if (shade) btn.style.background = `color-mix(in srgb, ${dash.colors[0]} ${Math.round(14 + 56 * n / max)}%, transparent)`;
+      btn.setAttribute('aria-pressed', String((a ?? null) === (p.artist ?? null) && (b ?? null) === (p.borough ?? null)));
+      td.append(btn);
+      return td;
+    };
+    for (const a of artistNames) {
+      const tr = document.createElement('tr');
+      const th = document.createElement('th');
+      th.className = 'ox-rowh' + (a === 'Needs review' ? ' ox-review' : '');
+      th.scope = 'row';
+      th.textContent = a;
+      tr.append(th);
+      for (const c of cols) {
+        const row = cells.find((r) => r.artist_category === a && r.borough === c);
+        tr.append(makeCell(row ? row.n : null, 'by_artist_borough', `artist_category=${enc(a)}&borough=${enc(c)}`, a, c, true));
+      }
+      const tot = artists.find((r) => r.artist_category === a);
+      tr.append(makeCell(tot ? tot.n : null, 'by_artist', `artist_category=${enc(a)}`, a, null, false, 'ox-total'));
+      tbody.append(tr);
+    }
+    const trTot = document.createElement('tr');
+    trTot.append(Object.assign(document.createElement('th'), { className: 'ox-rowh', scope: 'row', textContent: 'Total' }));
+    for (const c of cols) {
+      const tot = boroughsRows.find((r) => r.borough === c);
+      trTot.append(makeCell(tot ? tot.n : null, 'by_borough', `borough=${enc(c)}`, null, c, false, 'ox-total'));
+    }
+    trTot.append(Object.assign(document.createElement('td'), { textContent: '' }));
+    tbody.append(trTot);
+
+    // Type bars.
+    const tmax = Math.max(1, ...types.map((r) => r.n));
+    const typeNames = types.map((r) => r.opportunity_type).sort(byOrder(TYPE_ORDER));
+    $('types').replaceChildren(...typeNames.map((t) => {
+      const n = types.find((r) => r.opportunity_type === t).n;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ox-bar';
+      b.dataset.t = t;
+      b.setAttribute('aria-pressed', String(p.type === t));
+      b.innerHTML = '<span class="ox-barlabel"></span><span class="ox-track"><span class="ox-fill"></span></span><span class="ox-barn"></span>';
+      b.querySelector('.ox-barlabel').textContent = t;
+      const fill = b.querySelector('.ox-fill');
+      fill.style.width = (100 * n / tmax) + '%';
+      fill.style.background = dash.colors[1] || dash.colors[0];
+      b.querySelector('.ox-barn').textContent = String(n);
+      return b;
+    }));
+
+    // Filters and list.
+    fillSelect($('f-artist'), 'All artist categories', artistNames, p.artist);
+    fillSelect($('f-type'), 'All types', typeNames, p.type);
+    fillSelect($('f-borough'), 'All boroughs', cols, p.borough);
+    const rows = opps
+      .filter((r) => (!p.artist || r.artist_category === p.artist) && (!p.type || r.opportunity_type === p.type) && (!p.borough || r.borough === p.borough))
+      .sort((a, b) => deadKey(a.deadline).localeCompare(deadKey(b.deadline)) || a.title.localeCompare(b.title));
+    const lbody = $('list').querySelector('tbody');
+    lbody.replaceChildren(...rows.map((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = r.source_url;
+      const link = Object.assign(document.createElement('a'), { href: r.source_url, target: '_blank', rel: 'noopener', textContent: r.title });
+      const first = document.createElement('td');
+      first.append(link);
+      tr.append(first);
+      for (const k of ['artist_category', 'opportunity_type', 'borough', 'deadline']) {
+        tr.append(Object.assign(document.createElement('td'), { textContent: r[k] }));
+      }
+      return tr;
+    }));
+    $('empty').hidden = rows.length > 0;
+    $('empty').textContent = 'No listings match these filters.';
+  });
+</script>
