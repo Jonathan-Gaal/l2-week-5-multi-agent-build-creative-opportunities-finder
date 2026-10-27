@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 651,
+  "count": 678,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -20876,6 +20876,774 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "central city chorus auditions|manhattan|rolling"
+    },
+    {
+      "title": "Singing Circle (community singing, open to all)",
+      "org": "Brooklyn Conservatory of Music",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "open to all",
+          "quote": "BKCM’s Music Therapy Program invites you to an uplifting community singing circle, open to all, led by board-certified music therapist, singer-songwriter, and vocal improviser Kate Richards Geller ."
+        }
+      ],
+      "source": "bkcm",
+      "source_url": "https://bkcm.org/event/singing-circle/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "singing circle community singing open to all|brooklyn|2026-11-14"
+    },
+    {
+      "title": "OPEN LAB: Group Therapy Jam Band (Critical Race Therapy)",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-09",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "registration",
+          "quote": "Free; advance registration required at least 24 hours in advance."
+        }
+      ],
+      "source": "cpr-events",
+      "source_url": "https://www.cprnyc.org/events/kyle-b-co-group-therapy-jam-band-ldean-r2brb-zax8b",
+      "disciplines": [
+        "music",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open lab group therapy jam band critical race therapy|brooklyn|2026-11-09"
+    },
+    {
+      "title": "VIM VIGOR Contemporary Floorwork Practice with Shannon Gillen",
+      "org": "Gibney",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "gibney",
+      "source_url": "https://gibneydance.org/event/vim-vigor-contemporary-floorwork-practice-with-shannon-gillen/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "vim vigor contemporary floorwork practice with shannon gillen|manhattan|2026-11-07"
+    },
+    {
+      "title": "HERE Performance Lab (application)",
+      "org": "HERE Arts Center",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-31",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "eligibility",
+          "quote": "Artists cannot be enrolled in a degree-seeking program at the time of application."
+        }
+      ],
+      "source": "here-arts",
+      "source_url": "https://here.org/programs/performance-lab/",
+      "disciplines": [
+        "theater",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "here performance lab application|manhattan|2026-10-31"
+    },
+    {
+      "title": "Teen ArtsLab: Design in Motion",
+      "org": "Museum of Arts and Design",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-30",
+      "recurrence": null,
+      "fee": "none (high school students with school ID)",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "ages 13-18",
+          "quote": "Free for high school students (ages 13–18) with a valid school ID"
+        }
+      ],
+      "source": "mad",
+      "source_url": "https://madmuseum.org/events/teen-artslab-design-motion",
+      "disciplines": [
+        "design",
+        "visual"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "teen artslab design in motion|manhattan|2026-10-30"
+    },
+    {
+      "title": "Studio Samplers: Mini Makers Workshop Drop-In",
+      "org": "Montclair Art Museum",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-05",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "drop-in",
+          "quote": "Students can choose to enroll in individual sessions based on their interests."
+        }
+      ],
+      "source": "montclair-art-museum",
+      "source_url": "https://www.montclairartmuseum.org/events/classes-and-workshops/studio-samplers-mini-makers-workshop-drop-5",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "studio samplers mini makers workshop drop in|new_jersey|2026-11-05"
+    },
+    {
+      "title": "Trisha Brown Dance Company Class (weekly)",
+      "org": "Movement Research",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "weekly through Dec 2026",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "format",
+          "quote": "Movement Research partners with the Trisha Brown Dance Company to host weekly ongoing Company Class taught by a rotating cast of current and former company members"
+        }
+      ],
+      "source": "movement-research",
+      "source_url": "https://movementresearch.org/classes/2543/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "trisha brown dance company class weekly|manhattan|recurring"
+    },
+    {
+      "title": "Dark Room Ballet: Open Level Class",
+      "org": "Movement Research",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "weekly through Dec 2026",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "registration",
+          "quote": "To register, please email info@darkroomballet.com ."
+        }
+      ],
+      "source": "movement-research",
+      "source_url": "https://movementresearch.org/classes/2551/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dark room ballet open level class|manhattan|recurring"
+    },
+    {
+      "title": "Klein Technique / Movement Class",
+      "org": "Movement Research",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "weekly through Dec 2026",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "movement-research",
+      "source_url": "https://movementresearch.org/classes/2564/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "klein technique movement class|manhattan|recurring"
+    },
+    {
+      "title": "Blk Sonic Mvmnt Lab",
+      "org": "Movement Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "through Dec 2026",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "movement-research",
+      "source_url": "https://movementresearch.org/workshops/2615/",
+      "disciplines": [
+        "dance",
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "blk sonic mvmnt lab|manhattan|recurring"
+    },
+    {
+      "title": "Crip Movement Lab",
+      "org": "Movement Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "through Dec 2026",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "movement-research",
+      "source_url": "https://movementresearch.org/workshops/2619/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "crip movement lab|manhattan|recurring"
+    },
+    {
+      "title": "Drawing & Painting Open Studio (drop-in)",
+      "org": "Pelham Art Center",
+      "opportunity_type": "event",
+      "subtype": "drawing_session",
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "recurring",
+      "recurrence": "through Nov 20, 2026 (not held 11/6)",
+      "fee": "$20 per session (free for enrolled members)",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "fee",
+          "quote": "Fee: $20 per session or FREE for PAC members currently enrolled in a class"
+        }
+      ],
+      "source": "pelham-art",
+      "source_url": "https://www.pelhamartcenter.org/education/class/drawing-painting-open-studio-f/",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drawing painting open studio drop in|westchester_hudson|recurring"
+    },
+    {
+      "title": "Monster Maker Lab (kids camp)",
+      "org": "Pelham Art Center",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "2026-11-11",
+      "recurrence": null,
+      "fee": "$130 / $117 members",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "fee",
+          "quote": "Fee: $130 / $117 Members"
+        }
+      ],
+      "source": "pelham-art",
+      "source_url": "https://www.pelhamartcenter.org/education/class/monster-maker-lab-f/",
+      "disciplines": [
+        "visual",
+        "digital"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "monster maker lab kids camp|westchester_hudson|2026-11-11"
+    },
+    {
+      "title": "Everybody Sing (no-audition choir, weekly)",
+      "org": "Everybody Sing",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Tuesdays 6:30-8 pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "no audition",
+          "quote": "Founded and directed by Rick Whitaker, Everybody Sing is an independent singing group that requires no audition."
+        }
+      ],
+      "source": "everybodysing",
+      "source_url": "https://www.everybodysingnyc.com/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "everybody sing no audition choir weekly|manhattan|recurring"
+    },
+    {
+      "title": "Painting classes (all levels)",
+      "org": "Manny Cantor Center",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "197 East Broadway",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "This painting course, for painters of all skill levels, encourages artists to pursue a personal project in oils, water-based paints, or mixed media."
+        }
+      ],
+      "source": "mannycantor",
+      "source_url": "https://mannycantor.org/art/art-classes/painting/",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "painting classes all levels|manhattan|rolling"
+    },
+    {
+      "title": "Ceramics classes with open studio",
+      "org": "Manny Cantor Center",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "197 East Broadway",
+      "eligibility": [
+        {
+          "requirement": "open studio",
+          "quote": "Open Studio time is included at no additional cost. Ceramics students can attend 2 open studio sessions per week."
+        }
+      ],
+      "source": "mannycantor",
+      "source_url": "https://mannycantor.org/art/art-classes/ceramics/",
+      "disciplines": [
+        "craft",
+        "visual"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "ceramics classes with open studio|manhattan|rolling"
+    },
+    {
+      "title": "Art classes for teens",
+      "org": "Manny Cantor Center",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "197 East Broadway",
+      "eligibility": [
+        {
+          "requirement": "youth",
+          "quote": "Young artists will develop foundational drawing skills from direct observation with an emphasis on space, volume, linear and free-hand perspective, and other basic techniques and concepts."
+        }
+      ],
+      "source": "mannycantor",
+      "source_url": "https://mannycantor.org/art/art-classes/youth-teen-classes/",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "art classes for teens|manhattan|rolling"
+    },
+    {
+      "title": "Dance Theatre of Harlem: part-time men's company audition (video submissions)",
+      "org": "Dance Theatre of Harlem",
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "role",
+          "quote": "DTH is accepting video submissions for a Part-Time Male Company Artist position for the second half of our 2026-27 season."
+        }
+      ],
+      "source": "dance-theatre-of-harlem",
+      "source_url": "https://www.dancetheatreofharlem.org/companyaudition/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dance theatre of harlem part time men s company audition video submissions|manhattan|None"
+    },
+    {
+      "title": "Dance Theatre of Harlem: audition prep classes",
+      "org": "Dance Theatre of Harlem",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-04",
+      "recurrence": null,
+      "fee": "$40 per session; $100 for three",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "fee",
+          "quote": "$40 per single session"
+        }
+      ],
+      "source": "dance-theatre-of-harlem",
+      "source_url": "https://www.dancetheatreofharlem.org/audition-prep-classes/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dance theatre of harlem audition prep classes|manhattan|2026-11-04"
+    },
+    {
+      "title": "Pumpkin Singalong at Sakura Park",
+      "org": "Every Voice Choirs",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "format",
+          "quote": "A free outdoor community fall singalong featuring EVC Kids, Youth, and Concert Choirs"
+        }
+      ],
+      "source": "every-voice-choirs",
+      "source_url": "https://everyvoicechoirs.org/events/pumpkin-singalong-at-sakura-park/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "pumpkin singalong at sakura park|manhattan|2026-10-27"
+    },
+    {
+      "title": "Taylor School Youth Program (fall registration open)",
+      "org": "Paul Taylor Dance Company",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "registration",
+          "quote": "FALL REGISTRATION IS NOW OPEN!"
+        }
+      ],
+      "source": "paul-taylor-dance",
+      "source_url": "https://paultaylordance.org/center-dance-education/taylor-school-youth-program/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "taylor school youth program fall registration open|manhattan|rolling"
+    },
+    {
+      "title": "The Actors' Center Fall Lottery Auditions",
+      "org": "The Actors' Center",
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-29",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "listing",
+          "quote": "Fall Lottery Auditions"
+        }
+      ],
+      "source": "actors-center",
+      "source_url": "https://www.actorscenter.org/auditions",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "the actors center fall lottery auditions|manhattan|2026-10-29"
+    },
+    {
+      "title": "Rockaway Theatre Company fall/winter workshops",
+      "org": "Rockaway Theatre Company",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "2026-11-22",
+      "recurrence": null,
+      "fee": "$150 for five weeks",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "fee and ages",
+          "quote": "$150 for five weeks | Ages 18+"
+        }
+      ],
+      "source": "rockaway-theatre-company",
+      "source_url": "https://www.rockawaytheatrecompany.org/fall-winter-workshops",
+      "disciplines": [
+        "theater",
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "rockaway theatre company fall winter workshops|queens|2026-11-22"
+    },
+    {
+      "title": "Comics and Narrative Arts Certificate Program (apply by Dec 15)",
+      "org": "Art Students League",
+      "opportunity_type": "grant",
+      "subtype": "fellowship",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "deadline",
+          "quote": "To join our new Comics and Narrative Arts Certificate Program, you must apply by December 15."
+        }
+      ],
+      "source": "art-students-league",
+      "source_url": "https://www.artstudentsleague.org/certificate-program",
+      "disciplines": [
+        "visual",
+        "literary"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "comics and narrative arts certificate program apply by dec 15|manhattan|2026-12-15"
+    },
+    {
+      "title": "YYDC Winter Intensive 2027",
+      "org": "Yue Yin Dance Company",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "$135 single day",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "fee",
+          "quote": "Single Day Rate: $135"
+        }
+      ],
+      "source": "yydc",
+      "source_url": "https://yydc.org/foco-training/yydc-winter-intensive-2027/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "yydc winter intensive 2027|unknown|None"
+    },
+    {
+      "title": "Bayside Glee Club (men's chorus, Queens)",
+      "org": "Bayside Glee Club",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": null,
+      "fee": "$130 yearly dues",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "dues",
+          "quote": "Yearly dues are $130, payable"
+        }
+      ],
+      "source": "bayside-glee-club",
+      "source_url": "https://baysidegleeclubny.org/bayside.htm",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "bayside glee club men s chorus queens|queens|recurring"
+    },
+    {
+      "title": "Residency Videographer for Reynaldo Piniella (paid gig)",
+      "org": "Hi-ARTS",
+      "opportunity_type": "open_call",
+      "subtype": "paid_gig",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "hi-arts-open-call",
+      "source_url": "https://www.hi-artsnyc.org/backstage-buzz/residency-videographer-for-reynaldo-piniella",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "residency videographer for reynaldo piniella paid gig|manhattan|2026-11-14"
     }
   ]
 }
