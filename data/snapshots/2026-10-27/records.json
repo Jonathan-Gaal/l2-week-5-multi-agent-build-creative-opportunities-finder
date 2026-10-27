@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 541,
+  "count": 651,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -17344,6 +17344,3538 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "open mic at sankofa cafe every sunday at 12pm|new_jersey|recurring"
+    },
+    {
+      "title": "Sunday Sing: Fall-Into-Winter Edition! - A Seven-Week Group Class with Emily Eagen",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": "Sunday Sing with Emily Eagen Fall-Into-Winter Edition! Sundays 10:00 am - 11:15 am: 11/1, 11/8, 11/15, 11/22, 12/6, 12/13, 12/20 'Tis the season! Come for a wee",
+      "fee": "sliding scale (see listing)",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "Designed for beginning through intermediate-level singers, but will be tailored to offer something for everyone."
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/sunday_sing_fallint",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "sunday sing fall into winter edition a seven week group class with emily eagen|brooklyn|2026-11-01"
+    },
+    {
+      "title": "Advanced Harmony: Wintersongs! A Seven-Week Group Class with Emily Eagen",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": "Advanced Harmony: Wintersongs! with Emily Eagen Sundays 11:30 am - 1:00 pm: 11/1, 11/8, 11/15, 11/22, 12/6, 12/13, 12/20 **If interested in registering, please ",
+      "fee": "sliding scale (see listing)",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "with Emily Eagen Sundays 11:30 am - 1:00 pm: 11/1, 11/8, 11/15, 11/22, 12/6, 12/13, 12/20 **If interested in registering, please email emily@jalopytheatre.org to get a registration code** This class is suited for singers who are comfortable singing one-on-a-part and would like a real challenge."
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/advanced_harmony_sing_3",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "advanced harmony wintersongs a seven week group class with emily eagen|brooklyn|2026-11-01"
+    },
+    {
+      "title": "Singing! A Four-Session Class with Katie Martucci",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-09",
+      "recurrence": "A Four-Session Class with Katie Martucci Mondays, 7:00 - 8:30pm: 11/9, 11/16, 11/23, and 11/30",
+      "fee": "sliding scale (see listing)",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "A Four-Session Class with Katie Martucci Mondays, 7:00 - 8:30pm: 11/9, 11/16, 11/23, and 11/30 All voices welcome!"
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/singing_a_foursessi_8",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "singing a four session class with katie martucci|brooklyn|2026-11-09"
+    },
+    {
+      "title": "Exploring Styles and Creative Practice for Strings - A Workshop with Cascadence",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "$10",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "Exploring Styles and Creative Practice for Strings - A Workshop with Cascadence Saturday, November 14th, 12-2pm Register for this workshop, or take this workshop and attend Cascadence at Jalopy on Thursday, 11/12 for a $10 discount!"
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/exploring_styles_and_creative_practice_for_strings_workshop",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "exploring styles and creative practice for strings a workshop with cascadence|brooklyn|2026-11-14"
+    },
+    {
+      "title": "Singing with Samoa - A Four-Session Class with Samoa Wilson",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-17",
+      "recurrence": "with Samoa Wilson Tuesdays, 7:00 - 8:30pm: 11/17, 11/24, 12/1, 12/8",
+      "fee": "sliding scale (see listing)",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "with Samoa Wilson Tuesdays, 7:00 - 8:30pm: 11/17, 11/24, 12/1, 12/8 All voices welcome!"
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/singing_with_samoa_1",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "singing with samoa a four session class with samoa wilson|brooklyn|2026-11-17"
+    },
+    {
+      "title": "Smyneīka and Rebetika with Carol Freeman - A Workshop",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-21",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/smyneka_and_rebetika_2",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "smyne ka and rebetika with carol freeman a workshop|brooklyn|2026-11-21"
+    },
+    {
+      "title": "Ukulele Christmas: A Three-Week Class with Liz Rabson Schnore",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-12-05",
+      "recurrence": "Ukulele Christmas with Liz Rabson Schnore Saturdays 12/5, 12/12, 12/19 from 1",
+      "fee": "sliding scale (see listing)",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "level",
+          "quote": "This class is for all levels but you should have basic ukulele skills and be able to read ukulele chord charts."
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.netlify.app/classes",
+      "tickets_url": "https://www.viewcy.com/event/ukulele_christmas_a_2",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "rendered",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "ukulele christmas a three week class with liz rabson schnore|brooklyn|2026-12-05"
+    },
+    {
+      "title": "Jalopy Open Mic (every Wednesday)",
+      "org": "Jalopy Theatre and School of Music",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Every Wednesday; sign-up 6pm, draw 6:30pm",
+      "fee": "unknown",
+      "award": null,
+      "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "sign-up",
+          "quote": "The sign-up sheet goes out at 6pm and the names are drawn out of a hat at 6:30pm"
+        }
+      ],
+      "source": "jalopy",
+      "source_url": "https://jalopytheatre.org/open-mic",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "jalopy open mic every wednesday|brooklyn|recurring"
+    },
+    {
+      "title": "Sacred Harp shape-note singing: The Midweek Singing (weekly)",
+      "org": "NYC Sacred Harp",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Weekly on Wednesdays, 6:00 – 8:15 pm",
+      "fee": "unknown",
+      "award": null,
+      "location": "All Angels, 251 W 80th St (location updated 9/15/26)",
+      "eligibility": [
+        {
+          "requirement": "open singing",
+          "quote": "There are Sacred Harp singings in Manhattan every Wednesday, and shape-note singings from The Sacred Harp and other books on some weekends."
+        }
+      ],
+      "source": "nycsacredharp.com",
+      "source_url": "https://www.nycsacredharp.com/nycsingings",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "sacred harp shape note singing the midweek singing weekly|manhattan|recurring"
+    },
+    {
+      "title": "Sacred Harp shape-note singing: The Joe Beasley Singing (monthly)",
+      "org": "NYC Sacred Harp",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Monthly on Second Sundays, 2 – 5 pm",
+      "fee": "unknown",
+      "award": null,
+      "location": "St. Paul’s Episcopal Church, 199 Carroll St, Carroll Gardens, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "books",
+          "quote": "A three-book singing—The Sacred Harp in Denson (green) and Cooper (blue), and the Shenandoah Harmony! Loaner books available."
+        }
+      ],
+      "source": "nycsacredharp.com",
+      "source_url": "https://www.nycsacredharp.com/nycsingings",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "sacred harp shape note singing the joe beasley singing monthly|brooklyn|recurring"
+    },
+    {
+      "title": "Seven-shape singing: Christian Harmony and Mull's Convention 7 (monthly)",
+      "org": "NYC Sacred Harp",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Saturdays before the fourth Sunday, 2:00 to 5:00",
+      "fee": "unknown",
+      "award": null,
+      "location": "Menno House, 314 East 19th St",
+      "eligibility": [
+        {
+          "requirement": "schedule caveat",
+          "quote": "Note: this event occurs irregularly during the winter season, so please join our Google Group or Facebook to confirm!"
+        }
+      ],
+      "source": "nycsacredharp.com",
+      "source_url": "https://www.nycsacredharp.com/nycsingings",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "seven shape singing christian harmony and mull s convention 7 monthly|manhattan|recurring"
+    },
+    {
+      "title": "NYC Christian Harmony All-Day Singing 2027",
+      "org": "NYC Sacred Harp",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2027-05-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us for our next Christian Harmony all-day singing on May 15, 2027."
+        }
+      ],
+      "source": "nycsacredharp.com",
+      "source_url": "https://www.nycsacredharp.com/nyc-christian-harmony-singing",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nyc christian harmony all day singing 2027|brooklyn|2027-05-15"
+    },
+    {
+      "title": "NYC Sacred Harp All-Day Singing 2027",
+      "org": "NYC Sacred Harp",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2027-09-18",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us for our next Sacred Harp all-day singing September 18, 2027."
+        }
+      ],
+      "source": "nycsacredharp.com",
+      "source_url": "https://www.nycsacredharp.com/nycads",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nyc sacred harp all day singing 2027|unknown|2027-09-18"
+    },
+    {
+      "title": "English Country Dance (every Tuesday)",
+      "org": "Country Dance New York",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Every Tuesday",
+      "fee": "$20-25 general; $15-20 members; $10 students 16-18; under 10 free",
+      "award": null,
+      "location": "Church of the Village",
+      "eligibility": [
+        {
+          "requirement": "schedule",
+          "quote": "English Country Dances Every Tuesday"
+        }
+      ],
+      "source": "cdny.org",
+      "source_url": "https://www.cdny.org/",
+      "disciplines": [
+        "dance",
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "english country dance every tuesday|manhattan|recurring"
+    },
+    {
+      "title": "Contra Dance (most Saturdays)",
+      "org": "Country Dance New York",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Most Saturdays",
+      "fee": "$20-25 general; $15-20 members; $10 students 16-18; under 10 free",
+      "award": null,
+      "location": "Church of the Village",
+      "eligibility": [
+        {
+          "requirement": "beginners",
+          "quote": "Before each dance, our dance callers walk you through the steps and then call the steps out during the dance"
+        }
+      ],
+      "source": "cdny.org",
+      "source_url": "https://www.cdny.org/",
+      "disciplines": [
+        "dance",
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "contra dance most saturdays|manhattan|recurring"
+    },
+    {
+      "title": "Nuyorican Poets Cafe Open Mic at the Loisaida Center",
+      "org": "Nuyorican Poets Cafe",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Every Wednesday except the first Wednesday of the month",
+      "fee": "unknown",
+      "award": null,
+      "location": "Loisaida Center",
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "You’ll find yourself at home in this Open Mic if your work is conventional or avant-garde, contemporary or archaic."
+        }
+      ],
+      "source": "nuyorican.org",
+      "source_url": "https://www.nuyorican.org/openmics",
+      "disciplines": [
+        "literary",
+        "performance",
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nuyorican poets cafe open mic at the loisaida center|manhattan|recurring"
+    },
+    {
+      "title": "W.O.W. (Womxn Orator Wednesday) Open Mic",
+      "org": "Nuyorican Poets Cafe",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "First Wednesday of every month",
+      "fee": "$10",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "It is open to all genders for participation, but the ladies will be given preference for performance"
+        }
+      ],
+      "source": "nuyorican.org",
+      "source_url": "https://www.nuyorican.org/openmics",
+      "disciplines": [
+        "literary",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "w o w womxn orator wednesday open mic|manhattan|recurring"
+    },
+    {
+      "title": "The Twilight Hour Open Mic (after the Final Friday Slam)",
+      "org": "Nuyorican Poets Cafe",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Last Friday of every month",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "schedule",
+          "quote": "The Twilight Hour Open Mic: The last Friday Of every Month"
+        }
+      ],
+      "source": "nuyorican.org",
+      "source_url": "https://www.nuyorican.org/openmics",
+      "disciplines": [
+        "literary",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "the twilight hour open mic after the final friday slam|manhattan|recurring"
+    },
+    {
+      "title": "Nuyorican Final Friday Slam",
+      "org": "Nuyorican Poets Cafe",
+      "opportunity_type": "open_call",
+      "subtype": "competition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Last Friday of each month",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "schedule",
+          "quote": "Our Nuyorican Poets Cafe's FINAL FRIDAY SLAM takes place on the last Friday of each month."
+        }
+      ],
+      "source": "nuyorican.org",
+      "source_url": "https://www.nuyorican.org/acal",
+      "disciplines": [
+        "literary",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nuyorican final friday slam|manhattan|recurring"
+    },
+    {
+      "title": "Nuyorican Bowery Slam",
+      "org": "Nuyorican Poets Cafe",
+      "opportunity_type": "open_call",
+      "subtype": "competition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Bowery Poetry Club, 308 Bowery",
+      "eligibility": [
+        {
+          "requirement": "location",
+          "quote": "During our building's \"Nuyorican-Struction\", the cafe brings their famous poetry slam series to the Bowery Poetry Club on 308 Bowery"
+        }
+      ],
+      "source": "nuyorican.org",
+      "source_url": "https://www.nuyorican.org/acal",
+      "disciplines": [
+        "literary",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nuyorican bowery slam|manhattan|recurring"
+    },
+    {
+      "title": "OMNY Taiko adult recreational class (next series January)",
+      "org": "OMNY Taiko",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "$200 standard ($25/class); $250 pay-it-forward",
+      "award": null,
+      "location": "Brooklyn Music School",
+      "eligibility": [
+        {
+          "requirement": "enrollment",
+          "quote": "The ongoing adult recreational class has a rolling enrollment that accepts new students every few months."
+        }
+      ],
+      "source": "omnytaiko.org",
+      "source_url": "https://www.omnytaiko.org/class",
+      "disciplines": [
+        "music",
+        "performance"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "omny taiko adult recreational class next series january|brooklyn|None"
+    },
+    {
+      "title": "Irish trad session at Mary O's (Thursdays)",
+      "org": "Mary O's",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Thursdays 8-10pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The East Village’s Mary O’s hosts one of the city’s most popular traditional Irish music sessions every Thursday night from 8 p.m. to 10 p.m., often running later."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at mary o s thursdays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at Slainte (Tuesdays)",
+      "org": "Slainte",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Tuesdays 8-11pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Sessions take place every Tuesday from 8 p.m. to 11 p.m., each featuring a special guest."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at slainte tuesdays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at Swift Hibernian Lounge (Tuesdays)",
+      "org": "Swift Hibernian Lounge",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Tuesdays 8-11pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Noho’s Swift Hibernian Lounge features a weekly music program, including a traditional Irish music session on Tuesday nights from 8 p.m. to 11 p.m."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at swift hibernian lounge tuesdays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at 11th Street Bar (Sundays)",
+      "org": "11th Street Bar",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Sundays",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "On Sundays, the bar hosts one of NYC’s longest-running Irish trad sessions, led by Tony DeMarco and Isaac Alderson"
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at 11th street bar sundays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at the Landmark Tavern (Mondays)",
+      "org": "Landmark Tavern",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Mondays 8-11pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "A staple of the city’s Irish music scene, Don Meade leads weekly trad sessions at the Landmark Tavern on Monday nights from 8 p.m. to 11 p.m., where instrumentalists are welcome to join in."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at the landmark tavern mondays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at Grace's (Wednesdays)",
+      "org": "Grace's",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Wednesdays 8pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Inspired by the warmth, hospitality, and community of traditional Irish pubs, Grace’s hosts traditional Irish music sessions every Wednesday at 8 p.m., led by Matt Stapleton and guests."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at grace s wednesdays|manhattan|recurring"
+    },
+    {
+      "title": "Irish trad session at The Clonard (Thursdays)",
+      "org": "The Clonard",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Thursdays 8:30-11pm",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Patrons can enjoy cold brews, bar bites, and live traditional Irish music every Thursday from 8:30 p.m. to 11 p.m."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at the clonard thursdays|brooklyn|recurring"
+    },
+    {
+      "title": "Irish seisiún at The Canary (Sundays)",
+      "org": "The Canary",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Sundays",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The Canary in Crown Heights also hosts a weekly Irish seisiún."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish seisi n at the canary sundays|brooklyn|recurring"
+    },
+    {
+      "title": "Irish trad session at Irish Haven (Sundays)",
+      "org": "Irish Haven",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "typically Sundays",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "regularly hosts engaging events, including traditional Irish music sessions that attract talented instrumentalists from near and far, typically on Sundays."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at irish haven sundays|brooklyn|recurring"
+    },
+    {
+      "title": "Irish trad session at The Wolfhound",
+      "org": "The Wolfhound",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Its informal sessions welcome anyone to bring an instrument and join in the fun."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at the wolfhound|queens|recurring"
+    },
+    {
+      "title": "Irish trad session at Rambling House (monthly)",
+      "org": "Rambling House",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "monthly",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "the pub hosts live music, including monthly traditional Irish sessions open to all musicians."
+        }
+      ],
+      "source": "6sqft.com",
+      "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "caveat": "Secondary source (6sqft roundup, March 12, 2026); confirm with the venue.",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session at rambling house monthly|bronx|recurring"
+    },
+    {
+      "title": "Beginner West Coast Swing with Jes Ann Nail",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-29",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-29"
+      ],
+      "fee": "$30",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Schedule Thursdays 6:30pm – Level 1 Class Description You’ll learn: 6-Counts + Left Turns..."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/beginner-west-coast-swing/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "beginner west coast swing with jes ann nail|manhattan|2026-10-29"
+    },
+    {
+      "title": "New York Flow Festival",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-02-26",
+      "recurrence": null,
+      "event_dates": [
+        "2027-02-26"
+      ],
+      "fee": "$223",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "An intimate weekend of West Coast Swing workshops, competition & social dancing in New York City."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/new-york-flow-festival/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "new york flow festival|manhattan|2027-02-26"
+    },
+    {
+      "title": "West Coast Swing: Progressive Learning with Jes Ann & Dimitri",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "fee": "$30",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn the basic eight-count patterns, advanced variations, footwork, and technique."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/next-level-west-coast-swing/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "west coast swing progressive learning with jes ann dimitri|manhattan|2026-10-28"
+    },
+    {
+      "title": "Soul Sunday: West Coast Swing Social",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-01"
+      ],
+      "fee": "$20",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Featuring rotating DJs, pop-up learning sessions, and a potluck picnic."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/soul-sunday/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "soul sunday west coast swing social|manhattan|2026-11-01"
+    },
+    {
+      "title": "West Coast Swing with Swingiversity",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-13",
+      "recurrence": "4 dates through 2026-12-04",
+      "event_dates": [
+        "2026-11-13",
+        "2026-11-20",
+        "2026-11-27",
+        "2026-12-04"
+      ],
+      "fee": "$30",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join Galen Chen + Swingiversity crew on Friday nights for FUN West Coast Swing classes and an unstructured practice following."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/swingiversity/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "west coast swing with swingiversity|manhattan|2026-11-13"
+    },
+    {
+      "title": "West Coast Swing Beginner Boot Camp",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-01"
+      ],
+      "fee": "$50",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Class Description You’ll learn all the core 6-count patterns plus the 8-count Whip, with simple variations: Left-Side Pass Left-Side Pass w/ Follower’s Inside Spin Sugar Push Sugar Push w/ Follower’s..."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/wcs-beginner-bootcamp/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "west coast swing beginner boot camp|manhattan|2026-11-01"
+    },
+    {
+      "title": "Intro to West Coast Swing: Beginner Class at House of West",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "fee": "$25",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join us for a fun & friendly 30-minute intro class for beginners."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/west-coast-swing-intro/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "intro to west coast swing beginner class at house of west|manhattan|2026-10-28"
+    },
+    {
+      "title": "West Coast Swing Competitor Training with Dimitri Hector",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": "2 dates through 2026-11-02",
+      "event_dates": [
+        "2026-10-28",
+        "2026-11-02"
+      ],
+      "fee": "$45",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn how to showcase your own dancing while maintaining strong partnering, clear connection, and musical timing."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/wsdc-competitor-training-with-dimitri-hector/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "west coast swing competitor training with dimitri hector|manhattan|2026-10-28"
+    },
+    {
+      "title": "Intro to West Coast Swing: Beginner Class at Flow Fridays",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-30",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-30"
+      ],
+      "fee": "$15",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "A fun and friendly intro to West Coast Swing class before the Flow Fridays social party!"
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/flow-fridays-intro/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "intro to west coast swing beginner class at flow fridays|manhattan|2026-10-30"
+    },
+    {
+      "title": "Flow Fridays",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-30",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-30"
+      ],
+      "fee": "$25",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "About Flow Fridays Welcome to Flow Fridays, NYC’s biggest West Coast Swing (WCS) monthly party bringing your favorite late-night vibes and music!"
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/flow-fridays/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "flow fridays|manhattan|2026-10-30"
+    },
+    {
+      "title": "House of West – NYC’s Weekly West Coast Swing Party",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "fee": "$25",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Your weekly party starts here!"
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/house-of-west/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "house of west nyc s weekly west coast swing party|manhattan|2026-10-28"
+    },
+    {
+      "title": "Intro to Lindy Hop: Beginner Class at Midtown Swings",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-27"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join us every Tuesday night before the Midtown Swings social for a fun, beginner-friendly introduction to Lindy Hop, designed to get you moving and confident on the dance floor."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/intro-to-lindy-hop/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "intro to lindy hop beginner class at midtown swings|manhattan|2026-10-27"
+    },
+    {
+      "title": "Lindy Hop – Swing Dance Classes with Gaby Cook & AJ Howard",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-27"
+      ],
+      "fee": "$30",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn Lindy Hop, the original swing dance, on Tuesday nights with Gaby Cook & AJ Howard and stay for the Midtown Swings social after class."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/lindy-hop-midtown-swings/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "lindy hop swing dance classes with gaby cook aj howard|manhattan|2026-10-27"
+    },
+    {
+      "title": "Lindy Hop Performance Team with Alejandro & Anna",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-31",
+      "recurrence": "5 dates through 2026-12-05",
+      "event_dates": [
+        "2026-10-31",
+        "2026-11-07",
+        "2026-11-14",
+        "2026-11-21",
+        "2026-12-05"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Make friends, challenge your choreo learning, and bring it all together for a debut at a local social."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/lindy-hop-performance-alejandro-anna/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "lindy hop performance team with alejandro anna|manhattan|2026-10-31"
+    },
+    {
+      "title": "Lindy Hop Guided Practice with Midtown Swings",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-27"
+      ],
+      "fee": "$15",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Bring your questions and work on becoming more familiar with your Lindy Hop basics."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/lindy-hop-practice/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "lindy hop guided practice with midtown swings|manhattan|2026-10-27"
+    },
+    {
+      "title": "Midtown Swings – Weekly Swing Dance Party",
+      "org": "NYC Swings",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-27"
+      ],
+      "fee": "$25",
+      "award": null,
+      "location": "Danznik Studios, 240 W 37th St 2nd Floor, New York, NY, 10018",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join Midtown Swings every Tuesday night for Lindy Hop classes and a fun DJ'ed social dance with Gaby Cook and AJ Howard."
+        }
+      ],
+      "source": "nycswings",
+      "source_url": "https://www.nycswings.net/e/midtown-swings-social/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "midtown swings weekly swing dance party|manhattan|2026-10-27"
+    },
+    {
+      "title": "OPEN LAB | Objects and People with Nifemi Ogunro & Sacha Vega — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-12-07",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-07"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/open-lab-with-nifemi-ogunro",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open lab objects and people with nifemi ogunro sacha vega center for performance research|brooklyn|2026-12-07"
+    },
+    {
+      "title": "OPEN LAB | GODBODY: Ritual Participation with Diovanna Obafunmilayo — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-06",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-06"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/open-lab-with-diovanna-obafunmilayo-2",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open lab godbody ritual participation with diovanna obafunmilayo center for performance research|brooklyn|2026-11-06"
+    },
+    {
+      "title": "Randall Bourscheidt Technical Residency: Diovanna Obafunmilayo (closed to the public) — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-01"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/technical-residency-diovanna-obafunmilayo",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "randall bourscheidt technical residency diovanna obafunmilayo closed to the public center for performance research|brooklyn|2026-11-01"
+    },
+    {
+      "title": "OPEN STAGE | Fall Movement: Starla Edwards, Angel Glasby & Thalia Sablon, Sierra Hendrix, jolie PADILLA, and Lu Yim — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-12-04",
+      "recurrence": "2 dates through 2026-12-05",
+      "event_dates": [
+        "2026-12-04",
+        "2026-12-05"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/fallmovement-2026-dec-5",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open stage fall movement starla edwards angel glasby thalia sablon sierra hendrix jolie padilla and lu yim center for performance research|brooklyn|2026-12-04"
+    },
+    {
+      "title": "@CPR | Shifting Grounds presents Drumming Golems: A Family Music Workshop with Handmade Instruments — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-15"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/shifting-grounds-the-neighborhood-family-program",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "cpr shifting grounds presents drumming golems a family music workshop with handmade instruments center for performance research|brooklyn|2026-11-15"
+    },
+    {
+      "title": "OPEN LAB | The Water Inside Our Bodies: Dancing Stillness and Silence with Yuki Kawahisa — Center for Performance Research",
+      "org": "Center for Performance Research",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-09",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-09"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
+      "eligibility": [],
+      "source": "cpr",
+      "source_url": "https://www.cprnyc.org/events/open-lab-with-yuki-kawahisa-part-2",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open lab the water inside our bodies dancing stillness and silence with yuki kawahisa center for performance research|brooklyn|2026-11-09"
+    },
+    {
+      "title": "DJ Got Me Fit Dance Party",
+      "org": "Staten Island Children's / SI Arts Culture Lounge",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-11-21",
+      "recurrence": "2 dates through 2026-11-22",
+      "event_dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "Staten Island Children&#8217;s Museum, 1000 Richmond Terrace, Building M, Staten Island, NY, 10301",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "<p>Join us for some super fun fitness!"
+        }
+      ],
+      "source": "newhouse-sic",
+      "source_url": "https://sichildrensmuseum.org/event/dj-got-me-fit-dance-party-8/2026-11-22/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dj got me fit dance party|staten_island|2026-11-21"
+    },
+    {
+      "title": "Visualizing Latinx: Creative Practices in Fashion, Film, and Beyond",
+      "org": "Latinx Project NYU",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-02",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-02"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "The Ford Foundation Center for Social Justice, 320 East 43rd Street\nNew York, New York, 10017\nUnited States",
+      "eligibility": [],
+      "source": "latinx",
+      "source_url": "https://www.latinxproject.nyu.edu/calendar/visualizing-latinx-creative-practices-in-fashion-film-and-beyond",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "visualizing latinx creative practices in fashion film and beyond|manhattan|2026-11-02"
+    },
+    {
+      "title": "Last ARY Fall Monday Classes — Brooklyn Music School",
+      "org": "Brooklyn Music School",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2027-01-25",
+      "recurrence": null,
+      "event_dates": [
+        "2027-01-25"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "brooklynmusicschool",
+      "source_url": "https://www.brooklynmusicschool.org/calendar-and-events/last-ary-fall-monday-class",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "last ary fall monday classes brooklyn music school|brooklyn|2027-01-25"
+    },
+    {
+      "title": "Craft Night w/Caity Banga 7-9pm — An Beal Bocht Cafe",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-09",
+      "recurrence": "2 dates through 2026-12-14",
+      "event_dates": [
+        "2026-11-09",
+        "2026-12-14"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "An Beal Bocht Cafe, 445 West 238th Street\nThe Bronx, NY, 10463\nUnited States",
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/craft-night-wcaity-banga-7-9pm-1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "craft night w caity banga 7 9pm an beal bocht cafe|bronx|2026-11-09"
+    },
+    {
+      "title": "Storytelling Night w/Rob Bennett 8-10pm — An Beal Bocht Cafe",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-18",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-18"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "An Beal Bocht Cafe, 445 West 238th Street\nThe Bronx, NY, 10463\nUnited States",
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/storytelling-night-wrob-bennett-8-10pm",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "storytelling night w rob bennett 8 10pm an beal bocht cafe|bronx|2026-11-18"
+    },
+    {
+      "title": "Open Mic with Eric Sullivan at An Beal Bocht Cafe (weekly)",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "weekly, 9pm",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/36pstp9m96yf7l9k8yzsy2x83hd9yd",
+      "disciplines": [
+        "music",
+        "literary",
+        "comedy"
+      ],
+      "extraction": "auto_text",
+      "location": "An Beal Bocht Cafe, 445 West 238th Street, Bronx",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "open mic with eric sullivan at an beal bocht cafe weekly|bronx|recurring"
+    },
+    {
+      "title": "Irish Trad Session with Lindsey Ceitinn & Michelle Bergin (Sundays)",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "Sundays 3:30-6:30pm",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/a6ydzagtgcmmd34a358ch979p5zfmh",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "auto_text",
+      "location": "An Beal Bocht Cafe, 445 West 238th Street, Bronx",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "irish trad session with lindsey ceitinn michelle bergin sundays|bronx|recurring"
+    },
+    {
+      "title": "Quebecois Session at An Beal Bocht Cafe (monthly)",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "recurring",
+      "recurrence": "1-4pm, about monthly (Nov 28, Dec 26)",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/quebecois-session-1-4pm",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "auto_text",
+      "location": "An Beal Bocht Cafe, 445 West 238th Street, Bronx",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "quebecois session at an beal bocht cafe monthly|bronx|recurring"
+    },
+    {
+      "title": "Salsa Social",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Garibaldi Plaza (in Washington Square Park) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join our friends from Mi Salsa Dura Baile for an evening of Latin rhythm and dancing in Garibaldi Plaza!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/10/28/salsa-social",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "salsa social|manhattan|2026-10-28"
+    },
+    {
+      "title": "Eclectik Dance Fusion",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-10-29",
+      "recurrence": "19 dates through 2027-03-25",
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-05",
+        "2026-11-12",
+        "2026-11-19",
+        "2026-12-03",
+        "2026-12-10",
+        "2026-12-17",
+        "2027-01-07",
+        "2027-01-14",
+        "2027-01-21",
+        "2027-01-28",
+        "2027-02-04"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "NYPL - George Bruce , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Get ready for an energizing dance fitness class that blends Afrobeats rhythms with upbeat sounds from around the world."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/10/29/eclectik-dance-fusion",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "eclectik dance fusion|manhattan|2026-10-29"
+    },
+    {
+      "title": "Dance Fusion",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-10-29",
+      "recurrence": "8 dates through 2026-12-17",
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-05",
+        "2026-11-12",
+        "2026-11-19",
+        "2026-11-26",
+        "2026-12-03",
+        "2026-12-10",
+        "2026-12-17"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Gymnasium (in Hunts Point Recreation Center) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "This unique class is all about discovering your personal movement."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/10/29/dance-fusion",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dance fusion|bronx|2026-10-29"
+    },
+    {
+      "title": "Autumn Animal Crafts and Exploration",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-10-31",
+      "recurrence": null,
+      "event_dates": [
+        "2026-10-31"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Urban Park Rangers for a hands‑on mask‑making activity inspired by the wildlife of Crotona Park"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/10/31/autumn-animal-crafts-and-exploration",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "autumn animal crafts and exploration|bronx|2026-10-31"
+    },
+    {
+      "title": "Indigenous Art Workshop with NAIC-NY",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-07"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Bronx River House (in Starlight Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "This family and kid-friendly event will offer participants an opportunity to learn traditional indigenous crafts, and gain exposure to contemporary indigenous cultures."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/07/indigenous-art-workshop-with-naicny",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "indigenous art workshop with naic ny|bronx|2026-11-07"
+    },
+    {
+      "title": "Nature's Workshop: Create Your Own Nature Field Guide",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-08",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-08"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Every great explorer needs a guidebook."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/08/natures-workshop-create-your-own-nature-field-guide",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop create your own nature field guide|bronx|2026-11-08"
+    },
+    {
+      "title": "Nature's Workshop: Natural Inks and Dyes",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-15"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "West 218th Street and Indian Road (in Inwood Hill Park) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Urban Park Rangers to learn how to create your own natural dyes!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/15/natures-workshop-natural-inks-and-dyes",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop natural inks and dyes|manhattan|2026-11-15"
+    },
+    {
+      "title": "Reduction Block Printing Workshop",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "2026-11-21",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-21"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Classroom B - Large (in Lost Battalion Hall Recreation Center) , Queens",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn how to carve, layer, and print multiple colors using a single Styrofoam block."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/21/reduction-block-printing-workshop",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "reduction block printing workshop|queens|2026-11-21"
+    },
+    {
+      "title": "Nature Sketching",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "drawing_session",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-11-22",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-22"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Arthur Kill Road and Brookfield Avenue (in Brookfield Park) , Staten Island",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Urban Park Rangers for a scenic fall hike through Brookfield Park."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/22/nature-sketching",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature sketching|staten_island|2026-11-22"
+    },
+    {
+      "title": "Nature's Workshop: Hand Weaving and Crocheting",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-28"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Salt Marsh Nature Center (in Marine Park) , Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Explore nature’s fiber arts and learn about the vast shapes and colors of the microbiome."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/28/natures-workshop-hand-weaving-and-crocheting",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop hand weaving and crocheting|brooklyn|2026-11-28"
+    },
+    {
+      "title": "Nature Puppet Show",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-29",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-29"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Unleash your creativity and learn about the many animals who call our parks home while you write your very own puppet show about our furry and feathered friends!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/29/nature-puppet-show",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature puppet show|bronx|2026-11-29"
+    },
+    {
+      "title": "The Adult Double Dutch Culture Jam",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-12-05",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-05"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Gymnasium (in St. Mary’s Recreation Center) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Please note that registration and the event is free and open to the public."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/05/the-adult-double-dutch-culture-jam",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "the adult double dutch culture jam|bronx|2026-12-05"
+    },
+    {
+      "title": "Nature Open Mic",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-12-05",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-05"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Greenbelt Nature Center (in Blood Root Valley) , Staten Island",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Nature provides inspiration."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/05/nature-open-mic",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature open mic|staten_island|2026-12-05"
+    },
+    {
+      "title": "Nature's Workshop: Nature Puppet Making and Puppet Show",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Grand Army Plaza Arch (in Grand Army Plaza) , Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Use your imagination, craft your puppet’s personality, and share fun stories with new friends."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-puppet-making-and-puppet-show",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop nature puppet making and puppet show|brooklyn|2026-12-12"
+    },
+    {
+      "title": "Nature's Workshop: Nature Wreath Making",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Blue Heron Nature Center (in Blue Heron Park) , Staten Island",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Rangers as we create beautiful wreaths made from upcycled natural materials."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-wreath-making1",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop nature wreath making|staten_island|2026-12-12"
+    },
+    {
+      "title": "Winter Wreath Workshop",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Icahn Stadium (in Randall's Island Park) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Guided by our staff, you’ll create your own one-of-a-kind wreath using seasonal greenery, dried flowers, and natural materials foraged from the Park’s landscape."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/12/winter-wreath-workshop",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "winter wreath workshop|manhattan|2026-12-12"
+    },
+    {
+      "title": "Nature's Workshop: Nature Wreath Making",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Van Cortlandt Nature Center (in Van Cortlandt Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Rangers as we create beautiful wreaths made from upcycled natural materials."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-wreath-making",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop nature wreath making|bronx|2026-12-12"
+    },
+    {
+      "title": "Nature's Workshop: Handmade Holiday Ornaments",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-12-20",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-20"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Discover how nature can inspire your holiday traditions."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/20/natures-workshop-handmade-holiday-ornaments",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop handmade holiday ornaments|bronx|2026-12-20"
+    },
+    {
+      "title": "Nature's Workshop: Winter Landscape Watercolor Painting",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-12-26",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-26"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Let the tranquility of winter flow in your paintings."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/26/natures-workshop-winter-landscape-watercolor-painting",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nature s workshop winter landscape watercolor painting|bronx|2026-12-26"
+    },
+    {
+      "title": "Kids Week: Rock Salt and Watercolor Painting",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-12-28",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-28"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Entrance - Continental Place and Grandview Avenue (in The Big Park) , Staten Island",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Join the Urban Park Rangers for a creative winter art workshop inspired by the natural world."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/28/kids-week-rock-salt-and-watercolor-painting",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "kids week rock salt and watercolor painting|staten_island|2026-12-28"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-12-29",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-29"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/29/kids-week-nature-puppet-show",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "kids week nature puppet show|bronx|2026-12-29"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "2026-12-30",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-30"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Entrance - 34th Avenue between 77th and 78th Streets (in Travers Park) , Queens",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/12/30/kids-week-nature-puppet-show",
+      "disciplines": [
+        "visual",
+        "craft"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "kids week nature puppet show|queens|2026-12-30"
+    },
+    {
+      "title": "Acting For The Camera",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-02",
+      "recurrence": "7 dates through 2026-12-14",
+      "event_dates": [
+        "2026-11-02",
+        "2026-11-09",
+        "2026-11-16",
+        "2026-11-23",
+        "2026-11-30",
+        "2026-12-07",
+        "2026-12-14"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Chelsea Recreation Center) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn acting methods specifically for Film, Television, and Video productions!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/02/acting-for-the-camera",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "acting for the camera|manhattan|2026-11-02"
+    },
+    {
+      "title": "Filmmaking",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-02",
+      "recurrence": "14 dates through 2026-12-18",
+      "event_dates": [
+        "2026-11-02",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-20",
+        "2026-11-23",
+        "2026-11-27",
+        "2026-11-30",
+        "2026-12-04",
+        "2026-12-07",
+        "2026-12-11"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Herbert Von King Cultural Arts Center) , Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn the essentials of creating a film, including scriptwriting, directing, cinematography, editing, and sound design."
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/02/filmmaking",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "filmmaking|brooklyn|2026-11-02"
+    },
+    {
+      "title": "Build It With Blender",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-02",
+      "recurrence": "7 dates through 2026-12-14",
+      "event_dates": [
+        "2026-11-02",
+        "2026-11-09",
+        "2026-11-16",
+        "2026-11-23",
+        "2026-11-30",
+        "2026-12-07",
+        "2026-12-14"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Herbert Von King Cultural Arts Center) , Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn 3D design with this introduction to Blender, the free and open source 3D creation suite!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/02/build-it-with-blender",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "build it with blender|brooklyn|2026-11-02"
+    },
+    {
+      "title": "Build It With Blender",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-11-03",
+      "recurrence": "7 dates through 2026-12-15",
+      "event_dates": [
+        "2026-11-03",
+        "2026-11-10",
+        "2026-11-17",
+        "2026-11-24",
+        "2026-12-01",
+        "2026-12-08",
+        "2026-12-15"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Greenbelt Recreation Center) , Staten Island",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn 3D design with this introduction to Blender, the free and open source 3D creation suite!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/03/build-it-with-blender",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "build it with blender|staten_island|2026-11-03"
+    },
+    {
+      "title": "Acting for the Camera",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-03",
+      "recurrence": "7 dates through 2026-12-15",
+      "event_dates": [
+        "2026-11-03",
+        "2026-11-10",
+        "2026-11-17",
+        "2026-11-24",
+        "2026-12-01",
+        "2026-12-08",
+        "2026-12-15"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab B (in St. John’s Recreation Center) , Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn acting methods specifically for Film, Television, and Video productions!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/03/acting-for-the-camera",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "acting for the camera|brooklyn|2026-11-03"
+    },
+    {
+      "title": "Intro to Graphic Design",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-04",
+      "recurrence": "14 dates through 2026-12-17",
+      "event_dates": [
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-25",
+        "2026-11-26",
+        "2026-12-02",
+        "2026-12-03",
+        "2026-12-09",
+        "2026-12-10"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Highbridge Recreation Center) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Learn to use professional graphic design tools including Adobe Photoshop, Illustrator and InDesign to create materials for print or web!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/04/intro-to-graphic-design",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "intro to graphic design|manhattan|2026-11-04"
+    },
+    {
+      "title": "Jam Session!",
+      "org": "NYC Parks",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-06",
+      "recurrence": "7 dates through 2026-12-18",
+      "event_dates": [
+        "2026-11-06",
+        "2026-11-13",
+        "2026-11-20",
+        "2026-11-27",
+        "2026-12-04",
+        "2026-12-11",
+        "2026-12-18"
+      ],
+      "fee": "none",
+      "award": null,
+      "location": "Media Lab (in Chelsea Recreation Center) , Manhattan",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Sing, rap, or play your heart out as a part of a band!"
+        }
+      ],
+      "source": "nyc-parks",
+      "source_url": "https://www.nycgovparks.org/events/2026/11/06/jam-session",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "structured",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "jam session|manhattan|2026-11-06"
+    },
+    {
+      "title": "Artist Club (monthly peer critique)",
+      "org": "Hudson Valley MOCA",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "2026-11-16",
+      "recurrence": "monthly; next 11/16, 12/21, 1/18",
+      "fee": "unknown",
+      "award": null,
+      "location": "Hudson Valley MOCA, 1701 Main Street, Peekskill, NY",
+      "eligibility": [
+        {
+          "requirement": "format",
+          "quote": "For over 10 years, the artists’ club met monthly, critiquing works by one or two member artists, sharing dinner and comradery."
+        }
+      ],
+      "source": "hudson-valley-moca",
+      "source_url": "https://www.hudsonvalleymoca.org/events/2026/11/16/artist-club-meeting",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "squarespace",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "artist club monthly peer critique|westchester_hudson|2026-11-16"
+    },
+    {
+      "title": "Poor Mouth Writers' Night with Melinda Wilson",
+      "org": "An Beal Bocht Cafe",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-11",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "An Beal Bocht Cafe, 445 West 238th Street, Bronx",
+      "eligibility": [],
+      "source": "anbealbocht",
+      "source_url": "https://www.anbealbochtcafe.com/events-programs/xwx6ppdzse6fbeajrjg4tkmg7fjath",
+      "disciplines": [
+        "literary"
+      ],
+      "extraction": "squarespace",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "poor mouth writers night with melinda wilson|bronx|2026-11-11"
+    },
+    {
+      "title": "BRIC Media Center orientation (free; required before BRIC media classes)",
+      "org": "BRIC",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-17",
+      "recurrence": "Nov 17 and Dec 15, 2026",
+      "fee": "none",
+      "award": null,
+      "location": "BRIC, 647 Fulton St, Brooklyn",
+      "eligibility": [
+        {
+          "requirement": "attendance",
+          "quote": "You must stay for the entire orientation session in order to get credit for attending."
+        }
+      ],
+      "source": "bric",
+      "source_url": "https://bricartsmedia.org/class/media-orientation/",
+      "disciplines": [
+        "film",
+        "digital"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "bric media center orientation free required before bric media classes|brooklyn|2026-11-17"
+    },
+    {
+      "title": "2026 Fall Tabla & Rhythm Workshop",
+      "org": "Chhandayan, Inc.",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-15"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "Chhandayan Center For Indian Music, 269 W 39th Street,\nNew York City, NY 10018\nUnited States",
+      "eligibility": [],
+      "source": "r103-chhandayan",
+      "source_url": "https://chhandayan.org/calendar/2023/7/1/2023-tabla-ashram-at-shanti-mandir-793t4-4t8hw-raz7z-dmjhj-6t623-kywhm-6b3mz",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "2026 fall tabla rhythm workshop|manhattan|2026-11-15"
+    },
+    {
+      "title": "Harmonium Workshop with Kedar Naphade",
+      "org": "Chhandayan, Inc.",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "269 W 39th Street,\nNew York City, NY 10018\nUnited States",
+      "eligibility": [],
+      "source": "r103-chhandayan",
+      "source_url": "https://chhandayan.org/calendar/2023/7/1/2023-tabla-ashram-at-shanti-mandir-793t4-4t8hw-raz7z-dmjhj-6t623-kywhm-6b3mz-r27d3",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "harmonium workshop with kedar naphade|manhattan|2026-12-12"
+    },
+    {
+      "title": "Master Class with Jason Robert Brown",
+      "org": "Theatre Now New York, Inc.",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-16",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-16"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "New York, New York, NY, USA",
+      "eligibility": [],
+      "source": "r479-tnny",
+      "source_url": "https://www.tnny.org/event-details/master-class-with-jason-robert-brown",
+      "disciplines": [
+        "theater",
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "master class with jason robert brown|manhattan|2026-11-16"
+    },
+    {
+      "title": "Master Class with Marc Shaiman",
+      "org": "Theatre Now New York, Inc.",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-14",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-14"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "NYC Midtown Studio, New York, NY, USA",
+      "eligibility": [],
+      "source": "r479-tnny",
+      "source_url": "https://www.tnny.org/event-details/master-class-with-marc-shaiman",
+      "disciplines": [
+        "theater",
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "master class with marc shaiman|manhattan|2026-12-14"
+    },
+    {
+      "title": "Rewriting Your Mother Story",
+      "org": "Center at West Park, Inc.",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-17",
+      "recurrence": null,
+      "event_dates": [
+        "2026-11-17"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "The Center at West Park, 263 West 86th Street\nNew York, NY, 10024\nUnited States",
+      "eligibility": [],
+      "source": "r94-centeratwestpark",
+      "source_url": "https://www.centeratwestpark.org/calendar/2026/11/17/rewriting-your-mother-story",
+      "disciplines": [
+        "literary"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "rewriting your mother story|manhattan|2026-11-17"
+    },
+    {
+      "title": "WeBop Family Jazz Party: A Holiday Jazz Jam",
+      "org": "Jazz at Lincoln Center",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-06",
+      "recurrence": null,
+      "event_dates": [
+        "2026-12-06"
+      ],
+      "fee": "$42",
+      "award": null,
+      "location": "Jazz at Lincoln Center, Broadway at 60th Street, New York, NY, 10019",
+      "eligibility": [
+        {
+          "requirement": "as described",
+          "quote": "Celebrate the holidays with music, movement, and family fun at a WeBop Holiday Family Jazz Party!"
+        }
+      ],
+      "source": "r252-jazz",
+      "source_url": "https://jazz.org/concert/webop-family-jazz-party-a-holiday-jazz-jam/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "jsonld",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "webop family jazz party a holiday jazz jam|manhattan|2026-12-06"
+    },
+    {
+      "title": "Dawson Teaching Artist Residency",
+      "org": "Choral Chameleon",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "This program is open to high school choral teachers who are excited to welcome a teaching artist into their classroom."
+        }
+      ],
+      "source": "r110-choralchameleon",
+      "source_url": "https://choralchameleon.com/dawson-residency",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dawson teaching artist residency|manhattan|2026-12-01"
+    },
+    {
+      "title": "Drama League (Re)Engage Residency",
+      "org": "The Drama League",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: This program is only available to alumni of The Drama League Directors Project Fellowships, Residencies, Assistantships, or Exchanges."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "page for full eligibility details."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/reengage/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league re engage residency|manhattan|2027-01-04"
+    },
+    {
+      "title": "Drama League TV and Film Directing Fellowship",
+      "org": "The Drama League",
+      "opportunity_type": "grant",
+      "subtype": "fellowship",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "page for full eligibility details."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/dl-film-television-fellowships/",
+      "disciplines": [
+        "film",
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league tv and film directing fellowship|manhattan|2027-01-04"
+    },
+    {
+      "title": "Drama League Next Stage Residency",
+      "org": "The Drama League",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Directors rarely receive time or resources for their own explorations, risks, or experimentations on script-based processes; if at all, they must do so rapidly, under the time constraints and pressures of rehearsals or previews, when production concerns and the needs of other artists must be prioritized."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/next-stage-residency/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league next stage residency|manhattan|2027-01-04"
+    },
+    {
+      "title": "Drama League Beatrice Terry Residency",
+      "org": "The Drama League",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "page for full eligibility details."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/terry-residency/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league beatrice terry residency|manhattan|2027-01-04"
+    },
+    {
+      "title": "Drama League Rose Directing Fellowship",
+      "org": "The Drama League",
+      "opportunity_type": "grant",
+      "subtype": "fellowship",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "page for full eligibility details."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/rose/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league rose directing fellowship|manhattan|2027-01-04"
+    },
+    {
+      "title": "Drama League FutureNow Directing Fellowships",
+      "org": "The Drama League",
+      "opportunity_type": "grant",
+      "subtype": "fellowship",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "page for full eligibility details."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/futurenow-directing-fellowships/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league futurenow directing fellowships|manhattan|2026-12-07"
+    },
+    {
+      "title": "Drama League (Re)Envision Residency",
+      "org": "The Drama League",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-01-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Any text in the public domain that a director wishes to (re)envision is eligible , including classics and works from antiquity."
+        },
+        {
+          "requirement": "as stated",
+          "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
+        }
+      ],
+      "source": "r154-dramaleague",
+      "source_url": "https://dramaleague.org/reenvision/",
+      "disciplines": [
+        "theater"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "drama league re envision residency|manhattan|2027-01-04"
+    },
+    {
+      "title": "Discovery Sing-Along with Sabrina Chap",
+      "org": "Brooklyn Botanic Garden",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "recurrence": "weekly",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "r82-bbg",
+      "source_url": "https://www.bbg.org/visit/event/discovery_sing_along_with_sabrina_chap",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "discovery sing along with sabrina chap|brooklyn|2026-10-28"
+    },
+    {
+      "title": "Central City Chorus auditions",
+      "org": "Central City Chorus",
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": "on a rolling basis",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "r97-centralcitychorus",
+      "source_url": "https://www.centralcitychorus.org/auditions",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "crawl_reviewed",
+      "opens_at": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "central city chorus auditions|manhattan|rolling"
     }
   ]
 }

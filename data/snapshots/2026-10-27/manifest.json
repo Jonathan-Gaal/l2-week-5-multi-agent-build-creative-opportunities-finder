@@ -2,15 +2,15 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 541,
+  "record_count": 651,
   "by_borough": {
-    "manhattan": 293,
-    "brooklyn": 98,
-    "queens": 42,
-    "staten_island": 15,
+    "manhattan": 347,
+    "brooklyn": 126,
+    "queens": 45,
+    "bronx": 26,
+    "staten_island": 21,
     "citywide": 11,
-    "bronx": 9,
-    "unknown": 1
+    "unknown": 2
   },
   "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
   "dedupe_key": "normalized title | borough (or region when borough is null) | deadline.",
@@ -18,7 +18,8 @@
     "Every eligibility quote was matched verbatim against the fetched page text.",
     "Every source_url returned HTTP 200 on 2026-10-27.",
     "robots.txt was checked for ClaudeBot, anthropic-ai, Claude-User, and * before crawling each domain.",
-    "2026-10-27 deep pass: every quote checked against its own source page (cached or live), not the pooled corpus; all 541 records pass and all 535 URLs return 200."
+    "2026-10-27 deep pass: every quote checked against its own source page (cached or live), not the pooled corpus; all 541 records pass and all 535 URLs return 200.",
+    "2026-10-27 second pass: 651 records; every quote matched on the record's own page and every URL returned 200. One record dropped whose quote could not be confirmed on its own page; one dropped for a malformed URL."
   ],
   "sources": {
     "ingested_with_records": [
@@ -55,7 +56,25 @@
       "powerhouse-arts",
       "nyc-parks",
       "visual-aids",
-      "artswestchester-board"
+      "artswestchester-board",
+      "jalopy",
+      "nycsacredharp",
+      "cdny",
+      "nuyorican",
+      "omny-taiko",
+      "nycswings",
+      "nyc-parks (list-page microdata)",
+      "bric",
+      "hudson-valley-moca",
+      "chhandayan",
+      "tnny",
+      "drama-league",
+      "choral-chameleon",
+      "central-city-chorus",
+      "brooklyn-botanic-garden",
+      "center-at-west-park",
+      "jazz-at-lincoln-center",
+      "6sqft (secondary, Irish sessions)"
     ],
     "ingested_zero_open_records": {
       "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
@@ -84,7 +103,15 @@
       "guild-hall": "robots.txt disallows ClaudeBot and anthropic-ai.",
       "eyebeam (NYC Residency, deadline reported Nov 15)": "robots.txt disallows ClaudeBot; not verified.",
       "jazznearyou": "robots.txt disallows ClaudeBot and anthropic-ai.",
-      "nyc-parks events API": "robots.txt disallows the wp-json path; individual event pages are allowed and were used."
+      "nyc-parks events API": "robots.txt disallows the wp-json path; individual event pages are allowed and were used.",
+      "thesession.org": "robots.txt disallows Claude.",
+      "ma.to": "robots.txt disallows Claude.",
+      "folkmusicny.org": "robots.txt disallows Claude.",
+      "cdss.org": "robots.txt disallows Claude.",
+      "thepit-nyc.com": "robots.txt disallows ClaudeBot.",
+      "greenwichhouse.org": "robots.txt disallows Claude.",
+      "nycsacredharp.org": "robots.txt disallows Claude (the group's current site, nycsacredharp.com, allows it).",
+      "shapenotesingings.com": "robots.txt disallows ClaudeBot. One page was fetched in error before the gate existed; it was deleted unused."
     },
     "not_crawled_robots": {
       "bronxarts.org": "robots.txt disallows ClaudeBot and anthropic-ai; Content-Signal ai-train=no. Bronx grants are read from bronxcouncilonthearts.submittable.com instead."
@@ -111,7 +138,12 @@
       "east-lynne-theater": "Cape May, outside the metro area.",
       "nyfa-classifieds": "Cloudflare challenge (intermittent).",
       "artswestchester (after crawl)": "Began returning a Cloudflare challenge; crawl stopped, 13 pages already fetched were used.",
-      "spring-studio": "Domain does not resolve."
+      "spring-studio": "Domain does not resolve.",
+      "queens-library events": "Event pages return an image CAPTCHA.",
+      "ucbcomedy.com": "Returns 403.",
+      "circuswarehouse.com": "Domain parked (redirects to /lander).",
+      "st-george-theatre": "Returns 403.",
+      "query.wikidata.org / overpass-api.de": "robots.txt disallows all agents; no data used."
     },
     "crawled_no_open_records": {
       "queens-museum (Jerome Fellowship)": "Closed Sep 28, 2026.",
@@ -339,72 +371,86 @@
     }
   ],
   "known_gaps": [
-    "Library calendars (NYPL, Queens Library) render in JavaScript; only a few Brooklyn Public Library events were reachable.",
-    "Eventbrite and Meetup hold many jams, drum circles, and drawing groups but their terms prohibit scraping.",
-    "Playbill, JazzNearYou, MoMI, Eyebeam, Noguchi, Poets House, ISCP, Bronx Arts, and Bang on a Can block Claude in robots.txt.",
-    "NYFA Classifieds and ArtsWestchester sit behind Cloudflare challenges.",
-    "Open-mic listings (Badslava, OpenMikes) are community-maintained; each record carries a caveat to confirm with the venue.",
-    "Staten Island remains thinnest of the boroughs; Connecticut and the Hudson Valley rely on a handful of sources.",
+    "NYC Event Calendar API (api.nyc.gov) needs a free key the owner registers; not yet used.",
+    "Eventbrite and Meetup terms prohibit scraping; library calendars (NYPL, Queens) are JS-only or CAPTCHA-gated.",
+    "About 1,728 roster orgs have no discoverable website by domain guessing.",
+    "BRIC's full class catalog loads through a filter app; only the orientation is linked.",
+    "NYC Parks rate-limits crawlers; its records come from list-page microdata fetched at 4s intervals.",
     "Fee is 'unknown' wherever the page does not state one."
   ],
   "by_discipline": {
-    "comedy": 303,
-    "music": 119,
-    "literary": 58,
-    "dance": 49,
-    "all": 48,
-    "theater": 38,
-    "visual": 30,
-    "performance": 4,
+    "comedy": 304,
+    "music": 160,
+    "dance": 77,
+    "literary": 66,
+    "all": 52,
+    "visual": 49,
+    "theater": 47,
+    "craft": 21,
+    "film": 11,
+    "performance": 10,
+    "digital": 7,
     "design": 3,
     "research": 3,
-    "film": 3,
-    "craft": 3,
     "performing_arts": 2,
     "architecture": 2,
     "curatorial": 1
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 469,
+    "nyc": 578,
     "long_island": 46,
-    "westchester_hudson": 13,
+    "westchester_hudson": 14,
     "new_jersey": 9,
     "connecticut": 4
   },
   "region_field": "Added 2026-10-27 when scope widened to the NYC tri-state metro area. 'nyc' records carry a borough; others (long_island, westchester_hudson, new_jersey, connecticut) have borough null. Purely national or international calls remain out of scope. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
-    "event/open_mic": 372,
-    "open_call/audition": 39,
-    "event/dance_night": 39,
-    "event/workshop": 36,
+    "event/open_mic": 379,
+    "event/workshop": 80,
+    "event/dance_night": 48,
+    "open_call/audition": 40,
+    "event/jam": 24,
     "open_call": 20,
     "grant": 16,
-    "residency": 5,
-    "grant/fellowship": 3,
-    "event/drawing_session": 3,
+    "event/class": 15,
+    "residency": 10,
+    "grant/fellowship": 6,
+    "event/drawing_session": 4,
+    "open_call/competition": 3,
     "open_call/paid_gig": 2,
     "residency/studio_access": 1,
     "open_call/fellowship": 1,
     "open_call/youth_program": 1,
-    "open_call/competition": 1,
-    "event/jam": 1,
     "open_call/teaching_gig": 1
   },
   "by_extraction": {
-    "structured": 409,
+    "structured": 439,
     "manual": 77,
+    "crawl_reviewed": 52,
     "api": 38,
-    "crawl_reviewed": 17
+    "jsonld": 33,
+    "rendered": 7,
+    "auto_text": 3,
+    "squarespace": 2
   },
   "scope_notes": [
     "2026-10-27: scope widened to every creative discipline (open-ended), the NYC tri-state metro, and participatory events (jams, open mics, drum circles, drawing sessions, workshops, classes) plus paid performer and teaching gigs.",
     "Recurring events use deadline 'recurring' with a recurrence string; dated events use the next date as deadline.",
-    "extraction values: manual (hand-built from fetched pages), structured (parsed from a listing site's fixed fields), api (WordPress events calendar API), crawl_reviewed (auto-extracted from the deep crawl, then individually reviewed)."
+    "extraction values: manual (hand-built from fetched pages), structured (parsed from a listing site's fixed fields), api (WordPress events calendar API), crawl_reviewed (auto-extracted from the deep crawl, then individually reviewed).",
+    "extraction values added: jsonld (schema.org Event data), squarespace (collection JSON), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence)."
   ],
   "crawl_stats": {
     "sites_safety_checked": 141,
     "pages_fetched_approx": 9668,
     "event_feed_items_reviewed": 1289
+  },
+  "roster_discovery": {
+    "source": "NYC Open Data DCLA Cultural Organizations (u35m-9t32), 2,535 orgs",
+    "method": "domain guessing with homepage title match, robots-gated",
+    "found": 552,
+    "robots_blocked": 255,
+    "not_found": 1728,
+    "crawled_safe": 404
   }
 }
