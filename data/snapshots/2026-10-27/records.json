@@ -14481,7 +14481,7 @@
           "quote": "Artists of all skill levels are invited for figure drawing at the Society of Illustrators."
         }
       ],
-      "source": "soi",
+      "source": "society-of-illustrators",
       "source_url": "https://societyillustrators.org/event/sketch-night-10-28-26/",
       "disciplines": [
         "visual"
@@ -14514,7 +14514,7 @@
           "quote": "As flowers fade and dry, their colors undergo a remarkable transformation."
         }
       ],
-      "source": "soi",
+      "source": "society-of-illustrators",
       "source_url": "https://societyillustrators.org/event/beauty-of-the-faded-specimen/",
       "disciplines": [
         "visual"
@@ -15441,7 +15441,7 @@
           "quote": "NYFA Fiscal Sponsorship and crowdfunding partner Seed&Spark will present FREE online workshop “The Art of the Pitch” on November 5 to connect what you’re pitching for today to the big goal you’re working towards in 2, 3, 5, 10 years."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/online-workshop-the-art-of-the-pitch/",
       "disciplines": [
         "all"
@@ -15474,7 +15474,7 @@
           "quote": "In this FREE online workshop, we will discuss what artists need to know about how the law affects them."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/artists-and-the-law-protecting-your-work-in-the-age-of-ai/",
       "disciplines": [
         "all"
@@ -15507,7 +15507,7 @@
           "quote": "Designed for early-to-mid-career arts administrators at small-to-medium-sized organizations, this FREE online workshop delivers essential, practical strategies for building long-term financial sustainability and artistic resilience."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/online-workshop-nonprofit-financial-literacy/",
       "disciplines": [
         "all"
@@ -15540,7 +15540,7 @@
           "quote": "This FREE online workshop is designed to strip away the marketing jargon and give artists and arts administrators the core tools they need to thrive."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/online-workshop-crafting-your-creative-identity-branding-for-artists-administrators/",
       "disciplines": [
         "all"
@@ -15573,7 +15573,7 @@
           "quote": "Participants will learn how to cultivate collaborative staff-board partnerships, master the development cycle, and build a comprehensive plan that connects your creative mission to broader community and corporate priorities, maximizing your organization’s impact."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/online-workshop-expanding-your-organizations-funding-landscape/",
       "disciplines": [
         "all"
@@ -15606,7 +15606,7 @@
           "quote": "This FREE online workshop will focus on practical approaches to fundraising for arts-based projects, including grant writing, individual donations, crowdfunding, and strategies for diversifying your revenue streams."
         }
       ],
-      "source": "nyfa",
+      "source": "nyfa-events",
       "source_url": "https://www.nyfa.org/event/online-workshop-fund-your-art-strategic-revenue-diversification-for-creatives/",
       "disciplines": [
         "all"
@@ -15672,7 +15672,7 @@
           "quote": "Free with museum admission."
         }
       ],
-      "source": "si-museum",
+      "source": "staten-island-museum-events",
       "source_url": "https://www.statenislandmuseum.org/event/family-history-month-workshop-2-transcribe-a-thon/",
       "disciplines": [
         "visual"
@@ -15705,7 +15705,7 @@
           "quote": "Participants will also have the opportunity to apply accent colors and learn about the color wheel."
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/walk-in-workshop-plenty-of-purples/2026-10-28/",
       "disciplines": [
         "all"
@@ -15740,7 +15740,7 @@
           "quote": "Participants will also have the opportunity to apply accent colors and learn about the color wheel."
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/weekend-walk-in-workshop-plenty-of-purples/2026-10-31/",
       "disciplines": [
         "all"
@@ -15773,7 +15773,7 @@
           "quote": "Create a colorful plate of your favorite fall foods!"
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/weekend-walk-in-workshop-fall-foodscapes/2026-11-01/",
       "disciplines": [
         "all"
@@ -15814,7 +15814,7 @@
           "quote": "Create a colorful plate of your favorite fall foods!"
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/walk-in-workshop-fall-foodscapes/2026-11-04/",
       "disciplines": [
         "all"
@@ -15857,7 +15857,7 @@
           "quote": "Participants will explore and learn about poetry through learning stations using their imagination, as well as their hands."
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/kids-interactive-poetry-6/",
       "disciplines": [
         "all"
@@ -15951,7 +15951,7 @@
           "quote": "Submissions open Monday, October 12 and close Tuesday, October 27, 2026 at 11:59 PM."
         }
       ],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/artist-opportunities/member-submissions-beginning-again-at-the-gallery-at-yellow-studio-arts-center/",
       "disciplines": [
         "visual"
@@ -15980,7 +15980,7 @@
           "quote": "BAU Gallery is an artist-run space dedicated to artistic freedom of expression."
         }
       ],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/artist-opportunities/solo-exhibition-open-call-show-at-bau-gallery-during-upstate-art-weekend-2027/",
       "disciplines": [
         "visual"
@@ -16009,7 +16009,7 @@
           "quote": "Eligible Work : Small 2-D or 3-D art made by hand, not digitally."
         }
       ],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/artist-opportunities/small-work-2027-the-still-small-voice/",
       "disciplines": [
         "visual",
@@ -16039,7 +16039,7 @@
           "quote": "Deadline for Submissions is December 13, 2026"
         }
       ],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/artist-opportunities/2027-alexander-rutsch-award-for-painting-open-call-for-submissions/",
       "disciplines": [
         "visual"
@@ -16063,7 +16063,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/artist-opportunities/2026-kinosaito-annual-community-art-benefit-open-call/",
       "disciplines": [
         "visual"
@@ -16087,7 +16087,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "artswestchester.org",
+      "source": "artswestchester",
       "source_url": "https://artswestchester.org/events/teen-open-mic-night-2/",
       "disciplines": [
         "music",
@@ -16118,7 +16118,7 @@
           "quote": "The jam is open to all ages and ability levels, and we’ll be picking both bluegrass classics and some fun tunes you may not have heard before."
         }
       ],
-      "source": "bkcm.org",
+      "source": "bkcm",
       "source_url": "https://bkcm.org/event/bluegrass-jam-nov-16/",
       "disciplines": [
         "music"
@@ -16147,7 +16147,7 @@
           "quote": "Join 10 Free Ballroom Dance Workshops with an internationally recognized instructor"
         }
       ],
-      "source": "bklynlibrary.org",
+      "source": "brooklyn-public-library-calendar",
       "source_url": "https://www.bklynlibrary.org/calendar/free-ballroom-dance-sheepshead-bay-library-20261027-0600pm",
       "disciplines": [
         "dance"
@@ -16176,7 +16176,7 @@
           "quote": "Space is limited, please register at McKinley Park reference desk, thanks!"
         }
       ],
-      "source": "bklynlibrary.org",
+      "source": "brooklyn-public-library-calendar",
       "source_url": "https://www.bklynlibrary.org/calendar/intro-drawing-relaxed-mckinley-park-meeting-20261029-0100pm",
       "disciplines": [
         "visual"
@@ -16205,7 +16205,7 @@
           "quote": "ADULT CLASSES include six weekly sessions / Fee: $200"
         }
       ],
-      "source": "isliparts.org",
+      "source": "islip-arts",
       "source_url": "https://isliparts.org/index.php/classes/fine-arts",
       "disciplines": [
         "visual"
@@ -16229,7 +16229,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "montclairartmuseum.org",
+      "source": "montclair-art-museum",
       "source_url": "https://www.montclairartmuseum.org/events/classes-and-workshops/introduction-wheel-throwing-workshop-1",
       "disciplines": [
         "craft",
@@ -16259,7 +16259,7 @@
           "quote": "No later than Sunday, Nov. 1, 2026"
         }
       ],
-      "source": "nycgovparks.org",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/10/28/nyc-parks-44th-annual-wreath-interpretations-open-call",
       "disciplines": [
         "visual",
@@ -16285,7 +16285,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "powerhousearts.org",
+      "source": "powerhouse-arts",
       "source_url": "https://powerhousearts.org/event/anchoring-sight-figure-drawing-with-kiara-ocasio-2",
       "disciplines": [
         "visual"
@@ -16314,7 +16314,7 @@
           "quote": "Visual AIDS invites applications for our 2026–27 Research Fellowship, a mentored program supporting new scholarship on artists who have been lost to AIDS."
         }
       ],
-      "source": "visualaids.org",
+      "source": "visual-aids",
       "source_url": "https://visualaids.org/blog/call-for-research-proposals-2026",
       "disciplines": [
         "research",
@@ -16344,7 +16344,7 @@
           "quote": "Dancers, actors, models, cheerleaders, performers, or entertainers"
         }
       ],
-      "source": "dance.nyc",
+      "source": "dance-nyc-listings",
       "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/CASTING-NYC-High-Energy-Event-Performers-Motivational-Dancers-Premium-Events-350600-Per-Event-Freelance/",
       "disciplines": [
         "dance",
@@ -16374,7 +16374,7 @@
           "quote": "Female presenting: 5' 10\" and up"
         }
       ],
-      "source": "dance.nyc",
+      "source": "dance-nyc-listings",
       "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Alison-Clancy-Casting-Dancers-for-Nightlife-Events/",
       "disciplines": [
         "dance"
@@ -16403,7 +16403,7 @@
           "quote": "This role is for 1 hour class per week on Thursday afternoons, best for freelance teaching and dancing."
         }
       ],
-      "source": "dance.nyc",
+      "source": "dance-nyc-listings",
       "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Experience-Dance-Teacher-Middle-Schoolers-Manhattan-1-hour-per-week-/",
       "disciplines": [
         "dance"
@@ -17363,7 +17363,7 @@
           "quote": "Designed for beginning through intermediate-level singers, but will be tailored to offer something for everyone."
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/sunday_sing_fallint",
       "disciplines": [
@@ -17394,7 +17394,7 @@
           "quote": "with Emily Eagen Sundays 11:30 am - 1:00 pm: 11/1, 11/8, 11/15, 11/22, 12/6, 12/13, 12/20 **If interested in registering, please email emily@jalopytheatre.org to get a registration code** This class is suited for singers who are comfortable singing one-on-a-part and would like a real challenge."
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/advanced_harmony_sing_3",
       "disciplines": [
@@ -17425,7 +17425,7 @@
           "quote": "A Four-Session Class with Katie Martucci Mondays, 7:00 - 8:30pm: 11/9, 11/16, 11/23, and 11/30 All voices welcome!"
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/singing_a_foursessi_8",
       "disciplines": [
@@ -17456,7 +17456,7 @@
           "quote": "Exploring Styles and Creative Practice for Strings - A Workshop with Cascadence Saturday, November 14th, 12-2pm Register for this workshop, or take this workshop and attend Cascadence at Jalopy on Thursday, 11/12 for a $10 discount!"
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/exploring_styles_and_creative_practice_for_strings_workshop",
       "disciplines": [
@@ -17487,7 +17487,7 @@
           "quote": "with Samoa Wilson Tuesdays, 7:00 - 8:30pm: 11/17, 11/24, 12/1, 12/8 All voices welcome!"
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/singing_with_samoa_1",
       "disciplines": [
@@ -17513,7 +17513,7 @@
       "award": null,
       "location": "Jalopy Theatre, 315 Columbia St, Brooklyn",
       "eligibility": [],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/smyneka_and_rebetika_2",
       "disciplines": [
@@ -17544,7 +17544,7 @@
           "quote": "This class is for all levels but you should have basic ukulele skills and be able to read ukulele chord charts."
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.netlify.app/classes",
       "tickets_url": "https://www.viewcy.com/event/ukulele_christmas_a_2",
       "disciplines": [
@@ -17575,7 +17575,7 @@
           "quote": "The sign-up sheet goes out at 6pm and the names are drawn out of a hat at 6:30pm"
         }
       ],
-      "source": "jalopy",
+      "source": "jalopy-theatre",
       "source_url": "https://jalopytheatre.org/open-mic",
       "disciplines": [
         "music"
@@ -17605,7 +17605,7 @@
           "quote": "There are Sacred Harp singings in Manhattan every Wednesday, and shape-note singings from The Sacred Harp and other books on some weekends."
         }
       ],
-      "source": "nycsacredharp.com",
+      "source": "nyc-sacred-harp",
       "source_url": "https://www.nycsacredharp.com/nycsingings",
       "disciplines": [
         "music"
@@ -17635,7 +17635,7 @@
           "quote": "A three-book singing—The Sacred Harp in Denson (green) and Cooper (blue), and the Shenandoah Harmony! Loaner books available."
         }
       ],
-      "source": "nycsacredharp.com",
+      "source": "nyc-sacred-harp",
       "source_url": "https://www.nycsacredharp.com/nycsingings",
       "disciplines": [
         "music"
@@ -17665,7 +17665,7 @@
           "quote": "Note: this event occurs irregularly during the winter season, so please join our Google Group or Facebook to confirm!"
         }
       ],
-      "source": "nycsacredharp.com",
+      "source": "nyc-sacred-harp",
       "source_url": "https://www.nycsacredharp.com/nycsingings",
       "disciplines": [
         "music"
@@ -17695,7 +17695,7 @@
           "quote": "Join us for our next Christian Harmony all-day singing on May 15, 2027."
         }
       ],
-      "source": "nycsacredharp.com",
+      "source": "nyc-sacred-harp",
       "source_url": "https://www.nycsacredharp.com/nyc-christian-harmony-singing",
       "disciplines": [
         "music"
@@ -17725,7 +17725,7 @@
           "quote": "Join us for our next Sacred Harp all-day singing September 18, 2027."
         }
       ],
-      "source": "nycsacredharp.com",
+      "source": "nyc-sacred-harp",
       "source_url": "https://www.nycsacredharp.com/nycads",
       "disciplines": [
         "music"
@@ -17755,7 +17755,7 @@
           "quote": "English Country Dances Every Tuesday"
         }
       ],
-      "source": "cdny.org",
+      "source": "regional-country-dance-new-york-contra-dance",
       "source_url": "https://www.cdny.org/",
       "disciplines": [
         "dance",
@@ -17786,7 +17786,7 @@
           "quote": "Before each dance, our dance callers walk you through the steps and then call the steps out during the dance"
         }
       ],
-      "source": "cdny.org",
+      "source": "regional-country-dance-new-york-contra-dance",
       "source_url": "https://www.cdny.org/",
       "disciplines": [
         "dance",
@@ -17817,7 +17817,7 @@
           "quote": "You’ll find yourself at home in this Open Mic if your work is conventional or avant-garde, contemporary or archaic."
         }
       ],
-      "source": "nuyorican.org",
+      "source": "regional-nuyorican-community-open-mics",
       "source_url": "https://www.nuyorican.org/openmics",
       "disciplines": [
         "literary",
@@ -17849,7 +17849,7 @@
           "quote": "It is open to all genders for participation, but the ladies will be given preference for performance"
         }
       ],
-      "source": "nuyorican.org",
+      "source": "regional-nuyorican-community-open-mics",
       "source_url": "https://www.nuyorican.org/openmics",
       "disciplines": [
         "literary",
@@ -17880,7 +17880,7 @@
           "quote": "The Twilight Hour Open Mic: The last Friday Of every Month"
         }
       ],
-      "source": "nuyorican.org",
+      "source": "regional-nuyorican-community-open-mics",
       "source_url": "https://www.nuyorican.org/openmics",
       "disciplines": [
         "literary",
@@ -17911,7 +17911,7 @@
           "quote": "Our Nuyorican Poets Cafe's FINAL FRIDAY SLAM takes place on the last Friday of each month."
         }
       ],
-      "source": "nuyorican.org",
+      "source": "regional-nuyorican-community-open-mics",
       "source_url": "https://www.nuyorican.org/acal",
       "disciplines": [
         "literary",
@@ -17942,7 +17942,7 @@
           "quote": "During our building's \"Nuyorican-Struction\", the cafe brings their famous poetry slam series to the Bowery Poetry Club on 308 Bowery"
         }
       ],
-      "source": "nuyorican.org",
+      "source": "regional-nuyorican-community-open-mics",
       "source_url": "https://www.nuyorican.org/acal",
       "disciplines": [
         "literary",
@@ -17973,7 +17973,7 @@
           "quote": "The ongoing adult recreational class has a rolling enrollment that accepts new students every few months."
         }
       ],
-      "source": "omnytaiko.org",
+      "source": "omny-taiko",
       "source_url": "https://www.omnytaiko.org/class",
       "disciplines": [
         "music",
@@ -18004,7 +18004,7 @@
           "quote": "The East Village’s Mary O’s hosts one of the city’s most popular traditional Irish music sessions every Thursday night from 8 p.m. to 10 p.m., often running later."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18035,7 +18035,7 @@
           "quote": "Sessions take place every Tuesday from 8 p.m. to 11 p.m., each featuring a special guest."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18066,7 +18066,7 @@
           "quote": "Noho’s Swift Hibernian Lounge features a weekly music program, including a traditional Irish music session on Tuesday nights from 8 p.m. to 11 p.m."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18097,7 +18097,7 @@
           "quote": "On Sundays, the bar hosts one of NYC’s longest-running Irish trad sessions, led by Tony DeMarco and Isaac Alderson"
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18128,7 +18128,7 @@
           "quote": "A staple of the city’s Irish music scene, Don Meade leads weekly trad sessions at the Landmark Tavern on Monday nights from 8 p.m. to 11 p.m., where instrumentalists are welcome to join in."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18159,7 +18159,7 @@
           "quote": "Inspired by the warmth, hospitality, and community of traditional Irish pubs, Grace’s hosts traditional Irish music sessions every Wednesday at 8 p.m., led by Matt Stapleton and guests."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18190,7 +18190,7 @@
           "quote": "Patrons can enjoy cold brews, bar bites, and live traditional Irish music every Thursday from 8:30 p.m. to 11 p.m."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18221,7 +18221,7 @@
           "quote": "The Canary in Crown Heights also hosts a weekly Irish seisiún."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18252,7 +18252,7 @@
           "quote": "regularly hosts engaging events, including traditional Irish music sessions that attract talented instrumentalists from near and far, typically on Sundays."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18283,7 +18283,7 @@
           "quote": "Its informal sessions welcome anyone to bring an instrument and join in the fun."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18314,7 +18314,7 @@
           "quote": "the pub hosts live music, including monthly traditional Irish sessions open to all musicians."
         }
       ],
-      "source": "6sqft.com",
+      "source": "6sqft-irish-sessions",
       "source_url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
       "disciplines": [
         "music"
@@ -18348,7 +18348,7 @@
           "quote": "Schedule Thursdays 6:30pm – Level 1 Class Description You’ll learn: 6-Counts + Left Turns..."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/beginner-west-coast-swing/",
       "disciplines": [
         "dance"
@@ -18381,7 +18381,7 @@
           "quote": "An intimate weekend of West Coast Swing workshops, competition & social dancing in New York City."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/new-york-flow-festival/",
       "disciplines": [
         "dance"
@@ -18414,7 +18414,7 @@
           "quote": "Learn the basic eight-count patterns, advanced variations, footwork, and technique."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/next-level-west-coast-swing/",
       "disciplines": [
         "dance"
@@ -18447,7 +18447,7 @@
           "quote": "Featuring rotating DJs, pop-up learning sessions, and a potluck picnic."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/soul-sunday/",
       "disciplines": [
         "dance"
@@ -18483,7 +18483,7 @@
           "quote": "Join Galen Chen + Swingiversity crew on Friday nights for FUN West Coast Swing classes and an unstructured practice following."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/swingiversity/",
       "disciplines": [
         "dance"
@@ -18516,7 +18516,7 @@
           "quote": "Class Description You’ll learn all the core 6-count patterns plus the 8-count Whip, with simple variations: Left-Side Pass Left-Side Pass w/ Follower’s Inside Spin Sugar Push Sugar Push w/ Follower’s..."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/wcs-beginner-bootcamp/",
       "disciplines": [
         "dance"
@@ -18549,7 +18549,7 @@
           "quote": "Join us for a fun & friendly 30-minute intro class for beginners."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/west-coast-swing-intro/",
       "disciplines": [
         "dance"
@@ -18583,7 +18583,7 @@
           "quote": "Learn how to showcase your own dancing while maintaining strong partnering, clear connection, and musical timing."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/wsdc-competitor-training-with-dimitri-hector/",
       "disciplines": [
         "dance"
@@ -18616,7 +18616,7 @@
           "quote": "A fun and friendly intro to West Coast Swing class before the Flow Fridays social party!"
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/flow-fridays-intro/",
       "disciplines": [
         "dance"
@@ -18649,7 +18649,7 @@
           "quote": "About Flow Fridays Welcome to Flow Fridays, NYC’s biggest West Coast Swing (WCS) monthly party bringing your favorite late-night vibes and music!"
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/flow-fridays/",
       "disciplines": [
         "dance"
@@ -18682,7 +18682,7 @@
           "quote": "Your weekly party starts here!"
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/house-of-west/",
       "disciplines": [
         "dance"
@@ -18715,7 +18715,7 @@
           "quote": "Join us every Tuesday night before the Midtown Swings social for a fun, beginner-friendly introduction to Lindy Hop, designed to get you moving and confident on the dance floor."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/intro-to-lindy-hop/",
       "disciplines": [
         "dance"
@@ -18748,7 +18748,7 @@
           "quote": "Learn Lindy Hop, the original swing dance, on Tuesday nights with Gaby Cook & AJ Howard and stay for the Midtown Swings social after class."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/lindy-hop-midtown-swings/",
       "disciplines": [
         "dance"
@@ -18785,7 +18785,7 @@
           "quote": "Make friends, challenge your choreo learning, and bring it all together for a debut at a local social."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/lindy-hop-performance-alejandro-anna/",
       "disciplines": [
         "dance"
@@ -18818,7 +18818,7 @@
           "quote": "Bring your questions and work on becoming more familiar with your Lindy Hop basics."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/lindy-hop-practice/",
       "disciplines": [
         "dance"
@@ -18851,7 +18851,7 @@
           "quote": "Join Midtown Swings every Tuesday night for Lindy Hop classes and a fun DJ'ed social dance with Gaby Cook and AJ Howard."
         }
       ],
-      "source": "nycswings",
+      "source": "nyc-swings",
       "source_url": "https://www.nycswings.net/e/midtown-swings-social/",
       "disciplines": [
         "dance"
@@ -18879,7 +18879,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/open-lab-with-nifemi-ogunro",
       "disciplines": [
         "dance"
@@ -18907,7 +18907,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/open-lab-with-diovanna-obafunmilayo-2",
       "disciplines": [
         "dance"
@@ -18935,7 +18935,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/technical-residency-diovanna-obafunmilayo",
       "disciplines": [
         "dance"
@@ -18964,7 +18964,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/fallmovement-2026-dec-5",
       "disciplines": [
         "dance"
@@ -18992,7 +18992,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/shifting-grounds-the-neighborhood-family-program",
       "disciplines": [
         "dance"
@@ -19020,7 +19020,7 @@
       "award": null,
       "location": "CPR – Center for Performance Research, 361 Manhattan Avenue\nBrooklyn, NY, 11211",
       "eligibility": [],
-      "source": "cpr",
+      "source": "cpr-events",
       "source_url": "https://www.cprnyc.org/events/open-lab-with-yuki-kawahisa-part-2",
       "disciplines": [
         "dance"
@@ -19054,7 +19054,7 @@
           "quote": "<p>Join us for some super fun fitness!"
         }
       ],
-      "source": "newhouse-sic",
+      "source": "staten-island-childrens-museum",
       "source_url": "https://sichildrensmuseum.org/event/dj-got-me-fit-dance-party-8/2026-11-22/",
       "disciplines": [
         "all"
@@ -19082,7 +19082,7 @@
       "award": null,
       "location": "The Ford Foundation Center for Social Justice, 320 East 43rd Street\nNew York, New York, 10017\nUnited States",
       "eligibility": [],
-      "source": "latinx",
+      "source": "latinx-project-nyu",
       "source_url": "https://www.latinxproject.nyu.edu/calendar/visualizing-latinx-creative-practices-in-fashion-film-and-beyond",
       "disciplines": [
         "all"
@@ -19110,7 +19110,7 @@
       "award": null,
       "location": null,
       "eligibility": [],
-      "source": "brooklynmusicschool",
+      "source": "brooklyn-music-school",
       "source_url": "https://www.brooklynmusicschool.org/calendar-and-events/last-ary-fall-monday-class",
       "disciplines": [
         "music"
@@ -19139,7 +19139,7 @@
       "award": null,
       "location": "An Beal Bocht Cafe, 445 West 238th Street\nThe Bronx, NY, 10463\nUnited States",
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/craft-night-wcaity-banga-7-9pm-1",
       "disciplines": [
         "all"
@@ -19167,7 +19167,7 @@
       "award": null,
       "location": "An Beal Bocht Cafe, 445 West 238th Street\nThe Bronx, NY, 10463\nUnited States",
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/storytelling-night-wrob-bennett-8-10pm",
       "disciplines": [
         "all"
@@ -19191,7 +19191,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/36pstp9m96yf7l9k8yzsy2x83hd9yd",
       "disciplines": [
         "music",
@@ -19218,7 +19218,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/a6ydzagtgcmmd34a358ch979p5zfmh",
       "disciplines": [
         "music"
@@ -19243,7 +19243,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/quebecois-session-1-4pm",
       "disciplines": [
         "music"
@@ -19277,7 +19277,7 @@
           "quote": "Join our friends from Mi Salsa Dura Baile for an evening of Latin rhythm and dancing in Garibaldi Plaza!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/10/28/salsa-social",
       "disciplines": [
         "dance"
@@ -19321,7 +19321,7 @@
           "quote": "Get ready for an energizing dance fitness class that blends Afrobeats rhythms with upbeat sounds from around the world."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/10/29/eclectik-dance-fusion",
       "disciplines": [
         "dance"
@@ -19361,7 +19361,7 @@
           "quote": "This unique class is all about discovering your personal movement."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/10/29/dance-fusion",
       "disciplines": [
         "dance"
@@ -19394,7 +19394,7 @@
           "quote": "Join the Urban Park Rangers for a hands‑on mask‑making activity inspired by the wildlife of Crotona Park"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/10/31/autumn-animal-crafts-and-exploration",
       "disciplines": [
         "visual",
@@ -19428,7 +19428,7 @@
           "quote": "This family and kid-friendly event will offer participants an opportunity to learn traditional indigenous crafts, and gain exposure to contemporary indigenous cultures."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/07/indigenous-art-workshop-with-naicny",
       "disciplines": [
         "visual",
@@ -19462,7 +19462,7 @@
           "quote": "Every great explorer needs a guidebook."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/08/natures-workshop-create-your-own-nature-field-guide",
       "disciplines": [
         "visual",
@@ -19496,7 +19496,7 @@
           "quote": "Join the Urban Park Rangers to learn how to create your own natural dyes!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/15/natures-workshop-natural-inks-and-dyes",
       "disciplines": [
         "visual",
@@ -19530,7 +19530,7 @@
           "quote": "Learn how to carve, layer, and print multiple colors using a single Styrofoam block."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/21/reduction-block-printing-workshop",
       "disciplines": [
         "visual",
@@ -19564,7 +19564,7 @@
           "quote": "Join the Urban Park Rangers for a scenic fall hike through Brookfield Park."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/22/nature-sketching",
       "disciplines": [
         "visual",
@@ -19598,7 +19598,7 @@
           "quote": "Explore nature’s fiber arts and learn about the vast shapes and colors of the microbiome."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/28/natures-workshop-hand-weaving-and-crocheting",
       "disciplines": [
         "visual",
@@ -19632,7 +19632,7 @@
           "quote": "Unleash your creativity and learn about the many animals who call our parks home while you write your very own puppet show about our furry and feathered friends!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/29/nature-puppet-show",
       "disciplines": [
         "visual",
@@ -19666,7 +19666,7 @@
           "quote": "Please note that registration and the event is free and open to the public."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/05/the-adult-double-dutch-culture-jam",
       "disciplines": [
         "dance"
@@ -19699,7 +19699,7 @@
           "quote": "Nature provides inspiration."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/05/nature-open-mic",
       "disciplines": [
         "visual",
@@ -19733,7 +19733,7 @@
           "quote": "Use your imagination, craft your puppet’s personality, and share fun stories with new friends."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-puppet-making-and-puppet-show",
       "disciplines": [
         "visual",
@@ -19767,7 +19767,7 @@
           "quote": "Join the Rangers as we create beautiful wreaths made from upcycled natural materials."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-wreath-making1",
       "disciplines": [
         "visual",
@@ -19801,7 +19801,7 @@
           "quote": "Guided by our staff, you’ll create your own one-of-a-kind wreath using seasonal greenery, dried flowers, and natural materials foraged from the Park’s landscape."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/12/winter-wreath-workshop",
       "disciplines": [
         "visual",
@@ -19835,7 +19835,7 @@
           "quote": "Join the Rangers as we create beautiful wreaths made from upcycled natural materials."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/12/natures-workshop-nature-wreath-making",
       "disciplines": [
         "visual",
@@ -19869,7 +19869,7 @@
           "quote": "Discover how nature can inspire your holiday traditions."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/20/natures-workshop-handmade-holiday-ornaments",
       "disciplines": [
         "visual",
@@ -19903,7 +19903,7 @@
           "quote": "Let the tranquility of winter flow in your paintings."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/26/natures-workshop-winter-landscape-watercolor-painting",
       "disciplines": [
         "visual",
@@ -19937,7 +19937,7 @@
           "quote": "Join the Urban Park Rangers for a creative winter art workshop inspired by the natural world."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/28/kids-week-rock-salt-and-watercolor-painting",
       "disciplines": [
         "visual",
@@ -19971,7 +19971,7 @@
           "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/29/kids-week-nature-puppet-show",
       "disciplines": [
         "visual",
@@ -20005,7 +20005,7 @@
           "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/12/30/kids-week-nature-puppet-show",
       "disciplines": [
         "visual",
@@ -20045,7 +20045,7 @@
           "quote": "Learn acting methods specifically for Film, Television, and Video productions!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/02/acting-for-the-camera",
       "disciplines": [
         "film",
@@ -20090,7 +20090,7 @@
           "quote": "Learn the essentials of creating a film, including scriptwriting, directing, cinematography, editing, and sound design."
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/02/filmmaking",
       "disciplines": [
         "film",
@@ -20130,7 +20130,7 @@
           "quote": "Learn 3D design with this introduction to Blender, the free and open source 3D creation suite!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/02/build-it-with-blender",
       "disciplines": [
         "film",
@@ -20170,7 +20170,7 @@
           "quote": "Learn 3D design with this introduction to Blender, the free and open source 3D creation suite!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/03/build-it-with-blender",
       "disciplines": [
         "film",
@@ -20210,7 +20210,7 @@
           "quote": "Learn acting methods specifically for Film, Television, and Video productions!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/03/acting-for-the-camera",
       "disciplines": [
         "film",
@@ -20255,7 +20255,7 @@
           "quote": "Learn to use professional graphic design tools including Adobe Photoshop, Illustrator and InDesign to create materials for print or web!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/04/intro-to-graphic-design",
       "disciplines": [
         "film",
@@ -20295,7 +20295,7 @@
           "quote": "Sing, rap, or play your heart out as a part of a band!"
         }
       ],
-      "source": "nyc-parks",
+      "source": "nyc-parks-events",
       "source_url": "https://www.nycgovparks.org/events/2026/11/06/jam-session",
       "disciplines": [
         "music"
@@ -20350,7 +20350,7 @@
       "award": null,
       "location": "An Beal Bocht Cafe, 445 West 238th Street, Bronx",
       "eligibility": [],
-      "source": "anbealbocht",
+      "source": "an-beal-bocht-cafe",
       "source_url": "https://www.anbealbochtcafe.com/events-programs/xwx6ppdzse6fbeajrjg4tkmg7fjath",
       "disciplines": [
         "literary"
@@ -20380,7 +20380,7 @@
           "quote": "You must stay for the entire orientation session in order to get credit for attending."
         }
       ],
-      "source": "bric",
+      "source": "bric-media-classes",
       "source_url": "https://bricartsmedia.org/class/media-orientation/",
       "disciplines": [
         "film",
@@ -20409,7 +20409,7 @@
       "award": null,
       "location": "Chhandayan Center For Indian Music, 269 W 39th Street,\nNew York City, NY 10018\nUnited States",
       "eligibility": [],
-      "source": "r103-chhandayan",
+      "source": "chhandayan",
       "source_url": "https://chhandayan.org/calendar/2023/7/1/2023-tabla-ashram-at-shanti-mandir-793t4-4t8hw-raz7z-dmjhj-6t623-kywhm-6b3mz",
       "disciplines": [
         "music"
@@ -20437,7 +20437,7 @@
       "award": null,
       "location": "269 W 39th Street,\nNew York City, NY 10018\nUnited States",
       "eligibility": [],
-      "source": "r103-chhandayan",
+      "source": "chhandayan",
       "source_url": "https://chhandayan.org/calendar/2023/7/1/2023-tabla-ashram-at-shanti-mandir-793t4-4t8hw-raz7z-dmjhj-6t623-kywhm-6b3mz-r27d3",
       "disciplines": [
         "music"
@@ -20465,7 +20465,7 @@
       "award": null,
       "location": "New York, New York, NY, USA",
       "eligibility": [],
-      "source": "r479-tnny",
+      "source": "theatre-now-new-york",
       "source_url": "https://www.tnny.org/event-details/master-class-with-jason-robert-brown",
       "disciplines": [
         "theater",
@@ -20494,7 +20494,7 @@
       "award": null,
       "location": "NYC Midtown Studio, New York, NY, USA",
       "eligibility": [],
-      "source": "r479-tnny",
+      "source": "theatre-now-new-york",
       "source_url": "https://www.tnny.org/event-details/master-class-with-marc-shaiman",
       "disciplines": [
         "theater",
@@ -20523,7 +20523,7 @@
       "award": null,
       "location": "The Center at West Park, 263 West 86th Street\nNew York, NY, 10024\nUnited States",
       "eligibility": [],
-      "source": "r94-centeratwestpark",
+      "source": "center-at-west-park",
       "source_url": "https://www.centeratwestpark.org/calendar/2026/11/17/rewriting-your-mother-story",
       "disciplines": [
         "literary"
@@ -20556,7 +20556,7 @@
           "quote": "Celebrate the holidays with music, movement, and family fun at a WeBop Holiday Family Jazz Party!"
         }
       ],
-      "source": "r252-jazz",
+      "source": "jazz-at-lincoln-center",
       "source_url": "https://jazz.org/concert/webop-family-jazz-party-a-holiday-jazz-jam/",
       "disciplines": [
         "music"
@@ -20585,7 +20585,7 @@
           "quote": "This program is open to high school choral teachers who are excited to welcome a teaching artist into their classroom."
         }
       ],
-      "source": "r110-choralchameleon",
+      "source": "choral-chameleon",
       "source_url": "https://choralchameleon.com/dawson-residency",
       "disciplines": [
         "music"
@@ -20618,7 +20618,7 @@
           "quote": "page for full eligibility details."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/reengage/",
       "disciplines": [
         "theater"
@@ -20651,7 +20651,7 @@
           "quote": "page for full eligibility details."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/dl-film-television-fellowships/",
       "disciplines": [
         "film",
@@ -20685,7 +20685,7 @@
           "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/next-stage-residency/",
       "disciplines": [
         "theater"
@@ -20718,7 +20718,7 @@
           "quote": "page for full eligibility details."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/terry-residency/",
       "disciplines": [
         "theater"
@@ -20751,7 +20751,7 @@
           "quote": "page for full eligibility details."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/rose/",
       "disciplines": [
         "theater"
@@ -20784,7 +20784,7 @@
           "quote": "page for full eligibility details."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/futurenow-directing-fellowships/",
       "disciplines": [
         "theater"
@@ -20817,7 +20817,7 @@
           "quote": "ELIGIBILITY: Before applying, visit the F.A.Q."
         }
       ],
-      "source": "r154-dramaleague",
+      "source": "drama-league",
       "source_url": "https://dramaleague.org/reenvision/",
       "disciplines": [
         "theater"
@@ -20841,7 +20841,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "r82-bbg",
+      "source": "brooklyn-botanic-garden",
       "source_url": "https://www.bbg.org/visit/event/discovery_sing_along_with_sabrina_chap",
       "disciplines": [
         "music"
@@ -20865,7 +20865,7 @@
       "fee": "unknown",
       "award": null,
       "eligibility": [],
-      "source": "r97-centralcitychorus",
+      "source": "central-city-chorus",
       "source_url": "https://www.centralcitychorus.org/auditions",
       "disciplines": [
         "music"

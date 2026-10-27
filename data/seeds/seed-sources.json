@@ -19,7 +19,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 3
     },
     {
       "id": "dcla-funding-for-artists",
@@ -47,7 +48,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 2
     },
     {
       "id": "brooklyn-arts-council",
@@ -75,7 +77,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 5
     },
     {
       "id": "nyfa-queens-arts-fund",
@@ -103,7 +106,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "bronx-museum-aim",
@@ -187,7 +191,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "laundromat-create-change",
@@ -243,7 +248,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 9
     },
     {
       "id": "entrythingy-ny",
@@ -466,7 +472,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 3
     },
     {
       "id": "snug-harbor-open-calls",
@@ -494,7 +501,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "ipa",
@@ -508,7 +516,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "smack-mellon",
@@ -522,7 +531,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 2
     },
     {
       "id": "roulette",
@@ -536,7 +546,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "wave-hill",
@@ -550,7 +561,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "queens-museum",
@@ -564,7 +576,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "dance-nyc-listings",
@@ -578,7 +591,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 7
     },
     {
       "id": "nywift",
@@ -690,7 +704,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 36
     },
     {
       "id": "playbill-jobs",
@@ -718,7 +733,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 7
     },
     {
       "id": "huntington-arts",
@@ -732,7 +748,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 25
     },
     {
       "id": "islip-arts",
@@ -746,7 +763,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 4
     },
     {
       "id": "jc-arts",
@@ -760,7 +778,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "njsca",
@@ -774,7 +793,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 1
     },
     {
       "id": "kunstraum",
@@ -802,7 +822,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 377
     },
     {
       "id": "openmikes",
@@ -816,7 +837,8 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "records_2026_10_27": 30
     },
     {
       "id": "huntington-arts-calendar",
@@ -6627,7 +6649,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_27": 5
     },
     {
       "id": "regional-bowery-poetry-se-buscan-poetas",
@@ -11130,7 +11153,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_27": 2
     },
     {
       "id": "regional-theatre-three-oliver-auditions",
@@ -14640,6 +14664,456 @@
         "availability_verified": false,
         "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
       }
+    },
+    {
+      "id": "6sqft-irish-sessions",
+      "name": "6sqft: Traditional Irish music sessions in NYC (roundup)",
+      "url": "https://www.6sqft.com/traditional-irish-music-sessions-nyc/",
+      "category": "aggregator",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Secondary source (March 12, 2026 article); each record carries a confirm-with-venue caveat. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 11
+    },
+    {
+      "id": "an-beal-bocht-cafe",
+      "name": "An Beal Bocht Cafe events",
+      "url": "https://www.anbealbochtcafe.com/events-programs",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Squarespace event collection; Bronx open mic, trad and Quebecois sessions, writers' and craft nights. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 6
+    },
+    {
+      "id": "bkcm",
+      "name": "Brooklyn Conservatory of Music events",
+      "url": "https://bkcm.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Community bluegrass jam. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "brooklyn-public-library-calendar",
+      "name": "Brooklyn Public Library calendar",
+      "url": "https://www.bklynlibrary.org/calendar",
+      "category": "library",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Free branch workshops (dance, drawing). Content-Signal ai-train=no, ai-input=yes. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 2
+    },
+    {
+      "id": "bric-media-classes",
+      "name": "BRIC Media Center classes",
+      "url": "https://bricartsmedia.org/classes/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Catalog loads through a filter app; only the free orientation is directly linked. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "brooklyn-music-school",
+      "name": "Brooklyn Music School",
+      "url": "https://www.brooklynmusicschool.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Squarespace events; mostly recitals and closures. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "cpr-events",
+      "name": "Center for Performance Research events",
+      "url": "https://www.cprnyc.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Event pages with schema.org data. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 6
+    },
+    {
+      "id": "hudson-valley-moca",
+      "name": "Hudson Valley MOCA events",
+      "url": "https://www.hudsonvalleymoca.org/",
+      "category": "museum",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Monthly Artist Club peer critique (Peekskill). Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "jalopy-theatre",
+      "name": "Jalopy Theatre and School of Music",
+      "url": "https://jalopytheatre.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Schedule app at jalopytheatre.netlify.app (rendered); old jalopy.biz domain redirects. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 8
+    },
+    {
+      "id": "latinx-project-nyu",
+      "name": "The Latinx Project at NYU",
+      "url": "https://www.latinxproject.nyu.edu/",
+      "category": "institution",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Events with schema.org data. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "montclair-art-museum",
+      "name": "Montclair Art Museum classes and workshops",
+      "url": "https://www.montclairartmuseum.org/",
+      "category": "museum",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Art school workshops (NJ). Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "staten-island-childrens-museum",
+      "name": "Staten Island Children's Museum events",
+      "url": "https://sichildrensmuseum.org/",
+      "category": "museum",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Events Calendar API; walk-in art workshops. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 6
+    },
+    {
+      "id": "nyc-parks-events",
+      "name": "NYC Parks events (creative categories)",
+      "url": "https://www.nycgovparks.org/events/arts",
+      "category": "official",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "List-page schema.org microdata; robots blocks the RSS and wp-json paths; rate-limited, crawled at 4s intervals. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 30
+    },
+    {
+      "id": "nyc-sacred-harp",
+      "name": "NYC Sacred Harp (shape-note singing)",
+      "url": "https://www.nycsacredharp.com/nycsingings",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Weekly, monthly and all-day shape-note singings. The older nycsacredharp.org blocks Claude. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 5
+    },
+    {
+      "id": "nyc-swings",
+      "name": "NYC Swings classes and socials",
+      "url": "https://www.nycswings.net/",
+      "category": "aggregator",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Event pages with schema.org data; Content-Signal ai-train=no, ai-input=yes. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 16
+    },
+    {
+      "id": "nyfa-events",
+      "name": "NYFA events and workshops",
+      "url": "https://www.nyfa.org/",
+      "category": "official",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Events Calendar API (online workshops). nyfa.org intermittently sits behind Cloudflare. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 6
+    },
+    {
+      "id": "omny-taiko",
+      "name": "OMNY Taiko classes",
+      "url": "https://www.omnytaiko.org/class",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Adult recreational taiko classes, rolling enrollment. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "powerhouse-arts",
+      "name": "Powerhouse Arts classes and events",
+      "url": "https://powerhousearts.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Figure drawing and classes. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "chhandayan",
+      "name": "Chhandayan Center for Indian Music",
+      "url": "https://www.chhandayan.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; tabla and harmonium workshops. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 2
+    },
+    {
+      "id": "choral-chameleon",
+      "name": "Choral Chameleon",
+      "url": "https://choralchameleon.com/",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; Dawson Teaching Artist Residency. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "drama-league",
+      "name": "The Drama League residencies and fellowships",
+      "url": "https://dramaleague.org/",
+      "category": "institution",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; directing residencies and fellowships. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 7
+    },
+    {
+      "id": "jazz-at-lincoln-center",
+      "name": "Jazz at Lincoln Center",
+      "url": "https://www.jazz.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; family jazz jam. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "theatre-now-new-york",
+      "name": "Theatre Now New York",
+      "url": "https://www.tnny.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; master classes. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 2
+    },
+    {
+      "id": "brooklyn-botanic-garden",
+      "name": "Brooklyn Botanic Garden programs",
+      "url": "https://www.bbg.org/",
+      "category": "institution",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; Discovery sing-along. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "center-at-west-park",
+      "name": "The Center at West Park",
+      "url": "https://www.centeratwestpark.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; writing workshop. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "central-city-chorus",
+      "name": "Central City Chorus",
+      "url": "https://www.centralcitychorus.org/",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; rolling auditions. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "staten-island-museum-events",
+      "name": "Staten Island Museum events",
+      "url": "https://www.statenislandmuseum.org/",
+      "category": "museum",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Events Calendar API. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "society-of-illustrators",
+      "name": "Society of Illustrators events",
+      "url": "https://societyillustrators.org/",
+      "category": "museum",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Events Calendar API; sketch nights and workshops. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 2
+    },
+    {
+      "id": "uniondocs",
+      "name": "UnionDocs",
+      "url": "https://uniondocs.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Documentary workshops. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "visual-aids",
+      "name": "Visual AIDS",
+      "url": "https://visualaids.org/",
+      "category": "institution",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "Research fellowship and Postcards From the Edge. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
     }
   ],
   "tier_key": {
