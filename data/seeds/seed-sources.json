@@ -20,7 +20,7 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 3
+      "records_2026_10_27": 4
     },
     {
       "id": "dcla-funding-for-artists",
@@ -752,7 +752,7 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 36
+      "records_2026_10_27": 41
     },
     {
       "id": "playbill-jobs",
@@ -874,7 +874,7 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 377
+      "records_2026_10_27": 547
     },
     {
       "id": "openmikes",
@@ -889,7 +889,7 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 30
+      "records_2026_10_27": 189
     },
     {
       "id": "huntington-arts-calendar",
