@@ -844,7 +844,34 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "api_configuration": {
+        "id": "tribe-events-api",
+        "name": "The Events Calendar public REST API",
+        "endpoint": "{organizer_origin}/wp-json/tribe/events/v1/events",
+        "method": "GET",
+        "documentation_url": "https://dev.theeventscalendar.com/knowledgebase/introduction-to-the-events-calendar-rest-api/",
+        "authentication": "public events where organizer enables access",
+        "priority": "medium",
+        "purpose": "Organizer workshops, jams and participatory programs; discover actual organizer origins. Public endpoint existence does not grant reuse rights.",
+        "keywords": [
+          "jam",
+          "open mic",
+          "drum circle",
+          "workshop",
+          "call for artists",
+          "audition"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      }
     },
     {
       "id": "jazznearyou",
@@ -14405,6 +14432,214 @@
         "www.artenda.net"
       ],
       "listing_content_scraped": false
+    },
+    {
+      "id": "api-grants-gov",
+      "name": "Grants.gov opportunity search",
+      "url": "https://www.grants.gov/api/common/search2",
+      "category": "api_discovery_source",
+      "verdict": "hold",
+      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
+      "checks": "Funded arts projects and grants; screen applicant types because many awards require organizations.",
+      "notes": "API source catalog entry; no harvested opportunities counted.",
+      "access": "public_api_metadata",
+      "tier": "free",
+      "ingest": false,
+      "priority": "high",
+      "api_configuration": {
+        "id": "api-grants-gov",
+        "name": "Grants.gov opportunity search",
+        "endpoint": "https://api.grants.gov/v1/api/search2",
+        "method": "POST",
+        "documentation_url": "https://www.grants.gov/api/common/search2",
+        "authentication": "none documented for public search",
+        "priority": "high",
+        "purpose": "Funded arts projects and grants; screen applicant types because many awards require organizations.",
+        "keywords": [
+          "arts",
+          "artist",
+          "music",
+          "theater",
+          "humanities",
+          "media",
+          "cultural heritage"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+        "alternative_api_documentation": "https://simpler.grants.gov/developers"
+      }
+    },
+    {
+      "id": "api-sam-opportunities",
+      "name": "SAM.gov contract opportunities",
+      "url": "https://open.gsa.gov/api/get-opportunities-public-api/",
+      "category": "api_discovery_source",
+      "verdict": "hold",
+      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
+      "checks": "Paid creative contracts; restrict place of performance to NY/NJ/CT and distinguish solicitations from awards or informational notices.",
+      "notes": "API source catalog entry; no harvested opportunities counted.",
+      "access": "public_api_metadata",
+      "tier": "free",
+      "ingest": false,
+      "priority": "high",
+      "api_configuration": {
+        "id": "api-sam-opportunities",
+        "name": "SAM.gov contract opportunities",
+        "endpoint": "https://api.sam.gov/prod/opportunities/v2/search",
+        "method": "GET",
+        "documentation_url": "https://open.gsa.gov/api/get-opportunities-public-api/",
+        "authentication": "API key required",
+        "priority": "high",
+        "purpose": "Paid creative contracts; restrict place of performance to NY/NJ/CT and distinguish solicitations from awards or informational notices.",
+        "keywords": [
+          "photography",
+          "exhibit design",
+          "public art",
+          "video production",
+          "interpretation",
+          "arts instruction"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      }
+    },
+    {
+      "id": "api-usajobs",
+      "name": "USAJOBS job search",
+      "url": "https://developer.usajobs.gov/api-reference/get-api-search",
+      "category": "api_discovery_source",
+      "verdict": "hold",
+      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
+      "checks": "Salaried arts-related positions; retain salary units, hiring eligibility and actual work location.",
+      "notes": "API source catalog entry; no harvested opportunities counted.",
+      "access": "public_api_metadata",
+      "tier": "free",
+      "ingest": false,
+      "priority": "high",
+      "api_configuration": {
+        "id": "api-usajobs",
+        "name": "USAJOBS job search",
+        "endpoint": "https://data.usajobs.gov/api/Search",
+        "method": "GET",
+        "documentation_url": "https://developer.usajobs.gov/api-reference/get-api-search",
+        "authentication": "API key required",
+        "priority": "high",
+        "purpose": "Salaried arts-related positions; retain salary units, hiring eligibility and actual work location.",
+        "keywords": [
+          "museum",
+          "visual information",
+          "exhibit",
+          "arts",
+          "music",
+          "photography",
+          "audiovisual"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      }
+    },
+    {
+      "id": "api-nyc-city-record",
+      "name": "NYC City Record Online open data",
+      "url": "https://catalog.data.gov/dataset/city-record-online",
+      "category": "api_discovery_source",
+      "verdict": "hold",
+      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
+      "checks": "Creative-service solicitations and commissions; exclude award notices, hearings and expired solicitations. This is a documented JSON export, not a tested live adapter.",
+      "notes": "API source catalog entry; no harvested opportunities counted.",
+      "access": "public_api_metadata",
+      "tier": "free",
+      "ingest": false,
+      "priority": "high",
+      "api_configuration": {
+        "id": "api-nyc-city-record",
+        "name": "NYC City Record Online open data",
+        "endpoint": "https://data.cityofnewyork.us/api/v3/views/dg92-zbpx/query.json?accessType=DOWNLOAD",
+        "method": "GET",
+        "documentation_url": "https://catalog.data.gov/dataset/city-record-online",
+        "authentication": "public export; verify query/token requirements before integration",
+        "priority": "high",
+        "purpose": "Creative-service solicitations and commissions; exclude award notices, hearings and expired solicitations. This is a documented JSON export, not a tested live adapter.",
+        "keywords": [
+          "public art",
+          "artist",
+          "mural",
+          "cultural",
+          "design",
+          "photography",
+          "video",
+          "performance"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      }
+    },
+    {
+      "id": "api-ticketmaster-discovery",
+      "name": "Ticketmaster Discovery API",
+      "url": "https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/",
+      "category": "api_discovery_source",
+      "verdict": "hold",
+      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
+      "checks": "Venue/program discovery only unless explicit performer or participant access is advertised. Ticket price is an attendee cost, not artist compensation.",
+      "notes": "API source catalog entry; no harvested opportunities counted.",
+      "access": "public_api_metadata",
+      "tier": "free",
+      "ingest": false,
+      "priority": "low",
+      "api_configuration": {
+        "id": "api-ticketmaster-discovery",
+        "name": "Ticketmaster Discovery API",
+        "endpoint": "https://app.ticketmaster.com/discovery/v2/events.json",
+        "method": "GET",
+        "documentation_url": "https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/",
+        "authentication": "API key required",
+        "priority": "low",
+        "purpose": "Venue/program discovery only unless explicit performer or participant access is advertised. Ticket price is an attendee cost, not artist compensation.",
+        "keywords": [
+          "open mic",
+          "jam session",
+          "workshop",
+          "participatory"
+        ],
+        "geography": [
+          "NY",
+          "NJ",
+          "CT"
+        ],
+        "status": "documentation_verified_adapter_not_implemented",
+        "ingest": false,
+        "availability_verified": false,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      }
     }
   ],
   "tier_key": {
@@ -14412,5 +14647,6 @@
     "paid": "Paywalled or fee-gated subscription. Presented to users as a paid option; never ingested, and no sign-up is made."
   },
   "ingest_rule": "Only ingest:true sources with permitted public access may be scraped after current robots/terms checks. New regional research seeds remain hold/ingest:false pending review. Paid resources are display-only: no requests, feeds, robots requests, login, trials or scraping.",
-  "research_seed_policy": "One seed per canonical URL; multiple programs on a shared calendar are retained under research_programs. Public listing access does not imply free participation. Existing published snapshots are immutable."
+  "research_seed_policy": "One seed per canonical URL; multiple programs on a shared calendar are retained under research_programs. Public listing access does not imply free participation. Existing published snapshots are immutable.",
+  "compensation_priority": "Prioritize paid artist work, grants and stipends; include free community participation. Keep compensation, application fees, participation costs, API costs and paywalls separate. Unknown compensation is not paid."
 }
