@@ -2,9 +2,9 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 680,
+  "record_count": 678,
   "by_borough": {
-    "manhattan": 368,
+    "manhattan": 366,
     "brooklyn": 128,
     "queens": 47,
     "bronx": 26,
@@ -112,7 +112,8 @@
       "thepit-nyc.com": "robots.txt disallows ClaudeBot.",
       "greenwichhouse.org": "robots.txt disallows Claude.",
       "nycsacredharp.org": "robots.txt disallows Claude (the group's current site, nycsacredharp.com, allows it).",
-      "shapenotesingings.com": "robots.txt disallows ClaudeBot. One page was fetched in error before the gate existed; it was deleted unused."
+      "shapenotesingings.com": "robots.txt disallows ClaudeBot. One page was fetched in error before the gate existed; it was deleted unused.",
+      "societyillustrators.org": "robots.txt disallows Claude agents for event pages and the events API query."
     },
     "not_crawled_robots": {
       "bronxarts.org": "robots.txt disallows ClaudeBot and anthropic-ai; Content-Signal ai-train=no. Bronx grants are read from bronxcouncilonthearts.submittable.com instead."
@@ -384,7 +385,7 @@
     "music": 166,
     "dance": 88,
     "literary": 67,
-    "visual": 57,
+    "visual": 55,
     "all": 52,
     "theater": 51,
     "craft": 25,
@@ -399,7 +400,7 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 604,
+    "nyc": 602,
     "long_island": 46,
     "westchester_hudson": 16,
     "new_jersey": 10,
@@ -408,7 +409,7 @@
   "region_field": "Added 2026-10-27 when scope widened to the NYC tri-state metro area. 'nyc' records carry a borough; others (long_island, westchester_hudson, new_jersey, connecticut) have borough null. Purely national or international calls remain out of scope. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
     "event/open_mic": 379,
-    "event/workshop": 89,
+    "event/workshop": 88,
     "event/dance_night": 48,
     "open_call/audition": 42,
     "event/jam": 29,
@@ -417,7 +418,7 @@
     "grant": 16,
     "residency": 11,
     "grant/fellowship": 7,
-    "event/drawing_session": 5,
+    "event/drawing_session": 4,
     "open_call/competition": 3,
     "open_call/paid_gig": 3,
     "residency/studio_access": 1,
@@ -427,19 +428,18 @@
   },
   "by_extraction": {
     "structured": 439,
-    "crawl_reviewed": 79,
+    "crawl_reviewed": 81,
     "manual": 77,
-    "api": 40,
+    "api": 38,
     "jsonld": 33,
     "rendered": 7,
-    "auto_text": 3,
-    "squarespace": 2
+    "auto_text": 3
   },
   "scope_notes": [
     "2026-10-27: scope widened to every creative discipline (open-ended), the NYC tri-state metro, and participatory events (jams, open mics, drum circles, drawing sessions, workshops, classes) plus paid performer and teaching gigs.",
     "Recurring events use deadline 'recurring' with a recurrence string; dated events use the next date as deadline.",
     "extraction values: manual (hand-built from fetched pages), structured (parsed from a listing site's fixed fields), api (WordPress events calendar API), crawl_reviewed (auto-extracted from the deep crawl, then individually reviewed).",
-    "extraction values added: jsonld (schema.org Event data), squarespace (collection JSON), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence)."
+    "extraction values added: jsonld (schema.org Event data), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence)."
   ],
   "crawl_stats": {
     "sites_safety_checked": 141,
@@ -453,5 +453,9 @@
     "robots_blocked": 255,
     "not_found": 1728,
     "crawled_safe": 404
-  }
+  },
+  "compliance_notes": [
+    "2026-10-27: a Squarespace collector requested '?format=json' collection URLs after checking robots.txt for the page path only. Squarespace's default robots.txt disallows '/*?format=json', so these requests were disallowed on every site involved (including jalopytheatre.org, anbealbochtcafe.com, brooklynmusicschool.org, hudsonvalleymoca.org, kundiman.org, culturehub.org, and DCLA roster sites). All data from that endpoint was deleted. The two records first found that way (Hudson Valley MOCA Artist Club, An Beal Bocht Poor Mouth Writers' Night) were also found on robots-allowed event pages in the crawl and verified there, so they remain. The collector now checks the exact URL it requests.",
+    "2026-10-27: a full-URL robots audit of every record (75 hosts) found 2 on robots-disallowed pages (societyillustrators.org event pages, also disallowed for the events API query). Both records and all fetched data from that host were removed; the source is presentation-only. The verifier now checks robots.txt before fetching."
+  ]
 }
