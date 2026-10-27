@@ -78,7 +78,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 5
+      "records_2026_10_27": 5,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 4,
+      "mara_duplicates_of_ours": 4
     },
     {
       "id": "nyfa-queens-arts-fund",
@@ -107,7 +110,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 4,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "bronx-museum-aim",
@@ -135,7 +141,10 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "cpr-air-2026",
@@ -178,7 +187,10 @@
       "access": "free",
       "ingest": false,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "air-gallery-fellowship",
@@ -242,15 +254,19 @@
       "name": "AAA Arts Alliance opportunities",
       "url": "https://www.aaartsalliance.org/opportunities",
       "category": "aggregator",
-      "verdict": "keep",
+      "verdict": "hold",
       "checked": "crawled 2026-10-27",
       "checks": "Server-rendered, robots.txt allows all, borough filters work (Bronx, Brooklyn, Manhattan, Queens; no Staten Island). 22 NYC non-job listings; 9 survived record filters.",
-      "notes": "User-generated board. Card dates omit the year and 'Rolling' is often wrong: always read the detail page. ELSEHERE pay-to-publish listings are dropped.",
+      "notes": "User-generated board. Card dates omit the year and 'Rolling' is often wrong: always read the detail page. ELSEHERE pay-to-publish listings are dropped. Held 2026-10-27: terms prohibit scraping; existing snapshot records from this source need a decision.",
       "access": "free",
-      "ingest": true,
+      "ingest": false,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 9
+      "records_2026_10_27": 9,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 28,
+      "mara_duplicates_of_ours": 7,
+      "terms_review": "A4 terms prohibit scraping and automated copying (Mara's review 2026-10-27)."
     },
     {
       "id": "entrythingy-ny",
@@ -334,7 +350,10 @@
       "access": "free",
       "ingest": false,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 5,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "creative-capital",
@@ -348,7 +367,10 @@
       "access": "free",
       "ingest": false,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "vanderplas-open-call",
@@ -474,7 +496,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 3
+      "records_2026_10_27": 3,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "snug-harbor-open-calls",
@@ -488,7 +513,10 @@
       "access": "free",
       "ingest": true,
       "tier": "free",
-      "application_fee": "none stated"
+      "application_fee": "none stated",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "movement-research",
@@ -503,7 +531,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 6
+      "records_2026_10_27": 6,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 1
     },
     {
       "id": "ipa",
@@ -548,7 +579,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "wave-hill",
@@ -563,7 +597,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "queens-museum",
@@ -578,7 +615,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "dance-nyc-listings",
@@ -593,7 +633,10 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 7
+      "records_2026_10_27": 7,
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 61,
+      "mara_duplicates_of_ours": 6
     },
     {
       "id": "nywift",
@@ -691,7 +734,10 @@
       "access": "free",
       "ingest": false,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "broadwayworld-auditions",
@@ -720,7 +766,11 @@
       "access": "free",
       "ingest": false,
       "tier": "free",
-      "application_fee": "varies per call"
+      "application_fee": "varies per call",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 46,
+      "mara_duplicates_of_ours": 0,
+      "terms_review": "robots.txt disallows ClaudeBot and anthropic-ai; no terms page found (Mara's review)."
     },
     {
       "id": "artswestchester",
@@ -1146,7 +1196,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-culture-lab-lic-performance-proposals",
@@ -2938,7 +2991,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-baxter-st-residency",
@@ -3615,7 +3671,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-art-house-inkubator-performing-residencies",
@@ -4997,7 +5056,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-usdan-artists-in-residence",
@@ -6703,7 +6765,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-brooklyn-library-sunset-park-recording-studio",
@@ -8480,7 +8545,10 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-langston-hughes-library-bailoterapia-community-dance",
@@ -9057,7 +9125,10 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "regional-staten-island-makerspace-community-workshop",
@@ -14987,7 +15058,10 @@
       ],
       "research_ids": [
         "exp3-nyc-parks-events-calendar-studio-art-shape-up-nyc"
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 1
     },
     {
       "id": "nyc-sacred-harp",
@@ -15365,7 +15439,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-brooklyn-metal-works-resonance-residency",
@@ -15749,7 +15826,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-jcal-meet-the-playwright-lab",
@@ -15941,7 +16021,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-design-trust-photo-urbanism-fellowship",
@@ -16277,7 +16360,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-union-county-local-arts-program-2027",
@@ -16613,7 +16699,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-bpl-williamsburgh-artist-studios-spaceworks",
@@ -16709,7 +16798,10 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 5,
+      "mara_duplicates_of_ours": 0
     },
     {
       "id": "exp3-northern-manhattan-arts-alliance-nomaa-opportunities",
@@ -17602,6 +17694,618 @@
       "tier": "free",
       "application_fee": "varies per listing",
       "records_2026_10_27": 1
+    },
+    {
+      "id": "mara-brooklyn-poets",
+      "name": "Brooklyn Poets",
+      "url": "https://www.brooklynpoets.org/",
+      "category": "literary",
+      "verdict": "keep",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt disallows Claude agents; presentation only.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": false,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-poetry-project",
+      "name": "Poetry Project",
+      "url": "https://www.poetryproject.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-cave-canem",
+      "name": "Cave Canem",
+      "url": "https://cavecanem.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-kundiman",
+      "name": "Kundiman",
+      "url": "https://kundiman.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-asian-american-writers-workshop",
+      "name": "Asian American Writers Workshop",
+      "url": "https://aaww.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-nypl-cullman-center",
+      "name": "NYPL Cullman Center",
+      "url": "https://www.nypl.org/about/divisions/cullman-center",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-academy-of-american-poets",
+      "name": "Academy of American Poets",
+      "url": "https://poets.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-writers-room",
+      "name": "Writers Room",
+      "url": "https://www.writersroom.org/",
+      "category": "literary",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-danspace-project",
+      "name": "Danspace Project",
+      "url": "https://danspaceproject.org/",
+      "category": "dance",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-gallim",
+      "name": "Gallim",
+      "url": "https://www.gallim.org/",
+      "category": "dance",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-joyce-theater",
+      "name": "Joyce Theater",
+      "url": "https://www.joyce.org/",
+      "category": "dance",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-harlem-stage",
+      "name": "Harlem Stage",
+      "url": "https://harlemstage.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-la-mama",
+      "name": "La MaMa",
+      "url": "https://lamama.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-public-theater",
+      "name": "Public Theater",
+      "url": "https://publictheater.org/",
+      "category": "theater",
+      "verdict": "keep",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt disallows Claude agents; presentation only.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": false,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-the-tank",
+      "name": "The Tank",
+      "url": "https://thetanknyc.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-theater-for-the-new-city",
+      "name": "Theater for the New City",
+      "url": "https://www.theaterforthenewcity.net/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-actors-equity",
+      "name": "Actors Equity",
+      "url": "https://actorsequity.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-central-casting",
+      "name": "Central Casting",
+      "url": "https://www.centralcasting.com/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-bang-on-a-can",
+      "name": "Bang on a Can",
+      "url": "https://bangonacan.org/",
+      "category": "music",
+      "verdict": "keep",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt disallows Claude agents; presentation only.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": false,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-carnegie-hall",
+      "name": "Carnegie Hall",
+      "url": "https://www.carnegiehall.org/",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-city-parks-foundation",
+      "name": "City Parks Foundation",
+      "url": "https://cityparksfoundation.org/",
+      "category": "multi",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-queens-theatre",
+      "name": "Queens Theatre",
+      "url": "https://queenstheatre.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-bronx-music-heritage-center",
+      "name": "Bronx Music Heritage Center",
+      "url": "https://www.bronxmusicheritage.org/",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-sofar-sounds",
+      "name": "Sofar Sounds",
+      "url": "https://www.sofarsounds.com/new-york",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-apollo-theater",
+      "name": "Apollo Theater",
+      "url": "https://www.apollotheater.org/",
+      "category": "theater",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-make-music-new-york",
+      "name": "Make Music New York",
+      "url": "https://makemusicny.org/",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-sobs",
+      "name": "SOBs",
+      "url": "https://sobs.com/performers/",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-new-york-comedy-club",
+      "name": "New York Comedy Club",
+      "url": "https://newyorkcomedyclub.com/",
+      "category": "comedy",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-eastville-comedy-club",
+      "name": "EastVille Comedy Club",
+      "url": "https://www.eastvillecomedy.com/",
+      "category": "comedy",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-tiny-cupboard",
+      "name": "Tiny Cupboard",
+      "url": "https://www.thetinycupboard.com/",
+      "category": "comedy",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-governors-island-arts",
+      "name": "Governors Island Arts",
+      "url": "https://www.govislandarts.org/",
+      "category": "multi",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-franklin-furnace",
+      "name": "Franklin Furnace",
+      "url": "https://franklinfurnace.org/",
+      "category": "multi",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-nars-foundation",
+      "name": "NARS Foundation",
+      "url": "https://www.narsfoundation.org/",
+      "category": "multi",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-fabnyc",
+      "name": "FabNYC",
+      "url": "https://www.fabnyc.org/fabnyc-summer-programs-open-call/",
+      "category": "multi",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "robots.txt allows Claude agents; terms not yet reviewed; not yet crawled by our pipeline.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 1,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-craigslist-new-york",
+      "name": "Craigslist New York (talent, creative, writing, musician gigs)",
+      "url": "https://newyork.craigslist.org/",
+      "category": "aggregator",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "Craigslist terms prohibit scraping and automated access.",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": false,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 0,
+      "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "mara-firemics-open-mics",
+      "name": "FireMics open mics",
+      "url": "https://www.firemics.com/",
+      "category": "music",
+      "verdict": "hold",
+      "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
+      "checks": "FireMics terms prohibit bots, scrapers and crawlers without express written permission (Mara's review 2026-10-27).",
+      "notes": "Added from Mara's backfill seed list.",
+      "access": "free",
+      "ingest": false,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
+      "mara_records_2026_10_27": 50,
+      "mara_duplicates_of_ours": 0
     }
   ],
   "tier_key": {
