@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 678,
+  "count": 722,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -21639,6 +21639,1263 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "mantra mondays bring your own hand project craft circle|manhattan|2026-11-02"
+    },
+    {
+      "title": "GALLIM: audition for male-identifying and non-binary dancers",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-23",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "2026 MALE Identifying and NoN-Binary Dancers audition"
+        }
+      ],
+      "source": "mara-gallim",
+      "source_url": "https://www.gallim.org/2026-audition-1",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "gallim audition for male identifying and non binary dancers|manhattan|2026-11-23"
+    },
+    {
+      "title": "Holidays at the Park, Hudson Yards: vendor applications for artists",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Consumer brands and companies looking for a presence at the market: sampling, pop-ups, and on-site activations."
+        }
+      ],
+      "source": "regional-colored-colors-artist-and-music-calls",
+      "source_url": "https://www.coloredcolors.com/projects/holidays-at-the-park",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "holidays at the park hudson yards vendor applications for artists|manhattan|2026-11-01"
+    },
+    {
+      "title": "FABnyc Open Arts LES: open call for musicians and performing artists (outdoor series)",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "As part of our Open Arts LES summer series, we are seeking artists to present music or other performance works suitable for a casual street environment."
+        }
+      ],
+      "source": "mara-fabnyc",
+      "source_url": "https://www.fabnyc.org/fabnyc-summer-programs-open-call/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "fabnyc open arts les open call for musicians and performing artists outdoor series|manhattan|rolling"
+    },
+    {
+      "title": "Lower East Side Printshop: Summer Keyholder Residency",
+      "org": null,
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-03-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Application Deadline: March 1, 2027 11:59pm"
+        }
+      ],
+      "source": "printshop",
+      "source_url": "https://www.printshop.org/summer-keyholder-residency",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "lower east side printshop summer keyholder residency|manhattan|2027-03-01"
+    },
+    {
+      "title": "Lower East Side Printshop: Keyholder Residency",
+      "org": null,
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2027-05-31",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Application Deadline: May 31, 2027, 11: 59pm EST"
+        }
+      ],
+      "source": "printshop",
+      "source_url": "https://www.printshop.org/keyholder-residency",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "lower east side printshop keyholder residency|manhattan|2027-05-31"
+    },
+    {
+      "title": "The Tiny Cupboard (Brooklyn): apply to perform on stand-up shows",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "mara-tiny-cupboard",
+      "source_url": "https://www.thetinycupboard.com/produce-a-show-with-us",
+      "disciplines": [
+        "comedy"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "the tiny cupboard brooklyn apply to perform on stand up shows|brooklyn|rolling"
+    },
+    {
+      "title": "EastVille Comedy Club (Brooklyn): daily open mics, sign up in person",
+      "org": null,
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "rolling",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Many of the world's top comedians began honing their stand-up skills on the EastVille stage!"
+        }
+      ],
+      "source": "mara-eastville-comedy-club",
+      "source_url": "https://www.eastvillecomedy.com/open-mic",
+      "disciplines": [
+        "comedy"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "eastville comedy club brooklyn daily open mics sign up in person|brooklyn|rolling"
+    },
+    {
+      "title": "Mabou Mines SUITE/space: performance residency for early career artists",
+      "org": null,
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "citywide",
+      "region": "nyc",
+      "deadline": "2026-11-22",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "We are especially interested in artists who want to interrogate form, language, structure, and intention—artists willing to undo as much as they build."
+        }
+      ],
+      "source": "maboumines",
+      "source_url": "https://www.maboumines.org/suitespace/",
+      "disciplines": [
+        "theater",
+        "performance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "mabou mines suite space performance residency for early career artists|citywide|2026-11-22"
+    },
+    {
+      "title": "DEADLINE EXTENDED: Emerging Artist Program Dance on Camera Festival's 55th Anniversary",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-10-30",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Get your work shown as part of the 55th Dance on Camera Festival!"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/DEADLINE-EXTENDED-Emerging-Artist-Program-Dance-on-Camera-Festivals-55th-Anniversary-/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "deadline extended emerging artist program dance on camera festival s 55th anniversary|unknown|2026-10-30"
+    },
+    {
+      "title": "DEADLINE EXTENDED: Student Program Dance on Camera Festival's 55th Anniversary",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-10-30",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Get your work shown as part of the 55th Dance on Camera Festival!"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/DEADLINE-EXTENDED-Student-Program-Dance-on-Camera-Festivals-55th-Anniversary/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "deadline extended student program dance on camera festival s 55th anniversary|unknown|2026-10-30"
+    },
+    {
+      "title": "Kizuna Dance Audition: Open Call for Black Performers",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-03",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $17/hr rehearsals, performance stipend; flights to UK, food/housing, visa fees as applicable"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Kizuna-Dance-Audition-Open-Call-for-Black-Performers/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "kizuna dance audition open call for black performers|unknown|2026-11-03"
+    },
+    {
+      "title": "Sketches: Emerging Artist Series (Works-in-Progress Showings)",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-18",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Front-of-house and box office management"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Sketches-Emerging-Artist-Series-Works-in-Progress-Showings/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "sketches emerging artist series works in progress showings|unknown|2026-12-18"
+    },
+    {
+      "title": "Ballet for Young Audiences is seeking male and female dancers for The Nutcracker",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $500+/week of performances"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Ballet-for-Young-Audiences-is-seeking-male-and-female-dancers-for-The-Nutcracker/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "ballet for young audiences is seeking male and female dancers for the nutcracker|unknown|None"
+    },
+    {
+      "title": "Ballet for Young Audiences seeking Actor for upcoming Nutcracker season",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $500+/week of performances"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Ballet-for-Young-Audiences-seeking-Actor-for-upcoming-Nutcracker-season/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "ballet for young audiences seeking actor for upcoming nutcracker season|unknown|None"
+    },
+    {
+      "title": "Call for Male Presenting Dancers - Robin Becker Dance",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $15/hr rehearsals, $250 performance fee"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Call-for-Male-Presenting-Dancers-Robin-Becker-Dance/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "call for male presenting dancers robin becker dance|unknown|None"
+    },
+    {
+      "title": "Dance Filmmaker & Composer Booking Fall/Winter: Reels, Spotlights, Trailers, Documentation",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Packages quoted per project; sliding scale for artists"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Dance-Filmmaker-Composer-Booking-FallWinter-Reels-Spotlights-Trailers-Documentation/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dance filmmaker composer booking fall winter reels spotlights trailers documentation|unknown|None"
+    },
+    {
+      "title": "Dancers for Nutcracker Suite & Spicy",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Nutcracker Suite & Spicy, Hartford’s bold, immersive reimagining of the holiday classic, is seeking professional dancers for our 2026 season!"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Dancers-for-Nutcracker-Suite-Spicy/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "dancers for nutcracker suite spicy|connecticut|None"
+    },
+    {
+      "title": "Get a SOLO from GALLIM",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: License for Solo"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Get-a-SOLO-from-GALLIM/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "get a solo from gallim|unknown|None"
+    },
+    {
+      "title": "Hiring NYC Female Gogo Dancers for Nightclub on Halloween",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "$175 - PAID SAME NIGHT CASH"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Hiring-NYC-Female-Gogo-Dancers-for-Nightclub-on-Halloween/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "hiring nyc female gogo dancers for nightclub on halloween|unknown|None"
+    },
+    {
+      "title": "KENNEDY DANCERS HOLIDAY SHOWCASE: DANCERS WANTED",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Rehearsal rate: $25 per hour / Performance Rate: $100"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/KENNEDY-DANCERS-HOLIDAY-SHOWCASE-DANCERS-WANTED/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "kennedy dancers holiday showcase dancers wanted|new_jersey|2026-12-12"
+    },
+    {
+      "title": "MorDance Audition Nov 15: 2 Company Positions for 2027 Season",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $24/hour for rehearsals; $200 per performance; Metro-North train fare reimbursed"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/MorDance-Audition-Nov-15-2-Company-Positions-for-2027-Season/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "mordance audition nov 15 2 company positions for 2027 season|unknown|2026-11-15"
+    },
+    {
+      "title": "NDC Open Call",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Paid opportunities for commissioned performances Professional headshot, dance shots, and videography per project and/or season"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/NDC-Open-Call/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "ndc open call|unknown|None"
+    },
+    {
+      "title": "Need strong male Dancer for Nutcracker performances on December 3, 5, 6",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "maine",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: 1,000 per show/rehearsal per diem offered"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Need-strong-male-Dancer-for-Nutcracker-performances-on-December-3-5-6/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "need strong male dancer for nutcracker performances on december 3 5 6|maine|None"
+    },
+    {
+      "title": "NYU Tisch Graduate Film Production | NYC",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Unpaid; meal and footage provided."
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/NYU-Tisch-Graduate-Film-Production-NYC/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "nyu tisch graduate film production nyc|unknown|None"
+    },
+    {
+      "title": "Preserve Dance Within the Rise of A.I.",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Preserve-Dance-Within-the-Rise-of-A.I/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "preserve dance within the rise of a i|unknown|None"
+    },
+    {
+      "title": "PRO DANCERS WANTED | NOVEMBER CONCEPT REEL CASTING | NYC/NJ",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/PRO-DANCERS-WANTED-NOVEMBER-CONCEPT-REEL-CASTING-NYCNJ/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "pro dancers wanted november concept reel casting nyc nj|new_jersey|None"
+    },
+    {
+      "title": "Seeking Performing Artists Who Identify as Disabled",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $17.00 per hour"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Seeking-Performing-Artists-Who-Identify-as-Disabled/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "seeking performing artists who identify as disabled|unknown|None"
+    },
+    {
+      "title": "Seeking Soloist Level Dancers for Nutcracker",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $75-$300 dependent on experience plus monthly stipend"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Seeking-Soloist-Level-Dancers-for-Nutcracker/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "seeking soloist level dancers for nutcracker|new_jersey|None"
+    },
+    {
+      "title": "Street dance audition",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-10-27",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Based on role"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Street-dance-audition/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "street dance audition|unknown|2026-10-27"
+    },
+    {
+      "title": "The New Standard NYC Dancer Call",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/The-New-Standard-NYC-Dancer-Call-/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "the new standard nyc dancer call|unknown|None"
+    },
+    {
+      "title": "WIP 2027 | The Choreographic Lab",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": null,
+      "region": "massachusetts",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $600 + No application fee"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/WIP-2027-The-Choreographic-Lab/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "wip 2027 the choreographic lab|massachusetts|None"
+    },
+    {
+      "title": "92NY Future Dance Festival Dance Film Program - Applications Due Nov 1!",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $300 Honorarium"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/92NY-Future-Dance-Festival-Dance-Film-Program-Applications-Due-Nov-1/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "92ny future dance festival dance film program applications due nov 1|unknown|2026-11-01"
+    },
+    {
+      "title": "92NY Future Dance Festival Live Performance - Applications Due Nov 1!",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $500 Performance Honorarium"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/92NY-Future-Dance-Festival-Live-Performance-Applications-Due-Nov-1/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "92ny future dance festival live performance applications due nov 1|unknown|2026-11-01"
+    },
+    {
+      "title": "SOLO Experience Deadline EXTENDED",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: License to perform solo"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/SOLO-Experience-Deadline-EXTENDED/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "solo experience deadline extended|unknown|2026-11-07"
+    },
+    {
+      "title": "2027 Winter Residency with KTCO",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $200 stipend"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/2027-Winter-Residency-with-KTCO/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "2027 winter residency with ktco|unknown|2026-11-15"
+    },
+    {
+      "title": "Unrehearsed Artist Residency Program",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-22",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "$1500 and an additional production stipend* will be awarded to up to 6 artists to create a new dance work."
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Unrehearsed-Artist-Residency-Program/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "unrehearsed artist residency program|unknown|2026-11-22"
+    },
+    {
+      "title": "Call for Queens-Based Choreographers - Dance Astoria 2027 (Deadline 12/7)",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Potential Compensation - Based on donations"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Call-for-Queens-Based-Choreographers-Dance-Astoria-2027-Deadline-127/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "call for queens based choreographers dance astoria 2027 deadline 12 7|unknown|2026-12-07"
+    },
+    {
+      "title": "Submissions open for the Red Hook Brooklyn Film Festival",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Dance Fiilms + Experimental Shorts + Music Videos welcome."
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Submissions-open-for-the-Red-Hook-Brooklyn-Film-Festival/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "submissions open for the red hook brooklyn film festival|unknown|2026-12-15"
+    },
+    {
+      "title": "6th Footprints Dance Festival",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-18",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Fully produced concert at Amanda Selwyn Dance Studio, photos and video from dress rehearsal, and discounted rehearsal rate"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/09/6th-Footprints-Dance-Festival/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "6th footprints dance festival|unknown|2026-12-18"
+    },
+    {
+      "title": "*NEW SEASON* Applications for FERTILE GROUND 2026-2027",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Not a paid opportunity"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/NEW-SEASON-Applications-for-FERTILE-GROUND-2026-2027/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "new season applications for fertile ground 2026 2027|unknown|2026-11-15"
+    },
+    {
+      "title": "Butoh/Contact Improvisation Classes (10/10, 10/17, 11/7)",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Grounded in the notions of the body as water vessels, these classes will act as a supportive movement practice that engages a deep sense of listening-prioritizing care, slowness, and awareness of gravity in moments of contact."
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/ButohContact-Improvisation-Classes-1010-1017-117/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "butoh contact improvisation classes 10 10 10 17 11 7|unknown|None"
+    },
+    {
+      "title": "Call for Choreographers! Shakin And Stirred",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Split donations + Photo and Video"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Call-for-Choreographers-Shakin-And-Stirred/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "call for choreographers shakin and stirred|unknown|None"
+    },
+    {
+      "title": "Seeking Artists and Companies to Present Digital Work",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: Professional video and tech"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Seeking-Artists-and-Companies-to-Present-Digital-Work/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "seeking artists and companies to present digital work|unknown|None"
+    },
+    {
+      "title": "WestFest 2027 Applications Now Open!",
+      "org": null,
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": null,
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Compensation: $250 Performance Stipend"
+        }
+      ],
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/WestFest-2027-Applications-Now-Open/",
+      "disciplines": [
+        "dance"
+      ],
+      "extraction": "mara_backfill_verified",
+      "contributed_by": "Mara Munoz (origin/feature/backfill)",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "westfest 2027 applications now open|unknown|None"
     }
   ]
 }

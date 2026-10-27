@@ -633,7 +633,7 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 7,
+      "records_2026_10_27": 43,
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 61,
       "mara_duplicates_of_ours": 6
@@ -5059,7 +5059,8 @@
       ],
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_27": 1
     },
     {
       "id": "regional-usdan-artists-in-residence",
@@ -17863,7 +17864,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_27": 1
     },
     {
       "id": "mara-joyce-theater",
@@ -18186,7 +18188,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_27": 1
     },
     {
       "id": "mara-tiny-cupboard",
@@ -18203,7 +18206,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_27": 1
     },
     {
       "id": "mara-governors-island-arts",
@@ -18271,7 +18275,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_27": 1
     },
     {
       "id": "mara-craigslist-new-york",
@@ -18306,6 +18311,36 @@
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 50,
       "mara_duplicates_of_ours": 0
+    },
+    {
+      "id": "printshop",
+      "name": "printshop.org",
+      "url": "https://printshop.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "From Mara's backfill (origin/feature/backfill), verified by our pipeline. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 2
+    },
+    {
+      "id": "maboumines",
+      "name": "maboumines.org",
+      "url": "https://maboumines.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "From Mara's backfill (origin/feature/backfill), verified by our pipeline. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
     }
   ],
   "tier_key": {
