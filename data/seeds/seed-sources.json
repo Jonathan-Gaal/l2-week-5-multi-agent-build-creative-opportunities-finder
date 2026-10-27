@@ -16377,54 +16377,6 @@
       ]
     },
     {
-      "id": "exp3-everybody-sing-nyc-no-audition-choir",
-      "name": "Everybody Sing NYC (no-audition choir)",
-      "url": "https://www.everybodysingnyc.com",
-      "category": "choir",
-      "verdict": "hold",
-      "checked": "web search 2026-10-27; not fetched",
-      "checks": "Free no-audition choir, Wednesdays 6:30-8 PM, Grace & St Paul's, W 71st St; confirm fall schedule.",
-      "notes": "Expansion 3 research seed. Organizer URL from search results; robots, terms and availability not yet checked.",
-      "access": "public_listing",
-      "tier": "free",
-      "ingest": false,
-      "state": "NY",
-      "municipality_or_borough": "Manhattan",
-      "source_kind": "organizer_or_organizer_hosted_portal",
-      "status": "schedule_or_access_needs_confirmation",
-      "scrape_policy": "review_robots_and_terms_before_requests",
-      "display": true,
-      "terms_check_required": true,
-      "research_ids": [
-        "exp3-everybody-sing-nyc-no-audition-choir"
-      ],
-      "research_programs": [
-        {
-          "id": "exp3-everybody-sing-nyc-no-audition-choir",
-          "name": "Everybody Sing NYC (no-audition choir)",
-          "state": "NY",
-          "municipality_or_borough": "Manhattan",
-          "opportunity_type": "choir",
-          "event_date": null,
-          "local_time": null,
-          "timezone": "America/New_York",
-          "cost_label": "unknown",
-          "evidence_note": "Free no-audition choir, Wednesdays 6:30-8 PM, Grace & St Paul's, W 71st St; confirm fall schedule.",
-          "source_url": "https://www.everybodysingnyc.com",
-          "research_date": "2026-10-27",
-          "evidence_level": "search_result_organizer_url_not_fetched",
-          "status": "schedule_or_access_needs_confirmation",
-          "verdict": "hold",
-          "ingest": false,
-          "crawl_status": "not_fetched",
-          "listing_read": false,
-          "terms_review": "manual_review_pending",
-          "availability_verified": false,
-          "source_kind": "organizer_or_organizer_hosted_portal"
-        }
-      ]
-    },
-    {
       "id": "exp3-washington-heights-community-choir",
       "name": "Washington Heights Community Choir",
       "url": "https://washingtonheightschoir.org",
@@ -17472,7 +17424,35 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per listing",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "research_programs": [
+        {
+          "id": "exp3-everybody-sing-nyc-no-audition-choir",
+          "name": "Everybody Sing NYC (no-audition choir)",
+          "state": "NY",
+          "municipality_or_borough": "Manhattan",
+          "opportunity_type": "choir",
+          "event_date": null,
+          "local_time": null,
+          "timezone": "America/New_York",
+          "cost_label": "unknown",
+          "evidence_note": "Free no-audition choir, Wednesdays 6:30-8 PM, Grace & St Paul's, W 71st St; confirm fall schedule.",
+          "source_url": "https://www.everybodysingnyc.com",
+          "research_date": "2026-10-27",
+          "evidence_level": "search_result_organizer_url_not_fetched",
+          "status": "schedule_or_access_needs_confirmation",
+          "verdict": "hold",
+          "ingest": false,
+          "crawl_status": "not_fetched",
+          "listing_read": false,
+          "terms_review": "manual_review_pending",
+          "availability_verified": false,
+          "source_kind": "organizer_or_organizer_hosted_portal"
+        }
+      ],
+      "research_ids": [
+        "exp3-everybody-sing-nyc-no-audition-choir"
+      ]
     },
     {
       "id": "here-arts",
@@ -17587,6 +17567,36 @@
       "verdict": "keep",
       "checked": "crawled 2026-10-27",
       "checks": "Recovered in the 2026-10-27 recall audit (participation pages the title filter had missed). Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "chinese-theatre-works",
+      "name": "Chinese Theatre Works",
+      "url": "https://chinesetheatreworks.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; Events Calendar API; shadow theatre workshops. Robots.txt allows Claude agents.",
+      "notes": "Added from the 2026-10-27 snapshot results.",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_27": 1
+    },
+    {
+      "id": "harlem-needle-arts",
+      "name": "Harlem Needle Arts",
+      "url": "https://harlemneedlearts.org/",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "crawled 2026-10-27",
+      "checks": "DCLA roster org; Events Calendar API; weekly craft circle. Robots.txt allows Claude agents.",
       "notes": "Added from the 2026-10-27 snapshot results.",
       "access": "free",
       "ingest": true,

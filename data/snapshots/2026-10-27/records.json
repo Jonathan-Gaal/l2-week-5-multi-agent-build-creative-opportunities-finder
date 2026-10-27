@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 678,
+  "count": 680,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -21644,6 +21644,67 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "residency videographer for reynaldo piniella paid gig|manhattan|2026-11-14"
+    },
+    {
+      "title": "Shadow Theatre Workshop at China Institute",
+      "org": "Chinese Theatre Works",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-10",
+      "fee": "unknown",
+      "award": null,
+      "location": null,
+      "eligibility": [],
+      "source": "chinese-theatre-works",
+      "source_url": "https://chinesetheatreworks.org/event/shadow-theatre-workshop-at-china-institute/",
+      "disciplines": [
+        "theater",
+        "craft"
+      ],
+      "extraction": "api",
+      "event_dates": [
+        "2026-11-10"
+      ],
+      "recurrence": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "shadow theatre workshop at china institute|manhattan|2026-11-10"
+    },
+    {
+      "title": "Mantra Mondays (bring-your-own hand project craft circle)",
+      "org": "Harlem Needle Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-02",
+      "recurrence": "Mondays 6pm (11/2, 11/9)",
+      "event_dates": [
+        "2026-11-02",
+        "2026-11-09"
+      ],
+      "fee": "unknown",
+      "award": null,
+      "location": "Harlem Y",
+      "eligibility": [
+        {
+          "requirement": "format",
+          "quote": "Pack a portable hand project up and join us for #MantraMondays ."
+        }
+      ],
+      "source": "harlem-needle-arts",
+      "source_url": "https://harlemneedlearts.org/workshop-event/mantra-mondays-2/2026-11-02/",
+      "disciplines": [
+        "craft"
+      ],
+      "extraction": "api",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-27",
+      "fetched_at": "2026-10-27",
+      "dedupe_key": "mantra mondays bring your own hand project craft circle|manhattan|2026-11-02"
     }
   ]
 }
