@@ -2,14 +2,14 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1057,
+  "record_count": 1133,
   "by_borough": {
-    "manhattan": 371,
-    "brooklyn": 130,
-    "queens": 47,
-    "unknown": 34,
-    "bronx": 26,
-    "staten_island": 21,
+    "manhattan": 375,
+    "brooklyn": 131,
+    "queens": 48,
+    "unknown": 37,
+    "bronx": 27,
+    "staten_island": 22,
     "citywide": 12
   },
   "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
@@ -20,7 +20,8 @@
     "robots.txt was checked for ClaudeBot, anthropic-ai, Claude-User, and * before crawling each domain.",
     "2026-10-27 deep pass: every quote checked against its own source page (cached or live), not the pooled corpus; all 541 records pass and all 535 URLs return 200.",
     "2026-10-27 second pass: 651 records; every quote matched on the record's own page and every URL returned 200. One record dropped whose quote could not be confirmed on its own page; one dropped for a malformed URL.",
-    "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages."
+    "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages.",
+    "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API."
   ],
   "sources": {
     "ingested_with_records": [
@@ -75,7 +76,50 @@
       "brooklyn-botanic-garden",
       "center-at-west-park",
       "jazz-at-lincoln-center",
-      "6sqft (secondary, Irish sessions)"
+      "6sqft (secondary, Irish sessions)",
+      "chinese-theatre-works",
+      "daisys-li",
+      "arts-council-princeton",
+      "guild-hall",
+      "five-points-arts",
+      "open-source-gallery",
+      "squeaky-wheel",
+      "api-nyc-jobs",
+      "api-sam-opportunities",
+      "regional-baxter-st-residency",
+      "regional-saltonstall-juried-residency",
+      "regional-peep-space-flat-file-not-flat-file",
+      "regional-wave-farm-research-and-production",
+      "regional-east-end-arts-glimmer-2027",
+      "regional-freeport-library-community-drum-circle",
+      "regional-middle-country-library-drum-circle",
+      "regional-ocean-county-library-open-mic",
+      "regional-enfield-library-community-drum-circle",
+      "regional-earth-beat-drum-and-song-circle",
+      "regional-the-art-guild-whats-the-message",
+      "regional-flushing-town-hall-monthly-jazz-jam",
+      "regional-south-bronx-folk-festival-danza-fiesta",
+      "regional-snug-harbor-tiny-gardens-terrarium-workshop",
+      "regional-shoreline-arts-trail-open-studios",
+      "regional-patchogue-arts-council-photographers-group",
+      "regional-coventry-arts-guild-ekphrastic-writing-workshop",
+      "regional-coventry-arts-guild-ekphrastic-music-workshop",
+      "regional-enfield-library-crochet-basics-with-mel",
+      "regional-westport-library-sit-and-stitch",
+      "regional-derby-neck-library-needlers-club",
+      "regional-north-bergen-library-creative-writing-club",
+      "regional-bridgewater-library-writers-group",
+      "regional-writers-on-writing-endings",
+      "regional-crafts-stitch-club-princeton",
+      "regional-watercolor-greeting-cards-adult-craft",
+      "regional-plane-simple-woodworking-meetup",
+      "regional-cnc-woodworking-basics-designing-with-vcarve",
+      "regional-handcrafted-pens-wood-turning-workshop",
+      "regional-craft-your-own-cutting-board-intro-to-woodworking-basics",
+      "regional-knot-just-knitting-crochet-embroidery-and-more",
+      "regional-crochet-a-granny-square",
+      "regional-mini-basket-weaving-craft-mini-cestas",
+      "regional-mi-kmaq-quill-art-craft"
     ],
     "ingested_zero_open_records": {
       "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
@@ -370,77 +414,313 @@
       "source": "njsca",
       "reason": "ineligible",
       "detail": "Event funding for organizations, due Oct 30."
+    },
+    {
+      "title": "Liquitex Just Imagine Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Winter 2027 page lists November 22; confirm year and sponsor conditions.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "MCCC Spring 2027 Artist Residency",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-10-31",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Watermill Center Artist Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "2027 call closed; next applications winter 2026/27; no participation fee; confirm application fee.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Weir Farm Artist-in-Residence",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Annual call November 1–January 31; confirm upcoming year on NPS application; age 25+.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Woodstock Byrdcliffe Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "2027 communal/cottage applications advertised; paid participation and grants vary; counted once.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Socrates Fellowship",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Open call resumes fall 2027; confirm canonical English page before ingest.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "NJ Heritage Fellowship",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Nomination-based recognition; FY28 forms January 2027 and deadline February; $20000.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Coventry Poet Laureate Reading Series",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "poetry reading series (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Meetinghouse Open Mic Shields Hall",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-18",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Meetinghouse Acoustic Song Circle",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-01",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Staten Island Museum Transcribe-a-thon",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-21",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "MakeHaven Tours and Creative Workspace",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "makerspace tours (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Writopia Frightopia Anthology Submission",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-13",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Country Dance New York Contra Dance",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-10-31",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Reading Rhythms Queens Gathered Around Books",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "book club (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Country Dance New York English Country Dance",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-03",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Grant Writing Meetup: Collaboration and Accountability",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "grant-writing meetup, not creative practice",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Writers Workshop Grades 4+",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "youth only (grades 4+)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "East Hampton Senior Center Drum Circle",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "senior-center members",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Easton Arts Center Conference Week Studio",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "children ages 4+",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Ocean County Accessible Drum Circle",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "for adults with developmental disabilities",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Montgomery Library Teen Creative Writing Workshop",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "teens only (grades 7-12)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Burlington County Library Adult Writing Group",
+      "source": "regional-research",
+      "reason": "terms_unconfirmed",
+      "detail": "hosted on BiblioCommons (vendor); terms page unreadable on 2026-10-28",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "South Brunswick Library CityKidzWorld Memories Writing",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teens: Craft, Chat and Chill - Mini Framed Art Magnets",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Craft & Chill",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Park Open Studio",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Nature's Workshop: Fall Foliage Leaf Art",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Nature's Workshop: Fall Foliage Leaf Art",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Autumn Leaves Story Time and Craft",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "ArtsWestchester Arts Alive Artist Funding",
+      "source": "artswestchester",
+      "reason": "duplicate",
+      "detail": "same listing as 'ArtsWestchester Arts Alive 2027 grants' (artswestchester)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Daisys Patchogue Lisa Polizzi Jam",
+      "source": "regional-daisys-patchogue-lisa-polizzi-jam",
+      "reason": "duplicate",
+      "detail": "same listing as 'Lisa Polizzi Jam' (daisys-li)",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
-    "NYC Event Calendar API (api.nyc.gov) needs a free key the owner registers; not yet used.",
     "Eventbrite and Meetup terms prohibit scraping; library calendars (NYPL, Queens) are JS-only or CAPTCHA-gated.",
     "About 1,728 roster orgs have no discoverable website by domain guessing.",
     "BRIC's full class catalog loads through a filter app; only the orientation is linked.",
     "NYC Parks rate-limits crawlers; its records come from list-page microdata fetched at 4s intervals.",
-    "Fee is 'unknown' wherever the page does not state one."
+    "Fee is 'unknown' wherever the page does not state one.",
+    "NYC Parks event pages returned 403 to the crawler on 2026-10-28; 5 NYC Event Calendar candidates held.",
+    "Eventbrite's public event search was shut down in 2019; the API can only re-read known event IDs, so it is not used."
   ],
   "by_discipline": {
     "comedy": 398,
-    "music": 394,
+    "music": 395,
     "dance": 186,
-    "literary": 136,
-    "visual": 59,
-    "theater": 57,
-    "all": 52,
-    "craft": 25,
+    "literary": 137,
+    "all": 115,
+    "visual": 62,
+    "theater": 58,
+    "craft": 26,
+    "film": 15,
     "performance": 13,
-    "film": 12,
     "digital": 9,
-    "design": 4,
+    "design": 8,
     "research": 4,
     "performing_arts": 2,
     "architecture": 2,
-    "curatorial": 1
+    "curatorial": 1,
+    "lens-based": 1,
+    "media": 1,
+    "writing": 1,
+    "sculpture": 1,
+    "textiles": 1,
+    "sound": 1,
+    "transmission": 1,
+    "technology": 1
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 641,
+    "nyc": 652,
     "massachusetts": 86,
     "pennsylvania": 85,
+    "long_island": 61,
     "dc": 49,
-    "long_island": 46,
+    "new_jersey": 47,
     "maryland": 46,
-    "new_jersey": 24,
-    "westchester_hudson": 16,
-    "connecticut": 14,
+    "connecticut": 35,
+    "westchester_hudson": 18,
+    "upstate_ny": 17,
     "rhode_island": 14,
-    "upstate_ny": 14,
     "new_hampshire": 11,
-    "maine": 8,
+    "maine": 9,
     "vermont": 3
   },
   "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
-    "event/open_mic": 648,
-    "event/dance_night": 109,
-    "event/workshop": 88,
+    "event/open_mic": 651,
+    "event/workshop": 130,
+    "event/dance_night": 113,
     "open_call/audition": 71,
-    "open_call": 36,
-    "event/jam": 29,
-    "event/class": 24,
+    "open_call": 39,
+    "event/jam": 36,
+    "event/class": 29,
+    "residency": 17,
     "grant": 16,
-    "residency": 14,
     "grant/fellowship": 8,
-    "event/drawing_session": 4,
+    "event/drawing_session": 6,
+    "job/full_time": 5,
     "open_call/competition": 3,
     "open_call/paid_gig": 3,
     "residency/studio_access": 1,
     "open_call/fellowship": 1,
     "open_call/youth_program": 1,
-    "open_call/teaching_gig": 1
+    "open_call/teaching_gig": 1,
+    "open_call/commission": 1,
+    "event/open_studio": 1
   },
   "by_extraction": {
     "structured": 768,
+    "crawl_reviewed": 116,
     "manual": 83,
-    "crawl_reviewed": 81,
+    "api": 79,
     "mara_backfill_verified": 44,
-    "api": 38,
     "jsonld": 33,
     "rendered": 7,
     "auto_text": 3
@@ -449,7 +729,8 @@
     "2026-10-27: scope widened to every creative discipline (open-ended), the NYC tri-state metro, and participatory events (jams, open mics, drum circles, drawing sessions, workshops, classes) plus paid performer and teaching gigs.",
     "Recurring events use deadline 'recurring' with a recurrence string; dated events use the next date as deadline.",
     "extraction values: manual (hand-built from fetched pages), structured (parsed from a listing site's fixed fields), api (WordPress events calendar API), crawl_reviewed (auto-extracted from the deep crawl, then individually reviewed).",
-    "extraction values added: jsonld (schema.org Event data), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence)."
+    "extraction values added: jsonld (schema.org Event data), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence).",
+    "2026-10-28: added opportunity_type 'job' (salaried or hourly creative positions; pay in award) per the PRD update."
   ],
   "crawl_stats": {
     "sites_safety_checked": 141,

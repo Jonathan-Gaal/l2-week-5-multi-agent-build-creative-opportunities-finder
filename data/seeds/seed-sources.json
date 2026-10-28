@@ -800,7 +800,8 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per call",
-      "records_2026_10_27": 25
+      "records_2026_10_27": 25,
+      "records_2026_10_28": 8
     },
     {
       "id": "islip-arts",
@@ -3013,13 +3014,13 @@
       "name": "BAXTER ST Residency",
       "url": "https://www.baxterst.org/artist-in-residence/",
       "category": "residency",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "BAXTER ST 2027 application September 23–November 25, 2026. No fee. NYC lens-based artists without previous NYC solo exhibition; residency and study-completion restrictions apply. Monthly stipend and production support described.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "BAXTER ST 2027 application September 23–November 25, 2026. No fee. NYC lens-based artists without previous NYC solo exhibition; residency and study-completion restrictions apply. Monthly stipend and production support described. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Manhattan",
@@ -3058,20 +3059,21 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-saltonstall-juried-residency",
       "name": "Saltonstall Juried Residency",
       "url": "https://www.saltonstall.org/residencies/juried-residencies/",
       "category": "residency",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "2027 call live; page gives 12:59 PM deadline; NY residence / Tribal Nation criteria.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "2027 call live; page gives 12:59 PM deadline; NY residence / Tribal Nation criteria. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Ithaca",
@@ -3111,7 +3113,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-bolsterarts-studio-residency",
@@ -3170,13 +3173,13 @@
       "name": "Peep Space Flat File / Not Flat File",
       "url": "https://peepspaceny.com/open-call/",
       "category": "open_call",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Small-format 2D/3D works; price cap and size restrictions; related calls counted once.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Small-format 2D/3D works; price cap and size restrictions; related calls counted once. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Tarrytown",
@@ -3216,20 +3219,21 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-wave-farm-research-and-production",
       "name": "Wave Farm Research and Production",
       "url": "https://wavefarm.org/ta/residency-program/info-apply",
       "category": "program_source",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Wave Farm primary page: December 1, 2026, 11:59 PM EST. Transmission art, spatial sound and radio fellowships; project stipends vary. DJ sets ineligible; student restrictions apply.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Wave Farm primary page: December 1, 2026, 11:59 PM EST. Transmission art, spatial sound and radio fellowships; project stipends vary. DJ sets ineligible; student restrictions apply. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Acra",
@@ -3269,7 +3273,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-millay-arts-core-residency",
@@ -4935,13 +4940,13 @@
       "name": "East End Arts GLIMMER 2027",
       "url": "https://eastendarts.org/2027-elizabeth-richard-memorial-members-show-glimmer/",
       "category": "open_call",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "East End Arts GLIMMER submission period October 12, 2026–January 3, 2027. Active membership and submission fee required; exact fee not stated on fetched page.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "East End Arts GLIMMER submission period October 12, 2026–January 3, 2027. Active membership and submission fee required; exact fee not stated on fetched page. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Riverhead",
@@ -4976,7 +4981,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-heckscher-long-island-biennial",
@@ -5264,13 +5270,13 @@
       "name": "Freeport Library Community Drum Circle",
       "url": "https://www.fengshuimanhattan.com/feng-shui-workshops-classes-seminars/drum-circle-freeport-ny-library-november-6-2026",
       "category": "drum_circle",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Facilitator confirms November 6, 2026, 18:30–19:30 at 144 West Merrick Road. Free, instruments supplied, no experience needed. Library registration page disallows a checked agent; availability and card rules not inspected.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Facilitator confirms November 6, 2026, 18:30–19:30 at 144 West Merrick Road. Free, instruments supplied, no experience needed. Library registration page disallows a checked agent; availability and card rules not inspected. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Freeport, Nassau",
@@ -5310,20 +5316,21 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-middle-country-library-drum-circle",
       "name": "Middle Country Library Drum Circle",
       "url": "https://www.fengshuimanhattan.com/feng-shui-workshops-classes-seminars/drum-circle-at-the-middle-county-library-with-laura-cerrano-december-9-2026",
       "category": "drum_circle",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Facilitator page confirms December 9, 2026, 18:30–19:30; 575 Middle Country Road, Selden. Percussion provided, no experience needed. Public registration endpoint discovered but its robots could not be read; seat/card requirements remain unconfirmed.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Facilitator page confirms December 9, 2026, 18:30–19:30; 575 Middle Country Road, Selden. Percussion provided, no experience needed. Public registration endpoint discovered but its robots could not be read; seat/card requirements remain unconfirmed. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Selden, Suffolk",
@@ -5363,7 +5370,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-port-jefferson-acoustic-guitar-open-mic",
@@ -7140,13 +7148,13 @@
       "name": "Ocean County Library Open Mic",
       "url": "https://theoceancountylibrary.libnet.info/event/17363061",
       "category": "open_mic",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Live library event confirms November 12, 2026 at Point Pleasant Borough Branch. Performer list opens 18:00, performances 18:30; acoustic musicians and spoken word welcomed. Fee and age/card rules not stated.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Live library event confirms November 12, 2026 at Point Pleasant Borough Branch. Performer list opens 18:00, performances 18:30; acoustic musicians and spoken word welcomed. Fee and age/card rules not stated. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Point Pleasant Borough, NJ",
@@ -7185,7 +7193,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-plainfield-library-papermaking-with-frontline-arts",
@@ -7436,13 +7445,13 @@
       "name": "Enfield Library Community Drum Circle",
       "url": "https://www.enfieldpubliclibrary.org/upcoming-programs/",
       "category": "drum_circle",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "All ages; library says drums provided or bring your own; confirm registration.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "All ages; library says drums provided or bring your own; confirm registration. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Enfield",
@@ -7510,7 +7519,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 2
     },
     {
       "id": "regional-coventry-poet-laureate-reading-series",
@@ -7850,13 +7860,13 @@
       "name": "Earth Beat Drum and Song Circle",
       "url": "https://www.earthbeatmusic.org/calendar",
       "category": "drum_circle",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "All ages/experience; some percussion available; Wellspring fundraiser; beyond NYC metro but within NY state.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "All ages/experience; some percussion available; Wellspring fundraiser; beyond NYC metro but within NY state. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Greenwich, Washington County",
@@ -7895,7 +7905,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-robert-moses-full-moon-drum-circle",
@@ -7954,13 +7965,13 @@
       "name": "The Art Guild: Whats the Message",
       "url": "https://www.theartguild.org/call-to-artists",
       "category": "open_call",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "All media including photography; 2026 schedule lists November 9 deadline. Confirm entry fee and terms.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "All media including photography; 2026 schedule lists November 9 deadline. Confirm entry fee and terms. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Manhasset, Nassau",
@@ -7995,7 +8006,8 @@
           "availability_verified": false,
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-westbury-arts-our-world-in-color",
@@ -8512,13 +8524,13 @@
       "name": "Flushing Town Hall Monthly Jazz Jam",
       "url": "https://www.flushingtownhall.org/monthly-jazz-jams",
       "category": "jam_session",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Primary program lists November 11 and December 9 jams. Piano/drum kit available; primary overview and event copy differ on beginner suitability. Confirm individual admission and musician rules.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Primary program lists November 11 and December 9 jams. Piano/drum kit available; primary overview and event copy differ on beginner suitability. Confirm individual admission and musician rules. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Queens",
@@ -8561,7 +8573,8 @@
       ],
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 1,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-langston-hughes-library-bailoterapia-community-dance",
@@ -8937,13 +8950,13 @@
       "name": "South Bronx Folk Festival Danza Fiesta",
       "url": "https://www.hostoscenter.org/events",
       "category": "participatory_cultural_event",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Hostos organizer lists free admission with RSVP; folk music/dance. Attendance opportunity, not an open performance slot. Confirm event detail year and seating.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Hostos organizer lists free admission with RSVP; folk music/dance. Attendance opportunity, not an open performance slot. Confirm event detail year and seating. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Bronx",
@@ -8983,7 +8996,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-college-of-staten-island-open-mic",
@@ -9092,13 +9106,13 @@
       "name": "Snug Harbor Tiny Gardens Terrarium Workshop",
       "url": "https://snug-harbor.org/class/tiny-gardens-workshop/",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Primary class lists $15 general admission and member discount; meet Visitor Info Booth, Chapel Road. Later sessions same series; verify selected date and booking.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Primary class lists $15 general admission and member discount; meet Visitor Info Booth, Chapel Road. Later sessions same series; verify selected date and booking. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Staten Island",
@@ -9141,7 +9155,8 @@
       ],
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 0,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-staten-island-makerspace-community-workshop",
@@ -9832,13 +9847,13 @@
       "name": "Shoreline Arts Trail Open Studios",
       "url": "https://www.shorelineartstrail.org/",
       "category": "open_studio_visit",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Organizer confirms November 14–15, 2026; public visiting artists studios. Artist membership is not currently open to unsolicited submissions; visit and apply routes differ.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Organizer confirms November 14–15, 2026; public visiting artists studios. Artist membership is not currently open to unsolicited submissions; visit and apply routes differ. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Branford / Guilford / Madison",
@@ -9878,7 +9893,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-easton-arts-center-conference-week-studio",
@@ -10613,13 +10629,13 @@
       "name": "Patchogue Arts Council Photographers Group",
       "url": "https://patchoguearts.org/photographers-group/",
       "category": "photography_group",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Organizer explicitly lists November11,2026 monthly meeting/contest at MoCA,TerryStreet,Patchogue19:00. Photo entries due November7 midnight with capture-period restrictions. Group membership and contest rules apply; confirm fees.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Organizer explicitly lists November11,2026 monthly meeting/contest at MoCA,TerryStreet,Patchogue19:00. Photo entries due November7 midnight with capture-period restrictions. Group membership and contest rules apply; confirm fees. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NY",
       "municipality_or_borough": "Patchogue, Suffolk",
@@ -10657,7 +10673,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-east-end-arts-printmaking",
@@ -10914,13 +10931,13 @@
       "name": "Coventry Arts Guild Ekphrastic Writing Workshop",
       "url": "https://www.coventryartsguild.org/ekphrastic-writing-workshop",
       "category": "writing_workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Free public ekphrastic writing workshop; organizer explicitly dates March27,2027.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Free public ekphrastic writing workshop; organizer explicitly dates March27,2027. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Coventry",
@@ -10958,20 +10975,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-coventry-arts-guild-ekphrastic-music-workshop",
       "name": "Coventry Arts Guild Ekphrastic Music Workshop",
       "url": "https://www.coventryartsguild.org/ekphrastic-writing-workshop-copy",
       "category": "music_workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Free public ekphrastic music workshop; organizer explicitly dates April24,2027.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Free public ekphrastic music workshop; organizer explicitly dates April24,2027. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Coventry",
@@ -11009,7 +11027,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-guttenberg-arts-printmaking-studio-access",
@@ -11394,13 +11413,13 @@
       "name": "Enfield Library Crochet Basics with Mel",
       "url": "https://www.enfieldpubliclibrary.org/upcoming-programs/2027/1/20/crochet-basic-with-mel",
       "category": "fiber_arts",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Age16+; materials provided. Signups begin January13; confirm seat availability.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Age16+; materials provided. Signups begin January13; confirm seat availability. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Enfield",
@@ -11438,20 +11457,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-westport-library-sit-and-stitch",
       "name": "Westport Library Sit and Stitch",
       "url": "https://westportlibrary.org/event/sit-stitch/2026-11-04/",
       "category": "fiber_arts",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Ages8 through adult; free16:30–17:30. Bring needles/yarn; library does not supply them.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Ages8 through adult; free16:30–17:30. Bring needles/yarn; library does not supply them. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Westport",
@@ -11489,20 +11509,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-derby-neck-library-needlers-club",
       "name": "Derby Neck Library Needlers Club",
       "url": "https://www.derbynecklibrary.org/events/needlers-club-15",
       "category": "fiber_arts",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Needlers fiber-art gathering13:00–16:00; confirm materials and access.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Needlers fiber-art gathering13:00–16:00; confirm materials and access. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "Derby",
@@ -11540,7 +11561,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-danbury-library-cozy-conversational-craft-club",
@@ -11797,13 +11819,13 @@
       "name": "North Bergen Library Creative Writing Club",
       "url": "https://nbpl.libnet.info/event/17352116",
       "category": "writing_group",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-16 18:30:00. Eligibility/registration text: This event is full; AGE GROUP: |; Learn English for free at the library. Open to all NJ residents, ages 18+; Learn English for free at the library. Open to all NJ residents, ages 18+; Listen to stories in both English and Spanish. Open to children ages 0-7 years old..",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-16 18:30:00. Eligibility/registration text: This event is full; AGE GROUP: |; Learn English for free at the library. Open to all NJ residents, ages 18+; Learn English for free at the library. Open to all NJ residents, ages 18+; Listen to stories in both English and Spanish. Open to children ages 0-7 years old.. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "North Bergen",
@@ -11841,7 +11863,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-jersey-city-library-book-bedazzling",
@@ -11986,13 +12009,13 @@
       "name": "Bridgewater Library Writers Group",
       "url": "https://sclsnj.libnet.info/event/17594115",
       "category": "writing_group",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-07 14:30:00. Eligibility/registration text: AGE GROUP: |.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-07 14:30:00. Eligibility/registration text: AGE GROUP: |. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Bridgewater",
@@ -12030,7 +12053,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-monroe-township-library-tween-ukulele",
@@ -13565,13 +13589,13 @@
       "name": "Writers on Writing: Endings",
       "url": "https://princetonlibrary.libnet.info/event/17563348",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-12 18:00:00. Eligibility/registration text: AGE GROUP: |.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-12 18:00:00. Eligibility/registration text: AGE GROUP: |. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Princeton",
@@ -13609,7 +13633,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-teens-craft-chat-and-chill-mini-framed-art-magnets",
@@ -13667,13 +13692,13 @@
       "name": "Crafts: Stitch Club Princeton",
       "url": "https://princetonlibrary.libnet.info/event/17245049",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-19 17:30:00. Eligibility/registration text: AGE GROUP: |.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-19 17:30:00. Eligibility/registration text: AGE GROUP: |. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Princeton",
@@ -13711,20 +13736,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-watercolor-greeting-cards-adult-craft",
       "name": "Watercolor Greeting Cards - Adult Craft",
       "url": "https://theoceancountylibrary.libnet.info/event/17558419",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/54ff4a23aae9ff576851.txt. Primary detail page explicitly lists 2026-11-10 14:00:00. Eligibility/registration text: Registration opens:; AGE GROUP: |; Cancelled; Registration opens Tuesday, October 27 2026 at 2:00pm; Registration opens Saturday, October 31 2026 at 11:00am.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/54ff4a23aae9ff576851.txt. Primary detail page explicitly lists 2026-11-10 14:00:00. Eligibility/registration text: Registration opens:; AGE GROUP: |; Cancelled; Registration opens Tuesday, October 27 2026 at 2:00pm; Registration opens Saturday, October 31 2026 at 11:00am. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Point Pleasant Borough",
@@ -13762,7 +13788,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-intro-to-sewing-get-to-know-your-machine",
@@ -13871,13 +13898,13 @@
       "name": "Plane & Simple: Woodworking Meetup",
       "url": "https://www.makehaven.org/civicrm/event/info?id=966&reset=1",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and minors 13+ with Guardian Supervision.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and minors 13+ with Guardian Supervision. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "New Haven",
@@ -13915,20 +13942,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-cnc-woodworking-basics-designing-with-vcarve",
       "name": "CNC Woodworking Basics: Designing with VCarve",
       "url": "https://www.makehaven.org/civicrm/event/info?id=754&reset=1",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "New Haven",
@@ -13966,20 +13994,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-handcrafted-pens-wood-turning-workshop",
       "name": "Handcrafted Pens: Wood Turning Workshop",
       "url": "https://www.makehaven.org/civicrm/event/info?id=985&reset=1",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "New Haven",
@@ -14017,20 +14046,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-craft-your-own-cutting-board-intro-to-woodworking-basics",
       "name": "Craft Your Own Cutting Board: Intro to Woodworking Basics",
       "url": "https://www.makehaven.org/civicrm/event/info?id=840&reset=1",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "New Haven",
@@ -14068,20 +14098,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-knot-just-knitting-crochet-embroidery-and-more",
       "name": "Knot Just Knitting: Crochet, Embroidery and more",
       "url": "https://www.makehaven.org/civicrm/event/info?id=628&reset=1",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and Minors with Guardian Supervision.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and Minors with Guardian Supervision. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "CT",
       "municipality_or_borough": "New Haven",
@@ -14119,7 +14150,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-adult-crafting-companions-byoc",
@@ -14176,13 +14208,13 @@
       "name": "Crochet a Granny Square",
       "url": "https://theoceancountylibrary.libnet.info/event/17302406",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-03 18:30:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-03 18:30:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Lakewood",
@@ -14220,20 +14252,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-mini-basket-weaving-craft-mini-cestas",
       "name": "Mini Basket Weaving Craft / Mini cestas",
       "url": "https://theoceancountylibrary.libnet.info/event/17273603",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-09 18:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-09 18:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Lakewood",
@@ -14271,20 +14304,21 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-mi-kmaq-quill-art-craft",
       "name": "Mi'kmaq Quill Art Craft",
       "url": "https://theoceancountylibrary.libnet.info/event/17302476",
       "category": "workshop",
-      "verdict": "hold",
-      "checked": "research checked 2026-10-27; fetched",
-      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-10 15:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-10 15:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "Regional/community research seed. Review terms, eligibility, schedule and availability before backfill.",
       "access": "public_listing",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "display": true,
       "state": "NJ",
       "municipality_or_borough": "Lakewood",
@@ -14322,7 +14356,8 @@
           "terms_review": "manual_review_pending",
           "source_kind": "organizer_or_organizer_hosted_portal"
         }
-      ]
+      ],
+      "records_2026_10_28": 1
     },
     {
       "id": "regional-usdan-composition-and-songwriting",
@@ -14590,13 +14625,13 @@
       "name": "SAM.gov contract opportunities",
       "url": "https://open.gsa.gov/api/get-opportunities-public-api/",
       "category": "api_discovery_source",
-      "verdict": "hold",
-      "checked": "official documentation checked 2026-10-27; endpoint not exercised",
-      "checks": "Paid creative contracts; restrict place of performance to NY/NJ/CT and distinguish solicitations from awards or informational notices.",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Paid creative contracts; restrict place of performance to NY/NJ/CT and distinguish solicitations from awards or informational notices. 2026-10-28: live 200, robots allowed, date confirmed verbatim on the page; promoted to the snapshot.",
       "notes": "API source catalog entry; no harvested opportunities counted.",
       "access": "public_api_metadata",
       "tier": "free",
-      "ingest": false,
+      "ingest": true,
       "priority": "high",
       "api_configuration": {
         "id": "api-sam-opportunities",
@@ -14624,7 +14659,8 @@
         "ingest": false,
         "availability_verified": false,
         "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
-      }
+      },
+      "records_2026_10_28": 1
     },
     {
       "id": "api-usajobs",
@@ -17691,7 +17727,8 @@
       "ingest": true,
       "tier": "free",
       "application_fee": "varies per listing",
-      "records_2026_10_27": 1
+      "records_2026_10_27": 1,
+      "records_2026_10_28": 1
     },
     {
       "id": "harlem-needle-arts",
@@ -18353,6 +18390,111 @@
       "tier": "free",
       "application_fee": "varies per listing",
       "records_2026_10_27": 1
+    },
+    {
+      "id": "daisys-li",
+      "name": "Daisy's (Patchogue) events",
+      "url": "https://daisysli.com/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 1
+    },
+    {
+      "id": "arts-council-princeton",
+      "name": "Arts Council of Princeton events",
+      "url": "https://artscouncilofprinceton.org/",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 14
+    },
+    {
+      "id": "guild-hall",
+      "name": "Guild Hall events",
+      "url": "https://www.guildhall.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 1
+    },
+    {
+      "id": "five-points-arts",
+      "name": "Five Points Arts classes",
+      "url": "https://fivepointsarts.org/",
+      "category": "community",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 8
+    },
+    {
+      "id": "open-source-gallery",
+      "name": "Open Source Gallery events",
+      "url": "https://open-source-gallery.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 1
+    },
+    {
+      "id": "squeaky-wheel",
+      "name": "Squeaky Wheel Film & Media Art Center events",
+      "url": "https://squeaky.org/",
+      "category": "venue",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Events Calendar API; robots.txt allows Claude agents; terms and privacy pages show no restriction (2026-10-28).",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 1
+    },
+    {
+      "id": "api-nyc-jobs",
+      "name": "NYC Jobs Postings (NYC Open Data)",
+      "url": "https://data.cityofnewyork.us/City-Government/Jobs-NYC-Postings/kpav-sd4t",
+      "category": "official",
+      "verdict": "keep",
+      "checked": "verified 2026-10-28",
+      "checks": "Documented API; see data/seeds/api-sources-2026-10-27.json.",
+      "notes": "Added from the 2026-10-28 API adapters (ingest/apis.py).",
+      "access": "free",
+      "ingest": true,
+      "tier": "free",
+      "application_fee": "varies per listing",
+      "records_2026_10_28": 5
     }
   ],
   "tier_key": {

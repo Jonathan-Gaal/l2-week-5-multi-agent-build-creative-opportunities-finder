@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1057,
+  "count": 1133,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -33230,6 +33230,2725 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "robert motherwell renate ponsold fellowship low residency research outer cape cod|massachusetts|2026-11-02"
+    },
+    {
+      "title": "4-Day Workshop: Enhance Your Understanding of Music Theory",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-10-29",
+      "recurrence": "9 dates through 2026-11-26",
+      "fee": "$220",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "4-Day Workshop- offered online or on-site Regardless of the option you chose, the 4-day workshop is designed to enhance your understanding of music theory, to fill in the gaps, and provide enlightening “aha” moments, leading to a deeper connection with how music works."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/4-day-workshop-enhance-your-understanding-of-music-theory/2026-10-29/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Please CHOOSE or add your venue!",
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-03",
+        "2026-11-05",
+        "2026-11-10",
+        "2026-11-12",
+        "2026-11-17",
+        "2026-11-19",
+        "2026-11-24",
+        "2026-11-26"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "4 day workshop enhance your understanding of music theory|long_island|2026-10-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Helen Murdock-Prep presents Adult Acting Classes",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-03",
+      "recurrence": "13 dates through 2027-01-26",
+      "fee": "$50",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Come join theater educator Helen Murdock-Prep to learn about the wonderful world of Acting!"
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/helen-murdock-prep-presents-adult-acting-classes/2026-11-03/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Huntington Arts Council, 213 Main Street, Huntington",
+      "event_dates": [
+        "2026-11-03",
+        "2026-11-10",
+        "2026-11-17",
+        "2026-11-24",
+        "2026-12-01",
+        "2026-12-08",
+        "2026-12-15",
+        "2026-12-22",
+        "2026-12-29",
+        "2027-01-05",
+        "2027-01-12",
+        "2027-01-19",
+        "2027-01-26"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "helen murdock prep presents adult acting classes|long_island|2026-11-03",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Huntington Camera Club",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-03",
+      "recurrence": "13 dates through 2027-01-26",
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "We meet at Huntington Public Library every Tuesday night to discuss photography."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/huntington-camera-club-3/2026-11-03/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Huntington Public Library, 338 Main Street, Huntington",
+      "event_dates": [
+        "2026-11-03",
+        "2026-11-10",
+        "2026-11-17",
+        "2026-11-24",
+        "2026-12-01",
+        "2026-12-08",
+        "2026-12-15",
+        "2026-12-22",
+        "2026-12-29",
+        "2027-01-05",
+        "2027-01-12",
+        "2027-01-19",
+        "2027-01-26"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "huntington camera club|long_island|2026-11-03",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "DJ Dancing with Swing Dance Long Island",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-10",
+      "recurrence": "6 dates through 2027-01-26",
+      "fee": "$10 – $15",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us at the Huntington Moose Lodge for an evening of mostly Swing Dancing starting with a dance lesson at 7:30 PM, DJ music and mostly swing dancing from 8 until 10 PM."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/dj-dancing-with-swing-dance-long-island/2026-11-10/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Huntington Moose Lodge, 631 Pulaski Road, Greenlawn",
+      "event_dates": [
+        "2026-11-10",
+        "2026-11-24",
+        "2026-12-08",
+        "2026-12-22",
+        "2027-01-12",
+        "2027-01-26"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "dj dancing with swing dance long island|long_island|2026-11-10",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "The Whaling Museum presents Crafts & Cocktails: Corn Husk Figures",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "drawing_session",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-12",
+      "recurrence": null,
+      "fee": "$25. – $35",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Thurs, Nov 12 | 6:30PM | Adults 21+ Discover the rich folklore and enduring tradition of the corn husk doll, a craft rooted in the Indigenous agricultural traditions of North America."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/the-whaling-museum-presents-crafts-cocktails-corn-husk-figures/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "The Whaling Museum and Education Center, 301 Main Street, Cold Spring Harbor",
+      "event_dates": [
+        "2026-11-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "the whaling museum presents crafts cocktails corn husk figures|long_island|2026-11-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "The Babylon Chorale presents Community Holiday Sing-Along",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Get in the holiday cheer by joining with the Babylon Chorale and your neighbors in Suffolk County as we sponsor our annual Community Sing-Along."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/the-babylon-chorale-presents-community-holiday-sing-along/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Sisters of St.Joseph Brentwood Campus, 1725 Brentwood Rd, Brentwood",
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "the babylon chorale presents community holiday sing along|long_island|2026-12-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Swing Dance Long Island presents The Mess Around Band",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-12-15",
+      "recurrence": null,
+      "fee": "$15 – $20",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us at the Huntington Moose Lodge for an evening of dancing starting with a dance lesson at 7:30 PM."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/swing-dance-long-island-presents-the-mess-around-band/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Huntington Moose Lodge, 631 Pulaski Road, Greenlawn",
+      "event_dates": [
+        "2026-12-15"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "swing dance long island presents the mess around band|long_island|2026-12-15",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Swing Dance Long Island presents the Gold Coast Jazz Band",
+      "org": "Huntington Arts Council",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-12-29",
+      "recurrence": null,
+      "fee": "$15 – $20",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us at the Huntington Moose Lodge for an evening of mostly Swing Dancing starting with a dance lesson at 7:30 PM."
+        }
+      ],
+      "source": "huntington-arts",
+      "source_url": "https://www.huntingtonarts.org/event/swing-dance-long-island-presents-the-gold-coast-jazz-band/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Huntington Moose Lodge, 631 Pulaski Road, Greenlawn",
+      "event_dates": [
+        "2026-12-29"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "swing dance long island presents the gold coast jazz band|long_island|2026-12-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Shadow Theatre Workshop at Elmhurst Library",
+      "org": "Chinese Theatre Works",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-12",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [],
+      "source": "chinese-theatre-works",
+      "source_url": "https://chinesetheatreworks.org/event/shadow-theatre-workshop-at-elmhurst-library/",
+      "disciplines": [
+        "theater",
+        "craft"
+      ],
+      "extraction": "api",
+      "location": null,
+      "event_dates": [
+        "2026-12-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "shadow theatre workshop at elmhurst library|unknown|2026-12-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Lisa Polizzi Jam",
+      "org": "Daisy's (Patchogue)",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-10-29",
+      "recurrence": "13 dates through 2027-01-21",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "🎶 Live Music Thursday – Lisa Polizzi Jam 📍 Daisy’s Patchogue ⏰ 7PM Start the weekend early with live music, cocktails, and Nashville vibes at Daisy’s."
+        }
+      ],
+      "source": "daisys-li",
+      "source_url": "https://daisysli.com/event/thursday-june-4-lisa-polizzi-jam/2026-10-29/",
+      "disciplines": [
+        "music"
+      ],
+      "extraction": "api",
+      "location": null,
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-05",
+        "2026-11-12",
+        "2026-11-19",
+        "2026-11-26",
+        "2026-12-03",
+        "2026-12-10",
+        "2026-12-17",
+        "2026-12-24",
+        "2026-12-31",
+        "2027-01-07",
+        "2027-01-14",
+        "2027-01-21"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "lisa polizzi jam|long_island|2026-10-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Craft Corner",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Use this open studio space to tackle a creative project!"
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/craft-corner-oct26/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "craft corner|new_jersey|2026-10-28",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Jersey Art Meetup (JAM)",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-10-28",
+      "recurrence": "10 dates through 2027-01-20",
+      "fee": "none",
+      "award": null,
+      "eligibility": [],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/jam/2026-10-28/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-10-28",
+        "2026-11-04",
+        "2026-11-11",
+        "2026-11-18",
+        "2026-12-02",
+        "2026-12-09",
+        "2026-12-16",
+        "2027-01-06",
+        "2027-01-13",
+        "2027-01-20"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "jersey art meetup jam|new_jersey|2026-10-28",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Free Virtual Art Making Classes with Princeton University: Session 1",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-05",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The Arts Council of Princeton partners with the Princeton University Art Museum to provide free virtual art-making classes."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/free-virtual-art-making-classes-with-princeton-university-session-1/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Virtual",
+      "event_dates": [
+        "2026-11-05"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "free virtual art making classes with princeton university session 1|new_jersey|2026-11-05",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "ACP BYOB: Wheel Ceramics",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-06",
+      "recurrence": null,
+      "fee": "$85",
+      "award": null,
+      "eligibility": [],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/acp-byob-wheel-ceramics-nov26/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-11-06"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "acp byob wheel ceramics|new_jersey|2026-11-06",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Pop-Up Choir Princeton",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-10",
+      "recurrence": "2 dates through 2026-12-15",
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Pop-Up Choir Princeton is an all-ages community singing experience where families, neighbors, and music-lovers come together to sing pop songs in harmony — no auditions, no pressure, just joy."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/pop-up-choir-princeton-nov26/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-11-10",
+        "2026-12-15"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "pop up choir princeton|new_jersey|2026-11-10",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "ACP BYOB: Suminagashi Paper Marbling",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-12",
+      "recurrence": null,
+      "fee": "$45",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Let’s explore the ancient art of Japanese paper marbling."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/acp-byob-suminagashi-paper-marbling-nov26/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-11-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "acp byob suminagashi paper marbling|new_jersey|2026-11-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Free Virtual Art Making Classes with Princeton University: Session 2",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-12",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The Arts Council of Princeton partners with the Princeton University Art Museum to provide free virtual art-making classes."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/free-virtual-art-making-classes-with-princeton-university-session-2/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Virtual",
+      "event_dates": [
+        "2026-11-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "free virtual art making classes with princeton university session 2|new_jersey|2026-11-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Story & Verse: A Storytelling and Poetic Open Mic",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-19",
+      "recurrence": "2 dates through 2026-12-17",
+      "fee": "none",
+      "award": null,
+      "eligibility": [],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/story-verse-a-storytelling-and-poetic-open-mic-nov26/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Solley Theater &#8211; Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-11-19",
+        "2026-12-17"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "story verse a storytelling and poetic open mic|new_jersey|2026-11-19",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Free Virtual Art Making Classes with Princeton University: Session 3",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-19",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The Arts Council of Princeton partners with the Princeton University Art Museum to provide free virtual art-making classes."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/free-virtual-art-making-classes-with-princeton-university-session-3/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Virtual",
+      "event_dates": [
+        "2026-11-19"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "free virtual art making classes with princeton university session 3|new_jersey|2026-11-19",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "ACP BYOB: Wrapping Paper Palooza",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-12-02",
+      "recurrence": null,
+      "fee": "$55",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us to design, carve, ink, and print your own sheets of wrapping paper that will have your recipients “ooh”-ing and “ahh”-ing before they even open it!"
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/acp-byob-wrapping-paper-palooza/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-12-02"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "acp byob wrapping paper palooza|new_jersey|2026-12-02",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Free Virtual Art Making Classes with Princeton University: Session 4",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "class",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-12-03",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "The Arts Council of Princeton partners with the Princeton University Art Museum to provide free virtual art-making classes."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/free-virtual-art-making-classes-with-princeton-university-session-4/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Virtual",
+      "event_dates": [
+        "2026-12-03"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "free virtual art making classes with princeton university session 4|new_jersey|2026-12-03",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "ACP BYOB: Hand-Lettered Gift Tags & Place Cards",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-12-08",
+      "recurrence": null,
+      "fee": "$35",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Join us for a modern calligraphy workshop designed for anyone who enjoys the character of hand-lettered art."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/acp-byob-hand-lettered-gift-tags-place-cards/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-12-08"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "acp byob hand lettered gift tags place cards|new_jersey|2026-12-08",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "ACP BYOB: Printed Ceramic Trinket Dishes",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-12-11",
+      "recurrence": null,
+      "fee": "$65",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Shake off the stress of your work week and explore the connections between ceramics and printmaking in this all-new BYOB workshop!"
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/acp-byob-printed-ceramic-trinket-dishes/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2026-12-11"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "acp byob printed ceramic trinket dishes|new_jersey|2026-12-11",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "PRINCETON CRIT | Small Group Critique",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2027-01-12",
+      "recurrence": null,
+      "fee": "$10",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Princeton Crit provides a monthly space for artists to come together to share and discuss their creative practice."
+        }
+      ],
+      "source": "arts-council-princeton",
+      "source_url": "https://artscouncilofprinceton.org/event/princeton-crit-small-group-critique-jan27/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Arts Council of Princeton, Princeton",
+      "event_dates": [
+        "2027-01-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "princeton crit small group critique|new_jersey|2027-01-12",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "HARMONY IN MOTION: A MUSIC & MOVEMENT WORKSHOP",
+      "org": "Guild Hall",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-06",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "THIS PROGRAM IS HELD OFF-SITE AT MANDALA YOGA CENTER Harmony in Motion is an immersive workshop exploring the connections between live music, movement, deep listening, and meditation."
+        }
+      ],
+      "source": "guild-hall",
+      "source_url": "https://www.guildhall.org/events/harmony-in-motion-a-music-movement-workshop/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Mandala Yoga Center for Healing Arts, 17 Meeting House Ln, Amagansett",
+      "event_dates": [
+        "2026-11-06"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "harmony in motion a music movement workshop|long_island|2026-11-06",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "CERAMIC WHEEL THROWING AND SURFACE TECHNIQUES",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Kathy Cady Wednesdays: September 23, 30, October 7, 14, 21, & 28 9:30 AM – 1:30 PM Ages: 18+ Members: $378 / Non-members: $420 Learn the fundamentals of wheel throwing and explore surface techniques such as sgraffito, slip trailing, and glaze applications."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/ceramic-wheel-throwing-and-surface-techniques-5/2026-10-28/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "ceramic wheel throwing and surface techniques|connecticut|2026-10-28",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "WATERCOLOR: TRADITIONAL TECHNIQUES FOR ALL LEVELS",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-10-29",
+      "recurrence": "9 dates through 2026-12-24",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Leslie Watkins Thursdays, October 15, 22, 29 & November 12 11:00 AM – 3:00 PM Ages: 18+ Members: $223.20 / Non-members: $248 Learn the foundations of traditional watercolor through materials, limited-palette color mixing, and essential techniques, including wet-in-wet, dry brush, and glazing."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/watercolor-traditional-techniques-for-all-levels/2026-10-29/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-05",
+        "2026-11-12",
+        "2026-11-19",
+        "2026-11-26",
+        "2026-12-03",
+        "2026-12-10",
+        "2026-12-17",
+        "2026-12-24"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "watercolor traditional techniques for all levels|connecticut|2026-10-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "INTRODUCTION TO DRAWING THE FIGURE",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "drawing_session",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-10-29",
+      "recurrence": "3 dates through 2026-11-12",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Bryn Brunnstrom Thursdays, October 15 – November 12 5:30 – 7:30 pm Ages: 18+ Members: $162 / Non-members: $180 Learn the fundamentals of human figure drawing, from gesture and simplification to skeletal and muscular anatomy."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/introduction-to-drawing-the-figure-2/2026-10-29/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-10-29",
+        "2026-11-05",
+        "2026-11-12"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "introduction to drawing the figure|connecticut|2026-10-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "EXPLORE PRINTMAKING IN EIGHT WEEKS",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-10-30",
+      "recurrence": "2 dates through 2026-11-06",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Kathleen Schroeder Fridays, September 18 – November 6, 2026 10 AM – 1 PM Ages: 18+ Members: $324 / Non-members: $360 Explore the basics of monotype, relief, and lithography printmaking in one eight-week course."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/explore-printmaking-in-eight-weeks/2026-10-30/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-10-30",
+        "2026-11-06"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "explore printmaking in eight weeks|connecticut|2026-10-30",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "EXPLORING COLOR IN ABSTRACT PAINTING",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-01",
+      "recurrence": "4 dates through 2026-11-22",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Heather Neilson Sundays, November 1, 8, 15, & 22 2 pm – 4:30 pm Ages: 18+ Members: $135 / Non-members: $150 Deepen your understanding of color through a series of focused, hands on studio explorations designed for painters with some experience in acrylics and abstract painting."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/exploring-color-in-abstract-painting/2026-11-01/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-11-01",
+        "2026-11-08",
+        "2026-11-15",
+        "2026-11-22"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "exploring color in abstract painting|connecticut|2026-11-01",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "A Photographic Walk in the Woods with Thad Kubis",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Each walk will be 2 – 3 hours in length and will visit various settings including local woods, lakes and ponds."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/a-photographic-walk-in-the-woods-with-thad-kubis/2026-11-07/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-11-07"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "a photographic walk in the woods with thad kubis|connecticut|2026-11-07",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "INTRODUCTION TO STAINED GLASS",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-07",
+      "recurrence": "2 dates through 2026-11-14",
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "with Sarah Segovia Saturdays, November 7 & 14, 2026 Time: 10:00 AM – 1:00 PM Ages: 15+ Members: $81 / Non-Members: $90 Learn the basic techniques of stained-glass craft in this two-session workshop."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/introduction-to-stained-glass/2026-11-07/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-11-07",
+        "2026-11-14"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "introduction to stained glass|connecticut|2026-11-07",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "DRAW & UNWIND: A ZENTANGLE WORKSHOP",
+      "org": "Five Points Arts",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Zentangle helps increase focus, creativity, and a sense of calm."
+        }
+      ],
+      "source": "five-points-arts",
+      "source_url": "https://fivepointsarts.org/event/draw-unwind-a-zentangle-workshop-2/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "Five Points Arts Center, 855 University Drive, Torrington",
+      "event_dates": [
+        "2026-11-14"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "draw unwind a zentangle workshop|connecticut|2026-11-14",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Collective Roll-Up Workshop",
+      "org": "Open Source Gallery",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "eligibility": [
+        {
+          "requirement": "as stated",
+          "quote": "Slow Roll | Press Release | Events When: Saturday, November 7th, 1-5pm Where: The KoKo Lot (440 19th St., Brooklyn) Register for a 2-hour time slot!"
+        }
+      ],
+      "source": "open-source-gallery",
+      "source_url": "https://open-source-gallery.org/event/collective-roll-up-workshop/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "api",
+      "location": "KoKo Lot, 440 19th St, Brooklyn",
+      "event_dates": [
+        "2026-11-07"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "collective roll up workshop|brooklyn|2026-11-07",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "A/V Club November",
+      "org": "Squeaky Wheel Film & Media Art Center",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "upstate_ny",
+      "deadline": "2026-11-18",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "eligibility": [],
+      "source": "squeaky-wheel",
+      "source_url": "https://squeaky.org/event/a-v-club-november/",
+      "disciplines": [
+        "film"
+      ],
+      "extraction": "api",
+      "location": "Squeaky Wheel, 2495 Main Street, Suite 310, Buffalo",
+      "event_dates": [
+        "2026-11-18"
+      ],
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "a v club november|upstate_ny|2026-11-18",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Data Visualization Designer",
+      "org": "Office Of The Mayor",
+      "opportunity_type": "job",
+      "subtype": "full_time",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-20",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$85,000–$100,000 per year",
+      "eligibility": [
+        {
+          "requirement": "residency",
+          "quote": "New York City residency is generally required within 90 days of appointment."
+        }
+      ],
+      "source": "api-nyc-jobs",
+      "source_url": "https://cityjobs.nyc.gov/job/807429",
+      "disciplines": [
+        "design"
+      ],
+      "extraction": "api",
+      "location": "253 Broadway New York Ny",
+      "job_id": "807429",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "data visualization designer|manhattan|2026-12-20",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Director of Design, Bureau of Communications",
+      "org": "Dept Of Health/Mental Hygiene",
+      "opportunity_type": "job",
+      "subtype": "full_time",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-29",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$68,214–$120,000 per year",
+      "eligibility": [
+        {
+          "requirement": "minimum qualifications",
+          "quote": "A baccalaureate degree from an accredited college or university and five years of satisfactory full-time professional experience as described in \"1\" above, including two years of managerial or executive experience described in \"1\" above; or    3."
+        },
+        {
+          "requirement": "residency",
+          "quote": "New York City residency is generally required within 90 days of appointment."
+        }
+      ],
+      "source": "api-nyc-jobs",
+      "source_url": "https://cityjobs.nyc.gov/job/803227",
+      "disciplines": [
+        "design"
+      ],
+      "extraction": "api",
+      "location": "42-09 28th Street",
+      "job_id": "803227",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "director of design bureau of communications|unknown|2026-11-29",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Graphic Designer",
+      "org": "Campaign Finance Board",
+      "opportunity_type": "job",
+      "subtype": "full_time",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-19",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$70,000–$80,000 per year",
+      "eligibility": [
+        {
+          "requirement": "minimum qualifications",
+          "quote": "-  A bachelor’s degree from an accredited college including or supplemented by at least twelve-semester credits (or the equivalent of twelve-semester credits) in accounting, auditing, business or public administration, computer science, economics, finance, statistics, graphic design, personnel or hu"
+        },
+        {
+          "requirement": "residency",
+          "quote": "New York City residency is generally required within 90 days of appointment."
+        }
+      ],
+      "source": "api-nyc-jobs",
+      "source_url": "https://cityjobs.nyc.gov/job/793728",
+      "disciplines": [
+        "design"
+      ],
+      "extraction": "api",
+      "location": "100 Church St., N.Y.",
+      "job_id": "793728",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "graphic designer|manhattan|2026-12-19",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Multimedia Designer",
+      "org": "Office Of The Comptroller",
+      "opportunity_type": "job",
+      "subtype": "full_time",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-12-13",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$70,000 per year",
+      "eligibility": [
+        {
+          "requirement": "minimum qualifications",
+          "quote": "A baccalaureate degree from an accredited college and a minimum of four (4) or more years of satisfactory full-time experience in multimedia design, communications, video production, social media management, journalism or in fields related to the areas of assignment; or,  2."
+        },
+        {
+          "requirement": "residency",
+          "quote": "New York City residency is generally required within 90 days of appointment."
+        }
+      ],
+      "source": "api-nyc-jobs",
+      "source_url": "https://cityjobs.nyc.gov/job/805925",
+      "disciplines": [
+        "design",
+        "film"
+      ],
+      "extraction": "api",
+      "location": "1 Centre St., N.Y.",
+      "job_id": "805925",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "multimedia designer|manhattan|2026-12-13",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Staff Writer",
+      "org": "Office Of The Mayor",
+      "opportunity_type": "job",
+      "subtype": "full_time",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-12-01",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$60,000–$70,000 per year",
+      "eligibility": [
+        {
+          "requirement": "minimum qualifications",
+          "quote": "A four year high school diploma or its educational equivalent and one year of satisfactory, administrative, analytical, research, service, support, or computer related experience; or  2."
+        },
+        {
+          "requirement": "residency",
+          "quote": "New York City residency is generally required within 90 days of appointment."
+        }
+      ],
+      "source": "api-nyc-jobs",
+      "source_url": "https://cityjobs.nyc.gov/job/804064",
+      "disciplines": [
+        "literary"
+      ],
+      "extraction": "api",
+      "location": "100 Gold Street",
+      "job_id": "804064",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "staff writer|unknown|2026-12-01",
+      "caveat": null,
+      "event_website": null,
+      "opens_at": null
+    },
+    {
+      "title": "Coburn Gore LPOE Art in Architecture Project",
+      "org": "U.S. General Services Administration, Art in Architecture Program",
+      "opportunity_type": "open_call",
+      "subtype": "commission",
+      "borough": null,
+      "region": "maine",
+      "deadline": "2026-11-18",
+      "recurrence": null,
+      "fee": "none",
+      "award": "$275,000 to $400,000",
+      "location": "Land Port of Entry, Coburn Gore, ME",
+      "eligibility": [
+        {
+          "requirement": "US citizens or permanent residents",
+          "quote": "The U.S. General Services Administration (GSA) Art in Architecture Program commissions American artists (citizens and Lawful Permanent Residents or Permanent Workers of the United States)"
+        },
+        {
+          "requirement": "deadline",
+          "quote": "must have their application materials submitted and received by GSA by 12:00 PM Eastern Time on 18 November 2026"
+        },
+        {
+          "requirement": "budget",
+          "quote": "The art budget for this project is estimated to be between $275,000 to $400,000."
+        }
+      ],
+      "source": "api-sam-opportunities",
+      "source_url": "https://sam.gov/workspace/contract/opp/80d4908c47fa4b0891124bd4a31c583b/view",
+      "disciplines": [
+        "visual"
+      ],
+      "extraction": "api",
+      "event_dates": null,
+      "opens_at": null,
+      "event_website": null,
+      "caveat": "Quotes checked against the official notice text from the SAM.gov API (noticedesc); sam.gov pages render only in JavaScript. Award is a fixed-price contract; artists must be registered in SAM.",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "coburn gore lpoe art in architecture project|maine|2026-11-18"
+    },
+    {
+      "title": "BAXTER ST Residency",
+      "org": "BAXTER ST at CCNY",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-25",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Manhattan",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "The 2027 Application Cycle will be open from September 23, 2026 – November 25, 2026. The deadline will not be extended. Sign up for our newsletter to receive announcements and other BAXTER ST at the Camera Club of New"
+        }
+      ],
+      "source": "regional-baxter-st-residency",
+      "source_url": "https://www.baxterst.org/artist-in-residence/",
+      "disciplines": [
+        "lens-based",
+        "media"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "BAXTER ST 2027 application September 23–November 25, 2026. No fee. NYC lens-based artists without previous NYC solo exhibition; residency and study-completion restrictions apply. Monthly stipend and production support described.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "baxter st residency|manhattan|2026-11-25"
+    },
+    {
+      "title": "Saltonstall Juried Residency",
+      "org": "Saltonstall",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": null,
+      "region": "upstate_ny",
+      "deadline": "2026-12-06",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Ithaca",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Apply for a 2027 residency by 12:59pm Sunday, December 6, 2026!"
+        }
+      ],
+      "source": "regional-saltonstall-juried-residency",
+      "source_url": "https://www.saltonstall.org/residencies/juried-residencies/",
+      "disciplines": [
+        "visual",
+        "writing",
+        "film"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "2027 call live; page gives 12:59 PM deadline; NY residence / Tribal Nation criteria.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "saltonstall juried residency|upstate_ny|2026-12-06"
+    },
+    {
+      "title": "Peep Space Flat File / Not Flat File",
+      "org": "Peep Space",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Tarrytown",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Application deadline: October 28, 2026"
+        }
+      ],
+      "source": "regional-peep-space-flat-file-not-flat-file",
+      "source_url": "https://peepspaceny.com/open-call/",
+      "disciplines": [
+        "visual",
+        "sculpture",
+        "textiles"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "Small-format 2D/3D works; price cap and size restrictions; related calls counted once.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "peep space flat file not flat file|westchester_hudson|2026-10-28"
+    },
+    {
+      "title": "Wave Farm Research and Production",
+      "org": "Wave Farm",
+      "opportunity_type": "residency",
+      "subtype": null,
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "2026-12-01",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Acra",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Apply by December 1, 2026 at 11:59 p.m. EST."
+        }
+      ],
+      "source": "regional-wave-farm-research-and-production",
+      "source_url": "https://wavefarm.org/ta/residency-program/info-apply",
+      "disciplines": [
+        "sound",
+        "transmission",
+        "technology"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "Wave Farm primary page: December 1, 2026, 11:59 PM EST. Transmission art, spatial sound and radio fellowships; project stipends vary. DJ sets ineligible; student restrictions apply.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "wave farm research and production|westchester_hudson|2026-12-01"
+    },
+    {
+      "title": "East End Arts GLIMMER 2027",
+      "org": "East End Arts Council",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2027-01-03",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Riverhead",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Submission Deadline: Sunday, January 3, 2027"
+        }
+      ],
+      "source": "regional-east-end-arts-glimmer-2027",
+      "source_url": "https://eastendarts.org/2027-elizabeth-richard-memorial-members-show-glimmer/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "East End Arts GLIMMER submission period October 12, 2026–January 3, 2027. Active membership and submission fee required; exact fee not stated on fetched page.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "east end arts glimmer 2027|long_island|2027-01-03"
+    },
+    {
+      "title": "Freeport Library Community Drum Circle",
+      "org": "Freeport Memorial Library",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-06",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "Freeport, Nassau",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Friday, November 6, 2026"
+        }
+      ],
+      "source": "regional-freeport-library-community-drum-circle",
+      "source_url": "https://www.fengshuimanhattan.com/feng-shui-workshops-classes-seminars/drum-circle-freeport-ny-library-november-6-2026",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-06"
+      ],
+      "opens_at": null,
+      "caveat": "Facilitator confirms November 6, 2026, 18:30–19:30 at 144 West Merrick Road. Free, instruments supplied, no experience needed. Library registration page disallows a checked agent; availability and card rules not inspected.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "freeport library community drum circle|long_island|2026-11-06"
+    },
+    {
+      "title": "Middle Country Library Drum Circle",
+      "org": "Middle Country Public Library",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-12-09",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "Selden, Suffolk",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, December 9, 2026"
+        }
+      ],
+      "source": "regional-middle-country-library-drum-circle",
+      "source_url": "https://www.fengshuimanhattan.com/feng-shui-workshops-classes-seminars/drum-circle-at-the-middle-county-library-with-laura-cerrano-december-9-2026",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-12-09"
+      ],
+      "opens_at": null,
+      "caveat": "Facilitator page confirms December 9, 2026, 18:30–19:30; 575 Middle Country Road, Selden. Percussion provided, no experience needed. Public registration endpoint discovered but its robots could not be read; seat/card requirements remain unconfirmed.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "middle country library drum circle|long_island|2026-12-09"
+    },
+    {
+      "title": "Ocean County Library Open Mic",
+      "org": "Ocean County Library",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-12",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Point Pleasant Borough, NJ",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-12 18:30:00"
+        }
+      ],
+      "source": "regional-ocean-county-library-open-mic",
+      "source_url": "https://theoceancountylibrary.libnet.info/event/17363061",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-12"
+      ],
+      "opens_at": null,
+      "caveat": "Live library event confirms November 12, 2026 at Point Pleasant Borough Branch. Performer list opens 18:00, performances 18:30; acoustic musicians and spoken word welcomed. Fee and age/card rules not stated.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "ocean county library open mic|new_jersey|2026-11-12"
+    },
+    {
+      "title": "Enfield Library Community Drum Circle",
+      "org": "Enfield Public Library",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-18",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Enfield",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, November 18, 2026"
+        }
+      ],
+      "source": "regional-enfield-library-community-drum-circle",
+      "source_url": "https://www.enfieldpubliclibrary.org/upcoming-programs/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-18"
+      ],
+      "opens_at": null,
+      "caveat": "All ages; library says drums provided or bring your own; confirm registration.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "enfield library community drum circle|connecticut|2026-11-18"
+    },
+    {
+      "title": "Enfield Library First Wednesdays Open Mic",
+      "org": "Enfield Public Library",
+      "opportunity_type": "event",
+      "subtype": "open_mic",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-04",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Enfield",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, November 4, 2026"
+        }
+      ],
+      "source": "regional-enfield-library-community-drum-circle",
+      "source_url": "https://www.enfieldpubliclibrary.org/upcoming-programs/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-04"
+      ],
+      "opens_at": null,
+      "caveat": "Primary Enfield calendar confirms November 4, 2026, 18:00–20:00. Music, rap, poetry and spoken word; supportive space for all ages/levels. Sign-up/cost not established.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "enfield library first wednesdays open mic|connecticut|2026-11-04"
+    },
+    {
+      "title": "Earth Beat Drum and Song Circle",
+      "org": "Earth Beat Music",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": null,
+      "region": "upstate_ny",
+      "deadline": "2026-10-28",
+      "recurrence": null,
+      "fee": "donation",
+      "award": null,
+      "location": "Greenwich, Washington County",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, October 28, 2026"
+        }
+      ],
+      "source": "regional-earth-beat-drum-and-song-circle",
+      "source_url": "https://www.earthbeatmusic.org/calendar",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-10-28"
+      ],
+      "opens_at": null,
+      "caveat": "All ages/experience; some percussion available; Wellspring fundraiser; beyond NYC metro but within NY state.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "earth beat drum and song circle|upstate_ny|2026-10-28"
+    },
+    {
+      "title": "The Art Guild: Whats the Message",
+      "org": "The Art Guild of Port Washington",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-09",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Manhasset, Nassau",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Deadline: Mon, Nov 9"
+        }
+      ],
+      "source": "regional-the-art-guild-whats-the-message",
+      "source_url": "https://www.theartguild.org/call-to-artists",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": null,
+      "opens_at": null,
+      "caveat": "All media including photography; 2026 schedule lists November 9 deadline. Confirm entry fee and terms.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "the art guild whats the message|long_island|2026-11-09"
+    },
+    {
+      "title": "Flushing Town Hall Monthly Jazz Jam",
+      "org": "Flushing Town Hall",
+      "opportunity_type": "event",
+      "subtype": "jam",
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "2026-11-11",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Queens",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Nov 11, 2026 - Nov 11, 2026"
+        }
+      ],
+      "source": "regional-flushing-town-hall-monthly-jazz-jam",
+      "source_url": "https://www.flushingtownhall.org/monthly-jazz-jams",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-11"
+      ],
+      "opens_at": null,
+      "caveat": "Primary program lists November 11 and December 9 jams. Piano/drum kit available; primary overview and event copy differ on beginner suitability. Confirm individual admission and musician rules.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "flushing town hall monthly jazz jam|queens|2026-11-11"
+    },
+    {
+      "title": "South Bronx Folk Festival Danza Fiesta",
+      "org": "Hostos Center for the Arts & Culture",
+      "opportunity_type": "event",
+      "subtype": "dance_night",
+      "borough": "bronx",
+      "region": "nyc",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "free_registration_required",
+      "award": null,
+      "location": "Bronx",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Saturday, November 14 | 7 PM"
+        }
+      ],
+      "source": "regional-south-bronx-folk-festival-danza-fiesta",
+      "source_url": "https://www.hostoscenter.org/events",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-14"
+      ],
+      "opens_at": null,
+      "caveat": "Hostos organizer lists free admission with RSVP; folk music/dance. Attendance opportunity, not an open performance slot. Confirm event detail year and seating.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "south bronx folk festival danza fiesta|bronx|2026-11-14"
+    },
+    {
+      "title": "Snug Harbor Tiny Gardens Terrarium Workshop",
+      "org": "Snug Harbor",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": "staten_island",
+      "region": "nyc",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "paid",
+      "award": null,
+      "location": "Staten Island",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Nov 14, 2026Sat"
+        }
+      ],
+      "source": "regional-snug-harbor-tiny-gardens-terrarium-workshop",
+      "source_url": "https://snug-harbor.org/class/tiny-gardens-workshop/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-14"
+      ],
+      "opens_at": null,
+      "caveat": "Primary class lists $15 general admission and member discount; meet Visitor Info Booth, Chapel Road. Later sessions same series; verify selected date and booking.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "snug harbor tiny gardens terrarium workshop|staten_island|2026-11-14"
+    },
+    {
+      "title": "Shoreline Arts Trail Open Studios",
+      "org": "Shoreline Arts Trail",
+      "opportunity_type": "event",
+      "subtype": "open_studio",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Branford / Guilford / Madison",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Saturday, November 14, 2026"
+        }
+      ],
+      "source": "regional-shoreline-arts-trail-open-studios",
+      "source_url": "https://www.shorelineartstrail.org/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-14"
+      ],
+      "opens_at": null,
+      "caveat": "Organizer confirms November 14–15, 2026; public visiting artists studios. Artist membership is not currently open to unsolicited submissions; visit and apply routes differ.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "shoreline arts trail open studios|connecticut|2026-11-14"
+    },
+    {
+      "title": "Patchogue Arts Council Photographers Group",
+      "org": "Patchogue Arts Council",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-11",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Patchogue, Suffolk",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wed 11/11/2026MOCA, Terry Street, Patchogue – Monthly Meeting/Contest7:00 PM"
+        }
+      ],
+      "source": "regional-patchogue-arts-council-photographers-group",
+      "source_url": "https://patchoguearts.org/photographers-group/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-11"
+      ],
+      "opens_at": null,
+      "caveat": "Organizer explicitly lists November11,2026 monthly meeting/contest at MoCA,TerryStreet,Patchogue19:00. Photo entries due November7 midnight with capture-period restrictions. Group membership and contest rules apply; confirm fees.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "patchogue arts council photographers group|long_island|2026-11-11"
+    },
+    {
+      "title": "Coventry Arts Guild Ekphrastic Writing Workshop",
+      "org": "Coventry Arts Guild",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2027-03-27",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "Coventry",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Saturday, March 27, 2027"
+        }
+      ],
+      "source": "regional-coventry-arts-guild-ekphrastic-writing-workshop",
+      "source_url": "https://www.coventryartsguild.org/ekphrastic-writing-workshop",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2027-03-27"
+      ],
+      "opens_at": null,
+      "caveat": "Free public ekphrastic writing workshop; organizer explicitly dates March27,2027.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "coventry arts guild ekphrastic writing workshop|connecticut|2027-03-27"
+    },
+    {
+      "title": "Coventry Arts Guild Ekphrastic Music Workshop",
+      "org": "Coventry Arts Guild",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2027-04-24",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "Coventry",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Saturday, April 24, 2027"
+        }
+      ],
+      "source": "regional-coventry-arts-guild-ekphrastic-music-workshop",
+      "source_url": "https://www.coventryartsguild.org/ekphrastic-writing-workshop-copy",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2027-04-24"
+      ],
+      "opens_at": null,
+      "caveat": "Free public ekphrastic music workshop; organizer explicitly dates April24,2027.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "coventry arts guild ekphrastic music workshop|connecticut|2027-04-24"
+    },
+    {
+      "title": "Enfield Library Crochet Basics with Mel",
+      "org": "Enfield Public Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2027-01-20",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Enfield",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, January 20, 2027"
+        }
+      ],
+      "source": "regional-enfield-library-crochet-basics-with-mel",
+      "source_url": "https://www.enfieldpubliclibrary.org/upcoming-programs/2027/1/20/crochet-basic-with-mel",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2027-01-20"
+      ],
+      "opens_at": null,
+      "caveat": "Age16+; materials provided. Signups begin January13; confirm seat availability.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "enfield library crochet basics with mel|connecticut|2027-01-20"
+    },
+    {
+      "title": "Westport Library Sit and Stitch",
+      "org": "The Westport Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-04",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "Westport",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wed, November 4 @ 4:30 pm - 5:30 pm EST"
+        }
+      ],
+      "source": "regional-westport-library-sit-and-stitch",
+      "source_url": "https://westportlibrary.org/event/sit-stitch/2026-11-04/",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-04"
+      ],
+      "opens_at": null,
+      "caveat": "Ages8 through adult; free16:30–17:30. Bring needles/yarn; library does not supply them.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "westport library sit and stitch|connecticut|2026-11-04"
+    },
+    {
+      "title": "Derby Neck Library Needlers Club",
+      "org": "Derby Neck Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-14",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Derby",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "November 14, 2026"
+        }
+      ],
+      "source": "regional-derby-neck-library-needlers-club",
+      "source_url": "https://www.derbynecklibrary.org/events/needlers-club-15",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-14"
+      ],
+      "opens_at": null,
+      "caveat": "Needlers fiber-art gathering13:00–16:00; confirm materials and access.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "derby neck library needlers club|connecticut|2026-11-14"
+    },
+    {
+      "title": "North Bergen Library Creative Writing Club",
+      "org": "North Bergen Free Public Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-16",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "North Bergen",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-16 18:30:00"
+        }
+      ],
+      "source": "regional-north-bergen-library-creative-writing-club",
+      "source_url": "https://nbpl.libnet.info/event/17352116",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-16"
+      ],
+      "opens_at": null,
+      "caveat": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-16 18:30:00. Eligibility/registration text: This event is full; AGE GROUP: |; Learn English for free at the library. Open to all NJ residents, ages 18+; Learn English for free at the library. Open to all NJ residents, ages 18+; Listen to stories in both English and Spanish. Open to children ages 0-7 years old..",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "north bergen library creative writing club|new_jersey|2026-11-16"
+    },
+    {
+      "title": "Bridgewater Library Writers Group",
+      "org": "Somerset County Library System of New Jersey",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-07",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Bridgewater",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-07 14:30:00"
+        }
+      ],
+      "source": "regional-bridgewater-library-writers-group",
+      "source_url": "https://sclsnj.libnet.info/event/17594115",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-07"
+      ],
+      "opens_at": null,
+      "caveat": "Public program lead. Confirm current schedule, age eligibility, fees, registration and participant availability before displaying as open. Primary detail page explicitly lists 2026-11-07 14:30:00. Eligibility/registration text: AGE GROUP: |.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "bridgewater library writers group|new_jersey|2026-11-07"
+    },
+    {
+      "title": "Writers on Writing: Endings",
+      "org": "Princeton Public Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-12",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Princeton",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-12 18:00:00"
+        }
+      ],
+      "source": "regional-writers-on-writing-endings",
+      "source_url": "https://princetonlibrary.libnet.info/event/17563348",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-12"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-12 18:00:00. Eligibility/registration text: AGE GROUP: |.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "writers on writing endings|new_jersey|2026-11-12"
+    },
+    {
+      "title": "Crafts: Stitch Club Princeton",
+      "org": "Princeton Public Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-19",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Princeton",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-19 17:30:00"
+        }
+      ],
+      "source": "regional-crafts-stitch-club-princeton",
+      "source_url": "https://princetonlibrary.libnet.info/event/17245049",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-19"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/3d0aaf104e5a28a0abc7.txt. Primary detail page explicitly lists 2026-11-19 17:30:00. Eligibility/registration text: AGE GROUP: |.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "crafts stitch club princeton|new_jersey|2026-11-19"
+    },
+    {
+      "title": "Watercolor Greeting Cards - Adult Craft",
+      "org": "Ocean County Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-10",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Point Pleasant Borough",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-10 14:00:00"
+        }
+      ],
+      "source": "regional-watercolor-greeting-cards-adult-craft",
+      "source_url": "https://theoceancountylibrary.libnet.info/event/17558419",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-10"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-community-crawl/pages/54ff4a23aae9ff576851.txt. Primary detail page explicitly lists 2026-11-10 14:00:00. Eligibility/registration text: Registration opens:; AGE GROUP: |; Cancelled; Registration opens Tuesday, October 27 2026 at 2:00pm; Registration opens Saturday, October 31 2026 at 11:00am.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "watercolor greeting cards adult craft|new_jersey|2026-11-10"
+    },
+    {
+      "title": "Plane & Simple: Woodworking Meetup",
+      "org": "MakeHaven",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-02",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "New Haven",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Monday, November 2, 2026 - 7:00pm"
+        }
+      ],
+      "source": "regional-plane-simple-woodworking-meetup",
+      "source_url": "https://www.makehaven.org/civicrm/event/info?id=966&reset=1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-02"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and minors 13+ with Guardian Supervision.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "plane simple woodworking meetup|connecticut|2026-11-02"
+    },
+    {
+      "title": "CNC Woodworking Basics: Designing with VCarve",
+      "org": "MakeHaven",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-18",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "New Haven",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Wednesday, November 18, 2026 - 6:00pm"
+        }
+      ],
+      "source": "regional-cnc-woodworking-basics-designing-with-vcarve",
+      "source_url": "https://www.makehaven.org/civicrm/event/info?id=754&reset=1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-18"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "cnc woodworking basics designing with vcarve|connecticut|2026-11-18"
+    },
+    {
+      "title": "Handcrafted Pens: Wood Turning Workshop",
+      "org": "MakeHaven",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-21",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "New Haven",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Saturday, November 21, 2026 - 12:00pm"
+        }
+      ],
+      "source": "regional-handcrafted-pens-wood-turning-workshop",
+      "source_url": "https://www.makehaven.org/civicrm/event/info?id=985&reset=1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-21"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "handcrafted pens wood turning workshop|connecticut|2026-11-21"
+    },
+    {
+      "title": "Craft Your Own Cutting Board: Intro to Woodworking Basics",
+      "org": "MakeHaven",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-29",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "New Haven",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Sunday, November 29, 2026 - 10:00am"
+        }
+      ],
+      "source": "regional-craft-your-own-cutting-board-intro-to-woodworking-basics",
+      "source_url": "https://www.makehaven.org/civicrm/event/info?id=840&reset=1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-29"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ Years of Age.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "craft your own cutting board intro to woodworking basics|connecticut|2026-11-29"
+    },
+    {
+      "title": "Knot Just Knitting: Crochet, Embroidery and more",
+      "org": "MakeHaven",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "connecticut",
+      "deadline": "2026-11-29",
+      "recurrence": null,
+      "fee": "none",
+      "award": null,
+      "location": "New Haven",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "Sunday, November 29, 2026 - 12:00pm"
+        }
+      ],
+      "source": "regional-knot-just-knitting-crochet-embroidery-and-more",
+      "source_url": "https://www.makehaven.org/civicrm/event/info?id=628&reset=1",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-29"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/5c5fcd3dee85143a6859.txt. Age Requirement : 18+ and Minors with Guardian Supervision.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "knot just knitting crochet embroidery and more|connecticut|2026-11-29"
+    },
+    {
+      "title": "Crochet a Granny Square",
+      "org": "Ocean County Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-03",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Lakewood",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-03 18:30:00"
+        }
+      ],
+      "source": "regional-crochet-a-granny-square",
+      "source_url": "https://theoceancountylibrary.libnet.info/event/17302406",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-03"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-03 18:30:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "crochet a granny square|new_jersey|2026-11-03"
+    },
+    {
+      "title": "Mini Basket Weaving Craft / Mini cestas",
+      "org": "Ocean County Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-09",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Lakewood",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-09 18:00:00"
+        }
+      ],
+      "source": "regional-mini-basket-weaving-craft-mini-cestas",
+      "source_url": "https://theoceancountylibrary.libnet.info/event/17273603",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-09"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-09 18:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "mini basket weaving craft mini cestas|new_jersey|2026-11-09"
+    },
+    {
+      "title": "Mi'kmaq Quill Art Craft",
+      "org": "Ocean County Library",
+      "opportunity_type": "event",
+      "subtype": "workshop",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "2026-11-10",
+      "recurrence": null,
+      "fee": "unknown",
+      "award": null,
+      "location": "Lakewood",
+      "eligibility": [
+        {
+          "requirement": "date as stated",
+          "quote": "2026-11-10 15:00:00"
+        }
+      ],
+      "source": "regional-mi-kmaq-quill-art-craft",
+      "source_url": "https://theoceancountylibrary.libnet.info/event/17302476",
+      "disciplines": [
+        "all"
+      ],
+      "extraction": "crawl_reviewed",
+      "event_dates": [
+        "2026-11-10"
+      ],
+      "opens_at": null,
+      "caveat": "Discovered on organizer calendar; confirm exact date, cost and registration. Parent evidence: data/research/2026-10-27-continuation-crawl/pages/1044f2cd69d81d2907d5.txt. Primary detail page explicitly lists 2026-11-10 15:00:00. Eligibility/registration text: AGE GROUP: |; Cancelled; Cancelled; Cancelled; Cancelled. Teen event; verify age range and card/registration requirements.",
+      "event_website": null,
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "mi kmaq quill art craft|new_jersey|2026-11-10"
     }
   ]
 }
