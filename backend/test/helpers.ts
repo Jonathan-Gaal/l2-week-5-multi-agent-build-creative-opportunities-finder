@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { ClaudeModel, type Model } from "../src/agents/model.ts";
 import { createApp } from "../src/api/app.ts";
 import { type Config, readConfig } from "../src/api/config.ts";
-import type { Queryable } from "../src/db/opportunities.ts";
+import { type Queryable, postgresSource } from "../src/db/opportunities.ts";
 import { closePool, getPool } from "../src/db/pool.ts";
 
 /** Staged (not published) snapshot both suites read. */
@@ -61,8 +61,8 @@ export const startApp = async (env: Record<string, string | undefined>): Promise
     ? null
     : countingModel(new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs));
   const handler = createApp({
-    db, model, mode: config.mode, snapshotId: config.snapshotId, allowedOrigins: config.allowedOrigins,
-    traceDir: config.traceDir, limits: config.limits,
+    source: postgresSource(db), model, mode: config.mode, snapshotId: config.snapshotId,
+    allowedOrigins: config.allowedOrigins, traceDir: config.traceDir, limits: config.limits,
   });
   const server: Server = createServer((req, res) => void handler(req, res));
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));

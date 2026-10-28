@@ -1,6 +1,6 @@
 /**
  * HTTP request handler for the API in api/types.ts, built on node:http. createApp takes every dependency
- * (database, model, clock, limits) so tests can pass fakes; server.ts wires the real ones.
+ * (record source, model, clock, limits) so tests can pass fakes; server.ts wires the real ones.
  *
  * Search and opportunities requests, in order:
  *   origin check -> validate the query (closed lists) -> as_of = server's today -> resolve snapshot id ->
@@ -26,7 +26,7 @@ import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } 
 import {
   DISCIPLINES, OTHER_PLACE_LABELS, PLACE_GROUPS, PLACE_LABELS, TYPE_INFO, canonicalDisciplines, expandPlaceChoices,
 } from "../agents/taxonomy.ts";
-import { NoPublishedSnapshotError, type Queryable, loadRecords, publishedSnapshotId } from "../db/opportunities.ts";
+import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
   BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, clientKey, concurrencyGate, dailyBudget,
   guardedModel, lruCache, rateLimiter,
@@ -68,7 +68,7 @@ export const DEFAULT_LIMITS: Limits = {
 };
 
 export type AppDeps = {
-  db: Queryable;
+  source: RecordSource;
   /** The Claude model; required unless mode is "baseline". */
   model: Model | null;
   mode: Mode;
@@ -277,7 +277,7 @@ export const createApp = (deps: AppDeps) => {
     }
     const timer = release ? setTimeout(() => ctl.abort(DEADLINE_PASSED), limits.requestDeadlineMs) : null;
     try {
-      const { records } = await loadRecords(deps.db, req, snapshotId);
+      const records = await deps.source.loadRecords(req, snapshotId);
       const out = await pipeline.run(req, records, ranker, reviewer, tracePath(req.asOf), undefined, {
         signal: ctl.signal, ...(opts.traceFields ? { traceFields: opts.traceFields } : {}),
       });
@@ -342,7 +342,7 @@ export const createApp = (deps: AppDeps) => {
     }));
   };
 
-  const snapshotFor = async () => deps.snapshotId ?? (await publishedSnapshotId(deps.db));
+  const snapshotFor = async () => deps.snapshotId ?? (await deps.source.publishedSnapshotId());
 
   const opportunities = async (params: URLSearchParams, client: string): Promise<OpportunitiesResponse> => {
     const q = parseOpportunitiesQuery(params);

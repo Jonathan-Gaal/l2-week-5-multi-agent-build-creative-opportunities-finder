@@ -8,7 +8,7 @@ import { after, describe, it } from "node:test";
 
 import type { OppRecord } from "../agents/filter.ts";
 import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
-import type { Queryable } from "../db/opportunities.ts";
+import { type Queryable, postgresSource } from "../db/opportunities.ts";
 import { type AppDeps, type Limits, createApp, parseOpportunitiesQuery, parseSearchQuery, safeHttpUrl } from "./app.ts";
 import { ConfigError, readConfig } from "./config.ts";
 import type { MetaResponse, OpportunitiesResponse, SearchResponse } from "./types.ts";
@@ -66,13 +66,13 @@ const fakeModel = (): FakeModel => ({
 const servers: Server[] = [];
 after(() => servers.forEach((s) => s.close()));
 
-type Setup = Partial<Omit<AppDeps, "limits" | "db">> & { limits?: Partial<Limits>; db?: FakeDb };
+type Setup = Partial<Omit<AppDeps, "limits" | "source">> & { limits?: Partial<Limits>; db?: FakeDb };
 const start = async ({ db = fakeDb(), ...setup }: Setup = {}) => {
   const model = (setup.model as FakeModel | undefined) ?? fakeModel();
   const logs: string[] = [];
   const clock = { t: NOW };
   const handler = createApp({
-    db, model, mode: "ranker_reviewer", allowedOrigins: ["http://localhost:5173"], traceDir: null,
+    source: postgresSource(db), model, mode: "ranker_reviewer", allowedOrigins: ["http://localhost:5173"], traceDir: null,
     now: () => clock.t, log: (l) => logs.push(l), ...setup, limits: setup.limits ?? {},
   });
   const server = createServer((req, res) => void handler(req, res));
@@ -194,7 +194,7 @@ describe("CORS", () => {
   });
 
   it("'*' is refused at startup", () => {
-    assert.throws(() => createApp({ db: fakeDb(), model: null, mode: "baseline", allowedOrigins: ["*"], traceDir: null }));
+    assert.throws(() => createApp({ source: postgresSource(fakeDb()), model: null, mode: "baseline", allowedOrigins: ["*"], traceDir: null }));
   });
 });
 
@@ -363,11 +363,18 @@ describe("readConfig", () => {
       [null, "baseline", "2026-10-27", 0, ["http://localhost:5173", "https://app.example.org"]]);
   });
 
+  it("data source: defaults and parsing", () => {
+    assert.equal(readConfig({}).dataSource, "postgres");
+    const c = readConfig({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27" });
+    assert.deepEqual([c.dataSource, c.snapshotId], ["json", "2026-10-27"]);
+  });
+
   it("refuses bad values without echoing them", () => {
     for (const env of [{ RANKER_MODE: "gpt" }, { ALLOWED_ORIGINS: "*" }, { ALLOWED_ORIGINS: "https://a.org/path" },
       { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { PORT: "70000" }, { DAILY_MODEL_CALLS: "-1" },
       // A search charges one per type, so fewer than five per minute could never serve a full search.
-      { RATE_LIMIT_PER_MINUTE: "4" }]) {
+      { RATE_LIMIT_PER_MINUTE: "4" },
+      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
   });
