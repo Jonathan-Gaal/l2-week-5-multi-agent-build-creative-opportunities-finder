@@ -94,9 +94,14 @@ def allowed(url):
     return all(_robots_cache[host].can_fetch(a, url) for a in AGENTS)
 
 
+def redact(url):
+    """The URL with any api_key value hidden, for messages and logs."""
+    return re.sub(r"(api_key=)[^&]+", r"\1REDACTED", url)
+
+
 def request_json(url, data=None, headers=None):
     if not allowed(url):
-        raise Blocked(url)
+        raise Blocked(redact(url))
     req = urllib.request.Request(url, data=json.dumps(data).encode() if data is not None else None,
                                  headers={"User-Agent": UA, "Accept": "application/json", **({"Content-Type": "application/json"} if data is not None else {}), **(headers or {})})
     with urllib.request.urlopen(req, timeout=60) as r:

@@ -58,6 +58,12 @@ class Gate(unittest.TestCase):
         self.assertIn("theopencall.substack.com", apis.DENIED)
         self.assertFalse(apis.allowed("https://theopencall.substack.com/p/x"))
 
+    def test_blocked_message_hides_api_key(self):
+        apis._robots_cache["example.org"] = robots(["User-agent: *", "Disallow: /"])
+        with self.assertRaises(apis.Blocked) as caught:
+            apis.request_json("https://example.org/search?api_key=SECRET123&ncode=711510")
+        self.assertNotIn("SECRET123", str(caught.exception))
+
     def test_request_json_refuses_blocked_url(self):
         apis._robots_cache["example.org"] = robots(["User-agent: *", "Disallow: /"])
         with self.assertRaises(apis.Blocked):
