@@ -68,7 +68,7 @@ Even with one backfill run, several agents and sources touch the same data. Thes
 | Field | Holds | When unknown |
 | --- | --- | --- |
 | `title` | Name of the opportunity | Required. No title, no record. |
-| `opportunity_type` | Open call, residency, grant, or event | `unknown`. Can't match a type filter. |
+| `opportunity_type` | Open call, residency, grant, event, or job (a salaried or hourly position; pay goes in `award`) | `unknown`. Can't match a type filter. |
 | `borough` | One of the five boroughs, or `citywide` | `unknown`. Can't match a borough filter. |
 | `eligibility` | List of stated requirements, each with a source quote | Empty list, shown as "Eligibility not stated" |
 | `fee` | Amount, or `none` | `unknown`, shown as "Fee unknown." Never treated as free. |
