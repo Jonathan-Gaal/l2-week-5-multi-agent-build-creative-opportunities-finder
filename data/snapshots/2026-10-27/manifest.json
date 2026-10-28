@@ -2,14 +2,14 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1135,
+  "record_count": 1119,
   "by_borough": {
-    "manhattan": 376,
+    "manhattan": 373,
     "brooklyn": 131,
-    "queens": 48,
+    "queens": 47,
     "unknown": 37,
-    "bronx": 27,
-    "staten_island": 22,
+    "bronx": 26,
+    "staten_island": 20,
     "citywide": 12
   },
   "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
@@ -23,7 +23,8 @@
     "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages.",
     "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API.",
     "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records.",
-    "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py)."
+    "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
+    "2026-10-28: 17 youth-only or non-creative records removed after a youth-wording sweep (Queens Teens Institute plus 16); logged in dropped_records."
   ],
   "sources": {
     "ingested_with_records": [
@@ -738,6 +739,118 @@
       "reason": "ineligible",
       "detail": "teens only (Teens; art across visual, music, performance, and writing)",
       "checked": "2026-10-28"
+    },
+    {
+      "title": "The Whaling Museum and Education Center presents Seaside Crafts",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "kids gallery self-serve crafts",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Watercolor Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Still Life Drawing & Painting Program (Grade 6 – 12)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "students grades 6-12 only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Comic Art Workshop & Multi-week Intensive (Ages 8-14)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "children's program (ages 8-14)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Acrylic Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Sculpture Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "The Whaling Museum presents Pickle-Making Workshop & Tasting",
+      "source": "huntington-arts",
+      "reason": "not hands-on creative",
+      "detail": "not creative practice (food workshop)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Interactive Poetry",
+      "source": "staten-island-childrens-museum",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teen Open Mic Night (Rye Arts Center)",
+      "source": "artswestchester",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Rock Salt and Watercolor Painting",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teen ArtsLab: Design in Motion",
+      "source": "mad",
+      "reason": "ineligible",
+      "detail": "high school students only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Monster Maker Lab (kids camp)",
+      "source": "pelham-art",
+      "reason": "ineligible",
+      "detail": "kids camp",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Art classes for teens",
+      "source": "mannycantor",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Taylor School Youth Program (fall registration open)",
+      "source": "paul-taylor-dance",
+      "reason": "ineligible",
+      "detail": "youth program",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -750,18 +863,18 @@
     "Eventbrite's public event search was shut down in 2019; the API can only re-read known event IDs, so it is not used."
   ],
   "by_discipline": {
-    "comedy": 398,
-    "music": 395,
-    "dance": 187,
-    "literary": 137,
-    "all": 113,
-    "visual": 65,
+    "comedy": 397,
+    "music": 394,
+    "dance": 186,
+    "literary": 136,
+    "all": 105,
+    "visual": 59,
     "theater": 59,
-    "craft": 27,
+    "craft": 24,
     "film": 15,
     "performance": 14,
-    "digital": 9,
-    "design": 8,
+    "digital": 8,
+    "design": 7,
     "research": 4,
     "performing_arts": 2,
     "architecture": 2,
@@ -777,16 +890,16 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 653,
+    "nyc": 646,
     "massachusetts": 86,
     "pennsylvania": 85,
-    "long_island": 59,
+    "long_island": 52,
     "dc": 49,
     "new_jersey": 48,
     "maryland": 46,
     "connecticut": 35,
-    "westchester_hudson": 19,
     "upstate_ny": 18,
+    "westchester_hudson": 17,
     "rhode_island": 14,
     "new_hampshire": 11,
     "maine": 9,
@@ -794,17 +907,17 @@
   },
   "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
-    "event/open_mic": 651,
-    "event/workshop": 128,
+    "event/open_mic": 650,
+    "event/workshop": 116,
     "event/dance_night": 112,
     "open_call/audition": 71,
     "open_call": 42,
     "event/jam": 36,
-    "event/class": 28,
+    "event/class": 26,
     "residency": 19,
     "grant": 16,
     "grant/fellowship": 8,
-    "event/drawing_session": 6,
+    "event/drawing_session": 5,
     "job/full_time": 5,
     "open_call/competition": 3,
     "open_call/paid_gig": 3,
@@ -816,10 +929,10 @@
     "job/internship": 1
   },
   "by_extraction": {
-    "structured": 768,
-    "crawl_reviewed": 123,
+    "structured": 765,
+    "crawl_reviewed": 118,
     "manual": 82,
-    "api": 75,
+    "api": 67,
     "mara_backfill_verified": 44,
     "jsonld": 33,
     "rendered": 7,

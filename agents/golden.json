@@ -268,14 +268,13 @@
       "place": "long_island",
       "type": "event",
       "as_of": "2026-10-28",
-      "note": "Five series started 2026-10-27 but have later dates; they must stay.",
+      "note": "Four series started 2026-10-27 but have later dates; they must stay.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
         "must_include": [],
         "must_exclude": [],
         "must_be_candidate": [
-          "the whaling museum and education center presents seaside crafts|long_island|2026-10-27",
           "4 day workshop enhance your understanding of music theory|long_island|2026-10-27",
           "helen murdock prep presents adult acting classes|long_island|2026-10-27",
           "huntington camera club|long_island|2026-10-27",

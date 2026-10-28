@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1135,
+  "count": 1119,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -14435,50 +14435,6 @@
       "dedupe_key": "music open mic at prohibition monday 9 00pm|manhattan|recurring"
     },
     {
-      "title": "The Whaling Museum and Education Center presents Seaside Crafts",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-10-27",
-      "fee": "Free with Admission",
-      "award": null,
-      "location": "The Whaling Museum and Education Center, 301 Main Street, Cold Spring Harbor, 11724",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Through September | Kids Gallery Hours 11-4 PM Celebrate the beach with nautical self-serve crafts in our workshop!"
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/the-whaling-museum-and-education-center-presents-seaside-crafts/2026-10-27/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-10-27",
-        "2026-10-29",
-        "2026-10-30",
-        "2026-11-01",
-        "2026-11-03",
-        "2026-11-05",
-        "2026-11-06",
-        "2026-11-08",
-        "2026-11-10",
-        "2026-11-12",
-        "2026-11-13",
-        "2026-11-15"
-      ],
-      "recurrence": "73 dates through 2027-03-02",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "the whaling museum and education center presents seaside crafts|long_island|2026-10-27"
-    },
-    {
       "title": "4-Day Workshop: Enhance Your Understanding of Music Theory",
       "org": "Huntington Arts Council",
       "opportunity_type": "event",
@@ -14700,50 +14656,6 @@
       "dedupe_key": "huntington fine arts presents watercolor workshop multi week intensive ages 18|long_island|2026-10-28"
     },
     {
-      "title": "Huntington Fine Arts presents Watercolor Workshop & Multi-week Intensive (Ages 13-18)",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-10-28",
-      "fee": "135$",
-      "award": null,
-      "location": "Huntington Fine Arts, 266 East Pulaski Road, Greenlawn, 11740",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Discover the fluid beauty of watercolor painting in a hands-on environment designed for artists of all levels."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/huntington-fine-arts-presents-watercolor-workshop-multi-week-intensive-ages-13-18/2026-10-28/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-10-28",
-        "2026-11-04",
-        "2026-11-11",
-        "2026-11-18",
-        "2026-11-25",
-        "2026-12-02",
-        "2026-12-09",
-        "2026-12-16",
-        "2026-12-23",
-        "2026-12-30",
-        "2027-01-06",
-        "2027-01-13"
-      ],
-      "recurrence": "23 dates through 2027-03-31",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "huntington fine arts presents watercolor workshop multi week intensive ages 13 18|long_island|2026-10-28"
-    },
-    {
       "title": "Artist Member Lauren Singer presents Saori Style Weaving Workshop at Nassau County Museum of Art, Manes Center",
       "org": "Huntington Arts Council",
       "opportunity_type": "event",
@@ -14775,182 +14687,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "artist member lauren singer presents saori style weaving workshop at nassau county museum of art manes center|long_island|2026-10-29"
-    },
-    {
-      "title": "Huntington Fine Arts presents Still Life Drawing & Painting Program (Grade 6 – 12)",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "drawing_session",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-10-31",
-      "fee": "850$",
-      "award": null,
-      "location": "Huntington Fine Arts, 266 East Pulaski Road, Greenlawn, 11740",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Open to students grades 6-12."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/huntington-fine-arts-presents-still-life-drawing-painting-program-grade-6-12/2026-10-31/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-10-31",
-        "2026-11-07",
-        "2026-11-14",
-        "2026-11-21",
-        "2026-11-28",
-        "2026-12-05",
-        "2026-12-12",
-        "2026-12-19",
-        "2026-12-26",
-        "2027-01-02",
-        "2027-01-09",
-        "2027-01-16"
-      ],
-      "recurrence": "22 dates through 2027-03-27",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "huntington fine arts presents still life drawing painting program grade 6 12|long_island|2026-10-31"
-    },
-    {
-      "title": "Huntington Fine Arts presents Comic Art Workshop & Multi-week Intensive (Ages 8-14)",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-10-31",
-      "fee": "110$",
-      "award": null,
-      "location": "Huntington Fine Arts, 266 East Pulaski Road, Greenlawn, 11740",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Bring your stories to life through the art of comics."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/huntington-fine-arts-presents-comic-art-workshop-multi-week-intensive-ages-8-14/2026-10-31/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-10-31",
-        "2026-11-07",
-        "2026-11-14",
-        "2026-11-21",
-        "2026-11-28",
-        "2026-12-05",
-        "2026-12-12",
-        "2026-12-19",
-        "2026-12-26",
-        "2027-01-02",
-        "2027-01-09",
-        "2027-01-16"
-      ],
-      "recurrence": "22 dates through 2027-03-27",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "huntington fine arts presents comic art workshop multi week intensive ages 8 14|long_island|2026-10-31"
-    },
-    {
-      "title": "Huntington Fine Arts presents Acrylic Workshop & Multi-week Intensive (Ages 13-18)",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-02",
-      "fee": "135$",
-      "award": null,
-      "location": "Huntington Fine Arts, 266 East Pulaski Road, Greenlawn, 11740",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Explore the bold versatility of acrylic painting in a supportive studio environment perfect for beginners and experienced artists alike."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/huntington-fine-arts-presents-acrylic-workshop-multi-week-intensive-ages-13-18/2026-11-02/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-11-02",
-        "2026-11-09",
-        "2026-11-16",
-        "2026-11-23",
-        "2026-11-30",
-        "2026-12-07",
-        "2026-12-14",
-        "2026-12-21",
-        "2026-12-28",
-        "2027-01-04",
-        "2027-01-11",
-        "2027-01-18"
-      ],
-      "recurrence": "22 dates through 2027-03-29",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "huntington fine arts presents acrylic workshop multi week intensive ages 13 18|long_island|2026-11-02"
-    },
-    {
-      "title": "Sculpture Workshop & Multi-week Intensive (Ages 13-18)",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-02",
-      "fee": "145$",
-      "award": null,
-      "location": "Huntington Fine Arts, 266 East Pulaski Road, Greenlawn, 11740",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Transform your ideas into three-dimensional art in this studio-based course working within the timeless craft of sculpture."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/sculpture-workshop-multi-week-intensive-ages-13-18/2026-11-02/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-11-02",
-        "2026-11-09",
-        "2026-11-16",
-        "2026-11-23",
-        "2026-11-30",
-        "2026-12-07",
-        "2026-12-14",
-        "2026-12-21",
-        "2026-12-28",
-        "2027-01-04",
-        "2027-01-11",
-        "2027-01-18"
-      ],
-      "recurrence": "22 dates through 2027-03-29",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "sculpture workshop multi week intensive ages 13 18|long_island|2026-11-02"
     },
     {
       "title": "Explore The Possible: Strengthen Your Creative Self Through Improv",
@@ -15133,39 +14869,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "long island craft guild presents general meeting|long_island|2026-11-12"
-    },
-    {
-      "title": "The Whaling Museum presents Pickle-Making Workshop & Tasting",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-15",
-      "fee": "10$ – 15$",
-      "award": null,
-      "location": "The Whaling Museum and Education Center, 301 Main Street, Cold Spring Harbor, 11724",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Sun, Nov 15 | 1:00 & 3:00 PM | Adults, Kids, & Families Take a bite out of the past in honor of National Pickle Day!"
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/the-whaling-museum-presents-pickle-making-workshop-tasting/2026-11-15/1/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2026-11-15"
-      ],
-      "recurrence": null,
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "the whaling museum presents pickle making workshop tasting|long_island|2026-11-15"
     },
     {
       "title": "Artist Member Lauren Singer presents Weave From the Heart-Saori Style",
@@ -15749,39 +15452,6 @@
       "dedupe_key": "walk in workshop fall foodscapes|staten_island|2026-11-04"
     },
     {
-      "title": "Kids Interactive Poetry",
-      "org": "Staten Island Children's / SI Arts Culture Lounge",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": "staten_island",
-      "region": "nyc",
-      "deadline": "2027-01-02",
-      "fee": "unknown",
-      "award": null,
-      "location": "Staten Island Children&#8217;s Museum, 1000 Richmond Terrace, Building M, Staten Island, 10301",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Participants will explore and learn about poetry through learning stations using their imagination, as well as their hands."
-        }
-      ],
-      "source": "staten-island-childrens-museum",
-      "source_url": "https://sichildrensmuseum.org/event/kids-interactive-poetry-6/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "event_dates": [
-        "2027-01-02"
-      ],
-      "recurrence": null,
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "kids interactive poetry|staten_island|2027-01-02"
-    },
-    {
       "title": "SPIRAL TV Pilot, Day Player",
       "org": "Keyao Wu",
       "opportunity_type": "open_call",
@@ -15982,32 +15652,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "2026 kinosaito annual community art benefit open call|westchester_hudson|2026-11-11"
-    },
-    {
-      "title": "Teen Open Mic Night (Rye Arts Center)",
-      "org": "The Rye Arts Center",
-      "opportunity_type": "event",
-      "subtype": "open_mic",
-      "borough": null,
-      "region": "westchester_hudson",
-      "deadline": "2026-11-13",
-      "recurrence": null,
-      "fee": "unknown",
-      "award": null,
-      "eligibility": [],
-      "source": "artswestchester",
-      "source_url": "https://artswestchester.org/events/teen-open-mic-night-2/",
-      "disciplines": [
-        "music",
-        "literary",
-        "comedy"
-      ],
-      "extraction": "crawl_reviewed",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "teen open mic night rye arts center|westchester_hudson|2026-11-13"
     },
     {
       "title": "Community Bluegrass Jam",
@@ -19825,108 +19469,6 @@
       "dedupe_key": "nature s workshop winter landscape watercolor painting|bronx|2026-12-26"
     },
     {
-      "title": "Kids Week: Rock Salt and Watercolor Painting",
-      "org": "NYC Parks",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": "staten_island",
-      "region": "nyc",
-      "deadline": "2026-12-28",
-      "recurrence": null,
-      "event_dates": [
-        "2026-12-28"
-      ],
-      "fee": "none",
-      "award": null,
-      "location": "Entrance - Continental Place and Grandview Avenue (in The Big Park) , Staten Island",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "Join the Urban Park Rangers for a creative winter art workshop inspired by the natural world."
-        }
-      ],
-      "source": "nyc-parks-events",
-      "source_url": "https://www.nycgovparks.org/events/2026/12/28/kids-week-rock-salt-and-watercolor-painting",
-      "disciplines": [
-        "visual",
-        "craft"
-      ],
-      "extraction": "structured",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "kids week rock salt and watercolor painting|staten_island|2026-12-28"
-    },
-    {
-      "title": "Kids Week: Nature Puppet Show",
-      "org": "NYC Parks",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": "bronx",
-      "region": "nyc",
-      "deadline": "2026-12-29",
-      "recurrence": null,
-      "event_dates": [
-        "2026-12-29"
-      ],
-      "fee": "none",
-      "award": null,
-      "location": "Crotona Nature Center (in Crotona Park) , Bronx",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
-        }
-      ],
-      "source": "nyc-parks-events",
-      "source_url": "https://www.nycgovparks.org/events/2026/12/29/kids-week-nature-puppet-show",
-      "disciplines": [
-        "visual",
-        "craft"
-      ],
-      "extraction": "structured",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "kids week nature puppet show|bronx|2026-12-29"
-    },
-    {
-      "title": "Kids Week: Nature Puppet Show",
-      "org": "NYC Parks",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": "queens",
-      "region": "nyc",
-      "deadline": "2026-12-30",
-      "recurrence": null,
-      "event_dates": [
-        "2026-12-30"
-      ],
-      "fee": "none",
-      "award": null,
-      "location": "Entrance - 34th Avenue between 77th and 78th Streets (in Travers Park) , Queens",
-      "eligibility": [
-        {
-          "requirement": "as described",
-          "quote": "The Urban Park Rangers welcome you for some nature-themed puppet shows!"
-        }
-      ],
-      "source": "nyc-parks-events",
-      "source_url": "https://www.nycgovparks.org/events/2026/12/30/kids-week-nature-puppet-show",
-      "disciplines": [
-        "visual",
-        "craft"
-      ],
-      "extraction": "structured",
-      "opens_at": null,
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "kids week nature puppet show|queens|2026-12-30"
-    },
-    {
       "title": "Acting For The Camera",
       "org": "NYC Parks",
       "opportunity_type": "event",
@@ -20899,36 +20441,6 @@
       "dedupe_key": "here performance lab application|manhattan|2026-10-31"
     },
     {
-      "title": "Teen ArtsLab: Design in Motion",
-      "org": "Museum of Arts and Design",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": "manhattan",
-      "region": "nyc",
-      "deadline": "2026-10-30",
-      "recurrence": null,
-      "fee": "none (high school students with school ID)",
-      "award": null,
-      "location": null,
-      "eligibility": [
-        {
-          "requirement": "ages 13-18",
-          "quote": "Free for high school students (ages 13–18) with a valid school ID"
-        }
-      ],
-      "source": "mad",
-      "source_url": "https://madmuseum.org/events/teen-artslab-design-motion",
-      "disciplines": [
-        "design",
-        "visual"
-      ],
-      "extraction": "crawl_reviewed",
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "teen artslab design in motion|manhattan|2026-10-30"
-    },
-    {
       "title": "Studio Samplers: Mini Makers Workshop Drop-In",
       "org": "Montclair Art Museum",
       "opportunity_type": "event",
@@ -21119,36 +20631,6 @@
       "dedupe_key": "drawing painting open studio drop in|westchester_hudson|recurring"
     },
     {
-      "title": "Monster Maker Lab (kids camp)",
-      "org": "Pelham Art Center",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "westchester_hudson",
-      "deadline": "2026-11-11",
-      "recurrence": null,
-      "fee": "$130 / $117 members",
-      "award": null,
-      "location": null,
-      "eligibility": [
-        {
-          "requirement": "fee",
-          "quote": "Fee: $130 / $117 Members"
-        }
-      ],
-      "source": "pelham-art",
-      "source_url": "https://www.pelhamartcenter.org/education/class/monster-maker-lab-f/",
-      "disciplines": [
-        "visual",
-        "digital"
-      ],
-      "extraction": "crawl_reviewed",
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "monster maker lab kids camp|westchester_hudson|2026-11-11"
-    },
-    {
       "title": "Everybody Sing (no-audition choir, weekly)",
       "org": "Everybody Sing",
       "opportunity_type": "event",
@@ -21237,35 +20719,6 @@
       "dedupe_key": "ceramics classes with open studio|manhattan|rolling"
     },
     {
-      "title": "Art classes for teens",
-      "org": "Manny Cantor Center",
-      "opportunity_type": "event",
-      "subtype": "class",
-      "borough": "manhattan",
-      "region": "nyc",
-      "deadline": "rolling",
-      "recurrence": null,
-      "fee": "unknown",
-      "award": null,
-      "location": "197 East Broadway",
-      "eligibility": [
-        {
-          "requirement": "youth",
-          "quote": "Young artists will develop foundational drawing skills from direct observation with an emphasis on space, volume, linear and free-hand perspective, and other basic techniques and concepts."
-        }
-      ],
-      "source": "mannycantor",
-      "source_url": "https://mannycantor.org/art/art-classes/youth-teen-classes/",
-      "disciplines": [
-        "visual"
-      ],
-      "extraction": "crawl_reviewed",
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "art classes for teens|manhattan|rolling"
-    },
-    {
       "title": "Dance Theatre of Harlem: part-time men's company audition (video submissions)",
       "org": "Dance Theatre of Harlem",
       "opportunity_type": "open_call",
@@ -21351,35 +20804,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "pumpkin singalong at sakura park|manhattan|2026-10-27"
-    },
-    {
-      "title": "Taylor School Youth Program (fall registration open)",
-      "org": "Paul Taylor Dance Company",
-      "opportunity_type": "event",
-      "subtype": "class",
-      "borough": "manhattan",
-      "region": "nyc",
-      "deadline": "rolling",
-      "recurrence": null,
-      "fee": "unknown",
-      "award": null,
-      "location": null,
-      "eligibility": [
-        {
-          "requirement": "registration",
-          "quote": "FALL REGISTRATION IS NOW OPEN!"
-        }
-      ],
-      "source": "paul-taylor-dance",
-      "source_url": "https://paultaylordance.org/center-dance-education/taylor-school-youth-program/",
-      "disciplines": [
-        "dance"
-      ],
-      "extraction": "crawl_reviewed",
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "taylor school youth program fall registration open|manhattan|rolling"
     },
     {
       "title": "The Actors' Center Fall Lottery Auditions",
