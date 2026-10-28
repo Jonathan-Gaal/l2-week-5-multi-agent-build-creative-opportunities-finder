@@ -351,6 +351,8 @@ describe("errors", () => {
 describe("readConfig", () => {
   it("defaults", () => {
     const c = readConfig({});
+    assert.equal(c.host, "127.0.0.1");                 // loopback unless HOST says otherwise
+    assert.equal(readConfig({ HOST: "0.0.0.0" }).host, "0.0.0.0");
     assert.deepEqual([c.port, c.mode, c.snapshotId, c.allowedOrigins, c.limits.ratePerMinute, c.limits.dailyModelCalls,
       c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], [8787, "ranker_reviewer", undefined, ["http://localhost:5173"], 10, 300, 2, 90_000]);
     assert.ok(c.traceDir?.endsWith("traces"));

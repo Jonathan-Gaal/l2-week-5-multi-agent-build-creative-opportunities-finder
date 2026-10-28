@@ -28,7 +28,7 @@ import type { OppRecord, RemovedCounts, Request } from "./filter.ts";
 import { ClaudeModel, ModelError, type Usage } from "./model.ts";
 import {
   BaselineRanker, type Candidate, type RankItem, Ranker, type RankerRole, Reviewer, type ReviewerRole, TOP_K,
-  baselineOrder,
+  baselineOrder, looksLikeInstructions,
 } from "./roles.ts";
 
 export const MAX_ATTEMPTS = 3;
@@ -67,9 +67,9 @@ export const checkRanking = (ranking: RankItem[], byId: Map<string, OppRecord>, 
   const keys = new Set<string>();
   if (ranking.length > TOP_K) problems.push(`more than ${TOP_K} results`);
   for (const item of ranking) {
-    const id = item.id as string;
-    const rec = byId.get(id);
-    if (rec === undefined) {
+    const id = item.id;
+    const rec = typeof id === "string" ? byId.get(id) : undefined;
+    if (typeof id !== "string" || rec === undefined) {
       problems.push(`${item.id}: not one of the candidate ids`);
       continue;
     }
@@ -244,6 +244,15 @@ export const run = async (
   if (tier === 0 && served.some(isUnverified)) {
     tier = 2;       // a result that was never checked cannot be served as verified
     trace.downgraded = "unverified records in the result";
+  }
+  const suspicious = served.filter(looksLikeInstructions);
+  if (suspicious.length) {
+    // A listing that talks to the model may have steered the Ranker or Reviewer: never serve it as verified.
+    trace.suspicious_listings = suspicious.map((r) => r.dedupe_key);
+    if (tier === 0) {
+      tier = 2;
+      trace.downgraded = "listing text reads like instructions to the model";
+    }
   }
   const results = served.map((r) => present(r, tier));
   return finish({ tier, results, removed: note, removed_counts: removed });
