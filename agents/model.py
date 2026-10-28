@@ -5,8 +5,12 @@ The SDK is imported only when a call is made, so the filter, checks and tests ru
 """
 
 import json
+import os
 
-MODEL = "claude-opus-5-5"
+# Override with CLAUDE_MODEL, e.g. claude-sonnet-5-5 (half the price) or claude-haiku-5-5 (about 1/40).
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
+# Server-side refusal fallback; Haiku has none, so the parameter is only sent to these models.
+FALLBACK_MODELS = ("claude-opus-5-5", "claude-sonnet-5-5")
 MAX_TOKENS = 16000
 
 
@@ -32,11 +36,12 @@ class ClaudeModel:
         import anthropic
         client = self._get_client()
         try:
+            extra = {"betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"} if self.model in FALLBACK_MODELS else {}
             resp = client.beta.messages.create(
                 model=self.model, max_tokens=MAX_TOKENS, system=system,
                 messages=[{"role": "user", "content": user}],
                 output_config={"effort": self.effort, "format": {"type": "json_schema", "schema": schema}},
-                betas=["server-side-fallback-2026-07-01"], fallbacks="default",
+                **extra,
             )
         except anthropic.APIError as e:
             raise ModelError(f"{type(e).__name__}: {e}") from e

@@ -10,3 +10,4 @@ data/pages/
 
 # full listing text copied from other sites; regenerate with: python -m backfill.run
 data/snapshot.csv
+.venv/
