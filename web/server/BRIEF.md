@@ -2,6 +2,10 @@
 
 Written by the Orchestrator (main session) on 2026-10-28 from Jon's request. Intake input for teletraan-1 and red-alert.
 
+> Historical brief. The separate HTTP server has since been folded into the Next.js app: `backend/src/` moved to
+> `web/server/` and `backend/test/` to `web/test/`, pages call the API in process through `web/src/lib/backend.ts`,
+> and settings live in `web/.env.example`. Paths below are as they were when this was written.
+
 ## Request (Jon's words)
 
 > "I want to build a backend in node.js -- Mara will build the frontend in react.js typescript -- typescript for the backend too -- I want postgres for the backend"

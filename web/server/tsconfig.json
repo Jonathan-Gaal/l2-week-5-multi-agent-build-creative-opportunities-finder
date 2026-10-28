@@ -1,0 +1,19 @@
+{
+  // The server code (server/) and its tests (test/) also run directly under Node (npm test, npm run pipeline/eval),
+  // which strips types without bundling. This stricter check (the old backend's) keeps them runnable that way:
+  // erasable syntax only, Node module resolution, and checked index access. `npm run typecheck` runs it too.
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": [".", "../test"]
+}

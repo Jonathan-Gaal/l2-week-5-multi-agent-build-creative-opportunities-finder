@@ -6,7 +6,7 @@ import { describe, it } from "node:test";
 
 import { type OppRecord, makeRequest } from "./filter.ts";
 import * as pipeline from "./pipeline.ts";
-import type { Candidate, RankItem, RankerRole, ReviewerRole, Verdict } from "./roles.ts";
+import type { RankItem, RankerRole, ReviewerRole, Verdict } from "./roles.ts";
 
 const rec = (title: string): OppRecord => ({
   title, dedupe_key: title.toLowerCase(), source: "s", source_url: `https://example.org/${title}`,
@@ -18,7 +18,7 @@ const usage = { input_tokens: 1, output_tokens: 1 };
 
 const ranker = (onRank: () => void = () => {}): RankerRole & { calls: number } => ({
   calls: 0,
-  async rank(_r, _c: Candidate[]): Promise<[RankItem[], typeof usage]> {
+  async rank(): Promise<[RankItem[], typeof usage]> {
     this.calls += 1;
     onRank();
     return [[{ id: "r2", reason: "x" }], usage];

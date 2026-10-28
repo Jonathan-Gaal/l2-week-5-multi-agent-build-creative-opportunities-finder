@@ -1,29 +1,29 @@
 /**
- * Server-side client for the results API (backend/; contract in backend/src/api/types.ts, imported as "@api/types").
- * The browser never talks to the API directly: the Next.js server does, so there is no CORS setup and the backend
- * address and the proxy secret stay private.
+ * The Next.js server's way into the results API (server/api/app.ts; contract in server/api/types.ts, imported as
+ * "@api/types"). The API runs in this process: each call is a Request handed straight to its handler, with no
+ * network hop and no separate service. The browser never reaches it; only pages and route handlers on this server.
  *
- * A search is ONE call to GET /api/search with every place, type and discipline picked. The API expands place
- * groups, filters by discipline, and ranks each type once over all the places, returning one group per type.
- * Because every visitor reaches the API from this server's address, each call names the visitor's address and
- * proves it is this server with API_PROXY_SECRET, so the API rate-limits visitors separately (see .env.example).
+ * A search is ONE call to /api/search with every place, type and discipline picked. The API expands place groups,
+ * filters by discipline, and ranks each type once over all the places, returning one group per type. Each call
+ * names the visitor's address, so the API rate-limits visitors separately (see visitorAddress).
  */
 import "server-only";
 
-import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, PROXY_HEADERS, SearchResponse } from "@api/types";
-import { cacheLife } from "next/cache";
+import { connection } from "next/server";
+import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse } from "@api/types";
+import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
+import { createApp, META } from "../../server/api/app.ts";
+import { readConfig } from "../../server/api/config.ts";
+import { clientKey } from "../../server/api/controls.ts";
+import { jsonSource } from "../../server/db/json-source.ts";
+import { postgresSource } from "../../server/db/opportunities.ts";
+import { getPool } from "../../server/db/pool.ts";
 import { toCard } from "./cards";
 import type { Labels } from "./taxonomy";
 import type { CallLog, Group, SearchInput, SearchOutput } from "./types";
 
-// Typed against the contract: a renamed route or header in backend/src/api/types.ts fails `npm run typecheck`.
+// Typed against the contract: a renamed route in server/api/types.ts fails `npm run typecheck`.
 const ROUTES: typeof API_ROUTES = { search: "/api/search", opportunities: "/api/opportunities", meta: "/api/meta", health: "/api/health" };
-const HEADERS: typeof PROXY_HEADERS = { secret: "x-proxy-secret", clientIp: "x-client-ip" };
-
-const BASE = (process.env.BACKEND_URL || "http://localhost:8787").replace(/\/$/, "");
-const PROXY_SECRET = process.env.API_PROXY_SECRET || "";
-const SEARCH_TIMEOUT_MS = 120_000;
-const META_TIMEOUT_MS = 5_000;
 
 export class BackendError extends Error {
   constructor(public code: ErrorCode | "unreachable" | "bad_response", message: string) {
@@ -33,10 +33,9 @@ export class BackendError extends Error {
 }
 
 export const FRIENDLY: Record<string, string> = {
-  unreachable: "The results service isn't running right now.",
+  unreachable: "Search isn't available right now.",
   bad_response: "The results service sent something we couldn't read.",
   bad_request: "That search wasn't understood. Try choosing again.",
-  origin_not_allowed: "This site isn't allowed to call the results service.",
   rate_limited: "Too many searches in a short time. Try again in a minute.",
   busy: "The service is busy. Try again in a few seconds.",
   no_snapshot: "No opportunity data is published yet. Try again later.",
@@ -49,20 +48,46 @@ export const FRIENDLY: Record<string, string> = {
 export const asBackendError = (e: unknown): BackendError =>
   e instanceof BackendError ? e : new BackendError("internal", FRIENDLY.internal);
 
-export async function backendHealth(): Promise<{ ok: boolean; url: string }> {
-  try {
-    const res = await fetch(`${BASE}${ROUTES.health}`, { cache: "no-store", signal: AbortSignal.timeout(3000) });
-    return { ok: res.ok, url: BASE };
-  } catch {
-    return { ok: false, url: BASE };
+type Api = ReturnType<typeof createApp>;
+let api: Api | null = null;
+
+/**
+ * The API, built once per server process from the environment (web/.env.example): the record source (Postgres, or
+ * the JSON snapshot with DATA_SOURCE=json) and the Claude model unless RANKER_MODE=baseline. Its cache, rate limits
+ * and daily budget live in this process. Throws on missing or invalid settings; the next call tries again.
+ */
+function getApi(): Api {
+  if (api) return api;
+  const config = readConfig(process.env);
+  const useJson = config.dataSource === "json";
+  if (!useJson && !process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is not set (copy web/.env.example to web/.env, or run npm run dev:local)");
   }
+  if (config.mode !== "baseline") {
+    const missing = missingCredentials();
+    if (missing) throw new Error(`RANKER_MODE=${config.mode} needs Claude: ${missing}. Or set RANKER_MODE=baseline.`);
+  }
+  api = createApp({
+    source: useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool()),
+    model: config.mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
+    mode: config.mode,
+    snapshotId: config.snapshotId,
+    traceDir: config.traceDir,
+    limits: config.limits,
+  });
+  return api;
 }
 
-async function getJson<T>(path: string, init: RequestInit): Promise<T> {
+/** One API call for `client` (a rate-limit key). Errors come back as BackendError with friendly text. */
+async function callApi<T>(path: string, client: string): Promise<T> {
+  // The API reads the clock (deadlines, cache, rate limits): this is per-request work, never part of a prerender.
+  await connection();
   let res: Response;
   try {
-    res = await fetch(`${BASE}${path}`, init);
-  } catch {
+    res = await getApi()(new Request(`http://api${path}`), client);
+  } catch (e) {
+    // A setup problem (missing or invalid settings): the detail is for the server log, never the visitor.
+    console.error(`results API unavailable: ${(e as Error).message}`);
     throw new BackendError("unreachable", FRIENDLY.unreachable);
   }
   let body: unknown;
@@ -78,27 +103,18 @@ async function getJson<T>(path: string, init: RequestInit): Promise<T> {
   return body as T;
 }
 
-async function fetchMetaCached(): Promise<MetaResponse> {
-  "use cache";
-  // A few minutes: the lists change only when the backend is redeployed. A failed fetch throws and is not cached.
-  cacheLife("minutes");
-  return getJson<MetaResponse>(ROUTES.meta, { signal: AbortSignal.timeout(META_TIMEOUT_MS) });
-}
-
-/**
- * The picker lists and labels from GET /api/meta, cached on this server. Throws BackendError when the service is
- * down: there is deliberately no built-in copy of the lists to fall back on, because a search built from them
- * would fail against the same service anyway, and a copy could drift from what the running API accepts.
- * Call it only after a request-time API (searchParams, headers) so `next build` never needs the backend.
- */
-export async function getMeta(): Promise<MetaResponse> {
+/** Is the results API set up (settings valid, data source chosen)? Used by the dev page. */
+export async function backendHealth(): Promise<{ ok: boolean }> {
   try {
-    return await fetchMetaCached();
-  } catch (e) {
-    // Errors from a cached scope may lose their class on the way out; anything else means the service is unusable.
-    throw e instanceof BackendError ? e : new BackendError("unreachable", FRIENDLY.unreachable);
+    await callApi(ROUTES.health, "health");
+    return { ok: true };
+  } catch {
+    return { ok: false };
   }
 }
+
+/** The picker lists and labels. Built from server/agents/taxonomy.ts, so they always match what the API accepts. */
+export const getMeta = (): MetaResponse => META;
 
 // X-Forwarded-For is only as trustworthy as the proxy in front of this server. With no proxy (next start on an open
 // port) any visitor can write it and pick a fresh rate limit per request, so it is read only when a proxy is known
@@ -108,17 +124,12 @@ const TRUST_FORWARDED_FOR = process.env.VERCEL === "1" || process.env.TRUST_FORW
 /**
  * The visitor's address for the API's per-visitor rate limit: the LAST X-Forwarded-For entry, the one added by the
  * proxy in front of this server (Vercel replaces the header; nginx appends to it). Null when there is none or no
- * proxy is trusted; the API then limits every visitor together by this server's address (the safe direction).
+ * proxy is trusted; every such visitor then shares one limit (the safe direction).
  */
 export function visitorAddress(headers: Headers): string | null {
   if (!TRUST_FORWARDED_FOR) return null;
   const last = headers.get("x-forwarded-for")?.split(",").pop()?.trim();
   return last ? last : null;
-}
-
-/** Proxy headers for one call, only when this server holds the shared secret and knows the visitor's address. */
-function identityHeaders(visitor: string | null): Record<string, string> {
-  return PROXY_SECRET && visitor ? { [HEADERS.secret]: PROXY_SECRET, [HEADERS.clientIp]: visitor } : {};
 }
 
 /** The /api/search query for picker choices. Commas are left readable; the API splits on them. */
@@ -128,14 +139,10 @@ export function searchQuery(input: SearchInput): string {
   return q.toString().replaceAll("%2C", ",");
 }
 
-/** One search, one call. `visitor` is the end user's address (visitorAddress), forwarded for rate limiting. */
+/** One search, one call. `visitor` is the end user's address (visitorAddress), the key for their rate limit. */
 export async function searchBackend(input: SearchInput, opts: { visitor: string | null; labels: Labels }): Promise<SearchOutput> {
   const query = searchQuery(input);
-  const res = await getJson<SearchResponse>(`${ROUTES.search}?${query}`, {
-    cache: "no-store",
-    headers: identityHeaders(opts.visitor),
-    signal: AbortSignal.timeout(SEARCH_TIMEOUT_MS),
-  });
+  const res = await callApi<SearchResponse>(`${ROUTES.search}?${query}`, opts.visitor ? clientKey(opts.visitor) : "shared");
   const groups: Group[] = res.groups.map((g) => ({
     type: g.type,
     tier: g.tier,

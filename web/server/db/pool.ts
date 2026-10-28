@@ -1,5 +1,5 @@
 /**
- * One shared Postgres pool for the backend, from DATABASE_URL (see backend/.env.example).
+ * One shared Postgres pool for the results API, from DATABASE_URL (see web/.env.example).
  * Connect through Supabase's pooler, not db.<ref>.supabase.co, which is IPv6-only.
  *
  * TLS is on by default (DATABASE_SSL, see sslOptions) so the password and data never cross the network in
@@ -38,7 +38,7 @@ let pool: pg.Pool | null = null;
 export const getPool = (): pg.Pool => {
   if (pool) return pool;
   const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) throw new Error("DATABASE_URL is not set (copy backend/.env.example to backend/.env)");
+  if (!connectionString) throw new Error("DATABASE_URL is not set (copy web/.env.example to web/.env)");
   pool = new pg.Pool({
     connectionString, max: MAX_CONNECTIONS, ssl: sslOptions(process.env),
     statement_timeout: STATEMENT_TIMEOUT_MS, connectionTimeoutMillis: CONNECT_TIMEOUT_MS,

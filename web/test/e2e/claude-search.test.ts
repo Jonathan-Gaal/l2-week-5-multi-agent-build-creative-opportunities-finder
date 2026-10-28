@@ -5,12 +5,12 @@
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 
-import * as flt from "../../src/agents/filter.ts";
-import { missingCredentials } from "../../src/agents/model.ts";
-import { isUnverified } from "../../src/agents/pipeline.ts";
-import type { OpportunitiesResponse } from "../../src/api/types.ts";
-import { loadRecords } from "../../src/db/opportunities.ts";
-import { ALLOWED_ORIGIN, type Started, TEST_SNAPSHOT, closePool, getPool, opp, startApp } from "../helpers.ts";
+import * as flt from "../../server/agents/filter.ts";
+import { missingCredentials } from "../../server/agents/model.ts";
+import { isUnverified } from "../../server/agents/pipeline.ts";
+import type { OpportunitiesResponse } from "../../server/api/types.ts";
+import { loadRecords } from "../../server/db/opportunities.ts";
+import { type Started, TEST_SNAPSHOT, closePool, getPool, opp, startApp } from "../helpers.ts";
 
 const MAX_MODEL_CALLS = 6;
 const PLACE = "brooklyn";
@@ -38,7 +38,7 @@ describe("one real search through Ranker + Reviewer", { skip: SKIP }, () => {
   });
   before(async () => {
     app = await startApp({
-      RANKER_MODE: "ranker_reviewer", SNAPSHOT_ID: TEST_SNAPSHOT, ALLOWED_ORIGINS: ALLOWED_ORIGIN,
+      RANKER_MODE: "ranker_reviewer", SNAPSHOT_ID: TEST_SNAPSHOT,
       DAILY_MODEL_CALLS: String(MAX_MODEL_CALLS),
     });
   });

@@ -17,20 +17,7 @@ const TIER_NOTE: Record<number, string> = {
 
 export default async function Results({ searchParams }: { searchParams: Params }) {
   const q = await searchParams;
-  const raw = (v: string | string[] | undefined) => (Array.isArray(v) ? v.join(",") : (v ?? ""));
-
-  let meta;
-  try {
-    meta = await getMeta();
-  } catch (e) {
-    const sameSearch = new URLSearchParams({ d: raw(q.d), t: raw(q.t), p: raw(q.p) });
-    return (
-      <div className="wrap">
-        <h1 style={{ fontSize: "clamp(30px, 5vw, 44px)" }}>Your opportunities</h1>
-        <BackendFailure title="We couldn't get your results" failure={asBackendError(e)} retryHref={`/results?${sameSearch}`} />
-      </div>
-    );
-  }
+  const meta = getMeta();
   const labels = labelsFor(meta);
   const allowed = pickerChoices(meta);
   const places = pickIds(q.p, allowed.places);

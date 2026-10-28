@@ -1,23 +1,23 @@
-// The HTTP API on a real server against the real Supabase Postgres, code ranker only (no model calls, free).
+// The API, called in process, against the real Supabase Postgres, code ranker only (no model calls, free).
 // Read-only: SELECTs only, against the staged snapshot. Run with `npm run test:integration`; skips without
 // DATABASE_URL.
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 
-import * as flt from "../../src/agents/filter.ts";
-import * as pipeline from "../../src/agents/pipeline.ts";
-import { BaselineRanker } from "../../src/agents/roles.ts";
-import { toOpportunity } from "../../src/api/app.ts";
-import type { MetaResponse, OpportunitiesResponse, Opportunity, SearchResponse } from "../../src/api/types.ts";
-import { NoPublishedSnapshotError, publishedSnapshotId } from "../../src/db/opportunities.ts";
-import { ALLOWED_ORIGIN, type Started, TEST_SNAPSHOT, closePool, getPool, opp, startApp } from "../helpers.ts";
+import * as flt from "../../server/agents/filter.ts";
+import * as pipeline from "../../server/agents/pipeline.ts";
+import { BaselineRanker } from "../../server/agents/roles.ts";
+import { toOpportunity } from "../../server/api/app.ts";
+import type { MetaResponse, OpportunitiesResponse, Opportunity, SearchResponse } from "../../server/api/types.ts";
+import { NoPublishedSnapshotError, publishedSnapshotId } from "../../server/db/opportunities.ts";
+import { type Started, TEST_SNAPSHOT, closePool, getPool, opp, startApp } from "../helpers.ts";
 
 const SKIP = process.env.DATABASE_URL
   ? false
-  : "DATABASE_URL is not set (export it in the shell or put it in backend/.env); database integration tests skipped";
+  : "DATABASE_URL is not set (export it in the shell or put it in web/.env); database integration tests skipped";
 if (SKIP) console.log(`# ${SKIP}`);
 
-const BASELINE_ENV = { RANKER_MODE: "baseline", SNAPSHOT_ID: TEST_SNAPSHOT, ALLOWED_ORIGINS: ALLOWED_ORIGIN };
+const BASELINE_ENV = { RANKER_MODE: "baseline", SNAPSHOT_ID: TEST_SNAPSHOT };
 
 const OPPORTUNITY_KEYS = [
   "title", "org", "type", "subtype", "place", "location", "deadline", "event_dates", "recurrence", "fee", "award",
@@ -164,23 +164,6 @@ describe("API on real Postgres (baseline ranker)", { skip: SKIP }, () => {
       assert.deepEqual([r.status, r.body.error], [400, "bad_request"], path);
       assert.ok(!JSON.stringify(r.body).includes("atlantis"));
     }
-  });
-
-  it("403 for a foreign Origin, 204 preflight for the allowed one", async () => {
-    const foreign = await app.get(opp("brooklyn", "open_call"), { headers: { Origin: "https://evil.example" } });
-    assert.deepEqual([foreign.status, foreign.body.error], [403, "origin_not_allowed"]);
-    assert.equal(foreign.headers.get("access-control-allow-origin"), null);
-
-    const pre = await app.get(opp("brooklyn", "open_call"), {
-      method: "OPTIONS", headers: { Origin: ALLOWED_ORIGIN, "Access-Control-Request-Method": "GET" },
-    });
-    assert.equal(pre.status, 204);
-    assert.equal(pre.headers.get("access-control-allow-origin"), ALLOWED_ORIGIN);
-    assert.equal(pre.headers.get("access-control-allow-methods"), "GET");
-
-    const ok = await app.get(opp("brooklyn", "open_call"), { headers: { Origin: ALLOWED_ORIGIN } });
-    assert.equal(ok.status, 200);
-    assert.equal(ok.headers.get("access-control-allow-origin"), ALLOWED_ORIGIN);
   });
 
   it("404 for an unknown path, 405 for another method", async () => {

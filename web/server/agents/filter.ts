@@ -18,12 +18,31 @@
  * Dates are ISO strings (YYYY-MM-DD), which compare correctly as strings.
  */
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { BOROUGHS, PLACE_LABELS, type PlaceId, REGIONS, TYPES, disciplineLabel, fitsDisciplines, isDiscipline } from "./taxonomy.ts";
 
-export const REPO = fileURLToPath(new URL("../../../", import.meta.url));
+/**
+ * The repo root (holds data/, agents/, traces/), ending in a separator. Under Node (tests, CLI scripts) this file
+ * runs from its source location, web/server/agents/, three levels below the root. Inside the Next.js server bundle
+ * that location isn't the source tree, so the root is found from the working directory instead: next dev/start run
+ * in web/, one level below it. The first candidate holding data/snapshots wins.
+ */
+const findRepo = (): string => {
+  const candidates: string[] = [];
+  try {
+    candidates.push(resolve(dirname(fileURLToPath(import.meta.url)), "../../.."));
+  } catch {
+    // Not a file: URL (bundled): fall through to the working directory.
+  }
+  candidates.push(resolve(process.cwd(), ".."), process.cwd());
+  const root = candidates.find((dir) => existsSync(join(dir, "data", "snapshots"))) ?? candidates[0]!;
+  return root.endsWith(sep) ? root : root + sep;
+};
+
+export const REPO = findRepo();
 export const SNAPSHOT = `${REPO}data/snapshots/2026-10-27`;
 
 export { BOROUGHS, REGIONS, TYPES } from "./taxonomy.ts";

@@ -1,5 +1,5 @@
 /**
- * Server settings from the environment (see backend/.env.example). Invalid settings throw ConfigError at
+ * Server settings from the environment (see web/.env.example). Invalid settings throw ConfigError at
  * startup, naming the variable but never echoing its value.
  */
 
@@ -15,20 +15,11 @@ export class ConfigError extends Error {
 export const DATA_SOURCES = ["postgres", "json"] as const;
 export type DataSource = (typeof DATA_SOURCES)[number];
 
-/** Shortest API_PROXY_SECRET accepted: long enough that it has to be generated, not typed. */
-export const MIN_PROXY_SECRET_LENGTH = 32;
-
 export type Config = {
-  port: number;
-  /** Interface to listen on. Loopback by default, so only this machine (and its Next.js server) can reach it. */
-  host: string;
   mode: Mode;
   /** postgres (DATABASE_URL) or json (data/snapshots/<SNAPSHOT_ID>/records.json, local development). */
   dataSource: DataSource;
   snapshotId: string | undefined;
-  /** Shared secret for the trusted proxy's end-user header; undefined: proxy headers are ignored. */
-  proxySecret: string | undefined;
-  allowedOrigins: string[];
   traceDir: string | null;
   modelCallTimeoutMs: number;
   limits: Limits;
@@ -45,21 +36,6 @@ const int = (env: Env, name: string, fallback: number, min: number, max = Number
   return n;
 };
 
-/** Comma-separated origins (scheme://host[:port]). '*' and anything that is not an exact origin is refused. */
-const origins = (raw: string | undefined): string[] => {
-  const list = (raw ?? "http://localhost:5173").split(",").map((s) => s.trim()).filter(Boolean);
-  for (const o of list) {
-    let ok = false;
-    try {
-      ok = new URL(o).origin === o;
-    } catch {
-      ok = false;
-    }
-    if (!ok) throw new ConfigError("ALLOWED_ORIGINS must list exact origins like https://app.example.org (no wildcards)");
-  }
-  return list;
-};
-
 export const readConfig = (env: Env): Config => {
   const mode = env.RANKER_MODE?.trim() || "ranker_reviewer";
   if (!(MODES as readonly string[]).includes(mode)) throw new ConfigError(`RANKER_MODE must be one of ${MODES.join(", ")}`);
@@ -71,21 +47,12 @@ export const readConfig = (env: Env): Config => {
   if (dataSource === "json" && (snapshotId === undefined || !SNAPSHOT_ID_PATTERN.test(snapshotId))) {
     throw new ConfigError("the JSON data source needs SNAPSHOT_ID, a directory name under data/snapshots");
   }
-  // Not trimmed: the secret is compared exactly. Never echoed.
-  const proxySecret = env.API_PROXY_SECRET || undefined;
-  if (proxySecret !== undefined && proxySecret.length < MIN_PROXY_SECRET_LENGTH) {
-    throw new ConfigError(`API_PROXY_SECRET must be at least ${MIN_PROXY_SECRET_LENGTH} characters (e.g. openssl rand -hex 32)`);
-  }
   return {
-    port: int(env, "PORT", 8787, 0, 65535),
-    host: env.HOST?.trim() || "127.0.0.1",
     mode: mode as Mode,
     dataSource: dataSource as DataSource,
     snapshotId,
-    proxySecret,
-    allowedOrigins: origins(env.ALLOWED_ORIGINS),
-    // Unset: the repo's traces/ (git-ignored). Set but empty: tracing off.
-    traceDir: env.TRACE_DIR === undefined ? TRACE_DIR : env.TRACE_DIR.trim() || null,
+    // Unset: the repo's traces/ (git-ignored), or off on Vercel (read-only filesystem). Set but empty: tracing off.
+    traceDir: env.TRACE_DIR === undefined ? (env.VERCEL === "1" ? null : TRACE_DIR) : env.TRACE_DIR.trim() || null,
     modelCallTimeoutMs: int(env, "MODEL_CALL_TIMEOUT_MS", 60_000, 1000),
     limits: {
       ...DEFAULT_LIMITS,
