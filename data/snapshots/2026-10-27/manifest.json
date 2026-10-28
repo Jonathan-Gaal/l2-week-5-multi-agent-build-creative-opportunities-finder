@@ -2,14 +2,14 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1121,
+  "record_count": 1526,
   "by_borough": {
-    "manhattan": 373,
-    "brooklyn": 131,
-    "queens": 47,
-    "unknown": 39,
-    "bronx": 26,
-    "staten_island": 20,
+    "manhattan": 527,
+    "brooklyn": 248,
+    "queens": 109,
+    "unknown": 78,
+    "staten_island": 40,
+    "bronx": 39,
     "citywide": 12
   },
   "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
@@ -25,7 +25,8 @@
     "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records.",
     "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
     "2026-10-28: 17 youth-only or non-creative records removed after a youth-wording sweep (Queens Teens Institute plus 16); logged in dropped_records.",
-    "2026-10-28 held-source pass: 2 records from 1 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py)."
+    "2026-10-28 held-source pass: 2 records from 1 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
+    "2026-10-28 team decision (class project, not commercial): 405 records from Mara's 2026-10-27 backfill of Craigslist, FireMics, Playbill and A4 were added without rechecking, because those sites' terms or robots.txt don't allow automated checks. They carry extraction 'mara_backfill_unverified' and a caveat. No new requests were made to those sites."
   ],
   "sources": {
     "ingested_with_records": [
@@ -130,7 +131,10 @@
       "regional-millay-arts-core-residency",
       "regional-patchogue-annual-mural-commission",
       "regional-westbury-arts-our-world-in-color",
-      "regional-woodstock-byrdcliffe-residency"
+      "regional-woodstock-byrdcliffe-residency",
+      "mara-craigslist-new-york",
+      "mara-firemics-open-mics",
+      "playbill-jobs"
     ],
     "ingested_zero_open_records": {
       "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
@@ -908,14 +912,6 @@
       "reason": "robots_disallowed",
       "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
       "checked": "2026-10-28"
-    },
-    {
-      "title": "432 records from Craigslist, FireMics, Playbill and A4",
-      "source": "mara-backfill",
-      "source_url": null,
-      "reason": "terms or robots",
-      "detail": "terms prohibit scraping (Craigslist, FireMics, A4) or robots.txt blocks Claude agents (Playbill) (from Mara's backfill (data/snapshot.json)); not combined",
-      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -928,16 +924,16 @@
     "Eventbrite's public event search was shut down in 2019; the API can only re-read known event IDs, so it is not used."
   ],
   "by_discipline": {
-    "comedy": 397,
-    "music": 394,
-    "dance": 188,
-    "literary": 136,
-    "all": 105,
+    "music": 560,
+    "comedy": 430,
+    "dance": 190,
+    "literary": 147,
+    "performance": 146,
+    "visual": 113,
+    "all": 112,
     "theater": 60,
-    "visual": 59,
     "craft": 24,
     "film": 15,
-    "performance": 14,
     "digital": 8,
     "design": 7,
     "research": 4,
@@ -955,7 +951,7 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 648,
+    "nyc": 1053,
     "massachusetts": 86,
     "pennsylvania": 85,
     "long_island": 52,
@@ -972,20 +968,20 @@
   },
   "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
-    "event/open_mic": 650,
+    "event/open_mic": 684,
+    "open_call/paid_gig": 318,
+    "open_call/audition": 117,
     "event/workshop": 116,
     "event/dance_night": 112,
-    "open_call/audition": 73,
-    "open_call": 42,
+    "open_call": 53,
     "event/jam": 36,
     "event/class": 26,
     "residency": 19,
-    "grant": 16,
+    "grant": 17,
     "grant/fellowship": 8,
     "event/drawing_session": 5,
     "job/full_time": 5,
     "open_call/competition": 3,
-    "open_call/paid_gig": 3,
     "open_call/commission": 2,
     "residency/studio_access": 1,
     "open_call/fellowship": 1,
@@ -995,6 +991,7 @@
   },
   "by_extraction": {
     "structured": 765,
+    "mara_backfill_unverified": 405,
     "crawl_reviewed": 120,
     "manual": 82,
     "api": 67,

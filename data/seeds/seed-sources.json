@@ -256,7 +256,7 @@
       "category": "aggregator",
       "verdict": "hold",
       "checked": "crawled 2026-10-27",
-      "checks": "Server-rendered, robots.txt allows all, borough filters work (Bronx, Brooklyn, Manhattan, Queens; no Staten Island). 22 NYC non-job listings; 9 survived record filters.",
+      "checks": "Server-rendered, robots.txt allows all, borough filters work (Bronx, Brooklyn, Manhattan, Queens; no Staten Island). 22 NYC non-job listings; 9 survived record filters. 2026-10-28: 15 records from Mara's backfill included unverified by team decision (class project); this pipeline still makes no requests to the site.",
       "notes": "User-generated board. Card dates omit the year and 'Rolling' is often wrong: always read the detail page. ELSEHERE pay-to-publish listings are dropped. Held 2026-10-27: terms prohibit scraping; existing snapshot records from this source need a decision.",
       "access": "free",
       "ingest": false,
@@ -266,7 +266,8 @@
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 28,
       "mara_duplicates_of_ours": 7,
-      "terms_review": "A4 terms prohibit scraping and automated copying (Mara's review 2026-10-27)."
+      "terms_review": "A4 terms prohibit scraping and automated copying (Mara's review 2026-10-27).",
+      "records_2026_10_28_unverified": 15
     },
     {
       "id": "entrythingy-ny",
@@ -762,7 +763,7 @@
       "category": "aggregator",
       "verdict": "keep",
       "checked": "crawled 2026-10-27",
-      "checks": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "checks": "robots.txt disallows ClaudeBot and anthropic-ai. 2026-10-28: 45 records from Mara's backfill included unverified by team decision (class project); this pipeline still makes no requests to the site.",
       "notes": "Presentation only.",
       "access": "free",
       "ingest": false,
@@ -771,7 +772,8 @@
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 46,
       "mara_duplicates_of_ours": 0,
-      "terms_review": "robots.txt disallows ClaudeBot and anthropic-ai; no terms page found (Mara's review)."
+      "terms_review": "robots.txt disallows ClaudeBot and anthropic-ai; no terms page found (Mara's review).",
+      "records_2026_10_28_unverified": 45
     },
     {
       "id": "artswestchester",
@@ -18342,7 +18344,7 @@
       "category": "aggregator",
       "verdict": "hold",
       "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
-      "checks": "Craigslist terms prohibit scraping and automated access.",
+      "checks": "Craigslist terms prohibit scraping and automated access. 2026-10-28: 311 records from Mara's backfill included unverified by team decision (class project); this pipeline still makes no requests to the site.",
       "notes": "Added from Mara's backfill seed list.",
       "access": "free",
       "ingest": false,
@@ -18350,7 +18352,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 0,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_28_unverified": 311
     },
     {
       "id": "mara-firemics-open-mics",
@@ -18359,7 +18362,7 @@
       "category": "music",
       "verdict": "hold",
       "checked": "Mara's backfill research 2026-10-27; robots re-checked 2026-10-27",
-      "checks": "FireMics terms prohibit bots, scrapers and crawlers without express written permission (Mara's review 2026-10-27).",
+      "checks": "FireMics terms prohibit bots, scrapers and crawlers without express written permission (Mara's review 2026-10-27). 2026-10-28: 34 records from Mara's backfill included unverified by team decision (class project); this pipeline still makes no requests to the site.",
       "notes": "Added from Mara's backfill seed list.",
       "access": "free",
       "ingest": false,
@@ -18367,7 +18370,8 @@
       "application_fee": "varies per listing",
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 50,
-      "mara_duplicates_of_ours": 0
+      "mara_duplicates_of_ours": 0,
+      "records_2026_10_28_unverified": 34
     },
     {
       "id": "printshop",
