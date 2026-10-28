@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1129,
+  "count": 1136,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -35776,6 +35776,267 @@
       "checked_at": "2026-10-28",
       "fetched_at": "2026-10-28",
       "dedupe_key": "mi kmaq quill art craft|new_jersey|2026-11-10"
+    },
+    {
+      "title": "2027 AiR Summer Communal Application",
+      "org": "Woodstock Byrdcliffe Guild",
+      "opportunity_type": "residency",
+      "borough": null,
+      "region": "westchester_hudson",
+      "deadline": "2026-11-23",
+      "fee": "$30 application fee; $850 per monthly session if accepted",
+      "award": "need- and merit-based fellowships and stipends for select artists",
+      "location": "Byrdcliffe Arts Colony, Woodstock, NY",
+      "disciplines": [
+        "visual",
+        "literary",
+        "performance",
+        "craft"
+      ],
+      "eligibility": [
+        {
+          "requirement": "artists 18+ in visual, literary and performing arts",
+          "quote": "Emerging and established artists of all ages 18+ and backgrounds including women, LGBTQIA+, people of color, and other historically underrepresented populations are encouraged to apply."
+        },
+        {
+          "requirement": "priority review date",
+          "quote": "Preferred application date for Priority Review: November 16th, 2026"
+        },
+        {
+          "requirement": "date as stated",
+          "quote": "Applications close 11:59 PM November 23rd, 2026"
+        }
+      ],
+      "source": "regional-woodstock-byrdcliffe-residency",
+      "source_url": "https://woodstockbyrdcliffeguild.submittable.com/submit",
+      "subtype": null,
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "2027 air summer communal application|westchester_hudson|2026-11-23"
+    },
+    {
+      "title": "Our World in Color: Expressions in Watercolor",
+      "org": "Westbury Arts",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": null,
+      "region": "long_island",
+      "deadline": "2026-11-18",
+      "fee": "$35 hanging fee for non-members ($30 members)",
+      "award": "exhibition at Westbury Arts",
+      "location": "Westbury Arts, Westbury, NY",
+      "disciplines": [
+        "visual"
+      ],
+      "eligibility": [
+        {
+          "requirement": "artists 18 or older, up to two works",
+          "quote": "This Call is open to emerging as well as established artists eighteen years or older."
+        },
+        {
+          "requirement": "date as stated",
+          "quote": "Submission Deadline: 11:59 pm on Tuesday, November 18, 2026."
+        }
+      ],
+      "source": "regional-westbury-arts-our-world-in-color",
+      "source_url": "https://www.westburyarts.org/calls-for-artists",
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "our world in color expressions in watercolor|long_island|2026-11-18"
+    },
+    {
+      "title": "Artist Vault",
+      "org": "Patchogue Arts Council / MoCA L.I.",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": null,
+      "region": "long_island",
+      "deadline": "rolling",
+      "fee": "none",
+      "award": "consideration for PAC / MoCA L.I. group and solo exhibitions",
+      "location": "Patchogue, NY",
+      "disciplines": [
+        "visual"
+      ],
+      "eligibility": [
+        {
+          "requirement": "artists in all mediums and career stages",
+          "quote": "PAC • MoCA L.I. invites artists working in all mediums and at all stages of their careers to submit work for inclusion in the Artist Vault."
+        },
+        {
+          "requirement": "rolling, no fees",
+          "quote": "Submissions accepted on a rolling basis—no deadlines."
+        }
+      ],
+      "source": "regional-patchogue-annual-mural-commission",
+      "source_url": "https://patchoguearts.org/opportunities/",
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "artist vault|long_island|rolling"
+    },
+    {
+      "title": "Steepletop Residency",
+      "org": "Millay Arts",
+      "opportunity_type": "residency",
+      "borough": null,
+      "region": "upstate_ny",
+      "deadline": "rolling",
+      "fee": "$45 application fee; partially subsidized residency fee if invited",
+      "award": "private bedroom and studio, meals provided",
+      "location": "Steepletop, Austerlitz, NY",
+      "disciplines": [
+        "all"
+      ],
+      "eligibility": [
+        {
+          "requirement": "rolling, reviewed by staff (no jury)",
+          "quote": "Steepletop applications have a rolling deadline, applications are accepted year-round via our Submittable portal."
+        }
+      ],
+      "source": "regional-millay-arts-core-residency",
+      "source_url": "https://www.millayarts.org/residencies/steepletop/",
+      "subtype": null,
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "steepletop residency|upstate_ny|rolling"
+    },
+    {
+      "title": "Bands & Performance Proposals",
+      "org": "Culture Lab LIC",
+      "opportunity_type": "open_call",
+      "subtype": null,
+      "borough": "queens",
+      "region": "nyc",
+      "deadline": "rolling",
+      "fee": "unknown",
+      "award": null,
+      "location": "Culture Lab LIC, Long Island City",
+      "disciplines": [
+        "music",
+        "performance",
+        "theater",
+        "dance"
+      ],
+      "eligibility": [
+        {
+          "requirement": "bands and live performers, reviewed year-round",
+          "quote": "Bands & Performance Proposals: Reviewed on a rolling basis throughout the year. Performances are scheduled across our four distinct stages."
+        }
+      ],
+      "source": "regional-culture-lab-lic-performance-proposals",
+      "source_url": "https://www.culturelablic.org/submissions-culturelablic",
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "bands performance proposals|queens|rolling"
+    },
+    {
+      "title": "Propose a Spring Street Mural",
+      "org": "Arts Council of Princeton",
+      "opportunity_type": "open_call",
+      "subtype": "commission",
+      "borough": null,
+      "region": "new_jersey",
+      "deadline": "rolling",
+      "fee": "none",
+      "award": "$500 stipend plus some materials",
+      "location": "Spring Street, Princeton, NJ",
+      "disciplines": [
+        "visual"
+      ],
+      "eligibility": [
+        {
+          "requirement": "local and regional artists",
+          "quote": "The Arts Council of Princeton (ACP) is looking to collaborate with local and regional artists for our Spring Street temporary mural location."
+        },
+        {
+          "requirement": "stipend",
+          "quote": "A stipend of $500 is provided for selected artists and some materials are provided by the ACP."
+        }
+      ],
+      "source": "regional-arts-council-of-princeton-artist-residency",
+      "source_url": "https://artscouncilofprinceton.org/artists/artist-opps/",
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "caveat": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "propose a spring street mural|new_jersey|rolling"
+    },
+    {
+      "title": "Internship: Spring & Summer 2027",
+      "org": "Elizabeth Foundation for the Arts (EFA Studio Program)",
+      "opportunity_type": "job",
+      "subtype": "internship",
+      "borough": "manhattan",
+      "region": "nyc",
+      "deadline": "2026-11-15",
+      "fee": "none",
+      "award": null,
+      "location": "323 West 39th Street, New York, NY 10018",
+      "disciplines": [
+        "all"
+      ],
+      "eligibility": [
+        {
+          "requirement": "two days a week, spring and/or summer",
+          "quote": "2 days per week commitment on Tuesdays and Thursdays, 8 hours per day"
+        },
+        {
+          "requirement": "date as stated",
+          "quote": "Apply by Sunday, November 15, 2026"
+        }
+      ],
+      "caveat": "Pay is not stated on the listing.",
+      "source": "exp3-efa-residencies",
+      "source_url": "https://www.efanyc.org/opportunities",
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "internship spring summer 2027|manhattan|2026-11-15"
     }
   ]
 }

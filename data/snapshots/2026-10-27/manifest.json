@@ -2,11 +2,11 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1129,
+  "record_count": 1136,
   "by_borough": {
-    "manhattan": 375,
+    "manhattan": 376,
     "brooklyn": 131,
-    "queens": 48,
+    "queens": 49,
     "unknown": 37,
     "bronx": 27,
     "staten_island": 22,
@@ -22,7 +22,8 @@
     "2026-10-27 second pass: 651 records; every quote matched on the record's own page and every URL returned 200. One record dropped whose quote could not be confirmed on its own page; one dropped for a malformed URL.",
     "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages.",
     "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API.",
-    "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records."
+    "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records.",
+    "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py)."
   ],
   "sources": {
     "ingested_with_records": [
@@ -120,7 +121,14 @@
       "regional-knot-just-knitting-crochet-embroidery-and-more",
       "regional-crochet-a-granny-square",
       "regional-mini-basket-weaving-craft-mini-cestas",
-      "regional-mi-kmaq-quill-art-craft"
+      "regional-mi-kmaq-quill-art-craft",
+      "exp3-efa-residencies",
+      "regional-arts-council-of-princeton-artist-residency",
+      "regional-culture-lab-lic-performance-proposals",
+      "regional-millay-arts-core-residency",
+      "regional-patchogue-annual-mural-commission",
+      "regional-westbury-arts-our-world-in-color",
+      "regional-woodstock-byrdcliffe-residency"
     ],
     "ingested_zero_open_records": {
       "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
@@ -667,6 +675,62 @@
       "reason": "duplicate",
       "detail": "same series as https://www.huntingtonarts.org/event/dj-dancing-with-swing-dance-long-island-2/2026-10-27/ (organizer posted it twice; occurrences overlap)",
       "checked": "2026-10-28"
+    },
+    {
+      "title": "AlterWork Residency Program",
+      "source": "regional-alterwork-studios-residency",
+      "source_url": "https://www.alterworkstudios.com/residency",
+      "reason": "date not on page",
+      "detail": "page gives quarterly deadlines without a year and does not state where the residency is",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Norwalk Art Space Resident Artist",
+      "source": "regional-norwalk-art-space-resident-artist",
+      "source_url": "https://www.thenorwalkartspace.org/artist-application",
+      "reason": "ineligible",
+      "detail": "open only to CT-based artists; the linked application form says it is no longer accepting responses",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "NARS Residency Program, Rolling Admission",
+      "source": "regional-nars-international-artist-residency",
+      "source_url": "https://narsfoundation.submittable.com/submit",
+      "reason": "ineligible",
+      "detail": "rolling admission is for international artists only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Writopia Lab Frightopia anthology",
+      "source": "regional-writopia-frightopia-anthology-submission",
+      "source_url": "https://www.writopialab.org/",
+      "reason": "ineligible",
+      "detail": "youth writing program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "2027 B Free Awards",
+      "source": "regional-briclab",
+      "source_url": "https://bricartsmedia.org/",
+      "reason": "deadline not found",
+      "detail": "homepage says submissions are open; no deadline or eligibility on the pages read",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Third-party calls on the Arts Council of Princeton and Newark Arts opportunity boards",
+      "source": "regional-arts-council-of-princeton-artist-residency",
+      "source_url": "https://artscouncilofprinceton.org/artists/artist-opps/",
+      "reason": "aggregator date",
+      "detail": "dates listed by a board, not the organizer; Newark Arts board also shows placeholder deadlines (2030, 2045)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "chashama Spaces to Present",
+      "source": "regional-chashama-space-to-present",
+      "source_url": "https://chashama.org/spaces-to-present/",
+      "reason": "not an opportunity",
+      "detail": "spaces are listed as available for rent",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -680,15 +744,15 @@
   ],
   "by_discipline": {
     "comedy": 398,
-    "music": 395,
-    "dance": 186,
-    "literary": 137,
-    "all": 111,
-    "visual": 62,
-    "theater": 58,
-    "craft": 26,
+    "music": 396,
+    "dance": 187,
+    "literary": 138,
+    "all": 113,
+    "visual": 66,
+    "theater": 59,
+    "craft": 27,
+    "performance": 15,
     "film": 15,
-    "performance": 13,
     "digital": 9,
     "design": 8,
     "research": 4,
@@ -706,16 +770,16 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 652,
+    "nyc": 654,
     "massachusetts": 86,
     "pennsylvania": 85,
-    "long_island": 57,
+    "long_island": 59,
     "dc": 49,
-    "new_jersey": 47,
+    "new_jersey": 48,
     "maryland": 46,
     "connecticut": 35,
-    "westchester_hudson": 18,
-    "upstate_ny": 17,
+    "westchester_hudson": 19,
+    "upstate_ny": 18,
     "rhode_island": 14,
     "new_hampshire": 11,
     "maine": 9,
@@ -727,26 +791,27 @@
     "event/workshop": 128,
     "event/dance_night": 112,
     "open_call/audition": 71,
-    "open_call": 39,
+    "open_call": 42,
     "event/jam": 36,
     "event/class": 28,
-    "residency": 17,
+    "residency": 19,
     "grant": 16,
     "grant/fellowship": 8,
     "event/drawing_session": 6,
     "job/full_time": 5,
     "open_call/competition": 3,
     "open_call/paid_gig": 3,
+    "open_call/commission": 2,
     "residency/studio_access": 1,
     "open_call/fellowship": 1,
     "open_call/youth_program": 1,
     "open_call/teaching_gig": 1,
-    "open_call/commission": 1,
-    "event/open_studio": 1
+    "event/open_studio": 1,
+    "job/internship": 1
   },
   "by_extraction": {
     "structured": 768,
-    "crawl_reviewed": 116,
+    "crawl_reviewed": 123,
     "manual": 83,
     "api": 75,
     "mara_backfill_verified": 44,
