@@ -19,6 +19,10 @@ import { closePool, getPool } from "./db/pool.ts";
 
 // How long shutdown waits for in-flight requests before closing their connections.
 const SHUTDOWN_GRACE_MS = 10_000;
+// Slow-client limits: every route is a GET with no body, so a request that takes longer than this to arrive
+// (headers included) is a slowloris-style attack holding a socket open. Responses may still take minutes.
+const REQUEST_RECEIVE_MS = 10_000;
+const MAX_HEADER_BYTES = 8 * 1024;
 
 const main = () => {
   const config = readConfig(process.env);
@@ -43,7 +47,12 @@ const main = () => {
     limits: config.limits,
     proxySecret: config.proxySecret,
   });
-  const server = createServer((req, res) => void handler(req, res));
+  const server = createServer(
+    { requestTimeout: REQUEST_RECEIVE_MS, headersTimeout: REQUEST_RECEIVE_MS, maxHeaderSize: MAX_HEADER_BYTES,
+      connectionsCheckingInterval: 1000 },
+    (req, res) => void handler(req, res),
+  );
+  server.maxConnections = 256;
 
   let stopping = false;
   const stop = (signal: string) => {
@@ -63,12 +72,12 @@ const main = () => {
   process.on("SIGINT", () => stop("SIGINT"));
   process.on("SIGTERM", () => stop("SIGTERM"));
 
-  server.listen(config.port, () => {
+  server.listen(config.port, config.host, () => {
     const snapshot = useJson
       ? `snapshot ${config.snapshotId} from records.json (DATA_SOURCE=json)`
       : config.snapshotId ? `snapshot ${config.snapshotId} (SNAPSHOT_ID override)` : "published snapshot";
     const proxy = config.proxySecret ? " · trusted proxy secret set" : "";
-    console.error(`listening on http://localhost:${config.port} · mode ${config.mode} · ${snapshot}${proxy}`);
+    console.error(`listening on http://${config.host}:${config.port} · mode ${config.mode} · ${snapshot}${proxy}`);
   });
 };
 

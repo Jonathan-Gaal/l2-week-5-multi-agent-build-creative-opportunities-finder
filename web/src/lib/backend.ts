@@ -100,11 +100,18 @@ export async function getMeta(): Promise<MetaResponse> {
   }
 }
 
+// X-Forwarded-For is only as trustworthy as the proxy in front of this server. With no proxy (next start on an open
+// port) any visitor can write it and pick a fresh rate limit per request, so it is read only when a proxy is known
+// to set it: on Vercel, or when TRUST_FORWARDED_FOR=1.
+const TRUST_FORWARDED_FOR = process.env.VERCEL === "1" || process.env.TRUST_FORWARDED_FOR === "1";
+
 /**
  * The visitor's address for the API's per-visitor rate limit: the LAST X-Forwarded-For entry, the one added by the
- * proxy in front of this server (Vercel replaces the header; nginx appends to it). Null when there is none.
+ * proxy in front of this server (Vercel replaces the header; nginx appends to it). Null when there is none or no
+ * proxy is trusted; the API then limits every visitor together by this server's address (the safe direction).
  */
 export function visitorAddress(headers: Headers): string | null {
+  if (!TRUST_FORWARDED_FOR) return null;
   const last = headers.get("x-forwarded-for")?.split(",").pop()?.trim();
   return last ? last : null;
 }

@@ -20,6 +20,8 @@ export const MIN_PROXY_SECRET_LENGTH = 32;
 
 export type Config = {
   port: number;
+  /** Interface to listen on. Loopback by default, so only this machine (and its Next.js server) can reach it. */
+  host: string;
   mode: Mode;
   /** postgres (DATABASE_URL) or json (data/snapshots/<SNAPSHOT_ID>/records.json, local development). */
   dataSource: DataSource;
@@ -76,6 +78,7 @@ export const readConfig = (env: Env): Config => {
   }
   return {
     port: int(env, "PORT", 8787, 0, 65535),
+    host: env.HOST?.trim() || "127.0.0.1",
     mode: mode as Mode,
     dataSource: dataSource as DataSource,
     snapshotId,
