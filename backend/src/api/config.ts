@@ -5,15 +5,21 @@
 
 import { TRACE_DIR } from "../agents/pipeline.ts";
 import { TYPES } from "../agents/taxonomy.ts";
+import { SNAPSHOT_ID_PATTERN } from "../db/json-source.ts";
 import { DEFAULT_LIMITS, type Limits, MODES, type Mode } from "./app.ts";
 
 export class ConfigError extends Error {
   override name = "ConfigError";
 }
 
+export const DATA_SOURCES = ["postgres", "json"] as const;
+export type DataSource = (typeof DATA_SOURCES)[number];
+
 export type Config = {
   port: number;
   mode: Mode;
+  /** postgres (DATABASE_URL) or json (data/snapshots/<SNAPSHOT_ID>/records.json, local development). */
+  dataSource: DataSource;
   snapshotId: string | undefined;
   allowedOrigins: string[];
   traceDir: string | null;
@@ -51,9 +57,17 @@ export const readConfig = (env: Env): Config => {
   const mode = env.RANKER_MODE?.trim() || "ranker_reviewer";
   if (!(MODES as readonly string[]).includes(mode)) throw new ConfigError(`RANKER_MODE must be one of ${MODES.join(", ")}`);
   const snapshotId = env.SNAPSHOT_ID?.trim() || undefined;
+  const dataSource = env.DATA_SOURCE?.trim() || "postgres";
+  if (!(DATA_SOURCES as readonly string[]).includes(dataSource)) {
+    throw new ConfigError(`DATA_SOURCE must be one of ${DATA_SOURCES.join(", ")}`);
+  }
+  if (dataSource === "json" && (snapshotId === undefined || !SNAPSHOT_ID_PATTERN.test(snapshotId))) {
+    throw new ConfigError("the JSON data source needs SNAPSHOT_ID, a directory name under data/snapshots");
+  }
   return {
     port: int(env, "PORT", 8787, 0, 65535),
     mode: mode as Mode,
+    dataSource: dataSource as DataSource,
     snapshotId,
     allowedOrigins: origins(env.ALLOWED_ORIGINS),
     // Unset: the repo's traces/ (git-ignored). Set but empty: tracing off.

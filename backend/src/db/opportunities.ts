@@ -4,6 +4,9 @@
  * The backend connects as a database role that row level security does not restrict, so it would see
  * staging and retired snapshots too. Every read here is pinned to one snapshot id: the published one by
  * default, or an explicit id to check a staged snapshot before publishing it.
+ *
+ * The app reads through RecordSource, so it can run from Postgres (postgresSource) or from a snapshot's
+ * records.json (db/json-source.ts) without depending on SQL text.
  */
 
 import { BOROUGHS, type OppRecord, type Request, REGIONS } from "../agents/filter.ts";
@@ -11,6 +14,14 @@ import { disciplineTags } from "../agents/taxonomy.ts";
 
 /** The part of pg.Pool / pg.Client used here, so tests can pass a fake. */
 export type Queryable = { query(text: string, values: unknown[]): Promise<{ rows: unknown[] }> };
+
+/** Where the app's records come from. */
+export type RecordSource = {
+  /** The snapshot to serve when none is pinned; throws NoPublishedSnapshotError when there is none. */
+  publishedSnapshotId(): Promise<string>;
+  /** Records of `snapshotId` that can match the request (filter.select still applies every hard filter). */
+  loadRecords(req: Request, snapshotId: string): Promise<OppRecord[]>;
+};
 
 export class NoPublishedSnapshotError extends Error {
   override name = "NoPublishedSnapshotError";
@@ -51,3 +62,8 @@ export const loadRecords = async (
   const { rows } = await db.query(QUERY, queryValues(req, id));
   return { snapshotId: id, records: rows as OppRecord[] };
 };
+
+export const postgresSource = (db: Queryable): RecordSource => ({
+  publishedSnapshotId: () => publishedSnapshotId(db),
+  loadRecords: async (req, snapshotId) => (await loadRecords(db, req, snapshotId)).records,
+});
