@@ -245,15 +245,16 @@
       "authentication": "API key required",
       "env_var": "NYC_API_KEY",
       "priority": "medium",
-      "purpose": "Participatory NYC workshops and classes in the Arts and Culture category.",
+      "purpose": "Creative hands-on NYC events and open calls (mostly NYC Parks). Category filter is ignored server-side and there is no arts category; the adapter pages through all events and filters on the text.",
       "geography": [
         "NY"
       ],
       "adapter": "nyc_events",
-      "status": "adapter_built_needs_key",
+      "status": "adapter_live",
       "ingest": false,
-      "availability_verified": false,
-      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      "availability_verified": true,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+      "last_run": "2026-10-28: 674 events in 90 days, 7 candidates"
     },
     {
       "id": "api-eventbrite",

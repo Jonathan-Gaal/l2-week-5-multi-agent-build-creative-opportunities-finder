@@ -259,26 +259,47 @@ PARTICIPATE = re.compile(r"\b(workshops?|class(?:es)?|open mic|jam|drum circle|s
 BOROUGH = {"manhattan": "manhattan", "brooklyn": "brooklyn", "queens": "queens", "bronx": "bronx", "staten island": "staten_island"}
 
 
+NYC_BOROUGH = {"mn": "manhattan", "bk": "brooklyn", "qn": "queens", "bx": "bronx", "si": "staten_island", **BOROUGH}
+NYC_MAX_PAGES = 100   # 12 events a page; about 57 pages cover 90 days
+
+
+def _nyc_event_record(e):
+    """Candidate for one calendar occurrence, or None when cancelled, not creative or not hands-on."""
+    name, desc = _text(e.get("name")), _text(e.get("shortDesc") or e.get("desc"))
+    url = e.get("permalink") or e.get("website")
+    # The calendar's category filter is ignored server-side and it has no arts category, so filter on the text.
+    if e.get("canceled") or not url or not PARTICIPATE.search(name) or not is_creative(name, desc):
+        return None
+    start = parse_date(e.get("startDate"))
+    if not start or start < TODAY:
+        return None
+    typ = event_type(name)
+    boroughs = e.get("boroughs") or []
+    boro = NYC_BOROUGH.get(boroughs[0].strip().lower(), "unknown") if len(boroughs) == 1 else ("citywide" if boroughs else "unknown")
+    free = "free" in (e.get("categories") or "").lower()
+    return record(name, e.get("agencyName") or "NYC", url, None if typ == "open_call" else start,   # an open call's listing dates are not its deadline
+                  boro, "nyc", typ, event_subtype(name), ["all"], first_sentence(desc), "api-nyc-event-calendar",
+                  fee="none" if free else "unknown", location=_text(e.get("location") or e.get("address")) or None)
+
+
 def nyc_events():
     key = os.environ.get("NYC_API_KEY")
     if not key:
         print("nyc_events: skipped, set NYC_API_KEY (register at https://api-portal.nyc.gov)", file=sys.stderr)
         return []
-    out, start = [], TODAY
-    end = TODAY + dt.timedelta(days=90)
-    q = urllib.parse.urlencode({"startDate": start.strftime("%m/%d/%Y 12:00 AM"), "endDate": end.strftime("%m/%d/%Y 11:59 PM"), "categories": "Arts and Culture"})
-    body = request_json(f"https://api.nyc.gov/calendar/search?{q}", headers={"Ocp-Apim-Subscription-Key": key})
-    for e in body.get("items", []):
-        name, desc = e.get("name", ""), re.sub(r"<[^>]+>", " ", e.get("shortDesc") or e.get("desc") or "")
-        if not PARTICIPATE.search(name):
-            continue
-        boro = BOROUGH.get((e.get("boroughs") or [""])[0].lower(), "unknown") if e.get("boroughs") else "unknown"
-        url = e.get("permalink") or e.get("website")
-        if not url:
-            continue
-        out.append(record(name, e.get("organizer") or "NYC", url, parse_date(e.get("startDate")), boro, "nyc", "event", "workshop",
-                          ["all"], desc.strip()[:300] or None, "api-nyc-event-calendar", fee="none" if e.get("free") else "unknown"))
-    return out
+    window = {"startDate": TODAY.strftime("%m/%d/%Y 12:00 AM"), "endDate": (TODAY + dt.timedelta(days=90)).strftime("%m/%d/%Y 11:59 PM")}
+    recs, seen = [], set()
+    for page in range(1, NYC_MAX_PAGES + 1):
+        body = request_json("https://api.nyc.gov/calendar/search?" + urllib.parse.urlencode({**window, "pageNumber": page}),
+                            headers={"Ocp-Apim-Subscription-Key": key})
+        for e in body.get("items", []):
+            if (e.get("id"), e.get("startDate")) not in seen:
+                seen.add((e.get("id"), e.get("startDate")))
+                recs.append(_nyc_event_record(e))
+        pages = body.get("pagination") or {}
+        if pages.get("isLastPage") or page >= (pages.get("numPages") or 1):
+            break
+    return _group_occurrences([r for r in recs if r])
 
 
 # --- SAM.gov contract opportunities (needs SAM_API_KEY) ----------------------------------------
@@ -358,6 +379,16 @@ def event_type(title):
     return "open_call" if re.search(r"audition|open call|casting", title, re.I) else "event"
 
 
+EVENT_SUBTYPES = [(r"audition|casting", "audition"), (r"open call", None), (r"open mic", "open_mic"), (r"\bjams?\b|drum circle", "jam"),
+                  (r"swing|salsa|tango|dance (?:party|social|night)|\bdj\b", "dance_night"), (r"drawing|sketch|figure", "drawing_session"),
+                  (r"\bclass(?:es)?\b|lesson|course|intensive", "class")]
+
+
+def event_subtype(title):
+    """The snapshot's subtypes (open_mic, jam, class, ...); None for a plain open call, workshop when nothing more specific matches."""
+    return next((sub for rx, sub in EVENT_SUBTYPES if re.search(rx, title, re.I)), "workshop")
+
+
 def _eventbrite_record(e):
     name = (e.get("name") or {}).get("text") or ""
     desc = (e.get("summary") or (e.get("description") or {}).get("text") or "").strip()
@@ -372,7 +403,7 @@ def _eventbrite_record(e):
         return None
     fee = "none" if e.get("is_free") else "unknown"
     return record(name, (e.get("organizer") or {}).get("name") or "Eventbrite organizer", e.get("url"), start, where[0], where[1],
-                  event_type(name), "workshop", ["all"], first_sentence(desc),
+                  event_type(name), event_subtype(name), ["all"], first_sentence(desc),
                   "api-eventbrite", fee=fee, location=", ".join(x for x in [venue.get("name"), (venue.get("address") or {}).get("localized_address_display")] if x) or None,
                   eventbrite_id=e.get("id"))
 
@@ -459,7 +490,7 @@ def _tribe_record(e, site):
         return None
     fee = _tribe_fee(e)
     location = ", ".join(x for x in (venue.get("venue"), venue.get("address"), venue.get("city")) if x) or ("Online" if e.get("is_virtual") else None)
-    return record(title, site["org"], e.get("url"), start, where[0], where[1], event_type(title), "workshop", site.get("disciplines", ["all"]),
+    return record(title, site["org"], e.get("url"), start, where[0], where[1], event_type(title), event_subtype(title), site.get("disciplines", ["all"]),
                   first_sentence(_text(e.get("excerpt") or e.get("description"))), site["source"], fee=fee, location=location)
 
 
@@ -473,7 +504,7 @@ def _group_occurrences(recs):
         else:
             groups[key] = {**r, "event_dates": [r["deadline"]]}
     for g in groups.values():
-        g["event_dates"] = sorted(set(g["event_dates"]))
+        g["event_dates"] = sorted({d for d in g["event_dates"] if d})   # open calls carry no date
         if len(g["event_dates"]) > 1:
             g["recurrence"] = f"{len(g['event_dates'])} dates through {g['event_dates'][-1]}"
     return list(groups.values())

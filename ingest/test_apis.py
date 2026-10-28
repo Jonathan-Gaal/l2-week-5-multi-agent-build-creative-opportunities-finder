@@ -194,6 +194,44 @@ class SamGov(unittest.TestCase):
         self.assertEqual([(r["title"], r["region"]) for r in out], [("Mural for VA clinic", "nyc"), ("Exhibit photography", "pennsylvania")])
 
 
+class NycEvents(unittest.TestCase):
+    def event(self, days=3, **over):
+        e = {"id": 1, "name": "Park Open Studio", "permalink": "https://www1.nyc.gov/events/park-open-studio/1/1", "canceled": False,
+             "startDate": (dt.date.today() + dt.timedelta(days=days)).isoformat() + "T14:00:00.000-04:00", "boroughs": ["Mn"],
+             "categories": "Parks & Recreation,Free", "agencyName": "NYC Parks",
+             "shortDesc": "<p>Drop in and paint in the park with free art supplies provided.</p>"}
+        e.update(over)
+        return e
+
+    def test_keeps_creative_hands_on_event(self):
+        r = apis._nyc_event_record(self.event())
+        self.assertEqual((r["borough"], r["fee"], r["subtype"], r["org"]), ("manhattan", "none", "workshop", "NYC Parks"))
+
+    def test_drops_cancelled_past_and_non_creative(self):
+        self.assertIsNone(apis._nyc_event_record(self.event(canceled=True)))
+        self.assertIsNone(apis._nyc_event_record(self.event(days=-2)))
+        self.assertIsNone(apis._nyc_event_record(self.event(name="Fall Yoga", shortDesc="Stretch outdoors.")))
+
+    def test_open_call_has_no_listing_deadline_and_groups(self):
+        recs = [apis._nyc_event_record(self.event(days=d, name="NYC Parks' Wreath Interpretations Open Call",
+                                                  shortDesc="Artists are invited to handcraft a whimsical wreath for the exhibition.")) for d in (0, 1, 2)]
+        [g] = apis._group_occurrences(recs)
+        self.assertEqual((g["opportunity_type"], g["subtype"], g["deadline"], g["event_dates"]), ("open_call", None, None, []))
+
+    def test_borough_abbreviations(self):
+        self.assertEqual(apis._nyc_event_record(self.event(boroughs=["SI"]))["borough"], "staten_island")
+        self.assertEqual(apis._nyc_event_record(self.event(boroughs=["Mn", "Bk"]))["borough"], "citywide")
+
+
+class EventSubtype(unittest.TestCase):
+    def test_snapshot_subtypes(self):
+        cases = {"Story & Verse: A Storytelling and Poetic Open Mic": "open_mic", "Lisa Polizzi Jam": "jam", "Jersey Art Meetup (JAM)": "jam",
+                 "DJ Dancing with Swing Dance Long Island": "dance_night", "INTRODUCTION TO DRAWING THE FIGURE": "drawing_session",
+                 "Adult Acting Classes": "class", "Collective Roll-Up Workshop": "workshop", "Open Call Auditions": "audition"}
+        for title, sub in cases.items():
+            self.assertEqual(apis.event_subtype(title), sub, title)
+
+
 class TribeEvents(unittest.TestCase):
     site = {"source": "si-museum", "org": "Staten Island Museum", "borough": "staten_island", "region": "nyc"}
 
