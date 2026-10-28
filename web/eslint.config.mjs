@@ -12,9 +12,17 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Dev-only launcher that runs the backend from the snapshot file; it is not part of the app.
-    "dev/**",
   ]),
+  {
+    // The API contract lives in backend/src/api/types.ts (tsconfig alias "@api/*"). Type-only imports are erased
+    // before bundling, so the bundler never reaches outside web/; a value import would need turbopack.root widened
+    // to the whole repo. To get a constant's literal type, `import type { X }` and use `typeof X`.
+    rules: {
+      "@typescript-eslint/no-restricted-imports": ["error", {
+        patterns: [{ group: ["@api/*"], allowTypeImports: true, message: "Import the API contract with `import type` only." }],
+      }],
+    },
+  },
 ]);
 
 export default eslintConfig;
