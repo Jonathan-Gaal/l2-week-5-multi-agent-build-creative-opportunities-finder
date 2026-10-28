@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Playback from "./Playback";
 import ResultCard from "./ResultCard";
+import type { MetaResponse } from "@api/types";
 import { framesFor, SAVED_RUNS } from "@/lib/runs";
-import { BOROUGHS, DISCIPLINES, PLACE_GROUPS, placeLabel, TYPE_LABEL, TYPES } from "@/lib/taxonomy";
+import { type Labels, labelsFor } from "@/lib/taxonomy";
 import type { Frame, SearchOutput } from "@/lib/types";
 
 type Choice = { disciplines: string[]; types: string[]; places: string[] };
@@ -19,41 +20,47 @@ const PERSONAS: { name: string; about: string; c: Choice }[] = [
 
 const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
 
-function framesForSearch(c: Choice, out: SearchOutput): Frame[] {
+function framesForSearch(c: Choice, out: SearchOutput, labels: Labels): Frame[] {
   const frames: Frame[] = [
     {
       kind: "request",
       title: "Request",
       lines: [
-        `Places: ${c.places.map(placeLabel).join(", ")}`,
-        `Looking for: ${c.types.map((t) => TYPE_LABEL[t]).join(", ")}`,
-        `Disciplines: ${c.disciplines.length ? c.disciplines.join(", ") : "any"}${c.disciplines.length ? " (not applied: the results service has no discipline filter yet)" : ""}`,
-        `The service takes one place and one type per call, so this makes ${out.calls.length} call${out.calls.length === 1 ? "" : "s"}`,
+        `Places: ${c.places.map(labels.place).join(", ")}`,
+        `Looking for: ${c.types.map(labels.type).join(", ")}`,
+        `Disciplines: ${c.disciplines.length ? c.disciplines.map(labels.discipline).join(", ") : "any"}`,
         `Snapshot ${out.snapshotId}, as of ${out.asOf}`,
       ],
     },
-  ];
-  for (const call of out.calls) {
-    frames.push({
+    {
       kind: "call",
-      title: `Call: ${placeLabel(call.place)} · ${TYPE_LABEL[call.type]}`,
-      lines: call.ok
-        ? [`Tier ${call.tier} · ${call.count} result${call.count === 1 ? "" : "s"}`, call.removed ?? "Nothing removed", `Request id ${call.requestId}`]
-        : [`Failed: ${call.error}`],
-    });
-  }
-  for (const g of out.groups) {
+      title: "One call to the results service",
+      lines: [
+        `GET /api/search?${out.query}`,
+        "The service expands place groups, filters by discipline, and ranks each type once over all the places",
+        `${out.calls.length} type group${out.calls.length === 1 ? "" : "s"} back`,
+      ],
+    },
+  ];
+  out.groups.forEach((g, i) => {
+    const call = out.calls[i];
     frames.push({
       kind: "result",
-      title: `Merged: ${TYPE_LABEL[g.type]}`,
+      title: `${labels.type(g.type)} · tier ${g.tier}`,
       tier: g.tier,
-      lines: g.cards.length ? g.cards.map((card) => `${card.title} · ${card.label}`) : [g.reason ?? "No match"],
+      lines: [
+        ...(g.cards.length ? g.cards.map((card) => `${card.title} · ${card.label}`) : [g.reason ?? "No match"]),
+        g.removed ?? "Nothing removed",
+        `Request id ${call?.requestId ?? "?"}`,
+      ],
     });
-  }
+  });
   return frames;
 }
 
-export default function DevTools() {
+/** `meta` is the results service's picker lists, or null when the service could not be reached. */
+export default function DevTools({ meta }: { meta: MetaResponse | null }) {
+  const labels = labelsFor(meta);
   const [health, setHealth] = useState<{ ok: boolean; url: string } | null>(null);
   const [runId, setRunId] = useState(SAVED_RUNS[0].id);
   const [choice, setChoice] = useState<Choice>(PERSONAS[0].c);
@@ -95,13 +102,13 @@ export default function DevTools() {
             {SAVED_RUNS.map((r) => (
               <button key={r.id} className="run-btn" aria-pressed={runId === r.id} onClick={() => setRunId(r.id)}>
                 {r.name}
-                <small>{placeLabel(r.request.place)} · {TYPE_LABEL[r.request.type]} · tier {r.tier}</small>
+                <small>{labels.place(r.request.place)} · {labels.type(r.request.type)} · tier {r.tier}</small>
               </button>
             ))}
           </div>
           <div>
             <p className="notice" style={{ marginTop: 0 }}>{saved.story}</p>
-            <Playback key={saved.id} frames={framesFor(saved)} />
+            <Playback key={saved.id} frames={framesFor(saved, labels)} />
           </div>
         </div>
       </section>
@@ -126,24 +133,24 @@ export default function DevTools() {
             <div className="form-row">
               <b>Disciplines</b>
               <div className="chips tight">
-                {DISCIPLINES.map((d) => (
-                  <button key={d.id} className="chip" aria-pressed={choice.disciplines.includes(d.id)} onClick={() => setChoice({ ...choice, disciplines: toggle(choice.disciplines, d.id) })}>{d.label}</button>
+                {(meta?.disciplines ?? []).map((d) => (
+                  <button key={d.value} className="chip" aria-pressed={choice.disciplines.includes(d.value)} onClick={() => setChoice({ ...choice, disciplines: toggle(choice.disciplines, d.value) })}>{d.label}</button>
                 ))}
               </div>
             </div>
             <div className="form-row">
               <b>Looking for</b>
               <div className="chips tight">
-                {TYPES.map((t) => (
-                  <button key={t.id} className="chip" aria-pressed={choice.types.includes(t.id)} onClick={() => setChoice({ ...choice, types: toggle(choice.types, t.id) })}>{t.label}</button>
+                {(meta?.types ?? []).map((t) => (
+                  <button key={t.value} className="chip" aria-pressed={choice.types.includes(t.value)} onClick={() => setChoice({ ...choice, types: toggle(choice.types, t.value) })}>{t.label}</button>
                 ))}
               </div>
             </div>
             <div className="form-row">
               <b>Where</b>
               <div className="chips tight">
-                {[...BOROUGHS, ...PLACE_GROUPS].map((p) => (
-                  <button key={p.id} className="chip" aria-pressed={choice.places.includes(p.id)} onClick={() => setChoice({ ...choice, places: toggle(choice.places, p.id) })}>{p.label}</button>
+                {[...(meta?.boroughs ?? []), ...(meta?.place_groups ?? [])].map((p) => (
+                  <button key={p.value} className="chip" aria-pressed={choice.places.includes(p.value)} onClick={() => setChoice({ ...choice, places: toggle(choice.places, p.value) })}>{p.label}</button>
                 ))}
               </div>
             </div>
@@ -156,11 +163,11 @@ export default function DevTools() {
             {live?.error && <p className="empty" role="alert">{live.error}</p>}
             {live?.out && (
               <>
-                <Playback key={live.n} frames={framesForSearch(live.choice, live.out)} />
+                <Playback key={live.n} frames={framesForSearch(live.choice, live.out, labels)} />
                 <div className="stack" style={{ marginTop: 24 }}>
                   {live.out.groups.map((g) => (
                     <div key={g.type}>
-                      <h3 style={{ margin: "16px 0 10px" }}>{TYPE_LABEL[g.type]}</h3>
+                      <h3 style={{ margin: "16px 0 10px" }}>{labels.type(g.type)}</h3>
                       <div className="cards">{g.cards.map((c) => <ResultCard key={c.key} card={c} />)}</div>
                     </div>
                   ))}

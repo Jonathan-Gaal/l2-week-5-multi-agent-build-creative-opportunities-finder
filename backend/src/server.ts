@@ -5,6 +5,7 @@
  * Usage:
  *   npm start                                   # node --env-file-if-exists=.env src/server.ts
  *   RANKER_MODE=baseline npm start              # code ranker only, no model calls
+ *   npm run start:local                         # JSON snapshot 2026-10-27, code ranker: no database, no model
  */
 
 import { createServer } from "node:http";
@@ -12,6 +13,8 @@ import { createServer } from "node:http";
 import { ClaudeModel, missingCredentials } from "./agents/model.ts";
 import { createApp } from "./api/app.ts";
 import { readConfig } from "./api/config.ts";
+import { jsonSource } from "./db/json-source.ts";
+import { postgresSource } from "./db/opportunities.ts";
 import { closePool, getPool } from "./db/pool.ts";
 
 // How long shutdown waits for in-flight requests before closing their connections.
@@ -19,20 +22,26 @@ const SHUTDOWN_GRACE_MS = 10_000;
 
 const main = () => {
   const config = readConfig(process.env);
-  if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is not set (copy backend/.env.example to backend/.env)");
+  const useJson = config.dataSource === "json";
+  if (!useJson && !process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is not set (copy backend/.env.example to backend/.env, or set DATA_SOURCE=json)");
+  }
   if (config.mode !== "baseline") {
     const missing = missingCredentials();
     if (missing) throw new Error(`RANKER_MODE=${config.mode} needs Claude: ${missing}. Or set RANKER_MODE=baseline.`);
   }
 
+  // The JSON file is read here, once, so a missing snapshot fails at startup rather than on the first search.
+  const source = useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool());
   const handler = createApp({
-    db: getPool(),
+    source,
     model: config.mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
     mode: config.mode,
     snapshotId: config.snapshotId,
     allowedOrigins: config.allowedOrigins,
     traceDir: config.traceDir,
     limits: config.limits,
+    proxySecret: config.proxySecret,
   });
   const server = createServer((req, res) => void handler(req, res));
 
@@ -55,8 +64,11 @@ const main = () => {
   process.on("SIGTERM", () => stop("SIGTERM"));
 
   server.listen(config.port, () => {
-    const snapshot = config.snapshotId ? `snapshot ${config.snapshotId} (SNAPSHOT_ID override)` : "published snapshot";
-    console.error(`listening on http://localhost:${config.port} · mode ${config.mode} · ${snapshot}`);
+    const snapshot = useJson
+      ? `snapshot ${config.snapshotId} from records.json (DATA_SOURCE=json)`
+      : config.snapshotId ? `snapshot ${config.snapshotId} (SNAPSHOT_ID override)` : "published snapshot";
+    const proxy = config.proxySecret ? " · trusted proxy secret set" : "";
+    console.error(`listening on http://localhost:${config.port} · mode ${config.mode} · ${snapshot}${proxy}`);
   });
 };
 

@@ -1,5 +1,5 @@
 import runsJson from "@/data/runs.json";
-import { placeLabel, TYPE_LABEL } from "./taxonomy";
+import type { Labels } from "./taxonomy";
 import type { Frame, SavedRun } from "./types";
 
 export const SAVED_RUNS = runsJson as unknown as SavedRun[];
@@ -10,14 +10,14 @@ const removedText = (r: SavedRun["filter"]["removed"]) =>
     .join(", ") || "none removed";
 
 /** A saved run broken into the steps the pipeline took, in order. */
-export function framesFor(run: SavedRun): Frame[] {
+export function framesFor(run: SavedRun, labels: Labels): Frame[] {
   const frames: Frame[] = [
     {
       kind: "request",
       title: "Request",
       lines: [
-        `Place: ${placeLabel(run.request.place)}`,
-        `Looking for: ${TYPE_LABEL[run.request.type] ?? run.request.type}`,
+        `Place: ${labels.place(run.request.place)}`,
+        `Looking for: ${labels.type(run.request.type)}`,
         `As of ${run.request.as_of}`,
         run.playedBy,
       ],

@@ -1,13 +1,18 @@
 /**
- * HTTP API contract shared with the frontend. Types plus the route paths, self-contained (no imports), so the React
- * app can import or copy this file as is. The server checks at compile time that these unions match the
- * lists in agents/filter.ts.
+ * HTTP API contract shared with the frontend. Types plus the route paths, self-contained (no imports), so the
+ * web app imports it directly (web/tsconfig.json path alias "@api/*", type-only imports). The server checks at
+ * compile time that these unions match the lists in agents/taxonomy.ts.
  *
  * Routes (GET only, JSON; anything else is 404, a known route with another method is 405):
- *   GET /api/opportunities?place=<Place>&type=<OpportunityType>  -> OpportunitiesResponse
+ *   GET /api/search?places=..&types=..[&disciplines=..]          -> SearchResponse   (see SearchQuery)
+ *   GET /api/opportunities?place=<Place>&type=<OpportunityType>  -> OpportunitiesResponse (one place, one type)
  *   GET /api/meta                                                -> MetaResponse
  *   GET /api/health                                              -> HealthResponse
  * Every non-2xx response has an ErrorResponse body.
+ *
+ * Rate limiting is per client address. A trusted server-side proxy (the Next.js app) may name the end user's
+ * address in PROXY_HEADERS.clientIp, which the API honors only alongside PROXY_HEADERS.secret matching its
+ * API_PROXY_SECRET. Browsers never send either.
  *
  * UNTRUSTED DATA: listing text is copied from third-party websites. Render every field marked "untrusted" as
  * plain text (React's default escaping). Never pass it to `dangerouslySetInnerHTML`, `eval`, or a URL
@@ -16,6 +21,7 @@
  */
 
 export const API_ROUTES = {
+  search: "/api/search",
   opportunities: "/api/opportunities",
   meta: "/api/meta",
   health: "/api/health",
@@ -28,6 +34,23 @@ export type Region =
   | "massachusetts" | "rhode_island" | "vermont" | "new_hampshire" | "maine" | "delaware" | "maryland" | "dc";
 export type Place = Borough | Region;
 export type OpportunityType = "event" | "open_call" | "grant" | "residency" | "job";
+export type Discipline = "music" | "comedy" | "dance" | "theater" | "writing" | "visual" | "film" | "craft";
+/** Picker shortcuts the API expands: "nyc" (the nyc region), "tristate", "wider" (see MetaResponse.place_groups). */
+export type PlaceGroup = "nyc" | "tristate" | "wider";
+
+/** Request headers from a trusted server-side proxy (lowercase, as node:http reports them). */
+export const PROXY_HEADERS = { secret: "x-proxy-secret", clientIp: "x-client-ip" } as const;
+
+/**
+ * Query parameters for GET /api/search, each a comma-separated list with no repeats, given at most once:
+ *   places       required. Borough, region or place-group ids; groups expand to their members.
+ *   types        required. Up to all five types; one result group per type, in the order given.
+ *   disciplines  optional. A record fits if it shares a tag with any of them or is open to any artist; omit
+ *                for no discipline filter.
+ * Nothing else is accepted (in particular not as_of, which the server sets). Each type is ranked once over the
+ * union of the places (a record matches if it matches any place).
+ */
+export type SearchQuery = { places: (Place | PlaceGroup)[]; types: OpportunityType[]; disciplines?: Discipline[] };
 
 /** Query parameters for GET /api/opportunities. Both are required, and nothing else is accepted. The
  * request date (as_of) is always set by the server. */
@@ -93,13 +116,46 @@ export type OpportunitiesResponse =
   /** No result; `reason` says why, e.g. "no records match Brooklyn residency". */
   | (OpportunitiesBase & { tier: 3; reason: string });
 
+/** Matching records left out, by reason. */
+export type RemovedCounts = { expired: number; failed_schema: number; duplicate: number };
+
+/** One type's ranked list in a search. Each group is its own pipeline run with its own tier and trace entry. */
+type SearchGroupBase = {
+  type: OpportunityType;
+  /** Up to 5 results, best fit first. Empty when tier is 3. */
+  results: Opportunity[];
+  /** E.g. "2 expired listings removed.", or null. */
+  removed: string | null;
+  removed_counts: RemovedCounts | null;
+  /** Quote this when reporting a problem; it identifies the group's trace entry. */
+  request_id: string;
+};
+export type SearchGroup =
+  | (SearchGroupBase & { tier: 0 | 2 })
+  /** No result; `reason` says why, e.g. "no records match Brooklyn, New Jersey grant (Music)". */
+  | (SearchGroupBase & { tier: 3; reason: string });
+
+export type SearchResponse = {
+  snapshot_id: string;
+  /** The date (YYYY-MM-DD) expiry was checked against: the server's today. */
+  as_of: string;
+  /** One per requested type, in the order the types were requested. */
+  groups: SearchGroup[];
+};
+
 export type Option<T extends string> = { value: T; label: string };
 
-/** Dropdown options, in display order. */
+/** Everything the pickers need, in display order. */
 export type MetaResponse = {
   boroughs: Option<Borough>[];
   regions: Option<Region>[];
-  types: Option<OpportunityType>[];
+  types: (Option<OpportunityType> & { hint: string })[];
+  /** `tags` are the snapshot tags each discipline matches (records tagged "all" match every discipline). */
+  disciplines: (Option<Discipline> & { tags: string[] })[];
+  /** Shortcuts the search expands to `members`. */
+  place_groups: (Option<PlaceGroup> & { hint: string; members: Region[] })[];
+  /** Labels for the other place keys a result can carry ("citywide", "unknown"). */
+  other_places: Option<"citywide" | "unknown">[];
 };
 
 export type HealthResponse = { ok: true };

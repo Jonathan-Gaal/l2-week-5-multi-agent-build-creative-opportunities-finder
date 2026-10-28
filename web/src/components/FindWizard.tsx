@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { BOROUGHS, DISCIPLINES, PLACE_GROUPS, TYPES } from "@/lib/taxonomy";
+import type { MetaResponse } from "@api/types";
 
 type Choice = { disciplines: string[]; types: string[]; places: string[] };
 
@@ -16,7 +16,8 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
 
 const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
 
-export default function FindWizard({ initial }: { initial: Choice }) {
+/** `meta` is the results service's picker lists (GET /api/meta), loaded on the server. */
+export default function FindWizard({ initial, meta }: { initial: Choice; meta: MetaResponse }) {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [c, setC] = useState<Choice>(initial);
@@ -46,8 +47,8 @@ export default function FindWizard({ initial }: { initial: Choice }) {
           <h1>What do you make?</h1>
           <p className="sub">Pick everything that fits. Work across disciplines? Pick them all. Not sure, or open to anything? Skip ahead.</p>
           <div className="chips" role="group" aria-label="Disciplines">
-            {DISCIPLINES.map((d) => (
-              <Chip key={d.id} on={c.disciplines.includes(d.id)} onClick={() => setC({ ...c, disciplines: toggle(c.disciplines, d.id) })}>
+            {meta.disciplines.map((d) => (
+              <Chip key={d.value} on={c.disciplines.includes(d.value)} onClick={() => setC({ ...c, disciplines: toggle(c.disciplines, d.value) })}>
                 {d.label}
               </Chip>
             ))}
@@ -63,8 +64,8 @@ export default function FindWizard({ initial }: { initial: Choice }) {
           <h1>What are you looking for?</h1>
           <p className="sub">Choose one or more. We&apos;ll show each kind in its own list.</p>
           <div className="chips" role="group" aria-label="Opportunity types">
-            {TYPES.map((t) => (
-              <Chip key={t.id} on={c.types.includes(t.id)} onClick={() => setC({ ...c, types: toggle(c.types, t.id) })}>
+            {meta.types.map((t) => (
+              <Chip key={t.value} on={c.types.includes(t.value)} onClick={() => setC({ ...c, types: toggle(c.types, t.value) })}>
                 {t.label}
                 <small>{t.hint}</small>
               </Chip>
@@ -79,16 +80,16 @@ export default function FindWizard({ initial }: { initial: Choice }) {
           <p className="sub">Pick as many places as you like.</p>
           <h2 className="chip-group-title">Boroughs</h2>
           <div className="chips" role="group" aria-label="Boroughs">
-            {BOROUGHS.map((b) => (
-              <Chip key={b.id} on={c.places.includes(b.id)} onClick={() => setC({ ...c, places: toggle(c.places, b.id) })}>
+            {meta.boroughs.map((b) => (
+              <Chip key={b.value} on={c.places.includes(b.value)} onClick={() => setC({ ...c, places: toggle(c.places, b.value) })}>
                 {b.label}
               </Chip>
             ))}
           </div>
           <h2 className="chip-group-title">Or go wider</h2>
           <div className="chips" role="group" aria-label="Wider areas">
-            {PLACE_GROUPS.map((g) => (
-              <Chip key={g.id} on={c.places.includes(g.id)} onClick={() => setC({ ...c, places: toggle(c.places, g.id) })}>
+            {meta.place_groups.map((g) => (
+              <Chip key={g.value} on={c.places.includes(g.value)} onClick={() => setC({ ...c, places: toggle(c.places, g.value) })}>
                 {g.label}
                 <small>{g.hint}</small>
               </Chip>
