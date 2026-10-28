@@ -9,13 +9,16 @@
     "test": "node --test \"src/**/*.test.ts\"",
     "typecheck": "tsc",
     "pipeline": "node src/agents/pipeline.ts",
-    "eval": "node src/agents/eval.ts"
+    "eval": "node src/agents/eval.ts",
+    "check:db": "node --env-file-if-exists=.env src/checks/db-parity.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^1.3.0"
+    "@anthropic-ai/sdk": "^1.3.0",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
     "typescript": "^7.0.2"
   }
 }
