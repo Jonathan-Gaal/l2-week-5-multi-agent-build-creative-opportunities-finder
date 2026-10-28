@@ -2,3 +2,12 @@
 node_modules/
 .env
 .env.local
+data/*.db
+__pycache__/
+traces/
+
+data/pages/
+
+# full listing text copied from other sites; regenerate with: python -m backfill.run
+data/snapshot.csv
+.venv/

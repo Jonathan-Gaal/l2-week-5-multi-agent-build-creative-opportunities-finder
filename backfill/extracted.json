@@ -1,0 +1,82 @@
+[
+ {
+  "title": "Brooklyn Poets Mentorship Program: application",
+  "type": "open_call",
+  "borough": "brooklyn",
+  "category": "Poetry",
+  "deadline": "2026-11-04",
+  "fee": "$6295 tuition, financial aid available",
+  "organization": "Brooklyn Poets",
+  "source_url": "https://brooklynpoets.org/workshops/mentorship-program",
+  "quote": "Application deadline: November 4, 2026"
+ },
+ {
+  "title": "Poets House Showcase: submit poetry published in 2026",
+  "type": "open_call",
+  "borough": "manhattan",
+  "category": "Poetry",
+  "deadline": "2026-11-09",
+  "fee": "none",
+  "organization": "Poets House",
+  "source_url": "https://poetshouse.org/programs-events/poets-house-showcase/",
+  "quote": "The deadline for submissions is November 9, 2026 for inclusion."
+ },
+ {
+  "title": "GALLIM: audition for male-identifying and non-binary dancers",
+  "type": "audition",
+  "borough": "manhattan",
+  "category": "Dance",
+  "deadline": "2026-11-23",
+  "fee": "unknown",
+  "organization": "GALLIM; auditions the week of Dec 7, 2026; $1,000-$1,320 per week",
+  "source_url": "https://www.gallim.org/2026-audition-1",
+  "quote": "November 23rd at 11:59pm ET"
+ },
+ {
+  "title": "Mabou Mines SUITE/space: performance residency for early career artists",
+  "type": "residency",
+  "borough": "citywide",
+  "category": "Performing arts",
+  "deadline": "2026-11-22",
+  "fee": "none",
+  "organization": "Mabou Mines; two $4,000 stipends, 100 hours of rehearsal space",
+  "source_url": "https://www.maboumines.org/suitespace/",
+  "quote": "Applications DUE: November 22, 2026 at 11:59pm ET",
+  "nyc_basis": "SUITE/space is a NYC based performance residency"
+ },
+ {
+  "title": "EastVille Comedy Club (Brooklyn): daily open mics, sign up in person",
+  "type": "open_mic",
+  "borough": "brooklyn",
+  "category": "Comedy",
+  "deadline": "rolling",
+  "fee": "1 drink minimum",
+  "organization": "EastVille Comedy Club",
+  "source_url": "https://www.eastvillecomedy.com/open-mic",
+  "quote": "Each mic has the same sign up process.",
+  "note": "Mics Mon-Thu 6pm, Fri and Sat 11:30pm, Sun 4, 5 and 6pm; 5 minutes of stage time; arrive 30 minutes early."
+ },
+ {
+  "title": "The Tiny Cupboard (Brooklyn): apply to perform on stand-up shows",
+  "type": "open_call",
+  "borough": "brooklyn",
+  "category": "Comedy",
+  "deadline": "rolling",
+  "fee": "none",
+  "organization": "The Tiny Cupboard; open mics also run weekly",
+  "source_url": "https://www.thetinycupboard.com/produce-a-show-with-us",
+  "quote": "you can fill out this form, which we use as a resource for booking shows"
+ },
+ {
+  "title": "FABnyc Open Arts LES: open call for musicians and performing artists (outdoor series)",
+  "type": "open_call",
+  "borough": "manhattan",
+  "category": "Music",
+  "deadline": "rolling",
+  "fee": "unknown",
+  "organization": "FABnyc, Lower East Side (East 4th Street and Avenue B Open Streets)",
+  "source_url": "https://www.fabnyc.org/fabnyc-summer-programs-open-call/",
+  "quote": "This is a rolling application; there is no deadline.",
+  "note": "Music or other performance suited to a casual street setting. Priority to work reflecting the Lower East Side and Chinatown, with emphasis on immigrant and POC artists."
+ }
+]

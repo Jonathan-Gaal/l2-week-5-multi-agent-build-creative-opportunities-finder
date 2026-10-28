@@ -1,0 +1,63 @@
+{
+  "research_date": "2026-10-27",
+  "policy": "Display source descriptions and outbound links only. Do not request robots, crawl pages, retrieve feeds or scrape paywalled listing content from these hosts. Do not sign up, start trials or purchase access.",
+  "count": 3,
+  "sources": [
+    {
+      "id": "paid-the-open-call-list",
+      "name": "The Open Call List",
+      "url": "https://theopencall.substack.com/",
+      "public_description_url": "https://theopencall.substack.com/about",
+      "description": "Photography-focused newsletter covering exhibitions, publications, fellowships, grants and residencies.",
+      "geography": "International; NY/NJ/CT coverage is not independently established.",
+      "access": "paid",
+      "price_note": "Indexed public about text advertises sliding-scale subscriptions of $2–$5/month; confirm current pricing with provider.",
+      "source_kind": "subscription_resource",
+      "evidence_level": "public_search_metadata_only",
+      "scrape_policy": "display_only_no_requests",
+      "blocked_hosts": ["theopencall.substack.com"],
+      "display": true,
+      "ingest": false,
+      "listing_content_scraped": false,
+      "checked_date": "2026-10-27",
+      "existing_source_id": "the-open-call-list"
+    },
+    {
+      "id": "paid-open-calls-index",
+      "name": "Open Calls Index",
+      "url": "https://opencallsindex.substack.com/",
+      "public_description_url": "https://opencallsindex.substack.com/",
+      "description": "Subscription newsletter curating artist calls, grants, residencies, exhibitions and publication opportunities.",
+      "geography": "US and international; regional eligibility varies and has not been extracted.",
+      "access": "paid",
+      "price_note": "Public indexed subscription copy describes standard and student plans; confirm current pricing on provider site.",
+      "source_kind": "subscription_resource",
+      "evidence_level": "public_search_metadata_only",
+      "scrape_policy": "display_only_no_requests",
+      "blocked_hosts": ["opencallsindex.substack.com"],
+      "display": true,
+      "ingest": false,
+      "listing_content_scraped": false,
+      "checked_date": "2026-10-27",
+      "existing_source_id": "open-calls-index"
+    },
+    {
+      "id": "paid-artenda",
+      "name": "Artenda",
+      "url": "https://artenda.net/",
+      "public_description_url": "https://artenda.net/en/register",
+      "description": "Subscription database of art calls with search filters, recommendations and deadline reminders.",
+      "geography": "International; no verified NY/NJ/CT opportunity count.",
+      "access": "paid_after_trial",
+      "price_note": "Indexed public registration page advertises 30-day trial then €3.49/month; confirm current pricing and subscription terms with provider.",
+      "source_kind": "subscription_resource",
+      "evidence_level": "public_search_metadata_only",
+      "scrape_policy": "display_only_no_requests",
+      "blocked_hosts": ["artenda.net", "www.artenda.net"],
+      "display": true,
+      "ingest": false,
+      "listing_content_scraped": false,
+      "checked_date": "2026-10-27"
+    }
+  ]
+}
