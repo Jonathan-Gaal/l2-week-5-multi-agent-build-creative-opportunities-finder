@@ -121,6 +121,12 @@ def check_record(rec, page_text, today=TODAY):
         return None, "place out of scope or inconsistent (nyc needs a borough; elsewhere borough is null)"
     deadline = rec.get("deadline")
     dates = [d for d in (rec.get("event_dates") or []) if d]
+    for d in [deadline, *dates]:
+        if str(d or "")[:2] == "20":
+            try:
+                dt.date.fromisoformat(d)
+            except ValueError:
+                return None, "date is not a real calendar date"
     last = max(dates) if dates else (deadline if deadline and deadline[:2] == "20" else None)
     if last and last < today:
         return None, "past"

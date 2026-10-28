@@ -42,7 +42,7 @@ def roles_for(mode):
 
 def has_credentials():
     if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or os.environ.get("ANTHROPIC_PROFILE")
-            or Path.home().joinpath(".config/anthropic").exists()):
+            or any(Path.home().joinpath(".config/anthropic").glob("*"))):
         return "no Anthropic credentials (set ANTHROPIC_API_KEY or run `ant auth login`)"
     try:
         import anthropic  # noqa: F401

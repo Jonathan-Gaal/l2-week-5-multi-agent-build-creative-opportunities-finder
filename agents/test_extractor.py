@@ -92,6 +92,18 @@ class ExtractTests(unittest.TestCase):
         self.assertEqual({r["extraction"] for r in recs}, {"llm_extractor"})
         self.assertFalse(vs.same_listing({**recs[0], "dedupe_key": "a"}, {**recs[1], "dedupe_key": "b"}))
 
+    def test_impossible_or_partial_dates_are_dropped_with_a_caveat(self):
+        for bad in ("2026-02-30", "2026-12", "20xx-01-01"):
+            recs, _ = Extractor(FakeModel([model_rec(deadline=bad, event_dates=[bad, "2026-12-05"])])).extract(PAGE, SEED, URL)
+            self.assertNotIn("deadline", recs[0])
+            self.assertEqual(recs[0]["event_dates"], ["2026-12-05"])
+            self.assertIn(bad, recs[0]["caveat"])
+
+    def test_rolling_and_real_dates_are_kept(self):
+        for good in ("rolling", "recurring", "2026-12-01"):
+            recs, _ = Extractor(FakeModel([model_rec(deadline=good)])).extract(PAGE, SEED, URL)
+            self.assertEqual(recs[0]["deadline"], good)
+
     def test_candidate_passes_verify_check_record(self):
         recs, _ = Extractor(FakeModel([model_rec()])).extract(PAGE, SEED, URL)
         rec, note = vs.check_record(recs[0], PAGE, today="2026-10-28")

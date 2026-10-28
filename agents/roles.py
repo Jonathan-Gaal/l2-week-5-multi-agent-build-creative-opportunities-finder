@@ -7,6 +7,8 @@ in agents/checks.py hold the hard filters whatever the model says.
 
 import json
 
+from agents.model import ModelError
+
 TOP_K = 5
 NO_USAGE = {"input_tokens": 0, "output_tokens": 0}
 
@@ -51,7 +53,9 @@ def listing(cid, rec):
 
 
 def _listings(cands):
-    return "<listings>\n" + "\n".join(json.dumps(listing(cid, r), ensure_ascii=False) for cid, r in cands) + "\n</listings>"
+    # "<" is escaped so listing text (untrusted) can never write a literal </listings> and end the block early.
+    lines = (json.dumps(listing(cid, r), ensure_ascii=False).replace("<", "\\u003c") for cid, r in cands)
+    return "<listings>\n" + "\n".join(lines) + "\n</listings>"
 
 
 def _request_text(req):
@@ -71,7 +75,10 @@ class Ranker:
             user += (f"\n\nYour previous ranking was rejected.\nPrevious ranking: {json.dumps(previous)}\n"
                      f"Reviewer critique: {critique}\nReturn a corrected ranking.")
         out, usage = self.model.call(self.SYSTEM, user, RANK_SCHEMA)
-        return out["ranking"][:TOP_K], usage
+        ranking = out.get("ranking") if isinstance(out, dict) else None
+        if not isinstance(ranking, list) or not all(isinstance(i, dict) for i in ranking):
+            raise ModelError("ranker reply had no usable ranking")
+        return ranking[:TOP_K], usage
 
 
 class Reviewer:
@@ -84,7 +91,10 @@ class Reviewer:
 
     def review(self, req, cands, ranking):
         user = f"{_request_text(req)}\n\n{_listings(cands)}\n\nRanking to review: {json.dumps(ranking)}"
-        return self.model.call(self.SYSTEM, user, REVIEW_SCHEMA)
+        out, usage = self.model.call(self.SYSTEM, user, REVIEW_SCHEMA)
+        if not isinstance(out, dict) or out.get("verdict") not in ("accept", "reject"):
+            raise ModelError("reviewer reply had no accept or reject verdict")
+        return out, usage
 
 
 def baseline_score(rec):
