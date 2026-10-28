@@ -149,14 +149,12 @@
       "place": "long_island",
       "type": "open_call",
       "as_of": "2026-10-28",
-      "note": "The Islip Art Council show is members-only.",
+      "note": "Seven open calls; the Islip Arts Council members show may appear (membership is a cost, not a bar).",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
         "must_include": [],
-        "must_exclude": [
-          "annual winter members show shades of blue|long_island|2026-11-25"
-        ],
+        "must_exclude": [],
         "must_be_candidate": []
       }
     },
@@ -641,6 +639,7 @@
     }
   ],
   "decisions": [
-    "Student-only opportunities (for example college-only fellowships) are relevant and may appear (Jon, 2026-10-28)."
+    "Student-only opportunities (for example college-only fellowships) are relevant and may appear (Jon, 2026-10-28).",
+    "Members-only calls that any artist can join (for example the Islip Arts Council winter show) are relevant; membership is shown as the fee (Jon, 2026-10-28)."
   ]
 }

@@ -11,7 +11,7 @@ TOP_K = 5
 NO_USAGE = {"input_tokens": 0, "output_tokens": 0}
 
 RUBRIC = """An opportunity fits the request better when:
-1. An artist living in NYC can take part or apply (eligibility is open, or stated and plausible). Programs for students, such as college-only fellowships, count.
+1. An artist living in NYC can take part or apply (eligibility is open, or stated and plausible). Programs for students, such as college-only fellowships, count, and so do members-only calls any artist can join (the membership is a cost under point 2).
 2. It pays or awards the artist, or costs the artist nothing (a stated award beats "Fee unknown"; a fee to apply counts against it).
 3. The listing is complete enough to act on: a deadline or schedule, a location, and stated eligibility.
 4. It is hands-on for the artist (performing, showing, applying, making), not audience-only.
