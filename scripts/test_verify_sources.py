@@ -26,6 +26,10 @@ class CheckRecord(unittest.TestCase):
         self.assertIn("Applications are due December 1, 2026", rec["eligibility"][-1]["quote"])
         self.assertEqual((rec["fee"], rec["checked_at"]), ("unknown", "2026-10-28"))
 
+    def test_a_date_that_is_not_real_is_held_not_a_crash(self):
+        for bad in ("2026-02-30", "2026-12", "2026-13-40"):
+            self.assertEqual(vs.check_record(cand(deadline=bad), PAGE, "2026-10-28"), (None, "date is not a real calendar date"))
+
     def test_date_must_be_on_page(self):
         self.assertEqual(vs.check_record(cand(deadline="2026-12-02"), PAGE, "2026-10-28"), (None, "date not on page"))
 

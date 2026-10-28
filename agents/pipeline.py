@@ -4,6 +4,8 @@
   ranking and the critique back to the Ranker.
 - Code checks run before the Reviewer on every attempt, so hard filters hold even if the model is wrong.
 - Tier 0: an attempt passed the checks and the Reviewer accepted it.
+- Records added without a recheck (is_unverified) are labeled "Not checked", and a result containing one is
+  never Tier 0.
 - Tier 2: best attempt that passed the checks without an accept (Reviewer rejected every time, errored,
   or was not run); if no attempt passed, the code baseline ranking. Labeled "not fully checked".
 - Tier 3: no result, with the reason.
@@ -57,6 +59,11 @@ def removed_note(removed):
     return ("; ".join(parts) + ".") if parts else None
 
 
+def is_unverified(rec):
+    """Records added without a recheck (extraction ending in _unverified, e.g. mara_backfill_unverified)."""
+    return str(rec.get("extraction") or "").endswith("_unverified")
+
+
 def present(rec, tier):
     elig = rec.get("eligibility") or []
     fee = rec.get("fee")
@@ -68,7 +75,8 @@ def present(rec, tier):
         "fee": "Fee unknown" if fee in (None, "unknown") else fee, "award": rec.get("award"),
         "eligibility": [{"requirement": e["requirement"], "quote": e.get("quote")} for e in elig] or "Eligibility not stated",
         "source": rec["source"], "source_url": rec["source_url"],
-        "label": f"Checked {rec['checked_at']}" + ("" if tier == 0 else " · not fully checked"),
+        "label": ("Not checked · added without a recheck" if is_unverified(rec)
+                  else f"Checked {rec['checked_at']}" + ("" if tier == 0 else " · not fully checked")),
         "caveat": rec.get("caveat"), "dedupe_key": rec["dedupe_key"],
     }
 
@@ -87,7 +95,7 @@ def run(req, records, ranker, reviewer=None, trace_path=None, max_candidates=MAX
         trace.update(tier=result["tier"], served=[r["dedupe_key"] for r in result["results"]], reason=result.get("reason"))
         if trace_path:
             Path(trace_path).parent.mkdir(parents=True, exist_ok=True)
-            with open(trace_path, "a") as f:
+            with open(trace_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(trace) + "\n")
         result["request_id"] = trace["request_id"]
         return result
@@ -143,6 +151,9 @@ def run(req, records, ranker, reviewer=None, trace_path=None, max_candidates=MAX
     if best is None:
         best, _ = BaselineRanker().rank(req, shown)
         trace["fallback"] = "code baseline"
+    if tier == 0 and any(is_unverified(by_id[i["id"]]) for i in best):
+        tier = 2        # a result that was never checked cannot be served as verified
+        trace["downgraded"] = "unverified records in the result"
     results = [present(by_id[i["id"]], tier) for i in best]
     return finish({"tier": tier, "results": results, "removed": note, "removed_counts": removed})
 

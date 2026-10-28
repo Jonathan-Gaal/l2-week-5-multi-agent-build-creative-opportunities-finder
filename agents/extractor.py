@@ -14,6 +14,7 @@ Usage:
 """
 
 import argparse
+import datetime as dt
 import json
 import sys
 from pathlib import Path
@@ -130,12 +131,35 @@ class Extractor:
         for r in out["records"]:
             if not (r.get("title") or "").strip():
                 continue
-            r = {k: v for k, v in r.items() if v not in (None, [], "")}
+            r = clean_dates({k: v for k, v in r.items() if v not in (None, [], "")})
             if from_list and r.pop("deadline", None):
                 r["caveat"] = "deadline not taken from an aggregator list; read the primary page. " + r.get("caveat", "")
             r.update(source=source["id"], source_url=source_url, extraction="llm_extractor")
             records.append(r)
         return records, usage
+
+
+def _is_date(value):
+    try:
+        dt.date.fromisoformat(value)
+        return True
+    except (TypeError, ValueError):
+        return False
+
+
+def clean_dates(r):
+    """Keep only real ISO dates. A deadline that is not a date, "rolling" or "recurring" is dropped with a caveat,
+    so a model slip like 2026-02-30 or 2026-12 never reaches verify as a date."""
+    dropped = []
+    if r.get("deadline") not in (None, "rolling", "recurring") and not _is_date(r.get("deadline")):
+        dropped.append(r.pop("deadline"))
+    if r.get("event_dates"):
+        kept = [d for d in r["event_dates"] if _is_date(d)]
+        dropped += [d for d in r["event_dates"] if d not in kept]
+        r["event_dates"] = kept
+    if dropped:
+        r["caveat"] = f"date not usable as written ({', '.join(map(str, dropped))}); read the page. " + r.get("caveat", "")
+    return {k: v for k, v in r.items() if v not in (None, [], "")}
 
 
 def seed_sources(path=SEEDS):
