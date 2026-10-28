@@ -1,0 +1,8 @@
+/* Artist Atlas brand colors, taken from the logo.
+   Change a color here and everything that uses the name updates with it. */
+:root {
+  --brand-purple: #220E43; /* Background */
+  --brand-pink: #FD1A99;   /* Basketball, NYC "Y" */
+  --brand-lime: #DCFC05;   /* Atlas figure, NYC "N" */
+  --brand-cream: #FEF9EF;  /* Lettering, NYC "C" */
+}
