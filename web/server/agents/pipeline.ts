@@ -70,7 +70,8 @@ export const checkRanking = (ranking: RankItem[], byId: Map<string, OppRecord>, 
     const id = item.id;
     const rec = typeof id === "string" ? byId.get(id) : undefined;
     if (typeof id !== "string" || rec === undefined) {
-      problems.push(`${item.id}: not one of the candidate ids`);
+      // Never interpolate the raw id: a crafted object (e.g. one with a non-function toString) would throw here.
+      problems.push(`${typeof id === "string" ? id.slice(0, 40) : "a non-text id"}: not one of the candidate ids`);
       continue;
     }
     if (ids.has(id) || keys.has(rec.dedupe_key)) problems.push(`${id}: listed twice`);
@@ -252,6 +253,16 @@ export const run = async (
     if (tier === 0) {
       tier = 2;
       trace.downgraded = "listing text reads like instructions to the model";
+    }
+  }
+  // The model read every listing in the pool, not only the ones served. A listing that talks to the model may have
+  // steered the ranking even if it was not served, so the whole result is "not fully checked".
+  const steering = shown.map(([, r]) => r).filter(looksLikeInstructions);
+  if (steering.length) {
+    trace.suspicious_in_pool = steering.map((r) => r.dedupe_key);
+    if (tier === 0) {
+      tier = 2;
+      trace.downgraded = "a listing the model was shown reads like instructions to it";
     }
   }
   const results = served.map((r) => present(r, tier));
