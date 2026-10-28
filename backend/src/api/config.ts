@@ -15,12 +15,17 @@ export class ConfigError extends Error {
 export const DATA_SOURCES = ["postgres", "json"] as const;
 export type DataSource = (typeof DATA_SOURCES)[number];
 
+/** Shortest API_PROXY_SECRET accepted: long enough that it has to be generated, not typed. */
+export const MIN_PROXY_SECRET_LENGTH = 32;
+
 export type Config = {
   port: number;
   mode: Mode;
   /** postgres (DATABASE_URL) or json (data/snapshots/<SNAPSHOT_ID>/records.json, local development). */
   dataSource: DataSource;
   snapshotId: string | undefined;
+  /** Shared secret for the trusted proxy's end-user header; undefined: proxy headers are ignored. */
+  proxySecret: string | undefined;
   allowedOrigins: string[];
   traceDir: string | null;
   modelCallTimeoutMs: number;
@@ -64,11 +69,17 @@ export const readConfig = (env: Env): Config => {
   if (dataSource === "json" && (snapshotId === undefined || !SNAPSHOT_ID_PATTERN.test(snapshotId))) {
     throw new ConfigError("the JSON data source needs SNAPSHOT_ID, a directory name under data/snapshots");
   }
+  // Not trimmed: the secret is compared exactly. Never echoed.
+  const proxySecret = env.API_PROXY_SECRET || undefined;
+  if (proxySecret !== undefined && proxySecret.length < MIN_PROXY_SECRET_LENGTH) {
+    throw new ConfigError(`API_PROXY_SECRET must be at least ${MIN_PROXY_SECRET_LENGTH} characters (e.g. openssl rand -hex 32)`);
+  }
   return {
     port: int(env, "PORT", 8787, 0, 65535),
     mode: mode as Mode,
     dataSource: dataSource as DataSource,
     snapshotId,
+    proxySecret,
     allowedOrigins: origins(env.ALLOWED_ORIGINS),
     // Unset: the repo's traces/ (git-ignored). Set but empty: tracing off.
     traceDir: env.TRACE_DIR === undefined ? TRACE_DIR : env.TRACE_DIR.trim() || null,

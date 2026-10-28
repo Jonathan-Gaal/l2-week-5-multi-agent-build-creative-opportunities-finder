@@ -41,6 +41,7 @@ const main = () => {
     allowedOrigins: config.allowedOrigins,
     traceDir: config.traceDir,
     limits: config.limits,
+    proxySecret: config.proxySecret,
   });
   const server = createServer((req, res) => void handler(req, res));
 
@@ -66,7 +67,8 @@ const main = () => {
     const snapshot = useJson
       ? `snapshot ${config.snapshotId} from records.json (DATA_SOURCE=json)`
       : config.snapshotId ? `snapshot ${config.snapshotId} (SNAPSHOT_ID override)` : "published snapshot";
-    console.error(`listening on http://localhost:${config.port} · mode ${config.mode} · ${snapshot}`);
+    const proxy = config.proxySecret ? " · trusted proxy secret set" : "";
+    console.error(`listening on http://localhost:${config.port} · mode ${config.mode} · ${snapshot}${proxy}`);
   });
 };
 

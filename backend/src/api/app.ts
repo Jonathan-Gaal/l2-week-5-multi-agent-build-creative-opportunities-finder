@@ -13,7 +13,8 @@
  * of one search share a search_id in the trace.
  * When no run slot frees up in time, an opportunities request gets 503 busy; a search serves that type from
  * the code baseline (Tier 2, not fully checked) instead of failing every group.
- * The client's rate-limit identity is its socket address.
+ * The client's rate-limit identity is its socket address, or the end user named by a trusted proxy holding
+ * API_PROXY_SECRET (controls.requestClientKey).
  */
 
 import { appendFile, mkdir } from "node:fs/promises";
@@ -28,8 +29,8 @@ import {
 } from "../agents/taxonomy.ts";
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
-  BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, clientKey, concurrencyGate, dailyBudget,
-  guardedModel, lruCache, rateLimiter,
+  BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, concurrencyGate, dailyBudget,
+  guardedModel, lruCache, proxySecretChecker, rateLimiter, requestClientKey,
 } from "./controls.ts";
 import {
   API_ROUTES, type Borough, type Discipline, type ErrorCode, type ErrorResponse, type MetaResponse,
@@ -81,6 +82,8 @@ export type AppDeps = {
   limits?: Partial<Limits>;
   /** Server-side log for errors and abuse signals. Never sent to the client. */
   log?: (line: string) => void;
+  /** Shared secret a trusted proxy sends to name its end user for rate limiting; unset: never trusted. */
+  proxySecret?: string | undefined;
 };
 
 // Compile-time check that the API's unions are exactly taxonomy.ts's lists.
@@ -218,6 +221,7 @@ export const createApp = (deps: AppDeps) => {
   if (deps.mode !== "baseline" && deps.model === null) throw new Error(`mode ${deps.mode} needs a model`);
   const origins = new Set(deps.allowedOrigins);
   if (origins.has("*")) throw new Error("allowed origins must be listed; '*' is not allowed");
+  const trustedProxy = proxySecretChecker(deps.proxySecret);
 
   const limiter = rateLimiter(limits.ratePerMinute, 60_000, now);
   const budget = dailyBudget(limits.dailyModelCalls, now);
@@ -405,7 +409,9 @@ export const createApp = (deps: AppDeps) => {
         });
       }
       if (req.method !== "GET") return fail("method_not_allowed", { Allow: "GET, OPTIONS" });
-      const body = await route(url, clientKey(req.socket.remoteAddress));
+      const client = requestClientKey(req.headers, req.socket.remoteAddress, trustedProxy);
+      if (client.secretRejected) log(`proxy secret rejected from ${client.key}`);
+      const body = await route(url, client.key);
       return respond(res, 200, body, headers);
     } catch (e) {
       if (e instanceof HttpError) return fail(e.code, e.headers);
