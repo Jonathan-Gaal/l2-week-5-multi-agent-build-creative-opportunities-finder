@@ -1,16 +1,173 @@
 {
-  "note": "Organizer sites running The Events Calendar (WordPress) whose robots.txt allows /wp-json/tribe/events/v1/events. borough/region are the fallback when an event has no venue ZIP (online or unlisted venue); unknown for groups that perform at changing NYC venues. Society of Illustrators runs the plugin but its robots.txt disallows the path; NYC Parks and New Museum disallow wp-json.",
+  "note": "Organizer sites running The Events Calendar (WordPress) whose robots.txt allows /wp-json/tribe/events/v1/events. borough/region are the fallback when an event has no venue ZIP (online or unlisted venue); unknown for groups that perform at changing NYC venues. Society of Illustrators runs the plugin but its robots.txt disallows the path; NYC Parks and New Museum disallow wp-json. Monira Foundation exposes the API but its robots.txt blocks AI crawlers on the homepage, so it is held. Library Action Committee is held on terms.",
   "checked": "2026-10-28",
   "origins": [
-    {"source": "huntington-arts", "org": "Huntington Arts Council", "origin": "https://www.huntingtonarts.org", "borough": null, "region": "long_island"},
-    {"source": "nyfa-events", "org": "NYFA", "origin": "https://www.nyfa.org", "borough": "citywide", "region": "nyc"},
-    {"source": "staten-island-childrens-museum", "org": "Staten Island Children's Museum", "origin": "https://sichildrensmuseum.org", "borough": "staten_island", "region": "nyc"},
-    {"source": "staten-island-museum-events", "org": "Staten Island Museum", "origin": "https://www.statenislandmuseum.org", "borough": "staten_island", "region": "nyc"},
-    {"source": "uniondocs", "org": "UnionDocs", "origin": "https://uniondocs.org", "borough": "queens", "region": "nyc", "disciplines": ["film"]},
-    {"source": "chinese-theatre-works", "org": "Chinese Theatre Works", "origin": "https://chinesetheatreworks.org", "borough": "unknown", "region": "nyc", "disciplines": ["theater", "craft"]},
-    {"source": "harlem-needle-arts", "org": "Harlem Needle Arts", "origin": "https://harlemneedlearts.org", "borough": "manhattan", "region": "nyc", "disciplines": ["craft"]},
-    {"source": "lmcc", "org": "Lower Manhattan Cultural Council", "origin": "https://lmcc.net", "borough": "manhattan", "region": "nyc"},
-    {"source": "mark-morris", "org": "Mark Morris Dance Group", "origin": "https://markmorrisdancegroup.org", "borough": "brooklyn", "region": "nyc", "disciplines": ["dance"]},
-    {"source": "prospect-park", "org": "Prospect Park Alliance", "origin": "https://www.prospectpark.org", "borough": "brooklyn", "region": "nyc"}
-  ]
+    {
+      "source": "huntington-arts",
+      "org": "Huntington Arts Council",
+      "origin": "https://www.huntingtonarts.org",
+      "borough": null,
+      "region": "long_island"
+    },
+    {
+      "source": "nyfa-events",
+      "org": "NYFA",
+      "origin": "https://www.nyfa.org",
+      "borough": "citywide",
+      "region": "nyc"
+    },
+    {
+      "source": "staten-island-childrens-museum",
+      "org": "Staten Island Children's Museum",
+      "origin": "https://sichildrensmuseum.org",
+      "borough": "staten_island",
+      "region": "nyc"
+    },
+    {
+      "source": "staten-island-museum-events",
+      "org": "Staten Island Museum",
+      "origin": "https://www.statenislandmuseum.org",
+      "borough": "staten_island",
+      "region": "nyc"
+    },
+    {
+      "source": "uniondocs",
+      "org": "UnionDocs",
+      "origin": "https://uniondocs.org",
+      "borough": "queens",
+      "region": "nyc",
+      "disciplines": [
+        "film"
+      ]
+    },
+    {
+      "source": "chinese-theatre-works",
+      "org": "Chinese Theatre Works",
+      "origin": "https://chinesetheatreworks.org",
+      "borough": "unknown",
+      "region": "nyc",
+      "disciplines": [
+        "theater",
+        "craft"
+      ]
+    },
+    {
+      "source": "harlem-needle-arts",
+      "org": "Harlem Needle Arts",
+      "origin": "https://harlemneedlearts.org",
+      "borough": "manhattan",
+      "region": "nyc",
+      "disciplines": [
+        "craft"
+      ]
+    },
+    {
+      "source": "lmcc",
+      "org": "Lower Manhattan Cultural Council",
+      "origin": "https://lmcc.net",
+      "borough": "manhattan",
+      "region": "nyc"
+    },
+    {
+      "source": "mark-morris",
+      "org": "Mark Morris Dance Group",
+      "origin": "https://markmorrisdancegroup.org",
+      "borough": "brooklyn",
+      "region": "nyc",
+      "disciplines": [
+        "dance"
+      ]
+    },
+    {
+      "source": "prospect-park",
+      "org": "Prospect Park Alliance",
+      "origin": "https://www.prospectpark.org",
+      "borough": "brooklyn",
+      "region": "nyc"
+    },
+    {
+      "source": "daisys-li",
+      "org": "Daisy's (Patchogue)",
+      "origin": "https://daisysli.com",
+      "borough": null,
+      "region": "long_island",
+      "disciplines": [
+        "music"
+      ]
+    },
+    {
+      "source": "arts-council-princeton",
+      "org": "Arts Council of Princeton",
+      "origin": "https://artscouncilofprinceton.org",
+      "borough": null,
+      "region": "new_jersey"
+    },
+    {
+      "source": "guild-hall",
+      "org": "Guild Hall",
+      "origin": "https://www.guildhall.org",
+      "borough": null,
+      "region": "long_island"
+    },
+    {
+      "source": "five-points-arts",
+      "org": "Five Points Arts",
+      "origin": "https://fivepointsarts.org",
+      "borough": null,
+      "region": "connecticut"
+    },
+    {
+      "source": "city-parks-foundation",
+      "org": "City Parks Foundation",
+      "origin": "https://cityparksfoundation.org",
+      "borough": "citywide",
+      "region": "nyc"
+    },
+    {
+      "source": "open-source-gallery",
+      "org": "Open Source Gallery",
+      "origin": "https://open-source-gallery.org",
+      "borough": "brooklyn",
+      "region": "nyc"
+    },
+    {
+      "source": "squeaky-wheel",
+      "org": "Squeaky Wheel Film & Media Art Center",
+      "origin": "https://squeaky.org",
+      "borough": null,
+      "region": "upstate_ny",
+      "disciplines": [
+        "film"
+      ]
+    },
+    {
+      "source": "woodstock-guild",
+      "org": "Woodstock Byrdcliffe Guild",
+      "origin": "https://www.woodstockguild.org",
+      "borough": null,
+      "region": "westchester_hudson"
+    },
+    {
+      "source": "fabnyc",
+      "org": "FABnyc",
+      "origin": "https://www.fabnyc.org",
+      "borough": "manhattan",
+      "region": "nyc"
+    },
+    {
+      "source": "flux-factory",
+      "org": "Flux Factory",
+      "origin": "https://www.fluxfactory.org",
+      "borough": "queens",
+      "region": "nyc"
+    },
+    {
+      "source": "saltonstall",
+      "org": "Saltonstall Foundation for the Arts",
+      "origin": "https://www.saltonstall.org",
+      "borough": null,
+      "region": "upstate_ny"
+    }
+  ],
+  "terms_checked": "2026-10-28: homepage and linked terms/privacy pages via the crawler; no restrictions detected"
 }

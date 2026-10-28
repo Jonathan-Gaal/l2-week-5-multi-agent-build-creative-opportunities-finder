@@ -199,7 +199,7 @@
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
       "adapter": "tribe_events",
       "origins": "data/api/tribe_origins.json",
-      "last_run": "2026-10-28: 10 origins, 41 candidates from 6"
+      "last_run": "2026-10-28: 21 origins, 68 candidates from 12, 40 not in snapshot"
     },
     {
       "id": "api-ticketmaster-discovery",
@@ -262,8 +262,8 @@
       "documentation_url": "https://www.eventbrite.com/platform/api",
       "authentication": "private token required",
       "env_var": "EVENTBRITE_TOKEN",
-      "priority": "medium",
-      "purpose": "Workshops, open mics and auditions at venues whose crawled pages link to Eventbrite. No public search; IDs come from data/api/eventbrite_ids.json.",
+      "priority": "low",
+      "purpose": "Re-reads events already found on crawled venue pages. No discovery: public event search shut down 2019-12-12. Organizer-events endpoint used by the adapter is no longer documented.",
       "geography": [
         "NY",
         "NJ",
