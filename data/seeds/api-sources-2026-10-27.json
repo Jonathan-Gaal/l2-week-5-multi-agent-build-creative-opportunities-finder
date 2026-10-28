@@ -1,6 +1,6 @@
 {
   "research_date": "2026-10-27",
-  "count": 8,
+  "count": 9,
   "counted_as_opportunities": false,
   "priority_policy": "Artist compensation first, funded opportunities next, free participation next, participant-paid classes last. API access fees and event ticket costs never imply artist compensation.",
   "dedupe_policy": "Provider ID plus canonical application/detail URL; match normalized title, organizer and date across feeds. Group recurring programs and retain dated sessions separately.",
@@ -66,7 +66,7 @@
       "documentation_url": "https://open.gsa.gov/api/get-opportunities-public-api/",
       "authentication": "API key required",
       "priority": "high",
-      "purpose": "Paid creative contracts; restrict place of performance to NY/NJ/CT and distinguish solicitations from awards or informational notices.",
+      "purpose": "Paid creative contracts; one request per creative NAICS code (711510, 711130, 541430, 512110, 541922, 611610) nationwide, filtered to the 12 jurisdictions by place of performance. Personal keys without a SAM.gov role allow 10 requests a day.",
       "keywords": [
         "photography",
         "exhibit design",
@@ -282,6 +282,25 @@
       "status": "adapter_built_needs_key",
       "ingest": false,
       "availability_verified": false,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+    },
+    {
+      "id": "api-nyc-jobs",
+      "name": "NYC Jobs Postings",
+      "endpoint": "https://data.cityofnewyork.us/resource/kpav-sd4t.json",
+      "method": "GET",
+      "documentation_url": "https://data.cityofnewyork.us/City-Government/Jobs-NYC-Postings/kpav-sd4t",
+      "authentication": "none",
+      "priority": "high",
+      "purpose": "Paid creative NYC government jobs with salary. External postings only; detail link https://cityjobs.nyc.gov/job/{job_id}.",
+      "geography": [
+        "NY"
+      ],
+      "adapter": "nyc_jobs",
+      "status": "adapter_live",
+      "ingest": false,
+      "availability_verified": true,
+      "last_run": "2026-10-28: 5 creative jobs of about 1,300 open postings",
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
     }
   ],

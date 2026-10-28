@@ -5,7 +5,7 @@ or take part in, and returns candidate records in the snapshot schema. Candidate
 go through verification (quote on the record's own page, URL returns 200) before they
 join a snapshot.
 
-Keyless sources run as-is: city_record, grants_gov, and tribe_events (organizer sites listed in
+Keyless sources run as-is: city_record, nyc_jobs, grants_gov, and tribe_events (organizer sites listed in
 data/api/tribe_origins.json). Keyed sources read their key from an environment variable and
 are skipped, with a message, when it is not set:
     NYC_API_KEY       - NYC Event Calendar API (register at https://api-portal.nyc.gov)
@@ -113,7 +113,7 @@ def parse_date(text):
     m = re.match(r"(\d{4}-\d{2}-\d{2})", text)
     if m:
         return dt.date.fromisoformat(m.group(1))
-    for fmt, token in (("%m/%d/%Y", text.split()[0]), ("%b %d, %Y", text)):
+    for fmt, token in (("%m/%d/%Y", text.split()[0]), ("%b %d, %Y", text), ("%d-%b-%Y", text.split()[0])):
         try:
             return dt.datetime.strptime(token, fmt).date()
         except ValueError:
@@ -151,6 +151,70 @@ def city_record():
         url = f"https://a856-cityrecord.nyc.gov/RequestDetail/{r['request_id']}"
         out.append(record(title, r.get("agency_name", "NYC agency"), url, due, "citywide", "nyc", "open_call", "commission",
                           ["all"], desc[:300] if desc else None, "api-nyc-city-record", pin=r.get("pin")))
+    return out
+
+
+# --- NYC Jobs (keyless, Socrata) ---------------------------------------------------------------
+
+JOB_DESIGN = re.compile(r"\b(graphic|multimedia|visual|ux|ui|web|exhibit\w*|data visualization|motion|art|creative)\s+(designer|director)\b|\bdirector of design\b", re.I)
+# Engineering "design" and procurement, policy or technical "writer" titles are not creative work.
+NOT_CREATIVE_JOB = re.compile(r"\b(engineer\w*|construction|reviewer|structural|civil|electrical|mechanical|plumb\w*|solicitation|proposal|policy|technical|grants?)\b", re.I)
+JOB_DISCIPLINE = [(re.compile(r"design", re.I), "design"), (re.compile(r"video|film|media", re.I), "film"), (re.compile(r"photo", re.I), "visual"),
+                  (re.compile(r"music", re.I), "music"), (re.compile(r"theat|dance|perform", re.I), "theater"), (re.compile(r"writer|poet|editor", re.I), "literary")]
+QUEENS = re.compile(r"\b(queens|long island city|jamaica|flushing|astoria|kew gardens|corona|ridgewood|far rockaway)\b", re.I)
+
+
+def _job_borough(location):
+    loc = location or ""
+    for name, key in BOROUGH.items():
+        if re.search(rf"\b{name}\b", loc, re.I):
+            return key
+    if re.search(r"\bbklyn\b", loc, re.I):
+        return "brooklyn"
+    if QUEENS.search(loc):
+        return "queens"
+    return "manhattan" if re.search(r"\bN\.?\s?Y\.?\b|\bNew York\b", loc, re.I) else "unknown"   # "New York, NY" is the Manhattan postal name
+
+
+def _salary(j):
+    lo, hi, unit = j.get("salary_range_from"), j.get("salary_range_to"), (j.get("salary_frequency") or "").lower()
+    try:
+        lo, hi = float(lo), float(hi or lo)
+    except (TypeError, ValueError):
+        return None
+    per = {"annual": "per year", "hourly": "per hour", "daily": "per day"}.get(unit, unit)
+    amount = f"${lo:,.0f}" if lo == hi else f"${lo:,.0f}–${hi:,.0f}"
+    return f"{amount} {per}".strip()
+
+
+def _job_record(j):
+    """Candidate for one NYC job posting, or None when it is internal-only, closed or not creative work."""
+    title = (j.get("business_title") or "").strip()
+    if j.get("posting_type") != "External" or NOT_CREATIVE_JOB.search(title) or not (is_creative(title) or JOB_DESIGN.search(title)):
+        return None
+    closes = parse_date(j.get("post_until"))
+    if closes and closes < TODAY:
+        return None
+    r = record(title, (j.get("agency") or "NYC agency").title(), f"https://cityjobs.nyc.gov/job/{j['job_id']}", closes,
+               _job_borough(j.get("work_location")), "nyc", "job", "full_time" if j.get("full_time_part_time_indicator") == "F" else "part_time",
+               sorted({d for rx, d in JOB_DISCIPLINE if rx.search(title)}) or ["all"], None, "api-nyc-jobs", fee="none", award=_salary(j),
+               location=j.get("work_location"), job_id=j["job_id"])
+    r["eligibility"] = [{"requirement": req, "quote": first_sentence(j.get(field)) or (j.get(field) or "")[:300]}
+                        for req, field in (("minimum qualifications", "minimum_qual_requirements"), ("residency", "residency_requirement")) if j.get(field)]
+    return r
+
+
+def nyc_jobs():
+    """Open external NYC government jobs doing creative work, with salary."""
+    rows = request_json("https://data.cityofnewyork.us/resource/kpav-sd4t.json?" + urllib.parse.urlencode({"posting_type": "External", "$limit": 50000}))
+    out, seen = [], set()
+    for j in rows:
+        if j.get("job_id") in seen:
+            continue
+        seen.add(j.get("job_id"))
+        rec = _job_record(j)
+        if rec:
+            out.append(rec)
     return out
 
 
@@ -214,30 +278,38 @@ def nyc_events():
 
 # --- SAM.gov contract opportunities (needs SAM_API_KEY) ----------------------------------------
 
+# A personal key without a SAM.gov role allows 10 requests a day, so search by creative industry (one request each)
+# nationwide and filter to scope locally, rather than one request per state.
+SAM_NAICS = {"711510": ["all"], "711130": ["music"], "541430": ["design"], "512110": ["film"], "541922": ["visual"], "611610": ["all"]}
+
+
+def _sam_place(o):
+    """(borough, region) from place of performance, or None when outside scope or unknown."""
+    pop = o.get("placeOfPerformance") or {}
+    where = place((pop.get("zip") or "")[:5])
+    if where:
+        return where
+    state = (pop.get("state") or {}).get("code") if isinstance(pop.get("state"), dict) else pop.get("state")
+    return (None, STATE_REGION[state]) if state in STATE_REGION else None   # NY without a ZIP could be NYC, Long Island or upstate
+
+
 def sam_gov():
     key = os.environ.get("SAM_API_KEY")
     if not key:
         print("sam_gov: skipped, set SAM_API_KEY (register at https://sam.gov)", file=sys.stderr)
         return []
-    out = []
-    for state in SCOPE_STATES:
+    out, seen = [], set()
+    for naics, disciplines in SAM_NAICS.items():
         q = urllib.parse.urlencode({"api_key": key, "postedFrom": (TODAY - dt.timedelta(days=60)).strftime("%m/%d/%Y"),
-                                    "postedTo": TODAY.strftime("%m/%d/%Y"), "state": state, "ptype": "o,k", "limit": 1000})
-        body = request_json(f"https://api.sam.gov/opportunities/v2/search?{q}")
-        for o in body.get("opportunitiesData", []):
-            title = o.get("title", "")
-            if not is_creative(title):
-                continue
+                                    "postedTo": TODAY.strftime("%m/%d/%Y"), "ncode": naics, "ptype": "o,k", "limit": 1000})
+        for o in request_json(f"https://api.sam.gov/opportunities/v2/search?{q}").get("opportunitiesData", []):
             due = parse_date(o.get("responseDeadLine"))
-            if due and due < TODAY:
+            where = _sam_place(o)
+            if o.get("noticeId") in seen or (due and due < TODAY) or not where or NOT_CREATIVE.search(o.get("title", "")):
                 continue
-            where = place((o.get("placeOfPerformance") or {}).get("zip"))
-            if not where and state != "NY":
-                where = (None, STATE_REGION[state])
-            if not where:   # NY spans NYC, Long Island and upstate; without a ZIP the region is unknown
-                continue
-            out.append(record(title, o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, where[0], where[1],
-                              "open_call", "commission", ["all"], None, "api-sam-opportunities"))
+            seen.add(o.get("noticeId"))
+            out.append(record(o.get("title", ""), o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, where[0], where[1],
+                              "open_call", "commission", disciplines, None, "api-sam-opportunities"))
     return out
 
 
@@ -421,7 +493,7 @@ def tribe_events():
     return _group_occurrences(recs)
 
 
-ADAPTERS = {"city_record": city_record, "grants_gov": grants_gov, "nyc_events": nyc_events, "sam_gov": sam_gov, "eventbrite": eventbrite,
+ADAPTERS = {"city_record": city_record, "nyc_jobs": nyc_jobs, "grants_gov": grants_gov, "nyc_events": nyc_events, "sam_gov": sam_gov, "eventbrite": eventbrite,
             "tribe_events": tribe_events}
 
 

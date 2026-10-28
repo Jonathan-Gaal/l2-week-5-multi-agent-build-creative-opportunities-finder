@@ -127,6 +127,66 @@ class GrantsGov(unittest.TestCase):
         self.assertIsNone(out[1]["deadline"])   # 2099 placeholder
 
 
+class NycJobs(unittest.TestCase):
+    def job(self, **over):
+        j = {"job_id": "805925", "business_title": "Graphic Designer", "agency": "CAMPAIGN FINANCE BOARD", "posting_type": "External",
+             "post_until": (dt.date.today() + dt.timedelta(days=30)).strftime("%d-%b-%Y").upper(), "salary_range_from": "70000",
+             "salary_range_to": "80000", "salary_frequency": "Annual", "full_time_part_time_indicator": "F", "work_location": "100 Church St., N.Y.",
+             "minimum_qual_requirements": "A baccalaureate degree from an accredited college in graphic design.",
+             "residency_requirement": "New York City residency is generally required within 90 days of appointment."}
+        j.update(over)
+        return j
+
+    def test_keeps_external_open_creative_job_with_salary(self):
+        r = apis._job_record(self.job())
+        self.assertEqual((r["opportunity_type"], r["award"], r["borough"], r["disciplines"]), ("job", "$70,000–$80,000 per year", "manhattan", ["design"]))
+        self.assertEqual(r["source_url"], "https://cityjobs.nyc.gov/job/805925")
+        self.assertEqual([e["requirement"] for e in r["eligibility"]], ["minimum qualifications", "residency"])
+
+    def test_drops_internal_closed_and_non_creative(self):
+        self.assertIsNone(apis._job_record(self.job(posting_type="Internal")))   # current city employees only
+        self.assertIsNone(apis._job_record(self.job(post_until="01-JAN-2020")))
+        for title in ("Design Engineer 2", "Senior Design Reviewer", "Solicitation Writer", "Accountant"):
+            self.assertIsNone(apis._job_record(self.job(business_title=title)), title)
+
+    def test_title_variants(self):
+        self.assertEqual(apis._job_record(self.job(business_title="Director of Design, Bureau of Communications"))["disciplines"], ["design"])
+        self.assertEqual(apis._job_record(self.job(business_title="Staff Writer"))["disciplines"], ["literary"])
+
+    def test_borough_and_salary_parsing(self):
+        self.assertEqual(apis._job_borough("9 Bond St, Brooklyn Ny"), "brooklyn")
+        self.assertEqual(apis._job_borough("31-00 47th Ave, Long Island City"), "queens")
+        self.assertEqual(apis._job_borough("42-09 28th Street"), "unknown")
+        self.assertEqual(apis._salary({"salary_range_from": "25", "salary_range_to": "25", "salary_frequency": "Hourly"}), "$25 per hour")
+        self.assertIsNone(apis._salary({}))
+
+
+class SamGov(unittest.TestCase):
+    def test_fits_daily_quota_and_filters_to_scope(self):
+        import os
+        future = (dt.date.today() + dt.timedelta(days=20)).isoformat()
+        opps = [{"noticeId": "a", "title": "Mural for VA clinic", "responseDeadLine": future, "placeOfPerformance": {"zip": "10468"}},
+                {"noticeId": "b", "title": "Exhibit photography", "responseDeadLine": future, "placeOfPerformance": {"state": {"code": "PA"}}},
+                {"noticeId": "c", "title": "Band for ceremony", "responseDeadLine": future, "placeOfPerformance": {"state": {"code": "CA"}}},
+                {"noticeId": "d", "title": "Video production", "responseDeadLine": future, "placeOfPerformance": {"state": {"code": "NY"}}},
+                {"noticeId": "e", "title": "Old call", "responseDeadLine": "2020-01-01", "placeOfPerformance": {"zip": "10001"}}]
+        calls = []
+
+        def fake(url, data=None, headers=None):
+            calls.append(url)
+            return {"opportunitiesData": opps}   # same notices under every code, to exercise dedupe
+
+        saved, apis.request_json = apis.request_json, fake
+        os.environ["SAM_API_KEY"] = "test"
+        try:
+            out = apis.sam_gov()
+        finally:
+            apis.request_json = saved
+            del os.environ["SAM_API_KEY"]
+        self.assertLess(len(calls), 10)   # personal keys without a role get 10 requests a day
+        self.assertEqual([(r["title"], r["region"]) for r in out], [("Mural for VA clinic", "nyc"), ("Exhibit photography", "pennsylvania")])
+
+
 class TribeEvents(unittest.TestCase):
     site = {"source": "si-museum", "org": "Staten Island Museum", "borough": "staten_island", "region": "nyc"}
 
