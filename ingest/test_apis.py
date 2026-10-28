@@ -190,6 +190,7 @@ class SamGov(unittest.TestCase):
             apis.request_json = saved
             del os.environ["SAM_API_KEY"]
         self.assertLess(len(calls), 10)   # personal keys without a role get 10 requests a day
+        self.assertTrue(any("title=mural" in c for c in calls))
         self.assertEqual([(r["title"], r["region"]) for r in out], [("Mural for VA clinic", "nyc"), ("Exhibit photography", "pennsylvania")])
 
 

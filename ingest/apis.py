@@ -285,7 +285,10 @@ def nyc_events():
 
 # A personal key without a SAM.gov role allows 10 requests a day, so search by creative industry (one request each)
 # nationwide and filter to scope locally, rather than one request per state.
+# Title searches catch creative work filed under unrelated codes (a mural under construction). 9 requests, leaving 1 spare.
 SAM_NAICS = {"711510": ["all"], "711130": ["music"], "541430": ["design"], "512110": ["film"], "541922": ["visual"], "611610": ["all"]}
+SAM_TITLES = ("art in architecture", "mural", "artist")
+SAM_QUERIES = [({"ncode": code}, disc) for code, disc in SAM_NAICS.items()] + [({"title": t}, ["all"]) for t in SAM_TITLES]
 
 
 def _sam_place(o):
@@ -304,16 +307,19 @@ def sam_gov():
         print("sam_gov: skipped, set SAM_API_KEY (register at https://sam.gov)", file=sys.stderr)
         return []
     out, seen = [], set()
-    for naics, disciplines in SAM_NAICS.items():
+    for query, disciplines in SAM_QUERIES:
         q = urllib.parse.urlencode({"api_key": key, "postedFrom": (TODAY - dt.timedelta(days=60)).strftime("%m/%d/%Y"),
-                                    "postedTo": TODAY.strftime("%m/%d/%Y"), "ncode": naics, "ptype": "o,k", "limit": 1000})
+                                    "postedTo": TODAY.strftime("%m/%d/%Y"), **query, "ptype": "o,k", "limit": 1000})
         for o in request_json(f"https://api.sam.gov/opportunities/v2/search?{q}").get("opportunitiesData", []):
             due = parse_date(o.get("responseDeadLine"))
             where = _sam_place(o)
-            if o.get("noticeId") in seen or (due and due < TODAY) or not where or NOT_CREATIVE.search(o.get("title", "")):
+            title = o.get("title", "")
+            if o.get("noticeId") in seen or (due and due < TODAY) or not where or NOT_CREATIVE.search(title):
+                continue
+            if "title" in query and not is_creative(title):   # title search is substring-loose; industry codes already imply creative work
                 continue
             seen.add(o.get("noticeId"))
-            out.append(record(o.get("title", ""), o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, where[0], where[1],
+            out.append(record(title, o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, where[0], where[1],
                               "open_call", "commission", disciplines, None, "api-sam-opportunities"))
     return out
 

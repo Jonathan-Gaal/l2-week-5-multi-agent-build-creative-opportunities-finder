@@ -66,7 +66,7 @@
       "documentation_url": "https://open.gsa.gov/api/get-opportunities-public-api/",
       "authentication": "API key required",
       "priority": "high",
-      "purpose": "Paid creative contracts; one request per creative NAICS code (711510, 711130, 541430, 512110, 541922, 611610) nationwide, filtered to the 12 jurisdictions by place of performance. Personal keys without a SAM.gov role allow 10 requests a day.",
+      "purpose": "Paid creative contracts; six creative NAICS codes (711510, 711130, 541430, 512110, 541922, 611610) plus title searches 'art in architecture', 'mural', 'artist', nationwide, filtered to the 12 jurisdictions by place of performance. 9 requests per run; personal keys without a SAM.gov role allow 10 a day.",
       "keywords": [
         "photography",
         "exhibit design",
@@ -89,12 +89,13 @@
         "MD",
         "DC"
       ],
-      "status": "adapter_built_needs_key",
+      "status": "adapter_live",
       "ingest": false,
-      "availability_verified": false,
+      "availability_verified": true,
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
       "adapter": "sam_gov",
-      "env_var": "SAM_API_KEY"
+      "env_var": "SAM_API_KEY",
+      "last_run": "2026-10-28 (codes only): 1 candidate, GSA Coburn Gore LPOE Art in Architecture, Maine, due 2026-11-18"
     },
     {
       "id": "api-usajobs",
