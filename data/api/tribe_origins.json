@@ -1,0 +1,16 @@
+{
+  "note": "Organizer sites running The Events Calendar (WordPress) whose robots.txt allows /wp-json/tribe/events/v1/events. borough/region are the fallback when an event has no venue ZIP (online or unlisted venue); unknown for groups that perform at changing NYC venues. Society of Illustrators runs the plugin but its robots.txt disallows the path; NYC Parks and New Museum disallow wp-json.",
+  "checked": "2026-10-28",
+  "origins": [
+    {"source": "huntington-arts", "org": "Huntington Arts Council", "origin": "https://www.huntingtonarts.org", "borough": null, "region": "long_island"},
+    {"source": "nyfa-events", "org": "NYFA", "origin": "https://www.nyfa.org", "borough": "citywide", "region": "nyc"},
+    {"source": "staten-island-childrens-museum", "org": "Staten Island Children's Museum", "origin": "https://sichildrensmuseum.org", "borough": "staten_island", "region": "nyc"},
+    {"source": "staten-island-museum-events", "org": "Staten Island Museum", "origin": "https://www.statenislandmuseum.org", "borough": "staten_island", "region": "nyc"},
+    {"source": "uniondocs", "org": "UnionDocs", "origin": "https://uniondocs.org", "borough": "queens", "region": "nyc", "disciplines": ["film"]},
+    {"source": "chinese-theatre-works", "org": "Chinese Theatre Works", "origin": "https://chinesetheatreworks.org", "borough": "unknown", "region": "nyc", "disciplines": ["theater", "craft"]},
+    {"source": "harlem-needle-arts", "org": "Harlem Needle Arts", "origin": "https://harlemneedlearts.org", "borough": "manhattan", "region": "nyc", "disciplines": ["craft"]},
+    {"source": "lmcc", "org": "Lower Manhattan Cultural Council", "origin": "https://lmcc.net", "borough": "manhattan", "region": "nyc"},
+    {"source": "mark-morris", "org": "Mark Morris Dance Group", "origin": "https://markmorrisdancegroup.org", "borough": "brooklyn", "region": "nyc", "disciplines": ["dance"]},
+    {"source": "prospect-park", "org": "Prospect Park Alliance", "origin": "https://www.prospectpark.org", "borough": "brooklyn", "region": "nyc"}
+  ]
+}

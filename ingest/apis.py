@@ -1,11 +1,12 @@
-"""API adapters for creative opportunities in the NYC tri-state area.
+"""API adapters for creative opportunities within reach of an NYC artist (NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC).
 
 Each adapter calls one documented API, filters to creative work an artist can apply to
 or take part in, and returns candidate records in the snapshot schema. Candidates still
 go through verification (quote on the record's own page, URL returns 200) before they
 join a snapshot.
 
-Keyless sources run as-is. Keyed sources read their key from an environment variable and
+Keyless sources run as-is: city_record, grants_gov, and tribe_events (organizer sites listed in
+data/api/tribe_origins.json). Keyed sources read their key from an environment variable and
 are skipped, with a message, when it is not set:
     NYC_API_KEY       - NYC Event Calendar API (register at https://api-portal.nyc.gov)
     SAM_API_KEY       - SAM.gov Contract Opportunities (register at https://sam.gov)
@@ -18,11 +19,12 @@ Every request passes the same gate: the paid display-only denylist, then robots.
 the exact URL (query string included) for ClaudeBot, anthropic-ai, Claude-User and *.
 
 Usage:
-    python -m ingest.apis city_record grants_gov --out data/api/2026-10-27/candidates.json
+    python -m ingest.apis city_record grants_gov tribe_events --out data/api/2026-10-28/candidates.json
 """
 
 import argparse
 import datetime as dt
+import html
 import json
 import os
 import re
@@ -36,7 +38,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 DENYLIST = REPO / "data/seeds/paid-display-only-sources.json"
-UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36"
+UA = "OpportunityResearch/1.0 (read-only arts opportunity research; robots respected)"   # same identity as scripts/crawl_opportunity_sources.py
 AGENTS = ("ClaudeBot", "anthropic-ai", "Claude-User", "*")
 TODAY = dt.date.today()
 
@@ -47,7 +49,12 @@ CREATIVE = re.compile(
     r"poet(?:ry|s)?|writers?|cultural programs?|craft|ceramics?|exhibition|choreograph\w*|"
     r"illustrat\w*|animation|media arts|storytell\w*)\b", re.I)
 NOT_CREATIVE = re.compile(r"\b(floor tile|petroleum|sewer|asbestos|hvac|roofing|elevator|plumbing|paving|janitorial)\b", re.I)
-TRI_STATE = re.compile(r"\b(NY|NJ|CT|New York|New Jersey|Connecticut)\b")
+
+# Scope: anywhere an NYC artist can reasonably reach. State code -> snapshot region when no ZIP is available
+# (NY is split by place, so it has no single region).
+STATE_REGION = {"NJ": "new_jersey", "CT": "connecticut", "PA": "pennsylvania", "MA": "massachusetts", "RI": "rhode_island",
+                "VT": "vermont", "NH": "new_hampshire", "ME": "maine", "DE": "delaware", "MD": "maryland", "DC": "dc"}
+SCOPE_STATES = ("NY", *STATE_REGION)
 
 
 class Blocked(Exception):
@@ -119,9 +126,9 @@ def is_creative(*texts):
     return bool(CREATIVE.search(blob)) and not NOT_CREATIVE.search(blob)
 
 
-def record(title, org, url, deadline, borough, region, typ, sub, disciplines, quote, source, fee="unknown", **extra):
+def record(title, org, url, deadline, borough, region, typ, sub, disciplines, quote, source, fee="unknown", award=None, **extra):
     return dict(title=title[:160], org=org, opportunity_type=typ, subtype=sub, borough=borough, region=region,
-                deadline=deadline.isoformat() if isinstance(deadline, dt.date) else deadline, recurrence=None, fee=fee, award=None,
+                deadline=deadline.isoformat() if isinstance(deadline, dt.date) else deadline, recurrence=None, fee=fee, award=award,
                 eligibility=[{"requirement": "as stated", "quote": quote}] if quote else [], source=source, source_url=url,
                 disciplines=disciplines, extraction="api", **extra)
 
@@ -149,25 +156,36 @@ def city_record():
 
 # --- Grants.gov (keyless) ----------------------------------------------------------------------
 
+INDIVIDUALS = "21"   # Grants.gov applicant type "Individuals"
+
+
 def grants_gov():
-    """Posted federal arts grants; kept only when the listing itself names NY, NJ or CT, since national calls are out of scope."""
-    body = request_json("https://api.grants.gov/v1/api/search2", data={"keyword": "arts", "oppStatuses": "posted", "rows": 200})
+    """Posted federal Arts and Humanities grants that individuals may apply for.
+
+    Federal calls are national, so they reach NYC artists by eligibility, not place; most are open only
+    to organizations, and those are dropped. Keyword search is not used: "arts" also matches "parts".
+    """
+    body = request_json("https://api.grants.gov/v1/api/search2", data={"fundingCategories": "AR|HU", "oppStatuses": "posted", "rows": 500})
     out = []
     for h in body.get("data", {}).get("oppHits", []):
-        title = h.get("title", "")
-        if not is_creative(title) or not TRI_STATE.search(title):
-            continue
         close = parse_date(h.get("closeDate"))
         if close and close < TODAY:
             continue
-        out.append(record(title, h.get("agency", h.get("agencyCode", "")), f"https://www.grants.gov/search-results-detail/{h['id']}",
-                          close, None, "tri_state", "grant", None, ["all"], None, "api-grants-gov"))
+        synopsis = request_json("https://api.grants.gov/v1/api/fetchOpportunity", data={"opportunityId": int(h["id"])}).get("data", {}).get("synopsis", {})
+        if not any(str(t.get("id")) == INDIVIDUALS for t in synopsis.get("applicantTypes") or []):
+            continue
+        if close and close.year > TODAY.year + 2:   # 2099 marks a standing annual program statement
+            close = None
+        quote = (synopsis.get("applicantEligibilityDesc") or "").strip()[:300] or None
+        out.append(record(h.get("title", ""), h.get("agency", h.get("agencyCode", "")), f"https://www.grants.gov/search-results-detail/{h['id']}",
+                          close, None, "national", "grant", None, ["all"], quote, "api-grants-gov",
+                          award=synopsis.get("awardCeiling") or None))
     return out
 
 
 # --- NYC Event Calendar (needs NYC_API_KEY) ----------------------------------------------------
 
-PARTICIPATE = re.compile(r"\b(workshop|class(?:es)?|open mic|jam|drum circle|sing-?along|drawing|sketch|audition|open call|lesson|"
+PARTICIPATE = re.compile(r"\b(workshops?|class(?:es)?|open mic|jam|drum circle|sing-?along|drawing|sketch|audition|open call|lesson|"
                          r"open studio|craft|dance (?:class|party|social)|salsa|tango|swing|poetry|writing|choir|chorus)\b", re.I)
 BOROUGH = {"manhattan": "manhattan", "brooklyn": "brooklyn", "queens": "queens", "bronx": "bronx", "staten island": "staten_island"}
 
@@ -202,7 +220,7 @@ def sam_gov():
         print("sam_gov: skipped, set SAM_API_KEY (register at https://sam.gov)", file=sys.stderr)
         return []
     out = []
-    for state in ("NY", "NJ", "CT"):
+    for state in SCOPE_STATES:
         q = urllib.parse.urlencode({"api_key": key, "postedFrom": (TODAY - dt.timedelta(days=60)).strftime("%m/%d/%Y"),
                                     "postedTo": TODAY.strftime("%m/%d/%Y"), "state": state, "ptype": "o,k", "limit": 1000})
         body = request_json(f"https://api.sam.gov/opportunities/v2/search?{q}")
@@ -213,8 +231,12 @@ def sam_gov():
             due = parse_date(o.get("responseDeadLine"))
             if due and due < TODAY:
                 continue
-            out.append(record(title, o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, None,
-                              "nyc" if state == "NY" else {"NJ": "new_jersey", "CT": "connecticut"}[state],
+            where = place((o.get("placeOfPerformance") or {}).get("zip"))
+            if not where and state != "NY":
+                where = (None, STATE_REGION[state])
+            if not where:   # NY spans NYC, Long Island and upstate; without a ZIP the region is unknown
+                continue
+            out.append(record(title, o.get("fullParentPathName", "Federal agency"), o.get("uiLink"), due, where[0], where[1],
                               "open_call", "commission", ["all"], None, "api-sam-opportunities"))
     return out
 
@@ -228,7 +250,12 @@ ZIP_REGION = [(range(10000, 10300), "manhattan", "nyc"), (range(10300, 10400), "
               (range(11200, 11300), "brooklyn", "nyc"), (range(11100, 11200), "queens", "nyc"), (range(11300, 11500), "queens", "nyc"),
               (range(11600, 11700), "queens", "nyc"), (range(11000, 11100), None, "long_island"), (range(11500, 11600), None, "long_island"),
               (range(11700, 12000), None, "long_island"), (range(10500, 11000), None, "westchester_hudson"), (range(12400, 12800), None, "westchester_hudson"),
-              (range(7000, 8000), None, "new_jersey"), (range(8800, 9000), None, "new_jersey"), (range(6400, 7000), None, "connecticut")]
+              (range(12000, 12400), None, "upstate_ny"), (range(12800, 15000), None, "upstate_ny"),
+              (range(7000, 9000), None, "new_jersey"), (range(6000, 7000), None, "connecticut"),
+              (range(15000, 19700), None, "pennsylvania"), (range(19700, 20000), None, "delaware"),
+              (range(20000, 20100), None, "dc"), (range(20200, 20600), None, "dc"), (range(20600, 22000), None, "maryland"),
+              (range(5500, 5600), None, "massachusetts"), (range(1000, 2800), None, "massachusetts"), (range(2800, 3000), None, "rhode_island"),
+              (range(3000, 3900), None, "new_hampshire"), (range(3900, 5000), None, "maine"), (range(5000, 6000), None, "vermont")]
 
 
 def place(zip_code):
@@ -237,6 +264,15 @@ def place(zip_code):
     except (TypeError, ValueError):
         return None
     return next(((b, r) for rng, b, r in ZIP_REGION if z in rng), None)
+
+
+def first_sentence(text):
+    """A verbatim sentence short enough to quote as the record's evidence."""
+    return next((s for s in re.split(r"(?<=[.!?])\s+", text or "") if 25 < len(s) < 300), None)
+
+
+def event_type(title):
+    return "open_call" if re.search(r"audition|open call|casting", title, re.I) else "event"
 
 
 def _eventbrite_record(e):
@@ -252,9 +288,8 @@ def _eventbrite_record(e):
     if not where:
         return None
     fee = "none" if e.get("is_free") else "unknown"
-    sentence = next((s for s in re.split(r"(?<=[.!?])\s+", desc) if 25 < len(s) < 300), None)
     return record(name, (e.get("organizer") or {}).get("name") or "Eventbrite organizer", e.get("url"), start, where[0], where[1],
-                  "open_call" if re.search(r"audition|open call|casting", name, re.I) else "event", "workshop", ["all"], sentence,
+                  event_type(name), "workshop", ["all"], first_sentence(desc),
                   "api-eventbrite", fee=fee, location=", ".join(x for x in [venue.get("name"), (venue.get("address") or {}).get("localized_address_display")] if x) or None,
                   eventbrite_id=e.get("id"))
 
@@ -294,7 +329,100 @@ def eventbrite():
     return out
 
 
-ADAPTERS = {"city_record": city_record, "grants_gov": grants_gov, "nyc_events": nyc_events, "sam_gov": sam_gov, "eventbrite": eventbrite}
+# --- The Events Calendar (keyless, per organizer site) -----------------------------------------
+# WordPress sites running The Events Calendar expose /wp-json/tribe/events/v1/events. There is no
+# central index, so origins come from crawled organizer sites; each passes the robots gate per URL.
+
+TRIBE_ORIGINS = REPO / "data/api/tribe_origins.json"
+TRIBE_DAYS, TRIBE_MAX_PAGES = 90, 20
+
+
+def _text(html_text):
+    """Plain text with tags stripped, entities decoded and whitespace collapsed."""
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", html_text or "")).split())
+
+
+def _tribe_fee(e):
+    cost = _text(e.get("cost"))
+    if not cost:
+        return "unknown"
+    if re.fullmatch(r"free\.?", cost, re.I):
+        return "none"
+    money = e.get("cost_details") or {}
+    vals, symbol = money.get("values") or [], money.get("currency_symbol")
+    if vals and symbol:   # sites that place the symbol after the amount render "135$"; write "$135"
+        return " – ".join(symbol + v for v in dict.fromkeys((vals[0], vals[-1])))
+    return cost
+
+
+def _tribe_record(e, site):
+    """Candidate for one occurrence, or None when it is past, unlisted, not participatory or out of scope."""
+    title = _text(e.get("title"))
+    start = parse_date(e.get("start_date"))
+    if not start or start < TODAY or e.get("status") != "publish" or e.get("hide_from_listings") or re.match(r"cancell?ed\b", title, re.I):
+        return None
+    categories = " ".join(c.get("name", "") for c in e.get("categories") or [])
+    if not PARTICIPATE.search(f"{title} {html.unescape(categories)}"):
+        return None
+    venue = e.get("venue") if isinstance(e.get("venue"), dict) else {}
+    state = (venue.get("stateprovince") or venue.get("state") or "").upper()
+    if venue.get("zip"):
+        where = place(venue["zip"])
+    elif len(state) == 2 and state not in SCOPE_STATES:
+        where = None
+    else:
+        where = (site.get("borough"), site["region"])
+    if not where:   # touring dates and other venues outside the 12 jurisdictions
+        return None
+    fee = _tribe_fee(e)
+    location = ", ".join(x for x in (venue.get("venue"), venue.get("address"), venue.get("city")) if x) or ("Online" if e.get("is_virtual") else None)
+    return record(title, site["org"], e.get("url"), start, where[0], where[1], event_type(title), "workshop", site.get("disciplines", ["all"]),
+                  first_sentence(_text(e.get("excerpt") or e.get("description"))), site["source"], fee=fee, location=location)
+
+
+def _group_occurrences(recs):
+    """Recurring events arrive once per date; keep the first occurrence and list every date, as the snapshot does."""
+    groups = {}
+    for r in recs:
+        key = (r["source"], r["title"].lower(), r["region"], r["borough"])
+        if key in groups:
+            groups[key]["event_dates"].append(r["deadline"])
+        else:
+            groups[key] = {**r, "event_dates": [r["deadline"]]}
+    for g in groups.values():
+        g["event_dates"] = sorted(set(g["event_dates"]))
+        if len(g["event_dates"]) > 1:
+            g["recurrence"] = f"{len(g['event_dates'])} dates through {g['event_dates'][-1]}"
+    return list(groups.values())
+
+
+def tribe_events():
+    try:
+        sites = json.loads(TRIBE_ORIGINS.read_text())["origins"]
+    except (OSError, ValueError, KeyError) as err:
+        print(f"tribe_events: cannot read origin list {TRIBE_ORIGINS}: {err!r}", file=sys.stderr)
+        return []
+    recs = []
+    for site in sites:
+        for page in range(1, TRIBE_MAX_PAGES + 1):
+            q = urllib.parse.urlencode({"start_date": TODAY.isoformat(), "end_date": (TODAY + dt.timedelta(days=TRIBE_DAYS)).isoformat(),
+                                        "per_page": 50, "page": page})
+            try:
+                body = request_json(f"{site['origin']}/wp-json/tribe/events/v1/events?{q}")
+            except Blocked:
+                print(f"tribe_events {site['source']}: blocked by robots.txt or denylist", file=sys.stderr)
+                break
+            except (urllib.error.URLError, TimeoutError, ValueError) as err:   # one site down must not stop the rest
+                print(f"tribe_events {site['source']}: {err}", file=sys.stderr)
+                break
+            recs += filter(None, (_tribe_record(e, site) for e in body.get("events", [])))
+            if page >= (body.get("total_pages") or 1):
+                break
+    return _group_occurrences(recs)
+
+
+ADAPTERS = {"city_record": city_record, "grants_gov": grants_gov, "nyc_events": nyc_events, "sam_gov": sam_gov, "eventbrite": eventbrite,
+            "tribe_events": tribe_events}
 
 
 def main(argv=None):

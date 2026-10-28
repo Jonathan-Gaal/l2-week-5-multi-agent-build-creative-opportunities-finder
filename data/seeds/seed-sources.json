@@ -912,7 +912,7 @@
       "category": "method",
       "verdict": "keep",
       "checked": "crawled 2026-10-27",
-      "checks": "Discovered on 9 venue sites (SI Museum, SI Children's Museum, Society of Illustrators, NYFA, LMCC, Mark Morris, UnionDocs, Prospect Park, Huntington).",
+      "checks": "Discovered on 9 venue sites (SI Museum, SI Children's Museum, Society of Illustrators, NYFA, LMCC, Mark Morris, UnionDocs, Prospect Park, Huntington). Society of Illustrators disallows the path (checked 2026-10-28).",
       "notes": "Check robots.txt for the wp-json path first (NYC Parks and New Museum disallow it).",
       "access": "free",
       "ingest": true,
@@ -938,12 +938,24 @@
         "geography": [
           "NY",
           "NJ",
-          "CT"
+          "CT",
+          "PA",
+          "MA",
+          "RI",
+          "VT",
+          "NH",
+          "ME",
+          "DE",
+          "MD",
+          "DC"
         ],
-        "status": "documentation_verified_adapter_not_implemented",
+        "status": "adapter_live",
         "ingest": false,
-        "availability_verified": false,
-        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+        "availability_verified": true,
+        "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+        "adapter": "tribe_events",
+        "origins": "data/api/tribe_origins.json",
+        "last_run": "2026-10-28: 10 origins, 41 candidates from 6"
       }
     },
     {

@@ -1,10 +1,10 @@
 {
   "research_date": "2026-10-27",
-  "count": 6,
+  "count": 8,
   "counted_as_opportunities": false,
   "priority_policy": "Artist compensation first, funded opportunities next, free participation next, participant-paid classes last. API access fees and event ticket costs never imply artist compensation.",
   "dedupe_policy": "Provider ID plus canonical application/detail URL; match normalized title, organizer and date across feeds. Group recurring programs and retain dated sessions separately.",
-  "access_policy": "No credentials created, subscriptions purchased or production adapters activated. APIs do not bypass paywalls, blocked organizer paths, licensing, or source restrictions.",
+  "access_policy": "No credentials created or subscriptions purchased. Adapters produce candidates only; nothing enters a snapshot without verification. APIs do not bypass paywalls, blocked organizer paths, licensing, or source restrictions.",
   "normalization_fields": [
     "provider",
     "provider_record_id",
@@ -48,15 +48,15 @@
         "cultural heritage"
       ],
       "geography": [
-        "NY",
-        "NJ",
-        "CT"
+        "national"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "adapter_live",
       "ingest": false,
-      "availability_verified": false,
+      "availability_verified": true,
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
-      "alternative_api_documentation": "https://simpler.grants.gov/developers"
+      "alternative_api_documentation": "https://simpler.grants.gov/developers",
+      "adapter": "grants_gov",
+      "last_run": "2026-10-28: 22 posted AR/HU grants, all organization-only, 0 candidates"
     },
     {
       "id": "api-sam-opportunities",
@@ -78,12 +78,23 @@
       "geography": [
         "NY",
         "NJ",
-        "CT"
+        "CT",
+        "PA",
+        "MA",
+        "RI",
+        "VT",
+        "NH",
+        "ME",
+        "DE",
+        "MD",
+        "DC"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "adapter_built_needs_key",
       "ingest": false,
       "availability_verified": false,
-      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+      "adapter": "sam_gov",
+      "env_var": "SAM_API_KEY"
     },
     {
       "id": "api-usajobs",
@@ -106,9 +117,18 @@
       "geography": [
         "NY",
         "NJ",
-        "CT"
+        "CT",
+        "PA",
+        "MA",
+        "RI",
+        "VT",
+        "NH",
+        "ME",
+        "DE",
+        "MD",
+        "DC"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "not_built_robots_disallow_all",
       "ingest": false,
       "availability_verified": false,
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
@@ -133,14 +153,14 @@
         "performance"
       ],
       "geography": [
-        "NY",
-        "NJ",
-        "CT"
+        "NY"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "adapter_live",
       "ingest": false,
-      "availability_verified": false,
-      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      "availability_verified": true,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+      "adapter": "city_record",
+      "last_run": "2026-10-28: 196 open solicitations, none creative, 0 candidates"
     },
     {
       "id": "tribe-events-api",
@@ -162,12 +182,24 @@
       "geography": [
         "NY",
         "NJ",
-        "CT"
+        "CT",
+        "PA",
+        "MA",
+        "RI",
+        "VT",
+        "NH",
+        "ME",
+        "DE",
+        "MD",
+        "DC"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "adapter_live",
       "ingest": false,
-      "availability_verified": false,
-      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+      "availability_verified": true,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion",
+      "adapter": "tribe_events",
+      "origins": "data/api/tribe_origins.json",
+      "last_run": "2026-10-28: 10 origins, 41 candidates from 6"
     },
     {
       "id": "api-ticketmaster-discovery",
@@ -187,12 +219,72 @@
       "geography": [
         "NY",
         "NJ",
-        "CT"
+        "CT",
+        "PA",
+        "MA",
+        "RI",
+        "VT",
+        "NH",
+        "ME",
+        "DE",
+        "MD",
+        "DC"
       ],
-      "status": "documentation_verified_adapter_not_implemented",
+      "status": "not_built_attendee_tickets",
+      "ingest": false,
+      "availability_verified": false,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+    },
+    {
+      "id": "api-nyc-event-calendar",
+      "name": "NYC Event Calendar API",
+      "endpoint": "https://api.nyc.gov/calendar/search",
+      "method": "GET",
+      "documentation_url": "https://api-portal.nyc.gov",
+      "authentication": "API key required",
+      "env_var": "NYC_API_KEY",
+      "priority": "medium",
+      "purpose": "Participatory NYC workshops and classes in the Arts and Culture category.",
+      "geography": [
+        "NY"
+      ],
+      "adapter": "nyc_events",
+      "status": "adapter_built_needs_key",
+      "ingest": false,
+      "availability_verified": false,
+      "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
+    },
+    {
+      "id": "api-eventbrite",
+      "name": "Eventbrite API (event and organizer lookup)",
+      "endpoint": "https://www.eventbriteapi.com/v3",
+      "method": "GET",
+      "documentation_url": "https://www.eventbrite.com/platform/api",
+      "authentication": "private token required",
+      "env_var": "EVENTBRITE_TOKEN",
+      "priority": "medium",
+      "purpose": "Workshops, open mics and auditions at venues whose crawled pages link to Eventbrite. No public search; IDs come from data/api/eventbrite_ids.json.",
+      "geography": [
+        "NY",
+        "NJ",
+        "CT",
+        "PA",
+        "MA",
+        "RI",
+        "VT",
+        "NH",
+        "ME",
+        "DE",
+        "MD",
+        "DC"
+      ],
+      "adapter": "eventbrite",
+      "status": "adapter_built_needs_key",
       "ingest": false,
       "availability_verified": false,
       "terms_review": "review_provider_license_attribution_retention_and_rate_limits_before_ingestion"
     }
-  ]
+  ],
+  "updated": "2026-10-28",
+  "adapters": "ingest/apis.py"
 }
