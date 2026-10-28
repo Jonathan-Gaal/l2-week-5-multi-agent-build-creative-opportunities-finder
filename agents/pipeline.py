@@ -57,6 +57,15 @@ def removed_note(removed):
     return ("; ".join(parts) + ".") if parts else None
 
 
+UNVERIFIED = "mara_backfill_unverified"   # teammate-collected records never rechecked against the source page
+
+
+def label(rec, tier):
+    if rec.get("extraction") == UNVERIFIED:
+        return "From a teammate's list, not rechecked against the source"
+    return f"Checked {rec['checked_at']}" + ("" if tier == 0 else " · not fully checked")
+
+
 def present(rec, tier):
     elig = rec.get("eligibility") or []
     fee = rec.get("fee")
@@ -68,7 +77,7 @@ def present(rec, tier):
         "fee": "Fee unknown" if fee in (None, "unknown") else fee, "award": rec.get("award"),
         "eligibility": [{"requirement": e["requirement"], "quote": e.get("quote")} for e in elig] or "Eligibility not stated",
         "source": rec["source"], "source_url": rec["source_url"],
-        "label": f"Checked {rec['checked_at']}" + ("" if tier == 0 else " · not fully checked"),
+        "label": label(rec, tier),
         "caveat": rec.get("caveat"), "dedupe_key": rec["dedupe_key"],
     }
 
@@ -87,7 +96,7 @@ def run(req, records, ranker, reviewer=None, trace_path=None, max_candidates=MAX
         trace.update(tier=result["tier"], served=[r["dedupe_key"] for r in result["results"]], reason=result.get("reason"))
         if trace_path:
             Path(trace_path).parent.mkdir(parents=True, exist_ok=True)
-            with open(trace_path, "a") as f:
+            with open(trace_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(trace) + "\n")
         result["request_id"] = trace["request_id"]
         return result

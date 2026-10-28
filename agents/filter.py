@@ -44,7 +44,7 @@ class Request:
 
 
 def load(snapshot_dir=SNAPSHOT):
-    return json.loads((Path(snapshot_dir) / "records.json").read_text())["records"]
+    return json.loads((Path(snapshot_dir) / "records.json").read_text(encoding="utf-8"))["records"]
 
 
 def last_date(rec):

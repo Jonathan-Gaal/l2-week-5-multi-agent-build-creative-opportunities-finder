@@ -14,6 +14,8 @@ This is the lean PRD's backfill (section 3): fetch NYC opportunities for artists
 
 ## The numbers
 
+> **Update 2026-10-28:** these counts are for Mara's `data/snapshot.json`. The combined snapshot the agents and Supabase read is `data/snapshots/2026-10-27/` (1,526 records, staging). 405 of them come from this backfill and are labeled "not rechecked against the source" in results.
+
 526 records in the published snapshot, from 8 sources:
 
 | Source | Records | What it is |

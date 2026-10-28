@@ -26,7 +26,7 @@
       "place": "queens",
       "type": "grant",
       "as_of": "2026-10-28",
-      "note": "Individual-artist grants must appear; organization-only grants must not.",
+      "note": "Individual-artist grants must appear; nonprofit-only grants must not. The Community Arts Grant is open to groups and collectives, so artist collectives qualify and it may appear.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
@@ -35,8 +35,7 @@
           "2027 queens arts fund new work grant|queens|2026-11-17"
         ],
         "must_exclude": [
-          "2027 go queens grant|queens|2026-12-01",
-          "2027 queens community arts grant|queens|2026-12-01"
+          "2027 go queens grant|queens|2026-12-01"
         ],
         "must_be_candidate": []
       }

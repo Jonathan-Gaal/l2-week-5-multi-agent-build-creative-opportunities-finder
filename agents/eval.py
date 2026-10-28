@@ -110,7 +110,7 @@ def main(argv=None):
     p.add_argument("--snapshot", default=flt.SNAPSHOT)
     p.add_argument("--out", help="write full results as JSON")
     a = p.parse_args(argv)
-    golden, records = json.loads(Path(a.golden).read_text()), flt.load(a.snapshot)
+    golden, records = json.loads(Path(a.golden).read_text(encoding="utf-8")), flt.load(a.snapshot)
     trace_path = pipeline.TRACE_DIR / f"eval-{dt.date.today().isoformat()}.jsonl"
     report = {}
     for mode in a.modes:

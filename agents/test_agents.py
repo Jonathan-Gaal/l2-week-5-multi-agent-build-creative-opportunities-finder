@@ -150,6 +150,14 @@ class Loop(unittest.TestCase):
         self.assertEqual(out["tier"], 2)
         self.assertEqual(len(out["results"]), 3)
 
+    def test_unverified_records_never_look_checked(self):
+        recs = [rec("A", extraction="mara_backfill_unverified"), rec("B")]
+        out = pipeline.run(self.req, recs, ScriptedRanker(["r1", "r2"]), ScriptedReviewer("accept"))
+        labels = {r["title"]: r["label"] for r in out["results"]}
+        self.assertEqual(out["tier"], 0)
+        self.assertEqual(labels["A"], "From a teammate's list, not rechecked against the source")
+        self.assertEqual(labels["B"], "Checked 2026-10-27")
+
     def test_ranker_only_is_never_tier_0(self):
         out = pipeline.run(self.req, RECORDS, ScriptedRanker(["r1"]), None)
         self.assertEqual(out["tier"], 2)
@@ -171,7 +179,7 @@ class Loop(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "t.jsonl"
             pipeline.run(self.req, RECORDS, ScriptedRanker(["r1"]), ScriptedReviewer("accept"), path)
-            t = json.loads(path.read_text())
+            t = json.loads(path.read_text(encoding="utf-8"))
             self.assertEqual((t["tier"], len(t["attempts"]), t["tokens"]["input_tokens"]), (0, 1, 15))
 
 
@@ -216,7 +224,7 @@ class Roles(unittest.TestCase):
 
 class Golden(unittest.TestCase):
     def test_every_golden_key_exists(self):
-        golden, records = json.loads(ev.GOLDEN.read_text()), flt.load()
+        golden, records = json.loads(ev.GOLDEN.read_text(encoding="utf-8")), flt.load()
         self.assertEqual(len(golden["requests"]), 30)
         for case in golden["requests"]:
             keys = {r["dedupe_key"] for r in records + case.get("inject", [])}
