@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1133,
+  "count": 1129,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -14585,7 +14585,9 @@
         "2026-12-22",
         "2026-12-29",
         "2027-01-05",
-        "2027-01-12"
+        "2027-01-12",
+        "2027-01-19",
+        "2027-01-26"
       ],
       "recurrence": "23 dates through 2027-03-30",
       "opens_at": null,
@@ -14629,7 +14631,9 @@
         "2026-12-22",
         "2026-12-29",
         "2027-01-05",
-        "2027-01-12"
+        "2027-01-12",
+        "2027-01-19",
+        "2027-01-26"
       ],
       "recurrence": "23 dates through 2027-03-30",
       "opens_at": null,
@@ -33230,183 +33234,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "robert motherwell renate ponsold fellowship low residency research outer cape cod|massachusetts|2026-11-02"
-    },
-    {
-      "title": "4-Day Workshop: Enhance Your Understanding of Music Theory",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-10-29",
-      "recurrence": "9 dates through 2026-11-26",
-      "fee": "$220",
-      "award": null,
-      "eligibility": [
-        {
-          "requirement": "as stated",
-          "quote": "4-Day Workshop- offered online or on-site Regardless of the option you chose, the 4-day workshop is designed to enhance your understanding of music theory, to fill in the gaps, and provide enlightening “aha” moments, leading to a deeper connection with how music works."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/4-day-workshop-enhance-your-understanding-of-music-theory/2026-10-29/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "location": "Please CHOOSE or add your venue!",
-      "event_dates": [
-        "2026-10-29",
-        "2026-11-03",
-        "2026-11-05",
-        "2026-11-10",
-        "2026-11-12",
-        "2026-11-17",
-        "2026-11-19",
-        "2026-11-24",
-        "2026-11-26"
-      ],
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-28",
-      "fetched_at": "2026-10-28",
-      "dedupe_key": "4 day workshop enhance your understanding of music theory|long_island|2026-10-29",
-      "caveat": null,
-      "event_website": null,
-      "opens_at": null
-    },
-    {
-      "title": "Helen Murdock-Prep presents Adult Acting Classes",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "class",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-03",
-      "recurrence": "13 dates through 2027-01-26",
-      "fee": "$50",
-      "award": null,
-      "eligibility": [
-        {
-          "requirement": "as stated",
-          "quote": "Come join theater educator Helen Murdock-Prep to learn about the wonderful world of Acting!"
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/helen-murdock-prep-presents-adult-acting-classes/2026-11-03/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "location": "Huntington Arts Council, 213 Main Street, Huntington",
-      "event_dates": [
-        "2026-11-03",
-        "2026-11-10",
-        "2026-11-17",
-        "2026-11-24",
-        "2026-12-01",
-        "2026-12-08",
-        "2026-12-15",
-        "2026-12-22",
-        "2026-12-29",
-        "2027-01-05",
-        "2027-01-12",
-        "2027-01-19",
-        "2027-01-26"
-      ],
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-28",
-      "fetched_at": "2026-10-28",
-      "dedupe_key": "helen murdock prep presents adult acting classes|long_island|2026-11-03",
-      "caveat": null,
-      "event_website": null,
-      "opens_at": null
-    },
-    {
-      "title": "Huntington Camera Club",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "workshop",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-03",
-      "recurrence": "13 dates through 2027-01-26",
-      "fee": "none",
-      "award": null,
-      "eligibility": [
-        {
-          "requirement": "as stated",
-          "quote": "We meet at Huntington Public Library every Tuesday night to discuss photography."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/huntington-camera-club-3/2026-11-03/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "location": "Huntington Public Library, 338 Main Street, Huntington",
-      "event_dates": [
-        "2026-11-03",
-        "2026-11-10",
-        "2026-11-17",
-        "2026-11-24",
-        "2026-12-01",
-        "2026-12-08",
-        "2026-12-15",
-        "2026-12-22",
-        "2026-12-29",
-        "2027-01-05",
-        "2027-01-12",
-        "2027-01-19",
-        "2027-01-26"
-      ],
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-28",
-      "fetched_at": "2026-10-28",
-      "dedupe_key": "huntington camera club|long_island|2026-11-03",
-      "caveat": null,
-      "event_website": null,
-      "opens_at": null
-    },
-    {
-      "title": "DJ Dancing with Swing Dance Long Island",
-      "org": "Huntington Arts Council",
-      "opportunity_type": "event",
-      "subtype": "dance_night",
-      "borough": null,
-      "region": "long_island",
-      "deadline": "2026-11-10",
-      "recurrence": "6 dates through 2027-01-26",
-      "fee": "$10 – $15",
-      "award": null,
-      "eligibility": [
-        {
-          "requirement": "as stated",
-          "quote": "Join us at the Huntington Moose Lodge for an evening of mostly Swing Dancing starting with a dance lesson at 7:30 PM, DJ music and mostly swing dancing from 8 until 10 PM."
-        }
-      ],
-      "source": "huntington-arts",
-      "source_url": "https://www.huntingtonarts.org/event/dj-dancing-with-swing-dance-long-island/2026-11-10/",
-      "disciplines": [
-        "all"
-      ],
-      "extraction": "api",
-      "location": "Huntington Moose Lodge, 631 Pulaski Road, Greenlawn",
-      "event_dates": [
-        "2026-11-10",
-        "2026-11-24",
-        "2026-12-08",
-        "2026-12-22",
-        "2027-01-12",
-        "2027-01-26"
-      ],
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-28",
-      "fetched_at": "2026-10-28",
-      "dedupe_key": "dj dancing with swing dance long island|long_island|2026-11-10",
-      "caveat": null,
-      "event_website": null,
-      "opens_at": null
     },
     {
       "title": "The Whaling Museum presents Crafts & Cocktails: Corn Husk Figures",

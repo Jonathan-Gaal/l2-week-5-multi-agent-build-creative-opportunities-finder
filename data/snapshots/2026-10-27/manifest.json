@@ -2,7 +2,7 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1133,
+  "record_count": 1129,
   "by_borough": {
     "manhattan": 375,
     "brooklyn": 131,
@@ -21,7 +21,8 @@
     "2026-10-27 deep pass: every quote checked against its own source page (cached or live), not the pooled corpus; all 541 records pass and all 535 URLs return 200.",
     "2026-10-27 second pass: 651 records; every quote matched on the record's own page and every URL returned 200. One record dropped whose quote could not be confirmed on its own page; one dropped for a malformed URL.",
     "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages.",
-    "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API."
+    "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API.",
+    "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records."
   ],
   "sources": {
     "ingested_with_records": [
@@ -638,6 +639,34 @@
       "reason": "duplicate",
       "detail": "same listing as 'Lisa Polizzi Jam' (daisys-li)",
       "checked": "2026-10-28"
+    },
+    {
+      "title": "4-Day Workshop: Enhance Your Understanding of Music Theory",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/4-day-workshop-enhance-your-understanding-of-music-theory/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Helen Murdock-Prep presents Adult Acting Classes",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/helen-murdock-prep-presents-adult-acting-classes/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Camera Club",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/huntington-camera-club/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "DJ Dancing with Swing Dance Long Island",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/dj-dancing-with-swing-dance-long-island-2/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -654,7 +683,7 @@
     "music": 395,
     "dance": 186,
     "literary": 137,
-    "all": 115,
+    "all": 111,
     "visual": 62,
     "theater": 58,
     "craft": 26,
@@ -680,7 +709,7 @@
     "nyc": 652,
     "massachusetts": 86,
     "pennsylvania": 85,
-    "long_island": 61,
+    "long_island": 57,
     "dc": 49,
     "new_jersey": 47,
     "maryland": 46,
@@ -695,12 +724,12 @@
   "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
     "event/open_mic": 651,
-    "event/workshop": 130,
-    "event/dance_night": 113,
+    "event/workshop": 128,
+    "event/dance_night": 112,
     "open_call/audition": 71,
     "open_call": 39,
     "event/jam": 36,
-    "event/class": 29,
+    "event/class": 28,
     "residency": 17,
     "grant": 16,
     "grant/fellowship": 8,
@@ -719,7 +748,7 @@
     "structured": 768,
     "crawl_reviewed": 116,
     "manual": 83,
-    "api": 79,
+    "api": 75,
     "mara_backfill_verified": 44,
     "jsonld": 33,
     "rendered": 7,
