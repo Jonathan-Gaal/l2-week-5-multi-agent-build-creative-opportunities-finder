@@ -4,7 +4,8 @@
  *
  *   npm run backend:local          (from web/)   -> http://localhost:8787, code ranker, no model calls, no tokens
  *
- * It only answers the three SQL shapes backend/src/db/opportunities.ts sends. Nothing here is used in production.
+ * It only answers the two SQL shapes backend/src/db/opportunities.ts sends (the published-snapshot lookup and the
+ * records query, parameters [snapshot, type, borough keys, regions, discipline tags]). Nothing here is used in production.
  */
 import { readFileSync } from "node:fs";
 import { createServer } from "node:http";
@@ -26,11 +27,11 @@ const records: Record<string, any>[] = JSON.parse(
 const db = {
   async query(text: string, values: unknown[]) {
     if (text.includes("from public.snapshots")) return { rows: [{ id: SNAPSHOT }] };
-    const [id, type, place] = values as string[];
-    const byBorough = text.includes("borough in");
+    const [id, type, boroughs, regions, tags] = values as [string, string, string[], string[], string[]];
     const rows = records
       .filter((r) => id === SNAPSHOT && r.opportunity_type === type)
-      .filter((r) => (byBorough ? r.borough === place || r.borough === "citywide" : r.region === place))
+      .filter((r) => boroughs.includes(r.borough) || regions.includes(r.region))
+      .filter((r) => !tags.length || (r.disciplines ?? []).some((t: string) => tags.includes(t)))
       .sort((a, b) => (a.dedupe_key < b.dedupe_key ? -1 : 1));
     return { rows };
   },

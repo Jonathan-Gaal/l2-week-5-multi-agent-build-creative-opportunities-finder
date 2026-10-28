@@ -77,7 +77,7 @@ export const checkRanking = (ranking: RankItem[], byId: Map<string, OppRecord>, 
     ids.add(id);
     keys.add(rec.dedupe_key);
     if (!flt.matches(rec, req) || flt.isExpired(rec, req.asOf) || !flt.schemaOk(rec)) {
-      problems.push(`${id}: fails the place, type or expiry filter`);
+      problems.push(`${id}: fails the place, type, discipline or expiry filter`);
     }
   }
   return problems;
@@ -130,8 +130,9 @@ export const newRequestId = () => randomUUID().replaceAll("-", "").slice(0, 12);
 
 /** Optional controls for a run. Once `signal` is aborted the loop starts no new model call and serves the best
  * tier reached so far (Tier 2: the best passing attempt, or the code baseline); `signal.reason` (a string)
- * goes in the trace as `stopped`. Aborting never upgrades a result: an unreviewed ranking stays Tier 2. */
-export type RunOptions = { signal?: AbortSignal };
+ * goes in the trace as `stopped`. Aborting never upgrades a result: an unreviewed ranking stays Tier 2.
+ * `traceFields` are added to the run's trace entry (e.g. the search_id linking the runs of one API search). */
+export type RunOptions = { signal?: AbortSignal; traceFields?: Record<string, unknown> };
 
 const stopReason = (signal: AbortSignal) => (typeof signal.reason === "string" ? signal.reason : "aborted");
 
@@ -141,8 +142,8 @@ export const run = async (
 ): Promise<Result> => {
   const { signal } = opts;
   const trace: Record<string, unknown> & { attempts: Attempt[]; tokens: Usage } = {
-    request_id: newRequestId(), at: localTimestamp(),
-    request: { place: req.place, type: req.type, as_of: req.asOf },
+    request_id: newRequestId(), at: localTimestamp(), ...opts.traceFields,
+    request: flt.traceRequest(req),
     attempts: [], tokens: { input_tokens: 0, output_tokens: 0 },
   };
 

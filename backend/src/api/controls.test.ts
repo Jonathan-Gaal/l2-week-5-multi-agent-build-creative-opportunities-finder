@@ -60,6 +60,22 @@ describe("rateLimiter", () => {
   });
 });
 
+describe("rateLimiter.take(key, n)", () => {
+  it("charges n at once, all or nothing", () => {
+    const rl = rateLimiter(5, 60_000, clock().now);
+    assert.deepEqual(rl.take("a", 3), { ok: true });
+    assert.equal(rl.take("a", 3).ok, false);           // only 2 left: nothing is charged
+    assert.deepEqual(rl.take("a", 2), { ok: true });    // so both remaining still go through
+    assert.equal(rl.take("a").ok, false);
+  });
+
+  it("more than the limit is refused even on a fresh key", () => {
+    const rl = rateLimiter(2, 60_000, clock().now);
+    assert.equal(rl.take("a", 3).ok, false);
+    assert.deepEqual(rl.take("a", 2), { ok: true });
+  });
+});
+
 describe("dailyBudget", () => {
   it("allows exactly perDay takes, then none", () => {
     const b = dailyBudget(3, clock().now);

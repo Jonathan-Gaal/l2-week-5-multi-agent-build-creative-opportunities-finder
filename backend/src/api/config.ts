@@ -4,6 +4,7 @@
  */
 
 import { TRACE_DIR } from "../agents/pipeline.ts";
+import { TYPES } from "../agents/taxonomy.ts";
 import { DEFAULT_LIMITS, type Limits, MODES, type Mode } from "./app.ts";
 
 export class ConfigError extends Error {
@@ -60,7 +61,8 @@ export const readConfig = (env: Env): Config => {
     modelCallTimeoutMs: int(env, "MODEL_CALL_TIMEOUT_MS", 60_000, 1000),
     limits: {
       ...DEFAULT_LIMITS,
-      ratePerMinute: int(env, "RATE_LIMIT_PER_MINUTE", DEFAULT_LIMITS.ratePerMinute, 1),
+      // A search charges one per type, all at once, so a lower limit could never serve a search of every type.
+      ratePerMinute: int(env, "RATE_LIMIT_PER_MINUTE", DEFAULT_LIMITS.ratePerMinute, TYPES.length),
       maxConcurrentRuns: int(env, "MAX_CONCURRENT_RUNS", DEFAULT_LIMITS.maxConcurrentRuns, 1),
       maxQueuedRuns: int(env, "MAX_QUEUED_RUNS", DEFAULT_LIMITS.maxQueuedRuns, 0),
       queueWaitMs: int(env, "QUEUE_WAIT_MS", DEFAULT_LIMITS.queueWaitMs, 0),

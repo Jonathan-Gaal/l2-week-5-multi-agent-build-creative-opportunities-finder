@@ -1,15 +1,19 @@
 /**
  * Filter (code): select snapshot records for a request and drop expired or failed-schema ones.
- * Port of agents/filter.py.
+ * Port of agents/filter.py, generalized to several places and an optional discipline filter.
  *
- * A request is a place and an opportunity type. The place is an NYC borough or one of the snapshot
- * regions outside NYC. Hard filters are never relaxed:
- * - borough requests match that borough or 'citywide' (open to any NYC resident); 'unknown' never matches;
- * - region requests match the record's region;
+ * A request is one or more places, an opportunity type, and optional disciplines. A place is an NYC borough
+ * or one of the snapshot regions outside NYC; a record matches the request if it matches ANY of its places.
+ * Hard filters are never relaxed:
+ * - borough places match that borough or 'citywide' (open to any NYC resident); 'unknown' never matches;
+ * - region places match the record's region;
  * - type must equal the record's opportunity_type;
+ * - disciplines (when given) must share a tag with the record, or the record is tagged 'all'
+ *   (taxonomy.fitsDisciplines; an untagged record never matches a discipline filter);
  * - expired: the record's last date is earlier than the request date. For events with several
  *   occurrences that is the last occurrence, so a series that has started but not ended is kept.
  *   'recurring', 'rolling' and a missing deadline never expire.
+ * A request with one place and no disciplines behaves exactly as the Python port (same matches, label, trace).
  *
  * Dates are ISO strings (YYYY-MM-DD), which compare correctly as strings.
  */
@@ -17,14 +21,12 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
+import { BOROUGHS, PLACE_LABELS, type PlaceId, REGIONS, TYPES, disciplineLabel, fitsDisciplines, isDiscipline } from "./taxonomy.ts";
+
 export const REPO = fileURLToPath(new URL("../../../", import.meta.url));
 export const SNAPSHOT = `${REPO}data/snapshots/2026-10-27`;
 
-export const BOROUGHS = ["manhattan", "brooklyn", "queens", "bronx", "staten_island"] as const;
-export const REGIONS = ["nyc", "long_island", "westchester_hudson", "upstate_ny", "new_jersey", "connecticut",
-  "pennsylvania", "massachusetts", "rhode_island", "vermont", "new_hampshire", "maine", "delaware", "maryland",
-  "dc"] as const;
-export const TYPES = ["event", "open_call", "grant", "residency", "job"] as const;
+export { BOROUGHS, REGIONS, TYPES } from "./taxonomy.ts";
 const REQUIRED = ["title", "source_url", "checked_at", "snapshot_id", "dedupe_key", "source"] as const;
 
 export type Eligibility = { requirement: string; quote?: string | null };
@@ -55,7 +57,8 @@ export type OppRecord = {
   [field: string]: unknown;
 };
 
-export type Request = { place: string; type: string; asOf: string };
+/** `places`: one or more borough or region ids. `disciplines`: discipline ids; empty means no discipline filter. */
+export type Request = { places: readonly string[]; type: string; asOf: string; disciplines: readonly string[] };
 
 export type RemovedCounts = { expired: number; failed_schema: number; duplicate: number };
 
@@ -64,23 +67,48 @@ export const today = (d: Date = new Date()): string => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
-export const makeRequest = (place: string, type: string, asOf: string = today()): Request => ({ place, type, asOf });
+/** A single-place request with no discipline filter (the Python port's request). */
+export const makeRequest = (place: string, type: string, asOf: string = today()): Request =>
+  ({ places: [place], type, asOf, disciplines: [] });
+
+/** A request over several places and optional disciplines. */
+export const makeSearchRequest = (
+  places: readonly string[], type: string, asOf: string = today(), disciplines: readonly string[] = [],
+): Request => ({ places, type, asOf, disciplines });
+
+const isBorough = (p: string) => (BOROUGHS as readonly string[]).includes(p);
+const isPlace = (p: string) => isBorough(p) || (REGIONS as readonly string[]).includes(p);
 
 /** Why the request can't be served, or null. */
 export const requestProblem = (req: Request): string | null => {
-  if (!(BOROUGHS as readonly string[]).includes(req.place) && !(REGIONS as readonly string[]).includes(req.place)) {
-    return `unknown place '${req.place}'`;
-  }
+  if (!req.places.length) return "no place given";
+  const badPlace = req.places.find((p) => !isPlace(p));
+  if (badPlace !== undefined) return `unknown place '${badPlace}'`;
   if (!(TYPES as readonly string[]).includes(req.type)) {
     return `unknown opportunity type '${req.type}'`;
   }
+  const badDiscipline = req.disciplines.find((d) => !isDiscipline(d));
+  if (badDiscipline !== undefined) return `unknown discipline '${badDiscipline}'`;
   return null;
 };
 
 const titleCase = (s: string) => s.replace(/\w+/g, (w) => w[0]!.toUpperCase() + w.slice(1).toLowerCase());
 
-export const requestLabel = (req: Request): string =>
-  `${titleCase(req.place.replaceAll("_", " "))} ${req.type.replaceAll("_", " ")}`;
+/** E.g. "Brooklyn open call" (one place: the Python port's label, unchanged), "Brooklyn, New Jersey grant",
+ * "Brooklyn event (Music, Dance)". Used in the prompts and in the Tier 3 reason. */
+export const requestLabel = (req: Request): string => {
+  const where = req.places.length === 1
+    ? titleCase(req.places[0]!.replaceAll("_", " "))
+    : req.places.map((p) => PLACE_LABELS[p as PlaceId] ?? p).join(", ");
+  const what = req.disciplines.length ? ` (${req.disciplines.map(disciplineLabel).join(", ")})` : "";
+  return `${where} ${req.type.replaceAll("_", " ")}${what}`;
+};
+
+/** The request as the trace records it: the Python port's shape for one place and no disciplines. */
+export const traceRequest = (req: Request): Record<string, unknown> =>
+  req.places.length === 1 && !req.disciplines.length
+    ? { place: req.places[0], type: req.type, as_of: req.asOf }
+    : { places: req.places, type: req.type, disciplines: req.disciplines, as_of: req.asOf };
 
 export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] =>
   JSON.parse(readFileSync(`${snapshotDir}/records.json`, "utf-8")).records;
@@ -118,13 +146,15 @@ export const isExpired = (rec: OppRecord, asOf: string): boolean => {
 
 export const schemaOk = (rec: OppRecord): boolean => REQUIRED.every((f) => present(rec[f]));
 
-/** Place and type hard filters (not expiry). */
+/** One place's rule: a borough matches that borough or citywide; a region matches the record's region. */
+export const matchesPlace = (rec: OppRecord, place: string): boolean =>
+  isBorough(place) ? rec.borough === place || rec.borough === "citywide" : rec.region === place;
+
+/** Place, type and discipline hard filters (not expiry). */
 export const matches = (rec: OppRecord, req: Request): boolean => {
   if (rec.opportunity_type !== req.type) return false;
-  if ((BOROUGHS as readonly string[]).includes(req.place)) {
-    return rec.borough === req.place || rec.borough === "citywide";
-  }
-  return rec.region === req.place;
+  if (!req.places.some((p) => matchesPlace(rec, p))) return false;
+  return fitsDisciplines(rec.disciplines, req.disciplines);
 };
 
 /** Return [candidates, removed] where removed counts excluded matches by reason. */
