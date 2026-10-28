@@ -59,9 +59,8 @@ export type Request = { place: string; type: string; asOf: string };
 
 export type RemovedCounts = { expired: number; failed_schema: number; duplicate: number };
 
-/** Today's date in local time, as YYYY-MM-DD. */
-export const today = (): string => {
-  const d = new Date();
+/** Today's date (or `d`'s) in local time, as YYYY-MM-DD. */
+export const today = (d: Date = new Date()): string => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 

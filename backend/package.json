@@ -6,7 +6,10 @@
     "node": ">=24"
   },
   "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.ts",
     "test": "node --test \"src/**/*.test.ts\"",
+    "test:integration": "node --env-file-if-exists=.env --test \"test/integration/**/*.test.ts\"",
+    "test:e2e:claude": "node --env-file-if-exists=.env --test \"test/e2e/**/*.test.ts\"",
     "typecheck": "tsc",
     "pipeline": "node src/agents/pipeline.ts",
     "eval": "node src/agents/eval.ts",

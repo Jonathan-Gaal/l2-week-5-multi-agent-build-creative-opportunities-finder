@@ -105,7 +105,7 @@ export const present = (rec: OppRecord, tier: Tier) => {
     fee: fee == null || fee === "unknown" ? "Fee unknown" : fee, award: rec.award ?? null,
     eligibility: elig.length
       ? elig.map((e) => ({ requirement: e.requirement, quote: e.quote ?? null }))
-      : "Eligibility not stated",
+      : "Eligibility not stated" as const,
     source: rec.source, source_url: rec.source_url,
     label: isUnverified(rec)
       ? "Not checked · added without a recheck"
@@ -119,19 +119,29 @@ const addUsage = (total: Usage, usage: Usage) => {
   total.output_tokens += usage.output_tokens;
 };
 
-/** Local time without a zone, to the second (matches Python's datetime.now().isoformat(timespec="seconds")). */
-const localTimestamp = () => {
-  const d = new Date();
+/** Local time (now, or `d`) without a zone, to the second (matches Python's datetime.now().isoformat(timespec="seconds")). */
+export const localTimestamp = (d: Date = new Date()) => {
   const p = (n: number) => String(n).padStart(2, "0");
-  return `${flt.today()}T${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  return `${flt.today(d)}T${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
 };
+
+/** A short id for one request's trace entry. */
+export const newRequestId = () => randomUUID().replaceAll("-", "").slice(0, 12);
+
+/** Optional controls for a run. Once `signal` is aborted the loop starts no new model call and serves the best
+ * tier reached so far (Tier 2: the best passing attempt, or the code baseline); `signal.reason` (a string)
+ * goes in the trace as `stopped`. Aborting never upgrades a result: an unreviewed ranking stays Tier 2. */
+export type RunOptions = { signal?: AbortSignal };
+
+const stopReason = (signal: AbortSignal) => (typeof signal.reason === "string" ? signal.reason : "aborted");
 
 export const run = async (
   req: Request, records: OppRecord[], ranker: RankerRole, reviewer: ReviewerRole | null = null,
-  tracePath: string | null = null, maxCandidates: number = MAX_CANDIDATES,
+  tracePath: string | null = null, maxCandidates: number = MAX_CANDIDATES, opts: RunOptions = {},
 ): Promise<Result> => {
+  const { signal } = opts;
   const trace: Record<string, unknown> & { attempts: Attempt[]; tokens: Usage } = {
-    request_id: randomUUID().replaceAll("-", "").slice(0, 12), at: localTimestamp(),
+    request_id: newRequestId(), at: localTimestamp(),
     request: { place: req.place, type: req.type, as_of: req.asOf },
     attempts: [], tokens: { input_tokens: 0, output_tokens: 0 },
   };
@@ -139,8 +149,13 @@ export const run = async (
   const finish = async (result: Result): Promise<Result> => {
     Object.assign(trace, { tier: result.tier, served: result.results.map((r) => r.dedupe_key), reason: result.reason ?? null });
     if (tracePath) {
-      await mkdir(dirname(tracePath), { recursive: true });
-      await appendFile(tracePath, JSON.stringify(trace) + "\n", "utf-8");
+      // The trace is a log: failing to write it must not fail the request it describes.
+      try {
+        await mkdir(dirname(tracePath), { recursive: true });
+        await appendFile(tracePath, JSON.stringify(trace) + "\n", "utf-8");
+      } catch (e) {
+        console.error(`trace write failed for ${trace.request_id}: ${(e as Error).message}`);
+      }
     }
     result.request_id = trace.request_id as string;
     return result;
@@ -168,6 +183,10 @@ export const run = async (
   let previous: RankItem[] | null = null;
   let critique: string | null = null;
   for (let n = 0; n < MAX_ATTEMPTS; n++) {
+    if (signal?.aborted) {
+      trace.stopped = stopReason(signal);
+      break;
+    }
     const attempt: Attempt = { n: n + 1 };
     trace.attempts.push(attempt);
     let ranking: RankItem[];
@@ -190,6 +209,11 @@ export const run = async (
     best = ranking;
     if (reviewer === null) {
       attempt.review = "not run";
+      break;
+    }
+    if (signal?.aborted) {
+      attempt.review = "not run";
+      trace.stopped = stopReason(signal);
       break;
     }
     let verdict;

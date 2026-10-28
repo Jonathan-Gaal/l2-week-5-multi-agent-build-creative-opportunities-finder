@@ -14,14 +14,13 @@
  *   node src/agents/eval.ts --modes baseline --out ../traces/eval.json
  */
 
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { homedir } from "node:os";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { parseArgs } from "node:util";
 
 import * as flt from "./filter.ts";
 import type { OppRecord } from "./filter.ts";
-import { ClaudeModel } from "./model.ts";
+import { ClaudeModel, missingCredentials } from "./model.ts";
 import * as pipeline from "./pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "./roles.ts";
 
@@ -76,15 +75,6 @@ const rolesFor = (mode: Mode): [RankerRole, ReviewerRole | null] => {
   if (mode === "baseline") return [new BaselineRanker(), null];
   const model = new ClaudeModel();
   return [new Ranker(model), mode === "ranker_reviewer" ? new Reviewer(model) : null];
-};
-
-/** Why the Claude modes can't run, or null. */
-const missingCredentials = (): string | null => {
-  const env = process.env;
-  const profileDir = `${homedir()}/.config/anthropic`;
-  const hasProfile = existsSync(profileDir) && readdirSync(profileDir).length > 0;
-  if (env.ANTHROPIC_API_KEY || env.ANTHROPIC_AUTH_TOKEN || env.ANTHROPIC_PROFILE || hasProfile) return null;
-  return "no Anthropic credentials (set ANTHROPIC_API_KEY or run `ant auth login`)";
 };
 
 /** Grade one result against its golden expectations. Hard checks use the records' own fields. */
