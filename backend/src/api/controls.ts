@@ -17,8 +17,9 @@ export type Clock = () => number;
 
 export type RateDecision = { ok: true } | { ok: false; retryAfterSec: number };
 
-/** At most `limit` takes per key per window. When `maxKeys` distinct keys are live, new keys are refused
- * until windows expire, so memory stays bounded under a flood of addresses. */
+/** At most `limit` takes per key per window. take(key, n) charges n at once, all or nothing: if fewer than n
+ * remain, nothing is charged. When `maxKeys` distinct keys are live, new keys are refused until windows
+ * expire, so memory stays bounded under a flood of addresses. */
 export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys = 10_000) => {
   const windows = new Map<string, { start: number; count: number }>();
   const windowSec = Math.max(1, Math.ceil(windowMs / 1000));
@@ -27,7 +28,7 @@ export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys
     for (const [key, w] of windows) if (expired(w.start, t)) windows.delete(key);
   };
   return {
-    take(key: string): RateDecision {
+    take(key: string, n = 1): RateDecision {
       const t = now();
       let w = windows.get(key);
       if (w === undefined || expired(w.start, t)) {
@@ -38,10 +39,10 @@ export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys
         w = { start: t, count: 0 };
         windows.set(key, w);
       }
-      if (w.count >= limit) {
+      if (w.count + n > limit) {
         return { ok: false, retryAfterSec: Math.min(windowSec, Math.max(1, Math.ceil((w.start + windowMs - t) / 1000))) };
       }
-      w.count += 1;
+      w.count += n;
       return { ok: true };
     },
     size: () => windows.size,
@@ -144,6 +145,7 @@ export const lruCache = <V>(maxEntries: number, now: Clock) => {
 
 export const BUDGET_USED_UP = "daily model call budget used up";
 export const DEADLINE_PASSED = "request deadline passed";
+export const SERVER_BUSY = "no run slot free in time";
 
 /** What happened to the model during one run; `degraded` means the result may be worse than a normal run
  * (budget, deadline or a failed call), so it is cached only briefly. */

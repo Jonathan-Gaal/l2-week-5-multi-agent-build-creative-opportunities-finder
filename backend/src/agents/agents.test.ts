@@ -101,6 +101,72 @@ describe("Filter", () => {
   });
 });
 
+describe("Filter: several places and disciplines", () => {
+  const search = (places: string[], disciplines: string[] = [], type = "open_call") =>
+    flt.makeSearchRequest(places, type, DAY, disciplines);
+  const POOL = [
+    rec("BK", { disciplines: ["music"] }), rec("City", { borough: "citywide", disciplines: ["dance"] }),
+    rec("QN", { borough: "queens", disciplines: ["all"] }), rec("NJ", { borough: null, region: "new_jersey", disciplines: ["visual"] }),
+    rec("DC", { borough: null, region: "dc", disciplines: ["music"] }), rec("Untagged", { disciplines: [] }),
+    rec("NoTags"),
+  ];
+
+  it("a record matches if it matches any place, each by its own rule", () => {
+    assert.deepEqual(titles(flt.select(POOL, search(["brooklyn", "new_jersey"]))[0]), ["BK", "City", "NJ", "Untagged", "NoTags"]);
+    assert.deepEqual(titles(flt.select(POOL, search(["nyc", "dc"]))[0]), ["BK", "City", "QN", "DC", "Untagged", "NoTags"]);
+  });
+
+  it("disciplines keep records sharing a tag or tagged 'all'; untagged records never match a filter", () => {
+    assert.deepEqual(titles(flt.select(POOL, search(["nyc", "new_jersey", "dc"], ["music"]))[0]), ["BK", "QN", "DC"]);
+    assert.deepEqual(titles(flt.select(POOL, search(["nyc", "new_jersey"], ["dance", "visual"]))[0]), ["City", "QN", "NJ"]);
+    // A discipline's other tags count too: "sound" is music, "performance" is theater.
+    const tagged = [rec("Sound", { disciplines: ["sound"] }), rec("Perf", { disciplines: ["performance"] })];
+    assert.deepEqual(titles(flt.select(tagged, search(["brooklyn"], ["music"]))[0]), ["Sound"]);
+    assert.deepEqual(titles(flt.select(tagged, search(["brooklyn"], ["theater"]))[0]), ["Perf"]);
+  });
+
+  it("removed counts cover only records that pass place, type and discipline", () => {
+    const pool = [rec("Old", { deadline: "2026-10-01", disciplines: ["music"] }), rec("OldDance", { deadline: "2026-10-01", disciplines: ["dance"] })];
+    assert.deepEqual(flt.select(pool, search(["brooklyn"], ["music"]))[1], { expired: 1, failed_schema: 0, duplicate: 0 });
+  });
+
+  it("one place and no disciplines is the single request: same matches, label and trace shape", () => {
+    const one = search(["brooklyn"]);
+    assert.deepEqual(one, req("brooklyn"));
+    assert.equal(flt.requestLabel(one), "Brooklyn open call");
+    assert.deepEqual(flt.traceRequest(one), { place: "brooklyn", type: "open_call", as_of: DAY });
+    assert.equal(flt.requestLabel(req("nyc", "job")), "Nyc job");                // the Python port's label, unchanged
+  });
+
+  it("labels for several places and disciplines read naturally", () => {
+    assert.equal(flt.requestLabel(search(["brooklyn", "new_jersey"], [], "grant")), "Brooklyn, New Jersey grant");
+    assert.equal(flt.requestLabel(search(["bronx"], ["music", "theater"], "event")), "Bronx event (Music, Theater & performance)");
+    assert.deepEqual(flt.traceRequest(search(["brooklyn", "dc"], ["music"])),
+      { places: ["brooklyn", "dc"], type: "open_call", disciplines: ["music"], as_of: DAY });
+  });
+
+  it("request problems: no place, an unknown place or discipline", () => {
+    assert.match(flt.requestProblem(search([]))!, /no place/);
+    assert.match(flt.requestProblem(search(["brooklyn", "mars"]))!, /unknown place 'mars'/);
+    assert.match(flt.requestProblem(search(["brooklyn"], ["jazz"]))!, /unknown discipline 'jazz'/);
+    assert.equal(flt.requestProblem(search(["brooklyn", "tristate"])) !== null, true);   // groups are expanded by the API, not here
+  });
+
+  it("the code checks hold the discipline filter against the model", async () => {
+    const pool = [rec("Music", { disciplines: ["music"] }), rec("Dance", { disciplines: ["dance"] })];
+    const r = search(["brooklyn"], ["music"]);
+    const byId = new Map<string, OppRecord>([["r1", pool[0]!], ["r2", pool[1]!]]);
+    assert.deepEqual(pipeline.checkRanking([{ id: "r2" }], byId, r), ["r2: fails the place, type, discipline or expiry filter"]);
+    const out = await pipeline.run(r, pool, new ScriptedRanker(["r1"]));
+    assert.deepEqual(titles(out.results), ["Music"]);
+  });
+
+  it("the Tier 3 reason names every place and discipline", async () => {
+    const out = await pipeline.run(search(["queens", "dc"], ["comedy"], "residency"), POOL, new ScriptedRanker());
+    assert.deepEqual([out.tier, out.reason], [3, "no records match Queens, Washington, DC residency (Comedy)"]);
+  });
+});
+
 describe("Checks", () => {
   const byId = new Map([["r1", rec("A")], ["r2", rec("Old", { deadline: "2026-10-01" })], ["r3", rec("Q", { borough: "queens" })]]);
 

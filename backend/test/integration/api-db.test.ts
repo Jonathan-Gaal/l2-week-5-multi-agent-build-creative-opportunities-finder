@@ -8,7 +8,7 @@ import * as flt from "../../src/agents/filter.ts";
 import * as pipeline from "../../src/agents/pipeline.ts";
 import { BaselineRanker } from "../../src/agents/roles.ts";
 import { toOpportunity } from "../../src/api/app.ts";
-import type { MetaResponse, OpportunitiesResponse, Opportunity } from "../../src/api/types.ts";
+import type { MetaResponse, OpportunitiesResponse, Opportunity, SearchResponse } from "../../src/api/types.ts";
 import { NoPublishedSnapshotError, publishedSnapshotId } from "../../src/db/opportunities.ts";
 import { ALLOWED_ORIGIN, type Started, TEST_SNAPSHOT, closePool, getPool, opp, startApp } from "../helpers.ts";
 
@@ -90,8 +90,10 @@ describe("API on real Postgres (baseline ranker)", { skip: SKIP }, () => {
     const meta = r.body as MetaResponse;
     assert.deepEqual(meta.boroughs.map((o) => o.value), [...flt.BOROUGHS]);
     assert.deepEqual(meta.regions.map((o) => o.value), [...flt.REGIONS]);
-    assert.deepEqual(meta.types.map((o) => o.value), [...flt.TYPES]);
-    for (const o of [...meta.boroughs, ...meta.regions, ...meta.types]) assert.ok(o.label.length > 0);
+    assert.deepEqual(meta.types.map((o) => o.value).sort(), [...flt.TYPES].sort());
+    for (const o of [...meta.boroughs, ...meta.regions, ...meta.types, ...meta.disciplines, ...meta.place_groups]) {
+      assert.ok(o.label.length > 0);
+    }
   });
 
   for (const [place, type] of [["brooklyn", "open_call"], ["new_jersey", "event"]] as const) {
@@ -134,6 +136,23 @@ describe("API on real Postgres (baseline ranker)", { skip: SKIP }, () => {
     const line = app.trace(body.as_of).find((l) => l.request_id === body.request_id);
     assert.ok(line, "trace line for the cached request");
     assert.deepEqual([line.served_from, line.run_request_id, line.model_calls], ["cache", first.request_id, 0]);
+  });
+
+  it("GET /api/search: one call, every group the same as the pipeline over records.json", async () => {
+    const r = await app.get("/api/search?places=brooklyn,tristate&types=open_call,event,grant&disciplines=music,dance");
+    assert.equal(r.status, 200);
+    const body = r.body as SearchResponse;
+    assert.deepEqual([body.snapshot_id, body.groups.map((g) => g.type)], [TEST_SNAPSHOT, ["open_call", "event", "grant"]]);
+    const places = ["brooklyn", "nyc", "long_island", "westchester_hudson", "upstate_ny", "new_jersey", "connecticut"];
+    for (const g of body.groups) {
+      const out = await pipeline.run(flt.makeSearchRequest(places, g.type, body.as_of, ["music", "dance"]), fromJson, new BaselineRanker());
+      const want = { tier: out.tier, results: out.results.map(toOpportunity), removed: out.removed, removed_counts: out.removed_counts,
+        reason: out.reason ?? undefined };
+      const got = { tier: g.tier, results: g.results, removed: g.removed, removed_counts: g.removed_counts,
+        reason: g.tier === 3 ? g.reason : undefined };
+      assert.deepEqual(JSON.parse(JSON.stringify(got)), JSON.parse(JSON.stringify(want)), g.type);
+    }
+    assert.ok(body.groups.some((g) => g.results.length > 0));
   });
 
   it("400 for a bad place, an extra parameter, or as_of, without echoing the input", async () => {
