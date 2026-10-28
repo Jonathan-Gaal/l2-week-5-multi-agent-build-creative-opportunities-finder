@@ -1,4 +1,3 @@
-import { TYPE_LABEL } from "@/lib/taxonomy";
 import type { Card } from "@/lib/types";
 
 const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unchecked: "pill pill-grey" } as const;
@@ -9,7 +8,7 @@ export default function ResultCard({ card }: { card: Card }) {
   return (
     <article className="rcard">
       <div className="rcard-top">
-        <span className="pill pill-pink">{card.subtype ? card.subtype.replace(/_/g, " ") : (TYPE_LABEL[card.type] ?? card.type)}</span>
+        <span className="pill pill-pink">{card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel}</span>
         <span className={TRUST_PILL[card.trust]}>{card.label}</span>
       </div>
       <h3>{card.title}</h3>

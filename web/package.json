@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "backend:local": "node dev/local-backend.ts",
+    "backend:local": "ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000} npm --prefix ../backend run start:local",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

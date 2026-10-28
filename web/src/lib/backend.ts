@@ -1,21 +1,29 @@
 /**
- * Server-side client for Jon's API (backend/src/api/types.ts). The browser never talks to the API directly: the
- * Next.js server does, so there is no CORS setup and the backend address stays private.
+ * Server-side client for the results API (backend/; contract in backend/src/api/types.ts, imported as "@api/types").
+ * The browser never talks to the API directly: the Next.js server does, so there is no CORS setup and the backend
+ * address and the proxy secret stay private.
  *
- * The API takes ONE place and ONE type per call and has no discipline filter. The picker allows several of each, so a
- * search fans out into one call per (place, type) and merges the answers. That is fine for the code ranker. For the
- * model-backed modes it would burn the API's rate limit and budget, which is why the API needs multi-select support
- * (see the request to Jon in log.md).
+ * A search is ONE call to GET /api/search with every place, type and discipline picked. The API expands place
+ * groups, filters by discipline, and ranks each type once over all the places, returning one group per type.
+ * Because every visitor reaches the API from this server's address, each call names the visitor's address and
+ * proves it is this server with API_PROXY_SECRET, so the API rate-limits visitors separately (see .env.example).
  */
-import type { ErrorCode, ErrorResponse, Opportunity, OpportunitiesResponse } from "./api-types";
+import "server-only";
+
+import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, PROXY_HEADERS, SearchResponse } from "@api/types";
+import { cacheLife } from "next/cache";
 import { toCard } from "./cards";
-import { expandPlaces, TRISTATE_REGIONS, WIDER_REGIONS } from "./taxonomy";
+import type { Labels } from "./taxonomy";
 import type { CallLog, Group, SearchInput, SearchOutput } from "./types";
 
+// Typed against the contract: a renamed route or header in backend/src/api/types.ts fails `npm run typecheck`.
+const ROUTES: typeof API_ROUTES = { search: "/api/search", opportunities: "/api/opportunities", meta: "/api/meta", health: "/api/health" };
+const HEADERS: typeof PROXY_HEADERS = { secret: "x-proxy-secret", clientIp: "x-client-ip" };
+
 const BASE = (process.env.BACKEND_URL || "http://localhost:8787").replace(/\/$/, "");
-const CALL_TIMEOUT_MS = 120_000;
-const MAX_PARALLEL = 6;
-const TOP_N = 5;
+const PROXY_SECRET = process.env.API_PROXY_SECRET || "";
+const SEARCH_TIMEOUT_MS = 120_000;
+const META_TIMEOUT_MS = 5_000;
 
 export class BackendError extends Error {
   constructor(public code: ErrorCode | "unreachable" | "bad_response", message: string) {
@@ -37,22 +45,23 @@ export const FRIENDLY: Record<string, string> = {
   method_not_allowed: "The results service doesn't accept that request.",
 };
 
+/** Any failure as a BackendError (unknown errors become the generic one). */
+export const asBackendError = (e: unknown): BackendError =>
+  e instanceof BackendError ? e : new BackendError("internal", FRIENDLY.internal);
+
 export async function backendHealth(): Promise<{ ok: boolean; url: string }> {
   try {
-    const res = await fetch(`${BASE}/api/health`, { cache: "no-store", signal: AbortSignal.timeout(3000) });
+    const res = await fetch(`${BASE}${ROUTES.health}`, { cache: "no-store", signal: AbortSignal.timeout(3000) });
     return { ok: res.ok, url: BASE };
   } catch {
     return { ok: false, url: BASE };
   }
 }
 
-async function callApi(place: string, type: string): Promise<OpportunitiesResponse> {
+async function getJson<T>(path: string, init: RequestInit): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(`${BASE}/api/opportunities?place=${encodeURIComponent(place)}&type=${encodeURIComponent(type)}`, {
-      cache: "no-store",
-      signal: AbortSignal.timeout(CALL_TIMEOUT_MS),
-    });
+    res = await fetch(`${BASE}${path}`, init);
   } catch {
     throw new BackendError("unreachable", FRIENDLY.unreachable);
   }
@@ -66,99 +75,69 @@ async function callApi(place: string, type: string): Promise<OpportunitiesRespon
     const code = ((body as ErrorResponse)?.error ?? "internal") as ErrorCode;
     throw new BackendError(code, FRIENDLY[code] ?? FRIENDLY.internal);
   }
-  return body as OpportunitiesResponse;
+  return body as T;
 }
 
-/** The places to ask the API about. "NYC" already covers every borough, so boroughs are dropped when it is included. */
-export function apiPlaces(places: string[]): string[] {
-  const { boroughs, regions } = expandPlaces(places);
-  const known = new Set([...TRISTATE_REGIONS, ...WIDER_REGIONS]);
-  const out = [...regions].filter((r) => known.has(r));
-  return regions.has("nyc") ? out : [...boroughs, ...out];
+async function fetchMetaCached(): Promise<MetaResponse> {
+  "use cache";
+  // A few minutes: the lists change only when the backend is redeployed. A failed fetch throws and is not cached.
+  cacheLife("minutes");
+  return getJson<MetaResponse>(ROUTES.meta, { signal: AbortSignal.timeout(META_TIMEOUT_MS) });
 }
 
-/** Best results from several lists, taking each list's rank 1, then rank 2, and so on; no listing twice. */
-export function interleave(lists: Opportunity[][], limit = TOP_N): Opportunity[] {
-  const seen = new Set<string>();
-  const out: Opportunity[] = [];
-  for (let rank = 0; out.length < limit && lists.some((l) => rank < l.length); rank++) {
-    for (const l of lists) {
-      const o = l[rank];
-      if (o && !seen.has(o.dedupe_key) && out.length < limit) {
-        seen.add(o.dedupe_key);
-        out.push(o);
-      }
-    }
+/**
+ * The picker lists and labels from GET /api/meta, cached on this server. Throws BackendError when the service is
+ * down: there is deliberately no built-in copy of the lists to fall back on, because a search built from them
+ * would fail against the same service anyway, and a copy could drift from what the running API accepts.
+ * Call it only after a request-time API (searchParams, headers) so `next build` never needs the backend.
+ */
+export async function getMeta(): Promise<MetaResponse> {
+  try {
+    return await fetchMetaCached();
+  } catch (e) {
+    // Errors from a cached scope may lose their class on the way out; anything else means the service is unusable.
+    throw e instanceof BackendError ? e : new BackendError("unreachable", FRIENDLY.unreachable);
   }
-  return out;
 }
 
-/** "2 expired listings removed." notes from several calls, added up. */
-export function sumRemoved(notes: (string | null)[]): string | null {
-  const totals: Record<string, number> = {};
-  for (const note of notes) {
-    for (const m of (note ?? "").matchAll(/(\d+) (expired|incomplete|duplicate) listings?/g)) {
-      totals[m[2]] = (totals[m[2]] ?? 0) + Number(m[1]);
-    }
-  }
-  const parts = Object.entries(totals).map(([k, n]) => `${n} ${k} listing${n === 1 ? "" : "s"}`);
-  return parts.length ? `${parts.join(", ")} removed.` : null;
+/**
+ * The visitor's address for the API's per-visitor rate limit: the LAST X-Forwarded-For entry, the one added by the
+ * proxy in front of this server (Vercel replaces the header; nginx appends to it). Null when there is none.
+ */
+export function visitorAddress(headers: Headers): string | null {
+  const last = headers.get("x-forwarded-for")?.split(",").pop()?.trim();
+  return last ? last : null;
 }
 
-async function pool<T, R>(items: T[], size: number, fn: (x: T) => Promise<R>): Promise<R[]> {
-  const out: R[] = new Array(items.length);
-  let next = 0;
-  await Promise.all(
-    Array.from({ length: Math.min(size, items.length) }, async () => {
-      while (next < items.length) {
-        const i = next++;
-        out[i] = await fn(items[i]);
-      }
-    }),
-  );
-  return out;
+/** Proxy headers for one call, only when this server holds the shared secret and knows the visitor's address. */
+function identityHeaders(visitor: string | null): Record<string, string> {
+  return PROXY_SECRET && visitor ? { [HEADERS.secret]: PROXY_SECRET, [HEADERS.clientIp]: visitor } : {};
 }
 
-export async function searchBackend(input: SearchInput): Promise<SearchOutput> {
-  const places = apiPlaces(input.places);
-  const jobs = input.types.flatMap((type) => places.map((place) => ({ place, type })));
-  const settled = await pool(jobs, MAX_PARALLEL, async (job) => {
-    try {
-      return { job, res: await callApi(job.place, job.type), err: null as BackendError | null };
-    } catch (e) {
-      return { job, res: null, err: e instanceof BackendError ? e : new BackendError("internal", FRIENDLY.internal) };
-    }
+/** The /api/search query for picker choices. Commas are left readable; the API splits on them. */
+export function searchQuery(input: SearchInput): string {
+  const q = new URLSearchParams({ places: input.places.join(","), types: input.types.join(",") });
+  if (input.disciplines.length) q.set("disciplines", input.disciplines.join(","));
+  return q.toString().replaceAll("%2C", ",");
+}
+
+/** One search, one call. `visitor` is the end user's address (visitorAddress), forwarded for rate limiting. */
+export async function searchBackend(input: SearchInput, opts: { visitor: string | null; labels: Labels }): Promise<SearchOutput> {
+  const query = searchQuery(input);
+  const res = await getJson<SearchResponse>(`${ROUTES.search}?${query}`, {
+    cache: "no-store",
+    headers: identityHeaders(opts.visitor),
+    signal: AbortSignal.timeout(SEARCH_TIMEOUT_MS),
   });
-
-  const failures = settled.filter((s) => s.err);
-  if (failures.length === settled.length) throw failures[0].err;
-
-  const calls: CallLog[] = settled.map(({ job, res, err }) =>
-    res
-      ? { ...job, ok: true, tier: res.tier, count: res.results.length, removed: res.removed, requestId: res.request_id }
-      : { ...job, ok: false, error: err!.code },
-  );
-  const first = settled.find((s) => s.res)!.res!;
-  const asOf = first.as_of;
-
-  const groups: Group[] = input.types.map((type) => {
-    const mine = settled.filter((s) => s.job.type === type);
-    const answered = mine.filter((s) => s.res).map((s) => s.res!);
-    const results = interleave(answered.map((r) => r.results));
-    // The weakest tier among the lists that contributed: one unchecked list makes the group "not fully checked".
-    const tiers = answered.filter((r) => r.results.length).map((r) => r.tier);
-    const tier = results.length ? ((tiers.includes(2) ? 2 : 0) as 0 | 2) : 3;
-    return {
-      type,
-      tier,
-      cards: results.map((o) => toCard(o, asOf)),
-      removed: sumRemoved(answered.map((r) => r.removed)),
-      reason: results.length ? null : (answered.map((r) => (r.tier === 3 ? r.reason : null)).find(Boolean) ?? "No listings match."),
-    };
-  });
-
-  const warnings = failures.length
-    ? [`${failures.length} of ${settled.length} lookups failed (${[...new Set(failures.map((f) => f.err!.code))].join(", ")}), so some places may be missing.`]
-    : [];
-  return { asOf, snapshotId: first.snapshot_id, groups, calls, warnings };
+  const groups: Group[] = res.groups.map((g) => ({
+    type: g.type,
+    tier: g.tier,
+    cards: g.results.map((o) => toCard(o, res.as_of, opts.labels)),
+    removed: g.removed,
+    reason: g.tier === 3 ? g.reason : null,
+  }));
+  const calls: CallLog[] = res.groups.map((g) => ({
+    type: g.type, tier: g.tier, count: g.results.length, removed: g.removed, requestId: g.request_id,
+  }));
+  return { asOf: res.as_of, snapshotId: res.snapshot_id, groups, calls, query };
 }

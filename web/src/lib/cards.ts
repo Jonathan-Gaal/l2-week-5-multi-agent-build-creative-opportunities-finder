@@ -1,5 +1,5 @@
-import type { Opportunity } from "./api-types";
-import { placeLabel } from "./taxonomy";
+import type { Opportunity } from "@api/types";
+import type { Labels } from "./taxonomy";
 import type { Card } from "./types";
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
@@ -25,7 +25,7 @@ function trustOf(label: string): Card["trust"] {
   return label.includes("not fully checked") ? "partial" : "checked";
 }
 
-export function toCard(o: Opportunity, asOf: string): Card {
+export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
   const next = nextDate(o, asOf);
   const eligibility = Array.isArray(o.eligibility)
     ? o.eligibility.slice(0, 3).map((e) =>
@@ -38,8 +38,9 @@ export function toCard(o: Opportunity, asOf: string): Card {
     title: o.title,
     org: o.org,
     type: o.type,
+    typeLabel: labels.type(o.type),
     subtype: o.subtype,
-    place: placeLabel(o.place ?? ""),
+    place: labels.place(o.place ?? ""),
     location: o.location,
     deadline: ISO.test(o.deadline) ? prettyDate(o.deadline) : o.deadline === "rolling" ? "Rolling deadline" : o.deadline === "recurring" ? "Recurring" : o.deadline,
     closesIn: next ? daysBetween(asOf, next) : null,

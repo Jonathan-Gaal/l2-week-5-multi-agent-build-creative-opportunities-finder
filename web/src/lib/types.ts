@@ -1,10 +1,10 @@
-import type { ErrorCode } from "./api-types";
-
 /** One result card, already shaped for display. */
 export type Card = {
   title: string;
   org: string | null;
   type: string;
+  /** Display label for `type`, from the API's meta lists. */
+  typeLabel: string;
   subtype: string | null;
   place: string;
   location: string | null;
@@ -25,7 +25,7 @@ export type Card = {
 
 export type Group = {
   type: string;
-  /** 0 verified, 2 not fully checked, 3 nothing found. The weakest tier across the places searched. */
+  /** 0 verified, 2 not fully checked, 3 nothing found: the tier of this type's one ranked list. */
   tier: 0 | 2 | 3;
   cards: Card[];
   /** E.g. "3 expired listings removed.", or null. */
@@ -33,16 +33,13 @@ export type Group = {
   reason: string | null;
 };
 
-/** One call to the results service: a single place and a single type, which is all the API takes today. */
+/** One type's run inside the single search call: what the results service traced under `requestId`. */
 export type CallLog = {
-  place: string;
   type: string;
-  ok: boolean;
-  tier?: number;
-  count?: number;
-  removed?: string | null;
-  requestId?: string;
-  error?: ErrorCode | "unreachable" | "bad_response";
+  tier: number;
+  count: number;
+  removed: string | null;
+  requestId: string;
 };
 
 export type SearchInput = { places: string[]; types: string[]; disciplines: string[] };
@@ -51,8 +48,10 @@ export type SearchOutput = {
   asOf: string;
   snapshotId: string;
   groups: Group[];
+  /** One per type group, in the same order. */
   calls: CallLog[];
-  warnings: string[];
+  /** The query string of the one GET /api/search call, for the dev tools. */
+  query: string;
 };
 
 /** One step of a run, shown in order in the dev playback. */
