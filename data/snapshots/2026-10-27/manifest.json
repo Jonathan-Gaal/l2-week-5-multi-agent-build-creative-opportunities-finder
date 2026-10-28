@@ -2,11 +2,11 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1136,
+  "record_count": 1135,
   "by_borough": {
     "manhattan": 376,
     "brooklyn": 131,
-    "queens": 49,
+    "queens": 48,
     "unknown": 37,
     "bronx": 27,
     "staten_island": 22,
@@ -731,6 +731,13 @@
       "reason": "not an opportunity",
       "detail": "spaces are listed as available for rent",
       "checked": "2026-10-28"
+    },
+    {
+      "title": "Queens Teens Institute for Art & Social Justice 2026-2027",
+      "source": "queens-museum",
+      "reason": "ineligible",
+      "detail": "teens only (Teens; art across visual, music, performance, and writing)",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -744,15 +751,15 @@
   ],
   "by_discipline": {
     "comedy": 398,
-    "music": 396,
+    "music": 395,
     "dance": 187,
-    "literary": 138,
+    "literary": 137,
     "all": 113,
-    "visual": 66,
+    "visual": 65,
     "theater": 59,
     "craft": 27,
-    "performance": 15,
     "film": 15,
+    "performance": 14,
     "digital": 9,
     "design": 8,
     "research": 4,
@@ -770,7 +777,7 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 654,
+    "nyc": 653,
     "massachusetts": 86,
     "pennsylvania": 85,
     "long_island": 59,
@@ -804,7 +811,6 @@
     "open_call/commission": 2,
     "residency/studio_access": 1,
     "open_call/fellowship": 1,
-    "open_call/youth_program": 1,
     "open_call/teaching_gig": 1,
     "event/open_studio": 1,
     "job/internship": 1
@@ -812,7 +818,7 @@
   "by_extraction": {
     "structured": 768,
     "crawl_reviewed": 123,
-    "manual": 83,
+    "manual": 82,
     "api": 75,
     "mara_backfill_verified": 44,
     "jsonld": 33,

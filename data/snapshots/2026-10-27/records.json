@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1136,
+  "count": 1135,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -815,36 +815,6 @@
       "checked_at": "2026-10-27",
       "fetched_at": "2026-10-27",
       "dedupe_key": "wave hill performing arts proposals concert series and live arts|bronx|rolling"
-    },
-    {
-      "title": "Queens Teens Institute for Art & Social Justice 2026-2027",
-      "org": "Queens Museum",
-      "opportunity_type": "open_call",
-      "subtype": "youth_program",
-      "borough": "queens",
-      "deadline": "2026-11-01",
-      "fee": "unknown",
-      "award": "$1,000 stipend for a 9-month program plus travel funds",
-      "eligibility": [
-        {
-          "requirement": "Teens; art across visual, music, performance, and writing",
-          "quote": "Art: Cultivating a brave space where teens can express themselves through visual art, music, performance art, or written word."
-        }
-      ],
-      "source": "queens-museum",
-      "source_url": "https://queensmuseum.org/2026/09/14/queens-teens-institute-2026-2027-applications-now-open-deadline-10-25-26/",
-      "opens_at": null,
-      "disciplines": [
-        "visual",
-        "music",
-        "performance",
-        "literary"
-      ],
-      "region": "nyc",
-      "snapshot_id": "2026-10-27",
-      "checked_at": "2026-10-27",
-      "fetched_at": "2026-10-27",
-      "dedupe_key": "queens teens institute for art social justice 2026 2027|queens|2026-11-01"
     },
     {
       "title": "Obremski/Works 2027 VISION and VOYAGER Fellowships",
