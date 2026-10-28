@@ -2,12 +2,12 @@
   "snapshot_id": "2026-10-27",
   "snapshot_date": "2026-10-27",
   "status": "staging",
-  "record_count": 1119,
+  "record_count": 1121,
   "by_borough": {
     "manhattan": 373,
     "brooklyn": 131,
     "queens": 47,
-    "unknown": 37,
+    "unknown": 39,
     "bronx": 26,
     "staten_island": 20,
     "citywide": 12
@@ -24,7 +24,8 @@
     "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API.",
     "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records.",
     "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
-    "2026-10-28: 17 youth-only or non-creative records removed after a youth-wording sweep (Queens Teens Institute plus 16); logged in dropped_records."
+    "2026-10-28: 17 youth-only or non-creative records removed after a youth-wording sweep (Queens Teens Institute plus 16); logged in dropped_records.",
+    "2026-10-28 held-source pass: 2 records from 1 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py)."
   ],
   "sources": {
     "ingested_with_records": [
@@ -851,6 +852,70 @@
       "reason": "ineligible",
       "detail": "youth program",
       "checked": "2026-10-28"
+    },
+    {
+      "title": "LDC Curates: Choreography Showcase",
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/LAST-CHANCE-Apply-for-LDC-Curates-Choreography-Showcase/",
+      "reason": "duplicate",
+      "detail": "duplicate of 'LDC Curates: Choreography Showcase (Feb 2027)' (dance-nyc-listings)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Robin Becker Dance Seeks Male Presenting Dancers",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "submissions closed October 18 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "OPEN CALL FOR CHOREOGRAPHERS – EMERGING CHOREOGRAPHER SERIES 2027 (ECS #14)",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "applications closed October 11 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Seeking African Contemporary Dancers",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "audition was October 12 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Poets House Showcase",
+      "source": "mara-poets-house",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Brooklyn Poets Mentorship Program",
+      "source": "mara-brooklyn-poets",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Bronx Council on the Arts grant pages (Arts Fund, Community Arts, New Work)",
+      "source": "bronx-council-on-the-arts",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "432 records from Craigslist, FireMics, Playbill and A4",
+      "source": "mara-backfill",
+      "source_url": null,
+      "reason": "terms or robots",
+      "detail": "terms prohibit scraping (Craigslist, FireMics, A4) or robots.txt blocks Claude agents (Playbill) (from Mara's backfill (data/snapshot.json)); not combined",
+      "checked": "2026-10-28"
     }
   ],
   "known_gaps": [
@@ -865,11 +930,11 @@
   "by_discipline": {
     "comedy": 397,
     "music": 394,
-    "dance": 186,
+    "dance": 188,
     "literary": 136,
     "all": 105,
+    "theater": 60,
     "visual": 59,
-    "theater": 59,
     "craft": 24,
     "film": 15,
     "performance": 14,
@@ -890,7 +955,7 @@
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 646,
+    "nyc": 648,
     "massachusetts": 86,
     "pennsylvania": 85,
     "long_island": 52,
@@ -910,7 +975,7 @@
     "event/open_mic": 650,
     "event/workshop": 116,
     "event/dance_night": 112,
-    "open_call/audition": 71,
+    "open_call/audition": 73,
     "open_call": 42,
     "event/jam": 36,
     "event/class": 26,
@@ -930,7 +995,7 @@
   },
   "by_extraction": {
     "structured": 765,
-    "crawl_reviewed": 118,
+    "crawl_reviewed": 120,
     "manual": 82,
     "api": 67,
     "mara_backfill_verified": 44,

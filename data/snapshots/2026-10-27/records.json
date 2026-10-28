@@ -1,6 +1,6 @@
 {
   "snapshot_id": "2026-10-27",
-  "count": 1119,
+  "count": 1121,
   "records": [
     {
       "title": "2027 Community Engagement Grants (CEG)",
@@ -35431,6 +35431,89 @@
       "checked_at": "2026-10-28",
       "fetched_at": "2026-10-28",
       "dedupe_key": "internship spring summer 2027|manhattan|2026-11-15"
+    },
+    {
+      "title": "SAXYN Dance Works Project Audition",
+      "org": "SAXYN Dance Works",
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-10-28",
+      "fee": "none",
+      "award": "$650 flat rate (inclusive of 25 hours of rehearsals, tech, and performance)",
+      "disciplines": [
+        "dance"
+      ],
+      "eligibility": [
+        {
+          "requirement": "Women+ dance artists",
+          "quote": "SAXYN Dance Works is seeking to cast Women+ dance artists (this includes any dancer who self identifies as a woman)"
+        },
+        {
+          "requirement": "not enrolled in an undergraduate program",
+          "quote": "Interested artists must not currently be enrolled in an undergraduate degree program."
+        },
+        {
+          "requirement": "audition date",
+          "quote": "Audition date/time: Friday, November 6th 1pm-4pm"
+        },
+        {
+          "requirement": "date as stated",
+          "quote": "Deadline to submit is October 28th at 6pm EST!"
+        }
+      ],
+      "caveat": "Found via Mara's backfill (Dance/NYC listing).",
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/SAXYN-Dance-Works-Project-Audition/",
+      "location": null,
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "saxyn dance works project audition|unknown|2026-10-28"
+    },
+    {
+      "title": "The Chase Brock Experience Audition",
+      "org": "The Chase Brock Experience",
+      "opportunity_type": "open_call",
+      "subtype": "audition",
+      "borough": "unknown",
+      "region": "nyc",
+      "deadline": "2026-11-04",
+      "fee": "none",
+      "award": "$25-30/hr rehearsal; tech/performance weeks $500-1250",
+      "disciplines": [
+        "dance",
+        "theater"
+      ],
+      "eligibility": [
+        {
+          "requirement": "versatile dancer-actors",
+          "quote": "The Chase Brock Experience is seeking excellent, versatile dancer-actors of all ethnicities and backgrounds for onstage and understudy roles in its 20th Anniversary Season"
+        },
+        {
+          "requirement": "audition dates, by appointment",
+          "quote": "Auditions will be held by appointment Monday November 2nd and Wednesday November 4th"
+        }
+      ],
+      "caveat": "Found via Mara's backfill (Dance/NYC listing).",
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/The-Chase-Brock-Experience-Audition/",
+      "location": null,
+      "event_dates": null,
+      "recurrence": null,
+      "opens_at": null,
+      "event_website": null,
+      "extraction": "crawl_reviewed",
+      "snapshot_id": "2026-10-27",
+      "checked_at": "2026-10-28",
+      "fetched_at": "2026-10-28",
+      "dedupe_key": "the chase brock experience audition|unknown|2026-11-04"
     }
   ]
 }

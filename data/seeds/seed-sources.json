@@ -626,8 +626,8 @@
       "url": "https://www.dance.nyc/for-artists/listings",
       "category": "aggregator",
       "verdict": "keep",
-      "checked": "crawled 2026-10-27",
-      "checks": "Server-rendered, robots allows. 21 listings; 4 survived filters. Covers auditions for dancers, musicians, poets.",
+      "checked": "verified 2026-10-28",
+      "checks": "Server-rendered, robots allows. 21 listings; 4 survived filters. Covers auditions for dancers, musicians, poets. 2026-10-28: robots allowed, no bot challenge or terms restriction; 2 record(s) verified on their own pages (scripts/verify_sources.py).",
       "notes": "Skip jobs, invitation-only, and paid-gig casting. Read each detail page.",
       "access": "free",
       "ingest": true,
@@ -636,7 +636,8 @@
       "records_2026_10_27": 43,
       "contributed_by": "Mara Munoz (origin/feature/backfill, 0c9175c)",
       "mara_records_2026_10_27": 61,
-      "mara_duplicates_of_ours": 6
+      "mara_duplicates_of_ours": 6,
+      "records_2026_10_28": 2
     },
     {
       "id": "nywift",
