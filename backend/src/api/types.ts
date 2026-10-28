@@ -10,6 +10,10 @@
  *   GET /api/health                                              -> HealthResponse
  * Every non-2xx response has an ErrorResponse body.
  *
+ * Rate limiting is per client address. A trusted server-side proxy (the Next.js app) may name the end user's
+ * address in PROXY_HEADERS.clientIp, which the API honors only alongside PROXY_HEADERS.secret matching its
+ * API_PROXY_SECRET. Browsers never send either.
+ *
  * UNTRUSTED DATA: listing text is copied from third-party websites. Render every field marked "untrusted" as
  * plain text (React's default escaping). Never pass it to `dangerouslySetInnerHTML`, `eval`, or a URL
  * without checking it. The server only sends `source_url` when it is an http(s) URL (otherwise null), and the
@@ -33,6 +37,9 @@ export type OpportunityType = "event" | "open_call" | "grant" | "residency" | "j
 export type Discipline = "music" | "comedy" | "dance" | "theater" | "writing" | "visual" | "film" | "craft";
 /** Picker shortcuts the API expands: "nyc" (the nyc region), "tristate", "wider" (see MetaResponse.place_groups). */
 export type PlaceGroup = "nyc" | "tristate" | "wider";
+
+/** Request headers from a trusted server-side proxy (lowercase, as node:http reports them). */
+export const PROXY_HEADERS = { secret: "x-proxy-secret", clientIp: "x-client-ip" } as const;
 
 /**
  * Query parameters for GET /api/search, each a comma-separated list with no repeats, given at most once:

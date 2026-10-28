@@ -62,7 +62,7 @@ export const startApp = async (env: Record<string, string | undefined>): Promise
     : countingModel(new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs));
   const handler = createApp({
     source: postgresSource(db), model, mode: config.mode, snapshotId: config.snapshotId,
-    allowedOrigins: config.allowedOrigins, traceDir: config.traceDir, limits: config.limits,
+    allowedOrigins: config.allowedOrigins, traceDir: config.traceDir, limits: config.limits, proxySecret: config.proxySecret,
   });
   const server: Server = createServer((req, res) => void handler(req, res));
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));

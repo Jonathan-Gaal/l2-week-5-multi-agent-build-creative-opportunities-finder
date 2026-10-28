@@ -3,7 +3,8 @@ import { describe, it } from "node:test";
 
 import { type Model, ModelError } from "../agents/model.ts";
 import {
-  BUDGET_USED_UP, type RunEvents, clientKey, concurrencyGate, dailyBudget, guardedModel, lruCache, rateLimiter,
+  BUDGET_USED_UP, type RunEvents, clientKey, concurrencyGate, dailyBudget, guardedModel, lruCache, proxySecretChecker,
+  rateLimiter, requestClientKey,
 } from "./controls.ts";
 
 const clock = (start = new Date(2026, 9, 28, 12).getTime()) => {
@@ -222,5 +223,53 @@ describe("clientKey", () => {
     assert.equal(clientKey("::1"), "0:0:0:0::/64");
     assert.equal(clientKey("fe80::1%en0"), "fe80:0:0:0::/64");
     assert.equal(clientKey(undefined), "unknown");
+  });
+});
+
+describe("proxy identity (requestClientKey)", () => {
+  const SECRET = "s".repeat(31) + "!";                 // 32 characters
+  const trusted = proxySecretChecker(SECRET);
+  const SOCKET = "10.0.0.5";                           // the Next.js server's address
+  const h = (secret: string | undefined, ip: string | undefined) => ({
+    ...(secret === undefined ? {} : { "x-proxy-secret": secret }),
+    ...(ip === undefined ? {} : { "x-client-ip": ip }),
+  });
+
+  it("the right secret lets the proxy name the end user's address", () => {
+    assert.deepEqual(requestClientKey(h(SECRET, "203.0.113.7"), SOCKET, trusted), { key: "203.0.113.7", secretRejected: false });
+    assert.deepEqual(requestClientKey(h(SECRET, " 203.0.113.7 "), SOCKET, trusted).key, "203.0.113.7");
+    // IPv6 end users are limited per /64, like socket addresses.
+    assert.equal(requestClientKey(h(SECRET, "2001:db8:1:2:aaaa::1"), SOCKET, trusted).key, "2001:db8:1:2::/64");
+  });
+
+  it("a wrong or missing secret never lets a client choose its identity: the socket address is used", () => {
+    for (const wrong of ["", "x", SECRET.slice(0, -1), SECRET + "x", SECRET.toUpperCase(), ` ${SECRET}`, `${SECRET}, ${SECRET}`]) {
+      assert.deepEqual(requestClientKey(h(wrong, "203.0.113.7"), SOCKET, trusted), { key: SOCKET, secretRejected: true }, JSON.stringify(wrong));
+    }
+    assert.deepEqual(requestClientKey(h(undefined, "203.0.113.7"), SOCKET, trusted), { key: SOCKET, secretRejected: false });
+    // A repeated header arrives as an array (or joined); never trusted.
+    assert.equal(requestClientKey({ "x-proxy-secret": [SECRET, SECRET], "x-client-ip": "203.0.113.7" } as never, SOCKET, trusted).key, SOCKET);
+  });
+
+  it("with no secret configured the headers are ignored entirely, even a guessed one", () => {
+    assert.equal(proxySecretChecker(undefined), null);
+    assert.equal(proxySecretChecker(""), null);
+    for (const secret of [undefined, "", SECRET, "undefined", "null"]) {
+      assert.deepEqual(requestClientKey(h(secret, "203.0.113.7"), SOCKET, null), { key: SOCKET, secretRejected: false });
+    }
+  });
+
+  it("the right secret with a missing or malformed address falls back to the socket address", () => {
+    for (const ip of [undefined, "", "unknown", "203.0.113.7, 198.51.100.1", "203.0.113.999", "203.0.113.7:443", "../x"]) {
+      assert.equal(requestClientKey(h(SECRET, ip), SOCKET, trusted).key, SOCKET, String(ip));
+    }
+  });
+
+  it("the comparison is exact: other values of the same length are rejected", () => {
+    const check = proxySecretChecker(SECRET)!;
+    assert.equal(check(SECRET), true);
+    assert.equal(check("t".repeat(31) + "!"), false);
+    assert.equal(check(undefined), false);
+    assert.equal(check(42), false);
   });
 });

@@ -363,10 +363,13 @@ describe("readConfig", () => {
       [null, "baseline", "2026-10-27", 0, ["http://localhost:5173", "https://app.example.org"]]);
   });
 
-  it("data source: defaults and parsing", () => {
-    assert.equal(readConfig({}).dataSource, "postgres");
-    const c = readConfig({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27" });
-    assert.deepEqual([c.dataSource, c.snapshotId], ["json", "2026-10-27"]);
+  it("data source, proxy secret: defaults and parsing", () => {
+    const d = readConfig({});
+    assert.deepEqual([d.dataSource, d.proxySecret], ["postgres", undefined]);
+    const secret = "k".repeat(40);
+    const c = readConfig({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27", API_PROXY_SECRET: secret });
+    assert.deepEqual([c.dataSource, c.snapshotId, c.proxySecret], ["json", "2026-10-27", secret]);
+    assert.equal(readConfig({ API_PROXY_SECRET: "" }).proxySecret, undefined);      // empty: unset, as before
   });
 
   it("refuses bad values without echoing them", () => {
@@ -374,7 +377,8 @@ describe("readConfig", () => {
       { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { PORT: "70000" }, { DAILY_MODEL_CALLS: "-1" },
       // A search charges one per type, so fewer than five per minute could never serve a full search.
       { RATE_LIMIT_PER_MINUTE: "4" },
-      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" }]) {
+      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" },
+      { API_PROXY_SECRET: "short-secret-value-123" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
   });
@@ -597,5 +601,34 @@ describe("parseSearchQuery", () => {
     for (const q of ["places=toString&types=grant", "places=__proto__&types=grant", "places=brooklyn&types=constructor"]) {
       assert.equal(parseSearchQuery(new URLSearchParams(q)), null, q);
     }
+  });
+});
+
+describe("trusted proxy identity (API_PROXY_SECRET)", () => {
+  const SECRET = "0123456789abcdef0123456789abcdef";
+  const as = (ip: string, secret = SECRET) => ({ headers: { "X-Proxy-Secret": secret, "X-Client-Ip": ip } });
+
+  it("with the secret, each end user gets their own rate limit", async () => {
+    const { get } = await start({ proxySecret: SECRET, limits: { ratePerMinute: 1 } });
+    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1"))).status, 200);
+    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2"))).status, 200);
+    assert.equal((await get(opp("brooklyn", "event"), as("203.0.113.1"))).status, 429);
+  });
+
+  it("a wrong secret cannot pick an identity: rotating the claimed address does not escape the limit", async () => {
+    const { get, logs } = await start({ proxySecret: SECRET, limits: { ratePerMinute: 1 } });
+    const wrong = "x".repeat(32);
+    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1", wrong))).status, 200);
+    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2", wrong))).status, 429);
+    assert.equal((await get(opp("brooklyn", "event"), { headers: { "X-Client-Ip": "203.0.113.3" } })).status, 429);
+    assert.ok(logs.some((l) => l.startsWith("proxy secret rejected from 127.0.0.1")));
+    assert.ok(!logs.some((l) => l.includes(wrong) || l.includes(SECRET)));
+  });
+
+  it("without API_PROXY_SECRET the headers are ignored, exactly as before", async () => {
+    const { get, logs } = await start({ limits: { ratePerMinute: 1 } });
+    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1"))).status, 200);
+    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2"))).status, 429);
+    assert.ok(!logs.some((l) => l.includes("proxy secret")));
   });
 });
