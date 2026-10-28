@@ -9,16 +9,14 @@
       "place": "manhattan",
       "type": "grant",
       "as_of": "2026-10-28",
-      "note": "VISION is for college students; the LMCC grants are open to Manhattan individual artists.",
+      "note": "The LMCC grants are open to Manhattan individual artists. VISION (college students) may appear.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
         "must_include": [
           "lmcc 2027 manhattan arts grants creative engagement|manhattan|2026-11-12"
         ],
-        "must_exclude": [
-          "obremski works 2027 vision and voyager fellowships|citywide|2026-11-08"
-        ],
+        "must_exclude": [],
         "must_be_candidate": []
       }
     },
@@ -28,7 +26,7 @@
       "place": "queens",
       "type": "grant",
       "as_of": "2026-10-28",
-      "note": "Individual-artist grants must appear; organization-only grants and the college-only VISION must not.",
+      "note": "Individual-artist grants must appear; organization-only grants must not.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
@@ -38,8 +36,7 @@
         ],
         "must_exclude": [
           "2027 go queens grant|queens|2026-12-01",
-          "2027 queens community arts grant|queens|2026-12-01",
-          "obremski works 2027 vision and voyager fellowships|citywide|2026-11-08"
+          "2027 queens community arts grant|queens|2026-12-01"
         ],
         "must_be_candidate": []
       }
@@ -50,7 +47,7 @@
       "place": "bronx",
       "type": "grant",
       "as_of": "2026-10-28",
-      "note": "Three candidates; the right answer is two, not padding with VISION.",
+      "note": "Three candidates: CEG, Bronx Dance Fund and VISION (college students); the two Bronx grants must appear.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
@@ -58,9 +55,7 @@
           "2027 community engagement grants ceg|bronx|2026-10-30",
           "2027 bronx dance fund|bronx|2026-11-20"
         ],
-        "must_exclude": [
-          "obremski works 2027 vision and voyager fellowships|citywide|2026-11-08"
-        ],
+        "must_exclude": [],
         "must_be_candidate": []
       }
     },
@@ -186,16 +181,14 @@
       "place": "staten_island",
       "type": "grant",
       "as_of": "2026-10-28",
-      "note": "Staten Island Arts project grants must appear; VISION must not.",
+      "note": "Staten Island Arts project grants must appear.",
       "expect": {
         "tier_3": false,
         "removed_expired": 0,
         "must_include": [
           "staten island arts 2027 fall project grants|staten_island|2027-01-31"
         ],
-        "must_exclude": [
-          "obremski works 2027 vision and voyager fellowships|citywide|2026-11-08"
-        ],
+        "must_exclude": [],
         "must_be_candidate": []
       }
     },
@@ -228,8 +221,7 @@
           "2027 bronx dance fund|bronx|2026-11-20"
         ],
         "must_exclude": [
-          "2027 community engagement grants ceg|bronx|2026-10-30",
-          "obremski works 2027 vision and voyager fellowships|citywide|2026-11-08"
+          "2027 community engagement grants ceg|bronx|2026-10-30"
         ],
         "must_be_candidate": []
       }
@@ -647,5 +639,8 @@
         }
       ]
     }
+  ],
+  "decisions": [
+    "Student-only opportunities (for example college-only fellowships) are relevant and may appear (Jon, 2026-10-28)."
   ]
 }
