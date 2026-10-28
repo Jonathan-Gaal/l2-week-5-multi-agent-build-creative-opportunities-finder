@@ -58,17 +58,17 @@ function framesForSearch(c: Choice, out: SearchOutput, labels: Labels): Frame[] 
   return frames;
 }
 
-/** `meta` is the results service's picker lists, or null when the service could not be reached. */
+/** `meta` is the picker lists (GET /api/meta). */
 export default function DevTools({ meta }: { meta: MetaResponse | null }) {
   const labels = labelsFor(meta);
-  const [health, setHealth] = useState<{ ok: boolean; url: string } | null>(null);
+  const [health, setHealth] = useState<{ ok: boolean } | null>(null);
   const [runId, setRunId] = useState(SAVED_RUNS[0].id);
   const [choice, setChoice] = useState<Choice>(PERSONAS[0].c);
   const [busy, setBusy] = useState(false);
   const [live, setLive] = useState<{ n: number; choice: Choice; out?: SearchOutput; error?: string } | null>(null);
 
   useEffect(() => {
-    fetch("/api/search").then((r) => r.json()).then(setHealth).catch(() => setHealth({ ok: false, url: "" }));
+    fetch("/api/search").then((r) => r.json()).then(setHealth).catch(() => setHealth({ ok: false }));
   }, []);
 
   async function run(c: Choice) {
@@ -117,7 +117,7 @@ export default function DevTools({ meta }: { meta: MetaResponse | null }) {
         <div className="group-head">
           <h2>Run a persona</h2>
           <span className="group-meta">
-            Results service: {health === null ? "checking…" : health.ok ? `connected (${health.url})` : "not reachable. Run npm run backend:local in web/"}
+            Results service: {health === null ? "checking…" : health.ok ? "ready" : "not set up. Run npm run dev:local in web/, or fill in web/.env"}
           </span>
         </div>
         <div className="dev-grid">

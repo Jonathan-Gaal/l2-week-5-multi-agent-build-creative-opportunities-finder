@@ -7,7 +7,7 @@ const STATUS: Record<string, number> = { unreachable: 503, rate_limited: 429, bu
 const MAX_BODY_BYTES = 2_048;
 
 // Only the dev page (/dev, itself hidden in production) calls this route, so a production build doesn't serve it:
-// no public JSON endpoint that spends model calls or reveals where the results service lives.
+// no public JSON endpoint that spends model calls.
 const devOnly = () => (process.env.NODE_ENV === "production" ? new Response(null, { status: 404 }) : null);
 
 /** A request from a page on this site (so another site can't make a visitor's browser run searches here). */
@@ -18,16 +18,16 @@ function sameOrigin(request: Request): boolean {
   return origin !== null && origin === new URL(request.url).origin;
 }
 
-/** Is the results service reachable? Used by the dev page. */
+/** Is the results API set up? Used by the dev page. */
 export async function GET() {
   return devOnly() ?? Response.json(await backendHealth());
 }
 
-/** The dev tools' search endpoint. It makes one call to the results service (backend/). */
+/** The dev tools' search endpoint. It makes one call to the results API (server/api, in process). */
 export async function POST(request: Request) {
   const hidden = devOnly();
   if (hidden) return hidden;
-  if (!sameOrigin(request)) return Response.json({ error: "origin_not_allowed", message: FRIENDLY.origin_not_allowed }, { status: 403 });
+  if (!sameOrigin(request)) return Response.json({ error: "origin_not_allowed", message: "Searches must come from a page on this site." }, { status: 403 });
   if (!request.headers.get("content-type")?.startsWith("application/json")) {
     return Response.json({ error: "bad_request", message: "Send JSON: { places, types, disciplines }" }, { status: 415 });
   }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
   const b = (body ?? {}) as Record<string, unknown>;
   try {
-    const meta = await getMeta();
+    const meta = getMeta();
     const allowed = pickerChoices(meta);
     const places = pick(b.places, allowed.places);
     const types = pick(b.types, allowed.types);

@@ -2,7 +2,7 @@
 
     python scripts/export_web_data.py
 
-Writes (the live results come from the backend API, so the snapshot itself is not exported):
+Writes (the live results come from the results API in web/server/, so the snapshot itself is not exported):
   runs.json    each saved run in runs/claude-code-as-model/, replayed through the real pipeline and broken into
                 steps (filter, candidates, each Ranker attempt, code checks, each Reviewer verdict, result)
   meta.json     counts for the intro page

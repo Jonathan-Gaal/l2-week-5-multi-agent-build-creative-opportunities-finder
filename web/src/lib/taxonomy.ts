@@ -1,6 +1,6 @@
 /**
- * Picker lists and display labels, all derived from the results API's GET /api/meta (backend/src/agents/taxonomy.ts
- * is the one source of truth). Pure functions, so server and client components can both use them.
+ * Picker lists and display labels, all derived from the results API's meta (getMeta / GET /api/meta;
+ * server/agents/taxonomy.ts is the one source of truth). Pure functions, so server and client components can both use them.
  */
 import type { MetaResponse } from "@api/types";
 

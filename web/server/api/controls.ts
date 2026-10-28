@@ -8,16 +8,11 @@
  * - lruCache: bounded result cache with a per-entry time to live.
  * - guardedModel: wraps the Claude model for one request, charging every call to the budget and passing the
  *   request's abort signal (its deadline) to the call.
- * - requestClientKey: the rate-limit identity of a request (socket address, or a trusted proxy's end user).
+ * - clientKey: the rate-limit identity of a client address.
  */
-
-import { createHash, timingSafeEqual } from "node:crypto";
-import type { IncomingHttpHeaders } from "node:http";
-import { isIP } from "node:net";
 
 import { today } from "../agents/filter.ts";
 import { type Model, ModelError } from "../agents/model.ts";
-import { PROXY_HEADERS } from "./types.ts";
 
 export type Clock = () => number;
 
@@ -196,35 +191,4 @@ export const clientKey = (address: string | undefined): string => {
     ? [...headParts, ...Array<string>(Math.max(0, 8 - headParts.length - tailParts.length)).fill("0"), ...tailParts]
     : headParts;
   return groups.slice(0, 4).map((g) => (parseInt(g, 16) || 0).toString(16)).join(":") + "::/64";
-};
-
-const digest = (s: string) => createHash("sha256").update(s, "utf8").digest();
-
-export type SecretChecker = (given: unknown) => boolean;
-
-/** A checker for the proxy secret header: true only for exactly `secret`, compared in constant time (both
- * sides are hashed to equal length first). Null when no secret is configured: proxy headers are then ignored. */
-export const proxySecretChecker = (secret: string | undefined): SecretChecker | null => {
-  if (!secret) return null;
-  const want = digest(secret);
-  return (given) => typeof given === "string" && timingSafeEqual(digest(given), want);
-};
-
-export type ClientIdentity = { key: string; secretRejected: boolean };
-
-/**
- * Rate-limit key for a request. The end user's address in PROXY_HEADERS.clientIp is used only when the request
- * also carries the right PROXY_HEADERS.secret and the address is a valid IP; in every other case (no secret
- * configured, header missing, wrong secret, repeated or malformed address) it is the socket address, as if the
- * headers were absent. `secretRejected` flags a secret that was sent but wrong (an abuse signal to log).
- */
-export const requestClientKey = (
-  headers: IncomingHttpHeaders, socketAddress: string | undefined, trusted: SecretChecker | null,
-): ClientIdentity => {
-  const given = headers[PROXY_HEADERS.secret];
-  if (trusted === null || given === undefined) return { key: clientKey(socketAddress), secretRejected: false };
-  if (!trusted(given)) return { key: clientKey(socketAddress), secretRejected: true };
-  const claimed = headers[PROXY_HEADERS.clientIp];
-  const ip = typeof claimed === "string" ? claimed.trim() : "";
-  return { key: isIP(ip) ? clientKey(ip) : clientKey(socketAddress), secretRejected: false };
 };

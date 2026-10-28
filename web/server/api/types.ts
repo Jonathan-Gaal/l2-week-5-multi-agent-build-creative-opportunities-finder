@@ -1,7 +1,8 @@
 /**
- * HTTP API contract shared with the frontend. Types plus the route paths, self-contained (no imports), so the
- * web app imports it directly (web/tsconfig.json path alias "@api/*", type-only imports). The server checks at
- * compile time that these unions match the lists in agents/taxonomy.ts.
+ * API contract shared with the pages. Types plus the route paths, self-contained (no imports), so client components
+ * can import them (tsconfig.json path alias "@api/*", type-only imports). The server checks at compile time that
+ * these unions match the lists in agents/taxonomy.ts. The Next.js server calls the API in process
+ * (src/lib/backend.ts); these routes are not public URLs.
  *
  * Routes (GET only, JSON; anything else is 404, a known route with another method is 405):
  *   GET /api/search?places=..&types=..[&disciplines=..]          -> SearchResponse   (see SearchQuery)
@@ -10,9 +11,7 @@
  *   GET /api/health                                              -> HealthResponse
  * Every non-2xx response has an ErrorResponse body.
  *
- * Rate limiting is per client address. A trusted server-side proxy (the Next.js app) may name the end user's
- * address in PROXY_HEADERS.clientIp, which the API honors only alongside PROXY_HEADERS.secret matching its
- * API_PROXY_SECRET. Browsers never send either.
+ * Rate limiting is per client: the caller passes the visitor's address with each request.
  *
  * UNTRUSTED DATA: listing text is copied from third-party websites. Render every field marked "untrusted" as
  * plain text (React's default escaping). Never pass it to `dangerouslySetInnerHTML`, `eval`, or a URL
@@ -37,9 +36,6 @@ export type OpportunityType = "event" | "open_call" | "grant" | "residency" | "j
 export type Discipline = "music" | "comedy" | "dance" | "theater" | "writing" | "visual" | "film" | "craft";
 /** Picker shortcuts the API expands: "nyc" (the nyc region), "tristate", "wider" (see MetaResponse.place_groups). */
 export type PlaceGroup = "nyc" | "tristate" | "wider";
-
-/** Request headers from a trusted server-side proxy (lowercase, as node:http reports them). */
-export const PROXY_HEADERS = { secret: "x-proxy-secret", clientIp: "x-client-ip" } as const;
 
 /**
  * Query parameters for GET /api/search, each a comma-separated list with no repeats, given at most once:
@@ -161,12 +157,12 @@ export type MetaResponse = {
 export type HealthResponse = { ok: true };
 
 /**
- * bad_request (400), origin_not_allowed (403), not_found (404), method_not_allowed (405),
+ * bad_request (400), not_found (404), method_not_allowed (405),
  * rate_limited (429, see the Retry-After header), busy (503, retry shortly), no_snapshot (503),
  * internal (500).
  */
 export type ErrorCode =
-  | "bad_request" | "origin_not_allowed" | "not_found" | "method_not_allowed" | "rate_limited" | "busy"
+  | "bad_request" | "not_found" | "method_not_allowed" | "rate_limited" | "busy"
   | "no_snapshot" | "internal";
 
 /** `message` is fixed text for display; it never contains request input or internal details. */

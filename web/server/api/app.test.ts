@@ -1,10 +1,8 @@
-// The HTTP API end to end on a real node:http server, with a fake database and a fake model.
+// The API end to end through its Request -> Response handler, with a fake database and a fake model.
 import assert from "node:assert/strict";
 import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
-import { type Server, createServer } from "node:http";
-import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
-import { after, describe, it } from "node:test";
+import { describe, it } from "node:test";
 
 import type { OppRecord } from "../agents/filter.ts";
 import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
@@ -63,25 +61,19 @@ const fakeModel = (): FakeModel => ({
   },
 });
 
-const servers: Server[] = [];
-after(() => servers.forEach((s) => s.close()));
-
 type Setup = Partial<Omit<AppDeps, "limits" | "source">> & { limits?: Partial<Limits>; db?: FakeDb };
 const start = async ({ db = fakeDb(), ...setup }: Setup = {}) => {
   const model = (setup.model as FakeModel | undefined) ?? fakeModel();
   const logs: string[] = [];
   const clock = { t: NOW };
   const handler = createApp({
-    source: postgresSource(db), model, mode: "ranker_reviewer", allowedOrigins: ["http://localhost:5173"], traceDir: null,
+    source: postgresSource(db), model, mode: "ranker_reviewer", traceDir: null,
     now: () => clock.t, log: (l) => logs.push(l), ...setup, limits: setup.limits ?? {},
   });
-  const server = createServer((req, res) => void handler(req, res));
-  servers.push(server);
-  await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
-  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
-  const get = async (path: string, init: RequestInit = {}) => {
-    const res = await fetch(base + path, init);
-    return { status: res.status, headers: res.headers, body: res.status === 204 ? null : await res.json() };
+  /** One request from `client` (the rate-limit key the Next.js server passes). */
+  const get = async (path: string, init: RequestInit = {}, client = "127.0.0.1") => {
+    const res = await handler(new Request(`http://app${path}`, init), client);
+    return { status: res.status, headers: res.headers, body: await res.json() };
   };
   return { get, db, model, logs, clock };
 };
@@ -98,7 +90,7 @@ describe("routing", () => {
     const nf = await get("/nope");
     assert.deepEqual([nf.status, nf.body.error], [404, "not_found"]);
     const post = await get("/api/health", { method: "POST" });
-    assert.deepEqual([post.status, post.body.error, post.headers.get("allow")], [405, "method_not_allowed", "GET, OPTIONS"]);
+    assert.deepEqual([post.status, post.body.error, post.headers.get("allow")], [405, "method_not_allowed", "GET"]);
     assert.equal(nf.headers.get("cache-control"), "no-store");
   });
 });
@@ -163,38 +155,6 @@ describe("parseOpportunitiesQuery and safeHttpUrl", () => {
       "ftp://a.org", "", null, 42]) {
       assert.equal(safeHttpUrl(bad), null, String(bad));
     }
-  });
-});
-
-describe("CORS", () => {
-  it("allowed origin is echoed with Vary; no origin gets no CORS header", async () => {
-    const { get } = await start();
-    const r = await get("/api/health", { headers: { Origin: "http://localhost:5173" } });
-    assert.deepEqual([r.status, r.headers.get("access-control-allow-origin")], [200, "http://localhost:5173"]);
-    assert.match(r.headers.get("vary") ?? "", /Origin/);
-    assert.equal((await get("/api/health")).headers.get("access-control-allow-origin"), null);
-  });
-
-  it("disallowed origin is refused with 403 before any work", async () => {
-    const { get, model, db } = await start();
-    const r = await get(opp("brooklyn", "open_call"), { headers: { Origin: "https://evil.example" } });
-    assert.deepEqual([r.status, r.body.error, r.headers.get("access-control-allow-origin")], [403, "origin_not_allowed", null]);
-    assert.deepEqual([model.calls, db.queries], [0, 0]);
-    const lookalike = await get("/api/health", { headers: { Origin: "http://localhost:5173.evil.example" } });
-    assert.equal(lookalike.status, 403);
-  });
-
-  it("preflight: 204 with GET for an allowed origin, 403 otherwise, never '*'", async () => {
-    const { get } = await start();
-    const ok = await get(opp("brooklyn", "open_call"), { method: "OPTIONS", headers: { Origin: "http://localhost:5173", "Access-Control-Request-Method": "GET" } });
-    assert.deepEqual([ok.status, ok.headers.get("access-control-allow-methods"), ok.headers.get("access-control-allow-origin")],
-      [204, "GET", "http://localhost:5173"]);
-    const bad = await get("/api/health", { method: "OPTIONS", headers: { Origin: "https://evil.example" } });
-    assert.equal(bad.status, 403);
-  });
-
-  it("'*' is refused at startup", () => {
-    assert.throws(() => createApp({ source: postgresSource(fakeDb()), model: null, mode: "baseline", allowedOrigins: ["*"], traceDir: null }));
   });
 });
 
@@ -351,36 +311,29 @@ describe("errors", () => {
 describe("readConfig", () => {
   it("defaults", () => {
     const c = readConfig({});
-    assert.equal(c.host, "127.0.0.1");                 // loopback unless HOST says otherwise
-    assert.equal(readConfig({ HOST: "0.0.0.0" }).host, "0.0.0.0");
-    assert.deepEqual([c.port, c.mode, c.snapshotId, c.allowedOrigins, c.limits.ratePerMinute, c.limits.dailyModelCalls,
-      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], [8787, "ranker_reviewer", undefined, ["http://localhost:5173"], 10, 300, 2, 90_000]);
+    assert.deepEqual([c.mode, c.snapshotId, c.limits.ratePerMinute, c.limits.dailyModelCalls,
+      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], ["ranker_reviewer", undefined, 10, 300, 2, 90_000]);
     assert.ok(c.traceDir?.endsWith("traces"));
+    assert.equal(readConfig({ VERCEL: "1" }).traceDir, null);        // read-only filesystem: tracing off by default
   });
 
   it("empty TRACE_DIR disables tracing; values are parsed", () => {
-    const c = readConfig({ TRACE_DIR: "", RANKER_MODE: "baseline", SNAPSHOT_ID: "2026-10-27", DAILY_MODEL_CALLS: "0",
-      ALLOWED_ORIGINS: "http://localhost:5173, https://app.example.org" });
-    assert.deepEqual([c.traceDir, c.mode, c.snapshotId, c.limits.dailyModelCalls, c.allowedOrigins],
-      [null, "baseline", "2026-10-27", 0, ["http://localhost:5173", "https://app.example.org"]]);
+    const c = readConfig({ TRACE_DIR: "", RANKER_MODE: "baseline", SNAPSHOT_ID: "2026-10-27", DAILY_MODEL_CALLS: "0" });
+    assert.deepEqual([c.traceDir, c.mode, c.snapshotId, c.limits.dailyModelCalls], [null, "baseline", "2026-10-27", 0]);
   });
 
-  it("data source, proxy secret: defaults and parsing", () => {
-    const d = readConfig({});
-    assert.deepEqual([d.dataSource, d.proxySecret], ["postgres", undefined]);
-    const secret = "k".repeat(40);
-    const c = readConfig({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27", API_PROXY_SECRET: secret });
-    assert.deepEqual([c.dataSource, c.snapshotId, c.proxySecret], ["json", "2026-10-27", secret]);
-    assert.equal(readConfig({ API_PROXY_SECRET: "" }).proxySecret, undefined);      // empty: unset, as before
+  it("data source: default and parsing", () => {
+    assert.equal(readConfig({}).dataSource, "postgres");
+    const c = readConfig({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27" });
+    assert.deepEqual([c.dataSource, c.snapshotId], ["json", "2026-10-27"]);
   });
 
   it("refuses bad values without echoing them", () => {
-    for (const env of [{ RANKER_MODE: "gpt" }, { ALLOWED_ORIGINS: "*" }, { ALLOWED_ORIGINS: "https://a.org/path" },
-      { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { PORT: "70000" }, { DAILY_MODEL_CALLS: "-1" },
+    for (const env of [{ RANKER_MODE: "gpt" },
+      { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { DAILY_MODEL_CALLS: "-1" },
       // A search charges one per type, so fewer than five per minute could never serve a full search.
       { RATE_LIMIT_PER_MINUTE: "4" },
-      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" },
-      { API_PROXY_SECRET: "short-secret-value-123" }]) {
+      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
   });
@@ -606,31 +559,11 @@ describe("parseSearchQuery", () => {
   });
 });
 
-describe("trusted proxy identity (API_PROXY_SECRET)", () => {
-  const SECRET = "0123456789abcdef0123456789abcdef";
-  const as = (ip: string, secret = SECRET) => ({ headers: { "X-Proxy-Secret": secret, "X-Client-Ip": ip } });
-
-  it("with the secret, each end user gets their own rate limit", async () => {
-    const { get } = await start({ proxySecret: SECRET, limits: { ratePerMinute: 1 } });
-    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1"))).status, 200);
-    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2"))).status, 200);
-    assert.equal((await get(opp("brooklyn", "event"), as("203.0.113.1"))).status, 429);
-  });
-
-  it("a wrong secret cannot pick an identity: rotating the claimed address does not escape the limit", async () => {
-    const { get, logs } = await start({ proxySecret: SECRET, limits: { ratePerMinute: 1 } });
-    const wrong = "x".repeat(32);
-    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1", wrong))).status, 200);
-    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2", wrong))).status, 429);
-    assert.equal((await get(opp("brooklyn", "event"), { headers: { "X-Client-Ip": "203.0.113.3" } })).status, 429);
-    assert.ok(logs.some((l) => l.startsWith("proxy secret rejected from 127.0.0.1")));
-    assert.ok(!logs.some((l) => l.includes(wrong) || l.includes(SECRET)));
-  });
-
-  it("without API_PROXY_SECRET the headers are ignored, exactly as before", async () => {
-    const { get, logs } = await start({ limits: { ratePerMinute: 1 } });
-    assert.equal((await get(opp("brooklyn", "open_call"), as("203.0.113.1"))).status, 200);
-    assert.equal((await get(opp("brooklyn", "grant"), as("203.0.113.2"))).status, 429);
-    assert.ok(!logs.some((l) => l.includes("proxy secret")));
+describe("rate-limit identity", () => {
+  it("each client key the caller passes gets its own limit", async () => {
+    const { get } = await start({ limits: { ratePerMinute: 1 } });
+    assert.equal((await get(opp("brooklyn", "open_call"), {}, "203.0.113.1")).status, 200);
+    assert.equal((await get(opp("brooklyn", "grant"), {}, "203.0.113.2")).status, 200);
+    assert.equal((await get(opp("brooklyn", "event"), {}, "203.0.113.1")).status, 429);
   });
 });

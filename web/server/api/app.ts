@@ -1,9 +1,10 @@
 /**
- * HTTP request handler for the API in api/types.ts, built on node:http. createApp takes every dependency
- * (record source, model, clock, limits) so tests can pass fakes; server.ts wires the real ones.
+ * Request handler for the API in api/types.ts, on the web-standard Request and Response. The Next.js server calls
+ * it in process (src/lib/backend.ts); it is not exposed as a public route. createApp takes every dependency
+ * (record source, model, clock, limits) so tests can pass fakes; src/lib/backend.ts wires the real ones.
  *
  * Search and opportunities requests, in order:
- *   origin check -> validate the query (closed lists) -> as_of = server's today -> resolve snapshot id ->
+ *   validate the query (closed lists) -> as_of = server's today -> resolve snapshot id ->
  *   one run per type (search: over the union of the places; opportunities: one place). For each run:
  *   cache hit? serve it : identical run in flight? share it : fresh. Then one rate-limit charge for all the
  *   fresh model runs together (all or nothing) -> each fresh run waits for a run slot (model runs only) ->
@@ -13,14 +14,12 @@
  * of one search share a search_id in the trace.
  * When no run slot frees up in time, an opportunities request gets 503 busy; a search serves that type from
  * the code baseline (Tier 2, not fully checked) instead of failing every group.
- * The client's rate-limit identity is its socket address, or the end user named by a trusted proxy holding
- * API_PROXY_SECRET (controls.requestClientKey).
+ * The caller names the client's rate-limit identity (the visitor's address, normalized by controls.clientKey).
  */
 
 import { appendFile, mkdir } from "node:fs/promises";
-import type { IncomingMessage, ServerResponse } from "node:http";
 
-import { BOROUGHS, type Request, REGIONS, TYPES, makeRequest, makeSearchRequest, today, traceRequest } from "../agents/filter.ts";
+import { BOROUGHS, type Request as SearchRequest, REGIONS, TYPES, makeRequest, makeSearchRequest, today, traceRequest } from "../agents/filter.ts";
 import type { Model } from "../agents/model.ts";
 import * as pipeline from "../agents/pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "../agents/roles.ts";
@@ -30,7 +29,7 @@ import {
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
   BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, concurrencyGate, dailyBudget,
-  guardedModel, lruCache, proxySecretChecker, rateLimiter, requestClientKey,
+  guardedModel, lruCache, rateLimiter,
 } from "./controls.ts";
 import {
   API_ROUTES, type Borough, type Discipline, type ErrorCode, type ErrorResponse, type MetaResponse,
@@ -75,15 +74,12 @@ export type AppDeps = {
   mode: Mode;
   /** Serve this snapshot instead of the published one (local development only). */
   snapshotId?: string | undefined;
-  allowedOrigins: readonly string[];
   /** Directory for the per-day JSONL trace; null disables tracing. */
   traceDir: string | null;
   now?: Clock;
   limits?: Partial<Limits>;
   /** Server-side log for errors and abuse signals. Never sent to the client. */
   log?: (line: string) => void;
-  /** Shared secret a trusted proxy sends to name its end user for rate limiting; unset: never trusted. */
-  proxySecret?: string | undefined;
 };
 
 // Compile-time check that the API's unions are exactly taxonomy.ts's lists.
@@ -105,7 +101,6 @@ export const META: MetaResponse = {
 
 const MESSAGES: Record<ErrorCode, string> = {
   bad_request: "Choose a place and an opportunity type from the lists at /api/meta.",
-  origin_not_allowed: "This site is not allowed to call the API.",
   not_found: "No such endpoint.",
   method_not_allowed: "Only GET is supported.",
   rate_limited: "Too many searches in a short time. Try again in a minute.",
@@ -114,7 +109,7 @@ const MESSAGES: Record<ErrorCode, string> = {
   internal: "Something went wrong on our side. Try again later.",
 };
 const STATUS: Record<ErrorCode, number> = {
-  bad_request: 400, origin_not_allowed: 403, not_found: 404, method_not_allowed: 405, rate_limited: 429,
+  bad_request: 400, not_found: 404, method_not_allowed: 405, rate_limited: 429,
   busy: 503, no_snapshot: 503, internal: 500,
 };
 
@@ -191,7 +186,7 @@ type ServeOptions = {
 };
 
 /** Cache and in-flight key: everything that decides a run's result (places and disciplines arrive canonical). */
-const runKey = (snapshotId: string, req: Request) =>
+const runKey = (snapshotId: string, req: SearchRequest) =>
   JSON.stringify([snapshotId, req.places, req.type, req.disciplines, req.asOf]);
 
 class HttpError extends Error {
@@ -205,23 +200,20 @@ class HttpError extends Error {
   }
 }
 
-const respond = (res: ServerResponse, status: number, body: unknown, headers: Record<string, string> = {}) => {
-  const text = status === 204 ? "" : JSON.stringify(body);
-  res.writeHead(status, {
-    ...(status === 204 ? {} : { "Content-Type": "application/json; charset=utf-8" }),
-    "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff", ...headers,
+const respond = (status: number, body: unknown, headers: Record<string, string> = {}) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff",
+      ...headers,
+    },
   });
-  res.end(text);
-};
 
 export const createApp = (deps: AppDeps) => {
   const now = deps.now ?? Date.now;
   const limits: Limits = { ...DEFAULT_LIMITS, ...deps.limits };
   const log = deps.log ?? ((line: string) => console.error(line));
   if (deps.mode !== "baseline" && deps.model === null) throw new Error(`mode ${deps.mode} needs a model`);
-  const origins = new Set(deps.allowedOrigins);
-  if (origins.has("*")) throw new Error("allowed origins must be listed; '*' is not allowed");
-  const trustedProxy = proxySecretChecker(deps.proxySecret);
 
   const limiter = rateLimiter(limits.ratePerMinute, 60_000, now);
   const budget = dailyBudget(limits.dailyModelCalls, now);
@@ -233,7 +225,7 @@ export const createApp = (deps: AppDeps) => {
 
   /** One trace line for a request served from the cache or a shared run. Failure is logged, never thrown. */
   const traceReuse = async (
-    requestId: string, req: Request, how: "cache" | "shared", c: Computed, traceFields: Record<string, unknown> = {},
+    requestId: string, req: SearchRequest, how: "cache" | "shared", c: Computed, traceFields: Record<string, unknown> = {},
   ) => {
     const path = tracePath(req.asOf);
     if (!path) return;
@@ -254,7 +246,7 @@ export const createApp = (deps: AppDeps) => {
   /** Run the pipeline once. Model runs hold a gate slot and stop at the deadline. `degraded` means the
    * budget, the deadline, a full gate or a failed model call shaped the result. */
   const compute = async (
-    req: Request, snapshotId: string, useModel: boolean, opts: ServeOptions,
+    req: SearchRequest, snapshotId: string, useModel: boolean, opts: ServeOptions,
   ): Promise<{ c: Computed; degraded: boolean }> => {
     let release = null;
     let busy = false;
@@ -303,7 +295,7 @@ export const createApp = (deps: AppDeps) => {
   };
 
   /** Start a fresh run and register it, synchronously, so identical requests arriving meanwhile share it. */
-  const startRun = (req: Request, key: string, snapshotId: string, useModel: boolean, opts: ServeOptions) => {
+  const startRun = (req: SearchRequest, key: string, snapshotId: string, useModel: boolean, opts: ServeOptions) => {
     const run = (async () => {
       const { c, degraded } = await compute(req, snapshotId, useModel, opts);
       // Degraded results are kept briefly so they can recover (budget reset, model back up); others for a day.
@@ -318,7 +310,7 @@ export const createApp = (deps: AppDeps) => {
 
   /** Serve several runs for one client request, in order. Fresh model runs are charged to the client's rate
    * limit together, all or nothing, before any of them starts. */
-  const serve = async (reqs: Request[], snapshotId: string, client: string, opts: ServeOptions): Promise<Served[]> => {
+  const serve = async (reqs: SearchRequest[], snapshotId: string, client: string, opts: ServeOptions): Promise<Served[]> => {
     const plans = reqs.map((req) => {
       const key = runKey(snapshotId, req);
       return { req, key, cached: cache.get(key), running: inFlight.get(key) };
@@ -332,7 +324,7 @@ export const createApp = (deps: AppDeps) => {
         throw new HttpError("rate_limited", { "Retry-After": String(decision.retryAfterSec) });
       }
     }
-    const reuse = async (req: Request, c: Computed, how: "cache" | "shared"): Promise<Served> => {
+    const reuse = async (req: SearchRequest, c: Computed, how: "cache" | "shared"): Promise<Served> => {
       const requestId = pipeline.newRequestId();
       await traceReuse(requestId, req, how, c, opts.traceFields);
       return { c, requestId };
@@ -384,35 +376,19 @@ export const createApp = (deps: AppDeps) => {
     [API_ROUTES.search]: (url, client) => search(url.searchParams, client),
   };
 
-  return async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
-    const headers: Record<string, string> = { Vary: "Origin" };
+  /** One API request. `client` is the caller's rate-limit key (controls.clientKey of the visitor's address). */
+  return async (request: Request, client: string): Promise<Response> => {
     const fail = (code: ErrorCode, extra: Record<string, string> = {}) => {
       const body: ErrorResponse = { error: code, message: MESSAGES[code] };
-      respond(res, STATUS[code], body, { ...headers, ...extra });
+      return respond(STATUS[code], body, extra);
     };
     try {
-      // A browser on another site sends a simple GET without a preflight, so a disallowed Origin is refused
-      // before any work (otherwise any page could spend model calls from its visitors' addresses).
-      const origin = req.headers.origin;
-      if (origin !== undefined) {
-        if (!origins.has(origin)) return fail("origin_not_allowed");
-        headers["Access-Control-Allow-Origin"] = origin;
-      }
-      const raw = req.url ?? "/";
-      if (raw.length > limits.maxUrlLength) return fail("bad_request");
-      const url = new URL(raw, "http://localhost");
+      if (request.url.length > limits.maxUrlLength) return fail("bad_request");
+      const url = new URL(request.url);
       const route = routes[url.pathname];
       if (route === undefined) return fail("not_found");
-      if (req.method === "OPTIONS" && origin !== undefined) {
-        return respond(res, 204, null, {
-          ...headers, "Access-Control-Allow-Methods": "GET", "Access-Control-Max-Age": "600",
-        });
-      }
-      if (req.method !== "GET") return fail("method_not_allowed", { Allow: "GET, OPTIONS" });
-      const client = requestClientKey(req.headers, req.socket.remoteAddress, trustedProxy);
-      if (client.secretRejected) log(`proxy secret rejected from ${client.key}`);
-      const body = await route(url, client.key);
-      return respond(res, 200, body, headers);
+      if (request.method !== "GET") return fail("method_not_allowed", { Allow: "GET" });
+      return respond(200, await route(url, client));
     } catch (e) {
       if (e instanceof HttpError) return fail(e.code, e.headers);
       if (e instanceof NoPublishedSnapshotError) return fail("no_snapshot");
