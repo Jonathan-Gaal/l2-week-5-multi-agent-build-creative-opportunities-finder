@@ -256,6 +256,8 @@ def grants_gov():
 
 PARTICIPATE = re.compile(r"\b(workshops?|class(?:es)?|open mic|jam|drum circle|sing-?along|drawing|sketch|audition|open call|lesson|"
                          r"open studio|craft|dance (?:class|party|social)|salsa|tango|swing|poetry|writing|choir|chorus)\b", re.I)
+# Audience or shopping events whose titles still trip PARTICIPATE ("Holiday Swing" concert, "Craft Fair").
+SPECTATOR = re.compile(r"\b(concerts?|craft fair|conversation|book sale|reading by|recital)\b", re.I)
 BOROUGH = {"manhattan": "manhattan", "brooklyn": "brooklyn", "queens": "queens", "bronx": "bronx", "staten island": "staten_island"}
 
 
@@ -266,9 +268,11 @@ NYC_MAX_PAGES = 100   # 12 events a page; about 57 pages cover 90 days
 def _nyc_event_record(e):
     """Candidate for one calendar occurrence, or None when cancelled, not creative or not hands-on."""
     name, desc = _text(e.get("name")), _text(e.get("shortDesc") or e.get("desc"))
-    url = e.get("permalink") or e.get("website")
+    website = e.get("website") or ""
+    # Prefer the organizer's own event page (usually nycgovparks.org) over the calendar's copy; a bare homepage is not an event page.
+    url = website if urllib.parse.urlparse(website).path.strip("/") else e.get("permalink")
     # The calendar's category filter is ignored server-side and it has no arts category, so filter on the text.
-    if e.get("canceled") or not url or not PARTICIPATE.search(name) or not is_creative(name, desc):
+    if e.get("canceled") or not url or not PARTICIPATE.search(name) or SPECTATOR.search(name) or not is_creative(name, desc):
         return None
     start = parse_date(e.get("startDate"))
     if not start or start < TODAY:
@@ -476,7 +480,7 @@ def _tribe_record(e, site):
     if not start or start < TODAY or e.get("status") != "publish" or e.get("hide_from_listings") or re.match(r"cancell?ed\b", title, re.I):
         return None
     categories = " ".join(c.get("name", "") for c in e.get("categories") or [])
-    if not PARTICIPATE.search(f"{title} {html.unescape(categories)}"):
+    if not PARTICIPATE.search(f"{title} {html.unescape(categories)}") or SPECTATOR.search(title):
         return None
     venue = e.get("venue") if isinstance(e.get("venue"), dict) else {}
     state = (venue.get("stateprovince") or venue.get("state") or "").upper()

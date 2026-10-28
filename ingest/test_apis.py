@@ -218,6 +218,11 @@ class NycEvents(unittest.TestCase):
         [g] = apis._group_occurrences(recs)
         self.assertEqual((g["opportunity_type"], g["subtype"], g["deadline"], g["event_dates"]), ("open_call", None, None, []))
 
+    def test_prefers_organizer_event_page(self):
+        parks = "https://www.nycgovparks.org/events/2026/10/29/park-open-studio"
+        self.assertEqual(apis._nyc_event_record(self.event(website=parks))["source_url"], parks)
+        self.assertEqual(apis._nyc_event_record(self.event(website="https://www.nycgovparks.org/"))["source_url"], self.event()["permalink"])
+
     def test_borough_abbreviations(self):
         self.assertEqual(apis._nyc_event_record(self.event(boroughs=["SI"]))["borough"], "staten_island")
         self.assertEqual(apis._nyc_event_record(self.event(boroughs=["Mn", "Bk"]))["borough"], "citywide")
@@ -252,6 +257,9 @@ class TribeEvents(unittest.TestCase):
         self.assertIsNone(apis._tribe_record(self.event(days=-1), self.site))
         self.assertIsNone(apis._tribe_record(self.event(hide_from_listings=True), self.site))
         self.assertIsNone(apis._tribe_record(self.event(title="Film Screening"), self.site))
+        self.assertIsNone(apis._tribe_record(self.event(title="Concerts by the Pond presents Holiday Swing"), self.site))
+        self.assertIsNone(apis._tribe_record(self.event(title="Holiday Craft Fair"), self.site))
+        self.assertIsNone(apis._tribe_record(self.event(title="POETRY & THE AMERICAN CONVERSATION: A Workshop"), self.site))
         self.assertIsNone(apis._tribe_record(self.event(venue={"zip": "61801", "state": "IL"}), self.site))   # touring date
         self.assertIsNone(apis._tribe_record(self.event(venue={"state": "IL"}), self.site))
 
