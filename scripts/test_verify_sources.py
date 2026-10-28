@@ -81,6 +81,29 @@ class Duplicates(unittest.TestCase):
         self.assertFalse(vs.same_listing(a, {**b, "deadline": "2026-11-06"}))
         self.assertFalse(vs.same_listing(a, {**a, "title": "Open Mic Night", "dedupe_key": "c"}))
 
+    def test_undated_listings_need_an_exact_match(self):
+        a = {"title": "Hard Rock band seeking Drummer", "deadline": None, "borough": "manhattan", "region": "nyc", "dedupe_key": "a"}
+        b = {**a, "title": "Bassist & Drummer Wanted For Working Classic Rock Cover Band", "dedupe_key": "b"}
+        self.assertFalse(vs.same_listing(a, b))
+        self.assertFalse(vs.same_listing({**a, "deadline": "rolling"}, {**b, "deadline": "rolling"}))
+
+    def test_filler_words_do_not_make_a_match(self):
+        base = {"deadline": "2026-11-03", "borough": "manhattan", "region": "nyc", "dedupe_key": "x"}
+        for x, y in (("Open Mic at The Stand", "Open Mic at Caravan Of Dreams"), ("GO Queens Grant", "2027 Artists in Queens Grant"),
+                     ("Welcome Table - NYC EPA (11.03.26)", "Blanca And Ines - NYC EPA (11.03.26)")):
+            self.assertFalse(vs.same_listing({**base, "title": x}, {**base, "title": y}), x)
+        for x, y in (("Triangle 2027-2028 Open Call", "Triangle 2027-2028 Open Call (studio residency)"),
+                     ("Community Engagement Grants (CEGs)", "2027 Community Engagement Grants (CEG)")):
+            self.assertTrue(vs.same_listing({**base, "title": x}, {**base, "title": y}), x)
+
+    def test_same_run_titles_are_distinct(self):
+        base = {"deadline": "2026-11-03", "borough": "manhattan", "region": "nyc", "dedupe_key": "x",
+                "source": "mara-firemics-open-mics", "extraction": "mara_backfill_unverified"}
+        a, b = {**base, "title": "Stand-Up Comedy at Suite"}, {**base, "title": "Open Mic at The Stand"}
+        self.assertFalse(vs.same_listing(a, b))
+        self.assertTrue(vs.same_listing({**a, "title": "Triangle 2027-2028 Open Call"},
+                                        {**b, "title": "Triangle 2027-2028 Open Call (studio residency)", "extraction": "crawl_reviewed"}))
+
     def test_find_duplicate_by_key(self):
         rec, _ = vs.check_record(cand(), PAGE, "2026-10-28")
         self.assertIs(vs.find_duplicate(rec, [rec]), rec)

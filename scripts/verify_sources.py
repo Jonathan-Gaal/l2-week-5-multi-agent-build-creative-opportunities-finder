@@ -65,11 +65,26 @@ def dedupe_key(rec):
 
 def same_listing(a, b):
     """Same date and place, and one title's words mostly contained in the other's. Not source_url alone:
-    one calendar page often lists many different events."""
+    one calendar page often lists many different events. Only for dated listings: undated ones share no
+    date, so short similar titles ("drummer wanted") would fold different listings together."""
+    if not str(a.get("deadline") or "").startswith("20"):
+        return False
+    if a.get("source") and a.get("source") == b.get("source") and a.get("extraction") == b.get("extraction"):
+        return False    # one collection run was already de-duplicated; different titles there are different listings
     if a.get("deadline") != b.get("deadline") or (a.get("borough") or a["region"]) != (b.get("borough") or b["region"]):
         return False
-    wa, wb = set(words(a["title"]).split()), set(words(b["title"]).split())
-    return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.6
+    wa, wb = _distinctive(a["title"]), _distinctive(b["title"])
+    shared = wa & wb
+    return bool(shared) and len(shared) / min(len(wa), len(wb)) >= 0.6
+
+
+# Words that every listing of a kind shares; matching on them folds different venues or shows together.
+FILLER = set("a an and at by for in of on the to with open mic mics call calls audition auditions grant grants "
+             "program programs series night presents wanted seeking nyc new york ny epa".split())
+
+
+def _distinctive(title):
+    return {w for w in words(title).split() if w not in FILLER and not w.isdigit()}
 
 
 def date_patterns(iso):
