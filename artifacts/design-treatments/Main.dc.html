@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mad Libs sentence</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:44px 72px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;background:#FD1A99;opacity:.16"></div>
+  <div style="display:flex;align-items:center;gap:12px;position:relative">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:34px;height:40px">
+    <span style="font-family:'Fraunces',serif;font-weight:700;font-size:22px">Artist Atlas</span>
+    <span style="margin-left:auto;font-size:15px;color:#CFC6DA">One sentence. Fill in the blanks.</span>
+  </div>
+
+  <div style="flex-grow:1;display:flex;flex-direction:column;justify-content:center;gap:34px;position:relative">
+    <div style="font-family:'Fraunces',serif;font-weight:700;font-size:58px;line-height:1.5;letter-spacing:-.01em">
+      I&rsquo;m a
+      <span style="display:inline-block;background:#DCFC05;color:#220E43;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">comedian</span>
+      and a
+      <span style="display:inline-block;background:#DCFC05;color:#220E43;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">musician</span><span style="display:inline-block;border:3px dashed #8f78b8;color:#CFC6DA;border-radius:999px;padding:0 20px;margin-left:10px;font-size:40px;line-height:1.3;vertical-align:.08em">+ add</span>,
+      looking for
+      <span style="display:inline-block;background:#FD1A99;color:#000;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">open mics</span>
+      and
+      <span style="display:inline-block;background:#FD1A99;color:#000;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">grants</span><span style="display:inline-block;border:3px dashed #8f78b8;color:#CFC6DA;border-radius:999px;padding:0 20px;margin-left:10px;font-size:40px;line-height:1.3;vertical-align:.08em">+ add</span>
+      around
+      <span style="display:inline-block;background:#FEF9EF;color:#220E43;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">Brooklyn</span>
+      and
+      <span style="display:inline-block;background:#FEF9EF;color:#220E43;border-radius:999px;padding:0 24px;font-style:italic;font-weight:900;line-height:1.25">Queens</span>.
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <span style="font-size:15px;color:#CFC6DA;margin-right:6px">Or go wider:</span>
+      <button style="font:700 16px 'DM Sans',sans-serif;background:transparent;color:#FEF9EF;border:2px solid #46297A;border-radius:999px;padding:9px 20px">Anywhere in NYC</button>
+      <button style="font:700 16px 'DM Sans',sans-serif;background:transparent;color:#FEF9EF;border:2px solid #DCFC05;border-radius:999px;padding:9px 20px">Tri-state</button>
+      <button style="font:700 16px 'DM Sans',sans-serif;background:transparent;color:#FEF9EF;border:2px solid #46297A;border-radius:999px;padding:9px 20px">Wider Northeast &amp; DC</button>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:24px;position:relative">
+    <button style="font:700 20px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:18px 38px">Show me what&rsquo;s out there &rarr;</button>
+    <span style="font-size:15px;color:#CFC6DA">Tap any blank to change it. Pick as many as you like.</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

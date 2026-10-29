@@ -32,6 +32,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  devIndicators: false, // hides the round "N" badge that Next.js shows in dev
   async headers() {
     return [{ source: "/:path*", headers: SECURITY_HEADERS }];
   },

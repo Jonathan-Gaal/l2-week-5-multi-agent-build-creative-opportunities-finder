@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import HeaderVersions from "@/components/HeaderVersions";
 
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], style: ["normal", "italic"] });
 const dmSans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
@@ -16,14 +16,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>
       <body>
-        <Header />
+        <HeaderVersions />
         <main>{children}</main>
-        <footer className="site-footer">
-          <div className="wrap">
-            Artist Atlas · a class project by Mara and Jon. Listings come from public sources and can change; always confirm on the
-            original page before you apply.
-          </div>
-        </footer>
       </body>
     </html>
   );
