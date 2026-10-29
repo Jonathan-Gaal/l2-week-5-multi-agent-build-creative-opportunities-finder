@@ -228,11 +228,30 @@ describe("Checks", () => {
 
   it("unknown id, duplicate and filter failures", () => {
     const problems = pipeline.checkRanking([{ id: "r9" }, { id: "r1" }, { id: "r1" }, { id: "r2" }, { id: "r3" }], byId, req());
+    // Known answers from the contract + this byId (asOf = DAY, 2026-11-01). Order follows the loop:
+    //   r9 -> not in byId -> not a candidate
+    //   r1 (1st) -> valid, passes -> no problem; r1 (2nd) -> already seen -> listed twice
+    //   r2 -> deadline 2026-10-01 is before asOf -> expired -> fails filter
+    //   r3 -> borough queens vs request brooklyn -> fails place filter
+    // 5 items == TOP_K (5), so no "more than" problem. Identity, not just count: a bug that emits
+    // 4 *wrong* messages or flags the wrong id/reason fails here.
+    assert.deepEqual(problems, [
+      "r9: not one of the candidate ids",
+      "r1: listed twice",
+      "r2: fails the place, type, discipline or expiry filter",
+      "r3: fails the place, type, discipline or expiry filter",
+    ]);
     assert.equal(problems.length, 4);
   });
 
+  it("too many results (more than TOP_K) is flagged", () => {
+    // TOP_K is 5; 6 items trips the count check, pushed before the per-item loop.
+    const problems = pipeline.checkRanking([{ id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }], byId, req());
+    assert.ok(problems.includes("more than 5 results"), problems.join(" | "));
+  });
+
   it("empty ranking with candidates fails", () => {
-    assert.ok(pipeline.checkRanking([], byId, req()).length);
+    assert.deepEqual(pipeline.checkRanking([], byId, req()), ["ranking is empty but there are candidates"]);
   });
 });
 
