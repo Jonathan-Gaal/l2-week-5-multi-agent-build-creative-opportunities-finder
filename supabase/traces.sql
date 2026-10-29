@@ -1,4 +1,4 @@
--- Request traces (PRD section 10: one trace entry per request). Not yet applied.
+-- Request traces (PRD section 10: one trace entry per request). Applied to project ofjwdioysmzfeiqlfrkl on 2026-10-29.
 -- The app (web/server/db/traces.ts, TRACE_SINK=postgres, the default on Vercel) is the only writer: one row per
 -- trace line, the whole line in `line` exactly as the JSONL file sink writes it, a few fields copied into columns
 -- for lookups. It keeps 30 days (RETENTION_DAYS) by deleting older rows itself. `npm run traces:pull` exports a
