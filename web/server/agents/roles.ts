@@ -86,12 +86,57 @@ const CONFUSABLE = new RegExp(`[${Object.keys(CONFUSABLES).join("")}]`, "gu");
 // (diacritics, variation selectors, U+034F) and the Hangul fillers that render as nothing.
 const INVISIBLE = /[\p{Cf}\p{M}\u115f\u1160\u3164\uffa0]/gu;
 
-/** Listing text as a reader sees it, for the injection check: entities decoded (twice, for &amp;#105;),
- * compatibility forms folded (NFKC: fullwidth, math letters, ligatures), invisible characters and diacritics
- * dropped, common Cyrillic/Greek lookalikes mapped to Latin, and every run of whitespace one space. */
-export const normalizeForScan = (s: string): string =>
-  decodeEntities(decodeEntities(s)).normalize("NFKC").normalize("NFD").replace(INVISIBLE, "")
-    .replace(CONFUSABLE, (c) => CONFUSABLES[c]!).replace(/\s+/g, " ");
+// %XX runs decoded as UTF-8 bytes; TextDecoder (non-fatal) turns a malformed sequence into U+FFFD instead of
+// throwing, so "50% off", "%zz" and a stray "%E0" are safe. One pass decodes one layer; scan() runs two.
+const PERCENT_RUN = /(?:%[0-9a-f]{2})+/gi;
+const UTF8 = new TextDecoder();
+const decodePercent = (s: string): string =>
+  s.replace(PERCENT_RUN, (run) => UTF8.decode(Uint8Array.from(run.slice(1).split("%"), (h) => parseInt(h, 16))));
+const decodeLayer = (s: string): string => decodeEntities(decodePercent(s));
+
+/** Text decoded and folded, before spaced letters are joined and whitespace collapsed (see normalizeForScan). */
+const prepare = (s: string): string =>
+  decodeLayer(decodeLayer(s)).normalize("NFKC").normalize("NFD").replace(INVISIBLE, "")
+    .replace(CONFUSABLE, (c) => CONFUSABLES[c]!);
+
+// Four or more single letters, each followed by one separator (space, newline, ".", "-", "_", or ". "):
+// "i g n o r e", "i.g.n.o.r.e", "s_y_s". A double space ends a run, so "i g n o r e  a l l" stays two words.
+// Each repeat is a fixed separator then one letter not followed by a letter, so matching is linear.
+const SPACED_RUN = /(?<![\p{L}\p{N}])\p{L}(?:(?:[._-] ?|\s)\p{L}(?![\p{L}\p{N}])){3,}/gu;
+const NON_LETTERS = /[^\p{L}]/gu;
+const joinLetters = (run: string): string => run.replace(NON_LETTERS, "");
+
+// INSTRUCTION_PATTERN's phrases with the spaces taken out, for a spaced run that spells several words at once
+// ("i g n o r e a l l r u l e s"), where \b has nothing to match. Tested only on squashed runs (plus one
+// word either side), never on the whole record, where innocent adjacent words would run together.
+const SQUASHED_PATTERN = new RegExp([
+  "(ignore|disregard|forget|override)(all|any|the|your|my|these|previous|prior|above|earlier){0,3}"
+    + "(instructions?|rules|prompts?|rubric|guidelines)",
+  "(system|developer|hidden)(prompt|message|instructions?)",
+  "youare(now)?(an?|the)?(ai|assistant|chatbot|languagemodel|llm|ranker|reviewer)",
+  "newinstructions",
+  "(rank|list|put|place)(this|it|me|us)(first|atthetop|attop|highest|above)",
+  "(always|must)(accept|approve|rank|choose|select)",
+  "verdict(is)?accept",
+].join("|"), "i");
+
+/** Each spaced-letter run in prepared text, squashed to lowercase letters with the word just before and
+ * after it (so "ignore a l l r u l e s" gives "ignoreallrules"). Neighbours are read from a 40-character
+ * window, keeping this linear. */
+const squashedRuns = (p: string): string[] =>
+  [...p.matchAll(SPACED_RUN)].map((m) => {
+    const before = /(\p{L}+)\s*$/u.exec(p.slice(Math.max(0, m.index - 40), m.index))?.[1] ?? "";
+    const after = /^\s*(\p{L}+)/u.exec(p.slice(m.index + m[0].length, m.index + m[0].length + 40))?.[1] ?? "";
+    return joinLetters(before + m[0] + after).toLowerCase();
+  });
+
+const collapse = (p: string): string => p.replace(SPACED_RUN, joinLetters).replace(/\s+/g, " ");
+
+/** Listing text as a reader sees it, for the injection check: percent-encoding and entities decoded (two
+ * layers each, for %2569 and &amp;#105;), compatibility forms folded (NFKC: fullwidth, math letters,
+ * ligatures), invisible characters and diacritics dropped, common Cyrillic/Greek lookalikes mapped to Latin,
+ * runs of spaced single letters joined into a word ("i g n o r e" -> "ignore"), and whitespace one space. */
+export const normalizeForScan = (s: string): string => collapse(prepare(s));
 
 /** Every string in a value (record fields, nested eligibility), in order. Keys are ours, so not included. */
 const strings = (v: unknown, out: string[] = []): string[] => {
@@ -103,9 +148,12 @@ const strings = (v: unknown, out: string[] = []): string[] => {
 
 /** True when any text in the record reads like an instruction to the model (a likely prompt injection).
  * Tested on the normalized text values joined by a space, not on JSON.stringify, which writes a newline as
- * the two characters \n and so hid "system\nprompt" from the \s+ in the pattern. */
-export const looksLikeInstructions = (rec: OppRecord): boolean =>
-  INSTRUCTION_PATTERN.test(normalizeForScan(strings(rec).join(" ")));
+ * the two characters \n and so hid "system\nprompt" from the \s+ in the pattern; spaced-letter runs are
+ * also tested squashed, against SQUASHED_PATTERN. */
+export const looksLikeInstructions = (rec: OppRecord): boolean => {
+  const p = prepare(strings(rec).join(" "));
+  return INSTRUCTION_PATTERN.test(collapse(p)) || squashedRuns(p).some((r) => SQUASHED_PATTERN.test(r));
+};
 
 const clip = (v: unknown, max = MAX_FIELD_CHARS): string | null => {
   if (v === null || v === undefined) return null;
