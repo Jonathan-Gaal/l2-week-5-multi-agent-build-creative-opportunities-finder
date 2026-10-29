@@ -59,6 +59,33 @@ const traceSettings = (env: Env, dataSource: string): Pick<Config, "traceSink" |
   return { traceSink: sink as TraceSinkKind, traceDir: sink === "file" ? dir : null };
 };
 
+/** Shown at most once per process (not per request) when an LLM mode degrades to code-only for want of credentials. */
+let credentialWarningShown = false;
+
+/** Reset the one-time degrade warning. Test seam only; production never calls this. */
+export const resetCredentialWarning = (): void => {
+  credentialWarningShown = false;
+};
+
+/**
+ * The ranker mode to actually run, once credentials are accounted for. Keeps the app working with no Claude key
+ * instead of throwing at startup:
+ *   - RANKER_MODE=baseline stays baseline (code-only), as configured — and never warns, the operator chose it.
+ *   - An LLM mode with credentials present (`missing === null`) runs as configured (full pipeline).
+ *   - An LLM mode with credentials MISSING degrades to baseline (code-only, Tier 2) rather than throwing, so results
+ *     are always served. "Always works" is prioritised over honouring an unsatisfiable explicit ranker_reviewer /
+ *     ranker_only; the one-time warning (naming the reason) makes the degrade visible in the log.
+ * `missing` is the reason string from missingCredentials(), or null when credentials are present.
+ */
+export const resolveMode = (config: Config, missing: string | null): Mode => {
+  if (config.mode === "baseline" || missing === null) return config.mode;
+  if (!credentialWarningShown) {
+    credentialWarningShown = true;
+    console.warn(`No Anthropic credentials; serving code-only results (Tier 2). ${missing}`);
+  }
+  return "baseline";
+};
+
 export const readConfig = (env: Env): Config => {
   const mode = env.RANKER_MODE?.trim() || "ranker_reviewer";
   if (!(MODES as readonly string[]).includes(mode)) throw new ConfigError(`RANKER_MODE must be one of ${MODES.join(", ")}`);
