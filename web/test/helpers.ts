@@ -9,6 +9,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import { ClaudeModel, type Model } from "../server/agents/model.ts";
+import { dailyFileSink } from "../server/agents/trace.ts";
 import { createApp } from "../server/api/app.ts";
 import { type Config, readConfig } from "../server/api/config.ts";
 import { type Queryable, postgresSource } from "../server/db/opportunities.ts";
@@ -58,7 +59,7 @@ export const startApp = async (env: Record<string, string | undefined>): Promise
     : countingModel(new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs));
   const handler = createApp({
     source: postgresSource(db), model, mode: config.mode, snapshotId: config.snapshotId,
-    traceDir: config.traceDir, limits: config.limits,
+    trace: dailyFileSink(traceDir), limits: config.limits,
   });
 
   const get: Started["get"] = async (path, init = {}) => {

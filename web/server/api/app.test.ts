@@ -6,6 +6,7 @@ import { describe, it } from "node:test";
 
 import type { OppRecord } from "../agents/filter.ts";
 import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
+import { dailyFileSink } from "../agents/trace.ts";
 import { type Queryable, postgresSource } from "../db/opportunities.ts";
 import { type AppDeps, type Limits, createApp, parseOpportunitiesQuery, parseSearchQuery, safeHttpUrl } from "./app.ts";
 import { ConfigError, readConfig } from "./config.ts";
@@ -68,7 +69,7 @@ const start = async ({ db = fakeDb(), ...setup }: Setup = {}) => {
   const logs: string[] = [];
   const clock = { t: NOW };
   const handler = createApp({
-    source: postgresSource(db), model, mode: "ranker_reviewer", traceDir: null,
+    source: postgresSource(db), model, mode: "ranker_reviewer", trace: null,
     now: () => clock.t, log: (l) => logs.push(l), ...setup, limits: setup.limits ?? {},
   });
   /** One request from `client` (the rate-limit key the Next.js server passes). */
@@ -162,7 +163,7 @@ describe("parseOpportunitiesQuery and safeHttpUrl", () => {
 describe("cost controls", () => {
   it("identical requests are served from the cache: no new model calls, own request id, traced", async () => {
     const traceDir = mkdtempSync(`${tmpdir()}/api-trace-`);
-    const { get, model } = await start({ traceDir });
+    const { get, model } = await start({ trace: dailyFileSink(traceDir) });
     const a = (await get(opp("brooklyn", "open_call"))).body;
     const b = (await get(opp("brooklyn", "open_call"))).body;
     assert.equal(model.calls, 2);
@@ -331,7 +332,7 @@ describe("errors", () => {
   it("a trace that cannot be written does not fail the request", async () => {
     const dir = mkdtempSync(`${tmpdir()}/api-trace-`);
     writeFileSync(`${dir}/file`, "");
-    const { get } = await start({ traceDir: `${dir}/file` });
+    const { get } = await start({ trace: dailyFileSink(`${dir}/file`) });
     assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);
     assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);     // cache-hit trace path too
   });
@@ -359,12 +360,40 @@ describe("readConfig", () => {
     assert.deepEqual([c.dataSource, c.snapshotId], ["json", "2026-10-27"]);
   });
 
+  it("trace sink: file locally (TRACE_DIR or the repo's traces/), postgres on Vercel, off when TRACE_DIR is empty", () => {
+    const sink = (env: Record<string, string>) => {
+      const c = readConfig(env);
+      return [c.traceSink, c.traceDir];
+    };
+    const JSON_ENV = { DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27" };
+    assert.equal(sink({})[0], "file");
+    assert.ok(String(sink({})[1]).endsWith("traces"));
+    assert.deepEqual(sink({ TRACE_DIR: "/tmp/t" }), ["file", "/tmp/t"]);
+    assert.deepEqual(sink({ TRACE_DIR: " " }), ["off", null]);
+    assert.deepEqual(sink({ VERCEL: "1" }), ["postgres", null]);
+    assert.deepEqual(sink({ VERCEL: "1", ...JSON_ENV }), ["off", null]);           // no database on Vercel: nowhere to write
+    assert.deepEqual(sink({ VERCEL: "1", TRACE_DIR: "" }), ["off", null]);
+    assert.deepEqual(sink({ VERCEL: "1", TRACE_DIR: "/tmp/t" }), ["file", "/tmp/t"]);
+    assert.deepEqual(sink({ ...JSON_ENV }), ["file", sink({})[1]]);
+    // Explicit TRACE_SINK wins.
+    assert.deepEqual(sink({ TRACE_SINK: "postgres" }), ["postgres", null]);
+    assert.deepEqual(sink({ TRACE_SINK: "off", VERCEL: "1" }), ["off", null]);
+    assert.deepEqual(sink({ TRACE_SINK: "file", VERCEL: "1", TRACE_DIR: "/tmp/t" }), ["file", "/tmp/t"]);
+  });
+
+  it("trace sink: postgres without the database, or file without a directory, is a ConfigError", () => {
+    assert.throws(() => readConfig({ TRACE_SINK: "postgres", DATA_SOURCE: "json", SNAPSHOT_ID: "2026-10-27" }),
+      (e: Error) => e instanceof ConfigError && /DATA_SOURCE=postgres/.test(e.message));
+    assert.throws(() => readConfig({ TRACE_SINK: "file", TRACE_DIR: "" }), (e: Error) => e instanceof ConfigError && /TRACE_DIR/.test(e.message));
+  });
+
   it("refuses bad values without echoing them", () => {
     for (const env of [{ RANKER_MODE: "gpt" },
       { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { DAILY_MODEL_CALLS: "-1" },
       // A search charges one per type, so fewer than five per minute could never serve a full search.
       { RATE_LIMIT_PER_MINUTE: "4" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "0" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "1.5" },
-      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" }]) {
+      { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" },
+      { TRACE_SINK: "s3" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
   });
@@ -461,7 +490,7 @@ describe("GET /api/search", () => {
 
   it("every run is traced with the search's search_id and its places, types and disciplines", async () => {
     const traceDir = mkdtempSync(`${tmpdir()}/api-trace-`);
-    const { get } = await start({ mode: "baseline", traceDir, db: fakeDb(POOL) });
+    const { get } = await start({ mode: "baseline", trace: dailyFileSink(traceDir), db: fakeDb(POOL) });
     await get(searchPath("places=brooklyn&types=grant"));                    // primes the cache for one group
     const body = (await get(searchPath("places=brooklyn,dc&types=grant,open_call&disciplines=music"))).body;
     await get(searchPath("places=brooklyn&types=grant,event"));             // grant: cache hit inside a search
