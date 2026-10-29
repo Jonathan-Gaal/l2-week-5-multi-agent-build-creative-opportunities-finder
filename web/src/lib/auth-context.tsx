@@ -3,8 +3,9 @@
 /**
  * React wiring around the pure state machine in auth-state.ts. The AuthProvider subscribes to Firebase's
  * onAuthStateChanged and dispatches into nextAuthState; useAuth() exposes the current state plus the action
- * methods. Real sign-in only works when Firebase is configured (firebaseEnabled); enterDemo always works and
- * grants full parity with the signed-in state (this is a demonstrative login that gates nothing exclusive).
+ * methods. Real sign-in only works when Firebase is configured (firebaseEnabled); startDemo always works —
+ * a real Firebase anonymous sign-in when enabled, a client-side guest fallback otherwise — and grants full
+ * parity with the signed-in state (this is a demonstrative login that gates nothing exclusive).
  */
 
 import { createContext, useContext, useEffect, useReducer, type ReactNode } from "react";
@@ -12,12 +13,14 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInAnonymously,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut as firebaseSignOut,
 } from "firebase/auth";
 import { firebaseEnabled, getFirebaseAuth } from "./firebase";
 import { type AuthState, initialAuthState, nextAuthState } from "./auth-state";
+import { runDemoSignIn } from "./demo-action";
 
 const NOT_CONFIGURED = "Sign-in isn't configured in this environment";
 
@@ -26,7 +29,11 @@ type AuthActions = {
   signInEmail: (email: string, password: string) => Promise<void>;
   signInGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
-  enterDemo: () => void;
+  /**
+   * Enter the demo: a real Firebase anonymous sign-in when Firebase is enabled, falling back to the
+   * client-side guest state when it's disabled or the sign-in fails. Never rejects. See demo-action.ts.
+   */
+  startDemo: () => Promise<void>;
   exitDemo: () => void;
 };
 
@@ -48,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return onAuthStateChanged(auth, (fbUser) => {
       dispatch({
         type: "firebase-user",
-        user: fbUser ? { email: fbUser.email, uid: fbUser.uid } : null,
+        user: fbUser ? { email: fbUser.email, uid: fbUser.uid, isAnonymous: fbUser.isAnonymous } : null,
       });
     });
   }, []);
@@ -75,7 +82,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signOut: async () => {
       await firebaseSignOut(requireAuth());
     },
-    enterDemo: () => dispatch({ type: "enter-demo" }),
+    // Real anonymous sign-in when possible, guest fallback otherwise. The decision + fallback logic is the
+    // pure runDemoSignIn; here we just hand it the live SDK boundary and the guest dispatch.
+    startDemo: () =>
+      runDemoSignIn({
+        auth: getFirebaseAuth(),
+        signInAnonymously,
+        enterGuest: () => dispatch({ type: "enter-demo" }),
+      }),
     exitDemo: () => dispatch({ type: "exit-demo" }),
   };
 

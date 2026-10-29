@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import meta from "@/data/meta.json";
+import DemoButton from "@/components/DemoButton";
 
 export default function Intro() {
   return (
@@ -19,10 +20,13 @@ export default function Intro() {
             <Link href="/find" className="btn">
               Find my opportunities
             </Link>
-            <a href="#how" className="btn btn-ghost">
-              How it works
-            </a>
+            <DemoButton className="btn-ghost" label="Try the live demo →" />
           </div>
+          <p className="hero-sub">
+            <a href="#how">How it works</a>
+            <span aria-hidden="true">·</span>
+            <Link href="/login">Sign in</Link>
+          </p>
         </div>
         <div className="hero-art">
           <Image src="/brand/logo.png" alt="Artist Atlas: an NYC figure holding up a pink globe" width={300} height={434} priority />
