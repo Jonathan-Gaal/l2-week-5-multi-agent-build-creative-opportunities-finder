@@ -6,7 +6,8 @@ import { describe, it } from "node:test";
 
 import { type AuthState, type AuthUser, initialAuthState, nextAuthState } from "./auth-state.ts";
 
-const USER: AuthUser = { email: "artist@example.com", uid: "uid-123" };
+const USER: AuthUser = { email: "artist@example.com", uid: "uid-123", isAnonymous: false };
+const ANON_USER: AuthUser = { email: null, uid: "anon-uid-9", isAnonymous: true };
 const loading = (enabled = true): AuthState => initialAuthState(enabled);
 
 describe("initialAuthState", () => {
@@ -20,6 +21,12 @@ describe("nextAuthState", () => {
   it("firebase-user with a user -> signed-in carrying that exact user", () => {
     const next = nextAuthState(loading(), { type: "firebase-user", user: USER });
     assert.deepEqual(next, { status: "signed-in", user: USER, enabled: true });
+  });
+
+  it("anonymous firebase-user -> signed-in carrying isAnonymous: true through (the demo real-sign-in path)", () => {
+    const next = nextAuthState(loading(), { type: "firebase-user", user: ANON_USER });
+    assert.deepEqual(next, { status: "signed-in", user: ANON_USER, enabled: true });
+    assert.equal(next.user?.isAnonymous, true);
   });
 
   it("firebase-user with null -> signed-out and clears the user", () => {

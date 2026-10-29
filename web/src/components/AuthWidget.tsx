@@ -2,11 +2,14 @@
 
 /**
  * Header account widget. Mirrors the convention of account controls top-right [Jakob]. One state at a time:
- *   loading   -> nothing (avoids a flash of "Sign in" before Firebase settles)
- *   signed-in -> the account email + a Sign out button
- *   guest     -> a "Demo mode" badge + a Sign in link (the demo gates nothing, so signing in is optional)
- *   signed-out-> a Sign in link
- * Sign out is a real <button> (it acts), Sign in is an <a> (it navigates) — never a div-with-handler. [Jakob/a11y]
+ *   loading              -> nothing (avoids a flash of "Sign in" before Firebase settles)
+ *   signed-in (email)    -> the account email + a Sign out button
+ *   demo (see below)     -> a "Demo mode" badge + a Sign in link to upgrade (the demo gates nothing)
+ *   signed-out           -> a Sign in link
+ * "Demo mode" covers both ways into the demo and renders identically for them, so the user can't tell
+ * which path they got (the point of the graceful fallback): a real Firebase anonymous session
+ * (status "signed-in" with isAnonymous — no email to show) and the client-side guest fallback (status
+ * "guest"). Sign out is a real <button> (it acts), Sign in is an <a> (it navigates). [Jakob/a11y]
  */
 
 import Link from "next/link";
@@ -19,7 +22,8 @@ export default function AuthWidget() {
 
   if (status === "loading") return null;
 
-  if (status === "signed-in") {
+  // A real, non-anonymous signed-in account: show the email + a Sign out button.
+  if (status === "signed-in" && !user?.isAnonymous) {
     const handleSignOut = async () => {
       setSigningOut(true);
       try {
@@ -43,7 +47,9 @@ export default function AuthWidget() {
     );
   }
 
-  if (status === "guest") {
+  // Demo mode: a real anonymous Firebase session (signed-in + isAnonymous, no email) or the guest fallback.
+  // Both render identically — a "Demo mode" badge + a Sign in link to upgrade (signing in is optional).
+  if (status === "guest" || status === "signed-in") {
     return (
       <span className="auth-widget">
         <span className="pill pill-lime" aria-label="You are in demo mode">

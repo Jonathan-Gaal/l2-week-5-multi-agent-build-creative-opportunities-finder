@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { firebaseEnabled } from "@/lib/firebase";
 import { useAuth } from "@/lib/auth-context";
+import DemoButton from "@/components/DemoButton";
 
 type Mode = "signin" | "signup";
 
@@ -45,7 +46,7 @@ function friendlyError(err: unknown): string {
 
 export default function LoginCard() {
   const router = useRouter();
-  const { signUpEmail, signInEmail, signInGoogle, enterDemo } = useAuth();
+  const { signUpEmail, signInEmail, signInGoogle } = useAuth();
 
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
@@ -79,11 +80,6 @@ export default function LoginCard() {
       setError(friendlyError(err));
       setBusy(null);
     }
-  }
-
-  function handleDemo() {
-    enterDemo();
-    router.push("/find");
   }
 
   return (
@@ -169,9 +165,7 @@ export default function LoginCard() {
         <span>or</span>
       </div>
 
-      <button type="button" className="btn auth-demo" onClick={handleDemo} disabled={submitting}>
-        Explore the demo →
-      </button>
+      <DemoButton className="auth-demo" disabled={submitting} />
     </div>
   );
 }
