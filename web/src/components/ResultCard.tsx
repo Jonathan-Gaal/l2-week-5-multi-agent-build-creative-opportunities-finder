@@ -3,16 +3,19 @@ import type { Card } from "@/lib/types";
 const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unchecked: "pill pill-grey" } as const;
 
 export default function ResultCard({ card }: { card: Card }) {
-  const closing =
+  const when =
     card.closesIn === null ? null : card.closesIn === 0 ? "today" : card.closesIn === 1 ? "tomorrow" : `in ${card.closesIn} days`;
-  // Top right, as on the Live board: how soon it closes, else when it happens or that it is rolling.
-  const when = closing ? `closes ${closing}` : (card.recurrence ?? card.deadline);
+  // Name what the countdown refers to so it is never read as a closing date it isn't: events count down to the
+  // next occurrence, application types to the application deadline (the date shown beside it).
+  const closing = when && `${card.type === "event" ? "Next date" : "Closes"} ${when}`;
+  // Top right, as on the Live board: that countdown, else when it happens or that it is rolling.
+  const topRight = closing ?? card.recurrence ?? card.deadline;
   return (
     <article className="rcard">
       <div className="rcard-top">
         <span className="pill pill-pink">{card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel}</span>
         <span className={TRUST_PILL[card.trust]}>{card.label}</span>
-        <span className={closing ? "rcard-when closing" : "rcard-when"}>{when}</span>
+        <span className={closing ? "rcard-when closing" : "rcard-when"}>{topRight}</span>
       </div>
       <h3>{card.title}</h3>
       <p className="org">

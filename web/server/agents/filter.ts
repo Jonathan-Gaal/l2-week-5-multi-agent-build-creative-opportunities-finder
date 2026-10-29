@@ -148,12 +148,29 @@ export const present = (value: unknown): boolean => {
   return true;
 };
 
-/** The date after which the record is gone, or null if it never expires. */
+/** A URL safe to put in an href: http(s) only, normalized; anything else (javascript:, data:, relative) is null.
+ * Lives here (the Filter) so schemaOk and the API's toOpportunity share one definition. */
+export const safeHttpUrl = (value: unknown): string | null => {
+  if (typeof value !== "string") return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
+};
+
+/** The date after which the record is gone, or null if it never expires. Only events are kept alive by their
+ * schedule: for an application type (open_call, grant, residency, job) the application deadline drives expiry, so
+ * a past deadline expires the record even when it lists a later event date. 'recurring', 'rolling', a missing or
+ * non-ISO deadline never expire. */
 export const lastDate = (rec: OppRecord): string | null => {
-  const dates = (rec.event_dates ?? []).filter((d): d is string => present(d));
-  if (dates.length) {
-    const last = dates.reduce((a, b) => (b > a ? b : a));
-    return isIsoDate(last) ? last : null;
+  if (rec.opportunity_type === "event") {
+    const dates = (rec.event_dates ?? []).filter((d): d is string => present(d));
+    if (dates.length) {
+      const last = dates.reduce((a, b) => (b > a ? b : a));
+      return isIsoDate(last) ? last : null;
+    }
   }
   return isIsoDate(rec.deadline) ? rec.deadline : null;     // recurring, rolling, or not listed
 };
@@ -163,7 +180,10 @@ export const isExpired = (rec: OppRecord, asOf: string): boolean => {
   return d !== null && d < asOf;
 };
 
-export const schemaOk = (rec: OppRecord): boolean => REQUIRED.every((f) => present(rec[f]));
+/** REQUIRED fields present, and source_url / checked_at well-formed (not merely truthy): a malformed value must
+ * not survive to earn a "Checked <date>" or clickable-link claim downstream. */
+export const schemaOk = (rec: OppRecord): boolean =>
+  REQUIRED.every((f) => present(rec[f])) && safeHttpUrl(rec.source_url) !== null && isIsoDate(rec.checked_at);
 
 /** One place's rule: a borough matches that borough or citywide; a region matches the record's region. */
 export const matchesPlace = (rec: OppRecord, place: string): boolean =>

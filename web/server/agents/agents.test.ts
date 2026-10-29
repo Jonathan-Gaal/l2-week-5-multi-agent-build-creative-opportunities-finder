@@ -101,6 +101,58 @@ describe("Filter", () => {
   });
 });
 
+describe("Filter: expiry is deadline-driven for applications, schedule-driven only for events", () => {
+  const ASOF = "2026-10-29";
+  it("an open_call with a passed deadline is expired even with a later event date", () => {
+    const closed = rec("Closed", { deadline: "2026-10-28", event_dates: ["2026-12-01"] });
+    assert.equal(flt.isExpired(closed, ASOF), true);
+    const [cands, removed] = flt.select([closed, rec("Open")], req("brooklyn", "open_call", ASOF));
+    assert.deepEqual(titles(cands), ["Open"]);
+    assert.equal(removed.expired, 1);
+  });
+
+  it("an event with a later occurrence is kept though its deadline has passed", () => {
+    const series = rec("Series", { typ: "event", deadline: "2026-10-28", event_dates: ["2026-12-01"] });
+    assert.equal(flt.isExpired(series, ASOF), false);
+    assert.deepEqual(titles(flt.select([series], req("brooklyn", "event", ASOF))[0]), ["Series"]);
+  });
+
+  it("an event whose occurrences are all past is expired", () => {
+    const past = rec("Past", { typ: "event", deadline: "2026-09-01", event_dates: ["2026-10-01", "2026-10-20"] });
+    assert.equal(flt.isExpired(past, ASOF), true);
+  });
+
+  it("a rolling, recurring or missing deadline never expires, ignoring any past event date", () => {
+    for (const d of ["rolling", "recurring", null]) {
+      assert.equal(flt.isExpired(rec("X", { deadline: d, event_dates: ["2020-01-01"] }), ASOF), false);
+    }
+  });
+});
+
+describe("Filter: schema validates provenance format, not just presence", () => {
+  it("a malformed source_url fails the schema and is never a candidate", () => {
+    const bad = rec("BadUrl", { source_url: "not-a-url" });
+    assert.equal(flt.schemaOk(bad), false);
+    const [cands, removed] = flt.select([bad, rec("Good")], req());
+    assert.deepEqual(titles(cands), ["Good"]);
+    assert.equal(removed.failed_schema, 1);
+  });
+
+  it("a non-http(s) source_url (e.g. javascript:) fails the schema", () => {
+    assert.equal(flt.schemaOk(rec("Evil", { source_url: "javascript:alert(1)" })), false);
+  });
+
+  it("a malformed checked_at fails the schema (no 'Checked not-a-date' can be built)", () => {
+    const bad = rec("BadDate", { checked_at: "not-a-date" });
+    assert.equal(flt.schemaOk(bad), false);
+    assert.equal(flt.select([bad], req())[1].failed_schema, 1);
+  });
+
+  it("a well-formed record still passes", () => {
+    assert.equal(flt.schemaOk(rec("Fine")), true);
+  });
+});
+
 describe("Filter: several places and disciplines", () => {
   const search = (places: string[], disciplines: string[] = [], type = "open_call") =>
     flt.makeSearchRequest(places, type, DAY, disciplines);
@@ -176,11 +228,30 @@ describe("Checks", () => {
 
   it("unknown id, duplicate and filter failures", () => {
     const problems = pipeline.checkRanking([{ id: "r9" }, { id: "r1" }, { id: "r1" }, { id: "r2" }, { id: "r3" }], byId, req());
+    // Known answers from the contract + this byId (asOf = DAY, 2026-11-01). Order follows the loop:
+    //   r9 -> not in byId -> not a candidate
+    //   r1 (1st) -> valid, passes -> no problem; r1 (2nd) -> already seen -> listed twice
+    //   r2 -> deadline 2026-10-01 is before asOf -> expired -> fails filter
+    //   r3 -> borough queens vs request brooklyn -> fails place filter
+    // 5 items == TOP_K (5), so no "more than" problem. Identity, not just count: a bug that emits
+    // 4 *wrong* messages or flags the wrong id/reason fails here.
+    assert.deepEqual(problems, [
+      "r9: not one of the candidate ids",
+      "r1: listed twice",
+      "r2: fails the place, type, discipline or expiry filter",
+      "r3: fails the place, type, discipline or expiry filter",
+    ]);
     assert.equal(problems.length, 4);
   });
 
+  it("too many results (more than TOP_K) is flagged", () => {
+    // TOP_K is 5; 6 items trips the count check, pushed before the per-item loop.
+    const problems = pipeline.checkRanking([{ id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }, { id: "r1" }], byId, req());
+    assert.ok(problems.includes("more than 5 results"), problems.join(" | "));
+  });
+
   it("empty ranking with candidates fails", () => {
-    assert.ok(pipeline.checkRanking([], byId, req()).length);
+    assert.deepEqual(pipeline.checkRanking([], byId, req()), ["ranking is empty but there are candidates"]);
   });
 });
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import type { MetaResponse } from "@api/types";
 import { TYPE_PILLS } from "@/lib/typePills";
 import { type Choice, queryFor } from "./find/FindStep";
@@ -19,18 +19,20 @@ export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; 
   const [c, setC] = useState<Choice>(initial);
   const [pending, startTransition] = useTransition();
   const [waiting, setWaiting] = useState(false);
-  const timer = useRef<number | undefined>(undefined);
 
-  useEffect(() => () => window.clearTimeout(timer.current), []);
+  // After the last tap, wait a moment, then search again. Each tap changes `c`, which restarts the wait.
+  useEffect(() => {
+    if (!waiting) return;
+    const t = window.setTimeout(() => {
+      setWaiting(false);
+      startTransition(() => router.replace(`/results?${queryFor(c)}`, { scroll: false }));
+    }, WAIT_MS);
+    return () => window.clearTimeout(t);
+  }, [c, waiting, router]);
 
   const change = (next: Choice) => {
     setC(next);
     setWaiting(true);
-    window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => {
-      setWaiting(false);
-      startTransition(() => router.replace(`/results?${queryFor(next)}`, { scroll: false }));
-    }, WAIT_MS);
   };
 
   const pill = (on: boolean, tone: "lime" | "pink" | "cream", label: string, onClick: () => void, extra = "") => (

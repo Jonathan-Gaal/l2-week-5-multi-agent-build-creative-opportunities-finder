@@ -86,7 +86,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
 
-              {lists.map(({ g, narrowed, couldNotNarrow, cards }) => (
+              {lists.map(({ g, couldNotNarrow, cards }) => (
                 <section key={g.type} aria-labelledby={`h-${g.type}`}>
                   <div className={r.groupHead}>
                     <h2 id={`h-${g.type}`}>{labels.type(g.type)}</h2>

@@ -22,12 +22,6 @@ const GROUPS = [
   { key: "hero", label: "Home page", options: [["figure", "Figure (current)"], ["plain", "Sentence only"], ["p1-1", "1 Rebuilt original"], ["p1-3", "1-3 Peeking in"], ["p1-8", "1-8 Giant lettering"], ["p2-4", "2-4 Spotlight circle"], ["p2-8", "2-8 Faded behind"]] },
 ] as const;
 
-const SWITCHES = [
-  ["devtools", "Dev tools link"],
-  ["navlinks", "Nav bar links"],
-  ["auth", "Sign up / Log in"],
-] as const;
-
 /** How long the panel stays out of the way after "Hide". */
 const HIDE_MS = 4000;
 
@@ -250,8 +244,11 @@ export default function DesignVersions() {
   const [hidden, setHidden] = useState(false); // the "Hide" button hides the whole panel for a few seconds
   const [sec, setSec] = useState("home"); // which section is expanded (one at a time keeps the panel short)
 
+  // Reads this browser's saved settings once after mount. It has to happen in an effect (not the initial state) so the
+  // first render matches the server's and does not cause a hydration mismatch; this is a dev-only panel.
   useEffect(() => {
     const now = readSettings();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of localStorage after mount
     setS(now);
     applySettings(now);
     setSaved(mergeSaved(readSaved()));

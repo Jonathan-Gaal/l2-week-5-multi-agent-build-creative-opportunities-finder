@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 import HeaderVersions from "@/components/HeaderVersions";
+import Providers from "@/components/Providers";
 
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], style: ["normal", "italic"] });
 const dmSans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
@@ -16,8 +17,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>
       <body>
-        <HeaderVersions />
-        <main>{children}</main>
+        <Providers>
+          <HeaderVersions />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

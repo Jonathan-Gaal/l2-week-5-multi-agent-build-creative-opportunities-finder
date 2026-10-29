@@ -20,7 +20,7 @@
  * ceiling (controls.visitorRateLimiter).
  */
 
-import { BOROUGHS, type Request as SearchRequest, REGIONS, TYPES, makeRequest, makeSearchRequest, today, traceRequest } from "../agents/filter.ts";
+import { BOROUGHS, type Request as SearchRequest, REGIONS, TYPES, makeRequest, makeSearchRequest, safeHttpUrl, today, traceRequest } from "../agents/filter.ts";
 import type { Model } from "../agents/model.ts";
 import * as pipeline from "../agents/pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "../agents/roles.ts";
@@ -117,16 +117,8 @@ const STATUS: Record<ErrorCode, number> = {
   busy: 503, no_snapshot: 503, internal: 500,
 };
 
-/** A URL safe to put in an href: http(s) only, normalized; anything else (javascript:, data:, relative) is null. */
-export const safeHttpUrl = (value: unknown): string | null => {
-  if (typeof value !== "string") return null;
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:" ? url.href : null;
-  } catch {
-    return null;
-  }
-};
+/** Re-exported from the Filter, which owns it so schemaOk validates links by the same rule. */
+export { safeHttpUrl };
 
 /** The API form of one pipeline result: the same fields, with the link checked. */
 export const toOpportunity = (r: pipeline.PresentedResult): Opportunity => ({ ...r, source_url: safeHttpUrl(r.source_url) });
