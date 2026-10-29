@@ -19,9 +19,11 @@ type DemoButtonProps = {
   className?: string;
   /** Disable from a parent flow (the login card passes its submitting state). */
   disabled?: boolean;
+  /** Use `className` as the whole style instead of adding it to the base `btn` (the redesigned login page styles it itself). */
+  plain?: boolean;
 };
 
-export default function DemoButton({ label = "Explore the demo →", className, disabled = false }: DemoButtonProps) {
+export default function DemoButton({ label = "Explore the demo →", className, disabled = false, plain = false }: DemoButtonProps) {
   const router = useRouter();
   const { startDemo } = useAuth();
   const [pending, setPending] = useState(false);
@@ -36,7 +38,7 @@ export default function DemoButton({ label = "Explore the demo →", className, 
   return (
     <button
       type="button"
-      className={className ? `btn ${className}` : "btn"}
+      className={plain ? className : className ? `btn ${className}` : "btn"}
       onClick={handleDemo}
       disabled={disabled || pending}
     >

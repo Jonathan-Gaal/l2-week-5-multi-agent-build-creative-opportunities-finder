@@ -1,0 +1,100 @@
+/* The find flow: one page per step, all on the layout of the "Tap the map" board (artifacts/design-treatments, board 2):
+   text and the big button on the left, a rounded panel on the right. Buttons are the chunky ones from the Poster board (board 4). */
+.frame { margin: 28px 0 48px; border: 2px solid var(--plum); border-radius: 22px; padding: 40px 44px; background: rgba(46, 21, 86, 0.28); }
+.board { display: grid; grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 36px; min-height: 560px; }
+
+.left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+
+.title { font: 900 clamp(34px, 4vw, 48px) / 1.05 var(--serif); margin: 0; text-wrap: balance; }
+.sub { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 44ch; }
+
+.earlier { display: grid; gap: 14px; }
+.earlierLabel { font: 700 12px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-dk); margin: 0 0 8px; }
+.mini { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { font: 700 15px var(--sans); border: 2px solid transparent; border-radius: 999px; padding: 6px 16px; color: #000; cursor: pointer; }
+.pill:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
+.limeOn { background: var(--lime); }
+.pinkOn { background: var(--pink); }
+.plain { background: transparent; border-color: var(--plum); color: var(--paper); cursor: default; }
+
+.bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 12px; }
+.selected { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 18px; padding: 14px 18px; font-size: 15px; }
+.selected b { color: var(--lime); }
+
+.actions { display: grid; gap: 10px; justify-items: stretch; }
+.cta {
+  font: 700 20px var(--sans);
+  background: var(--pink);
+  color: #000;
+  border: 4px solid #000;
+  border-radius: 12px;
+  padding: 14px 30px;
+  box-shadow: 6px 6px 0 #000;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  width: 100%;
+}
+.cta:hover:not(:disabled) { transform: translate(3px, 3px); box-shadow: 3px 3px 0 #000; }
+.cta:disabled { opacity: 0.4; cursor: not-allowed; }
+.back { color: var(--muted-dk); font: 600 15px var(--sans); text-decoration: underline; padding: 2px 0; justify-self: center; }
+.back:hover { color: var(--lime); }
+
+.panel {
+  position: relative;
+  background: var(--ink-2);
+  border: 2px solid var(--plum);
+  border-radius: 28px;
+  padding: 28px;
+  overflow: hidden;
+  min-width: 0;
+}
+.groupTitle { font: 700 13px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dk); margin: 0; }
+.group + .group { margin-top: 26px; }
+.chips { display: flex; flex-wrap: wrap; gap: 12px 10px; margin: 12px 0 0; }
+
+/* Poster-board button: cream with a heavy black edge, a little tilt, lime or pink when picked. */
+.chip {
+  font: 700 17px var(--sans);
+  background: var(--paper);
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.12s, background 0.12s;
+}
+.chip:hover { transform: rotate(0deg) translateY(-2px); }
+.chip:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.chip[aria-pressed="true"].lime { background: var(--lime); }
+.chip[aria-pressed="true"].pink { background: var(--pink); }
+
+.mapTop { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.mapTop .chip { font-size: 14px; padding: 4px 12px; }
+.svg { width: 100%; height: auto; display: block; max-height: 64vh; }
+.zone { cursor: pointer; outline: none; }
+.zone polygon { stroke: var(--paper); stroke-width: 3; stroke-linejoin: round; fill: var(--plum); transition: fill 0.15s; }
+.zone[aria-pressed="true"] polygon { fill: var(--lime); }
+.zone:hover polygon { stroke: var(--pink); }
+.zone:focus-visible polygon { stroke: var(--pink); stroke-width: 6; }
+.zoneText { font: 700 15px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; }
+.zoneTextBig { font-size: 20px; }
+.zone[aria-pressed="true"] .zoneText { fill: var(--ink); }
+.ring { cursor: pointer; outline: none; }
+.ring path { fill: var(--pink); fill-opacity: 0.14; stroke: var(--pink); stroke-width: 3; stroke-dasharray: 9 8; transition: fill-opacity 0.15s; }
+.ring[aria-pressed="true"] path { fill-opacity: 0.45; }
+.ring:hover path { fill-opacity: 0.3; }
+.ring:focus-visible path { stroke-width: 5; stroke-dasharray: none; }
+.ringText { font: 700 13px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; }
+.legend { margin: 4px 0 0; font-size: 14px; color: var(--muted-dk); }
+
+@media (max-width: 860px) {
+  .frame { padding: 22px 18px; }
+  .board { grid-template-columns: minmax(0, 1fr); gap: 24px; min-height: 0; }
+  .bottom { margin-top: 8px; }
+  .panel { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip, .cta, .zone polygon, .ring path { transition: none; }
+}

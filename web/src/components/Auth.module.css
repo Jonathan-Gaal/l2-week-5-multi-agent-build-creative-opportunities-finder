@@ -1,0 +1,22 @@
+/* Login and Sign up: the same board as the find flow (title and the demo button on the left, the form in the panel on the right).
+   The frame, panel and big button come from FindFlow.module.css; this adds the form. */
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+.field label { font: 700 12px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-dk); }
+.input { font: 500 17px var(--sans); background: var(--ink); color: var(--paper); border: 2px solid var(--plum); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.input:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; border-color: var(--lime); }
+.input:disabled { opacity: 0.6; }
+
+.submit { font: 700 18px var(--sans); background: var(--pink); color: #000; border: 3px solid #000; border-radius: 10px; padding: 12px 24px; width: 100%; cursor: pointer; transition: transform 0.12s; }
+.submit:hover:not(:disabled) { transform: translateY(-2px); }
+.submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.google { font: 700 17px var(--sans); background: var(--paper); color: #000; border: 3px solid #000; border-radius: 10px; padding: 10px 24px; width: 100%; cursor: pointer; margin-top: 12px; transition: transform 0.12s; }
+.google:hover:not(:disabled) { transform: translateY(-2px); }
+.google:disabled { opacity: 0.5; cursor: not-allowed; }
+.error { background: #3a1230; border: 2px solid var(--pink); border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: 15px; }
+.switch { margin: 18px 0 0; color: var(--muted-dk); font-size: 15px; }
+.switch a { color: var(--lime); font-weight: 700; }
+.note { color: var(--muted-dk); margin: 0; }
+.demoNote { margin: 0; color: var(--muted-dk); font-size: 14px; }
+.title2 { font: 700 13px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dk); margin: 0 0 14px; }
+
+@media (prefers-reduced-motion: reduce) { .submit, .google { transition: none; } }

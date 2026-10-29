@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>One screen, live results</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:30px 40px;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:28px;height:33px">
+    <span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span>
+    <span style="margin-left:auto;font-size:14px;color:#CFC6DA">Results update as you pick. No next button.</span>
+  </div>
+
+  <div style="flex-grow:1;display:flex;gap:22px;min-height:0">
+    <div style="width:330px;background:#2E1556;border:2px solid #46297A;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">I make</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span style="background:#DCFC05;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Comedy</span>
+          <span style="background:#DCFC05;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Music</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Dance</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Visual</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Writing</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Theater</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Film</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Craft</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">I want</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span style="background:#FD1A99;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Open mics &amp; events</span>
+          <span style="background:#FD1A99;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Grants</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Open calls</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Residencies</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Jobs</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">Where</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span style="background:#FEF9EF;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Brooklyn</span>
+          <span style="background:#FEF9EF;color:#000;border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px">Queens</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Manhattan</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Bronx</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">Staten Is.</span>
+          <span style="border:2px solid #46297A;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">All NYC</span>
+          <span style="border:2px solid #DCFC05;color:#DCFC05;border-radius:999px;padding:3px 11px;font-weight:700;font-size:14px">+ Tri-state</span>
+        </div>
+      </div>
+      <div style="margin-top:auto;font-size:14px;color:#CFC6DA;border-top:1px solid #46297A;padding-top:12px">Adding <b style="color:#DCFC05">Tri-state</b> would bring in <b>+148</b> more.</div>
+    </div>
+
+    <div style="flex-grow:1;display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-family:'Fraunces',serif;font-weight:900;font-size:56px;line-height:1;color:#DCFC05">312</span>
+        <span style="font-size:19px;font-weight:700">matches, best first</span>
+        <span style="margin-left:auto;font-size:14px;color:#CFC6DA">2 expired removed</span>
+      </div>
+
+      <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">open mic</span><span style="background:#DCFC05;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">Checked 2026-10-27</span><span style="margin-left:auto;font-weight:700;color:#C20B72;font-size:14px">closes in 3 days</span></div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:23px">Flushing Town Hall Monthly Jazz Jam</div>
+        <div style="font-size:14px;color:#5B5262">Flushing Town Hall · Queens · Nov 11 · Fee unknown</div>
+      </div>
+      <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">grant</span><span style="border:2px solid #220E43;border-radius:999px;padding:0 10px;font-weight:700;font-size:12px">Checked · not fully checked</span><span style="margin-left:auto;font-weight:700;color:#C20B72;font-size:14px">closes in 15 days</span></div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:23px">2027 Community Engagement Grants</div>
+        <div style="font-size:14px;color:#5B5262">Bronx Council on the Arts · up to $17,500 · open to individual artists</div>
+      </div>
+      <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">open mic</span><span style="background:#d9d0c3;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#3b3344">Not checked</span><span style="margin-left:auto;font-weight:700;color:#5B5262;font-size:14px">Weekly Thursday 8pm</span></div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:23px">Comedy / Music / Poetry open mic at Cool Beans</div>
+        <div style="font-size:14px;color:#5B5262">Cool Beans! Coffee House · Queens · No fee</div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:auto"><button style="font:700 17px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:13px 28px">See all 312 &rarr;</button><button style="font:700 15px 'DM Sans',sans-serif;background:transparent;color:#FEF9EF;border:2px solid #DCFC05;border-radius:999px;padding:11px 22px">How were these ranked?</button></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

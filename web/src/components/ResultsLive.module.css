@@ -1,0 +1,37 @@
+/* The results page, on the layout of the "Live" board (artifacts/design-treatments, board 10): your answers on the left as
+   chips you can change (the list updates itself, no next button), the count and the cards on the right. */
+.board { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 22px; padding: 24px 0 48px; align-items: start; }
+
+.side { position: sticky; top: 16px; background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
+.label { font: 700 12px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); margin: 0 0 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 700 14px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--plum); border-radius: 999px; padding: 3px 11px; cursor: pointer; transition: background 0.12s, border-color 0.12s; }
+.chip:hover { border-color: var(--lime); }
+.chip:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
+.chip[aria-pressed="true"] { color: #000; padding: 5px 13px; border-color: transparent; }
+.lime[aria-pressed="true"] { background: var(--lime); }
+.pink[aria-pressed="true"] { background: var(--pink); }
+.cream[aria-pressed="true"] { background: var(--paper); }
+.wider { border-color: var(--lime); color: var(--lime); }
+.status { margin: 0; padding-top: 12px; border-top: 1px solid var(--plum); font-size: 14px; color: var(--muted-dk); min-height: 2.4em; }
+.status b { color: var(--lime); }
+
+.main { min-width: 0; display: grid; gap: 14px; }
+.count { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.big { font: 900 clamp(44px, 6vw, 56px) / 1 var(--serif); color: var(--lime); }
+.countText { font-size: 19px; font-weight: 700; }
+.removed { margin-left: auto; font-size: 14px; color: var(--muted-dk); }
+
+.groupHead { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; margin: 14px 0 2px; }
+.groupHead h2 { font-size: clamp(22px, 3vw, 28px); }
+.groupNote { font-size: 14px; color: var(--muted-dk); }
+.cards { display: grid; gap: 12px; }
+.foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.ghost { font: 700 15px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
+.ghost:hover { background: rgba(220, 252, 5, 0.12); }
+
+@media (max-width: 900px) {
+  .board { grid-template-columns: minmax(0, 1fr); }
+  .side { position: static; }
+}
+@media (prefers-reduced-motion: reduce) { .chip { transition: none; } }

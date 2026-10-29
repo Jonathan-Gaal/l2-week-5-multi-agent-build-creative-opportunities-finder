@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Filter bar over results</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:28px 56px;display:flex;flex-direction:column;gap:18px;overflow:hidden;position:relative">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:28px;height:33px">
+    <span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span>
+    <span style="margin-left:auto;font-size:14px;color:#CFC6DA">Snapshot 2026-10-27 &middot; 1,526 listings</span>
+  </div>
+
+  <div style="display:flex;gap:12px;align-items:center;background:#2E1556;border:2px solid #46297A;border-radius:20px;padding:12px 14px;position:relative;z-index:2">
+    <div style="flex:1;background:#220E43;border:2px solid #46297A;border-radius:14px;padding:8px 14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#CFC6DA">I make</div><div style="font-weight:700;display:flex;justify-content:space-between">Comedy, Music <span style="color:#CFC6DA">&#9662;</span></div></div>
+    <div style="flex:1;background:#220E43;border:2px solid #46297A;border-radius:14px;padding:8px 14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#CFC6DA">Looking for</div><div style="font-weight:700;display:flex;justify-content:space-between">Events, Grants <span style="color:#CFC6DA">&#9662;</span></div></div>
+    <div style="flex:1.2;background:#220E43;border:2px solid #DCFC05;border-radius:14px;padding:8px 14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#DCFC05">Where</div><div style="font-weight:700;display:flex;justify-content:space-between">Brooklyn, Queens +1 <span style="color:#DCFC05">&#9652;</span></div></div>
+    <button style="font:700 17px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:15px 28px">Search</button>
+  </div>
+
+  <div style="position:absolute;left:560px;top:128px;width:360px;background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 18px;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:3">
+    <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C20B72;font-weight:700;margin-bottom:8px">Boroughs</div>
+    <div style="display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:15px">
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border:2px solid #220E43;border-radius:4px"></span>Manhattan</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;background:#220E43;border-radius:4px;color:#DCFC05;font-size:12px;display:flex;align-items:center;justify-content:center">&#10003;</span>Brooklyn</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;background:#220E43;border-radius:4px;color:#DCFC05;font-size:12px;display:flex;align-items:center;justify-content:center">&#10003;</span>Queens</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border:2px solid #220E43;border-radius:4px"></span>The Bronx</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border:2px solid #220E43;border-radius:4px"></span>Staten Island</div>
+    </div>
+    <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C20B72;font-weight:700;margin:14px 0 8px;border-top:1px solid #E2D8C8;padding-top:12px">Wider areas</div>
+    <div style="display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:15px">
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border:2px solid #220E43;border-radius:4px"></span>All of NYC</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;background:#220E43;border-radius:4px;color:#DCFC05;font-size:12px;display:flex;align-items:center;justify-content:center">&#10003;</span>Tri-state</div>
+      <div style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border:2px solid #220E43;border-radius:4px"></span>Wider Northeast &amp; DC</div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin-top:2px">
+    <span style="font-family:'Fraunces',serif;font-weight:900;font-size:30px">312 matches</span>
+    <span style="color:#CFC6DA;font-size:14px">Events &middot; Grants</span>
+    <span style="margin-left:auto;font-size:14px;color:#CFC6DA">Sort: best fit &#9662;</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex-grow:1;min-height:0">
+    <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">jam</span><span style="background:#DCFC05;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">Checked 2026-10-27</span></div><div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px">Flushing Town Hall Monthly Jazz Jam</div><div style="font-size:14px;color:#5B5262">Queens &middot; Nov 11 &middot; Fee unknown</div></div>
+    <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">grant</span><span style="border:2px solid #220E43;border-radius:999px;padding:0 10px;font-weight:700;font-size:12px">not fully checked</span></div><div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px">2027 Community Engagement Grants</div><div style="font-size:14px;color:#5B5262">Bronx Council on the Arts &middot; up to $17,500 &middot; Oct 30</div></div>
+    <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">open mic</span><span style="background:#d9d0c3;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#3b3344">Not checked</span></div><div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px">Open mic at Cool Beans! Coffee House</div><div style="font-size:14px;color:#5B5262">Queens &middot; Weekly Thursday 8pm &middot; No fee</div></div>
+    <div style="background:#FFFCF6;color:#220E43;border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:8px;align-items:center"><span style="background:#FD1A99;border-radius:999px;padding:2px 12px;font-weight:700;font-size:12px;color:#000">grant</span><span style="border:2px solid #220E43;border-radius:999px;padding:0 10px;font-weight:700;font-size:12px">not fully checked</span></div><div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px">NJ State Council on the Arts grants</div><div style="font-size:14px;color:#5B5262">New Jersey &middot; multiyear operating support</div></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

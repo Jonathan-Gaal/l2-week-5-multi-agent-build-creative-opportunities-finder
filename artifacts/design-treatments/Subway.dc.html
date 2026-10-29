@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Subway line</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#0F0B17;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:40px 56px;display:flex;flex-direction:column;gap:24px;overflow:hidden">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:30px;height:36px">
+    <span style="font-family:'Fraunces',serif;font-weight:700;font-size:20px">Artist Atlas</span>
+    <span style="margin-left:auto;font-size:15px;color:#CFC6DA">Plan your route</span>
+  </div>
+  <h1 style="margin:0;font-family:'Fraunces',serif;font-weight:900;font-size:50px;line-height:1.05">Which stops are on your line?</h1>
+
+  <div style="position:relative;height:280px;background:#1a1226;border:2px solid #2E1556;border-radius:24px;overflow:hidden">
+    <svg viewBox="0 0 1088 280" width="1088" height="280" role="img" aria-label="A subway-style map: New Jersey, Manhattan, Brooklyn, Queens and Long Island on one line, with the Bronx branching north and Staten Island by ferry" style="position:absolute;left:0;top:0">
+      <line x1="60" y1="150" x2="1030" y2="150" stroke="#FD1A99" stroke-width="16" stroke-linecap="round"/>
+      <path d="M420 150 L420 60" stroke="#DCFC05" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <path d="M300 150 L300 230 L180 230" stroke="#FEF9EF" stroke-width="6" stroke-dasharray="3 12" stroke-linecap="round" fill="none"/>
+      <g stroke="#0F0B17" stroke-width="6">
+        <circle cx="70" cy="150" r="20" fill="#FEF9EF"/>
+        <circle cx="300" cy="150" r="20" fill="#FEF9EF"/>
+        <circle cx="560" cy="150" r="20" fill="#DCFC05"/>
+        <circle cx="720" cy="150" r="20" fill="#DCFC05"/>
+        <circle cx="1020" cy="150" r="20" fill="#FEF9EF"/>
+        <circle cx="420" cy="60" r="20" fill="#FEF9EF"/>
+        <circle cx="180" cy="230" r="20" fill="#FEF9EF"/>
+        <circle cx="430" cy="150" r="20" fill="#FEF9EF"/>
+        <circle cx="880" cy="150" r="20" fill="#FEF9EF"/>
+      </g>
+      <g font-family="DM Sans, sans-serif" font-weight="700" font-size="18" fill="#FEF9EF" text-anchor="middle">
+        <text x="70" y="108">New Jersey</text>
+        <text x="300" y="108">Manhattan</text>
+        <text x="560" y="108" fill="#DCFC05">Brooklyn</text>
+        <text x="720" y="108" fill="#DCFC05">Queens</text>
+        <text x="880" y="108">Nassau</text>
+        <text x="1020" y="108">Long Island</text>
+        <text x="420" y="30">The Bronx</text>
+        <text x="180" y="272">Staten Island (ferry)</text>
+        <text x="430" y="198" font-size="15" fill="#CFC6DA">Westchester &amp; CT</text>
+      </g>
+      <g font-family="DM Sans, sans-serif" font-size="14" fill="#CFC6DA">
+        <text x="560" y="196" text-anchor="middle">&#10003; getting off here</text>
+        <text x="720" y="196" text-anchor="middle">&#10003; getting off here</text>
+      </g>
+    </svg>
+    <div style="position:absolute;right:18px;bottom:14px;display:flex;gap:10px">
+      <span style="background:#FD1A99;color:#000;font-weight:700;font-size:14px;border-radius:999px;padding:5px 14px">Tri-state express</span>
+      <span style="border:2px solid #46297A;font-weight:700;font-size:14px;border-radius:999px;padding:3px 12px">Whole city local</span>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:44px">
+    <div style="flex:1">
+      <div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#CFC6DA;margin-bottom:12px">Your lines (what you make)</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;background:#DCFC05;color:#000;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">C</span><span style="font-weight:700">Comedy</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;background:#DCFC05;color:#000;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">M</span><span style="font-weight:700">Music</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;border:3px solid #46297A;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">D</span><span style="color:#CFC6DA">Dance</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;border:3px solid #46297A;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">V</span><span style="color:#CFC6DA">Visual</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;border:3px solid #46297A;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">W</span><span style="color:#CFC6DA">Writing</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:42px;height:42px;border-radius:50%;border:3px solid #46297A;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">F</span><span style="color:#CFC6DA">Film</span></div>
+      </div>
+    </div>
+    <div style="width:420px">
+      <div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#CFC6DA;margin-bottom:12px">Destination (what you want)</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="background:#FEF9EF;color:#0F0B17;border-radius:8px;padding:8px 14px;font-weight:700">Open mics</span>
+        <span style="background:#FEF9EF;color:#0F0B17;border-radius:8px;padding:8px 14px;font-weight:700">Grants</span>
+        <span style="border:2px solid #46297A;border-radius:8px;padding:6px 12px;font-weight:700;color:#CFC6DA">Open calls</span>
+        <span style="border:2px solid #46297A;border-radius:8px;padding:6px 12px;font-weight:700;color:#CFC6DA">Residencies</span>
+        <span style="border:2px solid #46297A;border-radius:8px;padding:6px 12px;font-weight:700;color:#CFC6DA">Jobs</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:auto"><button style="font:700 19px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:16px 34px">All aboard: show my stops &rarr;</button></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

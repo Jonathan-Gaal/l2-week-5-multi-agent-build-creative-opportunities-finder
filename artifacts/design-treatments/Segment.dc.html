@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Segmented search bar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#FEF9EF;color:#220E43;font-family:'DM Sans',sans-serif;padding:28px 64px;display:flex;flex-direction:column;gap:18px;overflow:hidden;position:relative">
+  <div style="display:flex;align-items:center;gap:12px"><img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:26px;height:31px"><span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span><span style="margin-left:auto;font-size:15px;color:#5B5262">Opportunities for NYC and tri-state artists</span></div>
+
+  <div style="text-align:center;margin-top:20px"><h1 style="margin:0;font-family:'Fraunces',serif;font-weight:900;font-size:50px;line-height:1.02">Find your next opportunity.</h1></div>
+
+  <div style="align-self:center;width:1000px;background:#FFFFFF;border:2px solid #E2D8C8;border-radius:999px;box-shadow:0 14px 40px rgba(34,14,67,.14);display:flex;align-items:stretch;padding:8px;position:relative;z-index:2">
+    <div style="flex:1;padding:12px 28px;border-radius:999px"><div style="font-size:12px;font-weight:700;letter-spacing:.06em">I MAKE</div><div style="font-size:16px;color:#5B5262;margin-top:2px">Comedy, Music +1</div></div>
+    <div style="width:1px;background:#E2D8C8;margin:10px 0"></div>
+    <div style="flex:1;padding:12px 28px;border-radius:999px;background:#220E43;color:#FEF9EF;box-shadow:0 6px 18px rgba(34,14,67,.35)"><div style="font-size:12px;font-weight:700;letter-spacing:.06em;color:#DCFC05">LOOKING FOR</div><div style="font-size:16px;margin-top:2px">Open mics, Grants</div></div>
+    <div style="width:1px;background:#E2D8C8;margin:10px 0"></div>
+    <div style="flex:1;padding:12px 28px;border-radius:999px"><div style="font-size:12px;font-weight:700;letter-spacing:.06em">WHERE</div><div style="font-size:16px;color:#5B5262;margin-top:2px">Brooklyn, Queens +1</div></div>
+    <button style="margin-left:6px;font:700 18px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:0 34px">Search</button>
+  </div>
+
+  <div style="align-self:center;width:640px;margin-left:-60px;background:#FFFFFF;border:2px solid #E2D8C8;border-radius:28px;box-shadow:0 22px 60px rgba(34,14,67,.2);padding:22px 26px;position:relative;z-index:3">
+    <div style="font-family:'Fraunces',serif;font-weight:900;font-size:24px;margin-bottom:4px">What are you looking for?</div>
+    <div style="color:#5B5262;font-size:14px;margin-bottom:14px">Pick as many as you like.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="border:2px solid #220E43;background:#220E43;color:#FEF9EF;border-radius:16px;padding:14px 16px"><b>Events &amp; open mics</b><div style="font-size:13px;color:#CFC6DA">Jams, mics, workshops</div></div>
+      <div style="border:2px solid #220E43;background:#220E43;color:#FEF9EF;border-radius:16px;padding:14px 16px"><b>Grants &amp; fellowships</b><div style="font-size:13px;color:#CFC6DA">Money for your practice</div></div>
+      <div style="border:2px solid #E2D8C8;border-radius:16px;padding:14px 16px"><b>Open calls &amp; auditions</b><div style="font-size:13px;color:#5B5262">Submit work or show up</div></div>
+      <div style="border:2px solid #E2D8C8;border-radius:16px;padding:14px 16px"><b>Residencies</b><div style="font-size:13px;color:#5B5262">Time, space, studio access</div></div>
+      <div style="border:2px solid #E2D8C8;border-radius:16px;padding:14px 16px"><b>Jobs</b><div style="font-size:13px;color:#5B5262">Salaried and hourly roles</div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="text-decoration:underline;font-weight:700;font-size:14px">Clear</span><span style="background:#FD1A99;border-radius:999px;padding:9px 22px;font-weight:700">Done</span></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:#220E43;color:#FEF9EF;display:flex;align-items:center;justify-content:center;gap:60px"><span><b style="font-family:'Fraunces',serif;font-size:34px;color:#DCFC05">312</b> matches</span><span style="color:#CFC6DA">1,526 listings &middot; checked 2026-10-27</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

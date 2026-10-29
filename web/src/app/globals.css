@@ -124,11 +124,13 @@ img { max-width: 100%; height: auto; }
 .group-head h2 { font-size: clamp(24px, 4vw, 32px); }
 .group-meta { color: var(--muted-dk); font-size: 14px; }
 .cards { display: grid; gap: 16px; }
-.rcard { background: var(--card); color: var(--ink); border-radius: var(--radius); padding: 22px; border: 2px solid var(--line); display: grid; gap: 10px; }
-.rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-.rcard h3 { font-size: 24px; color: var(--ink); }
-.rcard .org { color: var(--muted); font-size: 15px; }
-.facts { display: flex; gap: 8px 22px; flex-wrap: wrap; font-size: 15px; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.rcard { background: #fffcf6; color: var(--ink); border-radius: 18px; padding: 16px 20px; display: grid; gap: 6px; }
+.rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.rcard-when { margin-left: auto; font: 700 14px var(--sans); color: var(--muted); }
+.rcard-when.closing { color: var(--pink-dk); }
+.rcard h3 { font: 700 23px/1.2 var(--serif); color: var(--ink); }
+.rcard .org { color: var(--muted); font-size: 14px; }
+.facts { display: flex; gap: 4px 20px; flex-wrap: wrap; font-size: 14px; color: var(--muted); padding: 4px 0; }
 .facts b { color: var(--ink); }
 .closing { color: var(--pink-dk); font-weight: 700; }
 .rcard ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
@@ -179,6 +181,49 @@ details.how summary { cursor: pointer; font: 700 20px var(--serif); padding: 14p
   .dev-grid { grid-template-columns: 300px 1fr; }
 }
 
+/* Logo corner: which logo shows and on which side (dev Versions panel sets data-hdr and data-corner on <html>). */
+.logo-slot { display: inline-flex; align-items: center; order: 2; margin-left: 20px; translate: var(--logo-x, 0) var(--logo-y, 0); /* position sliders in the dev Versions panel */ }
+.nav { margin-left: auto; }
+html[data-corner="left"] .logo-slot { order: 0; margin-left: 0; }
+.lg { display: none; width: auto; }
+.lg-full { height: calc(96px * var(--logo-scale, 1)); }
+.lg-wordmark { height: calc(40px * var(--logo-scale, 1)); }
+.lg-icon-nyc { height: calc(62px * var(--logo-scale, 1)); }
+.lg-icon { height: calc(61px * var(--logo-scale, 1)); }
+html:not([data-hdr]) .lg-wordmark,
+html[data-hdr="full"] .lg-full,
+html[data-hdr="wordmark"] .lg-wordmark,
+html[data-hdr="icon-nyc"] .lg-icon-nyc,
+html[data-hdr="icon"] .lg-icon { display: block; }
+html[data-hdr="none"] .logo-slot { display: none; }
+
+/* Dev-only version switcher (see DesignVersions.tsx): shows the original top bar or the logo-corner one. */
+html[data-hdr="original"] .hdr-logos,
+html[data-hdr="original2"] .hdr-logos { display: none; }
+html:not([data-hdr="original"]) .hdr-original { display: none; }
+html:not([data-hdr="original2"]) .hdr-original2 { display: none; }
+
+/* Landing page: the top bar floats transparently over the picture instead of sitting above it as a band. */
+body:has(.hero-page) .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 5; background: transparent; }
+
+/* Dev switches in the Versions panel: the Dev tools link and the other top bar links can each be turned off. */
+html:not([data-devtools="on"]) .nav a[href="/dev"] { display: none; }
+html[data-navlinks="off"] .nav a:not([href="/dev"]) { display: none; }
+
+/* Sign up / Log in: sits at the far right by default, or the far left (Versions panel). */
+.auth-slot { display: flex; align-items: center; gap: 10px; order: 3; margin-left: 20px; }
+html[data-authcorner="left"] .auth-slot { order: -1; margin-left: 0; margin-right: 20px; }
+html[data-auth="off"] .auth-slot { display: none; }
+
+/* The nav link moves up/down with the logo so they stay lined up. The Sign up / Login buttons have their own position sliders. */
+.nav { translate: 0 var(--logo-y, 0); }
+.auth-slot { translate: var(--auth-x, 0) var(--auth-y, 0); }
+
+/* Page backgrounds (dev Versions panel). "purple" is the original look: plain brand purple plus the circle in the top-right corner.
+   "solid" is the plain brand purple only (the circle is hidden in MadLibsHero.module.css). */
+html[data-bg="spotlight"] body { background: radial-gradient(ellipse 70% 80% at 30% 55%, #46297a 0%, #331a5e 38%, var(--ink) 78%) fixed, var(--ink); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 /* Auth: header widget + login card */
 .auth-widget { display: inline-flex; align-items: center; gap: 12px; }
 .auth-email { color: var(--muted-dk); font-size: 14px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
