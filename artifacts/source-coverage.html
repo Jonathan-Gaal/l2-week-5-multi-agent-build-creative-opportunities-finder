@@ -1,0 +1,335 @@
+<title>Source Coverage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: one working column. Instructions on top, filters, then a table the person ticks through. */
+  :root {
+    --bg: #f3f6f7; --panel: #ffffff; --fg: #12202a; --muted: #566673; --line: #d6dee3;
+    --accent: #0b6b73; --accent-soft: #dcefef; --bad: #a8261d; --bad-soft: #f8e2df;
+    --warn: #8a5300; --warn-soft: #f6ead2; --quiet-soft: #e6ebee; --skip: #5b4a9a; --skip-soft: #e9e5f6;
+    --font-ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1a20; --panel: #16242c; --fg: #e6eef2; --muted: #95a8b4; --line: #2b3d47;
+      --accent: #5cc7cf; --accent-soft: #15383d; --bad: #ff8d84; --bad-soft: #3d1f1d;
+      --warn: #f0b95c; --warn-soft: #3a2c10; --quiet-soft: #22333c; --skip: #b9a8f2; --skip-soft: #2a2447;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1a20; --panel: #16242c; --fg: #e6eef2; --muted: #95a8b4; --line: #2b3d47;
+    --accent: #5cc7cf; --accent-soft: #15383d; --bad: #ff8d84; --bad-soft: #3d1f1d;
+    --warn: #f0b95c; --warn-soft: #3a2c10; --quiet-soft: #22333c; --skip: #b9a8f2; --skip-soft: #2a2447;
+    color-scheme: dark;
+  }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 15px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 56px; }
+  .wrap { max-width: 68rem; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+  h2 { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 10px; }
+  p { margin: 0; }
+  .lead { color: var(--muted); max-width: 62ch; margin-top: 8px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+  .steps li { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .steps b { font-weight: 600; }
+  .steps span { color: var(--muted); }
+  .path { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  code, .path code { font-family: var(--font-mono); font-size: 0.86em; background: var(--quiet-soft); padding: 2px 7px; border-radius: 5px; overflow-wrap: anywhere; }
+  button, .btn { font: inherit; }
+  .copy { border: 1px solid var(--line); background: var(--panel); color: var(--fg); border-radius: 6px; padding: 3px 10px; font-size: 0.82rem; cursor: pointer; }
+  .copy:hover { border-color: var(--accent); }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: space-between; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 1px solid var(--line); background: var(--panel); color: var(--fg); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: 0.9rem; }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+  .search { border: 1px solid var(--line); background: var(--panel); color: var(--fg); border-radius: 8px; padding: 7px 12px; min-width: 0; width: min(100%, 16rem); font: inherit; }
+  .progress { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .progress b { color: var(--fg); }
+  .track { height: 6px; border-radius: 3px; background: var(--quiet-soft); overflow: hidden; margin-top: 6px; }
+  .fill { height: 100%; background: var(--accent); width: 0; }
+  .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; min-width: 46rem; }
+  th { text-align: left; font-size: 0.74rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  tr.done td { opacity: 0.55; }
+  tr.done .site-name { text-decoration: line-through; }
+  .check { width: 20px; height: 20px; accent-color: var(--accent); cursor: pointer; margin: 2px 0 0; }
+  .site-name { font-weight: 600; }
+  .cat { color: var(--muted); font-size: 0.84rem; }
+  .pill { display: inline-block; font-size: 0.76rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .s-blocked { background: var(--bad-soft); color: var(--bad); }
+  .s-login { background: var(--warn-soft); color: var(--warn); }
+  .s-empty { background: var(--quiet-soft); color: var(--muted); }
+  .s-partial { background: var(--accent-soft); color: var(--accent); }
+  .s-skipped { background: var(--skip-soft); color: var(--skip); }
+  .s-unknown { background: var(--quiet-soft); color: var(--muted); }
+  .why { color: var(--muted); font-size: 0.86rem; margin-top: 5px; max-width: 30ch; }
+  .shot { max-width: 34ch; }
+  .value { font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin-bottom: 3px; color: var(--muted); }
+  .value.high { color: var(--accent); }
+  .open { display: inline-block; white-space: nowrap; text-decoration: none; background: var(--accent); color: var(--bg); font-weight: 600; font-size: 0.86rem; padding: 6px 12px; border-radius: 7px; }
+  .open:hover { filter: brightness(1.1); }
+  .open:focus-visible, .chip:focus-visible, .copy:focus-visible, .search:focus-visible, .check:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .empty { padding: 28px 16px; text-align: center; color: var(--muted); }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin-top: 10px; max-width: 80ch; }
+  @media (prefers-reduced-motion: no-preference) { .fill { transition: width 0.25s ease-out; } }
+
+  .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); }
+  .tab { font: inherit; background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 16px; margin-bottom: -1px; cursor: pointer; color: var(--muted); font-weight: 600; }
+  .tab[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .count { font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
+  .view { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 18px; }
+  .stats > div { display: flex; flex-direction: column; gap: 2px; }
+  .big { font-family: var(--font-display); font-size: 2.6rem; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .lbl { color: var(--muted); font-size: 0.88rem; }
+  .ctable { min-width: 44rem; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .opps { display: flex; align-items: center; gap: 10px; min-width: 9rem; }
+  .opps b { font-variant-numeric: tabular-nums; min-width: 2.6ch; text-align: right; }
+  .opps .meter { flex: 1; height: 8px; background: var(--quiet-soft); border-radius: 4px; overflow: hidden; min-width: 3rem; }
+  .opps .meter i { display: block; height: 100%; background: var(--accent); }
+  .zero { color: var(--muted); }
+  .note { color: var(--muted); font-size: 0.88rem; max-width: 34ch; }
+  .foot { color: var(--muted); font-size: 0.86rem; margin-top: 12px; max-width: 80ch; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Source coverage</h1>
+    <p class="lead">Every NYC site I tried for artist opportunities. See what each crawled site gave the snapshot, or open the sites I could not read and screenshot them for me.</p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="View">
+    <button class="tab" role="tab" data-v="crawled" aria-selected="true" type="button">Sites crawled <span class="count" id="n-crawled"></span></button>
+    <button class="tab" role="tab" data-v="shots" aria-selected="false" type="button">To screenshot <span class="count" id="n-shots"></span></button>
+  </div>
+
+  <div class="view" id="view-shots" hidden>
+  <section class="panel" aria-label="How to send a screenshot">
+    <h2>How to send one</h2>
+    <ol class="steps">
+      <li><b>1. Open the page</b><span>Use the Open button on a row. Scroll to the listings, not the menu.</span></li>
+      <li><b>2. Take the screenshot</b><span>Make the text readable at normal size. For a long list, take several and scroll between them. Crop out your name or email.</span></li>
+      <li><b>3. Save and tell me</b><span>Save it as PNG or JPG in this folder, then message me the site name and file names.</span>
+        <span class="path"><code id="folder">data/pages/manual/</code><button class="copy" id="copy" type="button">Copy folder</button></span></li>
+    </ol>
+  </section>
+
+  <section aria-label="Sites to screenshot">
+    <div class="bar">
+      <div class="chips" role="group" aria-label="Filter">
+        <button class="chip" data-f="todo" aria-pressed="true" type="button">To do</button>
+        <button class="chip" data-f="high" aria-pressed="false" type="button">High value</button>
+        <button class="chip" data-f="done" aria-pressed="false" type="button">Done</button>
+        <button class="chip" data-f="all" aria-pressed="false" type="button">All</button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="Search sites" aria-label="Search sites">
+    </div>
+    <div style="margin: 14px 0 12px;">
+      <div class="progress" id="progress"></div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th style="width:3rem">Done</th><th>Site</th><th>Why it needs a screenshot</th><th>What to capture</th><th>Page</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="none" hidden>Nothing matches. Try another filter.</div>
+    </div>
+  </section>
+
+  <details>
+    <summary id="readSummary">Already read, no screenshot needed</summary>
+    <p id="readList"></p>
+  </details>
+  </div>
+
+  <div class="view" id="view-crawled">
+    <section class="panel stats" aria-label="Totals">
+      <div><span class="big" id="s-sites"></span><span class="lbl">sites crawled</span></div>
+      <div><span class="big" id="s-gave"></span><span class="lbl">gave opportunities</span></div>
+      <div><span class="big" id="s-opps"></span><span class="lbl">opportunities in the snapshot</span></div>
+    </section>
+    <section aria-label="Crawled sites">
+      <div class="bar">
+        <div class="chips" role="group" aria-label="Filter crawled sites">
+          <button class="chip cchip" data-c="gave" aria-pressed="true" type="button">Gave opportunities</button>
+          <button class="chip cchip" data-c="none" aria-pressed="false" type="button">None found</button>
+          <button class="chip cchip" data-c="all" aria-pressed="false" type="button">All</button>
+        </div>
+        <input class="search" id="cq" type="search" placeholder="Search sites" aria-label="Search crawled sites">
+      </div>
+      <div class="scroll" style="margin-top:14px">
+        <table class="ctable">
+          <thead><tr><th>Site</th><th class="num">Pages read</th><th>Opportunities</th><th>What I found</th><th>Page</th></tr></thead>
+          <tbody id="crows"></tbody>
+        </table>
+        <div class="empty" id="cnone" hidden>Nothing matches. Try another filter.</div>
+      </div>
+      <p class="foot">Counts come from the published snapshot, grouped by the website each listing links to. A4 re-lists other organizations' calls, so its 28 are not all A4's own. Pages read is how many pages the browser crawler saved from the site; sites checked another way show a dash.</p>
+    </section>
+  </div>
+
+</div>
+
+<script>
+  var STATUS = {
+    blocked: ["Blocked", "s-blocked"], login: ["Login needed", "s-login"], empty: ["Nothing loaded", "s-empty"],
+    partial: ["Partly read", "s-partial"], skipped: ["Skipped on purpose", "s-skipped"], unknown: ["Address unknown", "s-unknown"]
+  };
+  // value is my judgment of how many open NYC listings the page probably holds.
+  var SITES = [
+    { n: "Casting Networks", c: "Actors", s: "blocked", why: "403 Forbidden, even on its NYC casting calls page.", shot: "The NYC casting calls list, pages 1 to 3 (change current_page in the address).", u: "https://www.castingnetworks.com/new-york-city-casting-calls/", v: "high" },
+    { n: "Backstage", c: "Actors, Dance", s: "blocked", why: "403 Cloudflare block on every page.", shot: "The NYC dance gigs list, then the NYC acting and music categories if you can find them.", u: "https://www.backstage.com/casting/open-casting-calls/new-york-city-ny-general-dance-gigs/", v: "high" },
+    { n: "NYFA Opportunities", c: "Visual art, all disciplines", s: "blocked", why: "403 Cloudflare block. The biggest NYC artist board.", shot: "Filter the location to New York. Screenshot the first three pages of results.", u: "https://www.nyfa.org/opportunities/", v: "high" },
+    { n: "NYC public art opportunities (DCLA)", c: "Visual art", s: "blocked", why: "Access Denied on nyc.gov for scripts.", shot: "The list of current calls for artists.", u: "https://www.nyc.gov/site/dcla/publicart/opportunities.page", v: "high" },
+    { n: "MTA Music Under New York", c: "Music", s: "blocked", why: "Access Denied on mta.info for scripts.", shot: "The audition and open call announcements.", u: "https://www.mta.info/agency/arts-design/music", v: "high" },
+    { n: "OpenMYC", c: "Music, Poetry, Comedy", s: "unknown", why: "The addresses I had are parked pages. I need the real site.", shot: "The open mic listings for New York, with neighborhood and time.", u: "https://www.google.com/search?q=OpenMYC+open+mic+listings+NYC", ul: "Search for it", v: "high" },
+    { n: "Queens Council on the Arts", c: "Visual art, grants", s: "blocked", why: "403 for scripts. Queens has very few listings.", shot: "Grants and artist opportunities pages.", u: "https://www.queenscouncilarts.org/", v: "high" },
+    { n: "Meetup open mics", c: "Music, Poetry, Comedy", s: "partial", why: "Loads in a browser but gives no venue or borough.", shot: "Search results for open mic and poetry. Include the line with the location.", u: "https://www.meetup.com/find/?keywords=open%20mic&location=us--ny--New%20York&source=EVENTS", v: "medium" },
+    { n: "Actors Access", c: "Actors", s: "login", why: "Casting breakdowns sit behind a talent account.", shot: "Only if you have an account. Hide your name and any private details.", u: "https://actorsaccess.com/", v: "medium" },
+    { n: "Reddit r/NYCmusicians", c: "Music", s: "blocked", why: "403 for scripts.", shot: "The newest posts that seek players, singers or gigs.", u: "https://www.reddit.com/r/NYCmusicians/", v: "medium" },
+    { n: "Submittable Discover", c: "All disciplines", s: "partial", why: "Loads, but I did not read it. Many NYC groups post calls here.", shot: "Search for New York and arts. First three pages.", u: "https://www.submittable.com/discover", v: "medium" },
+    { n: "ArtConnect", c: "Visual art", s: "partial", why: "Loads. Its terms prohibit scraping, so a person reading it is the safe route.", shot: "Opportunities filtered to New York.", u: "https://www.artconnect.com/opportunities", v: "medium" },
+    { n: "MTA Music on Submittable", c: "Music", s: "partial", why: "The page loads but I only saw the shell.", shot: "Any current call for performers.", u: "https://mtaarts.submittable.com/submit", v: "medium" },
+    { n: "BRIC", c: "Visual art, media", s: "blocked", why: "403 for scripts.", shot: "Artist opportunities, residencies and open calls.", u: "https://bricartsmedia.org/", v: "medium" },
+    { n: "The Public Theater", c: "Theater", s: "blocked", why: "Blocked during the crawl.", shot: "Auditions or artist opportunities, if listed.", u: "https://publictheater.org/", v: "medium" },
+    { n: "Carnegie Hall", c: "Music, Singing", s: "blocked", why: "Blocked during the crawl.", shot: "Auditions, Ensemble Connect and other artist programs.", u: "https://www.carnegiehall.org/", v: "medium" },
+    { n: "Center for Fiction", c: "Writing", s: "blocked", why: "Blocked during the crawl. Writers have few listings so far.", shot: "Grants, fellowships and awards for writers.", u: "https://centerforfiction.org/", v: "medium" },
+    { n: "Cave Canem", c: "Poetry", s: "empty", why: "No pages loaded. Poetry has only two listings so far.", shot: "Fellowships, retreats and application dates.", u: "https://cavecanem.org/", v: "medium" },
+    { n: "Bronx Music Heritage Center", c: "Music", s: "empty", why: "No pages loaded. The Bronx has few listings.", shot: "Events and artist opportunities.", u: "https://www.bronxmusicheritage.org/", v: "medium" },
+    { n: "Governors Island Arts", c: "Visual art", s: "empty", why: "No pages loaded.", shot: "Residency and open call pages.", u: "https://www.govislandarts.org/", v: "medium" },
+    { n: "NYC Parks Art and Antiquities", c: "Visual art", s: "empty", why: "No pages loaded.", shot: "Artist opportunities and public art calls.", u: "https://www.nycgovparks.org/art-and-antiquities", v: "medium" },
+    { n: "Dumbo Arts Festival", c: "Visual art", s: "partial", why: "Only the home page was read.", shot: "The call for artists page.", u: "https://www.dumboartsfestival.com/", v: "medium" },
+    { n: "Brooklyn Comedy Collective", c: "Comedy", s: "skipped", why: "Its robots.txt names Anthropic's crawlers, so I left it alone. A person reading it is your call.", shot: "The submissions page for shows and teams.", u: "https://www.brooklyncc.com/", v: "medium" },
+    { n: "The PIT", c: "Comedy", s: "skipped", why: "Its robots.txt names crawlers and its data feed needs a login.", shot: "Festival and show submissions.", u: "https://thepit-nyc.com/", v: "medium" },
+    { n: "Eventbrite open calls", c: "All disciplines", s: "skipped", why: "Its robots.txt disallows all crawling.", shot: "Search New York for open call and auditions.", u: "https://www.eventbrite.com/d/ny--new-york/open-call/", v: "medium" },
+    { n: "Gotham Comedy Club", c: "Comedy", s: "blocked", why: "403 for scripts.", shot: "The New Talent Showcase and submission page.", u: "https://www.gothamcomedyclub.com/", v: "low" },
+    { n: "DirectSubmit (NYCastings)", c: "Actors", s: "login", why: "Empty page without JavaScript, likely behind accounts.", shot: "Any public NYC casting list.", u: "https://directsubmit.com/", v: "low" },
+    { n: "CaFE", c: "Visual art", s: "partial", why: "Loads. Its terms prohibit automated access.", shot: "Calls filtered to New York.", u: "https://www.callforentry.org/", v: "low" },
+    { n: "TransArtists", c: "Residencies", s: "partial", why: "Loads. Mostly international residencies.", shot: "Residencies in New York.", u: "https://www.transartists.org/", v: "low" },
+    { n: "Musicalchairs", c: "Music", s: "partial", why: "Home page only. Mostly orchestral jobs.", shot: "Auditions and jobs listed for New York.", u: "https://www.musicalchairs.info/", v: "low" },
+    { n: "Brooklyn Museum", c: "Visual art", s: "empty", why: "No pages loaded.", shot: "Open calls or artist programs.", u: "https://www.brooklynmuseum.org/", v: "low" },
+    { n: "The Kitchen", c: "Performance", s: "empty", why: "No pages loaded.", shot: "Open calls or artist programs.", u: "https://thekitchen.org/", v: "low" },
+    { n: "Artists Space", c: "Visual art", s: "empty", why: "No pages loaded.", shot: "Open calls or artist programs.", u: "https://www.artistsspace.org/", v: "low" },
+    { n: "New Museum", c: "Visual art", s: "partial", why: "Only one page read.", shot: "Artist programs and open calls.", u: "https://www.newmuseum.org/", v: "low" },
+    { n: "EFA", c: "Visual art", s: "skipped", why: "Its robots.txt names Anthropic's crawlers.", shot: "Studio program and opportunities.", u: "https://www.efanyc.org/", v: "low" },
+    { n: "String Orchestra of Brooklyn", c: "Music", s: "unknown", why: "My address guess failed. Find the real site.", shot: "Audition and composer submission pages.", u: "https://www.google.com/search?q=String+Orchestra+of+Brooklyn+auditions", ul: "Search for it", v: "low" },
+    { n: "NY Comedy Festival", c: "Comedy", s: "partial", why: "Submissions are closed until July 2027, per your list.", shot: "The submissions page, to confirm the date.", u: "https://nycomedyfestival.com/", v: "low" }
+  ];
+  var ALREADY = "Craigslist, Dance/NYC, Playbill Jobs, FireMics, A4, the NYC Parks events feed, NYC Open Data, Grants.gov, Hyperallergic, Residency Unlimited, ISCP, Flux Factory, Bronx Council on the Arts, apexart, NARS, LMCC, Brooklyn Arts Council, Staten Island Arts, Flushing Town Hall, Bronx Museum, Queens Museum, Franklin Furnace, Socrates Sculpture Park, Wave Hill, Pioneer Works, Creative Capital, Foundation for Contemporary Arts, Smack Mellon, Lower East Side Printshop, Studio Museum, MoMA PS1, Public Art Fund, Weeksville, Culture Lab LIC, Kupferberg Center, Bronx River Art Center, Bolster Arts, Mabou Mines, FABnyc, HERE, Poets & Writers, Central Casting, Actors' Equity, SOB's, Sofar Sounds, Apollo, Make Music New York, Colored Colors, Roulette, Bang on a Can, City Parks Foundation, Queens Theatre, Snug Harbor, Harlem Stage, New York Comedy Club, EastVille, The Tiny Cupboard, Danspace, GALLIM, Joyce, Movement Research, Dixon Place, La MaMa, Ars Nova, The Tank, Theater for the New City, Brooklyn Poets, Poetry Project, Poets House, Kundiman, Asian American Writers Workshop, NYPL, Academy of American Poets, Writers Room and Bowery Poetry Club.";
+
+  var KEY = "screenshot-list-done-v1";
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { done = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) { /* storage may be blocked */ } }
+
+  var filter = "todo", query = "";
+  var rank = { high: 0, medium: 1, low: 2 };
+  SITES.sort(function (a, b) { return rank[a.v] - rank[b.v] || a.n.localeCompare(b.n); });
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function render() {
+    var body = document.getElementById("rows");
+    body.replaceChildren();
+    var shown = 0, doneCount = 0;
+    SITES.forEach(function (s) { if (done[s.n]) doneCount++; });
+    SITES.forEach(function (s) {
+      var isDone = !!done[s.n];
+      var okFilter = filter === "all" || (filter === "todo" && !isDone) || (filter === "done" && isDone) || (filter === "high" && s.v === "high" && !isDone);
+      var hay = (s.n + " " + s.c + " " + s.why + " " + s.shot).toLowerCase();
+      if (!okFilter || (query && hay.indexOf(query) < 0)) return;
+      shown++;
+      var tr = el("tr", isDone ? "done" : "");
+      var td0 = el("td");
+      var cb = document.createElement("input"); cb.type = "checkbox"; cb.className = "check"; cb.checked = isDone;
+      cb.setAttribute("aria-label", "Mark " + s.n + " as done");
+      cb.addEventListener("change", function () { if (cb.checked) done[s.n] = 1; else delete done[s.n]; save(); render(); });
+      td0.appendChild(cb);
+      var td1 = el("td"); td1.appendChild(el("div", "site-name", s.n)); td1.appendChild(el("div", "cat", s.c));
+      var td2 = el("td"); var st = STATUS[s.s];
+      td2.appendChild(el("span", "pill " + st[1], st[0])); td2.appendChild(el("div", "why", s.why));
+      var td3 = el("td", "shot"); td3.appendChild(el("div", "value " + s.v, s.v + " value")); td3.appendChild(el("div", "", s.shot));
+      var td4 = el("td"); var a = el("a", "open", s.ul || "Open page"); a.href = s.u; a.target = "_blank"; a.rel = "noopener";
+      a.setAttribute("aria-label", (s.ul || "Open") + ": " + s.n); td4.appendChild(a);
+      [td0, td1, td2, td3, td4].forEach(function (t) { tr.appendChild(t); });
+      body.appendChild(tr);
+    });
+    document.getElementById("none").hidden = shown > 0;
+    var total = SITES.length;
+    document.getElementById("progress").innerHTML = "<b>" + doneCount + "</b> of <b>" + total + "</b> screenshotted";
+    document.getElementById("fill").style.width = (100 * doneCount / total) + "%";
+    document.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.f === filter)); });
+  }
+
+  document.querySelectorAll(".chip").forEach(function (c) { c.addEventListener("click", function () { filter = c.dataset.f; render(); }); });
+  document.getElementById("q").addEventListener("input", function (e) { query = e.target.value.trim().toLowerCase(); render(); });
+  document.getElementById("copy").addEventListener("click", function () {
+    var btn = document.getElementById("copy"), text = document.getElementById("folder").textContent;
+    function ok() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy folder"; }, 1400); }
+    try { navigator.clipboard.writeText(text).then(ok, function () { var r = document.createRange(); r.selectNodeContents(document.getElementById("folder")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Select and copy"; }); }
+    catch (e) { btn.textContent = "Select and copy"; }
+  });
+  document.getElementById("readList").textContent = ALREADY;
+  document.getElementById("readSummary").textContent = "Already read, no screenshot needed (" + ALREADY.split(", ").length + " sites)";
+  render();
+
+  var CRAWLED = [{"n": "Craigslist New York", "c": "All disciplines, gigs", "u": "https://newyork.craigslist.org/", "p": null, "o": 311, "note": "Search pages for 5 boroughs and 4 categories. Gigs only, no dates."}, {"n": "Dance/NYC", "c": "Dance", "u": "https://www.dance.nyc/for-artists/listings/Category-Auditions", "p": 45, "o": 61, "note": "Auditions, choreographic calls and funding."}, {"n": "FireMics", "c": "Comedy", "u": "https://www.firemics.com/new-york-open-mics", "p": null, "o": 50, "note": "Recurring open mics, collapsed to one record each."}, {"n": "Playbill Jobs", "c": "Actors, Music", "u": "https://playbill.com/jobs", "p": 15, "o": 46, "note": "NYC performer and musician listings only."}, {"n": "A4 (Asian American Arts Alliance)", "c": "Visual art, all", "u": "https://www.aaartsalliance.org/opportunities", "p": null, "o": 28, "note": "A board that re-lists other organizations' calls."}, {"n": "Bronx Council on the Arts", "c": "Grants", "u": "https://www.bronxarts.org/grants", "p": 20, "o": 5, "note": ""}, {"n": "LMCC", "c": "Grants", "u": "https://lmcc.net/apply/", "p": 20, "o": 4, "note": ""}, {"n": "Staten Island Arts", "c": "Grants", "u": "https://statenislandarts.org/grants/", "p": 20, "o": 4, "note": ""}, {"n": "Lower East Side Printshop", "c": "Visual art", "u": "https://www.printshop.org/keyholder-residency", "p": null, "o": 2, "note": "Residencies."}, {"n": "Smack Mellon", "c": "Visual art", "u": "https://www.smackmellon.org/opportunities/", "p": null, "o": 2, "note": "Studio program and group show call."}, {"n": "apexart", "c": "Visual art", "u": "https://apexart.org/opencalls.php", "p": null, "o": 1, "note": ""}, {"n": "Brooklyn Poets", "c": "Poetry", "u": "https://brooklynpoets.org/workshops/mentorship-program", "p": 20, "o": 1, "note": ""}, {"n": "EastVille Comedy Club", "c": "Comedy", "u": "https://www.eastvillecomedy.com/open-mic", "p": 20, "o": 1, "note": ""}, {"n": "FABnyc", "c": "Music, performance", "u": "https://www.fabnyc.org/fabnyc-summer-programs-open-call/", "p": 8, "o": 1, "note": ""}, {"n": "Flushing Town Hall", "c": "Grants, Music", "u": "https://www.flushingtownhall.org/grants", "p": 20, "o": 1, "note": ""}, {"n": "GALLIM", "c": "Dance", "u": "https://www.gallim.org/2026-audition-1", "p": 20, "o": 1, "note": ""}, {"n": "HERE Arts Center", "c": "Performance", "u": "https://here.org/programs/performance-lab/", "p": null, "o": 1, "note": ""}, {"n": "Colored Colors", "c": "Music, vendors", "u": "https://www.coloredcolors.com/open-calls", "p": 20, "o": 1, "note": ""}, {"n": "Mabou Mines", "c": "Performance", "u": "https://www.maboumines.org/suitespace/", "p": 5, "o": 1, "note": ""}, {"n": "Movement Research", "c": "Dance", "u": "https://movementresearch.org/artist-opportunities-and-programs/residency-programs/artist-in-residence/", "p": 19, "o": 1, "note": ""}, {"n": "NYC Parks events feed", "c": "Events", "u": "https://www.nycgovparks.org/xml/events_300_rss.json", "p": null, "o": 1, "note": "615 events read; 1 was an open call."}, {"n": "Poets House", "c": "Poetry", "u": "https://poetshouse.org/programs-events/poets-house-showcase/", "p": 19, "o": 1, "note": ""}, {"n": "The Tiny Cupboard", "c": "Comedy", "u": "https://www.thetinycupboard.com/produce-a-show-with-us", "p": 18, "o": 1, "note": ""}, {"n": "Brooklyn Arts Council", "c": "Grants", "u": "https://www.brooklynartscouncil.org/what-we-do/grants", "p": 20, "o": 0, "note": "Its 2027 cycle closed Oct 11, so nothing is open."}, {"n": "Residency Unlimited", "c": "Visual art", "u": "https://residencyunlimited.org/open-calls/", "p": 20, "o": 0, "note": "Only past calls listed."}, {"n": "ISCP", "c": "Visual art", "u": "https://iscp-nyc.org/apply", "p": 20, "o": 0, "note": "Residency programs, no dates."}, {"n": "NARS Foundation", "c": "Visual art", "u": "https://www.narsfoundation.org/residencies/apply", "p": 20, "o": 0, "note": "Exhibition deadline already passed."}, {"n": "Franklin Furnace", "c": "Performance art", "u": "https://franklinfurnace.org/grants-and-funding/", "p": 20, "o": 0, "note": "No borough or open date found."}, {"n": "Bronx Museum", "c": "Visual art", "u": "https://bronxmuseum.org/aim-fellowship/", "p": 20, "o": 0, "note": "AIM Fellowship closed Oct 25."}, {"n": "Queens Museum", "c": "Visual art", "u": "https://queensmuseum.org/engage/", "p": 20, "o": 0, "note": "Teen program only."}, {"n": "Creative Capital", "c": "Visual art", "u": "https://creative-capital.org/", "p": 19, "o": 0, "note": "National awards."}, {"n": "Foundation for Contemporary Arts", "c": "Visual art", "u": "https://foundationforcontemporaryarts.org/", "p": 20, "o": 0, "note": "No open call found."}, {"n": "Socrates Sculpture Park", "c": "Visual art", "u": "https://www.socratessculpturepark.org/", "p": 10, "o": 0, "note": "No open call found."}, {"n": "Wave Hill", "c": "Visual art", "u": "https://www.wavehill.org/", "p": 20, "o": 0, "note": "Calendar only."}, {"n": "Pioneer Works", "c": "Visual art", "u": "https://pioneerworks.org/", "p": 11, "o": 0, "note": "Calendar and exhibitions only."}, {"n": "Poetry Project", "c": "Poetry", "u": "https://www.poetryproject.org/", "p": 20, "o": 0, "note": "Prize page with no deadline."}, {"n": "Kundiman", "c": "Writing", "u": "https://www.kundiman.org/", "p": 20, "o": 0, "note": "Calendar and jobs."}, {"n": "Asian American Writers Workshop", "c": "Writing", "u": "https://aaww.org/", "p": 19, "o": 0, "note": ""}, {"n": "NYPL Cullman Center", "c": "Writing", "u": "https://www.nypl.org/about/divisions/cullman-center", "p": 20, "o": 0, "note": ""}, {"n": "Academy of American Poets", "c": "Poetry", "u": "https://poets.org/", "p": 17, "o": 0, "note": ""}, {"n": "Writers Room", "c": "Writing", "u": "https://www.writersroom.org/", "p": 20, "o": 0, "note": ""}, {"n": "Bowery Poetry Club", "c": "Poetry", "u": "https://www.bowerypoetry.com/", "p": 8, "o": 0, "note": ""}, {"n": "Danspace Project", "c": "Dance", "u": "https://danspaceproject.org/", "p": 20, "o": 0, "note": "Season calendar."}, {"n": "Joyce Theater", "c": "Dance", "u": "https://www.joyce.org/", "p": 19, "o": 0, "note": "Season calendar."}, {"n": "Harlem Stage", "c": "Music, dance", "u": "https://www.harlemstage.org/", "p": 20, "o": 0, "note": ""}, {"n": "Dixon Place", "c": "Theater", "u": "https://dixonplace.org/", "p": 20, "o": 0, "note": ""}, {"n": "La MaMa", "c": "Theater", "u": "https://lamama.org/", "p": 18, "o": 0, "note": ""}, {"n": "Ars Nova", "c": "Theater", "u": "https://arsnovanyc.com/", "p": 20, "o": 0, "note": "Jobs only."}, {"n": "The Tank", "c": "Theater", "u": "https://thetanknyc.org/", "p": 20, "o": 0, "note": "Internships only."}, {"n": "Theater for the New City", "c": "Theater", "u": "https://www.theaterforthenewcity.net/", "p": 17, "o": 0, "note": "Festival call closed in May."}, {"n": "Actors' Equity", "c": "Actors", "u": "https://actorsequity.org/", "p": 20, "o": 0, "note": "Studio rentals only."}, {"n": "Central Casting", "c": "Actors", "u": "https://www.centralcasting.com/", "p": 20, "o": 0, "note": "Background work needs a login."}, {"n": "Roulette", "c": "Music", "u": "https://roulette.org/", "p": 19, "o": 0, "note": "Calendar only."}, {"n": "Bang on a Can", "c": "Music", "u": "https://bangonacan.org/", "p": 20, "o": 0, "note": "Calendar only."}, {"n": "City Parks Foundation", "c": "Music", "u": "https://cityparksfoundation.org/", "p": 20, "o": 0, "note": ""}, {"n": "Queens Theatre", "c": "Music, theater", "u": "https://www.queenstheatre.org/", "p": 20, "o": 0, "note": "Open stage events are past."}, {"n": "Snug Harbor", "c": "Visual art, events", "u": "https://snug-harbor.org/", "p": 20, "o": 0, "note": ""}, {"n": "Sofar Sounds", "c": "Music", "u": "https://www.sofarsounds.com/new-york", "p": 18, "o": 0, "note": "No artist application text found."}, {"n": "Apollo Theater", "c": "Music", "u": "https://www.apollotheater.org/", "p": 20, "o": 0, "note": "Amateur Night is a standing program."}, {"n": "Make Music New York", "c": "Music", "u": "https://makemusicny.org/", "p": 20, "o": 0, "note": "Annual festival."}, {"n": "SOB's", "c": "Music", "u": "https://sobs.com/performers/", "p": 20, "o": 0, "note": "Artist submissions use embedded forms."}, {"n": "New York Comedy Club", "c": "Comedy", "u": "https://newyorkcomedyclub.com/", "p": 20, "o": 0, "note": "Booking pages not opened."}, {"n": "Flux Factory", "c": "Visual art", "u": "https://www.fluxfactory.org/", "p": null, "o": 0, "note": "Artist profiles and events."}, {"n": "Hyperallergic", "c": "Visual art, national", "u": "https://hyperallergic.com/tag/opportunities/", "p": null, "o": 0, "note": "National monthly roundups."}, {"n": "Bronx River Art Center", "c": "Visual art", "u": "https://www.bronxriverart.org/gallery-artist-call", "p": 5, "o": 0, "note": "The call is years out of date."}, {"n": "Bolster Arts", "c": "Visual art", "u": "https://www.bolsterarts.com/residency", "p": 4, "o": 0, "note": "Residency closed Oct 4."}, {"n": "Poets & Writers", "c": "Writing, national", "u": "https://www.pw.org/grants", "p": null, "o": 0, "note": "National contests, not NYC."}, {"n": "Studio Museum in Harlem", "c": "Visual art", "u": "https://www.studiomuseum.org/", "p": null, "o": 0, "note": ""}, {"n": "MoMA PS1", "c": "Visual art", "u": "https://www.momaps1.org/", "p": null, "o": 0, "note": ""}, {"n": "Public Art Fund", "c": "Visual art", "u": "https://www.publicartfund.org/", "p": null, "o": 0, "note": ""}, {"n": "Weeksville Heritage Center", "c": "Visual art", "u": "https://www.weeksvillesociety.org/", "p": null, "o": 0, "note": ""}, {"n": "Culture Lab LIC", "c": "Visual art, theater", "u": "https://www.culturelablic.org/", "p": null, "o": 0, "note": ""}, {"n": "Kupferberg Center", "c": "Music, theater", "u": "https://www.kupferbergcenter.org/", "p": null, "o": 0, "note": ""}];
+  var cFilter = "gave", cQuery = "";
+  CRAWLED.sort(function (a, b) { return b.o - a.o || a.n.localeCompare(b.n); });
+  var maxOpps = Math.max.apply(null, CRAWLED.map(function (r) { return r.o; }));
+
+  function renderCrawled() {
+    var body = document.getElementById("crows");
+    body.replaceChildren();
+    var shown = 0;
+    CRAWLED.forEach(function (r) {
+      var ok = cFilter === "all" || (cFilter === "gave" && r.o > 0) || (cFilter === "none" && r.o === 0);
+      if (!ok || (cQuery && (r.n + " " + r.c + " " + r.note).toLowerCase().indexOf(cQuery) < 0)) return;
+      shown++;
+      var tr = document.createElement("tr");
+      var t1 = el("td"); t1.appendChild(el("div", "site-name", r.n)); t1.appendChild(el("div", "cat", r.c));
+      var t2 = el("td", "num", r.p == null ? "\u2013" : String(r.p));
+      var t3 = el("td"); var w = el("div", "opps");
+      w.appendChild(el("b", r.o ? "" : "zero", String(r.o)));
+      var m = el("span", "meter"); var f = document.createElement("i"); f.style.width = (maxOpps ? 100 * Math.sqrt(r.o / maxOpps) : 0) + "%"; m.appendChild(f); w.appendChild(m);
+      t3.appendChild(w);
+      var t4 = el("td", "note", r.note || "");
+      var t5 = el("td"); var a = el("a", "open", "Open page"); a.href = r.u; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", "Open " + r.n);
+      t5.appendChild(a);
+      [t1, t2, t3, t4, t5].forEach(function (t) { tr.appendChild(t); });
+      body.appendChild(tr);
+    });
+    document.getElementById("cnone").hidden = shown > 0;
+    document.querySelectorAll(".cchip").forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.c === cFilter)); });
+  }
+  var gave = CRAWLED.filter(function (r) { return r.o > 0; }).length;
+  var totalOpps = CRAWLED.reduce(function (s, r) { return s + r.o; }, 0);
+  document.getElementById("s-sites").textContent = CRAWLED.length;
+  document.getElementById("s-gave").textContent = gave;
+  document.getElementById("s-opps").textContent = totalOpps;
+  document.getElementById("n-crawled").textContent = CRAWLED.length;
+  document.getElementById("n-shots").textContent = SITES.length;
+  document.querySelectorAll(".cchip").forEach(function (c) { c.addEventListener("click", function () { cFilter = c.dataset.c; renderCrawled(); }); });
+  document.getElementById("cq").addEventListener("input", function (e) { cQuery = e.target.value.trim().toLowerCase(); renderCrawled(); });
+  document.querySelectorAll(".tab").forEach(function (t) {
+    t.addEventListener("click", function () {
+      document.querySelectorAll(".tab").forEach(function (o) { o.setAttribute("aria-selected", String(o === t)); });
+      document.getElementById("view-crawled").hidden = t.dataset.v !== "crawled";
+      document.getElementById("view-shots").hidden = t.dataset.v !== "shots";
+    });
+  });
+  renderCrawled();
+</script>

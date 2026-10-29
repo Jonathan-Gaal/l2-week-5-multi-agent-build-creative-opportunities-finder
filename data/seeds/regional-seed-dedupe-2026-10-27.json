@@ -1,0 +1,2052 @@
+{
+  "research_date": "2026-10-27",
+  "existing_seed_count": 62,
+  "research_lead_count": 284,
+  "snapshot_records_checked": 541,
+  "dedupe_method": "Canonical URL (www/scheme/trailing slash/tracking parameters normalized), reviewed Islip alias and ArtsWestchester program match, existing snapshot source URL check, shared-calendar grouping. Same host alone does not imply a duplicate.",
+  "dispositions": {
+    "new_seed": 252,
+    "existing_seed": 6,
+    "existing_snapshot_source": 1,
+    "grouped_shared_source": 25
+  },
+  "new_public_seed_count": 252,
+  "new_paid_display_only_seed_count": 1,
+  "total_seed_count": 315,
+  "original_seed_ids": [
+    "hyperallergic-monthly",
+    "dcla-funding-for-artists",
+    "bronx-council-on-the-arts",
+    "brooklyn-arts-council",
+    "lmcc-manhattan-arts-grants",
+    "nyfa-queens-arts-fund",
+    "staten-island-arts",
+    "bronx-museum-aim",
+    "residency-unlimited",
+    "cpr-air-2026",
+    "hi-arts-open-call",
+    "iscp",
+    "air-gallery-fellowship",
+    "laundromat-create-change",
+    "queens-council-on-the-arts",
+    "artconnect",
+    "aaartsalliance",
+    "entrythingy-ny",
+    "artdeadline",
+    "mta-arts-design-and-percent-for-art",
+    "dcla-public-art-opportunities",
+    "nyfa-opportunities-board",
+    "bronx-arts-archive",
+    "creative-capital",
+    "vanderplas-open-call",
+    "colossal-monthly",
+    "fee-based-aggregators",
+    "only-for-artists-substack",
+    "cafe-call-for-entry",
+    "the-open-call-list",
+    "open-calls-index",
+    "flushing-town-hall",
+    "snug-harbor-open-calls",
+    "movement-research",
+    "ipa",
+    "smack-mellon",
+    "roulette",
+    "wave-hill",
+    "queens-museum",
+    "dance-nyc-listings",
+    "nywift",
+    "exploring-the-metropolis",
+    "museum-of-the-moving-image",
+    "art-new-york",
+    "eyebeam",
+    "noguchi-museum",
+    "poets-house",
+    "broadwayworld-auditions",
+    "playbill-jobs",
+    "artswestchester",
+    "huntington-arts",
+    "islip-arts",
+    "jc-arts",
+    "njsca",
+    "kunstraum",
+    "badslava",
+    "openmikes",
+    "huntington-arts-calendar",
+    "tribe-events-api",
+    "jazznearyou",
+    "eventbrite",
+    "meetup"
+  ],
+  "new_seed_ids": [
+    "regional-here-performance-lab",
+    "regional-liquitex-just-imagine-residency",
+    "regional-briclab",
+    "regional-pioneer-works-residency",
+    "regional-culture-lab-lic-performance-proposals",
+    "regional-flux-iv-project-proposals",
+    "regional-flux-factory-residency",
+    "regional-pepatian-home-based-dancing-futures",
+    "regional-bronx-river-art-center-workshop-proposals",
+    "regional-alice-austen-house-photographer-residency",
+    "regional-guttenberg-arts-star",
+    "regional-newark-arts-artstart",
+    "regional-arts-council-of-princeton-artist-residency",
+    "regional-norwalk-art-space-resident-artist",
+    "regional-foundation-house-artist-residency",
+    "regional-silvermine-exhibition-calls",
+    "regional-art-omi-residency-programs",
+    "regional-culture-push-fellowship-for-utopian-practice",
+    "regional-project-14c-live-work-residency",
+    "regional-provision-fund",
+    "regional-connecticut-artist-fellowship",
+    "regional-mccc-spring-2027-artist-residency",
+    "regional-monira-residency",
+    "regional-nj-individual-artist-fellowship",
+    "regional-natureplace-newark-residency",
+    "regional-dieu-donne-workspace-residency",
+    "regional-alterwork-studios-residency",
+    "regional-watermill-center-artist-residency",
+    "regional-wassaic-project-artist-residency",
+    "regional-i-park-residency-programs",
+    "regional-surge-studios",
+    "regional-weir-farm-artist-in-residence",
+    "regional-brooklyn-arts-exchange-air",
+    "regional-peters-valley-printmaking-residency",
+    "regional-nars-international-artist-residency",
+    "regional-harvestworks-new-works-residency",
+    "regional-jacklabs-jack-artist-residencies",
+    "regional-dixon-place-performance-submissions",
+    "regional-baxter-st-residency",
+    "regional-saltonstall-juried-residency",
+    "regional-bolsterarts-studio-residency",
+    "regional-peep-space-flat-file-not-flat-file",
+    "regional-wave-farm-research-and-production",
+    "regional-millay-arts-core-residency",
+    "regional-yaddo-residency",
+    "regional-woodstock-byrdcliffe-residency",
+    "regional-the-local-silver-sun-residency",
+    "regional-recess-session",
+    "regional-center-for-book-arts-air",
+    "regional-sculpturecenter-in-practice",
+    "regional-socrates-fellowship",
+    "regional-art-house-inkubator-performing-residencies",
+    "regional-five-points-small-works-juried-show",
+    "regional-copland-house-residency-awards",
+    "regional-guild-hall-artist-residency-programs",
+    "regional-sculpture-space-residency",
+    "regional-light-work-artist-residency",
+    "regional-squeaky-wheel-workspace-residency",
+    "regional-arts-letters-and-numbers-residency",
+    "regional-artists-alliance-les-studio-program",
+    "regional-chashama-space-to-present",
+    "regional-chashama-space-to-connect",
+    "regional-eugene-oneill-national-playwrights-conference",
+    "regional-farmington-valley-arts-center-air",
+    "regional-real-art-awards",
+    "regional-rowan-healing-arts-visual-artist-residency",
+    "regional-long-island-arts-alliance-opportunity-index",
+    "regional-huntington-new-works-artist-grant",
+    "regional-patchogue-moca-lights-calls",
+    "regional-patchogue-annual-mural-commission",
+    "regional-patchogue-arts-on-terry-artist-and-music-calls",
+    "regional-art-league-of-long-island-current-calls",
+    "regional-art-league-of-long-island-resident-membership",
+    "regional-mas-house-bipoc-artist-residency",
+    "regional-fire-island-artist-residency",
+    "regional-edward-f-albee-foundation-residency",
+    "regional-east-end-arts-glimmer-2027",
+    "regional-heckscher-long-island-biennial",
+    "regional-colored-colors-artist-and-music-calls",
+    "regional-usdan-artists-in-residence",
+    "regional-further-on-air",
+    "regional-long-island-nysca-fiscal-sponsorship-route",
+    "regional-bacca-artist-opportunities",
+    "regional-freeport-library-community-drum-circle",
+    "regional-middle-country-library-drum-circle",
+    "regional-port-jefferson-acoustic-guitar-open-mic",
+    "regional-south-country-open-mic-afternoon",
+    "regional-connetquot-acoustic-jam-session",
+    "regional-longwood-diy-makerlab",
+    "regional-huntington-public-library-makerspace",
+    "regional-hauppauge-library-media-studio",
+    "regional-patchogue-medford-studio-e",
+    "regional-sachem-library-studio",
+    "regional-great-neck-library-stem-lab",
+    "regional-cutchogue-acoustic-jam-wind-down-friday",
+    "regional-cutchogue-knitting-crochet-and-beading-group",
+    "regional-riverhead-yarn-tales",
+    "regional-emma-clark-creative-writing-workshop",
+    "regional-huntington-writers-workshop-grades-4",
+    "regional-ltv-studios-open-mic",
+    "regional-garden-grill-open-mic",
+    "regional-rams-head-inn-open-mic",
+    "regional-anthonys-live-open-mic-and-jam",
+    "regional-barrier-brewing-open-mic",
+    "regional-band-of-veterans-and-friends-open-mic",
+    "regional-peninsula-library-cozy-games-and-crafts",
+    "regional-jalopy-weekly-open-mic",
+    "regional-jazz-foundation-monday-night-jam",
+    "regional-nuyorican-community-open-mics",
+    "regional-bowery-poetry-se-buscan-poetas",
+    "regional-brooklyn-library-sunset-park-recording-studio",
+    "regional-kings-highway-teen-tech-center-open-mic",
+    "regional-nypl-tremont-sound-lab",
+    "regional-staten-island-memoirs-outloud",
+    "regional-queens-library-afro-caribbean-dance-and-drum",
+    "regional-princeton-library-open-acoustic-jam",
+    "regional-nj-acoustic-music-in-the-park",
+    "regional-ocean-county-library-open-mic",
+    "regional-plainfield-library-papermaking-with-frontline-arts",
+    "regional-hoboken-library-makerspace",
+    "regional-danbury-monthly-poetry-and-open-mic",
+    "regional-danbury-beginner-ukulele-workshop",
+    "regional-simsbury-uke-hoot",
+    "regional-enfield-library-community-drum-circle",
+    "regional-coventry-poet-laureate-reading-series",
+    "regional-meetinghouse-open-mic-shields-hall",
+    "regional-east-hampton-senior-center-drum-circle",
+    "regional-westport-library-verso-studios",
+    "regional-new-haven-ives-squared-tinker-lab",
+    "regional-longwood-friday-night-jam",
+    "regional-earth-beat-drum-and-song-circle",
+    "regional-robert-moses-full-moon-drum-circle",
+    "regional-the-art-guild-whats-the-message",
+    "regional-westbury-arts-our-world-in-color",
+    "regional-boffo-fire-island-residency-and-public-programs",
+    "regional-the-church-a-c-e-program",
+    "regional-coventry-poets-corner-community-open-mic",
+    "regional-jazz-loft-wednesday-jam-session",
+    "regional-loft-school-of-jazz",
+    "regional-parsnip-lake-house-open-jam",
+    "regional-carneys-south-shore-original-open-mic",
+    "regional-sanger-hall-too-much-and-extra-open-mic",
+    "regional-sanger-hall-bump-in-the-night-open-mic",
+    "regional-flushing-town-hall-monthly-jazz-jam",
+    "regional-langston-hughes-library-bailoterapia-community-dance",
+    "regional-bronx-music-hall-youth-rhythm-and-percussion",
+    "regional-bombazo-bomba-dance-and-drumming",
+    "regional-south-bronx-folk-festival-danza-fiesta",
+    "regional-college-of-staten-island-open-mic",
+    "regional-staten-island-museum-transcribe-a-thon",
+    "regional-snug-harbor-tiny-gardens-terrarium-workshop",
+    "regional-staten-island-makerspace-community-workshop",
+    "regional-smalls-jazz-jam-sessions",
+    "regional-writopia-and-nuyorican-teen-open-mic",
+    "regional-jericho-library-knitting-with-edye",
+    "regional-middle-country-fall-writers-group",
+    "regional-smithtown-library-adult-writers-group",
+    "regional-long-island-clay-open-studio",
+    "regional-long-island-community-chorus",
+    "regional-island-hills-chorus-guest-rehearsals",
+    "regional-makerspacect-fabrication-classes",
+    "regional-makehaven-tours-and-creative-workspace",
+    "regional-spark-makerspace-open-sew",
+    "regional-shoreline-arts-trail-open-studios",
+    "regional-easton-arts-center-conference-week-studio",
+    "regional-brick-city-writers-at-newark-library",
+    "regional-jersey-city-writers-one-mic-stand",
+    "regional-hopewell-poets-and-storytellers-open",
+    "regional-frontline-paper-for-veterans",
+    "regional-wholehearted-art-attic-open-studio",
+    "regional-mocha-mic-with-millie",
+    "regional-ocean-county-accessible-drum-circle",
+    "regional-newark-rush-hour-open-mic",
+    "regional-cinema-arts-centre-northshore-original-open-mic",
+    "regional-sanger-hall-open-jam-with-live-accompaniment",
+    "regional-daisys-patchogue-lisa-polizzi-jam",
+    "regional-writopia-frightopia-anthology-submission",
+    "regional-bric-brooklyn-poetry-slam",
+    "regional-patchogue-arts-council-photographers-group",
+    "regional-east-end-arts-printmaking",
+    "regional-east-end-arts-mindful-energy-figure-drawing",
+    "regional-east-end-arts-creative-writing-out-of-the-box",
+    "regional-east-end-arts-womens-writing-studio",
+    "regional-makerspace-nyc-ceramics",
+    "regional-coventry-arts-guild-ekphrastic-writing-workshop",
+    "regional-coventry-arts-guild-ekphrastic-music-workshop",
+    "regional-guttenberg-arts-printmaking-studio-access",
+    "regional-guttenberg-arts-ceramics-studio-access",
+    "regional-litma-contra-dance",
+    "regional-country-dance-new-york-contra-dance",
+    "regional-theatre-three-oliver-auditions",
+    "regional-theatre-three-forever-plaid-auditions",
+    "regional-cultural-arts-playhouse-spring-awakening-auditions",
+    "regional-enfield-library-crochet-basics-with-mel",
+    "regional-westport-library-sit-and-stitch",
+    "regional-derby-neck-library-needlers-club",
+    "regional-danbury-library-cozy-conversational-craft-club",
+    "regional-montgomery-library-teen-creative-writing-workshop",
+    "regional-burlington-county-library-adult-writing-group",
+    "regional-evesham-library-creative-writing-peer-workshop",
+    "regional-south-brunswick-library-citykidzworld-memories-writing",
+    "regional-north-bergen-library-creative-writing-club",
+    "regional-jersey-city-library-book-bedazzling",
+    "regional-cranford-library-teen-creative-writing",
+    "regional-monroe-township-library-creative-writing",
+    "regional-bridgewater-library-writers-group",
+    "regional-monroe-township-library-tween-ukulele",
+    "regional-reading-rhythms-queens-gathered-around-books",
+    "regional-brooklyn-community-sing",
+    "regional-newark-poet-laureate-mia-x-people-s-open-mic",
+    "regional-brick-brick-by-brick-open-mic-night",
+    "regional-google-meet-jersey-city-writers-jc-plums-poetry-workshop",
+    "regional-bayonne-the-unraveled-project-unraveled-poetry-syndicate-at-cafe-26",
+    "regional-teaneck-speak-open-mic",
+    "regional-trenton-freedom-friday-open-mic",
+    "regional-howell-the-southard-grange-playhouse-open-mic-night",
+    "regional-rutherford-the-red-wheelbarrow-poetry",
+    "regional-new-brunswich-3o-burgers-x-brews-burgers-beats-open-mic",
+    "regional-cliffside-park-the-grantwood-poetry-reading-series",
+    "regional-south-plainfield-soulful-poets-poetry-music-open-mic-night",
+    "regional-penns-grove-eric-crow-draven-the-open-mic",
+    "regional-wayne-high-mountain-meadow-poetry-series",
+    "regional-princeton-junction-open-mouth-poetry",
+    "regional-jersey-city-writers-publishing-poetry-with-rescuepoetix-tabitha-dial",
+    "regional-highland-park-poetry-festival",
+    "regional-westfield-first-congregational-church-first-open-mic-night",
+    "regional-princeton-story-verse-a-storytelling-and-poetic-open-mic",
+    "regional-boonton-boonton-coffee-literary-open-mic",
+    "regional-willingboro-boro-open-mic",
+    "regional-union-letitflow-poetry-show",
+    "regional-medford-open-mic-at-studio-67",
+    "regional-rahway-what-s-the-word-poetry-open-mic",
+    "regional-highland-park-ra-ces-inclusive-programming-initiative-iguasabara-open-mic-2",
+    "regional-writers-on-writing-endings",
+    "regional-teens-craft-chat-and-chill-mini-framed-art-magnets",
+    "regional-crafts-stitch-club-princeton",
+    "regional-watercolor-greeting-cards-adult-craft",
+    "regional-intro-to-sewing-get-to-know-your-machine",
+    "regional-grant-writing-meetup-collaboration-and-accountability",
+    "regional-plane-simple-woodworking-meetup",
+    "regional-cnc-woodworking-basics-designing-with-vcarve",
+    "regional-handcrafted-pens-wood-turning-workshop",
+    "regional-craft-your-own-cutting-board-intro-to-woodworking-basics",
+    "regional-knot-just-knitting-crochet-embroidery-and-more",
+    "regional-adult-crafting-companions-byoc",
+    "regional-crochet-a-granny-square",
+    "regional-mini-basket-weaving-craft-mini-cestas",
+    "regional-mi-kmaq-quill-art-craft",
+    "regional-usdan-composition-and-songwriting",
+    "regional-usdan-creative-writing",
+    "regional-usdan-sewing-and-fashion-design",
+    "regional-usdan-theater-improvisation-and-games"
+  ],
+  "new_paid_seed_ids": [
+    "artenda"
+  ],
+  "records": [
+    {
+      "research_id": "tri-001",
+      "name": "HERE Performance Lab",
+      "disposition": "new_seed",
+      "seed_id": "regional-here-performance-lab"
+    },
+    {
+      "research_id": "tri-002",
+      "name": "Liquitex Just Imagine Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-liquitex-just-imagine-residency"
+    },
+    {
+      "research_id": "tri-003",
+      "name": "BRIClab",
+      "disposition": "new_seed",
+      "seed_id": "regional-briclab"
+    },
+    {
+      "research_id": "tri-004",
+      "name": "Pioneer Works Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-pioneer-works-residency"
+    },
+    {
+      "research_id": "tri-005",
+      "name": "Culture Lab LIC Performance Proposals",
+      "disposition": "new_seed",
+      "seed_id": "regional-culture-lab-lic-performance-proposals"
+    },
+    {
+      "research_id": "tri-006",
+      "name": "Flux IV Project Proposals",
+      "disposition": "new_seed",
+      "seed_id": "regional-flux-iv-project-proposals"
+    },
+    {
+      "research_id": "tri-007",
+      "name": "Flux Factory Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-flux-factory-residency"
+    },
+    {
+      "research_id": "tri-008",
+      "name": "Pepatian Home Based / Dancing Futures",
+      "disposition": "new_seed",
+      "seed_id": "regional-pepatian-home-based-dancing-futures"
+    },
+    {
+      "research_id": "tri-009",
+      "name": "Bronx River Art Center Workshop Proposals",
+      "disposition": "new_seed",
+      "seed_id": "regional-bronx-river-art-center-workshop-proposals"
+    },
+    {
+      "research_id": "tri-010",
+      "name": "Alice Austen House / Photographer Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-alice-austen-house-photographer-residency"
+    },
+    {
+      "research_id": "tri-011",
+      "name": "Guttenberg Arts STAR",
+      "disposition": "new_seed",
+      "seed_id": "regional-guttenberg-arts-star"
+    },
+    {
+      "research_id": "tri-012",
+      "name": "Newark Arts ArtStart",
+      "disposition": "new_seed",
+      "seed_id": "regional-newark-arts-artstart"
+    },
+    {
+      "research_id": "tri-013",
+      "name": "Arts Council of Princeton Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-arts-council-of-princeton-artist-residency"
+    },
+    {
+      "research_id": "tri-014",
+      "name": "Norwalk Art Space Resident Artist",
+      "disposition": "new_seed",
+      "seed_id": "regional-norwalk-art-space-resident-artist"
+    },
+    {
+      "research_id": "tri-015",
+      "name": "Foundation House Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-foundation-house-artist-residency"
+    },
+    {
+      "research_id": "tri-016",
+      "name": "Silvermine Exhibition Calls",
+      "disposition": "new_seed",
+      "seed_id": "regional-silvermine-exhibition-calls"
+    },
+    {
+      "research_id": "tri-017",
+      "name": "Art Omi Residency Programs",
+      "disposition": "new_seed",
+      "seed_id": "regional-art-omi-residency-programs"
+    },
+    {
+      "research_id": "tri-018",
+      "name": "Culture Push Fellowship for Utopian Practice",
+      "disposition": "new_seed",
+      "seed_id": "regional-culture-push-fellowship-for-utopian-practice"
+    },
+    {
+      "research_id": "tri-019",
+      "name": "Project 14C Live/Work Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-project-14c-live-work-residency"
+    },
+    {
+      "research_id": "tri-020",
+      "name": "Provision Fund",
+      "disposition": "new_seed",
+      "seed_id": "regional-provision-fund"
+    },
+    {
+      "research_id": "tri-021",
+      "name": "Connecticut Artist Fellowship",
+      "disposition": "new_seed",
+      "seed_id": "regional-connecticut-artist-fellowship"
+    },
+    {
+      "research_id": "tri-022",
+      "name": "MCCC Spring 2027 Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-mccc-spring-2027-artist-residency"
+    },
+    {
+      "research_id": "tri-023",
+      "name": "Monira Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-monira-residency"
+    },
+    {
+      "research_id": "tri-024",
+      "name": "NJ Individual Artist Fellowship",
+      "disposition": "new_seed",
+      "seed_id": "regional-nj-individual-artist-fellowship"
+    },
+    {
+      "research_id": "tri-025",
+      "name": "NaturePLACE Newark Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-natureplace-newark-residency"
+    },
+    {
+      "research_id": "tri-026",
+      "name": "Dieu Donne Workspace Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-dieu-donne-workspace-residency"
+    },
+    {
+      "research_id": "tri-027",
+      "name": "AlterWork Studios Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-alterwork-studios-residency"
+    },
+    {
+      "research_id": "tri-028",
+      "name": "ArtsWestchester Arts Alive Artist Funding",
+      "disposition": "existing_seed",
+      "seed_id": "artswestchester",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "tri-029",
+      "name": "Watermill Center Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-watermill-center-artist-residency"
+    },
+    {
+      "research_id": "tri-030",
+      "name": "Wassaic Project Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-wassaic-project-artist-residency"
+    },
+    {
+      "research_id": "tri-031",
+      "name": "I-Park Residency Programs",
+      "disposition": "new_seed",
+      "seed_id": "regional-i-park-residency-programs"
+    },
+    {
+      "research_id": "tri-032",
+      "name": "SURGE Studios",
+      "disposition": "new_seed",
+      "seed_id": "regional-surge-studios"
+    },
+    {
+      "research_id": "tri-033",
+      "name": "Weir Farm Artist-in-Residence",
+      "disposition": "new_seed",
+      "seed_id": "regional-weir-farm-artist-in-residence"
+    },
+    {
+      "research_id": "tri-034",
+      "name": "Brooklyn Arts Exchange AIR",
+      "disposition": "new_seed",
+      "seed_id": "regional-brooklyn-arts-exchange-air"
+    },
+    {
+      "research_id": "tri-035",
+      "name": "Peters Valley Printmaking Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-peters-valley-printmaking-residency"
+    },
+    {
+      "research_id": "tri-036",
+      "name": "NARS International Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-nars-international-artist-residency"
+    },
+    {
+      "research_id": "tri-037",
+      "name": "Harvestworks New Works Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-harvestworks-new-works-residency"
+    },
+    {
+      "research_id": "tri-038",
+      "name": "JACKLabs / JACK Artist Residencies",
+      "disposition": "new_seed",
+      "seed_id": "regional-jacklabs-jack-artist-residencies"
+    },
+    {
+      "research_id": "tri-039",
+      "name": "Dixon Place Performance Submissions",
+      "disposition": "new_seed",
+      "seed_id": "regional-dixon-place-performance-submissions"
+    },
+    {
+      "research_id": "tri-040",
+      "name": "BAXTER ST Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-baxter-st-residency"
+    },
+    {
+      "research_id": "tri-041",
+      "name": "Saltonstall Juried Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-saltonstall-juried-residency"
+    },
+    {
+      "research_id": "tri-042",
+      "name": "BOLSTERarts Studio Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-bolsterarts-studio-residency"
+    },
+    {
+      "research_id": "tri-043",
+      "name": "Peep Space Flat File / Not Flat File",
+      "disposition": "new_seed",
+      "seed_id": "regional-peep-space-flat-file-not-flat-file"
+    },
+    {
+      "research_id": "tri-044",
+      "name": "Wave Farm Research and Production",
+      "disposition": "new_seed",
+      "seed_id": "regional-wave-farm-research-and-production"
+    },
+    {
+      "research_id": "tri-045",
+      "name": "Millay Arts Core Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-millay-arts-core-residency"
+    },
+    {
+      "research_id": "tri-046",
+      "name": "Yaddo Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-yaddo-residency"
+    },
+    {
+      "research_id": "tri-047",
+      "name": "Woodstock Byrdcliffe Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-woodstock-byrdcliffe-residency"
+    },
+    {
+      "research_id": "tri-048",
+      "name": "The Local / Silver Sun Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-the-local-silver-sun-residency"
+    },
+    {
+      "research_id": "tri-049",
+      "name": "Recess Session",
+      "disposition": "new_seed",
+      "seed_id": "regional-recess-session"
+    },
+    {
+      "research_id": "tri-050",
+      "name": "Center for Book Arts AIR",
+      "disposition": "new_seed",
+      "seed_id": "regional-center-for-book-arts-air"
+    },
+    {
+      "research_id": "tri-051",
+      "name": "SculptureCenter In Practice",
+      "disposition": "new_seed",
+      "seed_id": "regional-sculpturecenter-in-practice"
+    },
+    {
+      "research_id": "tri-052",
+      "name": "Socrates Fellowship",
+      "disposition": "new_seed",
+      "seed_id": "regional-socrates-fellowship"
+    },
+    {
+      "research_id": "tri-053",
+      "name": "Art House INKubator / Performing Residencies",
+      "disposition": "new_seed",
+      "seed_id": "regional-art-house-inkubator-performing-residencies"
+    },
+    {
+      "research_id": "tri-054",
+      "name": "NJ Folk and Traditional Arts Apprenticeship",
+      "disposition": "existing_seed",
+      "seed_id": "njsca",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "tri-055",
+      "name": "NJ Heritage Fellowship",
+      "disposition": "existing_seed",
+      "seed_id": "njsca",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "tri-056",
+      "name": "Five Points Small Works Juried Show",
+      "disposition": "new_seed",
+      "seed_id": "regional-five-points-small-works-juried-show"
+    },
+    {
+      "research_id": "tri-057",
+      "name": "Huntington Community Impact Micro Grant",
+      "disposition": "existing_snapshot_source",
+      "snapshot_titles": [
+        "Huntington Arts Council Community Impact Micro Grant (Round 6)"
+      ],
+      "reason": "Source URL already represented in published snapshot; no duplicate seed added."
+    },
+    {
+      "research_id": "tri-058",
+      "name": "Copland House Residency Awards",
+      "disposition": "new_seed",
+      "seed_id": "regional-copland-house-residency-awards"
+    },
+    {
+      "research_id": "tri-059",
+      "name": "Guild Hall Artist Residency Programs",
+      "disposition": "new_seed",
+      "seed_id": "regional-guild-hall-artist-residency-programs"
+    },
+    {
+      "research_id": "tri-060",
+      "name": "Sculpture Space Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-sculpture-space-residency"
+    },
+    {
+      "research_id": "tri-061",
+      "name": "Light Work Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-light-work-artist-residency"
+    },
+    {
+      "research_id": "tri-062",
+      "name": "Squeaky Wheel Workspace Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-squeaky-wheel-workspace-residency"
+    },
+    {
+      "research_id": "tri-063",
+      "name": "Arts Letters and Numbers Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-arts-letters-and-numbers-residency"
+    },
+    {
+      "research_id": "tri-064",
+      "name": "Artists Alliance LES Studio Program",
+      "disposition": "new_seed",
+      "seed_id": "regional-artists-alliance-les-studio-program"
+    },
+    {
+      "research_id": "tri-065",
+      "name": "Chashama Space to Present",
+      "disposition": "new_seed",
+      "seed_id": "regional-chashama-space-to-present"
+    },
+    {
+      "research_id": "tri-066",
+      "name": "Chashama Space to Connect",
+      "disposition": "new_seed",
+      "seed_id": "regional-chashama-space-to-connect"
+    },
+    {
+      "research_id": "tri-067",
+      "name": "Eugene ONeill National Playwrights Conference",
+      "disposition": "new_seed",
+      "seed_id": "regional-eugene-oneill-national-playwrights-conference"
+    },
+    {
+      "research_id": "tri-068",
+      "name": "Farmington Valley Arts Center AIR",
+      "disposition": "new_seed",
+      "seed_id": "regional-farmington-valley-arts-center-air"
+    },
+    {
+      "research_id": "tri-069",
+      "name": "Real Art Awards",
+      "disposition": "new_seed",
+      "seed_id": "regional-real-art-awards"
+    },
+    {
+      "research_id": "tri-070",
+      "name": "Rowan Healing Arts Visual Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-rowan-healing-arts-visual-artist-residency"
+    },
+    {
+      "research_id": "li-001",
+      "name": "Long Island Arts Alliance opportunity index",
+      "disposition": "new_seed",
+      "seed_id": "regional-long-island-arts-alliance-opportunity-index"
+    },
+    {
+      "research_id": "li-002",
+      "name": "Huntington New Works Artist Grant",
+      "disposition": "new_seed",
+      "seed_id": "regional-huntington-new-works-artist-grant"
+    },
+    {
+      "research_id": "li-003",
+      "name": "Islip Arts Council open calls",
+      "disposition": "existing_seed",
+      "seed_id": "islip-arts",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "li-004",
+      "name": "Patchogue MoCA LIghts calls",
+      "disposition": "new_seed",
+      "seed_id": "regional-patchogue-moca-lights-calls"
+    },
+    {
+      "research_id": "li-005",
+      "name": "Patchogue annual mural commission",
+      "disposition": "new_seed",
+      "seed_id": "regional-patchogue-annual-mural-commission"
+    },
+    {
+      "research_id": "li-006",
+      "name": "Patchogue Arts on Terry artist and music calls",
+      "disposition": "new_seed",
+      "seed_id": "regional-patchogue-arts-on-terry-artist-and-music-calls"
+    },
+    {
+      "research_id": "li-007",
+      "name": "Art League of Long Island current calls",
+      "disposition": "new_seed",
+      "seed_id": "regional-art-league-of-long-island-current-calls"
+    },
+    {
+      "research_id": "li-008",
+      "name": "Art League of Long Island resident membership",
+      "disposition": "new_seed",
+      "seed_id": "regional-art-league-of-long-island-resident-membership"
+    },
+    {
+      "research_id": "li-009",
+      "name": "Mas House BIPOC artist residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-mas-house-bipoc-artist-residency"
+    },
+    {
+      "research_id": "li-010",
+      "name": "Fire Island Artist Residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-fire-island-artist-residency"
+    },
+    {
+      "research_id": "li-011",
+      "name": "Edward F Albee Foundation residency",
+      "disposition": "new_seed",
+      "seed_id": "regional-edward-f-albee-foundation-residency"
+    },
+    {
+      "research_id": "li-012",
+      "name": "East End Arts GLIMMER 2027",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-end-arts-glimmer-2027"
+    },
+    {
+      "research_id": "li-013",
+      "name": "Heckscher Long Island Biennial",
+      "disposition": "new_seed",
+      "seed_id": "regional-heckscher-long-island-biennial"
+    },
+    {
+      "research_id": "li-014",
+      "name": "Colored Colors artist and music calls",
+      "disposition": "new_seed",
+      "seed_id": "regional-colored-colors-artist-and-music-calls"
+    },
+    {
+      "research_id": "li-015",
+      "name": "Usdan artists in residence",
+      "disposition": "new_seed",
+      "seed_id": "regional-usdan-artists-in-residence"
+    },
+    {
+      "research_id": "li-016",
+      "name": "Further On AIR",
+      "disposition": "new_seed",
+      "seed_id": "regional-further-on-air"
+    },
+    {
+      "research_id": "li-017",
+      "name": "Long Island NYSCA fiscal sponsorship route",
+      "disposition": "new_seed",
+      "seed_id": "regional-long-island-nysca-fiscal-sponsorship-route"
+    },
+    {
+      "research_id": "li-018",
+      "name": "BACCA artist opportunities",
+      "disposition": "new_seed",
+      "seed_id": "regional-bacca-artist-opportunities"
+    },
+    {
+      "research_id": "si-001",
+      "name": "Snug Harbor PASS residencies",
+      "disposition": "existing_seed",
+      "seed_id": "snug-harbor-open-calls",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "si-002",
+      "name": "Staten Island Arts grants and residencies",
+      "disposition": "existing_seed",
+      "seed_id": "staten-island-arts",
+      "reason": "Canonical URL match or reviewed organization/program alias; original source retained."
+    },
+    {
+      "research_id": "community-001",
+      "name": "Freeport Library Community Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-freeport-library-community-drum-circle"
+    },
+    {
+      "research_id": "community-002",
+      "name": "Middle Country Library Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-middle-country-library-drum-circle"
+    },
+    {
+      "research_id": "community-003",
+      "name": "Port Jefferson Acoustic Guitar Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-port-jefferson-acoustic-guitar-open-mic"
+    },
+    {
+      "research_id": "community-004",
+      "name": "South Country Open Mic Afternoon",
+      "disposition": "new_seed",
+      "seed_id": "regional-south-country-open-mic-afternoon"
+    },
+    {
+      "research_id": "community-005",
+      "name": "Connetquot Acoustic Jam Session",
+      "disposition": "new_seed",
+      "seed_id": "regional-connetquot-acoustic-jam-session"
+    },
+    {
+      "research_id": "community-006",
+      "name": "Connetquot Community Writers Group",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-connetquot-acoustic-jam-session"
+    },
+    {
+      "research_id": "community-007",
+      "name": "Connetquot Fiber Arts Club",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-connetquot-acoustic-jam-session"
+    },
+    {
+      "research_id": "community-008",
+      "name": "Connetquot One-on-One Craft Help",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-connetquot-acoustic-jam-session"
+    },
+    {
+      "research_id": "community-009",
+      "name": "Longwood DIY makerLAB",
+      "disposition": "new_seed",
+      "seed_id": "regional-longwood-diy-makerlab"
+    },
+    {
+      "research_id": "community-010",
+      "name": "Huntington Public Library Makerspace",
+      "disposition": "new_seed",
+      "seed_id": "regional-huntington-public-library-makerspace"
+    },
+    {
+      "research_id": "community-011",
+      "name": "Hauppauge Library Media Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-hauppauge-library-media-studio"
+    },
+    {
+      "research_id": "community-012",
+      "name": "Patchogue-Medford Studio E",
+      "disposition": "new_seed",
+      "seed_id": "regional-patchogue-medford-studio-e"
+    },
+    {
+      "research_id": "community-013",
+      "name": "Sachem Library Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-sachem-library-studio"
+    },
+    {
+      "research_id": "community-014",
+      "name": "Great Neck Library STEM Lab",
+      "disposition": "new_seed",
+      "seed_id": "regional-great-neck-library-stem-lab"
+    },
+    {
+      "research_id": "community-015",
+      "name": "Cutchogue Acoustic Jam / Wind Down Friday",
+      "disposition": "new_seed",
+      "seed_id": "regional-cutchogue-acoustic-jam-wind-down-friday"
+    },
+    {
+      "research_id": "community-016",
+      "name": "Cutchogue Knitting Crochet and Beading Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-cutchogue-knitting-crochet-and-beading-group"
+    },
+    {
+      "research_id": "community-017",
+      "name": "Riverhead Yarn Tales",
+      "disposition": "new_seed",
+      "seed_id": "regional-riverhead-yarn-tales"
+    },
+    {
+      "research_id": "community-018",
+      "name": "Riverhead Sewing 101",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-riverhead-yarn-tales"
+    },
+    {
+      "research_id": "community-019",
+      "name": "Riverhead Photo Club",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-riverhead-yarn-tales"
+    },
+    {
+      "research_id": "community-020",
+      "name": "Emma Clark Creative Writing Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-emma-clark-creative-writing-workshop"
+    },
+    {
+      "research_id": "community-021",
+      "name": "Huntington Writers Workshop Grades 4+",
+      "disposition": "new_seed",
+      "seed_id": "regional-huntington-writers-workshop-grades-4"
+    },
+    {
+      "research_id": "community-022",
+      "name": "LTV Studios Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-ltv-studios-open-mic"
+    },
+    {
+      "research_id": "community-023",
+      "name": "Garden Grill Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-garden-grill-open-mic"
+    },
+    {
+      "research_id": "community-024",
+      "name": "Rams Head Inn Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-rams-head-inn-open-mic"
+    },
+    {
+      "research_id": "community-025",
+      "name": "Anthonys Live Open Mic and Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-anthonys-live-open-mic-and-jam"
+    },
+    {
+      "research_id": "community-026",
+      "name": "Barrier Brewing Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-barrier-brewing-open-mic"
+    },
+    {
+      "research_id": "community-027",
+      "name": "Band of Veterans and Friends Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-band-of-veterans-and-friends-open-mic"
+    },
+    {
+      "research_id": "community-028",
+      "name": "Peninsula Library Cozy Games and Crafts",
+      "disposition": "new_seed",
+      "seed_id": "regional-peninsula-library-cozy-games-and-crafts"
+    },
+    {
+      "research_id": "community-029",
+      "name": "Jalopy Weekly Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-jalopy-weekly-open-mic"
+    },
+    {
+      "research_id": "community-030",
+      "name": "Jazz Foundation Monday Night Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-jazz-foundation-monday-night-jam"
+    },
+    {
+      "research_id": "community-031",
+      "name": "Nuyorican Community Open Mics",
+      "disposition": "new_seed",
+      "seed_id": "regional-nuyorican-community-open-mics"
+    },
+    {
+      "research_id": "community-032",
+      "name": "Bowery Poetry Se Buscan Poetas",
+      "disposition": "new_seed",
+      "seed_id": "regional-bowery-poetry-se-buscan-poetas"
+    },
+    {
+      "research_id": "community-033",
+      "name": "Brooklyn Library Sunset Park Recording Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-brooklyn-library-sunset-park-recording-studio"
+    },
+    {
+      "research_id": "community-034",
+      "name": "Kings Highway Teen Tech Center Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-kings-highway-teen-tech-center-open-mic"
+    },
+    {
+      "research_id": "community-035",
+      "name": "NYPL Tremont Sound Lab",
+      "disposition": "new_seed",
+      "seed_id": "regional-nypl-tremont-sound-lab"
+    },
+    {
+      "research_id": "community-036",
+      "name": "Staten Island Memoirs OutLOUD",
+      "disposition": "new_seed",
+      "seed_id": "regional-staten-island-memoirs-outloud"
+    },
+    {
+      "research_id": "community-037",
+      "name": "Queens Library Afro-Caribbean Dance and Drum",
+      "disposition": "new_seed",
+      "seed_id": "regional-queens-library-afro-caribbean-dance-and-drum"
+    },
+    {
+      "research_id": "community-038",
+      "name": "Princeton Library Open Acoustic Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-princeton-library-open-acoustic-jam"
+    },
+    {
+      "research_id": "community-039",
+      "name": "NJ Acoustic Music in the Park",
+      "disposition": "new_seed",
+      "seed_id": "regional-nj-acoustic-music-in-the-park"
+    },
+    {
+      "research_id": "community-040",
+      "name": "Ocean County Library Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-ocean-county-library-open-mic"
+    },
+    {
+      "research_id": "community-041",
+      "name": "Plainfield Library Papermaking with Frontline Arts",
+      "disposition": "new_seed",
+      "seed_id": "regional-plainfield-library-papermaking-with-frontline-arts"
+    },
+    {
+      "research_id": "community-042",
+      "name": "Hoboken Library MakerSpace",
+      "disposition": "new_seed",
+      "seed_id": "regional-hoboken-library-makerspace"
+    },
+    {
+      "research_id": "community-043",
+      "name": "Danbury Monthly Poetry and Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-danbury-monthly-poetry-and-open-mic"
+    },
+    {
+      "research_id": "community-044",
+      "name": "Danbury Beginner Ukulele Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-danbury-beginner-ukulele-workshop"
+    },
+    {
+      "research_id": "community-045",
+      "name": "Simsbury Uke Hoot",
+      "disposition": "new_seed",
+      "seed_id": "regional-simsbury-uke-hoot"
+    },
+    {
+      "research_id": "community-046",
+      "name": "Enfield Library Community Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-enfield-library-community-drum-circle"
+    },
+    {
+      "research_id": "community-047",
+      "name": "Enfield Library First Wednesdays Open Mic",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-enfield-library-community-drum-circle"
+    },
+    {
+      "research_id": "community-048",
+      "name": "Coventry Poet Laureate Reading Series",
+      "disposition": "new_seed",
+      "seed_id": "regional-coventry-poet-laureate-reading-series"
+    },
+    {
+      "research_id": "community-049",
+      "name": "Meetinghouse Open Mic Shields Hall",
+      "disposition": "new_seed",
+      "seed_id": "regional-meetinghouse-open-mic-shields-hall"
+    },
+    {
+      "research_id": "community-050",
+      "name": "East Hampton Senior Center Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-hampton-senior-center-drum-circle"
+    },
+    {
+      "research_id": "community-051",
+      "name": "Westport Library Verso Studios",
+      "disposition": "new_seed",
+      "seed_id": "regional-westport-library-verso-studios"
+    },
+    {
+      "research_id": "community-052",
+      "name": "New Haven Ives Squared Tinker Lab",
+      "disposition": "new_seed",
+      "seed_id": "regional-new-haven-ives-squared-tinker-lab"
+    },
+    {
+      "research_id": "community-053",
+      "name": "Riverhead Hallockville Old Time Jam",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-riverhead-yarn-tales"
+    },
+    {
+      "research_id": "community-054",
+      "name": "Longwood Friday Night Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-longwood-friday-night-jam"
+    },
+    {
+      "research_id": "community-055",
+      "name": "Earth Beat Drum and Song Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-earth-beat-drum-and-song-circle"
+    },
+    {
+      "research_id": "community-056",
+      "name": "Robert Moses Full Moon Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-robert-moses-full-moon-drum-circle"
+    },
+    {
+      "research_id": "follow-004",
+      "name": "The Art Guild: Whats the Message",
+      "disposition": "new_seed",
+      "seed_id": "regional-the-art-guild-whats-the-message"
+    },
+    {
+      "research_id": "follow-005",
+      "name": "Westbury Arts: Our World in Color",
+      "disposition": "new_seed",
+      "seed_id": "regional-westbury-arts-our-world-in-color"
+    },
+    {
+      "research_id": "follow-006",
+      "name": "BOFFO Fire Island Residency and Public Programs",
+      "disposition": "new_seed",
+      "seed_id": "regional-boffo-fire-island-residency-and-public-programs"
+    },
+    {
+      "research_id": "follow-007",
+      "name": "The Church A.C.E. Program",
+      "disposition": "new_seed",
+      "seed_id": "regional-the-church-a-c-e-program"
+    },
+    {
+      "research_id": "follow-003",
+      "name": "Coventry Poets Corner Community Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-coventry-poets-corner-community-open-mic"
+    },
+    {
+      "research_id": "community-extra-001",
+      "name": "Meetinghouse Acoustic Song Circle",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-meetinghouse-open-mic-shields-hall"
+    },
+    {
+      "research_id": "more-001",
+      "name": "Jazz Loft Wednesday Jam Session",
+      "disposition": "new_seed",
+      "seed_id": "regional-jazz-loft-wednesday-jam-session"
+    },
+    {
+      "research_id": "more-002",
+      "name": "Loft School of Jazz",
+      "disposition": "new_seed",
+      "seed_id": "regional-loft-school-of-jazz"
+    },
+    {
+      "research_id": "more-003",
+      "name": "Parsnip Lake House Open Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-parsnip-lake-house-open-jam"
+    },
+    {
+      "research_id": "more-004",
+      "name": "Carneys South Shore Original Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-carneys-south-shore-original-open-mic"
+    },
+    {
+      "research_id": "more-005",
+      "name": "Sanger Hall Too Much and Extra Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-sanger-hall-too-much-and-extra-open-mic"
+    },
+    {
+      "research_id": "more-006",
+      "name": "Sanger Hall Bump in the Night Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-sanger-hall-bump-in-the-night-open-mic"
+    },
+    {
+      "research_id": "more-007",
+      "name": "Flushing Town Hall Monthly Jazz Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-flushing-town-hall-monthly-jazz-jam"
+    },
+    {
+      "research_id": "more-008",
+      "name": "Langston Hughes Library Bailoterapia Community Dance",
+      "disposition": "new_seed",
+      "seed_id": "regional-langston-hughes-library-bailoterapia-community-dance"
+    },
+    {
+      "research_id": "more-009",
+      "name": "Bronx Music Hall Youth Rhythm and Percussion",
+      "disposition": "new_seed",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-010",
+      "name": "Bronx Music Hall Teen Music Production",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-011",
+      "name": "Bronx Music Hall Beginner Conga",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-012",
+      "name": "Bronx Music Hall Beginner Guitar",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-013",
+      "name": "Bronx Music Hall PLAYLIST Fusion Dance",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-014",
+      "name": "Bronx Music Hall Beginner Tap",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-015",
+      "name": "Bronx Music Hall Salsa for Seniors",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-016",
+      "name": "Bronx Capoeira at Bronx Music Hall",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-bronx-music-hall-youth-rhythm-and-percussion"
+    },
+    {
+      "research_id": "more-017",
+      "name": "Bombazo Bomba Dance and Drumming",
+      "disposition": "new_seed",
+      "seed_id": "regional-bombazo-bomba-dance-and-drumming"
+    },
+    {
+      "research_id": "more-018",
+      "name": "South Bronx Folk Festival Danza Fiesta",
+      "disposition": "new_seed",
+      "seed_id": "regional-south-bronx-folk-festival-danza-fiesta"
+    },
+    {
+      "research_id": "more-019",
+      "name": "College of Staten Island Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-college-of-staten-island-open-mic"
+    },
+    {
+      "research_id": "more-020",
+      "name": "Staten Island Museum Transcribe-a-thon",
+      "disposition": "new_seed",
+      "seed_id": "regional-staten-island-museum-transcribe-a-thon"
+    },
+    {
+      "research_id": "more-021",
+      "name": "Snug Harbor Tiny Gardens Terrarium Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-snug-harbor-tiny-gardens-terrarium-workshop"
+    },
+    {
+      "research_id": "more-022",
+      "name": "Staten Island MakerSpace Community Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-staten-island-makerspace-community-workshop"
+    },
+    {
+      "research_id": "more-023",
+      "name": "Brooklyn Army Terminal MakerSpace",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-staten-island-makerspace-community-workshop"
+    },
+    {
+      "research_id": "more-024",
+      "name": "Smalls Jazz Jam Sessions",
+      "disposition": "new_seed",
+      "seed_id": "regional-smalls-jazz-jam-sessions"
+    },
+    {
+      "research_id": "more-025",
+      "name": "Writopia and Nuyorican Teen Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-writopia-and-nuyorican-teen-open-mic"
+    },
+    {
+      "research_id": "more-026",
+      "name": "Jericho Library Knitting with Edye",
+      "disposition": "new_seed",
+      "seed_id": "regional-jericho-library-knitting-with-edye"
+    },
+    {
+      "research_id": "more-027",
+      "name": "Middle Country Fall Writers Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-middle-country-fall-writers-group"
+    },
+    {
+      "research_id": "more-028",
+      "name": "Smithtown Library Adult Writers Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-smithtown-library-adult-writers-group"
+    },
+    {
+      "research_id": "more-029",
+      "name": "Long Island Clay Open Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-long-island-clay-open-studio"
+    },
+    {
+      "research_id": "more-030",
+      "name": "Long Island Community Chorus",
+      "disposition": "new_seed",
+      "seed_id": "regional-long-island-community-chorus"
+    },
+    {
+      "research_id": "more-031",
+      "name": "Island Hills Chorus Guest Rehearsals",
+      "disposition": "new_seed",
+      "seed_id": "regional-island-hills-chorus-guest-rehearsals"
+    },
+    {
+      "research_id": "more-032",
+      "name": "MakerspaceCT Fabrication Classes",
+      "disposition": "new_seed",
+      "seed_id": "regional-makerspacect-fabrication-classes"
+    },
+    {
+      "research_id": "more-033",
+      "name": "MakeHaven Tours and Creative Workspace",
+      "disposition": "new_seed",
+      "seed_id": "regional-makehaven-tours-and-creative-workspace"
+    },
+    {
+      "research_id": "more-034",
+      "name": "Spark Makerspace Open Sew",
+      "disposition": "new_seed",
+      "seed_id": "regional-spark-makerspace-open-sew"
+    },
+    {
+      "research_id": "more-035",
+      "name": "Spark Electronics and Technology Meetup",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-spark-makerspace-open-sew"
+    },
+    {
+      "research_id": "more-036",
+      "name": "Shoreline Arts Trail Open Studios",
+      "disposition": "new_seed",
+      "seed_id": "regional-shoreline-arts-trail-open-studios"
+    },
+    {
+      "research_id": "more-037",
+      "name": "Easton Arts Center Conference Week Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-easton-arts-center-conference-week-studio"
+    },
+    {
+      "research_id": "more-038",
+      "name": "Brick City Writers at Newark Library",
+      "disposition": "new_seed",
+      "seed_id": "regional-brick-city-writers-at-newark-library"
+    },
+    {
+      "research_id": "more-039",
+      "name": "Jersey City Writers One-Mic Stand",
+      "disposition": "new_seed",
+      "seed_id": "regional-jersey-city-writers-one-mic-stand"
+    },
+    {
+      "research_id": "more-040",
+      "name": "Hopewell Poets and Storytellers Open",
+      "disposition": "new_seed",
+      "seed_id": "regional-hopewell-poets-and-storytellers-open"
+    },
+    {
+      "research_id": "more-041",
+      "name": "Frontline Paper for Veterans",
+      "disposition": "new_seed",
+      "seed_id": "regional-frontline-paper-for-veterans"
+    },
+    {
+      "research_id": "more-042",
+      "name": "Wholehearted Art Attic Open Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-wholehearted-art-attic-open-studio"
+    },
+    {
+      "research_id": "more-043",
+      "name": "Mocha Mic with Millie",
+      "disposition": "new_seed",
+      "seed_id": "regional-mocha-mic-with-millie"
+    },
+    {
+      "research_id": "more-044",
+      "name": "Ocean County Accessible Drum Circle",
+      "disposition": "new_seed",
+      "seed_id": "regional-ocean-county-accessible-drum-circle"
+    },
+    {
+      "research_id": "more-045",
+      "name": "Newark Rush Hour Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-newark-rush-hour-open-mic"
+    },
+    {
+      "research_id": "more-046",
+      "name": "Cinema Arts Centre Northshore Original Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-cinema-arts-centre-northshore-original-open-mic"
+    },
+    {
+      "research_id": "more-047",
+      "name": "Sanger Hall Open Jam with Live Accompaniment",
+      "disposition": "new_seed",
+      "seed_id": "regional-sanger-hall-open-jam-with-live-accompaniment"
+    },
+    {
+      "research_id": "more-048",
+      "name": "Daisys Patchogue Lisa Polizzi Jam",
+      "disposition": "new_seed",
+      "seed_id": "regional-daisys-patchogue-lisa-polizzi-jam"
+    },
+    {
+      "research_id": "more-049",
+      "name": "Writopia Frightopia Anthology Submission",
+      "disposition": "new_seed",
+      "seed_id": "regional-writopia-frightopia-anthology-submission"
+    },
+    {
+      "research_id": "more-050",
+      "name": "ARTS 14C Artists Lunch",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-project-14c-live-work-residency"
+    },
+    {
+      "research_id": "more2-001",
+      "name": "BRIC Brooklyn Poetry Slam",
+      "disposition": "new_seed",
+      "seed_id": "regional-bric-brooklyn-poetry-slam"
+    },
+    {
+      "research_id": "more2-002",
+      "name": "Patchogue Arts Council Photographers Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-patchogue-arts-council-photographers-group"
+    },
+    {
+      "research_id": "more2-003",
+      "name": "East End Arts Printmaking",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-end-arts-printmaking"
+    },
+    {
+      "research_id": "more2-004",
+      "name": "East End Arts Mindful Energy Figure Drawing",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-end-arts-mindful-energy-figure-drawing"
+    },
+    {
+      "research_id": "more2-005",
+      "name": "East End Arts Creative Writing Out of the Box",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-end-arts-creative-writing-out-of-the-box"
+    },
+    {
+      "research_id": "more2-006",
+      "name": "East End Arts Womens Writing Studio",
+      "disposition": "new_seed",
+      "seed_id": "regional-east-end-arts-womens-writing-studio"
+    },
+    {
+      "research_id": "more2-007",
+      "name": "MakerSpace NYC Ceramics",
+      "disposition": "new_seed",
+      "seed_id": "regional-makerspace-nyc-ceramics"
+    },
+    {
+      "research_id": "more2-008",
+      "name": "Coventry Arts Guild Ekphrastic Writing Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-coventry-arts-guild-ekphrastic-writing-workshop"
+    },
+    {
+      "research_id": "more2-009",
+      "name": "Coventry Arts Guild Ekphrastic Music Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-coventry-arts-guild-ekphrastic-music-workshop"
+    },
+    {
+      "research_id": "more2-010",
+      "name": "Guttenberg Arts Printmaking Studio Access",
+      "disposition": "new_seed",
+      "seed_id": "regional-guttenberg-arts-printmaking-studio-access"
+    },
+    {
+      "research_id": "more2-011",
+      "name": "Guttenberg Arts Ceramics Studio Access",
+      "disposition": "new_seed",
+      "seed_id": "regional-guttenberg-arts-ceramics-studio-access"
+    },
+    {
+      "research_id": "more2-012",
+      "name": "LITMA Contra Dance",
+      "disposition": "new_seed",
+      "seed_id": "regional-litma-contra-dance"
+    },
+    {
+      "research_id": "more2-013",
+      "name": "Country Dance New York Contra Dance",
+      "disposition": "new_seed",
+      "seed_id": "regional-country-dance-new-york-contra-dance"
+    },
+    {
+      "research_id": "more2-014",
+      "name": "Theatre Three Oliver Auditions",
+      "disposition": "new_seed",
+      "seed_id": "regional-theatre-three-oliver-auditions"
+    },
+    {
+      "research_id": "more2-015",
+      "name": "Theatre Three Forever Plaid Auditions",
+      "disposition": "new_seed",
+      "seed_id": "regional-theatre-three-forever-plaid-auditions"
+    },
+    {
+      "research_id": "more2-016",
+      "name": "Cultural Arts Playhouse Spring Awakening Auditions",
+      "disposition": "new_seed",
+      "seed_id": "regional-cultural-arts-playhouse-spring-awakening-auditions"
+    },
+    {
+      "research_id": "more2-017",
+      "name": "Enfield Library Crochet Basics with Mel",
+      "disposition": "new_seed",
+      "seed_id": "regional-enfield-library-crochet-basics-with-mel"
+    },
+    {
+      "research_id": "more2-018",
+      "name": "Westport Library Sit and Stitch",
+      "disposition": "new_seed",
+      "seed_id": "regional-westport-library-sit-and-stitch"
+    },
+    {
+      "research_id": "more2-019",
+      "name": "Derby Neck Library Needlers Club",
+      "disposition": "new_seed",
+      "seed_id": "regional-derby-neck-library-needlers-club"
+    },
+    {
+      "research_id": "more2-020",
+      "name": "Danbury Library Cozy Conversational Craft Club",
+      "disposition": "new_seed",
+      "seed_id": "regional-danbury-library-cozy-conversational-craft-club"
+    },
+    {
+      "research_id": "more2-021",
+      "name": "Montgomery Library Teen Creative Writing Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-montgomery-library-teen-creative-writing-workshop"
+    },
+    {
+      "research_id": "more2-022",
+      "name": "Burlington County Library Adult Writing Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-burlington-county-library-adult-writing-group"
+    },
+    {
+      "research_id": "more2-023",
+      "name": "Evesham Library Creative Writing Peer Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-evesham-library-creative-writing-peer-workshop"
+    },
+    {
+      "research_id": "more2-024",
+      "name": "South Brunswick Library CityKidzWorld Memories Writing",
+      "disposition": "new_seed",
+      "seed_id": "regional-south-brunswick-library-citykidzworld-memories-writing"
+    },
+    {
+      "research_id": "more2-025",
+      "name": "North Bergen Library Creative Writing Club",
+      "disposition": "new_seed",
+      "seed_id": "regional-north-bergen-library-creative-writing-club"
+    },
+    {
+      "research_id": "more2-026",
+      "name": "Jersey City Library Book Bedazzling",
+      "disposition": "new_seed",
+      "seed_id": "regional-jersey-city-library-book-bedazzling"
+    },
+    {
+      "research_id": "more2-027",
+      "name": "Cranford Library Teen Creative Writing",
+      "disposition": "new_seed",
+      "seed_id": "regional-cranford-library-teen-creative-writing"
+    },
+    {
+      "research_id": "more2-028",
+      "name": "Monroe Township Library Creative Writing",
+      "disposition": "new_seed",
+      "seed_id": "regional-monroe-township-library-creative-writing"
+    },
+    {
+      "research_id": "more2-029",
+      "name": "Bridgewater Library Writers Group",
+      "disposition": "new_seed",
+      "seed_id": "regional-bridgewater-library-writers-group"
+    },
+    {
+      "research_id": "more2-030",
+      "name": "Monroe Township Library Tween Ukulele",
+      "disposition": "new_seed",
+      "seed_id": "regional-monroe-township-library-tween-ukulele"
+    },
+    {
+      "research_id": "more2-031",
+      "name": "Reading Rhythms Queens Gathered Around Books",
+      "disposition": "new_seed",
+      "seed_id": "regional-reading-rhythms-queens-gathered-around-books"
+    },
+    {
+      "research_id": "more2-032",
+      "name": "Country Dance New York English Country Dance",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-country-dance-new-york-contra-dance"
+    },
+    {
+      "research_id": "more2-033",
+      "name": "Brooklyn Community Sing",
+      "disposition": "new_seed",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-034",
+      "name": "Staten Island Sing at St George Library",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-035",
+      "name": "Landmark Tavern Irish Traditional Music Session",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-036",
+      "name": "Sunnyside Singers Club",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-037",
+      "name": "South Street Seaport Sea Chantey Sing",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-038",
+      "name": "Noble Maritime Sea Shanty Sessions",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-039",
+      "name": "Brooklyn Contra at Camp Friendship",
+      "disposition": "grouped_shared_source",
+      "seed_id": "regional-brooklyn-community-sing"
+    },
+    {
+      "research_id": "more2-040",
+      "name": "NEWARK - POET LAUREATE MIA X: PEOPLE'S OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-newark-poet-laureate-mia-x-people-s-open-mic"
+    },
+    {
+      "research_id": "more2-041",
+      "name": "BRICK - BRICK by BRICK OPEN MIC NIGHT",
+      "disposition": "new_seed",
+      "seed_id": "regional-brick-brick-by-brick-open-mic-night"
+    },
+    {
+      "research_id": "more2-042",
+      "name": "GOOGLE MEET - Jersey City Writers: JC Plums Poetry Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-google-meet-jersey-city-writers-jc-plums-poetry-workshop"
+    },
+    {
+      "research_id": "more2-043",
+      "name": "BAYONNE - The Unraveled Project: Unraveled Poetry Syndicate at Cafe 26",
+      "disposition": "new_seed",
+      "seed_id": "regional-bayonne-the-unraveled-project-unraveled-poetry-syndicate-at-cafe-26"
+    },
+    {
+      "research_id": "more2-044",
+      "name": "TEANECK - SPEAK! OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-teaneck-speak-open-mic"
+    },
+    {
+      "research_id": "more2-045",
+      "name": "TRENTON - FREEDOM FRIDAY OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-trenton-freedom-friday-open-mic"
+    },
+    {
+      "research_id": "more2-046",
+      "name": "HOWELL - The Southard Grange Playhouse: OPEN MIC NIGHT",
+      "disposition": "new_seed",
+      "seed_id": "regional-howell-the-southard-grange-playhouse-open-mic-night"
+    },
+    {
+      "research_id": "more2-047",
+      "name": "RUTHERFORD - The Red Wheelbarrow Poetry",
+      "disposition": "new_seed",
+      "seed_id": "regional-rutherford-the-red-wheelbarrow-poetry"
+    },
+    {
+      "research_id": "more2-048",
+      "name": "NEW BRUNSWICH - 3O BURGERS X BREWS: Burgers BEATS OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-new-brunswich-3o-burgers-x-brews-burgers-beats-open-mic"
+    },
+    {
+      "research_id": "more2-049",
+      "name": "CLIFFSIDE PARK - THE GRANTWOOD POETRY READING SERIES",
+      "disposition": "new_seed",
+      "seed_id": "regional-cliffside-park-the-grantwood-poetry-reading-series"
+    },
+    {
+      "research_id": "more2-050",
+      "name": "SOUTH PLAINFIELD - Soulful Poets: POETRY & MUSIC OPEN MIC NIGHT",
+      "disposition": "new_seed",
+      "seed_id": "regional-south-plainfield-soulful-poets-poetry-music-open-mic-night"
+    },
+    {
+      "research_id": "more2-051",
+      "name": "PENNS GROVE - ERIC CROW DRAVEN: THE OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-penns-grove-eric-crow-draven-the-open-mic"
+    },
+    {
+      "research_id": "more2-052",
+      "name": "WAYNE - High Mountain Meadow Poetry Series",
+      "disposition": "new_seed",
+      "seed_id": "regional-wayne-high-mountain-meadow-poetry-series"
+    },
+    {
+      "research_id": "more2-053",
+      "name": "PRINCETON JUNCTION - Open Mouth Poetry",
+      "disposition": "new_seed",
+      "seed_id": "regional-princeton-junction-open-mouth-poetry"
+    },
+    {
+      "research_id": "more2-054",
+      "name": "JERSEY CITY WRITERS: PUBLISHING POETRY WITH RESCUEPOETIX & TABITHA DIAL",
+      "disposition": "new_seed",
+      "seed_id": "regional-jersey-city-writers-publishing-poetry-with-rescuepoetix-tabitha-dial"
+    },
+    {
+      "research_id": "more2-055",
+      "name": "Highland Park Poetry Festival",
+      "disposition": "new_seed",
+      "seed_id": "regional-highland-park-poetry-festival"
+    },
+    {
+      "research_id": "more2-056",
+      "name": "WESTFIELD - First Congregational Church: First OPEN MIC NIGHT",
+      "disposition": "new_seed",
+      "seed_id": "regional-westfield-first-congregational-church-first-open-mic-night"
+    },
+    {
+      "research_id": "more2-057",
+      "name": "PRINCETON - Story & Verse: A Storytelling and Poetic Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-princeton-story-verse-a-storytelling-and-poetic-open-mic"
+    },
+    {
+      "research_id": "more2-058",
+      "name": "BOONTON - Boonton COFFEE Literary Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-boonton-boonton-coffee-literary-open-mic"
+    },
+    {
+      "research_id": "more2-059",
+      "name": "WILLINGBORO - BORO OPEN MIC",
+      "disposition": "new_seed",
+      "seed_id": "regional-willingboro-boro-open-mic"
+    },
+    {
+      "research_id": "more2-060",
+      "name": "UNION - LetItFlow Poetry Show",
+      "disposition": "new_seed",
+      "seed_id": "regional-union-letitflow-poetry-show"
+    },
+    {
+      "research_id": "more2-061",
+      "name": "MEDFORD - OPEN MIC AT STUDIO 67",
+      "disposition": "new_seed",
+      "seed_id": "regional-medford-open-mic-at-studio-67"
+    },
+    {
+      "research_id": "more2-062",
+      "name": "RAHWAY - What's the Word Poetry Open Mic",
+      "disposition": "new_seed",
+      "seed_id": "regional-rahway-what-s-the-word-poetry-open-mic"
+    },
+    {
+      "research_id": "more2-063",
+      "name": "HIGHLAND PARK - RAÍCES INCLUSIVE PROGRAMMING INITIATIVE: iGUASABARA! OPEN MIC '26",
+      "disposition": "new_seed",
+      "seed_id": "regional-highland-park-ra-ces-inclusive-programming-initiative-iguasabara-open-mic-2"
+    },
+    {
+      "research_id": "more2-064",
+      "name": "Writers on Writing: Endings",
+      "disposition": "new_seed",
+      "seed_id": "regional-writers-on-writing-endings"
+    },
+    {
+      "research_id": "more2-065",
+      "name": "Teens: Craft, Chat and Chill - Mini Framed Art Magnets",
+      "disposition": "new_seed",
+      "seed_id": "regional-teens-craft-chat-and-chill-mini-framed-art-magnets"
+    },
+    {
+      "research_id": "more2-066",
+      "name": "Crafts: Stitch Club Princeton",
+      "disposition": "new_seed",
+      "seed_id": "regional-crafts-stitch-club-princeton"
+    },
+    {
+      "research_id": "more2-067",
+      "name": "Watercolor Greeting Cards - Adult Craft",
+      "disposition": "new_seed",
+      "seed_id": "regional-watercolor-greeting-cards-adult-craft"
+    },
+    {
+      "research_id": "more2-068",
+      "name": "Intro to Sewing: Get to Know Your Machine",
+      "disposition": "new_seed",
+      "seed_id": "regional-intro-to-sewing-get-to-know-your-machine"
+    },
+    {
+      "research_id": "more2-069",
+      "name": "Grant Writing Meetup: Collaboration and Accountability",
+      "disposition": "new_seed",
+      "seed_id": "regional-grant-writing-meetup-collaboration-and-accountability"
+    },
+    {
+      "research_id": "more2-070",
+      "name": "Plane & Simple: Woodworking Meetup",
+      "disposition": "new_seed",
+      "seed_id": "regional-plane-simple-woodworking-meetup"
+    },
+    {
+      "research_id": "more2-071",
+      "name": "CNC Woodworking Basics: Designing with VCarve",
+      "disposition": "new_seed",
+      "seed_id": "regional-cnc-woodworking-basics-designing-with-vcarve"
+    },
+    {
+      "research_id": "more2-072",
+      "name": "Handcrafted Pens: Wood Turning Workshop",
+      "disposition": "new_seed",
+      "seed_id": "regional-handcrafted-pens-wood-turning-workshop"
+    },
+    {
+      "research_id": "more2-073",
+      "name": "Craft Your Own Cutting Board: Intro to Woodworking Basics",
+      "disposition": "new_seed",
+      "seed_id": "regional-craft-your-own-cutting-board-intro-to-woodworking-basics"
+    },
+    {
+      "research_id": "more2-074",
+      "name": "Knot Just Knitting: Crochet, Embroidery and more",
+      "disposition": "new_seed",
+      "seed_id": "regional-knot-just-knitting-crochet-embroidery-and-more"
+    },
+    {
+      "research_id": "more2-075",
+      "name": "Adult Crafting Companions - BYOC",
+      "disposition": "new_seed",
+      "seed_id": "regional-adult-crafting-companions-byoc"
+    },
+    {
+      "research_id": "more2-076",
+      "name": "Crochet a Granny Square",
+      "disposition": "new_seed",
+      "seed_id": "regional-crochet-a-granny-square"
+    },
+    {
+      "research_id": "more2-077",
+      "name": "Mini Basket Weaving Craft / Mini cestas",
+      "disposition": "new_seed",
+      "seed_id": "regional-mini-basket-weaving-craft-mini-cestas"
+    },
+    {
+      "research_id": "more2-078",
+      "name": "Mi'kmaq Quill Art Craft",
+      "disposition": "new_seed",
+      "seed_id": "regional-mi-kmaq-quill-art-craft"
+    },
+    {
+      "research_id": "more2-079",
+      "name": "Usdan Composition and Songwriting",
+      "disposition": "new_seed",
+      "seed_id": "regional-usdan-composition-and-songwriting"
+    },
+    {
+      "research_id": "more2-080",
+      "name": "Usdan Creative Writing",
+      "disposition": "new_seed",
+      "seed_id": "regional-usdan-creative-writing"
+    },
+    {
+      "research_id": "more2-081",
+      "name": "Usdan Sewing and Fashion Design",
+      "disposition": "new_seed",
+      "seed_id": "regional-usdan-sewing-and-fashion-design"
+    },
+    {
+      "research_id": "more2-082",
+      "name": "Usdan Theater Improvisation and Games",
+      "disposition": "new_seed",
+      "seed_id": "regional-usdan-theater-improvisation-and-games"
+    }
+  ]
+}

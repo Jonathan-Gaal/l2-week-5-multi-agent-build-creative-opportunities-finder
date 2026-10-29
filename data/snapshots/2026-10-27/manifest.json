@@ -1,0 +1,1027 @@
+{
+  "snapshot_id": "2026-10-27",
+  "snapshot_date": "2026-10-27",
+  "status": "staging",
+  "record_count": 1526,
+  "by_borough": {
+    "manhattan": 527,
+    "brooklyn": 248,
+    "queens": 109,
+    "unknown": 78,
+    "staten_island": 40,
+    "bronx": 39,
+    "citywide": 12
+  },
+  "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
+  "dedupe_key": "normalized title | borough (or region when borough is null) | deadline.",
+  "verification": [
+    "Every eligibility quote was matched verbatim against the fetched page text.",
+    "Every source_url returned HTTP 200 on 2026-10-27.",
+    "robots.txt was checked for ClaudeBot, anthropic-ai, Claude-User, and * before crawling each domain.",
+    "2026-10-27 deep pass: every quote checked against its own source page (cached or live), not the pooled corpus; all 541 records pass and all 535 URLs return 200.",
+    "2026-10-27 second pass: 651 records; every quote matched on the record's own page and every URL returned 200. One record dropped whose quote could not be confirmed on its own page; one dropped for a malformed URL.",
+    "2026-10-27 recall audit: 27 records recovered from pages the title filter rejected (428 candidates reviewed); all 27 verified on their own pages.",
+    "2026-10-28 addition: 76 records. Each source_url returned 200 on 2026-10-28 through the crawler (robots for ClaudeBot, anthropic-ai, Claude-User and *; bot-challenge and terms checks). API records: title found on the page and every kept quote matched verbatim. Regional leads: the record's date matched verbatim on the page and is the quote. SAM.gov: quotes matched against the official notice text from the API.",
+    "2026-10-28: 4 Huntington Arts series posted twice by the organizer were merged (occurrence dates combined); the later copies are logged in dropped_records.",
+    "2026-10-28 held-source pass: 7 records from 7 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
+    "2026-10-28: 17 youth-only or non-creative records removed after a youth-wording sweep (Queens Teens Institute plus 16); logged in dropped_records.",
+    "2026-10-28 held-source pass: 2 records from 1 sources. Each source_url returned 200 through the crawler (paid denylist, robots.txt, bot challenge, terms); title and dated line found on the record's own page; eligibility quotes matched verbatim (scripts/verify_sources.py).",
+    "2026-10-28 team decision (class project, not commercial): 405 records from Mara's 2026-10-27 backfill of Craigslist, FireMics, Playbill and A4 were added without rechecking, because those sites' terms or robots.txt don't allow automated checks. They carry extraction 'mara_backfill_unverified' and a caveat. No new requests were made to those sites."
+  ],
+  "sources": {
+    "ingested_with_records": [
+      "bronx-council-on-the-arts",
+      "lmcc-manhattan-arts-grants",
+      "staten-island-arts",
+      "hyperallergic-monthly",
+      "aaartsalliance",
+      "flushing-town-hall",
+      "air-gallery-fellowship",
+      "movement-research",
+      "ipa",
+      "smack-mellon",
+      "roulette",
+      "wave-hill",
+      "queens-museum",
+      "dance-nyc-listings",
+      "broadwayworld-auditions",
+      "artswestchester",
+      "huntington-arts",
+      "islip-arts",
+      "jc-arts",
+      "njsca",
+      "badslava",
+      "openmikes",
+      "huntington-arts-calendar (events API)",
+      "society-of-illustrators (events API)",
+      "staten-island-childrens-museum (events API)",
+      "staten-island-museum (events API)",
+      "nyfa-workshops (events API)",
+      "brooklyn-public-library",
+      "brooklyn-conservatory-of-music",
+      "montclair-art-museum",
+      "powerhouse-arts",
+      "nyc-parks",
+      "visual-aids",
+      "artswestchester-board",
+      "jalopy",
+      "nycsacredharp",
+      "cdny",
+      "nuyorican",
+      "omny-taiko",
+      "nycswings",
+      "nyc-parks (list-page microdata)",
+      "bric",
+      "hudson-valley-moca",
+      "chhandayan",
+      "tnny",
+      "drama-league",
+      "choral-chameleon",
+      "central-city-chorus",
+      "brooklyn-botanic-garden",
+      "center-at-west-park",
+      "jazz-at-lincoln-center",
+      "6sqft (secondary, Irish sessions)",
+      "chinese-theatre-works",
+      "daisys-li",
+      "arts-council-princeton",
+      "guild-hall",
+      "five-points-arts",
+      "open-source-gallery",
+      "squeaky-wheel",
+      "api-nyc-jobs",
+      "api-sam-opportunities",
+      "regional-baxter-st-residency",
+      "regional-saltonstall-juried-residency",
+      "regional-peep-space-flat-file-not-flat-file",
+      "regional-wave-farm-research-and-production",
+      "regional-east-end-arts-glimmer-2027",
+      "regional-freeport-library-community-drum-circle",
+      "regional-middle-country-library-drum-circle",
+      "regional-ocean-county-library-open-mic",
+      "regional-enfield-library-community-drum-circle",
+      "regional-earth-beat-drum-and-song-circle",
+      "regional-the-art-guild-whats-the-message",
+      "regional-flushing-town-hall-monthly-jazz-jam",
+      "regional-south-bronx-folk-festival-danza-fiesta",
+      "regional-snug-harbor-tiny-gardens-terrarium-workshop",
+      "regional-shoreline-arts-trail-open-studios",
+      "regional-patchogue-arts-council-photographers-group",
+      "regional-coventry-arts-guild-ekphrastic-writing-workshop",
+      "regional-coventry-arts-guild-ekphrastic-music-workshop",
+      "regional-enfield-library-crochet-basics-with-mel",
+      "regional-westport-library-sit-and-stitch",
+      "regional-derby-neck-library-needlers-club",
+      "regional-north-bergen-library-creative-writing-club",
+      "regional-bridgewater-library-writers-group",
+      "regional-writers-on-writing-endings",
+      "regional-crafts-stitch-club-princeton",
+      "regional-watercolor-greeting-cards-adult-craft",
+      "regional-plane-simple-woodworking-meetup",
+      "regional-cnc-woodworking-basics-designing-with-vcarve",
+      "regional-handcrafted-pens-wood-turning-workshop",
+      "regional-craft-your-own-cutting-board-intro-to-woodworking-basics",
+      "regional-knot-just-knitting-crochet-embroidery-and-more",
+      "regional-crochet-a-granny-square",
+      "regional-mini-basket-weaving-craft-mini-cestas",
+      "regional-mi-kmaq-quill-art-craft",
+      "exp3-efa-residencies",
+      "regional-arts-council-of-princeton-artist-residency",
+      "regional-culture-lab-lic-performance-proposals",
+      "regional-millay-arts-core-residency",
+      "regional-patchogue-annual-mural-commission",
+      "regional-westbury-arts-our-world-in-color",
+      "regional-woodstock-byrdcliffe-residency",
+      "mara-craigslist-new-york",
+      "mara-firemics-open-mics",
+      "playbill-jobs"
+    ],
+    "ingested_zero_open_records": {
+      "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
+      "brooklyn-arts-council": "Arts Fund deadline Oct 11, 2026 passed. Only open form is a panelist application.",
+      "bronx-museum-aim": "No open calls on Submittable. AIM closed Oct 25, 2026.",
+      "residency-unlimited": "Only past open calls listed.",
+      "cpr-air-2026": "2027 call closed Aug 24, 2026.",
+      "hi-arts-open-call": "Closed Jun 30, 2026.",
+      "laundromat-create-change": "No open calls on Submittable. Annual cycle opens around November.",
+      "snug-harbor-open-calls": "PASS closed May 15, 2026. Annual cycle opens around April.",
+      "nyfa-queens-arts-fund": "nyfa.org behind a Cloudflare challenge. QAF records are sourced via the NYFA-posted AAA listing."
+    },
+    "presentation_only": {
+      "the-open-call-list": "Paid Substack.",
+      "open-calls-index": "Paid Substack (11 of 12 recent issues paid-only).",
+      "iscp": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "museum-of-the-moving-image": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "art-new-york": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "eyebeam": "robots.txt disallows ClaudeBot.",
+      "new-inc": "newmuseum.org robots.txt disallows anthropic-ai.",
+      "poets-house": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "noguchi-museum": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "bronx-arts-ensemble": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "bang-on-a-can": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "playbill": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "guild-hall": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "eyebeam (NYC Residency, deadline reported Nov 15)": "robots.txt disallows ClaudeBot; not verified.",
+      "jazznearyou": "robots.txt disallows ClaudeBot and anthropic-ai.",
+      "nyc-parks events API": "robots.txt disallows the wp-json path; individual event pages are allowed and were used.",
+      "thesession.org": "robots.txt disallows Claude.",
+      "ma.to": "robots.txt disallows Claude.",
+      "folkmusicny.org": "robots.txt disallows Claude.",
+      "cdss.org": "robots.txt disallows Claude.",
+      "thepit-nyc.com": "robots.txt disallows ClaudeBot.",
+      "greenwichhouse.org": "robots.txt disallows Claude.",
+      "nycsacredharp.org": "robots.txt disallows Claude (the group's current site, nycsacredharp.com, allows it).",
+      "shapenotesingings.com": "robots.txt disallows ClaudeBot. One page was fetched in error before the gate existed; it was deleted unused.",
+      "societyillustrators.org": "robots.txt disallows Claude agents for event pages and the events API query."
+    },
+    "not_crawled_robots": {
+      "bronxarts.org": "robots.txt disallows ClaudeBot and anthropic-ai; Content-Signal ai-train=no. Bronx grants are read from bronxcouncilonthearts.submittable.com instead."
+    },
+    "cut_this_pass": {
+      "queens-council-on-the-arts": "Domain hijacked (gambling spam). Unsafe.",
+      "artconnect": "City filter ignored server-side; mostly international and fee-based; NYC items duplicate primary sources.",
+      "entrythingy-ny": "Cloudflare bot challenge on retry.",
+      "artdeadline": "Login-gated member listings; free results are national.",
+      "mta-arts-design-and-percent-for-art": "mta.info returns 403; Percent for Art page lists no open calls.",
+      "cafe-call-for-entry": "Redirects to Creative West; NY filter ignored; national.",
+      "nywift": "Compromised: homepage carries hidden 1x1 casino backlinks (SEO spam injection). Unsafe; not crawled.",
+      "exploring-the-metropolis": "etmonline.org now belongs to Education Through Music; organization mismatch.",
+      "brooklyn-museum": "Vercel security checkpoint (429).",
+      "el-museo-del-barrio": "Cloudflare challenge.",
+      "public-theater": "robots.txt disallows Claude agents and Cloudflare challenge.",
+      "center-for-fiction": "robots.txt disallows Claude agents and Cloudflare challenge.",
+      "queens-theatre": "Redirect loop.",
+      "queens-world-film-festival": "Timed out twice.",
+      "seven-house-gallery": "Domain does not resolve.",
+      "kunstraum": "Invalid TLS certificate.",
+      "stamford-arts": "Domain does not resolve.",
+      "ct-office-of-the-arts": "Guessed URL 404; not located.",
+      "east-lynne-theater": "Cape May, outside the metro area.",
+      "nyfa-classifieds": "Cloudflare challenge (intermittent).",
+      "artswestchester (after crawl)": "Began returning a Cloudflare challenge; crawl stopped, 13 pages already fetched were used.",
+      "spring-studio": "Domain does not resolve.",
+      "queens-library events": "Event pages return an image CAPTCHA.",
+      "ucbcomedy.com": "Returns 403.",
+      "circuswarehouse.com": "Domain parked (redirects to /lander).",
+      "st-george-theatre": "Returns 403.",
+      "query.wikidata.org / overpass-api.de": "robots.txt disallows all agents; no data used."
+    },
+    "crawled_no_open_records": {
+      "queens-museum (Jerome Fellowship)": "Closed Sep 28, 2026.",
+      "studio-museum": "2026-27 residency already started.",
+      "pioneer-works": "2027 residency open call closed.",
+      "socrates-sculpture-park": "Fellowship open call resumes fall 2027.",
+      "nars-foundation": "US-based artists must apply in bi-annual open calls; none open.",
+      "jcal": "Submittable shows no open calls.",
+      "design-trust": "Water open call finalists already selected.",
+      "new-dramatists (Kleban Prize)": "Application window not open.",
+      "mnn": "Deadline May 1, 2026.",
+      "art-lab-si": "'Legacy' call posted April 2026; no current call.",
+      "new-music-usa": "Open programs are national, not NYC.",
+      "no opportunity pages found": "si-museum, mad, st-george, bric, gibney, mark-morris, aiga-ny, van-alen, harvestworks, clocktower, uniondocs, kundiman, aaww, bpl, nypl, qpl, chashama, bronx-museum, lehman-center, whedco, casita-maria, bronxdoc, nysci, sichildrensmuseum, lpac, bam, dixon-place, here, la-mama, the-tank, issue-project, pregones (auditions by email list only), flushing-town-hall (already ingested)",
+      "tri-state, no open calls found": "mana-contemporary, montclair-art-museum, newark-museum, hoboken-cultural-affairs, silvermine, aldrich, discover-norwalk, hudson-valley-moca, katonah, pelham-art-center, wppac, paper-mill, njpac",
+      "national-arts-club": "Fellowship deadline Oct 30, 2026, but eligibility is NYC metro and no record was built; add on next pass.",
+      "jerome-foundation": "NYC Film Production Grant step 2 is invite-only.",
+      "powerhouse-arts": "2027-28 AiR applications not yet open.",
+      "nycplaywrights": "Listings are mostly national; She/NYC festival not verified on its own page.",
+      "uncool-artist": "Online residency, $45 fee, not NYC-located."
+    },
+    "not_crawled_terms": {
+      "eventbrite": "Terms prohibit automated access.",
+      "meetup": "Terms prohibit automated access."
+    }
+  },
+  "dropped_records": [
+    {
+      "title": "Bronx Museum AIM Fellowship",
+      "source": "hyperallergic-monthly",
+      "reason": "past_deadline",
+      "detail": "Deadline Oct 25, 2026."
+    },
+    {
+      "title": "Brooklyn Arts Council 2027 Arts Fund",
+      "source": "brooklyn-arts-council",
+      "reason": "past_deadline",
+      "detail": "Deadline Oct 11, 2026."
+    },
+    {
+      "title": "Rauschenberg Medical Emergency Grants Cycle 39",
+      "source": "aaartsalliance",
+      "reason": "outside_nyc",
+      "detail": "Open to US residents nationally; not an NYC opportunity."
+    },
+    {
+      "title": "Arts Grants for Queens (AAA listing)",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "AAA card showed 'Dec 01'; detail page shows Dec 22, 2021. Superseded by the Flushing Town Hall primary page."
+    },
+    {
+      "title": "GO Queens Grant (AAA listing)",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "AAA card showed 'Dec 01'; detail page shows Dec 18, 2025. Superseded by the Flushing Town Hall primary page."
+    },
+    {
+      "title": "Gotham Park Mid-Autumn Festival performer/host",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "Marked Rolling, but the event was the 2026 Mid-Autumn Festival."
+    },
+    {
+      "title": "CALL FOR ART: DREAMER'S PERSPECTIVES",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "Marked Rolling; exhibition ran Sep 19 - Oct 3."
+    },
+    {
+      "title": "Call for Art \"SOS Installment II: Where We Land\"",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "Marked Rolling; submissions due Jul 1, 2026 (extended to Jul 10)."
+    },
+    {
+      "title": "REHEARSE FOR FREE AT BKCM THIS JUNE",
+      "source": "aaartsalliance",
+      "reason": "past_deadline",
+      "detail": "Marked Rolling; free hours were June 1-30, 2026."
+    },
+    {
+      "title": "Young Artist Chamber Music Program (YACMP)",
+      "source": "aaartsalliance",
+      "reason": "ineligible",
+      "detail": "Youth training program, not an artist opportunity; listing ZIP is 'xxxxx'."
+    },
+    {
+      "title": "Cultural Development Fund Panelist Open Call",
+      "source": "aaartsalliance",
+      "reason": "ineligible",
+      "detail": "Panelist service, not an artist opportunity."
+    },
+    {
+      "title": "ELSEHERE listings (6)",
+      "source": "aaartsalliance",
+      "reason": "unsafe",
+      "detail": "Pay-to-publish reviews, features, and visa-evidence services marketed as open calls (invalidator 7)."
+    },
+    {
+      "title": "Hyperallergic non-NYC items (11)",
+      "source": "hyperallergic-monthly",
+      "reason": "outside_nyc",
+      "detail": "ArtFields, ACC, Loewe, Image Centre, Millay, Arts + Public Life, ASF, Ransom Center, PAAM, SAAM; several also past deadline."
+    },
+    {
+      "title": "Dance/NYC: Changing Times Tap Initiative",
+      "source": "dance-nyc-listings",
+      "reason": "past_deadline",
+      "detail": "Due Oct 15, 2026."
+    },
+    {
+      "title": "Dance/NYC: Emerging Choreographer Series 2027",
+      "source": "dance-nyc-listings",
+      "reason": "past_deadline",
+      "detail": "Round 1 deadline Oct 11, 2026."
+    },
+    {
+      "title": "Dance/NYC: Kizuna and Buglisi auditions",
+      "source": "dance-nyc-listings",
+      "reason": "ineligible",
+      "detail": "Invitation only."
+    },
+    {
+      "title": "Dance/NYC: nightlife and event performer casting",
+      "source": "dance-nyc-listings",
+      "reason": "ineligible",
+      "detail": "Freelance gig/job listings, not open calls."
+    },
+    {
+      "title": "Dance/NYC: WIP 2027 Choreographic Lab",
+      "source": "dance-nyc-listings",
+      "reason": "outside_nyc",
+      "detail": "Watertown, MA."
+    },
+    {
+      "title": "NYFA Rauschenberg Dancer Emergency Grants Cycle 27",
+      "source": "nyfa",
+      "reason": "outside_nyc",
+      "detail": "National program."
+    },
+    {
+      "title": "New Music USA Reel Change Film Fund",
+      "source": "new-music-usa",
+      "reason": "outside_nyc",
+      "detail": "National program."
+    },
+    {
+      "title": "THE GRAND DELUSION (Brooklyn Academy of Music)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "THE GRAND DELUSION (Brooklyn Academy of Music)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "THE GRAND DELUSION (Brooklyn Academy of Music)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "PURPOSE and THE WINTER'S TALE (Oregon Shakespeare Festival)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "MIX AND MASTER (Roundabout Theatre Company)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "ONCE and LES MISERABLES (STAGES St. Louis)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "AIN'T TOO PROUD (Harborside Productions LLC)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "AIN'T TOO PROUD (Harborside Productions LLC)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "AIN'T TOO PROUD (Harborside Productions LLC)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "AIN'T TOO PROUD (Harborside Productions LLC)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "AIN'T TOO PROUD (Harborside Productions LLC)",
+      "source": "broadwayworld-auditions",
+      "reason": "no_detail",
+      "detail": "BroadwayWorld detail page has no audition date, location, or seeking block (likely video submission or expired)."
+    },
+    {
+      "title": "The Painting Center Art File",
+      "source": "artcallentry",
+      "reason": "unsafe",
+      "detail": "$100 annual fee after acceptance plus requested exhibition contributions (pay-to-play)."
+    },
+    {
+      "title": "NJ MLK Commission event grants",
+      "source": "njsca",
+      "reason": "ineligible",
+      "detail": "Event funding for organizations, due Oct 30."
+    },
+    {
+      "title": "Liquitex Just Imagine Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Winter 2027 page lists November 22; confirm year and sponsor conditions.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "MCCC Spring 2027 Artist Residency",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-10-31",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Watermill Center Artist Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "2027 call closed; next applications winter 2026/27; no participation fee; confirm application fee.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Weir Farm Artist-in-Residence",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Annual call November 1–January 31; confirm upcoming year on NPS application; age 25+.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Woodstock Byrdcliffe Residency",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "2027 communal/cottage applications advertised; paid participation and grants vary; counted once.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Socrates Fellowship",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Open call resumes fall 2027; confirm canonical English page before ingest.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "NJ Heritage Fellowship",
+      "source": "regional-research",
+      "reason": "deadline_not_confirmed",
+      "detail": "Nomination-based recognition; FY28 forms January 2027 and deadline February; $20000.",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Coventry Poet Laureate Reading Series",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "poetry reading series (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Meetinghouse Open Mic Shields Hall",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-18",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Meetinghouse Acoustic Song Circle",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-01",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Staten Island Museum Transcribe-a-thon",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-21",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "MakeHaven Tours and Creative Workspace",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "makerspace tours (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Writopia Frightopia Anthology Submission",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-13",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Country Dance New York Contra Dance",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-10-31",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Reading Rhythms Queens Gathered Around Books",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "book club (audience)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Country Dance New York English Country Dance",
+      "source": "regional-research",
+      "reason": "date_not_on_page",
+      "detail": "2026-11-03",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Grant Writing Meetup: Collaboration and Accountability",
+      "source": "regional-research",
+      "reason": "not_hands_on",
+      "detail": "grant-writing meetup, not creative practice",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Writers Workshop Grades 4+",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "youth only (grades 4+)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "East Hampton Senior Center Drum Circle",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "senior-center members",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Easton Arts Center Conference Week Studio",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "children ages 4+",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Ocean County Accessible Drum Circle",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "for adults with developmental disabilities",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Montgomery Library Teen Creative Writing Workshop",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "teens only (grades 7-12)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Burlington County Library Adult Writing Group",
+      "source": "regional-research",
+      "reason": "terms_unconfirmed",
+      "detail": "hosted on BiblioCommons (vendor); terms page unreadable on 2026-10-28",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "South Brunswick Library CityKidzWorld Memories Writing",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teens: Craft, Chat and Chill - Mini Framed Art Magnets",
+      "source": "regional-research",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Craft & Chill",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Park Open Studio",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Nature's Workshop: Fall Foliage Leaf Art",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Nature's Workshop: Fall Foliage Leaf Art",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Autumn Leaves Story Time and Craft",
+      "source": "api-nyc-event-calendar",
+      "reason": "page_http_error",
+      "detail": null,
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "ArtsWestchester Arts Alive Artist Funding",
+      "source": "artswestchester",
+      "reason": "duplicate",
+      "detail": "same listing as 'ArtsWestchester Arts Alive 2027 grants' (artswestchester)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Daisys Patchogue Lisa Polizzi Jam",
+      "source": "regional-daisys-patchogue-lisa-polizzi-jam",
+      "reason": "duplicate",
+      "detail": "same listing as 'Lisa Polizzi Jam' (daisys-li)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "4-Day Workshop: Enhance Your Understanding of Music Theory",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/4-day-workshop-enhance-your-understanding-of-music-theory/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Helen Murdock-Prep presents Adult Acting Classes",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/helen-murdock-prep-presents-adult-acting-classes/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Camera Club",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/huntington-camera-club/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "DJ Dancing with Swing Dance Long Island",
+      "source": "huntington-arts",
+      "reason": "duplicate",
+      "detail": "same series as https://www.huntingtonarts.org/event/dj-dancing-with-swing-dance-long-island-2/2026-10-27/ (organizer posted it twice; occurrences overlap)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "AlterWork Residency Program",
+      "source": "regional-alterwork-studios-residency",
+      "source_url": "https://www.alterworkstudios.com/residency",
+      "reason": "date not on page",
+      "detail": "page gives quarterly deadlines without a year and does not state where the residency is",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Norwalk Art Space Resident Artist",
+      "source": "regional-norwalk-art-space-resident-artist",
+      "source_url": "https://www.thenorwalkartspace.org/artist-application",
+      "reason": "ineligible",
+      "detail": "open only to CT-based artists; the linked application form says it is no longer accepting responses",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "NARS Residency Program, Rolling Admission",
+      "source": "regional-nars-international-artist-residency",
+      "source_url": "https://narsfoundation.submittable.com/submit",
+      "reason": "ineligible",
+      "detail": "rolling admission is for international artists only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Writopia Lab Frightopia anthology",
+      "source": "regional-writopia-frightopia-anthology-submission",
+      "source_url": "https://www.writopialab.org/",
+      "reason": "ineligible",
+      "detail": "youth writing program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "2027 B Free Awards",
+      "source": "regional-briclab",
+      "source_url": "https://bricartsmedia.org/",
+      "reason": "deadline not found",
+      "detail": "homepage says submissions are open; no deadline or eligibility on the pages read",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Third-party calls on the Arts Council of Princeton and Newark Arts opportunity boards",
+      "source": "regional-arts-council-of-princeton-artist-residency",
+      "source_url": "https://artscouncilofprinceton.org/artists/artist-opps/",
+      "reason": "aggregator date",
+      "detail": "dates listed by a board, not the organizer; Newark Arts board also shows placeholder deadlines (2030, 2045)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "chashama Spaces to Present",
+      "source": "regional-chashama-space-to-present",
+      "source_url": "https://chashama.org/spaces-to-present/",
+      "reason": "not an opportunity",
+      "detail": "spaces are listed as available for rent",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Queens Teens Institute for Art & Social Justice 2026-2027",
+      "source": "queens-museum",
+      "reason": "ineligible",
+      "detail": "teens only (Teens; art across visual, music, performance, and writing)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "The Whaling Museum and Education Center presents Seaside Crafts",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "kids gallery self-serve crafts",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Watercolor Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Still Life Drawing & Painting Program (Grade 6 – 12)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "students grades 6-12 only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Comic Art Workshop & Multi-week Intensive (Ages 8-14)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "children's program (ages 8-14)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Huntington Fine Arts presents Acrylic Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Sculpture Workshop & Multi-week Intensive (Ages 13-18)",
+      "source": "huntington-arts",
+      "reason": "ineligible",
+      "detail": "teens only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "The Whaling Museum presents Pickle-Making Workshop & Tasting",
+      "source": "huntington-arts",
+      "reason": "not hands-on creative",
+      "detail": "not creative practice (food workshop)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Interactive Poetry",
+      "source": "staten-island-childrens-museum",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teen Open Mic Night (Rye Arts Center)",
+      "source": "artswestchester",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Rock Salt and Watercolor Painting",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Kids Week: Nature Puppet Show",
+      "source": "nyc-parks-events",
+      "reason": "ineligible",
+      "detail": "children's program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Teen ArtsLab: Design in Motion",
+      "source": "mad",
+      "reason": "ineligible",
+      "detail": "high school students only (ages 13-18)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Monster Maker Lab (kids camp)",
+      "source": "pelham-art",
+      "reason": "ineligible",
+      "detail": "kids camp",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Art classes for teens",
+      "source": "mannycantor",
+      "reason": "ineligible",
+      "detail": "teens only",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Taylor School Youth Program (fall registration open)",
+      "source": "paul-taylor-dance",
+      "reason": "ineligible",
+      "detail": "youth program",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "LDC Curates: Choreography Showcase",
+      "source": "dance-nyc-listings",
+      "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/LAST-CHANCE-Apply-for-LDC-Curates-Choreography-Showcase/",
+      "reason": "duplicate",
+      "detail": "duplicate of 'LDC Curates: Choreography Showcase (Feb 2027)' (dance-nyc-listings)",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Robin Becker Dance Seeks Male Presenting Dancers",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "submissions closed October 18 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "OPEN CALL FOR CHOREOGRAPHERS – EMERGING CHOREOGRAPHER SERIES 2027 (ECS #14)",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "applications closed October 11 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Seeking African Contemporary Dancers",
+      "source": "dance-nyc-listings",
+      "source_url": null,
+      "reason": "past",
+      "detail": "audition was October 12 (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Poets House Showcase",
+      "source": "mara-poets-house",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Brooklyn Poets Mentorship Program",
+      "source": "mara-brooklyn-poets",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    },
+    {
+      "title": "Bronx Council on the Arts grant pages (Arts Fund, Community Arts, New Work)",
+      "source": "bronx-council-on-the-arts",
+      "source_url": null,
+      "reason": "robots_disallowed",
+      "detail": "robots.txt blocks Claude agents on the listing page (from Mara's backfill (data/snapshot.json))",
+      "checked": "2026-10-28"
+    }
+  ],
+  "known_gaps": [
+    "Eventbrite and Meetup terms prohibit scraping; library calendars (NYPL, Queens) are JS-only or CAPTCHA-gated.",
+    "About 1,728 roster orgs have no discoverable website by domain guessing.",
+    "BRIC's full class catalog loads through a filter app; only the orientation is linked.",
+    "NYC Parks rate-limits crawlers; its records come from list-page microdata fetched at 4s intervals.",
+    "Fee is 'unknown' wherever the page does not state one.",
+    "NYC Parks event pages returned 403 to the crawler on 2026-10-28; 5 NYC Event Calendar candidates held.",
+    "Eventbrite's public event search was shut down in 2019; the API can only re-read known event IDs, so it is not used."
+  ],
+  "by_discipline": {
+    "music": 560,
+    "comedy": 430,
+    "dance": 190,
+    "literary": 147,
+    "performance": 146,
+    "visual": 113,
+    "all": 112,
+    "theater": 60,
+    "craft": 24,
+    "film": 15,
+    "digital": 8,
+    "design": 7,
+    "research": 4,
+    "performing_arts": 2,
+    "architecture": 2,
+    "curatorial": 1,
+    "lens-based": 1,
+    "media": 1,
+    "writing": 1,
+    "sculpture": 1,
+    "textiles": 1,
+    "sound": 1,
+    "transmission": 1,
+    "technology": 1
+  },
+  "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
+  "by_region": {
+    "nyc": 1053,
+    "massachusetts": 86,
+    "pennsylvania": 85,
+    "long_island": 52,
+    "dc": 49,
+    "new_jersey": 48,
+    "maryland": 46,
+    "connecticut": 35,
+    "upstate_ny": 18,
+    "westchester_hudson": 17,
+    "rhode_island": 14,
+    "new_hampshire": 11,
+    "maine": 9,
+    "vermont": 3
+  },
+  "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
+  "by_type": {
+    "event/open_mic": 684,
+    "open_call/paid_gig": 318,
+    "open_call/audition": 117,
+    "event/workshop": 116,
+    "event/dance_night": 112,
+    "open_call": 53,
+    "event/jam": 36,
+    "event/class": 26,
+    "residency": 19,
+    "grant": 17,
+    "grant/fellowship": 8,
+    "event/drawing_session": 5,
+    "job/full_time": 5,
+    "open_call/competition": 3,
+    "open_call/commission": 2,
+    "residency/studio_access": 1,
+    "open_call/fellowship": 1,
+    "open_call/teaching_gig": 1,
+    "event/open_studio": 1,
+    "job/internship": 1
+  },
+  "by_extraction": {
+    "structured": 765,
+    "mara_backfill_unverified": 405,
+    "crawl_reviewed": 120,
+    "manual": 82,
+    "api": 67,
+    "mara_backfill_verified": 44,
+    "jsonld": 33,
+    "rendered": 7,
+    "auto_text": 3
+  },
+  "scope_notes": [
+    "2026-10-27: scope widened to every creative discipline (open-ended), the NYC tri-state metro, and participatory events (jams, open mics, drum circles, drawing sessions, workshops, classes) plus paid performer and teaching gigs.",
+    "Recurring events use deadline 'recurring' with a recurrence string; dated events use the next date as deadline.",
+    "extraction values: manual (hand-built from fetched pages), structured (parsed from a listing site's fixed fields), api (WordPress events calendar API), crawl_reviewed (auto-extracted from the deep crawl, then individually reviewed).",
+    "extraction values added: jsonld (schema.org Event data), rendered (headless Chrome), auto_text (rule-based text extraction, lower confidence).",
+    "2026-10-28: added opportunity_type 'job' (salaried or hourly creative positions; pay in award) per the PRD update."
+  ],
+  "crawl_stats": {
+    "sites_safety_checked": 141,
+    "pages_fetched_approx": 9668,
+    "event_feed_items_reviewed": 1289
+  },
+  "roster_discovery": {
+    "source": "NYC Open Data DCLA Cultural Organizations (u35m-9t32), 2,535 orgs",
+    "method": "domain guessing with homepage title match, robots-gated",
+    "found": 552,
+    "robots_blocked": 255,
+    "not_found": 1728,
+    "crawled_safe": 404
+  },
+  "compliance_notes": [
+    "2026-10-27: a Squarespace collector requested '?format=json' collection URLs after checking robots.txt for the page path only. Squarespace's default robots.txt disallows '/*?format=json', so these requests were disallowed on every site involved (including jalopytheatre.org, anbealbochtcafe.com, brooklynmusicschool.org, hudsonvalleymoca.org, kundiman.org, culturehub.org, and DCLA roster sites). All data from that endpoint was deleted. The two records first found that way (Hudson Valley MOCA Artist Club, An Beal Bocht Poor Mouth Writers' Night) were also found on robots-allowed event pages in the crawl and verified there, so they remain. The collector now checks the exact URL it requests.",
+    "2026-10-27: a full-URL robots audit of every record (75 hosts) found 2 on robots-disallowed pages (societyillustrators.org event pages, also disallowed for the events API query). Both records and all fetched data from that host were removed; the source is presentation-only. The verifier now checks robots.txt before fetching."
+  ]
+}
