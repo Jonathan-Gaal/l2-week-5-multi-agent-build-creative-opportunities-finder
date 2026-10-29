@@ -59,8 +59,53 @@ const INSTRUCTION_PATTERN = new RegExp([
   String.raw`</?\s*(listings|system|instructions?|feedback|user|assistant)\s*>`,
 ].join("|"), "is");
 
-/** True when any text in the record reads like an instruction to the model (a likely prompt injection). */
-export const looksLikeInstructions = (rec: OppRecord): boolean => INSTRUCTION_PATTERN.test(JSON.stringify(rec));
+// A few named entities scraped pages actually use; numeric ones (&#105; &#x69;) are decoded generically.
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", sol: "/", bsol: "\\", colon: ":", num: "#",
+  lsqb: "[", rsqb: "]", lpar: "(", rpar: ")", shy: "", zwj: "", zwnj: "",
+};
+const ENTITY = /&(?:#(\d{1,7})|#x([0-9a-f]{1,6})|([a-z]{2,6}));?/gi;
+const decodeEntities = (s: string): string =>
+  s.replace(ENTITY, (m, dec?: string, hex?: string, name?: string) => {
+    if (name !== undefined) return m.endsWith(";") ? (NAMED_ENTITIES[name.toLowerCase()] ?? m) : m;
+    const cp = dec !== undefined ? Number(dec) : parseInt(hex!, 16);
+    return cp > 0 && cp <= 0x10ffff && (cp < 0xd800 || cp > 0xdfff) ? String.fromCodePoint(cp) : "";
+  });
+
+// Cyrillic, Greek and other letters that render like Latin ones; what NFKC leaves alone. Bounded on purpose:
+// the common lookalikes, not the full Unicode confusables table.
+const CONFUSABLES: Record<string, string> = Object.fromEntries([
+  "аa вb еe кk мm нh оo рp сc тt уy хx іi јj ѕs ԁd һh ӏl ԛq ԝw",              // Cyrillic lower
+  "АA ВB ЕE КK МM НH ОO РP СC ТT УY ХX ІI ЈJ ЅS",                             // Cyrillic upper
+  "αa βb εe ιi κk νv οo ρp τt υu χx ϲc",                                    // Greek lower
+  "ΑA ΒB ΕE ΖZ ΗH ΙI ΚK ΜM ΝN ΟO ΡP ΤT ΥY ΧX",                               // Greek upper
+  "ıi ɡg ɑa օo սu",                                                         // dotless i, script g/a, Armenian
+].join("").replace(/ /g, "").match(/../gu)!.map((p) => [...p] as [string, string]));
+const CONFUSABLE = new RegExp(`[${Object.keys(CONFUSABLES).join("")}]`, "gu");
+// Format characters (zero-width space/joiners, word joiner, BOM, soft hyphen, bidi controls), combining marks
+// (diacritics, variation selectors, U+034F) and the Hangul fillers that render as nothing.
+const INVISIBLE = /[\p{Cf}\p{M}\u115f\u1160\u3164\uffa0]/gu;
+
+/** Listing text as a reader sees it, for the injection check: entities decoded (twice, for &amp;#105;),
+ * compatibility forms folded (NFKC: fullwidth, math letters, ligatures), invisible characters and diacritics
+ * dropped, common Cyrillic/Greek lookalikes mapped to Latin, and every run of whitespace one space. */
+export const normalizeForScan = (s: string): string =>
+  decodeEntities(decodeEntities(s)).normalize("NFKC").normalize("NFD").replace(INVISIBLE, "")
+    .replace(CONFUSABLE, (c) => CONFUSABLES[c]!).replace(/\s+/g, " ");
+
+/** Every string in a value (record fields, nested eligibility), in order. Keys are ours, so not included. */
+const strings = (v: unknown, out: string[] = []): string[] => {
+  if (typeof v === "string") out.push(v);
+  else if (Array.isArray(v)) for (const x of v) strings(x, out);
+  else if (typeof v === "object" && v !== null) for (const x of Object.values(v)) strings(x, out);
+  return out;
+};
+
+/** True when any text in the record reads like an instruction to the model (a likely prompt injection).
+ * Tested on the normalized text values joined by a space, not on JSON.stringify, which writes a newline as
+ * the two characters \n and so hid "system\nprompt" from the \s+ in the pattern. */
+export const looksLikeInstructions = (rec: OppRecord): boolean =>
+  INSTRUCTION_PATTERN.test(normalizeForScan(strings(rec).join(" ")));
 
 const clip = (v: unknown, max = MAX_FIELD_CHARS): string | null => {
   if (v === null || v === undefined) return null;

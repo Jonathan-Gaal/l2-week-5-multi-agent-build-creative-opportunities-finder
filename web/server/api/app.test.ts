@@ -200,7 +200,7 @@ describe("cost controls", () => {
     assert.ok(logs.some((l) => l.startsWith("rate limited")));
   });
 
-  it("baseline mode is not rate limited and never calls the model", async () => {
+  it("baseline mode is not charged to the model-run limit and never calls the model", async () => {
     const model = fakeModel();
     const { get } = await start({ mode: "baseline", model, limits: { ratePerMinute: 1 } });
     for (const t of ["open_call", "grant", "residency", "event"]) assert.equal((await get(opp("brooklyn", t))).status, 200);
@@ -219,9 +219,37 @@ describe("cost controls", () => {
     assert.deepEqual([third.tier, model.ranker, model.reviewer], [2, 2, 0]);    // one call again, Ranker only
   });
 
-  it("budget used up: requests are not rate limited (no model call is made)", async () => {
+  it("budget used up: requests are not charged to the model-run limit (no model call is made)", async () => {
     const { get } = await start({ limits: { dailyModelCalls: 0, ratePerMinute: 1 } });
     for (const t of ["open_call", "grant", "residency"]) assert.equal((await get(opp("brooklyn", t))).body.tier, 2);
+  });
+
+  it("request limit: every request counts in baseline mode, before any database work; 429 with Retry-After", async () => {
+    const { get, db, logs } = await start({ mode: "baseline", limits: { requestsPerMinute: 2, ratePerMinute: 100 } });
+    for (const t of ["open_call", "grant"]) assert.equal((await get(opp("brooklyn", t))).status, 200);
+    const queries = db.queries;
+    const limited = await get(opp("brooklyn", "residency"));
+    assert.deepEqual([limited.status, limited.body.error, limited.headers.get("retry-after")], [429, "rate_limited", "60"]);
+    assert.equal(db.queries, queries);                                       // refused before the snapshot lookup
+    assert.ok(logs.some((l) => l.startsWith("rate limited")));
+    assert.equal((await get(opp("brooklyn", "open_call"), {}, "203.0.113.9")).status, 200);   // per client
+  });
+
+  it("request limit: cache hits and a used-up budget count too; the window resets after a minute", async () => {
+    for (const limits of [{ requestsPerMinute: 2 }, { requestsPerMinute: 2, dailyModelCalls: 0 }]) {
+      const { get, clock } = await start({ limits });
+      assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);
+      assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);   // cache hit
+      assert.equal((await get(opp("brooklyn", "open_call"))).status, 429);
+      clock.t += 60_000;
+      assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);
+    }
+  });
+
+  it("request limit: a bad request is not charged", async () => {
+    const { get } = await start({ limits: { requestsPerMinute: 1 } });
+    for (let i = 0; i < 3; i++) assert.equal((await get("/api/opportunities?place=mars&type=grant")).status, 400);
+    assert.equal((await get(opp("brooklyn", "open_call"))).status, 200);
   });
 
   it("degraded results are cached briefly, then recomputed", async () => {
@@ -311,15 +339,17 @@ describe("errors", () => {
 describe("readConfig", () => {
   it("defaults", () => {
     const c = readConfig({});
-    assert.deepEqual([c.mode, c.snapshotId, c.limits.ratePerMinute, c.limits.dailyModelCalls,
-      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], ["ranker_reviewer", undefined, 10, 300, 2, 90_000]);
+    assert.deepEqual([c.mode, c.snapshotId, c.limits.ratePerMinute, c.limits.requestsPerMinute, c.limits.dailyModelCalls,
+      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], ["ranker_reviewer", undefined, 10, 30, 300, 2, 90_000]);
     assert.ok(c.traceDir?.endsWith("traces"));
     assert.equal(readConfig({ VERCEL: "1" }).traceDir, null);        // read-only filesystem: tracing off by default
   });
 
   it("empty TRACE_DIR disables tracing; values are parsed", () => {
-    const c = readConfig({ TRACE_DIR: "", RANKER_MODE: "baseline", SNAPSHOT_ID: "2026-10-27", DAILY_MODEL_CALLS: "0" });
-    assert.deepEqual([c.traceDir, c.mode, c.snapshotId, c.limits.dailyModelCalls], [null, "baseline", "2026-10-27", 0]);
+    const c = readConfig({ TRACE_DIR: "", RANKER_MODE: "baseline", SNAPSHOT_ID: "2026-10-27", DAILY_MODEL_CALLS: "0",
+      SEARCH_RATE_LIMIT_PER_MINUTE: "1" });
+    assert.deepEqual([c.traceDir, c.mode, c.snapshotId, c.limits.dailyModelCalls, c.limits.requestsPerMinute],
+      [null, "baseline", "2026-10-27", 0, 1]);
   });
 
   it("data source: default and parsing", () => {
@@ -332,7 +362,7 @@ describe("readConfig", () => {
     for (const env of [{ RANKER_MODE: "gpt" },
       { RATE_LIMIT_PER_MINUTE: "ten" }, { RATE_LIMIT_PER_MINUTE: "0" }, { DAILY_MODEL_CALLS: "-1" },
       // A search charges one per type, so fewer than five per minute could never serve a full search.
-      { RATE_LIMIT_PER_MINUTE: "4" },
+      { RATE_LIMIT_PER_MINUTE: "4" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "0" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "1.5" },
       { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
@@ -497,9 +527,26 @@ describe("GET /api/search cost controls", () => {
     assert.ok(logs.some((l) => l.startsWith("rate limited")));
   });
 
-  it("baseline mode is never rate limited", async () => {
+  it("baseline mode is not charged to the model-run limit", async () => {
     const { get } = await start({ mode: "baseline", db: fakeDb(POOL), limits: { ratePerMinute: 1 } });
     for (const t of ["grant,open_call,event", "residency,job"]) assert.equal((await get(searchPath(`places=queens&types=${t}`))).status, 200);
+  });
+
+  it("request limit: a search counts once however many types; baseline and cached searches are limited", async () => {
+    const { get } = await start({ mode: "baseline", db: fakeDb(POOL), limits: { requestsPerMinute: 2 } });
+    const all = searchPath("places=queens&types=grant,open_call,event,residency,job");
+    assert.equal((await get(all)).status, 200);
+    assert.equal((await get(all)).status, 200);                                     // every group a cache hit
+    const over = await get(all);
+    assert.deepEqual([over.status, over.body.error, over.headers.get("retry-after")], [429, "rate_limited", "60"]);
+  });
+
+  it("the model-run limit still applies under a roomy request limit", async () => {
+    const { get } = await start({ db: fakeDb(POOL), limits: { ratePerMinute: 5, requestsPerMinute: 100 } });
+    assert.equal((await get(searchPath("places=brooklyn&types=grant,open_call,event"))).status, 200);   // 3 charged
+    assert.equal((await get(searchPath("places=brooklyn&types=residency,job,grant"))).status, 200);     // 2 fresh: 5
+    assert.equal((await get(searchPath("places=queens&types=grant"))).status, 429);                     // 6th run
+    assert.equal((await get(searchPath("places=brooklyn&types=grant"))).status, 200);                    // cache hit
   });
 
   it("no free run slot: that group is served from the code baseline (Tier 2), not the whole search failed", async () => {

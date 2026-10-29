@@ -4,14 +4,15 @@
  * (record source, model, clock, limits) so tests can pass fakes; src/lib/backend.ts wires the real ones.
  *
  * Search and opportunities requests, in order:
- *   validate the query (closed lists) -> as_of = server's today -> resolve snapshot id ->
+ *   validate the query (closed lists) -> charge one to the client's request limit (every request, whatever
+ *   the mode, budget or cache) -> as_of = server's today -> resolve snapshot id ->
  *   one run per type (search: over the union of the places; opportunities: one place). For each run:
- *   cache hit? serve it : identical run in flight? share it : fresh. Then one rate-limit charge for all the
- *   fresh model runs together (all or nothing) -> each fresh run waits for a run slot (model runs only) ->
- *   load records -> pipeline.run with a deadline -> cache -> respond.
- * Cache hits and shared runs make no model calls, are not rate limited, and get their own request id and a
- * trace line pointing at the run that produced the result (PRD section 10: one trace entry per run). The runs
- * of one search share a search_id in the trace.
+ *   cache hit? serve it : identical run in flight? share it : fresh. Then one model-run rate-limit charge for
+ *   all the fresh model runs together (all or nothing) -> each fresh run waits for a run slot (model runs only)
+ *   -> load records -> pipeline.run with a deadline -> cache -> respond.
+ * Cache hits and shared runs make no model calls, are not charged to the model-run limit, and get their own
+ * request id and a trace line pointing at the run that produced the result (PRD section 10: one trace entry
+ * per run). The runs of one search share a search_id in the trace.
  * When no run slot frees up in time, an opportunities request gets 503 busy; a search serves that type from
  * the code baseline (Tier 2, not fully checked) instead of failing every group.
  * The caller names the client's rate-limit identity (the visitor's address, normalized by controls.clientKey).
@@ -29,7 +30,7 @@ import {
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
   BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, concurrencyGate, dailyBudget,
-  guardedModel, lruCache, rateLimiter,
+  type RateLimiter, guardedModel, lruCache, rateLimiter,
 } from "./controls.ts";
 import {
   API_ROUTES, type Borough, type Discipline, type ErrorCode, type ErrorResponse, type MetaResponse,
@@ -43,6 +44,8 @@ export type Mode = (typeof MODES)[number];
 export type Limits = {
   /** Model-backed runs a client may start per minute. */
   ratePerMinute: number;
+  /** Search and opportunities requests a client may make per minute, whatever the mode, cache or budget. */
+  requestsPerMinute: number;
   /** Model-backed runs at once; more wait in a queue. */
   maxConcurrentRuns: number;
   /** Runs allowed to wait for a slot; beyond this a request gets 503 busy at once. */
@@ -62,9 +65,9 @@ export type Limits = {
 };
 
 export const DEFAULT_LIMITS: Limits = {
-  ratePerMinute: 10, maxConcurrentRuns: 2, maxQueuedRuns: 8, queueWaitMs: 10_000, dailyModelCalls: 300,
-  requestDeadlineMs: 90_000, cacheEntries: 500, cacheTtlMs: 24 * 3600_000, degradedCacheTtlMs: 5 * 60_000,
-  maxUrlLength: 512,
+  ratePerMinute: 10, requestsPerMinute: 30, maxConcurrentRuns: 2, maxQueuedRuns: 8, queueWaitMs: 10_000,
+  dailyModelCalls: 300, requestDeadlineMs: 90_000, cacheEntries: 500, cacheTtlMs: 24 * 3600_000,
+  degradedCacheTtlMs: 5 * 60_000, maxUrlLength: 512,
 };
 
 export type AppDeps = {
@@ -216,6 +219,9 @@ export const createApp = (deps: AppDeps) => {
   if (deps.mode !== "baseline" && deps.model === null) throw new Error(`mode ${deps.mode} needs a model`);
 
   const limiter = rateLimiter(limits.ratePerMinute, 60_000, now);
+  // Charged once per search or opportunities request before any database work, so baseline mode, a used-up
+  // budget and cache hits are bounded too. Per process like every control here: on Vercel, per instance.
+  const requestLimiter = rateLimiter(limits.requestsPerMinute, 60_000, now);
   const budget = dailyBudget(limits.dailyModelCalls, now);
   const gate = concurrencyGate(limits.maxConcurrentRuns, limits.maxQueuedRuns);
   const cache = lruCache<Computed>(limits.cacheEntries, now);
@@ -308,6 +314,15 @@ export const createApp = (deps: AppDeps) => {
     });
   };
 
+  /** Charge `n` to the client in `which` limiter; over the limit is 429 rate_limited with Retry-After. */
+  const charge = (which: RateLimiter, client: string, n = 1) => {
+    const decision = which.take(client, n);
+    if (!decision.ok) {
+      log(`rate limited ${client}`);
+      throw new HttpError("rate_limited", { "Retry-After": String(decision.retryAfterSec) });
+    }
+  };
+
   /** Serve several runs for one client request, in order. Fresh model runs are charged to the client's rate
    * limit together, all or nothing, before any of them starts. */
   const serve = async (reqs: SearchRequest[], snapshotId: string, client: string, opts: ServeOptions): Promise<Served[]> => {
@@ -317,13 +332,7 @@ export const createApp = (deps: AppDeps) => {
     });
     const fresh = plans.filter((p) => !p.cached && !p.running).length;
     const useModel = deps.mode !== "baseline" && budget.remaining() > 0;
-    if (useModel && fresh > 0) {
-      const decision = limiter.take(client, fresh);
-      if (!decision.ok) {
-        log(`rate limited ${client}`);
-        throw new HttpError("rate_limited", { "Retry-After": String(decision.retryAfterSec) });
-      }
-    }
+    if (useModel && fresh > 0) charge(limiter, client, fresh);
     const reuse = async (req: SearchRequest, c: Computed, how: "cache" | "shared"): Promise<Served> => {
       const requestId = pipeline.newRequestId();
       await traceReuse(requestId, req, how, c, opts.traceFields);
@@ -343,6 +352,7 @@ export const createApp = (deps: AppDeps) => {
   const opportunities = async (params: URLSearchParams, client: string): Promise<OpportunitiesResponse> => {
     const q = parseOpportunitiesQuery(params);
     if (q === null) throw new HttpError("bad_request");
+    charge(requestLimiter, client);
     const req = makeRequest(q.place, q.type, today(new Date(now())));
     const snapshotId = await snapshotFor();
     const [{ c, requestId }] = (await serve([req], snapshotId, client, { whenBusy: "fail" })) as [Served];
@@ -353,6 +363,7 @@ export const createApp = (deps: AppDeps) => {
   const search = async (params: URLSearchParams, client: string): Promise<SearchResponse> => {
     const q = parseSearchQuery(params);
     if (q === null) throw new HttpError("bad_request");
+    charge(requestLimiter, client);
     const asOf = today(new Date(now()));
     const snapshotId = await snapshotFor();
     const reqs = q.types.map((type) => makeSearchRequest(q.places, type, asOf, q.disciplines));
