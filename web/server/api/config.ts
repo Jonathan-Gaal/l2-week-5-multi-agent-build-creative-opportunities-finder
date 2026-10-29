@@ -58,6 +58,7 @@ export const readConfig = (env: Env): Config => {
       ...DEFAULT_LIMITS,
       // A search charges one per type, all at once, so a lower limit could never serve a search of every type.
       ratePerMinute: int(env, "RATE_LIMIT_PER_MINUTE", DEFAULT_LIMITS.ratePerMinute, TYPES.length),
+      requestsPerMinute: int(env, "SEARCH_RATE_LIMIT_PER_MINUTE", DEFAULT_LIMITS.requestsPerMinute, 1),
       maxConcurrentRuns: int(env, "MAX_CONCURRENT_RUNS", DEFAULT_LIMITS.maxConcurrentRuns, 1),
       maxQueuedRuns: int(env, "MAX_QUEUED_RUNS", DEFAULT_LIMITS.maxQueuedRuns, 0),
       queueWaitMs: int(env, "QUEUE_WAIT_MS", DEFAULT_LIMITS.queueWaitMs, 0),
