@@ -11,7 +11,7 @@
  * - Tier 2: best attempt that passed the checks without an accept (Reviewer rejected every time, errored,
  *   or was not run); if no attempt passed, the code baseline ranking. Labeled "not fully checked".
  * - Tier 3: no result, with the reason.
- * Each request appends one JSON line to the trace file.
+ * Each request writes one trace line to the given sink (agents/trace.ts; a path string appends to that JSONL file).
  *
  * Usage:
  *   node src/agents/pipeline.ts brooklyn open_call                 # Claude ranker + reviewer
@@ -19,8 +19,6 @@
  */
 
 import { randomUUID } from "node:crypto";
-import { appendFile, mkdir } from "node:fs/promises";
-import { dirname } from "node:path";
 import { parseArgs } from "node:util";
 
 import * as flt from "./filter.ts";
@@ -30,6 +28,7 @@ import {
   BaselineRanker, type Candidate, type RankItem, Ranker, type RankerRole, Reviewer, type ReviewerRole, TOP_K,
   baselineOrder, looksLikeInstructions,
 } from "./roles.ts";
+import { type TraceSink, fileSink, writeTrace } from "./trace.ts";
 
 export const MAX_ATTEMPTS = 3;
 const MAX_CANDIDATES = 80;
@@ -139,7 +138,7 @@ const stopReason = (signal: AbortSignal) => (typeof signal.reason === "string" ?
 
 export const run = async (
   req: Request, records: OppRecord[], ranker: RankerRole, reviewer: ReviewerRole | null = null,
-  tracePath: string | null = null, maxCandidates: number = MAX_CANDIDATES, opts: RunOptions = {},
+  traceTo: TraceSink | string | null = null, maxCandidates: number = MAX_CANDIDATES, opts: RunOptions = {},
 ): Promise<Result> => {
   const { signal } = opts;
   const trace: Record<string, unknown> & { attempts: Attempt[]; tokens: Usage } = {
@@ -150,15 +149,8 @@ export const run = async (
 
   const finish = async (result: Result): Promise<Result> => {
     Object.assign(trace, { tier: result.tier, served: result.results.map((r) => r.dedupe_key), reason: result.reason ?? null });
-    if (tracePath) {
-      // The trace is a log: failing to write it must not fail the request it describes.
-      try {
-        await mkdir(dirname(tracePath), { recursive: true });
-        await appendFile(tracePath, JSON.stringify(trace) + "\n", "utf-8");
-      } catch (e) {
-        console.error(`trace write failed for ${trace.request_id}: ${(e as Error).message}`);
-      }
-    }
+    // The trace is a log: failing to write it must not fail the request it describes (writeTrace swallows).
+    if (traceTo) await writeTrace(typeof traceTo === "string" ? fileSink(traceTo) : traceTo, trace);
     result.request_id = trace.request_id as string;
     return result;
   };

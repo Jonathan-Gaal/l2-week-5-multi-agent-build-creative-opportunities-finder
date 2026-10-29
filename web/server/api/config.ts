@@ -15,11 +15,17 @@ export class ConfigError extends Error {
 export const DATA_SOURCES = ["postgres", "json"] as const;
 export type DataSource = (typeof DATA_SOURCES)[number];
 
+export const TRACE_SINKS = ["postgres", "file", "off"] as const;
+export type TraceSinkKind = (typeof TRACE_SINKS)[number];
+
 export type Config = {
   mode: Mode;
   /** postgres (DATABASE_URL) or json (data/snapshots/<SNAPSHOT_ID>/records.json, local development). */
   dataSource: DataSource;
   snapshotId: string | undefined;
+  /** Where trace lines go: public.traces (db/traces.ts), JSONL files under traceDir, or nowhere. */
+  traceSink: TraceSinkKind;
+  /** The file sink's directory; null unless traceSink is "file". */
   traceDir: string | null;
   modelCallTimeoutMs: number;
   limits: Limits;
@@ -34,6 +40,23 @@ const int = (env: Env, name: string, fallback: number, min: number, max = Number
   const n = Number(raw.trim());
   if (n < min || n > max) throw new ConfigError(`${name} is out of range`);
   return n;
+};
+
+/**
+ * TRACE_SINK, or by default: an explicit TRACE_DIR (empty: off, else files there); on Vercel (read-only disk)
+ * postgres, or off with the JSON data source; otherwise the repo's traces/ (git-ignored). postgres needs the
+ * postgres data source (the only database connection), and file needs a directory.
+ */
+const traceSettings = (env: Env, dataSource: string): Pick<Config, "traceSink" | "traceDir"> => {
+  const dir = env.TRACE_DIR === undefined ? TRACE_DIR : env.TRACE_DIR.trim() || null;
+  const sink = env.TRACE_SINK?.trim() || (
+    env.TRACE_DIR !== undefined ? (dir ? "file" : "off")
+      : env.VERCEL === "1" ? (dataSource === "postgres" ? "postgres" : "off")
+        : "file");
+  if (!(TRACE_SINKS as readonly string[]).includes(sink)) throw new ConfigError(`TRACE_SINK must be one of ${TRACE_SINKS.join(", ")}`);
+  if (sink === "postgres" && dataSource !== "postgres") throw new ConfigError("TRACE_SINK=postgres needs DATA_SOURCE=postgres");
+  if (sink === "file" && !dir) throw new ConfigError("TRACE_SINK=file needs a TRACE_DIR (unset for the repo's traces/)");
+  return { traceSink: sink as TraceSinkKind, traceDir: sink === "file" ? dir : null };
 };
 
 export const readConfig = (env: Env): Config => {
@@ -51,8 +74,7 @@ export const readConfig = (env: Env): Config => {
     mode: mode as Mode,
     dataSource: dataSource as DataSource,
     snapshotId,
-    // Unset: the repo's traces/ (git-ignored), or off on Vercel (read-only filesystem). Set but empty: tracing off.
-    traceDir: env.TRACE_DIR === undefined ? (env.VERCEL === "1" ? null : TRACE_DIR) : env.TRACE_DIR.trim() || null,
+    ...traceSettings(env, dataSource),
     modelCallTimeoutMs: int(env, "MODEL_CALL_TIMEOUT_MS", 60_000, 1000),
     limits: {
       ...DEFAULT_LIMITS,
