@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AuthWidget from "@/components/AuthWidget";
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
         <nav className="nav" aria-label="Main">
           <Link href="/find">Find opportunities</Link>
           {process.env.NODE_ENV !== "production" && <Link href="/dev">Dev tools</Link>}
+          <AuthWidget />
         </nav>
       </div>
     </header>

@@ -174,3 +174,26 @@ details.how summary { cursor: pointer; font: 700 20px var(--serif); padding: 14p
 @media (min-width: 900px) {
   .dev-grid { grid-template-columns: 300px 1fr; }
 }
+
+/* Auth: header widget + login card */
+.auth-widget { display: inline-flex; align-items: center; gap: 12px; }
+.auth-email { color: var(--muted-dk); font-size: 14px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.auth-shell { display: flex; justify-content: center; padding: 40px 20px 64px; }
+.auth-card { width: 100%; max-width: 440px; display: grid; gap: 14px; }
+.auth-card h1 { font-size: clamp(28px, 5vw, 36px); }
+.auth-card .eyebrow { justify-self: start; }
+.auth-intro { font-size: 15px; }
+.auth-form { display: grid; gap: 14px; margin-top: 4px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 14px; letter-spacing: .04em; color: var(--muted-dk); font-weight: 600; }
+.auth-input { width: 100%; background: var(--ink); color: var(--paper); border: 2px solid var(--plum); border-radius: 12px; padding: 12px 14px; font: 16px var(--sans); }
+.auth-input:focus-visible { outline: none; border-color: var(--lime); }
+.auth-input:disabled { opacity: .5; }
+.auth-error { background: #3a1020; border: 1px solid #ff8a8a; color: #ffd1dd; border-radius: 10px; padding: 10px 14px; font-size: 14px; }
+.auth-submit, .auth-google, .auth-demo { width: 100%; }
+.auth-toggle { font-size: 15px; color: var(--muted-dk); text-align: center; }
+.auth-toggle .link-btn { font-size: 15px; color: var(--lime); }
+.auth-note { font-size: 15px; }
+.auth-divider { display: flex; align-items: center; gap: 12px; color: var(--muted-dk); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--plum); }
