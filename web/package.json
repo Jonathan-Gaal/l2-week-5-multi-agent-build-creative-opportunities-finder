@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit && tsc -p server",
-    "test": "node --test \"server/**/*.test.ts\"",
+    "test": "node --test \"server/**/*.test.ts\" \"src/**/*.test.ts\"",
     "test:integration": "node --env-file-if-exists=.env --test \"test/integration/**/*.test.ts\"",
     "test:e2e:claude": "node --env-file-if-exists=.env --test \"test/e2e/**/*.test.ts\"",
     "pipeline": "node server/agents/pipeline.ts",
