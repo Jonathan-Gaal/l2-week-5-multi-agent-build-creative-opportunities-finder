@@ -101,6 +101,58 @@ describe("Filter", () => {
   });
 });
 
+describe("Filter: expiry is deadline-driven for applications, schedule-driven only for events", () => {
+  const ASOF = "2026-10-29";
+  it("an open_call with a passed deadline is expired even with a later event date", () => {
+    const closed = rec("Closed", { deadline: "2026-10-28", event_dates: ["2026-12-01"] });
+    assert.equal(flt.isExpired(closed, ASOF), true);
+    const [cands, removed] = flt.select([closed, rec("Open")], req("brooklyn", "open_call", ASOF));
+    assert.deepEqual(titles(cands), ["Open"]);
+    assert.equal(removed.expired, 1);
+  });
+
+  it("an event with a later occurrence is kept though its deadline has passed", () => {
+    const series = rec("Series", { typ: "event", deadline: "2026-10-28", event_dates: ["2026-12-01"] });
+    assert.equal(flt.isExpired(series, ASOF), false);
+    assert.deepEqual(titles(flt.select([series], req("brooklyn", "event", ASOF))[0]), ["Series"]);
+  });
+
+  it("an event whose occurrences are all past is expired", () => {
+    const past = rec("Past", { typ: "event", deadline: "2026-09-01", event_dates: ["2026-10-01", "2026-10-20"] });
+    assert.equal(flt.isExpired(past, ASOF), true);
+  });
+
+  it("a rolling, recurring or missing deadline never expires, ignoring any past event date", () => {
+    for (const d of ["rolling", "recurring", null]) {
+      assert.equal(flt.isExpired(rec("X", { deadline: d, event_dates: ["2020-01-01"] }), ASOF), false);
+    }
+  });
+});
+
+describe("Filter: schema validates provenance format, not just presence", () => {
+  it("a malformed source_url fails the schema and is never a candidate", () => {
+    const bad = rec("BadUrl", { source_url: "not-a-url" });
+    assert.equal(flt.schemaOk(bad), false);
+    const [cands, removed] = flt.select([bad, rec("Good")], req());
+    assert.deepEqual(titles(cands), ["Good"]);
+    assert.equal(removed.failed_schema, 1);
+  });
+
+  it("a non-http(s) source_url (e.g. javascript:) fails the schema", () => {
+    assert.equal(flt.schemaOk(rec("Evil", { source_url: "javascript:alert(1)" })), false);
+  });
+
+  it("a malformed checked_at fails the schema (no 'Checked not-a-date' can be built)", () => {
+    const bad = rec("BadDate", { checked_at: "not-a-date" });
+    assert.equal(flt.schemaOk(bad), false);
+    assert.equal(flt.select([bad], req())[1].failed_schema, 1);
+  });
+
+  it("a well-formed record still passes", () => {
+    assert.equal(flt.schemaOk(rec("Fine")), true);
+  });
+});
+
 describe("Filter: several places and disciplines", () => {
   const search = (places: string[], disciplines: string[] = [], type = "open_call") =>
     flt.makeSearchRequest(places, type, DAY, disciplines);

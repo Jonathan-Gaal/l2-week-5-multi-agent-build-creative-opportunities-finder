@@ -20,7 +20,7 @@ const rec = (title: string, extra: Partial<OppRecord> = {}): OppRecord => ({
   deadline: "2026-12-01", ...extra,
 });
 const RECORDS = [
-  rec("A", { source_url: "javascript:alert(1)" }), rec("B"), rec("C", { source_url: "data:text/html,x" }),
+  rec("A"), rec("B"), rec("C"),
   rec("G", { opportunity_type: "grant" }), rec("R", { opportunity_type: "residency" }), rec("E", { opportunity_type: "event" }),
   rec("J", { opportunity_type: "job" }),
 ];
@@ -109,13 +109,13 @@ describe("GET /api/opportunities", () => {
     assert.deepEqual([model.ranker, model.reviewer], [1, 1]);
   });
 
-  it("drops non-http(s) links from results", async () => {
-    const model = fakeModel();
-    model.rankIds = ["r1", "r2", "r3"];
-    const { get } = await start({ model });
+  it("a record with a non-http(s) source_url is dropped before ranking, never served with a bad link", async () => {
+    const db = fakeDb([rec("Good"), rec("Evil", { source_url: "javascript:alert(1)" }), rec("Data", { source_url: "data:text/html,x" })]);
+    const { get } = await start({ db });
     const body = (await get(opp("brooklyn", "open_call"))).body as OpportunitiesResponse;
-    const urls = Object.fromEntries(body.results.map((x) => [x.title, x.source_url]));
-    assert.deepEqual(urls, { A: null, B: "https://example.org/B", C: null });
+    assert.deepEqual(body.results.map((x) => x.title), ["Good"]);     // Evil and Data fail the schema check
+    assert.ok(body.results.every((x) => x.source_url?.startsWith("https://")));
+    assert.equal(body.removed, "2 incomplete listings removed.");
   });
 
   it("tier 3 carries the reason", async () => {

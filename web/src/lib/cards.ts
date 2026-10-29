@@ -12,10 +12,14 @@ export function prettyDate(iso: string): string {
 
 const daysBetween = (from: string, to: string) => Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000);
 
-/** The next date that still matters: the nearest upcoming event date, else the deadline. */
+/** The date the countdown tracks, matching the Filter's expiry semantics: for an event, the nearest upcoming
+ * occurrence (else the deadline); for an application type, the application deadline, so the countdown never
+ * tracks a later event date the deadline has already closed off. Null when nothing upcoming applies. */
 function nextDate(o: Opportunity, asOf: string): string | null {
-  const dates = (o.event_dates ?? []).filter((d): d is string => !!d && ISO.test(d) && d >= asOf).sort();
-  if (dates.length) return dates[0];
+  if (o.type === "event") {
+    const dates = (o.event_dates ?? []).filter((d): d is string => !!d && ISO.test(d) && d >= asOf).sort();
+    if (dates.length) return dates[0];
+  }
   return ISO.test(o.deadline) && o.deadline >= asOf ? o.deadline : null;
 }
 

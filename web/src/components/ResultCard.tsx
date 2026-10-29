@@ -3,8 +3,11 @@ import type { Card } from "@/lib/types";
 const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unchecked: "pill pill-grey" } as const;
 
 export default function ResultCard({ card }: { card: Card }) {
-  const closing =
+  const when =
     card.closesIn === null ? null : card.closesIn === 0 ? "today" : card.closesIn === 1 ? "tomorrow" : `in ${card.closesIn} days`;
+  // Name what the countdown refers to so it is never read as a closing date it isn't: events count down to the
+  // next occurrence, application types to the application deadline (the date shown beside it).
+  const closing = when && `${card.type === "event" ? "Next date" : "Closes"} ${when}`;
   return (
     <article className="rcard">
       <div className="rcard-top">
