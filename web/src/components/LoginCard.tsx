@@ -1,22 +1,23 @@
 "use client";
 
 /**
- * The auth card. Real sign-in (create account / sign in / Google) when Firebase is configured, plus an equally
- * prominent demo bypass. The demo gates nothing, so it stays a first-class path, not a fallback: it sits under a
- * clear "or" divider and is given the same weight as the form submit. [laws-of-ux: primary task over one-CTA]
- *
- * When Firebase is unconfigured the credential form is withheld (it could only fail) and a muted note points at
- * the demo, which still works. Errors are shown inline next to the form in plain language, never blaming the
- * user. [Postel] Submit buttons show a loading state. After any successful sign-in we route to /find.
+ * Login and Sign up (Jon's Firebase sign-in, on the find flow's board layout). Real sign-in (create account / sign in /
+ * Google) when Firebase is configured, plus an equally prominent demo button, because the demo gates nothing and stays a
+ * first-class path. When Firebase is unconfigured the form is withheld (it could only fail) and a note points at the demo.
+ * Errors are shown next to the form in plain language. After any successful sign-in we go on to /find.
+ * `mode` picks the page: /login is "signin", /signup is "signup"; the link under the form switches between them.
  */
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { firebaseEnabled } from "@/lib/firebase";
-import { useAuth } from "@/lib/auth-context";
 import DemoButton from "@/components/DemoButton";
+import { useAuth } from "@/lib/auth-context";
+import { firebaseEnabled } from "@/lib/firebase";
+import f from "./find/FindFlow.module.css";
+import a from "./Auth.module.css";
 
-type Mode = "signin" | "signup";
+export type AuthMode = "signin" | "signup";
 
 /** Map Firebase auth error codes to plain, actionable copy; fall back to the message, then a generic line. */
 function friendlyError(err: unknown): string {
@@ -29,7 +30,7 @@ function friendlyError(err: unknown): string {
     case "auth/user-not-found":
       return "Email or password is incorrect.";
     case "auth/email-already-in-use":
-      return "An account with that email already exists — try signing in instead.";
+      return "An account with that email already exists. Try logging in instead.";
     case "auth/weak-password":
       return "Choose a password of at least 6 characters.";
     case "auth/popup-closed-by-user":
@@ -44,24 +45,23 @@ function friendlyError(err: unknown): string {
   }
 }
 
-export default function LoginCard() {
+export default function LoginCard({ mode }: { mode: AuthMode }) {
   const router = useRouter();
   const { signUpEmail, signInEmail, signInGoogle } = useAuth();
 
-  const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<null | "credentials" | "google">(null);
-
   const submitting = busy !== null;
+  const signup = mode === "signup";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     setBusy("credentials");
     try {
-      if (mode === "signup") await signUpEmail(email, password);
+      if (signup) await signUpEmail(email, password);
       else await signInEmail(email, password);
       router.push("/find");
     } catch (err) {
@@ -83,89 +83,64 @@ export default function LoginCard() {
   }
 
   return (
-    <div className="auth-card panel">
-      <span className="eyebrow">Artist Atlas</span>
-      <h1>{mode === "signup" ? "Create your account" : "Welcome back"}</h1>
-      <p className="muted-dk auth-intro">
-        This sign-in is a demo — your account unlocks nothing the demo doesn&apos;t. It&apos;s here to show the flow works.
-      </p>
-
-      {firebaseEnabled ? (
-        <>
-          <form className="auth-form" onSubmit={handleSubmit} noValidate>
-            <div className="field">
-              <label htmlFor="auth-email">Email</label>
-              <input
-                id="auth-email"
-                className="auth-input"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={submitting}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="auth-password">Password</label>
-              <input
-                id="auth-password"
-                className="auth-input"
-                type="password"
-                autoComplete={mode === "signup" ? "new-password" : "current-password"}
-                required
-                minLength={6}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={submitting}
-              />
-            </div>
-
-            {error && (
-              <p className="auth-error" role="alert">
-                {error}
-              </p>
-            )}
-
-            <button type="submit" className="btn auth-submit" disabled={submitting}>
-              {busy === "credentials"
-                ? mode === "signup"
-                  ? "Creating account…"
-                  : "Signing in…"
-                : mode === "signup"
-                  ? "Create account"
-                  : "Sign in"}
-            </button>
-          </form>
-
-          <button type="button" className="btn btn-ghost auth-google" onClick={handleGoogle} disabled={submitting}>
-            {busy === "google" ? "Connecting…" : "Continue with Google"}
-          </button>
-
-          <p className="auth-toggle">
-            {mode === "signup" ? "Already have an account?" : "New here?"}{" "}
-            <button
-              type="button"
-              className="link-btn"
-              onClick={() => {
-                setMode(mode === "signup" ? "signin" : "signup");
-                setError(null);
-              }}
-              disabled={submitting}
-            >
-              {mode === "signup" ? "Sign in" : "Create an account"}
-            </button>
+    <div className={f.frame}>
+      <div className={f.board}>
+        <div className={f.left}>
+          <h1 className={f.title}>{signup ? "Create your account" : "Welcome back"}</h1>
+          <p className={f.sub}>
+            {signup ? "Save your search and come back to it." : "Log in to pick up where you left off."} This sign-in is a demo: an
+            account unlocks nothing the demo doesn&apos;t. It&apos;s here to show the flow works.
           </p>
-        </>
-      ) : (
-        <p className="auth-note muted-dk">Sign-in isn&apos;t configured in this environment — jump into the demo.</p>
-      )}
+          <div className={f.bottom}>
+            <DemoButton plain className={f.cta} label="Explore the demo →" disabled={submitting} />
+            <p className={a.demoNote}>No account needed. You get everything an account would.</p>
+          </div>
+        </div>
 
-      <div className="auth-divider" role="separator" aria-label="or">
-        <span>or</span>
+        <div className={f.panel}>
+          <h2 className={a.title2}>{signup ? "Sign up" : "Login"}</h2>
+          {firebaseEnabled ? (
+            <>
+              <form onSubmit={handleSubmit} noValidate>
+                <div className={a.field}>
+                  <label htmlFor="auth-email">Email</label>
+                  <input id="auth-email" className={a.input} type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} disabled={submitting} />
+                </div>
+                <div className={a.field}>
+                  <label htmlFor="auth-password">Password</label>
+                  <input
+                    id="auth-password"
+                    className={a.input}
+                    type="password"
+                    autoComplete={signup ? "new-password" : "current-password"}
+                    required
+                    minLength={6}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    disabled={submitting}
+                  />
+                </div>
+                {error && (
+                  <p className={a.error} role="alert">
+                    {error}
+                  </p>
+                )}
+                <button type="submit" className={a.submit} disabled={submitting}>
+                  {busy === "credentials" ? (signup ? "Creating account…" : "Logging in…") : signup ? "Create account" : "Login"}
+                </button>
+              </form>
+              <button type="button" className={a.google} onClick={handleGoogle} disabled={submitting}>
+                {busy === "google" ? "Connecting…" : "Continue with Google"}
+              </button>
+              <p className={a.switch}>
+                {signup ? "Already have an account?" : "New here?"} <Link href={signup ? "/login" : "/signup"}>{signup ? "Login" : "Sign up"}</Link>
+              </p>
+            </>
+          ) : (
+            <p className={a.note}>Sign-in isn&apos;t set up in this environment yet, so use the demo button on the left.</p>
+          )}
+        </div>
       </div>
-
-      <DemoButton className="auth-demo" disabled={submitting} />
     </div>
   );
 }

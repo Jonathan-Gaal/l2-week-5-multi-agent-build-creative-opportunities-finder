@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The street grid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;overflow:hidden;position:relative">
+  <svg width="1200" height="760" viewBox="0 0 1200 760" aria-hidden="true" style="position:absolute;left:0;top:0">
+    <defs><pattern id="g" width="60" height="26" patternUnits="userSpaceOnUse"><path d="M0 0 H60 M0 0 V26" stroke="#46297A" stroke-width="1.5" fill="none"/></pattern></defs>
+    <g transform="rotate(-29 600 380)"><rect x="-400" y="-400" width="2000" height="1600" fill="url(#g)"/></g>
+    <path d="M-40 640 L1240 140" stroke="#FD1A99" stroke-width="10" opacity=".9"/>
+    <rect x="740" y="190" width="300" height="130" fill="#DCFC05" transform="rotate(-29 890 255)" opacity=".92"/>
+    <rect x="860" y="480" width="170" height="90" fill="#FEF9EF" transform="rotate(-29 945 525)" opacity=".92"/>
+  </svg>
+
+  <div style="position:relative;padding:34px 64px;display:flex;flex-direction:column;gap:18px;height:100%;box-sizing:border-box">
+    <div style="display:flex;align-items:center;gap:12px"><img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:28px;height:33px"><span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span></div>
+    <h1 style="margin:0;font-family:'Fraunces',serif;font-weight:900;font-size:62px;line-height:.98;max-width:640px">Find your <span style="color:#DCFC05;font-style:italic">block.</span></h1>
+
+    <div style="background:#220E43;border:2px solid #46297A;border-radius:22px;padding:20px 24px;max-width:600px;display:flex;flex-direction:column;gap:16px;box-shadow:0 18px 50px rgba(0,0,0,.45)">
+      <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">1 &middot; What you make</div><div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Comedy</span><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Music</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Dance</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Visual</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Writing</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">+3</span></div></div>
+      <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">2 &middot; What you&rsquo;re after</div><div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#FD1A99;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Events &amp; open mics</span><span style="background:#FD1A99;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Grants</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Open calls</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Residencies</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Jobs</span></div></div>
+      <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">3 &middot; Which blocks</div><div style="display:flex;flex-wrap:wrap;gap:8px"><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Manhattan</span><span style="background:#FEF9EF;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Brooklyn</span><span style="background:#FEF9EF;color:#000;border-radius:999px;padding:6px 15px;font-weight:700;font-size:14px">Queens</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Bronx</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Staten Is.</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">All NYC</span><span style="border:2px solid #DCFC05;color:#DCFC05;border-radius:999px;padding:4px 13px;font-weight:700;font-size:14px">Tri-state</span></div></div>
+      <button style="align-self:flex-start;font:700 18px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:14px 30px">Walk me there &rarr;</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search bar with tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:34px 120px;display:flex;flex-direction:column;gap:22px;overflow:hidden;position:relative">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:28px;height:33px">
+    <span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span>
+  </div>
+  <div style="text-align:center;margin-top:18px">
+    <h1 style="margin:0;font-family:'Fraunces',serif;font-weight:900;font-size:52px;line-height:1.04">Find your next opportunity.</h1>
+    <p style="margin:10px 0 0;color:#CFC6DA;font-size:18px">Start typing, or pick from the lists below. Each choice becomes a tag.</p>
+  </div>
+
+  <div style="background:#FFFCF6;color:#220E43;border-radius:22px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;box-shadow:0 14px 40px rgba(0,0,0,.4)">
+    <span style="background:#DCFC05;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Comedy <span aria-hidden="true">&times;</span></span>
+    <span style="background:#DCFC05;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Music <span aria-hidden="true">&times;</span></span>
+    <span style="background:#FD1A99;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Events &amp; open mics <span aria-hidden="true">&times;</span></span>
+    <span style="background:#FD1A99;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Grants <span aria-hidden="true">&times;</span></span>
+    <span style="background:#220E43;color:#FEF9EF;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Brooklyn <span aria-hidden="true">&times;</span></span>
+    <span style="background:#220E43;color:#FEF9EF;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Queens <span aria-hidden="true">&times;</span></span>
+    <span style="background:#220E43;color:#FEF9EF;border-radius:999px;padding:6px 8px 6px 14px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center">Tri-state <span aria-hidden="true">&times;</span></span>
+    <span style="color:#8a7d97;font-size:16px;padding-left:6px">Add a discipline, a type or a place&hellip;<span style="display:inline-block;width:2px;height:20px;background:#C20B72;vertical-align:middle;margin-left:3px"></span></span>
+    <button style="margin-left:auto;font:700 16px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:12px 26px">Search</button>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    <div style="background:#2E1556;border:2px solid #46297A;border-radius:18px;padding:16px 18px">
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:10px">What you make</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Dance</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Visual art</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Writing</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Theater</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Film</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Craft</span></div>
+    </div>
+    <div style="background:#2E1556;border:2px solid #46297A;border-radius:18px;padding:16px 18px">
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:10px">What you&rsquo;re after</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Open calls &amp; auditions</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Residencies</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Jobs</span></div>
+    </div>
+    <div style="background:#2E1556;border:2px solid #46297A;border-radius:18px;padding:16px 18px">
+      <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:10px">Where</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Manhattan</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">The Bronx</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Staten Island</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">All of NYC</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Northeast + DC</span></div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin-top:auto;justify-content:center">
+    <span style="font-family:'Fraunces',serif;font-weight:900;font-size:40px;color:#DCFC05;line-height:1">312</span><span style="font-size:17px;color:#CFC6DA">listings match your tags</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

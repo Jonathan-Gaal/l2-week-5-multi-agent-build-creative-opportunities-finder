@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Atlas asks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:36px 56px;display:flex;gap:56px;overflow:hidden">
+  <div style="width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center">
+    <div style="width:230px;height:230px;border-radius:50%;background:#2E1556;border:3px solid #46297A;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(253,26,153,.15)">
+      <img src="/_blob/ef31e1ec834cda0eb613db8b22a87864" alt="The Artist Atlas figure holding a pink globe" style="width:150px;height:auto">
+    </div>
+    <div style="font-family:'Fraunces',serif;font-weight:900;font-size:34px;line-height:1.05">Atlas</div>
+    <div style="color:#CFC6DA;font-size:16px">Your guide to what&rsquo;s open in New York. Ask me anything, or just tap.</div>
+  </div>
+
+  <div style="flex-grow:1;display:flex;flex-direction:column;gap:14px;justify-content:center;max-width:720px">
+    <div style="align-self:flex-start;background:#FEF9EF;color:#220E43;border-radius:22px 22px 22px 6px;padding:14px 20px;font-size:19px;max-width:520px">Hey! First things first: <b>what do you make?</b> Pick all that apply.</div>
+    <div style="align-self:flex-end;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:560px">
+      <span style="background:#DCFC05;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Comedy</span>
+      <span style="background:#DCFC05;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Music</span>
+      <span style="background:#DCFC05;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Writing</span>
+    </div>
+
+    <div style="align-self:flex-start;background:#FEF9EF;color:#220E43;border-radius:22px 22px 22px 6px;padding:14px 20px;font-size:19px;max-width:520px">Comedy, music and writing. That&rsquo;s a good mix. <b>What are you hunting for?</b></div>
+    <div style="align-self:flex-end;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:560px">
+      <span style="background:#FD1A99;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Open mics &amp; events</span>
+      <span style="background:#FD1A99;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Grants</span>
+    </div>
+
+    <div style="align-self:flex-start;background:#FEF9EF;color:#220E43;border-radius:22px 22px 22px 6px;padding:14px 20px;font-size:19px;max-width:520px">Last one. <b>Where can you get to?</b> You can pick a few, or go wider.</div>
+    <div style="align-self:flex-end;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:640px">
+      <span style="border:2px solid #8f78b8;border-radius:999px;padding:7px 16px;font-weight:700">Manhattan</span>
+      <span style="background:#FEF9EF;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Brooklyn</span>
+      <span style="background:#FEF9EF;color:#000;border-radius:999px;padding:9px 18px;font-weight:700">Queens</span>
+      <span style="border:2px solid #8f78b8;border-radius:999px;padding:7px 16px;font-weight:700">Bronx</span>
+      <span style="border:2px solid #8f78b8;border-radius:999px;padding:7px 16px;font-weight:700">Staten Island</span>
+      <span style="border:2px solid #8f78b8;border-radius:999px;padding:7px 16px;font-weight:700">All of NYC</span>
+      <span style="border:2px solid #DCFC05;color:#DCFC05;border-radius:999px;padding:7px 16px;font-weight:700">Tri-state</span>
+      <span style="border:2px solid #8f78b8;border-radius:999px;padding:7px 16px;font-weight:700">Wider Northeast</span>
+    </div>
+
+    <div style="align-self:flex-start;background:#2E1556;border-radius:22px 22px 22px 6px;padding:16px 22px;display:flex;gap:7px"><span style="width:10px;height:10px;border-radius:50%;background:#CFC6DA"></span><span style="width:10px;height:10px;border-radius:50%;background:#8f78b8"></span><span style="width:10px;height:10px;border-radius:50%;background:#46297A"></span></div>
+
+    <div style="display:flex;gap:14px;align-items:center;margin-top:6px">
+      <button style="font:700 19px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:15px 32px">That&rsquo;s it &mdash; go find it &rarr;</button>
+      <span style="color:#CFC6DA;font-size:14px">Tap any earlier answer to change it.</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

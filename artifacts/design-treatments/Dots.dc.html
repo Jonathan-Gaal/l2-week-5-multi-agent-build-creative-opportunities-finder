@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dot-matrix map</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#FEF9EF;font-family:'DM Sans',sans-serif;padding:34px 56px;display:flex;gap:44px;overflow:hidden">
+  <div style="width:430px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;align-items:center;gap:12px"><img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:28px;height:33px"><span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span></div>
+    <h1 style="margin:6px 0 0;font-family:'Fraunces',serif;font-weight:900;font-size:56px;line-height:.98">Every dot is a <span style="color:#FD1A99;font-style:italic">listing.</span></h1>
+    <p style="margin:0;color:#CFC6DA;font-size:17px">Tap a borough to light it up. The more dots, the more going on.</p>
+    <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">You make</div><div style="display:flex;flex-wrap:wrap;gap:7px"><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px">Comedy</span><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px">Music</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Dance</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Visual</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">+4</span></div></div>
+    <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">You want</div><div style="display:flex;flex-wrap:wrap;gap:7px"><span style="background:#FD1A99;color:#000;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px">Events &amp; open mics</span><span style="background:#FD1A99;color:#000;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px">Grants</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Open calls</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">+2</span></div></div>
+    <div><div style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#DCFC05;font-weight:700;margin-bottom:8px">Zoom out</div><div style="display:flex;flex-wrap:wrap;gap:7px"><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">All NYC</span><span style="background:#FEF9EF;color:#000;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px">Tri-state</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Northeast + DC</span></div></div>
+    <button style="margin-top:auto;align-self:flex-start;font:700 19px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:16px 34px">Show 312 dots &rarr;</button>
+  </div>
+
+  <div style="flex-grow:1;position:relative">
+    <svg viewBox="0 0 640 640" width="640" height="640" role="img" aria-label="A dot-matrix map of the five boroughs: Brooklyn and Queens are lit lime, Manhattan, the Bronx and Staten Island are dim, with pink dots for the tri-state ring" style="max-width:100%">
+      <defs>
+        <pattern id="dm" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="5" fill="#46297A"/></pattern>
+        <pattern id="dl" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="7" fill="#DCFC05"/></pattern>
+        <pattern id="dp" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="4" fill="#FD1A99"/></pattern>
+        <pattern id="dc" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="6" fill="#FEF9EF"/></pattern>
+      </defs>
+      <rect x="0" y="0" width="640" height="640" fill="url(#dp)" opacity=".42"/>
+      <polygon points="290,130 300,170 330,150 410,120 380,70 300,80" fill="url(#dm)"/>
+      <polygon points="255,140 290,130 300,170 285,270 265,340 240,350 232,300 245,210" fill="url(#dm)"/>
+      <polygon points="305,170 335,155 430,145 520,195 505,285 410,325 335,320 292,282" fill="url(#dl)"/>
+      <polygon points="265,345 292,285 335,320 410,328 400,400 330,440 270,420 245,380" fill="url(#dl)"/>
+      <polygon points="110,400 190,370 225,420 200,490 130,500 95,450" fill="url(#dm)"/>
+      <g font-family="DM Sans, sans-serif" font-weight="700" font-size="16" fill="#FEF9EF" text-anchor="middle" stroke="#220E43" stroke-width="5" paint-order="stroke">
+        <text x="340" y="112">The Bronx</text><text x="262" y="250" transform="rotate(-80 262 250)">Manhattan</text><text x="420" y="240">Queens</text><text x="335" y="385">Brooklyn</text><text x="155" y="445">Staten Island</text>
+      </g>
+    </svg>
+    <div style="position:absolute;right:0;bottom:6px;display:flex;gap:14px;font-size:13px;color:#CFC6DA"><span><span style="color:#DCFC05">&#9679;</span> picked</span><span><span style="color:#46297A">&#9679;</span> not picked</span><span><span style="color:#FD1A99">&#9679;</span> tri-state</span></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

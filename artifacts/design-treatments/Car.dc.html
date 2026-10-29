@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Subway car</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#d9d3c7;color:#220E43;font-family:'DM Sans',sans-serif;overflow:hidden;position:relative">
+  <!-- ceiling strip with route map -->
+  <div style="position:absolute;left:0;right:0;top:0;height:74px;background:#EDE7DA;border-bottom:4px solid #b9b2a3;display:flex;align-items:center;padding:0 40px;gap:20px">
+    <img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:26px;height:31px"><span style="font-family:'Fraunces',serif;font-weight:700;font-size:19px">Artist Atlas</span>
+    <svg viewBox="0 0 760 50" width="760" height="50" style="margin-left:auto" role="img" aria-label="A route strip with stops: Tri-state, Manhattan, Brooklyn, Queens, Long Island">
+      <line x1="30" y1="25" x2="730" y2="25" stroke="#FD1A99" stroke-width="10" stroke-linecap="round"/>
+      <g stroke="#EDE7DA" stroke-width="4"><circle cx="40" cy="25" r="10" fill="#FFFFFF"/><circle cx="190" cy="25" r="10" fill="#FFFFFF"/><circle cx="340" cy="25" r="10" fill="#DCFC05"/><circle cx="490" cy="25" r="10" fill="#DCFC05"/><circle cx="640" cy="25" r="10" fill="#FFFFFF"/></g>
+      <g font-family="DM Sans, sans-serif" font-weight="700" font-size="13" fill="#220E43" text-anchor="middle"><text x="40" y="48">NJ</text><text x="190" y="48">Manhattan</text><text x="340" y="48">Brooklyn</text><text x="490" y="48">Queens</text><text x="640" y="48">Long Island</text></g>
+    </svg>
+  </div>
+
+  <!-- ad cards above the windows: the three questions -->
+  <div style="position:absolute;left:40px;right:40px;top:96px;display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:22px">
+    <div style="background:#220E43;color:#FEF9EF;border:6px solid #EDE7DA;outline:3px solid #b9b2a3;padding:14px 18px;min-height:210px">
+      <div style="font-size:12px;letter-spacing:.14em;color:#DCFC05;font-weight:700">AD 1 &middot; WHAT YOU MAKE</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Comedy</span><span style="background:#DCFC05;color:#000;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Music</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Dance</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Visual</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Writing</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Theater</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Film</span><span style="border:2px solid #46297A;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Craft</span></div>
+    </div>
+    <div style="background:#FD1A99;color:#000;border:6px solid #EDE7DA;outline:3px solid #b9b2a3;padding:14px 18px;min-height:210px">
+      <div style="font-size:12px;letter-spacing:.14em;font-weight:700">AD 2 &middot; WHAT YOU WANT</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><span style="background:#220E43;color:#FD1A99;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Events &amp; open mics</span><span style="background:#220E43;color:#FD1A99;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Grants</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Open calls</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Residencies</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Jobs</span></div>
+    </div>
+    <div style="background:#DCFC05;color:#000;border:6px solid #EDE7DA;outline:3px solid #b9b2a3;padding:14px 18px;min-height:210px">
+      <div style="font-size:12px;letter-spacing:.14em;font-weight:700">AD 3 &middot; WHERE (PICK YOUR STOPS)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Manhattan</span><span style="background:#220E43;color:#DCFC05;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Brooklyn</span><span style="background:#220E43;color:#DCFC05;border-radius:999px;padding:6px 13px;font-weight:700;font-size:14px">Queens</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Bronx</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Staten Is.</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">All NYC</span><span style="background:#FD1A99;border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">Tri-state</span><span style="border:2px solid #220E43;border-radius:999px;padding:4px 11px;font-weight:700;font-size:14px">N.E. + DC</span></div>
+    </div>
+  </div>
+
+  <!-- windows and doors -->
+  <svg width="1200" height="760" viewBox="0 0 1200 760" aria-hidden="true" style="position:absolute;left:0;top:0">
+    <g>
+      <rect x="40" y="340" width="260" height="190" rx="8" fill="#160A2B" stroke="#b9b2a3" stroke-width="8"/>
+      <rect x="470" y="340" width="260" height="190" rx="8" fill="#160A2B" stroke="#b9b2a3" stroke-width="8"/>
+      <rect x="900" y="340" width="260" height="190" rx="8" fill="#160A2B" stroke="#b9b2a3" stroke-width="8"/>
+      <g fill="#DCFC05" opacity=".8"><rect x="60" y="440" width="22" height="30"/><rect x="100" y="410" width="22" height="30"/><rect x="170" y="430" width="22" height="30"/><rect x="230" y="400" width="22" height="30"/><rect x="490" y="420" width="22" height="30"/><rect x="560" y="450" width="22" height="30"/><rect x="640" y="410" width="22" height="30"/><rect x="920" y="430" width="22" height="30"/><rect x="990" y="400" width="22" height="30"/><rect x="1080" y="440" width="22" height="30"/></g>
+      <g fill="#FD1A99" opacity=".7"><rect x="130" y="470" width="22" height="30"/><rect x="600" y="470" width="22" height="30"/><rect x="1040" y="470" width="22" height="30"/></g>
+      <rect x="320" y="340" width="130" height="260" fill="#c9c2b3" stroke="#b9b2a3" stroke-width="6"/><rect x="750" y="340" width="130" height="260" fill="#c9c2b3" stroke="#b9b2a3" stroke-width="6"/>
+    </g>
+    <!-- handrails and poles -->
+    <g stroke="#9a937f" stroke-width="6" fill="none"><path d="M30 316 H1170"/></g>
+    <g fill="#a39c88"><rect x="305" y="316" width="9" height="440"/><rect x="460" y="316" width="9" height="440"/><rect x="735" y="316" width="9" height="440"/><rect x="890" y="316" width="9" height="440"/></g>
+    <!-- hanging straps -->
+    <g stroke="#220E43" stroke-width="5" fill="none" stroke-linecap="round"><path d="M120 316 v34 a14 14 0 1 0 28 0 v-34"/><path d="M560 316 v34 a14 14 0 1 0 28 0 v-34"/><path d="M1000 316 v34 a14 14 0 1 0 28 0 v-34"/></g>
+    <!-- floor and seats -->
+    <rect x="0" y="600" width="1200" height="160" fill="#7a7364"/>
+    <rect x="0" y="590" width="1200" height="14" fill="#b9b2a3"/>
+    <g fill="#FD1A99"><rect x="60" y="548" width="230" height="40" rx="10"/><rect x="480" y="548" width="230" height="40" rx="10"/><rect x="910" y="548" width="230" height="40" rx="10"/></g>
+  </svg>
+
+  <button style="position:absolute;left:50%;margin-left:-190px;bottom:36px;width:380px;font:700 20px 'DM Sans',sans-serif;background:#220E43;color:#FEF9EF;border:0;border-radius:999px;padding:18px 30px;box-shadow:0 10px 20px rgba(0,0,0,.4)">Stand clear: show 312 matches &rarr;</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,20 +1,12 @@
-import FindWizard from "@/components/FindWizard";
-import { getMeta } from "@/lib/backend";
+import { redirect } from "next/navigation";
 
 type Params = Promise<{ [key: string]: string | string[] | undefined }>;
 
-const list = (v: string | string[] | undefined): string[] =>
-  (Array.isArray(v) ? v.join(",") : (v ?? "")).split(",").filter(Boolean);
-
-export const metadata = { title: "Find opportunities | Artist Atlas" };
-
+/** The find flow is one page per step. This address (and every older /find?... link) starts it, keeping the choices. */
 export default async function Find({ searchParams }: { searchParams: Params }) {
   const q = await searchParams;
-  const initial = { disciplines: list(q.d), types: list(q.t), places: list(q.p) };
-  const meta = getMeta();
-  return (
-    <div className="wrap narrow">
-      <FindWizard initial={initial} meta={meta} />
-    </div>
-  );
+  const keep = new URLSearchParams();
+  for (const [k, v] of Object.entries(q)) if (typeof v === "string") keep.set(k, v);
+  const query = keep.toString();
+  redirect(query ? `/find/discipline?${query}` : "/find/discipline");
 }

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Word wall</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1200px;height:760px;box-sizing:border-box;background:#220E43;color:#6c5496;font-family:'Fraunces',serif;padding:30px 56px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;align-items:center;gap:12px;font-family:'DM Sans',sans-serif"><img src="/_blob/7efe7104825bdc2ddfd444d24b6a372f" alt="" style="width:24px;height:29px"><span style="font-weight:700;font-size:18px;color:#FEF9EF">Artist Atlas</span><span style="margin-left:auto;font-size:14px;color:#CFC6DA">Read it out loud. Tap the words that are you.</span></div>
+
+  <div style="margin-top:14px;font-weight:900;font-size:64px;line-height:1.1;letter-spacing:-.01em">
+    <span style="font-family:'DM Sans',sans-serif;font-size:18px;letter-spacing:.14em;color:#DCFC05;display:block;margin-bottom:2px">I MAKE</span>
+    <span style="background:#DCFC05;color:#000;padding:0 14px;border-radius:12px;font-style:italic">Comedy</span>
+    <span>Dance</span>
+    <span style="background:#DCFC05;color:#000;padding:0 14px;border-radius:12px;font-style:italic">Music</span>
+    <span>Writing</span> <span>Visual&nbsp;art</span> <span>Theater</span> <span>Film</span> <span>Craft</span>
+  </div>
+
+  <div style="margin-top:18px;font-weight:900;font-size:64px;line-height:1.1;letter-spacing:-.01em">
+    <span style="font-family:'DM Sans',sans-serif;font-size:18px;letter-spacing:.14em;color:#FD1A99;display:block;margin-bottom:2px">I WANT</span>
+    <span style="background:#FD1A99;color:#000;padding:0 14px;border-radius:12px;font-style:italic">Open&nbsp;mics</span>
+    <span>Open&nbsp;calls</span>
+    <span style="background:#FD1A99;color:#000;padding:0 14px;border-radius:12px;font-style:italic">Grants</span>
+    <span>Residencies</span> <span>Jobs</span>
+  </div>
+
+  <div style="margin-top:18px;font-weight:900;font-size:64px;line-height:1.1;letter-spacing:-.01em">
+    <span style="font-family:'DM Sans',sans-serif;font-size:18px;letter-spacing:.14em;color:#FEF9EF;display:block;margin-bottom:2px">IN</span>
+    <span>Manhattan</span>
+    <span style="background:#FEF9EF;color:#220E43;padding:0 14px;border-radius:12px;font-style:italic">Brooklyn</span>
+    <span style="background:#FEF9EF;color:#220E43;padding:0 14px;border-radius:12px;font-style:italic">Queens</span>
+    <span>Bronx</span> <span>Staten&nbsp;Island</span> <span>All&nbsp;NYC</span>
+    <span style="border:4px solid #DCFC05;color:#DCFC05;padding:0 12px;border-radius:12px">Tri-state</span>
+  </div>
+
+  <div style="margin-top:auto;display:flex;align-items:center;gap:20px;font-family:'DM Sans',sans-serif"><button style="font:700 20px 'DM Sans',sans-serif;background:#FD1A99;color:#000;border:0;border-radius:999px;padding:16px 36px">Find it &rarr;</button><span style="color:#CFC6DA;font-size:15px">312 matches &middot; dim words are off, lit words are on</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
