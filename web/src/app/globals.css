@@ -76,6 +76,10 @@ img { max-width: 100%; height: auto; }
 .hero-art { display: flex; justify-content: center; }
 .hero-art img { width: min(300px, 70vw); height: auto; filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35)); }
 .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+/* Quiet secondary links under the hero CTAs (How it works, Sign in): subordinate to the two buttons. */
+.hero-sub { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; color: var(--muted-dk); font-size: 15px; }
+.hero-sub a { color: var(--muted-dk); text-decoration: underline; text-underline-offset: 3px; }
+.hero-sub a:hover { color: var(--lime); }
 .stats { display: flex; gap: 12px 32px; flex-wrap: wrap; margin-top: 36px; padding: 18px 22px; background: var(--ink-2); border: 1px solid var(--plum); border-radius: var(--radius); }
 .stat b { display: block; font: 700 28px var(--serif); color: var(--lime); }
 .stat span { color: var(--muted-dk); font-size: 14px; }

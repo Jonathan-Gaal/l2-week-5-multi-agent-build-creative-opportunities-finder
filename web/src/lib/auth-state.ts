@@ -9,8 +9,13 @@
  * offering/﻿withholding the real sign-in methods regardless of which auth state we're in.
  */
 
-/** The minimal slice of a Firebase user we surface to the UI. `email` can be null (e.g. some providers). */
-export type AuthUser = { email: string | null; uid: string };
+/**
+ * The minimal slice of a Firebase user we surface to the UI. `email` can be null (e.g. some providers,
+ * and always for the anonymous demo user). `isAnonymous` is true for a Firebase Anonymous Auth session —
+ * the real-sign-in path of the demo — so the UI shows "Demo mode" instead of an empty email. It rides the
+ * same `firebase-user` event through the reducer, so no extra transition is needed to carry it.
+ */
+export type AuthUser = { email: string | null; uid: string; isAnonymous: boolean };
 
 export type AuthStatus = "loading" | "signed-out" | "guest" | "signed-in";
 
