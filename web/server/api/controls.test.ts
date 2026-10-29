@@ -3,8 +3,8 @@ import { describe, it } from "node:test";
 
 import { type Model, ModelError } from "../agents/model.ts";
 import {
-  BUDGET_USED_UP, type RunEvents, clientKey, concurrencyGate, dailyBudget, guardedModel, lruCache,
-  rateLimiter,
+  BUDGET_USED_UP, NETWORK_CEILING_FACTOR, type RunEvents, asClient, clientKey, concurrencyGate, dailyBudget,
+  guardedModel, lruCache, rateLimiter, visitorRateLimiter,
 } from "./controls.ts";
 
 const clock = (start = new Date(2026, 9, 28, 12).getTime()) => {
@@ -53,11 +53,89 @@ describe("rateLimiter", () => {
     const rl = rateLimiter(5, 60_000, c.now, 2);
     rl.take("a");
     rl.take("b");
-    assert.deepEqual(rl.take("c"), { ok: false, retryAfterSec: 60 });
+    assert.deepEqual(rl.take("c"), { ok: false, retryAfterSec: 60, full: true });
     assert.equal(rl.take("a").ok, true);               // existing keys still work
     c.t += 60_000;
     assert.equal(rl.take("c").ok, true);               // expired windows swept
     assert.equal(rl.size(), 1);
+  });
+});
+
+describe("rateLimiter.refund", () => {
+  it("gives back a charge in the current window, never below zero, and is a no-op once it expired", () => {
+    const c = clock();
+    const rl = rateLimiter(2, 60_000, c.now);
+    rl.take("a", 2);
+    rl.refund("a");
+    assert.equal(rl.take("a").ok, true);
+    assert.equal(rl.take("a").ok, false);
+    rl.refund("a", 99);
+    assert.equal(rl.take("a", 2).ok, true);
+    rl.refund("nobody");                                // unknown key: nothing happens, nothing is created
+    assert.equal(rl.size(), 1);
+    c.t += 60_000;
+    rl.refund("a", 2);
+    assert.equal(rl.take("a", 2).ok, true);
+  });
+});
+
+describe("visitorRateLimiter", () => {
+  const net = "203.0.113.7";
+  const v = (id: string, network = net) => ({ key: `v:${id}`, network });
+
+  it("two cookie visitors on one address get separate buckets; one using theirs up doesn't touch the other", () => {
+    const rl = visitorRateLimiter(3, 60_000, clock().now);
+    for (let i = 0; i < 3; i++) assert.equal(rl.take(v("a")).ok, true);
+    assert.equal(rl.take(v("a")).ok, false);
+    for (let i = 0; i < 3; i++) assert.equal(rl.take(v("b")).ok, true);
+    assert.equal(rl.take(v("b")).ok, false);
+  });
+
+  it("without a cookie, everyone on the address shares one bucket (as before), separate from cookie buckets", () => {
+    const rl = visitorRateLimiter(2, 60_000, clock().now);
+    assert.deepEqual([rl.take(asClient(net)).ok, rl.take(asClient(net)).ok, rl.take(asClient(net)).ok], [true, true, false]);
+    assert.equal(rl.take(v("a")).ok, true);             // a cookie visitor isn't in the exhausted address bucket
+    assert.equal(rl.take(asClient("198.51.100.1")).ok, true);
+  });
+
+  it("a cookie farm on one address is capped at limit x ceiling factor; other addresses are unaffected", () => {
+    const rl = visitorRateLimiter(2, 60_000, clock().now);
+    let ok = 0;
+    for (let i = 0; i < 100; i++) if (rl.take(v(`farm${i}`)).ok) ok += 1;
+    assert.equal(ok, 2 * NETWORK_CEILING_FACTOR);
+    assert.equal(rl.take(v("classmate")).ok, false);    // the address's ceiling is spent, for cookie visitors too
+    assert.equal(rl.take(v("elsewhere", "198.51.100.1")).ok, true);
+  });
+
+  it("a visitor refused their own bucket gets the ceiling charge back (doesn't spend classmates' share)", () => {
+    const rl = visitorRateLimiter(2, 60_000, clock().now, 2);   // ceiling 4
+    for (let i = 0; i < 50; i++) rl.take(v("spammer"));          // 2 accepted, 48 refused
+    assert.deepEqual([rl.take(v("b")).ok, rl.take(v("b")).ok, rl.take(v("b")).ok], [true, true, false]);
+  });
+
+  it("charges n all or nothing in both the visitor bucket and the ceiling", () => {
+    const rl = visitorRateLimiter(3, 60_000, clock().now, 2);   // ceiling 6
+    assert.equal(rl.take(v("a"), 4).ok, false);
+    assert.equal(rl.take(v("a"), 3).ok, true);
+    assert.equal(rl.take(v("b"), 3).ok, true);
+    assert.equal(rl.take(v("c"), 1).ok, false);                  // ceiling 6 spent
+  });
+
+  it("once the window passes, the ceiling and visitor buckets reset", () => {
+    const c = clock();
+    const rl = visitorRateLimiter(1, 60_000, c.now, 1);
+    assert.equal(rl.take(v("a")).ok, true);
+    assert.equal(rl.take(v("b")).ok, false);
+    c.t += 60_000;
+    assert.equal(rl.take(v("b")).ok, true);
+  });
+
+  it("a full cookie table falls back to the visitor's address bucket rather than refusing them outright", () => {
+    const rl = visitorRateLimiter(2, 60_000, clock().now, 100, 3);   // maxKeys 3 per table
+    for (const id of ["x", "y", "z"]) rl.take(v(id, "10.0.0.1"));     // fills the cookie table, not the ceiling's
+    assert.equal(rl.take(v("late")).ok, true);                        // served from net's address bucket
+    assert.equal(rl.take(asClient(net)).ok, true);                    // ...which it shares with that address
+    assert.equal(rl.take(v("late2")).ok, false);                      // address bucket (2) now spent
   });
 });
 

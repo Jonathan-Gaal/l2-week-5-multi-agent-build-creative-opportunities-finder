@@ -5,7 +5,8 @@
  *
  * A search is ONE call to /api/search with every place, type and discipline picked. The API expands place groups,
  * filters by discipline, and ranks each type once over all the places, returning one group per type. Each call
- * names the visitor's address, so the API rate-limits visitors separately (see visitorAddress).
+ * names the visitor (their signed cookie id and their address), so the API rate-limits visitors separately (see
+ * visitorClient).
  */
 import "server-only";
 
@@ -14,7 +15,8 @@ import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse
 import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
 import { createApp, META } from "../../server/api/app.ts";
 import { readConfig } from "../../server/api/config.ts";
-import { clientKey } from "../../server/api/controls.ts";
+import { type Client, clientKey } from "../../server/api/controls.ts";
+import { SHARED_NETWORK, visitorClient as clientFor, visitorSecret } from "../../server/api/visitor.ts";
 import { jsonSource } from "../../server/db/json-source.ts";
 import { postgresSource } from "../../server/db/opportunities.ts";
 import { getPool } from "../../server/db/pool.ts";
@@ -78,8 +80,8 @@ function getApi(): Api {
   return api;
 }
 
-/** One API call for `client` (a rate-limit key). Errors come back as BackendError with friendly text. */
-async function callApi<T>(path: string, client: string): Promise<T> {
+/** One API call for `client` (a rate-limit identity). Errors come back as BackendError with friendly text. */
+async function callApi<T>(path: string, client: string | Client): Promise<T> {
   // The API reads the clock (deadlines, cache, rate limits): this is per-request work, never part of a prerender.
   await connection();
   let res: Response;
@@ -132,6 +134,16 @@ export function visitorAddress(headers: Headers): string | null {
   return last ? last : null;
 }
 
+/**
+ * The visitor's rate-limit identity for one request: their signed visitor cookie (set by src/proxy.ts, verified
+ * here again) when valid, else their address as above; see server/api/visitor.ts. Without VISITOR_COOKIE_SECRET
+ * it is the address alone.
+ */
+export function visitorClient(headers: Headers): Client {
+  const address = visitorAddress(headers);
+  return clientFor(headers.get("cookie"), address ? clientKey(address) : SHARED_NETWORK, visitorSecret());
+}
+
 /** The /api/search query for picker choices. Commas are left readable; the API splits on them. */
 export function searchQuery(input: SearchInput): string {
   const q = new URLSearchParams({ places: input.places.join(","), types: input.types.join(",") });
@@ -139,10 +151,10 @@ export function searchQuery(input: SearchInput): string {
   return q.toString().replaceAll("%2C", ",");
 }
 
-/** One search, one call. `visitor` is the end user's address (visitorAddress), the key for their rate limit. */
-export async function searchBackend(input: SearchInput, opts: { visitor: string | null; labels: Labels }): Promise<SearchOutput> {
+/** One search, one call. `visitor` is the end user's rate-limit identity (visitorClient). */
+export async function searchBackend(input: SearchInput, opts: { visitor: Client; labels: Labels }): Promise<SearchOutput> {
   const query = searchQuery(input);
-  const res = await callApi<SearchResponse>(`${ROUTES.search}?${query}`, opts.visitor ? clientKey(opts.visitor) : "shared");
+  const res = await callApi<SearchResponse>(`${ROUTES.search}?${query}`, opts.visitor);
   const groups: Group[] = res.groups.map((g) => ({
     type: g.type,
     tier: g.tier,

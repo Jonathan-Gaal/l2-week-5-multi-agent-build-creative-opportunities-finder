@@ -9,6 +9,7 @@ import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
 import { type Queryable, postgresSource } from "../db/opportunities.ts";
 import { type AppDeps, type Limits, createApp, parseOpportunitiesQuery, parseSearchQuery, safeHttpUrl } from "./app.ts";
 import { ConfigError, readConfig } from "./config.ts";
+import { type Client, NETWORK_CEILING_FACTOR } from "./controls.ts";
 import type { MetaResponse, OpportunitiesResponse, SearchResponse } from "./types.ts";
 
 const NOW = new Date(2026, 9, 28, 12).getTime();
@@ -71,7 +72,7 @@ const start = async ({ db = fakeDb(), ...setup }: Setup = {}) => {
     now: () => clock.t, log: (l) => logs.push(l), ...setup, limits: setup.limits ?? {},
   });
   /** One request from `client` (the rate-limit key the Next.js server passes). */
-  const get = async (path: string, init: RequestInit = {}, client = "127.0.0.1") => {
+  const get = async (path: string, init: RequestInit = {}, client: string | Client = "127.0.0.1") => {
     const res = await handler(new Request(`http://app${path}`, init), client);
     return { status: res.status, headers: res.headers, body: await res.json() };
   };
@@ -612,5 +613,30 @@ describe("rate-limit identity", () => {
     assert.equal((await get(opp("brooklyn", "open_call"), {}, "203.0.113.1")).status, 200);
     assert.equal((await get(opp("brooklyn", "grant"), {}, "203.0.113.2")).status, 200);
     assert.equal((await get(opp("brooklyn", "event"), {}, "203.0.113.1")).status, 429);
+  });
+
+  it("two cookie visitors on one address get separate request limits, under the address's ceiling", async () => {
+    const { get, logs } = await start({ mode: "baseline", db: fakeDb(POOL), limits: { requestsPerMinute: 3, ratePerMinute: 100 } });
+    const net = "203.0.113.9";
+    const a: Client = { key: "v:a", network: net };
+    const b: Client = { key: "v:b", network: net };
+    const q = searchPath("places=brooklyn&types=grant");
+    for (let i = 0; i < 3; i++) assert.equal((await get(q, {}, a)).status, 200);
+    assert.equal((await get(q, {}, a)).status, 429);
+    for (let i = 0; i < 3; i++) assert.equal((await get(q, {}, b)).status, 200);     // b unaffected by a
+    assert.equal((await get(q, {}, net)).status, 200);                                // cookieless: the address bucket
+    assert.ok(logs.some((l) => l === `rate limited v:a on ${net}`));
+    // The ceiling: 3 x factor across cookie visitors on the address; a and b used 6, refused attempts are refunded.
+    let ok = 0;
+    for (let i = 0; i < 50; i++) if ((await get(q, {}, { key: `v:farm${i}`, network: net })).status === 200) ok += 1;
+    assert.equal(ok, 3 * NETWORK_CEILING_FACTOR - 6);
+  });
+
+  it("model runs are per cookie visitor too", async () => {
+    const { get } = await start({ db: fakeDb(POOL), limits: { ratePerMinute: 1, requestsPerMinute: 100 } });
+    const net = "203.0.113.9";
+    assert.equal((await get(searchPath("places=brooklyn&types=grant"), {}, { key: "v:a", network: net })).status, 200);
+    assert.equal((await get(searchPath("places=queens&types=grant"), {}, { key: "v:a", network: net })).status, 429);
+    assert.equal((await get(searchPath("places=queens&types=grant"), {}, { key: "v:b", network: net })).status, 200);
   });
 });

@@ -1,4 +1,4 @@
-import { asBackendError, backendHealth, FRIENDLY, getMeta, searchBackend, visitorAddress } from "@/lib/backend";
+import { asBackendError, backendHealth, FRIENDLY, getMeta, searchBackend, visitorClient } from "@/lib/backend";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 
 const pick = (value: unknown, allowed: Set<string>): string[] => (Array.isArray(value) ? pickIds(value, allowed) : []);
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     if (!places.length || !types.length) {
       return Response.json({ error: "bad_request", message: "Pick at least one place and one type." }, { status: 400 });
     }
-    const out = await searchBackend({ places, types, disciplines }, { visitor: visitorAddress(request.headers), labels: labelsFor(meta) });
+    const out = await searchBackend({ places, types, disciplines }, { visitor: visitorClient(request.headers), labels: labelsFor(meta) });
     return Response.json(out);
   } catch (e) {
     const { code } = asBackendError(e);

@@ -15,7 +15,9 @@
  * per run). The runs of one search share a search_id in the trace.
  * When no run slot frees up in time, an opportunities request gets 503 busy; a search serves that type from
  * the code baseline (Tier 2, not fully checked) instead of failing every group.
- * The caller names the client's rate-limit identity (the visitor's address, normalized by controls.clientKey).
+ * The caller names the client's rate-limit identity (controls.Client): their signed visitor cookie id when they have
+ * one, and their address (normalized by controls.clientKey). Both limits are per visitor, under a per-address
+ * ceiling (controls.visitorRateLimiter).
  */
 
 import { appendFile, mkdir } from "node:fs/promises";
@@ -29,8 +31,8 @@ import {
 } from "../agents/taxonomy.ts";
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
-  BUDGET_USED_UP, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, concurrencyGate, dailyBudget,
-  type RateLimiter, guardedModel, lruCache, rateLimiter,
+  BUDGET_USED_UP, type Client, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, type VisitorRateLimiter,
+  asClient, concurrencyGate, dailyBudget, guardedModel, lruCache, visitorRateLimiter,
 } from "./controls.ts";
 import {
   API_ROUTES, type Borough, type Discipline, type ErrorCode, type ErrorResponse, type MetaResponse,
@@ -218,10 +220,10 @@ export const createApp = (deps: AppDeps) => {
   const log = deps.log ?? ((line: string) => console.error(line));
   if (deps.mode !== "baseline" && deps.model === null) throw new Error(`mode ${deps.mode} needs a model`);
 
-  const limiter = rateLimiter(limits.ratePerMinute, 60_000, now);
+  const limiter = visitorRateLimiter(limits.ratePerMinute, 60_000, now);
   // Charged once per search or opportunities request before any database work, so baseline mode, a used-up
   // budget and cache hits are bounded too. Per process like every control here: on Vercel, per instance.
-  const requestLimiter = rateLimiter(limits.requestsPerMinute, 60_000, now);
+  const requestLimiter = visitorRateLimiter(limits.requestsPerMinute, 60_000, now);
   const budget = dailyBudget(limits.dailyModelCalls, now);
   const gate = concurrencyGate(limits.maxConcurrentRuns, limits.maxQueuedRuns);
   const cache = lruCache<Computed>(limits.cacheEntries, now);
@@ -315,17 +317,17 @@ export const createApp = (deps: AppDeps) => {
   };
 
   /** Charge `n` to the client in `which` limiter; over the limit is 429 rate_limited with Retry-After. */
-  const charge = (which: RateLimiter, client: string, n = 1) => {
+  const charge = (which: VisitorRateLimiter, client: Client, n = 1) => {
     const decision = which.take(client, n);
     if (!decision.ok) {
-      log(`rate limited ${client}`);
+      log(`rate limited ${client.key === client.network ? client.key : `${client.key} on ${client.network}`}`);
       throw new HttpError("rate_limited", { "Retry-After": String(decision.retryAfterSec) });
     }
   };
 
   /** Serve several runs for one client request, in order. Fresh model runs are charged to the client's rate
    * limit together, all or nothing, before any of them starts. */
-  const serve = async (reqs: SearchRequest[], snapshotId: string, client: string, opts: ServeOptions): Promise<Served[]> => {
+  const serve = async (reqs: SearchRequest[], snapshotId: string, client: Client, opts: ServeOptions): Promise<Served[]> => {
     const plans = reqs.map((req) => {
       const key = runKey(snapshotId, req);
       return { req, key, cached: cache.get(key), running: inFlight.get(key) };
@@ -349,7 +351,7 @@ export const createApp = (deps: AppDeps) => {
 
   const snapshotFor = async () => deps.snapshotId ?? (await deps.source.publishedSnapshotId());
 
-  const opportunities = async (params: URLSearchParams, client: string): Promise<OpportunitiesResponse> => {
+  const opportunities = async (params: URLSearchParams, client: Client): Promise<OpportunitiesResponse> => {
     const q = parseOpportunitiesQuery(params);
     if (q === null) throw new HttpError("bad_request");
     charge(requestLimiter, client);
@@ -360,7 +362,7 @@ export const createApp = (deps: AppDeps) => {
     return c.tier === 3 ? { ...base, tier: 3, reason: c.reason ?? "no result" } : { ...base, tier: c.tier };
   };
 
-  const search = async (params: URLSearchParams, client: string): Promise<SearchResponse> => {
+  const search = async (params: URLSearchParams, client: Client): Promise<SearchResponse> => {
     const q = parseSearchQuery(params);
     if (q === null) throw new HttpError("bad_request");
     charge(requestLimiter, client);
@@ -380,15 +382,16 @@ export const createApp = (deps: AppDeps) => {
     return { snapshot_id: snapshotId, as_of: asOf, groups };
   };
 
-  const routes: Record<string, (url: URL, client: string) => Promise<unknown> | unknown> = {
+  const routes: Record<string, (url: URL, client: Client) => Promise<unknown> | unknown> = {
     [API_ROUTES.health]: () => ({ ok: true }),
     [API_ROUTES.meta]: () => META,
     [API_ROUTES.opportunities]: (url, client) => opportunities(url.searchParams, client),
     [API_ROUTES.search]: (url, client) => search(url.searchParams, client),
   };
 
-  /** One API request. `client` is the caller's rate-limit key (controls.clientKey of the visitor's address). */
-  return async (request: Request, client: string): Promise<Response> => {
+  /** One API request. `client` is the caller's rate-limit identity (controls.Client; a bare string keys by it alone). */
+  return async (request: Request, who: string | Client): Promise<Response> => {
+    const client = asClient(who);
     const fail = (code: ErrorCode, extra: Record<string, string> = {}) => {
       const body: ErrorResponse = { error: code, message: MESSAGES[code] };
       return respond(STATUS[code], body, extra);
