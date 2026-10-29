@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "env -u DATABASE_URL -u ANTHROPIC_API_KEY next dev",
     "dev:local": "DATA_SOURCE=json SNAPSHOT_ID=${SNAPSHOT_ID:-2026-10-27} RANKER_MODE=baseline next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "env -u DATABASE_URL -u ANTHROPIC_API_KEY next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit && tsc -p server",
     "test": "node --test \"server/**/*.test.ts\" \"src/**/*.test.ts\"",
