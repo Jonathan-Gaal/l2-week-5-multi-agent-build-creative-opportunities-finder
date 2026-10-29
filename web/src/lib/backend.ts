@@ -15,7 +15,7 @@ import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse
 import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
 import { type TraceSink, dailyFileSink } from "../../server/agents/trace.ts";
 import { createApp, META } from "../../server/api/app.ts";
-import { type Config, readConfig } from "../../server/api/config.ts";
+import { type Config, readConfig, resolveMode } from "../../server/api/config.ts";
 import { type Client, clientKey } from "../../server/api/controls.ts";
 import { SHARED_NETWORK, visitorClient as clientFor, visitorSecret } from "../../server/api/visitor.ts";
 import { jsonSource } from "../../server/db/json-source.ts";
@@ -76,8 +76,9 @@ let api: Api | null = null;
 
 /**
  * The API, built once per server process from the environment (web/.env.example): the record source (Postgres, or
- * the JSON snapshot with DATA_SOURCE=json) and the Claude model unless RANKER_MODE=baseline. Its cache, rate limits
- * and daily budget live in this process. Throws on missing or invalid settings; the next call tries again.
+ * the JSON snapshot with DATA_SOURCE=json) and the Claude model unless RANKER_MODE=baseline or credentials are
+ * missing (then the code baseline, Tier 2). Its cache, rate limits and daily budget live in this process. Throws on
+ * missing or invalid settings (data source, limits), but never on absent Claude credentials; the next call retries.
  */
 function getApi(): Api {
   if (api) return api;
@@ -86,14 +87,13 @@ function getApi(): Api {
   if (!useJson && !process.env.DATABASE_URL) {
     throw new Error("DATABASE_URL is not set (copy web/.env.example to web/.env, or run npm run dev:local)");
   }
-  if (config.mode !== "baseline") {
-    const missing = missingCredentials();
-    if (missing) throw new Error(`RANKER_MODE=${config.mode} needs Claude: ${missing}. Or set RANKER_MODE=baseline.`);
-  }
+  // Missing Claude credentials degrade an LLM mode to the code baseline (Tier 2) instead of throwing, so the app
+  // always serves results; resolveMode warns once per process when it does. RANKER_MODE=baseline stays baseline.
+  const mode = resolveMode(config, missingCredentials());
   api = createApp({
     source: useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool()),
-    model: config.mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
-    mode: config.mode,
+    model: mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
+    mode,
     snapshotId: config.snapshotId,
     trace: traceSink(config),
     limits: config.limits,

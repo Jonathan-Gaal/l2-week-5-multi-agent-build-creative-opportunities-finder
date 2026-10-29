@@ -9,7 +9,7 @@ import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
 import { dailyFileSink } from "../agents/trace.ts";
 import { type Queryable, postgresSource } from "../db/opportunities.ts";
 import { type AppDeps, type Limits, createApp, parseOpportunitiesQuery, parseSearchQuery, safeHttpUrl } from "./app.ts";
-import { ConfigError, readConfig } from "./config.ts";
+import { ConfigError, readConfig, resetCredentialWarning, resolveMode } from "./config.ts";
 import { type Client, NETWORK_CEILING_FACTOR } from "./controls.ts";
 import type { MetaResponse, OpportunitiesResponse, SearchResponse } from "./types.ts";
 
@@ -396,6 +396,68 @@ describe("readConfig", () => {
       { TRACE_SINK: "s3" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
+  });
+});
+
+/** Capture everything console.warn receives while `fn` runs; always restores the original. */
+const captureWarn = (fn: () => void): string[] => {
+  const warnings: string[] = [];
+  const original = console.warn;
+  console.warn = (...args: unknown[]) => { warnings.push(args.map(String).join(" ")); };
+  try {
+    fn();
+  } finally {
+    console.warn = original;
+  }
+  return warnings;
+};
+
+describe("resolveMode (credential-aware effective mode)", () => {
+  // The reason string missingCredentials() returns when no key is configured; injected here at the boundary so the
+  // test never touches the real environment or filesystem. The code degrades on any non-null reason.
+  const NO_CREDS = "no Anthropic credentials (set ANTHROPIC_API_KEY or run `ant auth login`)";
+  // Hand-derived from the spec's required warning format: "No Anthropic credentials; serving code-only results
+  // (Tier 2). <reason>" — not copied from code output.
+  const EXPECTED_WARNING = `No Anthropic credentials; serving code-only results (Tier 2). ${NO_CREDS}`;
+
+  it("no credentials + default mode: degrades to baseline (code-only, model null) and never throws", () => {
+    resetCredentialWarning();
+    let mode: string | undefined;
+    assert.doesNotThrow(() => { mode = resolveMode(readConfig({}), NO_CREDS); });
+    assert.equal(mode, "baseline");   // backend maps "baseline" -> model: null
+  });
+
+  it("credentials present + default mode: runs the full LLM pipeline (ranker_reviewer)", () => {
+    resetCredentialWarning();
+    const mode = resolveMode(readConfig({}), null);
+    assert.equal(mode, "ranker_reviewer");   // backend maps a non-baseline mode -> new ClaudeModel(...)
+  });
+
+  it("RANKER_MODE=baseline without credentials: stays baseline, with no warning (the operator chose it)", () => {
+    resetCredentialWarning();
+    let mode: string | undefined;
+    const warnings = captureWarn(() => { mode = resolveMode(readConfig({ RANKER_MODE: "baseline" }), NO_CREDS); });
+    assert.equal(mode, "baseline");
+    assert.deepEqual(warnings, []);
+  });
+
+  it("RANKER_MODE=ranker_reviewer without credentials: degrades to baseline with a one-time warning, no throw", () => {
+    resetCredentialWarning();
+    let mode: string | undefined;
+    const warnings = captureWarn(() => {
+      assert.doesNotThrow(() => { mode = resolveMode(readConfig({ RANKER_MODE: "ranker_reviewer" }), NO_CREDS); });
+    });
+    assert.equal(mode, "baseline");
+    assert.deepEqual(warnings, [EXPECTED_WARNING]);
+  });
+
+  it("warns at most once per process across repeated resolves, not per request", () => {
+    resetCredentialWarning();
+    const warnings = captureWarn(() => {
+      resolveMode(readConfig({}), NO_CREDS);   // first build/request: warns
+      resolveMode(readConfig({}), NO_CREDS);   // second build/request in the same process: silent
+    });
+    assert.deepEqual(warnings, [EXPECTED_WARNING]);
   });
 });
 
