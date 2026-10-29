@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import BackendFailure from "@/components/BackendFailure";
 import ResultCard from "@/components/ResultCard";
-import { asBackendError, type BackendError, getMeta, searchBackend, visitorAddress } from "@/lib/backend";
+import { asBackendError, type BackendError, getMeta, searchBackend, visitorClient } from "@/lib/backend";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
 
@@ -41,7 +41,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   let out: SearchOutput | null = null;
   let failure: BackendError | null = null;
   try {
-    out = await searchBackend({ places, types, disciplines }, { visitor: visitorAddress(await headers()), labels });
+    out = await searchBackend({ places, types, disciplines }, { visitor: visitorClient(await headers()), labels });
   } catch (e) {
     failure = asBackendError(e);
   }

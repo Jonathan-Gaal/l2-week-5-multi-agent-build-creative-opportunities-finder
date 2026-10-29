@@ -17,7 +17,8 @@ const eslintConfig = defineConfig([
     // Server code (server/: agents, database, API) runs only on the Next.js server. Pages and components reach it
     // through src/lib/backend.ts, which is marked "server-only"; elsewhere import it with `import type` only, so a
     // client component can never pull the database driver or the Claude client into the browser bundle.
-    ignores: ["src/lib/backend.ts", "server/**", "test/**"],
+    // src/proxy.ts runs only on the server too (Next's Proxy) and imports just server/api/visitor.ts (node:crypto).
+    ignores: ["src/lib/backend.ts", "src/proxy.ts", "server/**", "test/**"],
     rules: {
       "@typescript-eslint/no-restricted-imports": ["error", {
         patterns: [{ group: ["@api/*", "**/server/**"], allowTypeImports: true, message: "Use src/lib/backend.ts, or `import type`." }],

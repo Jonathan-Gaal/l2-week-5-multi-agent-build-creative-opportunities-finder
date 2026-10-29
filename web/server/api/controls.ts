@@ -3,6 +3,8 @@
  * resets them, and running N processes multiplies every limit by N.
  *
  * - rateLimiter: fixed-window count per client key (requests that would call the model).
+ * - visitorRateLimiter: a rateLimiter per visitor, keyed by their signed cookie id when they have one, under a
+ *   per-network ceiling so many cookies from one address can't multiply that address's allowance without bound.
  * - dailyBudget: process-wide count of model calls per local day (PRD section 10's cap).
  * - concurrencyGate: at most N model-backed runs at once, a short bounded queue for the rest.
  * - lruCache: bounded result cache with a per-entry time to live.
@@ -16,11 +18,13 @@ import { type Model, ModelError } from "../agents/model.ts";
 
 export type Clock = () => number;
 
-export type RateDecision = { ok: true } | { ok: false; retryAfterSec: number };
+/** `full`: refused only because the limiter holds `maxKeys` live keys, not because this key used its limit. */
+export type RateDecision = { ok: true } | { ok: false; retryAfterSec: number; full?: true };
 
 /** At most `limit` takes per key per window. take(key, n) charges n at once, all or nothing: if fewer than n
  * remain, nothing is charged. When `maxKeys` distinct keys are live, new keys are refused until windows
- * expire, so memory stays bounded under a flood of addresses. */
+ * expire, so memory stays bounded under a flood of addresses. refund(key, n) gives back a charge made in the
+ * current window (a no-op once it has expired). */
 export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys = 10_000) => {
   const windows = new Map<string, { start: number; count: number }>();
   const windowSec = Math.max(1, Math.ceil(windowMs / 1000));
@@ -35,7 +39,7 @@ export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys
       if (w === undefined || expired(w.start, t)) {
         if (w === undefined && windows.size >= maxKeys) {
           sweep(t);
-          if (windows.size >= maxKeys) return { ok: false, retryAfterSec: windowSec };
+          if (windows.size >= maxKeys) return { ok: false, retryAfterSec: windowSec, full: true };
         }
         w = { start: t, count: 0 };
         windows.set(key, w);
@@ -46,10 +50,53 @@ export const rateLimiter = (limit: number, windowMs: number, now: Clock, maxKeys
       w.count += n;
       return { ok: true };
     },
+    refund(key: string, n = 1) {
+      const w = windows.get(key);
+      if (w !== undefined && !expired(w.start, now())) w.count = Math.max(0, w.count - n);
+    },
     size: () => windows.size,
   };
 };
 export type RateLimiter = ReturnType<typeof rateLimiter>;
+
+/** A visitor's rate-limit identity. `network`: their address key (clientKey, or a fixed key when the address is
+ * unknown). `key`: their own bucket, `v:<id>` from a valid signed visitor cookie (server/api/visitor.ts), or
+ * `network` itself when they have none. A bare string is both. */
+export type Client = { key: string; network: string };
+export const asClient = (c: string | Client): Client => (typeof c === "string" ? { key: c, network: c } : c);
+
+/** Cookie visitors on one network may use this many times the per-visitor limit together (per process). */
+export const NETWORK_CEILING_FACTOR = 4;
+
+/**
+ * `limit` per visitor per window, where a visitor is a cookie id or, without one, a network (everyone on that
+ * address shares one bucket, as before cookies). Cookie visitors are also charged to a per-network ceiling of
+ * `limit * ceilingFactor`, so a farm of minted cookies on one address gets at most that, never `limit` per
+ * cookie. Order matters: the ceiling is charged first, so once it is spent an address creates no new cookie
+ * keys; a visitor refused their own bucket gets the ceiling charge back, so one visitor hammering past their
+ * limit doesn't spend classmates' share. If the cookie limiter is full (maxKeys live ids), the visitor falls back
+ * to their network's bucket: never worse than keying by address alone. Cookie and network keys live in separate
+ * limiters, so a cookie flood can't fill the table cookieless visitors use.
+ */
+export const visitorRateLimiter = (
+  limit: number, windowMs: number, now: Clock, ceilingFactor = NETWORK_CEILING_FACTOR, maxKeys = 10_000,
+) => {
+  const byNetwork = rateLimiter(limit, windowMs, now, maxKeys);
+  const byCookie = rateLimiter(limit, windowMs, now, maxKeys);
+  const ceiling = rateLimiter(limit * ceilingFactor, windowMs, now, maxKeys);
+  return {
+    take(client: Client, n = 1): RateDecision {
+      if (client.key === client.network) return byNetwork.take(client.network, n);
+      const roof = ceiling.take(client.network, n);
+      if (!roof.ok) return roof;
+      let d = byCookie.take(client.key, n);
+      if (!d.ok && d.full) d = byNetwork.take(client.network, n);
+      if (!d.ok) ceiling.refund(client.network, n);
+      return d;
+    },
+  };
+};
+export type VisitorRateLimiter = ReturnType<typeof visitorRateLimiter>;
 
 /** Model calls allowed per local calendar day. take() reserves one call; it is synchronous, so concurrent
  * runs can never overspend. */
