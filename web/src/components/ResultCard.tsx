@@ -5,11 +5,14 @@ const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unch
 export default function ResultCard({ card }: { card: Card }) {
   const closing =
     card.closesIn === null ? null : card.closesIn === 0 ? "today" : card.closesIn === 1 ? "tomorrow" : `in ${card.closesIn} days`;
+  // Top right, as on the Live board: how soon it closes, else when it happens or that it is rolling.
+  const when = closing ? `closes ${closing}` : (card.recurrence ?? card.deadline);
   return (
     <article className="rcard">
       <div className="rcard-top">
         <span className="pill pill-pink">{card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel}</span>
         <span className={TRUST_PILL[card.trust]}>{card.label}</span>
+        <span className={closing ? "rcard-when closing" : "rcard-when"}>{when}</span>
       </div>
       <h3>{card.title}</h3>
       <p className="org">
@@ -18,7 +21,6 @@ export default function ResultCard({ card }: { card: Card }) {
       <div className="facts">
         <span>
           <b>{card.deadline}</b>
-          {closing && <span className="closing"> · {closing}</span>}
         </span>
         {card.recurrence && <span>{card.recurrence}</span>}
         <span>{card.fee}</span>

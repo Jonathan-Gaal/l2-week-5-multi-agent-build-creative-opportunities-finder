@@ -120,11 +120,13 @@ img { max-width: 100%; height: auto; }
 .group-head h2 { font-size: clamp(24px, 4vw, 32px); }
 .group-meta { color: var(--muted-dk); font-size: 14px; }
 .cards { display: grid; gap: 16px; }
-.rcard { background: var(--card); color: var(--ink); border-radius: var(--radius); padding: 22px; border: 2px solid var(--line); display: grid; gap: 10px; }
-.rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-.rcard h3 { font-size: 24px; color: var(--ink); }
-.rcard .org { color: var(--muted); font-size: 15px; }
-.facts { display: flex; gap: 8px 22px; flex-wrap: wrap; font-size: 15px; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.rcard { background: #fffcf6; color: var(--ink); border-radius: 18px; padding: 16px 20px; display: grid; gap: 6px; }
+.rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.rcard-when { margin-left: auto; font: 700 14px var(--sans); color: var(--muted); }
+.rcard-when.closing { color: var(--pink-dk); }
+.rcard h3 { font: 700 23px/1.2 var(--serif); color: var(--ink); }
+.rcard .org { color: var(--muted); font-size: 14px; }
+.facts { display: flex; gap: 4px 20px; flex-wrap: wrap; font-size: 14px; color: var(--muted); padding: 4px 0; }
 .facts b { color: var(--ink); }
 .closing { color: var(--pink-dk); font-weight: 700; }
 .rcard ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
@@ -216,3 +218,5 @@ html[data-auth="off"] .auth-slot { display: none; }
 /* Page backgrounds (dev Versions panel). "purple" is the original look: plain brand purple plus the circle in the top-right corner.
    "solid" is the plain brand purple only (the circle is hidden in MadLibsHero.module.css). */
 html[data-bg="spotlight"] body { background: radial-gradient(ellipse 70% 80% at 30% 55%, #46297a 0%, #331a5e 38%, var(--ink) 78%) fixed, var(--ink); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

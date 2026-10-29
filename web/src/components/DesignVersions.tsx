@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import repoVersions from "@/data/design-versions.json";
 import { announceArt } from "./designArt";
 
 /** TEMPORARY, dev only: flips between design versions while Mara works. Everything is kept in this browser. */
@@ -183,6 +184,13 @@ const readSettings = (): Settings => ({
   auth: readPx(store.get("authpos", "{}")),
 });
 
+/** Looks saved in the repo (design-versions.json) show up for everyone; ones saved only in this browser are added, and win on the same id. */
+const mergeSaved = (local: Saved[]): Saved[] => {
+  const mine = new Map(local.map((v) => [v.id, v]));
+  const shared = (repoVersions as unknown as Saved[]).map((v) => mine.get(v.id) ?? v);
+  return [...shared, ...local.filter((v) => !shared.some((r) => r.id === v.id))];
+};
+
 const readSaved = (): Saved[] => {
   try {
     const list = JSON.parse(store.get("saved", "[]"));
@@ -246,7 +254,8 @@ export default function DesignVersions() {
     const now = readSettings();
     setS(now);
     applySettings(now);
-    setSaved(readSaved());
+    setSaved(mergeSaved(readSaved()));
+    setOpen(window.location.pathname.startsWith("/design-test")); // elsewhere it starts collapsed so it never covers the page's own buttons
   }, []);
 
   const change = (next: Settings) => {
@@ -315,6 +324,14 @@ export default function DesignVersions() {
     writeSaved(saved.filter((v) => v.id !== current));
     setCurrent("");
     flash("Deleted");
+  };
+  const saveToCode = async () => {
+    try {
+      const res = await fetch("/api/dev-design-versions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(saved) });
+      flash(res.ok ? `Saved ${saved.length} to the code (design-versions.json)` : "Could not save to the code");
+    } catch {
+      flash("Could not save to the code");
+    }
   };
   const copyCode = async () => {
     const code = JSON.stringify(s, null, 2);
@@ -505,6 +522,9 @@ export default function DesignVersions() {
               </button>
               <button type="button" onClick={copyCode} style={linkStyle}>
                 Copy as code
+              </button>
+              <button type="button" onClick={saveToCode} style={linkStyle} title="Writes every saved look into src/data/design-versions.json so it can be committed">
+                Save all to code
               </button>
             </div>
             <div aria-live="polite" style={{ minHeight: 16, color: "#cfc6da", fontWeight: 500, marginTop: 4 }}>
