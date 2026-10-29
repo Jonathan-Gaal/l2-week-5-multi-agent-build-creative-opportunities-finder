@@ -20,12 +20,11 @@
  * ceiling (controls.visitorRateLimiter).
  */
 
-import { appendFile, mkdir } from "node:fs/promises";
-
 import { BOROUGHS, type Request as SearchRequest, REGIONS, TYPES, makeRequest, makeSearchRequest, today, traceRequest } from "../agents/filter.ts";
 import type { Model } from "../agents/model.ts";
 import * as pipeline from "../agents/pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "../agents/roles.ts";
+import { type TraceSink, writeTrace } from "../agents/trace.ts";
 import {
   DISCIPLINES, OTHER_PLACE_LABELS, PLACE_GROUPS, PLACE_LABELS, TYPE_INFO, canonicalDisciplines, expandPlaceChoices,
 } from "../agents/taxonomy.ts";
@@ -79,8 +78,8 @@ export type AppDeps = {
   mode: Mode;
   /** Serve this snapshot instead of the published one (local development only). */
   snapshotId?: string | undefined;
-  /** Directory for the per-day JSONL trace; null disables tracing. */
-  traceDir: string | null;
+  /** Where trace lines go (agents/trace.ts: dailyFileSink, or db/traces.ts: postgresSink); null disables tracing. */
+  trace: TraceSink | null;
   now?: Clock;
   limits?: Partial<Limits>;
   /** Server-side log for errors and abuse signals. Never sent to the client. */
@@ -229,26 +228,18 @@ export const createApp = (deps: AppDeps) => {
   const cache = lruCache<Computed>(limits.cacheEntries, now);
   const inFlight = new Map<string, Promise<Computed>>();
 
-  const tracePath = (asOf: string) => (deps.traceDir ? `${deps.traceDir}/${asOf}.jsonl` : null);
-
   /** One trace line for a request served from the cache or a shared run. Failure is logged, never thrown. */
   const traceReuse = async (
     requestId: string, req: SearchRequest, how: "cache" | "shared", c: Computed, traceFields: Record<string, unknown> = {},
   ) => {
-    const path = tracePath(req.asOf);
-    if (!path) return;
+    if (!deps.trace) return;
     const line = {
       request_id: requestId, at: pipeline.localTimestamp(new Date(now())), ...traceFields,
       request: traceRequest(req), served_from: how,
       run_request_id: c.run_request_id, snapshot_id: c.snapshot_id, tier: c.tier,
       served: c.results.map((r) => r.dedupe_key), model_calls: 0,
     };
-    try {
-      await mkdir(deps.traceDir!, { recursive: true });
-      await appendFile(path, JSON.stringify(line) + "\n", "utf-8");
-    } catch (e) {
-      log(`trace write failed for ${requestId}: ${(e as Error).message}`);
-    }
+    await writeTrace(deps.trace, line, log);
   };
 
   /** Run the pipeline once. Model runs hold a gate slot and stop at the deadline. `degraded` means the
@@ -282,8 +273,8 @@ export const createApp = (deps: AppDeps) => {
     const timer = release ? setTimeout(() => ctl.abort(DEADLINE_PASSED), limits.requestDeadlineMs) : null;
     try {
       const records = await deps.source.loadRecords(req, snapshotId);
-      const out = await pipeline.run(req, records, ranker, reviewer, tracePath(req.asOf), undefined, {
-        signal: ctl.signal, ...(opts.traceFields ? { traceFields: opts.traceFields } : {}),
+      const out = await pipeline.run(req, records, ranker, reviewer, deps.trace, undefined, {
+        signal: ctl.signal, traceFields: { snapshot_id: snapshotId, ...opts.traceFields },
       });
       if (ctl.signal.aborted && ctl.signal.reason === DEADLINE_PASSED) events.degraded = true;
       const c: Computed = {

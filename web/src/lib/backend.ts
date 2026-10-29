@@ -10,16 +10,18 @@
  */
 import "server-only";
 
-import { connection } from "next/server";
+import { after, connection } from "next/server";
 import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse } from "@api/types";
 import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
+import { type TraceSink, dailyFileSink } from "../../server/agents/trace.ts";
 import { createApp, META } from "../../server/api/app.ts";
-import { readConfig } from "../../server/api/config.ts";
+import { type Config, readConfig } from "../../server/api/config.ts";
 import { type Client, clientKey } from "../../server/api/controls.ts";
 import { SHARED_NETWORK, visitorClient as clientFor, visitorSecret } from "../../server/api/visitor.ts";
 import { jsonSource } from "../../server/db/json-source.ts";
 import { postgresSource } from "../../server/db/opportunities.ts";
 import { getPool } from "../../server/db/pool.ts";
+import { postgresSink } from "../../server/db/traces.ts";
 import { toCard } from "./cards";
 import type { Labels } from "./taxonomy";
 import type { CallLog, Group, SearchInput, SearchOutput } from "./types";
@@ -50,6 +52,25 @@ export const FRIENDLY: Record<string, string> = {
 export const asBackendError = (e: unknown): BackendError =>
   e instanceof BackendError ? e : new BackendError("internal", FRIENDLY.internal);
 
+/**
+ * Run a trace write after the response is sent (next/server's after(); on Vercel it holds the function open with
+ * waitUntil, so the write is not frozen mid-flight). The API in server/ stays framework-agnostic and awaits whatever
+ * sink it is given; this one returns at once. Outside a request scope after() throws, and the write is awaited.
+ * Only for postgresSink, which bounds itself and never rejects.
+ */
+const afterResponse = (sink: TraceSink): TraceSink => async (line) => {
+  try {
+    after(() => sink(line));
+  } catch {
+    await sink(line);
+  }
+};
+
+/** The trace sink TRACE_SINK names (see server/api/config.ts). Files stay awaited, as before. */
+const traceSink = (config: Config): TraceSink | null =>
+  config.traceSink === "postgres" ? afterResponse(postgresSink(getPool()))
+    : config.traceDir ? dailyFileSink(config.traceDir) : null;
+
 type Api = ReturnType<typeof createApp>;
 let api: Api | null = null;
 
@@ -74,7 +95,7 @@ function getApi(): Api {
     model: config.mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
     mode: config.mode,
     snapshotId: config.snapshotId,
-    traceDir: config.traceDir,
+    trace: traceSink(config),
     limits: config.limits,
   });
   return api;

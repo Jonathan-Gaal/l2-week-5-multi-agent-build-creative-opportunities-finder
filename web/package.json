@@ -15,7 +15,8 @@
     "test:e2e:claude": "node --env-file-if-exists=.env --test \"test/e2e/**/*.test.ts\"",
     "pipeline": "node server/agents/pipeline.ts",
     "eval": "node server/agents/eval.ts",
-    "check:db": "node --env-file-if-exists=.env server/checks/db-parity.ts"
+    "check:db": "node --env-file-if-exists=.env server/checks/db-parity.ts",
+    "traces:pull": "node --env-file-if-exists=.env server/checks/traces-pull.ts"
   },
   "dependencies": {
     "next": "16.4.3",
