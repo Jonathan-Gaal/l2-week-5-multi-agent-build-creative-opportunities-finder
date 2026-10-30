@@ -129,8 +129,11 @@ export const traceRequest = (req: Request): Record<string, unknown> =>
     ? { place: req.places[0], type: req.type, as_of: req.asOf }
     : { places: req.places, type: req.type, disciplines: req.disciplines, as_of: req.asOf };
 
-export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] =>
-  JSON.parse(readFileSync(`${snapshotDir}/records.json`, "utf-8")).records;
+/** Reads records.recategorized.json (corrected artist types and kinds) when the snapshot has one, else records.json. */
+export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] => {
+  const fixed = `${snapshotDir}/records.recategorized.json`;
+  return JSON.parse(readFileSync(existsSync(fixed) ? fixed : `${snapshotDir}/records.json`, "utf-8")).records;
+};
 
 /** A real calendar date written YYYY-MM-DD. */
 export const isIsoDate = (value: unknown): value is string => {

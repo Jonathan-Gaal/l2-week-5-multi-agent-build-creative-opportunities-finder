@@ -44,6 +44,7 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     type: o.type,
     typeLabel: labels.type(o.type),
     subtype: o.subtype,
+    alsoSubtypes: o.also_subtypes ?? [],
     place: labels.place(o.place ?? ""),
     location: o.location,
     deadline: ISO.test(o.deadline) ? prettyDate(o.deadline) : o.deadline === "rolling" ? "Rolling deadline" : o.deadline === "recurring" ? "Recurring" : o.deadline,

@@ -24,20 +24,27 @@ export const DISCIPLINES = [
   { id: "music", label: "Music", tags: ["music", "sound"] },
   { id: "comedy", label: "Comedy", tags: ["comedy"] },
   { id: "dance", label: "Dance", tags: ["dance"] },
-  { id: "theater", label: "Theater & performance", tags: ["theater", "performance", "performing_arts"] },
-  { id: "writing", label: "Writing & poetry", tags: ["literary", "writing"] },
-  { id: "visual", label: "Visual art", tags: ["visual", "sculpture", "lens-based", "curatorial", "textiles"] },
-  { id: "film", label: "Film & media", tags: ["film", "media", "digital", "transmission", "technology"] },
-  { id: "craft", label: "Craft & design", tags: ["craft", "design", "architecture"] },
+  { id: "theater", label: "Acting", tags: ["theater", "performance", "performing_arts"] },
+  { id: "writing", label: "Writing", tags: ["literary", "writing"] },
+  { id: "visual", label: "Visual art & design", tags: ["visual", "sculpture", "lens-based", "curatorial", "textiles", "design", "architecture"] },
+  { id: "film", label: "Film", tags: ["film", "media", "digital", "transmission", "technology"] },
+  { id: "craft", label: "Crafts", tags: ["craft"] },
+  // Added with the recategorized data (data/snapshots/<id>/records.recategorized.json): people-based kinds of work.
+  { id: "photographer", label: "Photography", tags: ["photographer"] },
+  { id: "videographer", label: "Videography", tags: ["videographer"] },
+  { id: "crew", label: "Production crew", tags: ["crew"] },
+  { id: "model", label: "Modeling", tags: ["model"] },
+  { id: "singer", label: "Singing", tags: ["singer"] },
+  { id: "poet", label: "Poetry", tags: ["poet"] },
 ] as const;
 export type DisciplineId = (typeof DISCIPLINES)[number]["id"];
 
 /** Picker order (not the order of TYPES, which the Python port and the golden eval use). */
 export const TYPE_INFO: readonly { id: TypeId; label: string; hint: string }[] = [
-  { id: "open_call", label: "Open calls & auditions", hint: "Submit work or show up and be considered" },
+  { id: "open_call", label: "Open calls, auditions & gigs", hint: "Submit work, try out, find paid work or partners" },
   { id: "grant", label: "Grants & fellowships", hint: "Money or support for your practice" },
   { id: "residency", label: "Residencies", hint: "Time, space or studio access" },
-  { id: "event", label: "Events & open mics", hint: "Jams, open mics, workshops, classes" },
+  { id: "event", label: "Events & open mics", hint: "Open mics, workshops, classes, social events" },
   { id: "job", label: "Jobs", hint: "Salaried and hourly creative roles" },
 ];
 

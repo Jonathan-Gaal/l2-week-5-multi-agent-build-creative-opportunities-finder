@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artist Atlas Find Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&display=swap" rel="stylesheet">
+<style>
+/* Artist Atlas dark world: deep purple ground, hot pink and lime for picks, cream poster-board chips.
+   Layout idea: three artboards side by side (wrapping on narrow screens); the active board is lit, the others dim. */
+:root {
+  --ink: #220e43; --ink-2: #2e1556; --plum: #46297a;
+  --paper: #fef9ef; --pink: #fd1a99; --lime: #dcfc05; --muted: #cfc6da;
+  --serif: "Fraunces", Georgia, serif; --sans: "DM Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); }
+body { padding: 28px 24px 64px; min-width: 1200px; }
+h1, h2, h3, p { margin: 0; }
+.top { max-width: 1120px; margin: 0 auto 24px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+.top h1 { font: 900 28px/1.1 var(--serif); }
+.top p { color: var(--muted); font-size: 15px; max-width: 70ch; }
+.boards { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+.slot { display: flex; flex-direction: column; gap: 10px; transition: opacity .25s; }
+.slot.dim { opacity: .5; }
+.slot:hover { opacity: 1; }
+.tag { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.tag b { background: var(--lime); color: #000; border-radius: 999px; padding: 2px 10px; letter-spacing: 0; }
+.tag code { font: 600 12px var(--sans); text-transform: none; letter-spacing: 0; color: var(--muted); }
+.frame { border: 2px solid var(--plum); border-radius: 22px; padding: 36px 40px; background: rgba(46,21,86,.28); display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 36px; min-height: 520px; }
+.left { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.slot.on .frame { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(253,26,153,.18); }
+.title { font: 900 40px/1.05 var(--serif); text-wrap: balance; }
+.sub { color: var(--muted); font-size: 15px; text-wrap: balance; transition: color 1s; }
+.sub.alert { color: var(--pink); animation: nudge .45s ease; }
+@keyframes nudge { 0%,100% { translate: 0; } 20% { translate: -5px; } 40% { translate: 5px; } 60% { translate: -3px; } 80% { translate: 2px; } }
+.panel { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.sentence { font: 900 34px/1.15 var(--serif); min-height: 2.4em; overflow-wrap: anywhere; }
+.fill { color: var(--pink); font-style: italic; }
+.blank { display: inline-block; min-width: 3.4em; border-bottom: 4px dashed var(--lime); color: transparent; animation: glow 1.6s ease-in-out infinite; }
+@keyframes glow { 50% { border-color: var(--pink); filter: drop-shadow(0 0 8px var(--pink)); } }
+.chips { display: flex; flex-wrap: wrap; gap: 10px 8px; }
+.chip { font: 700 17px var(--sans); background: var(--paper); color: #000; border: 3px solid #000; border-radius: 10px; padding: 6px 13px; cursor: pointer; transform: rotate(var(--tilt, 0deg)); transition: transform .12s, background .12s; display: inline-flex; align-items: baseline; gap: 7px; }
+.chip:hover { transform: rotate(0) translateY(-2px); }
+.chip:focus-visible, .next:focus-visible, .back:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.chip[aria-pressed="true"].lime { background: var(--lime); }
+.chip[aria-pressed="true"].pink { background: var(--pink); }
+.chip .n { font: 700 12px var(--sans); background: #000; color: var(--paper); border-radius: 999px; padding: 1px 7px; }
+.chip.zero { opacity: .55; }
+.opps { display: grid; gap: 18px 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.opp { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.opp p { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.label { font: 700 12px var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.mini { display: flex; flex-wrap: wrap; gap: 6px; }
+.mini span { font: 700 13px var(--sans); border-radius: 999px; padding: 3px 11px; color: #000; }
+.mini .a { background: var(--lime); } .mini .o { background: var(--pink); } .mini .p { background: var(--paper); }
+.mini .none { background: transparent; border: 1px dashed var(--plum); color: var(--muted); font-weight: 600; }
+.nav { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid var(--plum); padding-top: 16px; margin-top: auto; }
+.back, .next { background: none; border: 0; color: var(--paper); font: italic 900 22px var(--serif); padding: 0 0 4px; cursor: pointer; background: linear-gradient(var(--pink), var(--pink)) no-repeat left bottom / 0 3px; transition: background-size .2s; }
+.back:hover, .next:hover { background-size: 100% 3px; }
+.back[disabled] { visibility: hidden; }
+.next .arrow, .back .arrow { transition: color .12s; } .next:hover .arrow, .back:hover .arrow { color: var(--lime); }
+.count { font-size: 14px; color: var(--muted); }
+.count b { color: var(--lime); font-size: 16px; }
+.results { max-width: 1120px; margin: 26px auto 0; border: 2px solid var(--plum); border-radius: 22px; padding: 22px 24px; background: rgba(46,21,86,.28); display: none; }
+.results.show { display: block; }
+.results h2 { font: 900 26px/1.1 var(--serif); margin-bottom: 4px; }
+.results .note { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.cards { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.card .k { align-self: flex-start; background: var(--pink); color: #000; font: 700 12px var(--sans); border-radius: 999px; padding: 2px 10px; }
+.card h3 { font: 700 16px/1.25 var(--sans); }
+.card p { font-size: 13px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .sub.alert, .blank { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Artist Atlas: the find flow</h1>
+  <p>The three pages together, using the real chips and the corrected listings. Tap chips, then Next. The small black numbers are how many live listings each opportunity has for the artists you picked.</p>
+</header>
+<main class="boards" id="boards"></main>
+<section class="results" id="results" aria-live="polite"></section>
+
+<script>
+const DATA = /*DATA*/null;
+const CHIPS = DATA.chips, PILLS = DATA.pills, ROWS = DATA.rows; // row: [title, kind, artistIdxs, forAnyArtist, pillIdxs, borough, region]
+const TILTS = [-2, 1.5, 1, -1.5, 2, -1];
+const cap = (w) => w.replace(/^./, (l) => l.toUpperCase());
+const sayList = (a) => (a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1]);
+
+// places, as the real step three offers them: NYC shortcut, boroughs, tri-state regions, and the wider group
+const PLACES = [
+  { id: "nyc", label: "Anywhere in NYC", test: (r) => r[6] === "nyc" },
+  { id: "manhattan", label: "Manhattan", test: (r) => r[5] === "manhattan" || r[5] === "citywide" },
+  { id: "brooklyn", label: "Brooklyn", test: (r) => r[5] === "brooklyn" || r[5] === "citywide" },
+  { id: "queens", label: "Queens", test: (r) => r[5] === "queens" || r[5] === "citywide" },
+  { id: "bronx", label: "The Bronx", test: (r) => r[5] === "bronx" || r[5] === "citywide" },
+  { id: "staten_island", label: "Staten Island", test: (r) => r[5] === "staten_island" || r[5] === "citywide" },
+  { id: "long_island", label: "Long Island", test: (r) => r[6] === "long_island" },
+  { id: "westchester_hudson", label: "Westchester & Hudson Valley", test: (r) => r[6] === "westchester_hudson" },
+  { id: "upstate_ny", label: "Upstate NY", test: (r) => r[6] === "upstate_ny" },
+  { id: "new_jersey", label: "New Jersey", test: (r) => r[6] === "new_jersey" },
+  { id: "connecticut", label: "Connecticut", test: (r) => r[6] === "connecticut" },
+  { id: "wider", label: "Wider Northeast & DC", test: (r) => ["pennsylvania","massachusetts","rhode_island","vermont","new_hampshire","maine","delaware","maryland","dc"].includes(r[6]) },
+];
+
+const state = { a: [], o: [], p: [], active: 0, tried: -1, shown: false };
+const toggle = (list, x) => (list.includes(x) ? list.filter((y) => y !== x) : [...list, x]);
+
+const fitsArtist = (r) => !state.a.length || r[3] === 1 || r[2].some((i) => state.a.includes(i));
+const fitsPill = (r, pi) => r[4].includes(pi);
+const fitsPlace = (r) => !state.p.length || state.p.some((id) => PLACES.find((x) => x.id === id).test(r));
+const pillCount = (pi) => ROWS.filter((r) => fitsArtist(r) && fitsPill(r, pi)).length;
+const matches = () => ROWS.filter((r) => fitsArtist(r) && state.o.some((pi) => fitsPill(r, pi)) && fitsPlace(r));
+
+function chip(label, on, tone, i, act, extra) {
+  const n = extra && extra.n !== undefined ? `<span class="n">${extra.n}</span>` : "";
+  const z = extra && extra.n === 0 ? " zero" : "";
+  return `<button type="button" class="chip ${tone}${z}" style="--tilt:${TILTS[i % TILTS.length]}deg" aria-pressed="${on}" data-act="${act}">${label}${n}</button>`;
+}
+const mini = (items, cls, empty) => items.length ? items.map((t) => `<span class="${cls}">${t}</span>`).join("") : `<span class="none">${empty}</span>`;
+
+function boardOne() {
+  const words = state.a.map((i) => CHIPS[i].word);
+  const ok = state.a.length > 0;
+  return `
+  <div class="frame">
+    <div class="left">
+    <h2 class="title">What kind of artist are you?</h2>
+    <p class="sub ${state.tried === 0 && !ok ? "alert" : ""}">Pick at least one. Work across disciplines? Add more!</p>
+    <div class="nav"><button class="back" disabled>← Back</button><button class="next" data-act="next:0">Next <span class="arrow">→</span></button></div>
+    </div>
+    <div class="panel">
+      <p class="sentence">I'm a ${words.length ? `<span class="fill">${sayList(words)}.</span>` : `<span class="blank" aria-label="blank, pick the kind of artist you are">artist</span>`}</p>
+      <div class="chips" role="group" aria-label="Kinds of artist">
+        ${CHIPS.map((c, i) => chip(c.word, state.a.includes(i), "lime", i, "a:" + i)).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+
+function boardTwo() {
+  const ok = state.o.length > 0;
+  return `
+  <div class="frame">
+    <div class="left">
+    <h2 class="title">What opportunities are you after?</h2>
+    <p class="sub ${state.tried === 1 && !ok ? "alert" : ""}">Pick at least one. Not sure what they mean? Read description.</p>
+    <div class="label">You said</div>
+    <div class="mini">${mini(state.a.map((i) => cap(CHIPS[i].word)), "a", "no artist type yet, so all listings are counted")}</div>
+    <div class="nav"><button class="back" data-act="back:1"><span class="arrow">←</span> Back</button><button class="next" data-act="next:1">Next <span class="arrow">→</span></button></div>
+    </div>
+    <div class="panel">
+      <div class="opps" role="group" aria-label="Kinds of opportunity">
+        ${PILLS.map((p, i) => `<div class="opp">${chip(p.label, state.o.includes(i), "pink", i, "o:" + i, { n: pillCount(i) })}<p>${p.explain}</p></div>`).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+
+function boardThree() {
+  const ok = state.p.length > 0 && state.o.length > 0;
+  const m = matches();
+  return `
+  <div class="frame">
+    <div class="left">
+    <h2 class="title">Where do you want to work?</h2>
+    <p class="sub ${state.tried === 2 && !ok ? "alert" : ""}">Tap the map or the buttons. (The real page has the map; the buttons are the same choices.)</p>
+    <div class="label">You said</div>
+    <div class="mini">${mini(state.a.map((i) => cap(CHIPS[i].word)), "a", "any artist")}${mini(state.o.map((i) => PILLS[i].label), "o", "no opportunity yet")}</div>
+    <div class="nav"><button class="back" data-act="back:2"><span class="arrow">←</span> Back</button><button class="next" data-act="next:2">See results <span class="arrow">→</span></button></div>
+    </div>
+    <div class="panel">
+      <div class="chips" role="group" aria-label="Places">
+        ${PLACES.map((p, i) => chip(p.label, state.p.includes(p.id), i < 6 ? "lime" : "pink", i, "p:" + p.id)).join("")}
+      </div>
+      <p class="count">${state.o.length ? `<b>${m.length}</b> live listings match your choices so far.` : "Pick an opportunity on page 2 to see how many listings match."}</p>
+    </div>
+  </div>`;
+}
+
+function render() {
+  const tags = [["1", "/find/discipline", boardOne], ["2", "/find/type", boardTwo], ["3", "/find/place", boardThree]];
+  document.getElementById("boards").innerHTML = tags.map(([n, path, fn], i) =>
+    `<section class="slot ${state.active === i ? "on" : "dim"}" data-slot="${i}"><div class="tag"><b>Page ${n}</b><code>${path}</code></div>${fn()}</section>`).join("");
+  const res = document.getElementById("results");
+  res.className = "results" + (state.shown ? " show" : "");
+  if (state.shown) {
+    const m = matches();
+    res.innerHTML = `<h2>${m.length} opportunities</h2><p class="note">First ${Math.min(m.length, 12)} shown. Each card keeps its exact kind, so nothing is hidden behind a chip.</p>
+      <div class="cards">${m.slice(0, 12).map((r) => `<article class="card"><span class="k">${r[1]}</span><h3>${r[0].replace(/&/g, "&amp;").replace(/</g, "&lt;")}</h3><p>${r[5] ? r[5].replace(/_/g, " ") : r[6].replace(/_/g, " ")}</p></article>`).join("")}</div>`;
+  }
+}
+
+document.addEventListener("click", (e) => {
+  const slot = e.target.closest("[data-slot]");
+  if (slot) state.active = Number(slot.dataset.slot);
+  const b = e.target.closest("[data-act]");
+  if (b) {
+    const [k, v] = b.dataset.act.split(":");
+    if (k === "a") state.a = toggle(state.a, Number(v));
+    else if (k === "o") state.o = toggle(state.o, Number(v));
+    else if (k === "p") state.p = toggle(state.p, v);
+    else if (k === "back") { state.active = Number(v) - 1; state.shown = false; }
+    else if (k === "next") {
+      const s = Number(v), ok = s === 0 ? state.a.length > 0 : s === 1 ? state.o.length > 0 : state.p.length > 0 && state.o.length > 0;
+      if (!ok) { state.tried = s; setTimeout(() => { if (state.tried === s) { state.tried = -1; render(); } }, 4000); }
+      else if (s < 2) { state.active = s + 1; state.tried = -1; }
+      else state.shown = true;
+    }
+  }
+  render();
+  if (b && b.dataset.act.startsWith("next") && state.active !== Number(b.dataset.act.split(":")[1])) {
+    document.querySelector(`[data-slot="${state.active}"]`).scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (b && b.dataset.act === "next:2" && state.shown) document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+// start in a realistic working state: a visual artist and a poet, looking at open calls
+state.a = [CHIPS.findIndex((c) => c.id === "visual"), CHIPS.findIndex((c) => c.id === "poet")];
+state.o = [0, 3];
+state.p = ["nyc"];
+render();
+</script>
+</body>
+</html>

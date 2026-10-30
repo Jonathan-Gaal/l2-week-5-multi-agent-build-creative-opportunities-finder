@@ -31,10 +31,10 @@ export function labelsFor(meta: MetaResponse | null): Labels {
 
 export type Choices = { places: Set<string>; types: Set<string>; disciplines: Set<string> };
 
-/** What the pickers offer: boroughs and place groups (regions are reached through the groups), types, disciplines. */
+/** What the pickers offer: boroughs, regions and the place shortcuts, types, disciplines. */
 export function pickerChoices(meta: MetaResponse): Choices {
   return {
-    places: new Set([...meta.boroughs, ...meta.place_groups].map((o) => o.value)),
+    places: new Set([...meta.boroughs, ...meta.regions, ...meta.place_groups].map((o) => o.value)),
     types: new Set(meta.types.map((o) => o.value)),
     disciplines: new Set(meta.disciplines.map((o) => o.value)),
   };

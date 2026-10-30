@@ -242,6 +242,7 @@ export default function DesignVersions() {
   const [playIdx, setPlayIdx] = useState(0);
   const [label, setLabel] = useState("");
   const [hidden, setHidden] = useState(false); // the "Hide" button hides the whole panel for a few seconds
+  const [shrunk, setShrunk] = useState(true); // the whole panel is a tiny sun in the corner until it is opened
   const [sec, setSec] = useState("home"); // which section is expanded (one at a time keeps the panel short)
 
   // Reads this browser's saved settings once after mount. It has to happen in an effect (not the initial state) so the
@@ -385,6 +386,14 @@ export default function DesignVersions() {
     return () => window.clearTimeout(t);
   }, [label]);
 
+  // Hides Next's round "N" dev badge (it still shows warnings in the terminal). Dev-only, like the rest of this panel.
+  useEffect(() => {
+    const el = document.createElement("style");
+    el.textContent = "nextjs-portal { display: none !important; }";
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, []);
+
   const hideForAWhile = () => {
     setHidden(true);
     window.setTimeout(() => setHidden(false), HIDE_MS);
@@ -402,6 +411,28 @@ export default function DesignVersions() {
         {label}
       </div>
     ) : null;
+  }
+
+  // Shrunk: just a tiny sun in the corner, so the panel never covers the page until it is opened.
+  if (shrunk) {
+    return (
+      <button
+        type="button"
+        onClick={() => setShrunk(false)}
+        aria-label="Open the design panel"
+        title="Open the design panel"
+        style={{
+          position: "fixed", left: 12, bottom: 12, zIndex: 50, width: 26, height: 26, borderRadius: "50%", padding: 0,
+          background: "#2e1556", border: "1px solid #46297a", cursor: "pointer", opacity: 0.8, boxShadow: "0 2px 8px rgba(0,0,0,.4)",
+          display: "grid", placeItems: "center",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dcfc05" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+        </svg>
+      </button>
+    );
   }
 
   const group = (key: string) => GROUPS.find((g) => g.key === key)!;
@@ -477,6 +508,15 @@ export default function DesignVersions() {
             style={{ background: "none", border: "1px solid #46297a", borderRadius: 6, color: "#cfc6da", font: "500 11px var(--font-dm-sans), sans-serif", cursor: "pointer", padding: "2px 6px" }}
           >
             Hide 4s
+          </button>
+          <button
+            type="button"
+            onClick={() => setShrunk(true)}
+            aria-label="Shrink the panel to a small sun"
+            title="Shrink to a small sun in the corner"
+            style={{ background: "none", border: "1px solid #46297a", borderRadius: 6, color: "#dcfc05", font: "500 13px var(--font-dm-sans), sans-serif", cursor: "pointer", padding: "0 7px", lineHeight: "20px" }}
+          >
+            –
           </button>
         </div>
         <button type="button" aria-label="Next home page version" onClick={() => step(1)} style={arrowStyle}>

@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import type { MetaResponse } from "@api/types";
+import { capital, chipList, chipsFor, idsOf } from "@/lib/disciplineWords";
+import { TRI_IDS, WIDE_IDS, groupState, placeOn, spellOut, toggleGroup, togglePlace } from "@/lib/places";
 import { TYPE_PILLS } from "@/lib/typePills";
 import { type Choice, queryFor } from "./find/FindStep";
 import r from "./ResultsLive.module.css";
@@ -16,9 +18,11 @@ const WAIT_MS = 1000; // wait for the person to finish picking before searching 
  */
 export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; initial: Choice }) {
   const router = useRouter();
-  const [c, setC] = useState<Choice>(initial);
+  const [c, setC] = useState<Choice>({ ...initial, p: spellOut(initial.p) });
   const [pending, startTransition] = useTransition();
   const [waiting, setWaiting] = useState(false);
+  // Which chips are lit. A split discipline (writer / poet) lights both of its chips when it arrives from the address.
+  const [keys, setKeys] = useState<string[]>(() => initial.d.flatMap((id) => chipsFor(id).map((x) => x.key)));
 
   // After the last tap, wait a moment, then search again. Each tap changes `c`, which restarts the wait.
   useEffect(() => {
@@ -44,15 +48,21 @@ export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; 
   return (
     <aside className={r.side} aria-label="Your choices">
       <div>
-        <h2 className={r.label}>I make</h2>
+        <h2 className={r.label}>I&apos;m a</h2>
         <div className={r.chips} role="group" aria-label="Disciplines">
-          {meta.disciplines.map((d) => pill(c.d.includes(d.value), "lime", d.label, () => change({ ...c, d: toggle(c.d, d.value) })))}
+          {chipList(meta.disciplines.map((d) => d.value)).map((x) =>
+            pill(keys.includes(x.key), "lime", capital(x.word), () => {
+              const next = keys.includes(x.key) ? keys.filter((k) => k !== x.key) : [...keys, x.key];
+              setKeys(next);
+              change({ ...c, d: idsOf(next) });
+            }),
+          )}
         </div>
       </div>
       <div>
         <h2 className={r.label}>I want</h2>
         <div className={r.chips} role="group" aria-label="Kinds of opportunity">
-          {TYPE_PILLS.filter((p) => meta.types.some((t) => t.value === p.type)).map((p) =>
+          {TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value))).map((p) =>
             pill(c.s.includes(p.id), "pink", p.label, () => change({ ...c, s: toggle(c.s, p.id) })),
           )}
         </div>
@@ -60,8 +70,11 @@ export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; 
       <div>
         <h2 className={r.label}>Where</h2>
         <div className={r.chips} role="group" aria-label="Places">
-          {meta.boroughs.map((b) => pill(c.p.includes(b.value), "cream", b.label, () => change({ ...c, p: toggle(c.p, b.value) })))}
-          {meta.place_groups.map((g) => pill(c.p.includes(g.value), "cream", g.label, () => change({ ...c, p: toggle(c.p, g.value) }), r.wider))}
+          {pill(groupState(c.p, "nyc") === "true", "cream", "Anywhere in NYC", () => change({ ...c, p: toggleGroup(c.p, "nyc") }))}
+          {meta.boroughs.map((b) => pill(placeOn(c.p, b.value), "cream", b.label, () => change({ ...c, p: togglePlace(c.p, b.value) })))}
+          {[...TRI_IDS, ...WIDE_IDS].map((id) =>
+            pill(c.p.includes(id), "cream", meta.regions.find((x) => x.value === id)?.label ?? id, () => change({ ...c, p: togglePlace(c.p, id) }), r.wider),
+          )}
         </div>
       </div>
       <p className={r.status} role="status" aria-live="polite">

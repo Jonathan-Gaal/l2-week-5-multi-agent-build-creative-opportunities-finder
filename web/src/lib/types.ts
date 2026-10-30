@@ -6,6 +6,8 @@ export type Card = {
   /** Display label for `type`, from the API's meta lists. */
   typeLabel: string;
   subtype: string | null;
+  /** Other kinds this listing also is (same broad type). It still appears once in the list. */
+  alsoSubtypes: string[];
   place: string;
   location: string | null;
   deadline: string;

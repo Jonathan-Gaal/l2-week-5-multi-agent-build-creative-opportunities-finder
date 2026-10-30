@@ -192,7 +192,7 @@ describe("Filter: several places and disciplines", () => {
 
   it("labels for several places and disciplines read naturally", () => {
     assert.equal(flt.requestLabel(search(["brooklyn", "new_jersey"], [], "grant")), "Brooklyn, New Jersey grant");
-    assert.equal(flt.requestLabel(search(["bronx"], ["music", "theater"], "event")), "Bronx event (Music, Theater & performance)");
+    assert.equal(flt.requestLabel(search(["bronx"], ["music", "theater"], "event")), "Bronx event (Music, Acting)");
     assert.deepEqual(flt.traceRequest(search(["brooklyn", "dc"], ["music"])),
       { places: ["brooklyn", "dc"], type: "open_call", disciplines: ["music"], as_of: DAY });
   });

@@ -38,19 +38,25 @@
   .ox-table a { color: var(--color-fg); text-underline-offset: 2px; }
   .ox-empty { color: var(--color-fg-muted); padding: var(--cds-pad-lg) 0; }
   .ox-chip { display: inline-block; border: 1px solid var(--color-border-line); border-radius: 999px; padding: 1px 8px; font-size: var(--cds-font-size-caption); }
+  .ox-seg { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); }
+  .ox-segbtn { font: inherit; color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 6px 14px; min-height: 2.25rem; cursor: pointer; }
+  .ox-segbtn[aria-pressed="true"] { border-color: var(--color-fg); outline: 1px solid var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+  .ox-segbtn .ox-segn { color: var(--color-fg-muted); font-variant-numeric: tabular-nums; margin-left: 6px; }
   @media (max-width: 30rem) { .ox-bar { grid-template-columns: 6rem 1fr 1.75rem; } }
 </style>
 
 <div class="ox">
   <header>
     <h1 id="top">NYC opportunities for artists</h1>
-    <p class="ox-sub">Open calls, grants, residencies, auditions and open mics from the sources we have read so far, sorted by the kind of artist they suit and by borough. Last checked <span data-source="totals" data-row="0" data-field="checked">—</span>.</p>
+    <p class="ox-sub">Open calls, grants, residencies, auditions, open mics and events from Mara's backfill and Jon's seed list, sorted by the kind of artist they suit and by borough. Last checked <span id="checked" data-source="totals" data-where="scope=all" data-field="checked">—</span>.</p>
   </header>
 
+  <section class="ox-seg" id="lists" aria-label="Which list to show"></section>
+
   <section class="ox-tiles" id="tiles">
-    <div class="ox-tile"><span class="ox-note">Listings</span><span class="ox-big" data-source="totals" data-row="0" data-field="n">—</span></div>
-    <div class="ox-tile"><span class="ox-note">Boroughs with listings</span><span class="ox-big"><span data-source="totals" data-row="0" data-field="boroughs">—</span><span class="ox-note"> of 5</span></span></div>
-    <div class="ox-tile"><span class="ox-note">Sources read</span><span class="ox-big" data-source="totals" data-row="0" data-field="sources">—</span></div>
+    <div class="ox-tile"><span class="ox-note">Listings</span><span class="ox-big" id="t-n" data-source="totals" data-where="scope=all" data-field="n">—</span></div>
+    <div class="ox-tile"><span class="ox-note">Boroughs with listings</span><span class="ox-big"><span id="t-b" data-source="totals" data-where="scope=all" data-field="boroughs">—</span><span class="ox-note"> of 5</span></span></div>
+    <div class="ox-tile"><span class="ox-note">Sources read</span><span class="ox-big" id="t-s" data-source="totals" data-where="scope=all" data-field="sources">—</span></div>
   </section>
 
   <section class="ox-card" id="matrix-card">
@@ -66,7 +72,7 @@
       <h2>By opportunity type</h2>
       <p class="ox-note">Pick a bar to filter the list.</p>
     </div>
-    <div class="ox-bars" id="types" data-source="by_type"></div>
+    <div class="ox-bars" id="types"></div>
   </section>
 
   <section class="ox-card" id="list-card">
@@ -81,13 +87,14 @@
       <button class="ox-reset" id="f-reset" type="button">Clear filters</button>
     </div>
     <div class="ox-scroll">
-      <table class="ox-table" id="list" data-source="opportunities" data-row-key="source_url">
+      <table class="ox-table" id="list" data-source="opportunities" data-row-key="id">
         <thead><tr>
           <th data-field="title">Listing</th>
           <th data-field="artist_category">Artist category</th>
           <th data-field="opportunity_type">Type</th>
           <th data-field="borough">Borough</th>
           <th data-field="deadline">Deadline</th>
+          <th data-field="found_by">Found by</th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -95,73 +102,97 @@
     <p class="ox-empty" id="empty" hidden>No listings match these filters.</p>
   </section>
 
-  <p class="ox-note" id="foot">Artist category is a stand-in: each listing was read and given the discipline it suits, until the Extractor does this. “Needs review” marks listings that look promotional, ask for panelists, or are surveys rather than calls to apply. Open mics are recurring: the date shown is the next one, and each mic appears once. Gigs are listings from Craigslist and Playbill Jobs. Sources: Craigslist, Dance/NYC, FireMics, A4, Playbill Jobs, NYC Parks and the grant and residency pages of NYC arts organizations. Past deadlines are removed when the snapshot is built.</p>
+  <p class="ox-note" id="foot">Artist category is a stand-in: each listing was read and given the discipline it suits, until the Extractor does this. “Needs review” marks listings that look promotional, ask for panelists, or are surveys rather than calls to apply. Open mics are recurring: the deadline column shows the next date or the weekly time, and each mic appears once. Gigs are listings from Craigslist and Playbill Jobs. “Event” is Jon's list only: a workshop, class, jam or dance night, something to attend rather than apply for. “Multiple disciplines” marks listings Jon tagged with more than one discipline, mostly mixed open mics. “Found by” says which list a listing came from; “Both” means both lists have it. Jon's list also holds records from outside NYC, which are left out here. Past deadlines are removed.</p>
 </div>
 
 <script>
   const BOROUGHS = ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'];
-  const ARTIST_ORDER = ['Visual art', 'Comedy', 'Performing arts', 'Dance', 'Music', 'Singing', 'Film & media', 'Poetry', 'Writing & publishing', 'All disciplines', 'Needs review'];
-  const TYPE_ORDER = ['Open call', 'Grant', 'Residency', 'Audition', 'Open mic'];
+  const ARTIST_ORDER = ['Visual art', 'Comedy', 'Performing arts', 'Dance', 'Music', 'Singing', 'Film & media', 'Poetry', 'Writing & publishing', 'Multiple disciplines', 'All disciplines', 'Needs review'];
+  const TYPE_ORDER = ['Open call', 'Grant', 'Residency', 'Audition', 'Open mic', 'Gig', 'Space', 'Event'];
+  const SCOPES = [['all', 'Both lists'], ['mara', "Mara's backfill"], ['jon', "Jon's seed list"]];
   const enc = (s) => String(s).replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D');
   const rank = (order, x) => { const i = order.indexOf(x); return i < 0 ? 99 : i; };
   const byOrder = (order) => (a, b) => rank(order, a) - rank(order, b) || a.localeCompare(b);
 
-  dash.calc('by_artist_borough', {
+  dash.calc('opps_scoped', {
     inputs: ['opportunities'],
+    title: 'Listings by list',
+    description: "Each listing repeated once for every list it belongs to: both lists, Mara's backfill, Jon's seed list.",
+    fn: (opportunities) => opportunities.flatMap((r) => [
+      { ...r, scope: 'all' },
+      ...(r.found_by !== 'Jon' ? [{ ...r, scope: 'mara' }] : []),
+      ...(r.found_by !== 'Mara' ? [{ ...r, scope: 'jon' }] : []),
+    ]),
+  });
+  dash.calc('by_artist_borough', {
+    inputs: ['opps_scoped'],
     title: 'Listings by artist category and borough',
-    description: 'Each listing counted once under its artist category and borough.',
-    fn: (opportunities) => {
+    description: 'Each listing counted once under its artist category and borough, for each list.',
+    fn: (rows) => {
       const m = new Map();
-      for (const r of opportunities) {
-        const k = JSON.stringify([r.artist_category, r.borough]);
+      for (const r of rows) {
+        const k = JSON.stringify([r.scope, r.artist_category, r.borough]);
         m.set(k, (m.get(k) || 0) + 1);
       }
-      return [...m].map(([k, n]) => { const [artist_category, borough] = JSON.parse(k); return { artist_category, borough, n }; });
+      return [...m].map(([k, n]) => { const [scope, artist_category, borough] = JSON.parse(k); return { scope, artist_category, borough, n }; });
     },
   });
   dash.calc('by_artist', {
-    inputs: ['opportunities'],
+    inputs: ['opps_scoped'],
     title: 'Listings by artist category',
-    description: 'Each listing counted once under its artist category.',
-    fn: (opportunities) => {
+    description: 'Each listing counted once under its artist category, for each list.',
+    fn: (rows) => {
       const m = new Map();
-      for (const r of opportunities) m.set(r.artist_category, (m.get(r.artist_category) || 0) + 1);
-      return [...m].map(([artist_category, n]) => ({ artist_category, n }));
+      for (const r of rows) {
+        const k = JSON.stringify([r.scope, r.artist_category]);
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return [...m].map(([k, n]) => { const [scope, artist_category] = JSON.parse(k); return { scope, artist_category, n }; });
     },
   });
   dash.calc('by_borough', {
-    inputs: ['opportunities'],
+    inputs: ['opps_scoped'],
     title: 'Listings by borough',
-    description: 'Each listing counted once under its borough.',
-    fn: (opportunities) => {
+    description: 'Each listing counted once under its borough, for each list.',
+    fn: (rows) => {
       const m = new Map();
-      for (const r of opportunities) m.set(r.borough, (m.get(r.borough) || 0) + 1);
-      return [...m].map(([borough, n]) => ({ borough, n }));
+      for (const r of rows) {
+        const k = JSON.stringify([r.scope, r.borough]);
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return [...m].map(([k, n]) => { const [scope, borough] = JSON.parse(k); return { scope, borough, n }; });
     },
   });
   dash.calc('by_type', {
-    inputs: ['opportunities'],
+    inputs: ['opps_scoped'],
     title: 'Listings by opportunity type',
-    description: 'Each listing counted once under its opportunity type.',
-    fn: (opportunities) => {
+    description: 'Each listing counted once under its opportunity type, for each list.',
+    fn: (rows) => {
       const m = new Map();
-      for (const r of opportunities) m.set(r.opportunity_type, (m.get(r.opportunity_type) || 0) + 1);
-      return [...m].map(([opportunity_type, n]) => ({ opportunity_type, n }));
+      for (const r of rows) {
+        const k = JSON.stringify([r.scope, r.opportunity_type]);
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return [...m].map(([k, n]) => { const [scope, opportunity_type] = JSON.parse(k); return { scope, opportunity_type, n }; });
     },
   });
   dash.calc('totals', {
-    inputs: ['opportunities'],
+    inputs: ['opps_scoped'],
     title: 'Snapshot totals',
-    description: 'Listings, boroughs with at least one listing, sources, and the latest check date.',
-    fn: (opportunities) => {
+    description: 'For each list: listings, boroughs with at least one listing, sources, and the latest check date.',
+    fn: (rows) => {
       const five = ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'];
-      const latest = opportunities.map((r) => r.checked_at).sort().pop() || '';
-      return [{
-        n: opportunities.length,
-        boroughs: five.filter((b) => opportunities.some((r) => r.borough === b)).length,
-        sources: new Set(opportunities.map((r) => r.source)).size,
-        checked: latest.slice(0, 10),
-      }];
+      return ['all', 'mara', 'jon'].map((scope) => {
+        const rs = rows.filter((r) => r.scope === scope);
+        const latest = rs.map((r) => r.checked_at).sort().pop() || '';
+        return {
+          scope,
+          n: rs.length,
+          boroughs: five.filter((b) => rs.some((r) => r.borough === b)).length,
+          sources: new Set(rs.map((r) => r.source)).size,
+          checked: latest.slice(0, 10),
+        };
+      });
     },
   });
 
@@ -180,6 +211,10 @@
     if (!b) return;
     const p = dash.params();
     dash.setParams({ type: p.type === b.dataset.t ? null : b.dataset.t, artist: p.artist ?? null, borough: p.borough ?? null });
+  });
+  $('lists').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-s]');
+    if (b) dash.setParams({ set: b.dataset.s === 'all' ? null : b.dataset.s });
   });
   for (const [id, key] of [['f-artist', 'artist'], ['f-type', 'type'], ['f-borough', 'borough']]) {
     $(id).addEventListener('change', () => dash.setParams({ [key]: $(id).value || null }));
@@ -202,10 +237,42 @@
       }
       return;
     }
-    const [opps, cells, artists, boroughsRows, types] = need.map((d) => d.data);
+    const [opps, allCells, allArtists, allBoroughs, allTypes, allTotals] = need.map((d) => d.data);
     const p = dash.params();
+    const sel = SCOPES.some(([s]) => s === p.set) ? p.set : 'all';
+    const here = (rows) => rows.filter((r) => r.scope === sel);
+    const cells = here(allCells);
+    const artists = here(allArtists);
+    const boroughsRows = here(allBoroughs);
+    const types = here(allTypes);
+    const inSel = (r) => sel === 'all' || (sel === 'mara' && r.found_by !== 'Jon') || (sel === 'jon' && r.found_by !== 'Mara');
 
-    // Matrix: artist category (rows) by borough (columns), unfiltered.
+    // Which list: Both, Mara's, Jon's.
+    $('lists').replaceChildren(...SCOPES.map(([s, label]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ox-segbtn';
+      b.dataset.s = s;
+      b.setAttribute('aria-pressed', String(s === sel));
+      const n = document.createElement('span');
+      n.className = 'ox-segn';
+      n.dataset.source = 'totals';
+      n.dataset.where = 'scope=' + s;
+      n.dataset.field = 'n';
+      const t = allTotals.find((r) => r.scope === s);
+      n.textContent = t ? String(t.n) : '—';
+      b.append(document.createTextNode(label), n);
+      return b;
+    }));
+
+    // Tiles follow the chosen list.
+    const tot = allTotals.find((r) => r.scope === sel);
+    for (const [id, field] of [['checked', 'checked'], ['t-n', 'n'], ['t-b', 'boroughs'], ['t-s', 'sources']]) {
+      $(id).dataset.where = 'scope=' + sel;
+      $(id).textContent = tot ? String(tot[field]) : '—';
+    }
+
+    // Matrix: artist category (rows) by borough (columns), for the chosen list.
     const artistNames = artists.map((r) => r.artist_category).sort(byOrder(ARTIST_ORDER));
     const extra = boroughsRows.map((r) => r.borough).filter((b) => !BOROUGHS.includes(b)).sort();
     const cols = [...BOROUGHS, ...extra];
@@ -230,7 +297,7 @@
       btn.textContent = String(n);
       btn.dataset.source = source;
       btn.dataset.field = 'n';
-      btn.dataset.where = where;
+      btn.dataset.where = 'scope=' + sel + '&' + where;
       if (a) btn.dataset.a = a;
       if (b) btn.dataset.b = b;
       if (shade) btn.style.background = `color-mix(in srgb, ${dash.colors[0]} ${Math.round(14 + 56 * n / max)}%, transparent)`;
@@ -249,15 +316,15 @@
         const row = cells.find((r) => r.artist_category === a && r.borough === c);
         tr.append(makeCell(row ? row.n : null, 'by_artist_borough', `artist_category=${enc(a)}&borough=${enc(c)}`, a, c, true));
       }
-      const tot = artists.find((r) => r.artist_category === a);
-      tr.append(makeCell(tot ? tot.n : null, 'by_artist', `artist_category=${enc(a)}`, a, null, false, 'ox-total'));
+      const t = artists.find((r) => r.artist_category === a);
+      tr.append(makeCell(t ? t.n : null, 'by_artist', `artist_category=${enc(a)}`, a, null, false, 'ox-total'));
       tbody.append(tr);
     }
     const trTot = document.createElement('tr');
     trTot.append(Object.assign(document.createElement('th'), { className: 'ox-rowh', scope: 'row', textContent: 'Total' }));
     for (const c of cols) {
-      const tot = boroughsRows.find((r) => r.borough === c);
-      trTot.append(makeCell(tot ? tot.n : null, 'by_borough', `borough=${enc(c)}`, null, c, false, 'ox-total'));
+      const t = boroughsRows.find((r) => r.borough === c);
+      trTot.append(makeCell(t ? t.n : null, 'by_borough', `borough=${enc(c)}`, null, c, false, 'ox-total'));
     }
     trTot.append(Object.assign(document.createElement('td'), { textContent: '' }));
     tbody.append(trTot);
@@ -277,7 +344,11 @@
       const fill = b.querySelector('.ox-fill');
       fill.style.width = (100 * n / tmax) + '%';
       fill.style.background = dash.colors[1] || dash.colors[0];
-      b.querySelector('.ox-barn').textContent = String(n);
+      const count = b.querySelector('.ox-barn');
+      count.dataset.source = 'by_type';
+      count.dataset.field = 'n';
+      count.dataset.where = 'scope=' + sel + '&opportunity_type=' + enc(t);
+      count.textContent = String(n);
       return b;
     }));
 
@@ -286,17 +357,17 @@
     fillSelect($('f-type'), 'All types', typeNames, p.type);
     fillSelect($('f-borough'), 'All boroughs', cols, p.borough);
     const rows = opps
-      .filter((r) => (!p.artist || r.artist_category === p.artist) && (!p.type || r.opportunity_type === p.type) && (!p.borough || r.borough === p.borough))
+      .filter((r) => inSel(r) && (!p.artist || r.artist_category === p.artist) && (!p.type || r.opportunity_type === p.type) && (!p.borough || r.borough === p.borough))
       .sort((a, b) => deadKey(a.deadline).localeCompare(deadKey(b.deadline)) || a.title.localeCompare(b.title));
     const lbody = $('list').querySelector('tbody');
     lbody.replaceChildren(...rows.map((r) => {
       const tr = document.createElement('tr');
-      tr.dataset.key = r.source_url;
+      tr.dataset.key = r.id;
       const link = Object.assign(document.createElement('a'), { href: r.source_url, target: '_blank', rel: 'noopener', textContent: r.title });
       const first = document.createElement('td');
       first.append(link);
       tr.append(first);
-      for (const k of ['artist_category', 'opportunity_type', 'borough', 'deadline']) {
+      for (const k of ['artist_category', 'opportunity_type', 'borough', 'deadline', 'found_by']) {
         tr.append(Object.assign(document.createElement('td'), { textContent: r[k] }));
       }
       return tr;

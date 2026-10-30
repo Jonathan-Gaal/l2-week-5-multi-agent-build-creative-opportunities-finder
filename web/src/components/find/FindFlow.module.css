@@ -1,12 +1,17 @@
 /* The find flow: one page per step, all on the layout of the "Tap the map" board (artifacts/design-treatments, board 2):
    text and the big button on the left, a rounded panel on the right. Buttons are the chunky ones from the Poster board (board 4). */
-.frame { margin: 28px 0 48px; border: 2px solid var(--plum); border-radius: 22px; padding: 40px 44px; background: rgba(46, 21, 86, 0.28); }
+.frame { position: relative; margin: 28px 0 48px; border: 2px solid var(--plum); border-radius: 22px; padding: 40px 44px; background: rgba(46, 21, 86, 0.28); }
 .board { display: grid; grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 36px; min-height: 560px; }
 
 .left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 
 .title { font: 900 clamp(34px, 4vw, 48px) / 1.05 var(--serif); margin: 0; text-wrap: balance; }
-.sub { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 44ch; }
+.sub { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 44ch; text-wrap: balance; }
+/* Pressing Next too early turns the directions pink and heavier, then they ease back. The "heavier" is a hair of text shadow, because
+   font weight can only jump while a shadow can fade. */
+.sub { text-shadow: 0 0 0 currentColor, 0 0 0 currentColor; transition: color 1.4s ease, text-shadow 1.4s ease; }
+.subAlert { color: var(--pink); text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor; transition: color 0.35s ease, text-shadow 0.35s ease; animation: nudge 0.45s ease; }
+@keyframes nudge { 0%, 100% { translate: 0; } 20% { translate: -5px; } 40% { translate: 5px; } 60% { translate: -3px; } 80% { translate: 2px; } }
 
 .earlier { display: grid; gap: 14px; }
 .earlierLabel { font: 700 12px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-dk); margin: 0 0 8px; }
@@ -17,27 +22,24 @@
 .pinkOn { background: var(--pink); }
 .plain { background: transparent; border-color: var(--plum); color: var(--paper); cursor: default; }
 
-.bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 12px; }
+.bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 28px; }
 .selected { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 18px; padding: 14px 18px; font-size: 15px; }
 .selected b { color: var(--lime); }
 
-.actions { display: grid; gap: 10px; justify-items: stretch; }
-.cta {
-  font: 700 20px var(--sans);
-  background: var(--pink);
-  color: #000;
-  border: 4px solid #000;
-  border-radius: 12px;
-  padding: 14px 30px;
-  box-shadow: 6px 6px 0 #000;
-  cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
-  width: 100%;
+/* Back and Next hang off the left and right of the card, centred, as plain big words with the pink underline from the landing page.
+   When the window is too narrow to have room outside the card, they drop into one row at the bottom of it. */
+.sides { display: contents; }
+.sideBtn { background: none; border: 0; padding: 0 0 5px; color: var(--paper); font: italic 900 26px var(--serif); text-decoration: none; background: linear-gradient(var(--pink), var(--pink)) no-repeat left bottom / 0 3px; cursor: pointer; white-space: nowrap; transition: color 0.12s, background-size 0.35s ease; position: absolute; top: 50%; translate: 0 -50%; }
+.sideBack { right: calc(100% + 44px); }
+.sideNext { left: calc(100% + 44px); }
+.sideBtn:hover, .sideBtn:focus-visible, .sideBtn:active { background-size: 100% 3px; }
+.sideBtn .arrow { transition: color 0.12s; }
+.sideBtn:hover .arrow, .sideBtn:focus-visible .arrow, .sideBtn:active .arrow { color: var(--lime); }
+.sideBtn:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+@media (max-width: 1340px) {
+  .sides { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 28px; border-top: 2px solid var(--plum); padding-top: 20px; }
+  .sideBtn { position: static; translate: none; }
 }
-.cta:hover:not(:disabled) { transform: translate(3px, 3px); box-shadow: 3px 3px 0 #000; }
-.cta:disabled { opacity: 0.4; cursor: not-allowed; }
-.back { color: var(--muted-dk); font: 600 15px var(--sans); text-decoration: underline; padding: 2px 0; justify-self: center; }
-.back:hover { color: var(--lime); }
 
 .panel {
   position: relative;
@@ -48,6 +50,12 @@
   overflow: hidden;
   min-width: 0;
 }
+/* The first step's right card: "I'm a ..." fills in as you pick, with the glowing blank from the landing page. */
+.panelCenter { display: grid; grid-template-rows: 1fr; justify-items: stretch; min-height: 540px; }
+.sentence { margin: auto 0 4px; font: 900 clamp(38px, 4.2vw, 52px) / 1.1 var(--serif); overflow-wrap: anywhere; }
+.fill { color: var(--pink); font-style: italic; }
+.blank { display: inline-block; min-width: 3.4em; border-bottom: 5px dashed var(--lime); color: transparent; animation: glow 1.6s ease-in-out infinite; }
+@keyframes glow { 50% { border-color: var(--pink); filter: drop-shadow(0 0 8px var(--pink)); } }
 .groupTitle { font: 700 13px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dk); margin: 0; }
 .group + .group { margin-top: 26px; }
 .chips { display: flex; flex-wrap: wrap; gap: 12px 10px; margin: 12px 0 0; }
@@ -72,21 +80,80 @@
 .mapTop { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
 .mapTop .chip { font-size: 14px; padding: 4px 12px; }
 .svg { width: 100%; height: auto; display: block; max-height: 64vh; }
+/* The outer places: outlined in the colour they turn when picked (pink for the tri-state, cream for the wider area), then solid, filled, with
+   a heavy black edge once picked. The boroughs keep a solid lime edge for now. */
 .zone { cursor: pointer; outline: none; }
-.zone polygon { stroke: var(--paper); stroke-width: 3; stroke-linejoin: round; fill: var(--plum); transition: fill 0.15s; }
-.zone[aria-pressed="true"] polygon { fill: var(--lime); }
-.zone:hover polygon { stroke: var(--pink); }
-.zone:focus-visible polygon { stroke: var(--pink); stroke-width: 6; }
-.zoneText { font: 700 15px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; }
+.zone polygon { stroke: var(--lime); stroke-width: 3; stroke-linejoin: round; fill: url(#nycStripes); transition: fill 0.15s; }
+.zone[aria-pressed="true"] polygon { fill: var(--lime); stroke: #000; }
+.zone:hover polygon { stroke: var(--lime); stroke-width: 5; }
+.zone[aria-pressed="true"]:hover polygon { stroke: #000; stroke-width: 3; }
+.zone:focus-visible polygon { stroke: var(--lime); stroke-width: 6; }
+.zoneText { font: 700 15px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--ink-2); stroke-width: 4px; stroke-linejoin: round; }
 .zoneTextBig { font-size: 20px; }
-.zone[aria-pressed="true"] .zoneText { fill: var(--ink); }
+.zone[aria-pressed="true"] .zoneText { fill: var(--ink); stroke: none; }
 .ring { cursor: pointer; outline: none; }
-.ring path { fill: var(--pink); fill-opacity: 0.14; stroke: var(--pink); stroke-width: 3; stroke-dasharray: 9 8; transition: fill-opacity 0.15s; }
-.ring[aria-pressed="true"] path { fill-opacity: 0.45; }
-.ring:hover path { fill-opacity: 0.3; }
-.ring:focus-visible path { stroke-width: 5; stroke-dasharray: none; }
-.ringText { font: 700 13px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; }
-.legend { margin: 4px 0 0; font-size: 14px; color: var(--muted-dk); }
+.ring path { fill: url(#triStripes); stroke: var(--pink); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill 0.15s; }
+.ring[aria-pressed="true"] path { fill: var(--pink); stroke: #000; stroke-width: 3; }
+.ring:hover path { stroke-width: 3.5; }
+.ring[aria-pressed="true"]:hover path { stroke: #000; stroke-width: 3; }
+.ring:focus-visible path { stroke-width: 4; }
+.ringText { font: 700 13px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--ink-2); stroke-width: 3.5px; stroke-linejoin: round; }
+.ring[aria-pressed="true"] .ringText { fill: #000; stroke: none; }
+/* The key sits stacked in the empty bottom-right corner of the map, under Long Island. */
+.legend { list-style: none; margin: 0; padding: 10px 14px; position: absolute; right: 28px; bottom: 44px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: var(--paper); background: rgba(34, 14, 67, 0.6); border: 2px solid var(--plum); border-radius: 14px; }
+.legend li { display: inline-flex; align-items: center; gap: 7px; }
+.swatch { display: inline-block; width: 22px; height: 14px; border-radius: 4px; }
+.swLime { background: var(--lime); border: 2px solid #000; }
+.swPink { background: var(--pink); border: 2px solid #000; }
+.swCream { background: var(--paper); border: 2px solid #000; }
+.ringTextSmall { font-size: 11px; }
+/* the wider area uses the same look in cream, so it reads as its own group */
+.ring[data-group="wide"] path { fill: url(#wideStripes); stroke: var(--paper); }
+.ring[data-group="wide"][aria-pressed="true"] path { fill: var(--paper); stroke: #000; }
+.ring[data-group="wide"][aria-pressed="true"] .ringText { fill: var(--ink); }
+
+/* the places as chips on the left of the map step */
+.placeGroups { display: grid; gap: 14px; }
+.foldRow { display: flex; align-items: baseline; gap: 8px; }
+.foldBtn { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; }
+.foldBtn:hover { color: #fff; }
+.foldBtn:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.foldTitle[data-group="nyc"] { --gc: var(--lime); }
+.foldTitle[data-group="tri"] { --gc: var(--pink); }
+.foldTitle[data-group="wide"] { --gc: var(--paper); }
+/* an open section lights up in its own colour on hover, and stays that colour while everything in it is picked */
+.foldTitle[data-open="true"]:hover, .foldTitle[data-all="true"], .foldTitle[data-all="true"]:hover { color: var(--gc); }
+.foldCount { margin-left: 4px; color: var(--lime); letter-spacing: 0; text-transform: none; font-weight: 600; }
+.chipsTight { margin-top: 8px; gap: 10px 8px; }
+.chipSmall { font-size: 15px; padding: 5px 12px; }
+
+/* The second step: every kind of opportunity together, each with a plain-words explanation under it. */
+.explainGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; margin-top: 6px; }
+/* With the right card gone, the second step uses the whole width of the card. */
+.boardSolo { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+.boardSolo .explainGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 36px; margin-top: 14px; }
+.boardSolo .explain { font-size: 14.5px; max-width: 34ch; }
+.explainItem { display: grid; gap: 7px; align-content: start; justify-items: start; }
+.explain { margin: 0; font-size: 13.5px; line-height: 1.38; color: var(--muted-dk); }
+/* The first step's chips: uneven sizes so they feel less like a form, a pink shadow when picked. */
+.cloud { align-items: center; align-content: space-evenly; justify-content: center; gap: 14px 14px; height: 100%; margin: 0; }
+.panelCenter .chip { font-size: 22px; padding: 9px 20px; }
+.cloud .chip:nth-child(1) { font-size: 30px; padding: 10px 22px; }
+.cloud .chip:nth-child(3) { font-size: 26px; }
+.cloud .chip:nth-child(5) { font-size: 23px; }
+.cloud .chip:nth-child(6) { font-size: 27px; padding: 9px 20px; }
+.cloud .chip:nth-child(7) { font-size: 19px; }
+.cloud .chip:nth-child(10) { font-size: 28px; padding: 9px 20px; }
+.cloud .chip:nth-child(11) { font-size: 20px; }
+.cloud .chip[aria-pressed="true"] { box-shadow: 3px 3px 0 var(--pink); }
+/* Place chips: dark and see-through until picked, then filled with the colour of their shapes on the map (lime, pink, white). */
+.placeChip { background: transparent; color: var(--paper); border-color: rgba(254, 249, 239, 0.55); }
+.placeChip:hover { border-color: var(--paper); }
+.placeChip[aria-pressed="true"] { color: #000; border-color: #000; }
+.pNyc[aria-pressed="true"] { background: var(--lime); }
+.pTri[aria-pressed="true"] { background: var(--pink); }
+.pWide[aria-pressed="true"] { background: var(--paper); }
+.hint { margin: 0; color: var(--muted-dk); font-size: 14px; }
 
 @media (max-width: 860px) {
   .frame { padding: 22px 18px; }
@@ -96,5 +163,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chip, .cta, .zone polygon, .ring path { transition: none; }
+  .blank { animation: none; }
+  .subAlert { animation: none; }
+  .chip, .sideBtn, .zone polygon, .ring path { transition: none; }
 }

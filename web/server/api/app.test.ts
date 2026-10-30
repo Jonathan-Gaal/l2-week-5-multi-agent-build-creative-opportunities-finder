@@ -671,8 +671,8 @@ describe("GET /api/meta (picker lists)", () => {
     const { get, db } = await start();
     const meta = (await get("/api/meta")).body as MetaResponse;
     assert.deepEqual(meta.types.map((t) => t.value), ["open_call", "grant", "residency", "event", "job"]);
-    assert.deepEqual(meta.types[0], { value: "open_call", label: "Open calls & auditions", hint: "Submit work or show up and be considered" });
-    assert.deepEqual(meta.disciplines.map((d) => d.value), ["music", "comedy", "dance", "theater", "writing", "visual", "film", "craft"]);
+    assert.deepEqual(meta.types[0], { value: "open_call", label: "Open calls, auditions & gigs", hint: "Submit work, try out, find paid work or partners" });
+    assert.deepEqual(meta.disciplines.map((d) => d.value), ["music", "comedy", "dance", "theater", "writing", "visual", "film", "craft", "photographer", "videographer", "crew", "model", "singer", "poet"]);
     assert.deepEqual(meta.disciplines[0], { value: "music", label: "Music", tags: ["music", "sound"] });
     assert.deepEqual(meta.place_groups.map((g) => [g.value, g.members.length]), [["nyc", 1], ["tristate", 6], ["wider", 9]]);
     const regions = new Set(meta.regions.map((r) => r.value));

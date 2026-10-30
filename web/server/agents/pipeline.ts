@@ -99,6 +99,7 @@ export const present = (rec: OppRecord, tier: Tier) => {
   const fee = rec.fee;
   return {
     title: rec.title, org: rec.org ?? null, type: rec.opportunity_type, subtype: rec.subtype ?? null,
+    also_subtypes: Array.isArray(rec.also_subtypes) ? rec.also_subtypes.filter((k): k is string => typeof k === "string") : [],
     place: rec.borough || rec.region || null, location: rec.location ?? null,
     deadline: rec.deadline || "Deadline not listed",
     event_dates: rec.event_dates?.length ? rec.event_dates : null, recurrence: rec.recurrence ?? null,

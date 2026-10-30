@@ -33,7 +33,7 @@ export type Region =
   | "massachusetts" | "rhode_island" | "vermont" | "new_hampshire" | "maine" | "delaware" | "maryland" | "dc";
 export type Place = Borough | Region;
 export type OpportunityType = "event" | "open_call" | "grant" | "residency" | "job";
-export type Discipline = "music" | "comedy" | "dance" | "theater" | "writing" | "visual" | "film" | "craft";
+export type Discipline = "music" | "comedy" | "dance" | "theater" | "writing" | "visual" | "film" | "craft" | "photographer" | "videographer" | "crew" | "model" | "singer" | "poet";
 /** Picker shortcuts the API expands: "nyc" (the nyc region), "tristate", "wider" (see MetaResponse.place_groups). */
 export type PlaceGroup = "nyc" | "tristate" | "wider";
 
@@ -67,6 +67,8 @@ export type Opportunity = {
   type: string;
   /** Untrusted. */
   subtype: string | null;
+  /** Other kinds this listing also is, inside the same broad type (e.g. a casting call that is also a paid gig). */
+  also_subtypes?: string[];
   /** Borough or region key, e.g. "brooklyn" or "citywide". */
   place: string | null;
   /** Untrusted. */
