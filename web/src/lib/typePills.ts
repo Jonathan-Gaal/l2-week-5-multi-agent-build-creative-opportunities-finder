@@ -17,18 +17,18 @@ export type TypePill = {
 };
 
 export const TYPE_PILLS: readonly TypePill[] = [
-  { id: "open_calls", label: "Submissions/Open calls", types: ["open_call"], subtypes: [], rest: true, explain: "Send your work to be considered: gallery and juried shows, writing, proposals, commissions, competitions." },
-  { id: "auditions", label: "Auditions", types: ["open_call"], subtypes: ["audition", "casting_call"], explain: "Try out for a role, ensemble or production, including casting for film and video." },
+  { id: "open_calls", label: "Submissions/Open calls", types: ["open_call"], subtypes: [], rest: true, explain: "Send your work to be considered for an exhibition, publication, commission or competition." },
+  { id: "auditions", label: "Auditions", types: ["open_call"], subtypes: ["audition", "casting_call"], explain: "Try out for a role in a performance, production or ensemble." },
   { id: "open_mics", label: "Open mics", types: ["event"], subtypes: ["open_mic"], explain: "Sign up to perform a short set at a live event." },
-  { id: "grants", label: "Grants", types: ["grant"], subtypes: [], rest: true, explain: "Funding for your work that does not need to be repaid." },
-  { id: "fellowships", label: "Fellowships", types: ["grant"], subtypes: ["fellowship"], explain: "Longer awards that pair funding with time, mentorship or a community." },
-  { id: "residencies", label: "Residencies", types: ["residency"], subtypes: [], rest: true, explain: "Dedicated time and space to make work, often with a studio or stipend." },
-  { id: "festivals", label: "Festivals", types: ["open_call"], subtypes: ["festival"], explain: "Send your work or apply to perform at a festival." },
-  { id: "workshops", label: "Workshops/Classes", types: ["event"], subtypes: ["workshop", "class", "drawing_session"], explain: "Instruction or hands-on sessions to build your skills." },
-  { id: "social_events", label: "Social events", types: ["event"], subtypes: [], rest: true, explain: "Jam sessions, dance nights, shows, festivals to attend, screenings and meetups." },
-  { id: "collaborations", label: "Collaborations", types: ["open_call"], subtypes: ["collaboration"], explain: "Artists looking to work with other artists: bandmates, creative partners, teammates. Not always paid." },
+  { id: "grants", label: "Grants", types: ["grant"], subtypes: [], rest: true, explain: "Funding awarded to support your work or a project that does not need to be repaid." },
+  { id: "fellowships", label: "Fellowships", types: ["grant"], subtypes: ["fellowship"], explain: "Competitive award that supports an artist over a long period, often with funding, mentorship or a community." },
+  { id: "residencies", label: "Residencies", types: ["residency"], subtypes: [], rest: true, explain: "Dedicated time and space to make work, usually at a studio or program, sometimes with a stipend." },
+  { id: "festivals", label: "Festivals", types: ["open_call"], subtypes: ["festival"], explain: "A call for artists to apply, submit work or perform at a festival." },
+  { id: "workshops", label: "Workshops/Classes", types: ["event"], subtypes: ["workshop", "class", "drawing_session"], explain: "Classes, workshops and lessons where you learn or practice a creative skill with an instructor." },
+  { id: "social_events", label: "Social events", types: ["event"], subtypes: [], rest: true, explain: "Take part in gatherings like jam sessions, dance nights, festivals, screenings and meetups." },
+  { id: "collaborations", label: "Collaborations", types: ["open_call"], subtypes: ["collaboration"], explain: "Artists looking to team up: partners to create with, talent for hire, shared spaces or services." },
   // Two broad types: one-time paid work (open calls) and ongoing positions (jobs). Its "rest" is the job type, listed first.
-  { id: "paid_gigs", label: "Paid gigs/Jobs", types: ["job", "open_call"], subtypes: ["paid_gig", "model_call"], rest: true, explain: "Paid work, from one-time gigs and shoots to ongoing positions with an organization." },
+  { id: "paid_gigs", label: "Other gigs/Jobs", types: ["job", "open_call"], subtypes: ["paid_gig", "model_call"], rest: true, explain: "From one-time paid work, such as performances and shoots to ongoing positions." },
 ];
 
 /** Older links may still say `jobs`; it now means the merged Paid gigs/Jobs chip. */

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { MetaResponse } from "@api/types";
 import { TYPE_PILLS, typesOf } from "@/lib/typePills";
-import { chipList, chipsFor, idsOf, sayList, capital } from "@/lib/disciplineWords";
+import { article, chipList, chipText, chipsFor, idsOf } from "@/lib/disciplineWords";
 import { spellOut, toggleGroup, togglePlace } from "@/lib/places";
 import PlaceMap, { PlaceChips } from "./PlaceMap";
 import s from "./FindFlow.module.css";
@@ -16,8 +16,13 @@ export type Choice = { d: string[]; s: string[]; p: string[] };
 
 const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
 /** How long the "pick something" reminder stays on screen. */
-const ALERT_MS = 4000;
+const ALERT_MS = 1000;
 const TILTS = [-2, 1.5, 1, -1.5, 2, -1];
+const CARD_TONES = ["cream", "pink", "lime"] as const;
+/** The colour of the artist button in position i: lime, pink, cream, shifted a step each row of four. */
+const artistTone = (i: number) => CARD_TONES[(i + Math.floor(i / 4)) % CARD_TONES.length];
+/** A hand-drawn marker loop that circles a card when it is picked. */
+const CIRCLE = "M8 52 C4 22 30 3 62 4 C92 5 99 28 94 56 C90 84 62 98 34 95 C10 92 2 70 9 44 C12 30 22 18 34 12";
 
 /** The address query for a set of choices. Results reads d, t and p; s keeps the finer pills so the next page can show them again. */
 export function queryFor(c: Choice): string {
@@ -46,6 +51,28 @@ const COPY = {
   place: { n: 3, title: "Where do you want to work?", sub: "Tap the map or the buttons." },
 } as const;
 
+/** One kind of opportunity as a taped-up index card. Picking it circles it in marker; the card colour never changes. */
+function OppCard({ i, on, label, why, onClick }: { i: number; on: boolean; label: string; why?: string; onClick: () => void }) {
+  return (
+    <button type="button" className={`${s.oppCard} ${s[CARD_TONES[(i + Math.floor(i / 3)) % CARD_TONES.length]]}`} style={{ ["--tilt" as string]: `${TILTS[i % TILTS.length]}deg`, ["--tape" as string]: i % 2 ? "4deg" : "-3deg" }} aria-pressed={on} onClick={onClick}>
+      <svg className={s.circ} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d={CIRCLE} />
+      </svg>
+      <span className={s.oppLabel}>{label}</span>
+      {why && <span className={s.oppWhy}>{why}</span>}
+    </button>
+  );
+}
+
+/** One kind of artist: a big serif word on a colour bar that rises to fill the word when picked. The colours run lime, pink, cream, shifted a step each row of four. */
+function ArtistWord({ i, on, children, onClick }: { i: number; on: boolean; children: React.ReactNode; onClick: () => void }) {
+  return (
+    <button type="button" className={`${s.artistWord} ${s[artistTone(i)]}`} aria-pressed={on} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
 function Chip({ on, tone, i, onClick, describedBy, children }: { on: boolean; tone: "lime" | "pink"; i: number; onClick: () => void; describedBy?: string; children: React.ReactNode }) {
   return (
     <button type="button" className={`${s.chip} ${s[tone]} ${s.chipSmall}`} style={{ ["--tilt" as string]: `${TILTS[i % TILTS.length]}deg` }} aria-pressed={on} aria-describedby={describedBy} onClick={onClick}>
@@ -62,8 +89,12 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
   const alertTimer = useRef<number | undefined>(undefined);
   useEffect(() => () => window.clearTimeout(alertTimer.current), []);
   const copy = COPY[step];
+  const shownPills = TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value)));
+  const allOn = shownPills.length > 0 && shownPills.every((p) => c.s.includes(p.id));
   // Which chips are lit on the first step. A split discipline lights both of its chips when it arrives from the address.
   const [keys, setKeys] = useState<string[]>(() => initial.d.flatMap((id) => chipsFor(id).map((x) => x.key)));
+  const allKinds = chipList(meta.disciplines.map((d) => d.value));
+  const picked = allKinds.filter((x) => keys.includes(x.key));
   const pickKey = (key: string) => {
     const next = toggle(keys, key);
     setKeys(next);
@@ -88,7 +119,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
 
   return (
     <div className={s.frame}>
-    <div className={`${s.board} ${step === "type" ? s.boardSolo : ""}`}>
+    <div className={`${s.board} ${step !== "place" ? s.boardSolo : ""}`}>
       <div className={s.left}>
         <h1 className={s.title}>{copy.title}</h1>
         {copy.sub && (
@@ -99,9 +130,17 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
 
         {step === "discipline" && (
           <p className={s.sentence} aria-live="polite">
-            I&apos;m a{" "}
+            I&apos;m {picked[0] ? article(picked[0].word) : "a"}{" "}
             {c.d.length ? (
-              <span className={s.fill}>{sayList(chipList(meta.disciplines.map((d) => d.value)).filter((x) => keys.includes(x.key)).map((x) => x.word))}.</span>
+              <>
+                {picked.map((x, i) => (
+                  <span key={x.key}>
+                    {i > 0 && (i === picked.length - 1 ? " and " : ", ")}
+                    <mark className={`${s.pick} ${s[artistTone(allKinds.indexOf(x))]}`}>{x.word}</mark>
+                  </span>
+                ))}
+                .
+              </>
             ) : (
               <span className={s.blank} aria-label="blank, pick the kind of artist you are">
                 artist
@@ -110,18 +149,28 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
           </p>
         )}
 
+        {step === "discipline" && (
+          <div className={`${s.explainGrid} ${s.artistGrid}`} role="group" aria-label="Kinds of artist">
+            {chipList(meta.disciplines.map((d) => d.value)).map((x, i) => (
+              <ArtistWord key={x.key} i={i} on={keys.includes(x.key)} onClick={() => pickKey(x.key)}>
+                {chipText(x)}
+              </ArtistWord>
+            ))}
+          </div>
+        )}
+
         {step === "type" && (
           <div className={s.explainGrid} role="group" aria-label="Kinds of opportunity">
-            {TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value))).map((p, i) => (
-              <div key={p.id} className={s.explainItem}>
-                <Chip on={c.s.includes(p.id)} tone="pink" i={i} describedBy={`why-${p.id}`} onClick={() => setC({ ...c, s: toggle(c.s, p.id) })}>
-                  {p.label}
-                </Chip>
-                <p id={`why-${p.id}`} className={s.explain}>
-                  {p.explain}
-                </p>
-              </div>
+            {shownPills.map((p, i) => (
+              <OppCard key={p.id} i={i} on={c.s.includes(p.id)} label={p.label} why={p.explain} onClick={() => setC({ ...c, s: toggle(c.s, p.id) })} />
             ))}
+            <OppCard
+              i={shownPills.length}
+              on={allOn}
+              label="Open to all"
+              why="Select every kind of opportunity above, so nothing is left out."
+              onClick={() => setC({ ...c, s: allOn ? [] : shownPills.map((p) => p.id) })}
+            />
           </div>
         )}
 
@@ -136,19 +185,10 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
 
       </div>
 
-      {step !== "type" && (
-      <div className={`${s.panel} ${step === "discipline" ? s.panelCenter : ""}`}>
-        {step === "discipline" && (
-          <div className={`${s.chips} ${s.cloud}`} role="group" aria-label="Kinds of artist">
-            {chipList(meta.disciplines.map((d) => d.value)).map((x, i) => (
-              <Chip key={x.key} on={keys.includes(x.key)} tone="lime" i={i} onClick={() => pickKey(x.key)}>
-                {capital(x.word)}
-              </Chip>
-            ))}
-          </div>
-        )}
-        {step === "place" && <PlaceMap meta={meta} places={c.p} onToggle={(id) => setC({ ...c, p: togglePlace(c.p, id) })} />}
-      </div>
+      {step === "place" && (
+        <div className={s.panel}>
+          <PlaceMap meta={meta} places={c.p} onToggle={(id) => setC({ ...c, p: togglePlace(c.p, id) })} />
+        </div>
       )}
     </div>
     <div className={s.sides}>

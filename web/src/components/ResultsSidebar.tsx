@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import type { MetaResponse } from "@api/types";
-import { capital, chipList, chipsFor, idsOf } from "@/lib/disciplineWords";
+import { chipList, chipText, chipsFor, idsOf } from "@/lib/disciplineWords";
 import { TRI_IDS, WIDE_IDS, groupState, placeOn, spellOut, toggleGroup, togglePlace } from "@/lib/places";
 import { TYPE_PILLS } from "@/lib/typePills";
 import { type Choice, queryFor } from "./find/FindStep";
@@ -51,7 +51,7 @@ export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; 
         <h2 className={r.label}>I&apos;m a</h2>
         <div className={r.chips} role="group" aria-label="Disciplines">
           {chipList(meta.disciplines.map((d) => d.value)).map((x) =>
-            pill(keys.includes(x.key), "lime", capital(x.word), () => {
+            pill(keys.includes(x.key), "lime", chipText(x), () => {
               const next = keys.includes(x.key) ? keys.filter((k) => k !== x.key) : [...keys, x.key];
               setKeys(next);
               change({ ...c, d: idsOf(next) });

@@ -3,7 +3,8 @@
  * sidebar so they match. Each chip is its own artist type (Musician, Singer, Writer and Poet are all separate), and a
  * listing can carry several types.
  */
-export type ArtistChip = { id: string; key: string; word: string };
+/** `word` is how it reads in "I'm a ...". `label` is the chip text when that should differ from the capitalized word. */
+export type ArtistChip = { id: string; key: string; word: string; label?: string };
 
 export const CHIPS: ArtistChip[] = [
   { id: "music", key: "music:musician", word: "musician" },
@@ -19,7 +20,7 @@ export const CHIPS: ArtistChip[] = [
   { id: "film", key: "film", word: "filmmaker" },
   { id: "dance", key: "dance", word: "dancer" },
   { id: "model", key: "model", word: "model" },
-  { id: "crew", key: "crew", word: "production crew" },
+  { id: "crew", key: "crew", word: "production crew member", label: "Production crew" },
 ];
 
 /** The chips for one discipline. */
@@ -33,5 +34,10 @@ export const idsOf = (keys: string[]): string[] => [...new Set(keys.map((k) => C
 
 /** "musician, writer and poet" */
 export const sayList = (a: string[]) => (a.length < 2 ? a.join("") : `${a.slice(0, -1).join(", ")} and ${a[a.length - 1]}`);
+
+/** "a" or "an", for the word that comes first in "I'm a ...". */
+export const article = (word: string) => (/^[aeiou]/i.test(word) ? "an" : "a");
+
+export const chipText = (c: ArtistChip) => c.label ?? capital(c.word);
 
 export const capital = (w: string) => w.replace(/^./, (l) => l.toUpperCase());
