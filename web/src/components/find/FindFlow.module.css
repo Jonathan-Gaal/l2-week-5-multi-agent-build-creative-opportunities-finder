@@ -6,7 +6,7 @@
 .left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 
 .title { font: 900 clamp(34px, 4vw, 48px) / 1.05 var(--serif); margin: 0; text-wrap: balance; }
-.sub { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 44ch; white-space: pre-line; text-wrap: balance; }
+.sub { margin: 0; color: var(--muted-dk); font-size: 15px; font-weight: 300; max-width: 44ch; white-space: pre-line; text-wrap: balance; }
 /* Pressing Next too early turns the directions pink and heavier, then they ease back. The "heavier" is a hair of text shadow, because
    font weight can only jump while a shadow can fade. */
 .sub { text-shadow: 0 0 0 currentColor, 0 0 0 currentColor; transition: color 1.4s ease, text-shadow 1.4s ease; }
@@ -50,14 +50,18 @@
   overflow: hidden;
   min-width: 0;
 }
+/* The map card sits a little lower; its bottom edge, and so the key inside it, stays where it was. */
+.panelMap { margin-top: 44px; }
 /* The first step's right card: "I'm a ..." fills in as you pick, with the glowing blank from the landing page. */
 .panelCenter { display: grid; grid-template-rows: 1fr; justify-items: stretch; }
-.sentence { margin: 0; font: 900 clamp(34px, 3.8vw, 46px) / 1.28 var(--serif); overflow-wrap: break-word; }
+.sentence { margin: 24px 0 0; font: 900 clamp(34px, 3.8vw, 46px) / 1.28 var(--serif); overflow-wrap: break-word; }
 .fill { color: var(--pink); font-style: italic; }
 /* Only the picked kinds of artist are highlighted in the sentence; the rest of it stays white. */
-.pick { background: var(--cardBg); color: var(--ink); font-style: italic; padding: 0 0.3em 0.05em; border-radius: 999px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.blank { display: inline-block; min-width: 3.4em; border-bottom: 5px dashed var(--lime); color: transparent; animation: glow 1.6s ease-in-out infinite; }
-@keyframes glow { 50% { border-color: var(--pink); filter: drop-shadow(0 0 8px var(--pink)); } }
+.pick { background: var(--cardBg); color: #000; font-style: italic; padding: 0 0.3em 0.05em; border-radius: 999px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* The blank is a row of lime dashes (width = 9 x 26px - the last 10px gap, so it always ends on a whole dash), drawn as a gradient so each dash can be longer than the browser's own dashed border. --dc is registered so the colour can fade to pink in the glow. */
+@property --dc { syntax: "<color>"; inherits: false; initial-value: #dcfc05; }
+.blank { --dc: var(--lime); display: inline-block; margin: 0 0.2em 0 0.1em; width: 224px; color: transparent; background: repeating-linear-gradient(90deg, var(--dc) 0 16px, transparent 16px 26px) no-repeat left bottom 3px / 100% 5px; padding-bottom: 2px; animation: glow 1.6s ease-in-out infinite; }
+@keyframes glow { 50% { --dc: var(--pink); filter: drop-shadow(0 0 8px var(--pink)); } }
 .groupTitle { font: 700 13px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dk); margin: 0; }
 .group + .group { margin-top: 26px; }
 .chips { display: flex; flex-wrap: wrap; gap: 12px 10px; margin: 12px 0 0; }
@@ -102,7 +106,7 @@
 .ringText { font: 700 13px var(--sans); fill: var(--paper); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--ink-2); stroke-width: 3.5px; stroke-linejoin: round; }
 .ring[aria-pressed="true"] .ringText { fill: #000; stroke: none; }
 /* The key sits stacked in the empty bottom-right corner of the map, under Long Island. */
-.legend { list-style: none; margin: 0; padding: 10px 14px; position: absolute; right: 28px; bottom: 44px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: var(--paper); background: rgba(34, 14, 67, 0.6); border: 2px solid var(--plum); border-radius: 14px; }
+.legend { list-style: none; margin: 0; padding: 0; position: absolute; right: 32px; bottom: 48px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: var(--paper); }
 .legend li { display: inline-flex; align-items: center; gap: 7px; }
 .swatch { display: inline-block; width: 22px; height: 14px; border-radius: 4px; }
 .swLime { background: var(--lime); border: 2px solid #000; }
@@ -115,7 +119,7 @@
 .ring[data-group="wide"][aria-pressed="true"] .ringText { fill: var(--ink); }
 
 /* the places as chips on the left of the map step */
-.placeGroups { display: grid; gap: 14px; }
+.placeGroups { display: grid; gap: 14px; margin-top: 22px; }
 .foldRow { display: flex; align-items: baseline; gap: 8px; }
 .foldBtn { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; }
 .foldBtn:hover { color: #fff; }
@@ -143,12 +147,19 @@
 .cream { --cardBg: var(--paper); }
 .pink { --cardBg: var(--pink); }
 .lime { --cardBg: var(--lime); }
-.artistGrid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 12px 18px !important; margin-top: 30px !important; }
-/* The first step's kinds: big serif words sitting on a colour bar, with a tick after the word when picked. */
-.artistWord { font: 900 19px / 1.1 var(--serif); color: var(--paper); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(var(--cardBg), var(--cardBg)) no-repeat left bottom / 100% 6px; transition: background-size 0.3s ease, color 0.14s; }
-.artistWord:hover { background-size: 100% 14px; }
+.artistGrid { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px !important; margin-top: 44px !important; }
+/* --bar is how solid the colour line is: 0% (hidden) at rest, 100% on hover and when picked (registered so it can fade). */
+@property --bar { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
+/* The first step's kinds: big serif words on a colour bar, with a tick after the word when picked. */
+.artistWord { display: inline-grid; grid-template-columns: auto auto; white-space: nowrap; font: 600 16px / 1.1 var(--serif); text-transform: uppercase; letter-spacing: 0.03em; color: rgba(254, 249, 239, 0.72); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(color-mix(in srgb, var(--cardBg) var(--bar), transparent), color-mix(in srgb, var(--cardBg) var(--bar), transparent)) no-repeat left bottom / 100% 4px; transition: background-size 0.3s ease, color 0.14s, --bar 0.2s; }
+.artistWord:hover { background-size: 100% 10px; }
+.artistWord:hover, .artistWord[aria-pressed="true"] { color: #fff; --bar: 100%; }
+.artistWord[aria-pressed="true"] { text-transform: uppercase; letter-spacing: 0.03em; }
 .artistWord:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.artistWord[aria-pressed="true"]::after { content: "\2713"; margin-left: 10px; color: var(--cardBg); font: 900 0.9em var(--sans); }
+.artistWord > span { grid-area: 1 / 1; }
+.artistSizer { visibility: hidden; text-transform: uppercase; letter-spacing: 0.03em; height: 0; overflow: hidden; }
+.artistWord::after { content: "\2713"; margin-left: 10px; color: var(--cardBg); font: 900 0.9em var(--sans); visibility: hidden; }
+.artistWord[aria-pressed="true"]::after { visibility: visible; }
 .oppLabel { position: relative; z-index: 1; font: 900 21px / 1.1 var(--serif); text-transform: uppercase; }
 .oppWhy { position: relative; z-index: 1; font-size: 14px; line-height: 1.38; color: var(--ink); opacity: 0.85; }
 .circ { position: absolute; left: -22px; top: -20px; width: calc(100% + 44px); height: calc(100% + 40px); pointer-events: none; opacity: 0; transition: opacity 0.18s; overflow: visible; z-index: 3; }
@@ -166,8 +177,10 @@
 .cloud .chip:nth-child(11) { font-size: 20px; }
 .cloud .chip[aria-pressed="true"] { box-shadow: 3px 3px 0 var(--pink); }
 /* Place chips: dark and see-through until picked, then filled with the colour of their shapes on the map (lime, pink, white). */
-.placeChip { background: transparent; color: var(--paper); border-color: rgba(254, 249, 239, 0.55); }
-.placeChip:hover { border-color: var(--paper); }
+.placeChip { border-radius: 999px; }
+/* Unpicked places are the quiet dark pills from the earlier map page: dark fill, thin plum edge, straight, no tilt. */
+.placeChip[aria-pressed="false"] { background: var(--ink-3); color: var(--paper); border: 2px solid var(--plum); font-size: 14px; padding: 5px 14px; transform: none; }
+.placeChip[aria-pressed="false"]:hover { border-color: var(--paper); transform: none; }
 .placeChip[aria-pressed="true"] { color: #000; border-color: #000; }
 .pNyc[aria-pressed="true"] { background: var(--lime); }
 .pTri[aria-pressed="true"] { background: var(--pink); }

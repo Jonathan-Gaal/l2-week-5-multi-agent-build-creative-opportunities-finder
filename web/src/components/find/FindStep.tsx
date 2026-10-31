@@ -19,8 +19,12 @@ const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter(
 const ALERT_MS = 1000;
 const TILTS = [-2, 1.5, 1, -1.5, 2, -1];
 const CARD_TONES = ["cream", "pink", "lime"] as const;
-/** The colour of the artist button in position i: lime, pink, cream, shifted a step each row of four. */
-const artistTone = (i: number) => CARD_TONES[(i + Math.floor(i / 4)) % CARD_TONES.length];
+const ARTIST_TONES = ["lime", "pink", "cream"] as const;
+/** Colours run lime, pink, cream down the laid-out order, with a small tweak near the end so no neighbours match and Musician ends up lime and Crafter cream. */
+const ARTIST_ORDER = [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 0, 2, 1];
+const artistTone = (i: number) => ARTIST_TONES[ARTIST_ORDER[i % ARTIST_ORDER.length]];
+/** The order the artist words are laid out in. Long and short names are mixed so the wrapped rows come out about the same length. */
+const SHOWN_ORDER = ["music:musician", "visual", "theater", "singer", "poet", "photographer", "comedy", "writing:writer", "dance", "model", "videographer", "film", "craft:crafter", "crew"];
 /** A hand-drawn marker loop that circles a card when it is picked. */
 const CIRCLE = "M8 52 C4 22 30 3 62 4 C92 5 99 28 94 56 C90 84 62 98 34 95 C10 92 2 70 9 44 C12 30 22 18 34 12";
 
@@ -47,7 +51,7 @@ const COPY = {
     title: "What kind of artist are you?",
     sub: "Pick at least one. Work across disciplines? Add more!",
   },
-  type: { n: 2, title: "What opportunities are you after?", sub: "Pick at least one. Not sure what they mean? Read description." },
+  type: { n: 2, title: "What opportunities are you after?", sub: "Pick at least one. Not sure what they are? Read description." },
   place: { n: 3, title: "Where do you want to work?", sub: "Tap the map or the buttons." },
 } as const;
 
@@ -68,7 +72,11 @@ function OppCard({ i, on, label, why, onClick }: { i: number; on: boolean; label
 function ArtistWord({ i, on, children, onClick }: { i: number; on: boolean; children: React.ReactNode; onClick: () => void }) {
   return (
     <button type="button" className={`${s.artistWord} ${s[artistTone(i)]}`} aria-pressed={on} onClick={onClick}>
-      {children}
+      <span>{children}</span>
+      {/* an invisible capitalised copy keeps the button the same width whether it is picked (capitals) or not, so the rows never reshuffle */}
+      <span className={s.artistSizer} aria-hidden="true">
+        {children}
+      </span>
     </button>
   );
 }
@@ -93,8 +101,9 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
   const allOn = shownPills.length > 0 && shownPills.every((p) => c.s.includes(p.id));
   // Which chips are lit on the first step. A split discipline lights both of its chips when it arrives from the address.
   const [keys, setKeys] = useState<string[]>(() => initial.d.flatMap((id) => chipsFor(id).map((x) => x.key)));
-  const allKinds = chipList(meta.disciplines.map((d) => d.value));
-  const picked = allKinds.filter((x) => keys.includes(x.key));
+  const allKinds = chipList(meta.disciplines.map((d) => d.value)).sort((a, b) => (SHOWN_ORDER.indexOf(a.key) + 1 || 99) - (SHOWN_ORDER.indexOf(b.key) + 1 || 99));
+  // in the order they were picked, so the sentence reads the way the person chose
+  const picked = keys.flatMap((k) => allKinds.filter((x) => x.key === k));
   const pickKey = (key: string) => {
     const next = toggle(keys, key);
     setKeys(next);
@@ -142,16 +151,19 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
                 .
               </>
             ) : (
-              <span className={s.blank} aria-label="blank, pick the kind of artist you are">
-                artist
-              </span>
+              <>
+                <span className={s.blank} aria-label="blank, pick the kind of artist you are">
+                  artist
+                </span>
+                .
+              </>
             )}
           </p>
         )}
 
         {step === "discipline" && (
           <div className={`${s.explainGrid} ${s.artistGrid}`} role="group" aria-label="Kinds of artist">
-            {chipList(meta.disciplines.map((d) => d.value)).map((x, i) => (
+            {allKinds.map((x, i) => (
               <ArtistWord key={x.key} i={i} on={keys.includes(x.key)} onClick={() => pickKey(x.key)}>
                 {chipText(x)}
               </ArtistWord>
@@ -186,7 +198,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
       </div>
 
       {step === "place" && (
-        <div className={s.panel}>
+        <div className={`${s.panel} ${s.panelMap}`}>
           <PlaceMap meta={meta} places={c.p} onToggle={(id) => setC({ ...c, p: togglePlace(c.p, id) })} />
         </div>
       )}
