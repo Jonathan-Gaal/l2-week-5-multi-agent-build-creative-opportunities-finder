@@ -22,9 +22,11 @@ const CARD_TONES = ["cream", "pink", "lime"] as const;
 const ARTIST_TONES = ["lime", "pink", "cream"] as const;
 /** Colours run lime, pink, cream down the laid-out order, with a small tweak near the end so no neighbours match and Musician ends up lime and Crafter cream. */
 const ARTIST_ORDER = [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 0, 2, 1];
-const artistTone = (i: number) => ARTIST_TONES[ARTIST_ORDER[i % ARTIST_ORDER.length]];
+/** Words whose colour is fixed no matter where they sit (Filmmaker and Crafter swapped places but kept their colours). */
+const TONE_FIXED: Record<string, (typeof ARTIST_TONES)[number]> = { film: "lime", "craft:crafter": "cream" };
+const artistTone = (i: number, key: string) => TONE_FIXED[key] ?? ARTIST_TONES[ARTIST_ORDER[i % ARTIST_ORDER.length]];
 /** The order the artist words are laid out in. Long and short names are mixed so the wrapped rows come out about the same length. */
-const SHOWN_ORDER = ["music:musician", "visual", "theater", "singer", "poet", "photographer", "comedy", "writing:writer", "dance", "model", "videographer", "film", "craft:crafter", "crew"];
+const SHOWN_ORDER = ["music:musician", "visual", "theater", "singer", "poet", "photographer", "writing:writer", "comedy", "dance", "model", "videographer", "craft:crafter", "film", "crew"];
 /** A hand-drawn marker loop that circles a card when it is picked. */
 const CIRCLE = "M8 52 C4 22 30 3 62 4 C92 5 99 28 94 56 C90 84 62 98 34 95 C10 92 2 70 9 44 C12 30 22 18 34 12";
 
@@ -49,10 +51,10 @@ const COPY = {
   discipline: {
     n: 1,
     title: "What kind of artist are you?",
-    sub: "Pick at least one. Work across disciplines? Add more!",
+    sub: "Select at least one. Work across disciplines? Add more!",
   },
-  type: { n: 2, title: "What opportunities are you after?", sub: "Pick at least one. Not sure what they are? Read description." },
-  place: { n: 3, title: "Where do you want to work?", sub: "Tap the map or the buttons." },
+  type: { n: 2, title: "What opportunities are you after?", sub: "Select at least one. Not sure what they are? Read description." },
+  place: { n: 3, title: "Where do you want to work?", sub: "Select an area on the map or use the buttons below." },
 } as const;
 
 /** One kind of opportunity as a taped-up index card. Picking it circles it in marker; the card colour never changes. */
@@ -69,9 +71,9 @@ function OppCard({ i, on, label, why, onClick }: { i: number; on: boolean; label
 }
 
 /** One kind of artist: a big serif word on a colour bar that rises to fill the word when picked. The colours run lime, pink, cream, shifted a step each row of four. */
-function ArtistWord({ i, on, children, onClick }: { i: number; on: boolean; children: React.ReactNode; onClick: () => void }) {
+function ArtistWord({ i, id, on, children, onClick }: { i: number; id: string; on: boolean; children: React.ReactNode; onClick: () => void }) {
   return (
-    <button type="button" className={`${s.artistWord} ${s[artistTone(i)]}`} aria-pressed={on} onClick={onClick}>
+    <button type="button" className={`${s.artistWord} ${s[artistTone(i, id)]}`} aria-pressed={on} onClick={onClick}>
       <span>{children}</span>
       {/* an invisible capitalised copy keeps the button the same width whether it is picked (capitals) or not, so the rows never reshuffle */}
       <span className={s.artistSizer} aria-hidden="true">
@@ -145,7 +147,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
                 {picked.map((x, i) => (
                   <span key={x.key}>
                     {i > 0 && (i === picked.length - 1 ? " and " : ", ")}
-                    <mark className={`${s.pick} ${s[artistTone(allKinds.indexOf(x))]}`}>{x.word}</mark>
+                    <mark className={`${s.pick} ${s[artistTone(allKinds.indexOf(x), x.key)]}`}>{x.word}</mark>
                   </span>
                 ))}
                 .
@@ -164,7 +166,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
         {step === "discipline" && (
           <div className={`${s.explainGrid} ${s.artistGrid}`} role="group" aria-label="Kinds of artist">
             {allKinds.map((x, i) => (
-              <ArtistWord key={x.key} i={i} on={keys.includes(x.key)} onClick={() => pickKey(x.key)}>
+              <ArtistWord key={x.key} i={i} id={x.key} on={keys.includes(x.key)} onClick={() => pickKey(x.key)}>
                 {chipText(x)}
               </ArtistWord>
             ))}

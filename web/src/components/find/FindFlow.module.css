@@ -147,18 +147,22 @@
 .cream { --cardBg: var(--paper); }
 .pink { --cardBg: var(--pink); }
 .lime { --cardBg: var(--lime); }
-.artistGrid { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px !important; margin-top: 44px !important; }
+.artistGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 12px 18px !important; margin-top: 44px !important; }
 /* --bar is how solid the colour line is: 0% (hidden) at rest, 100% on hover and when picked (registered so it can fade). */
-@property --bar { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
+@property --bar { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
 /* The first step's kinds: big serif words on a colour bar, with a tick after the word when picked. */
-.artistWord { display: inline-grid; grid-template-columns: auto auto; white-space: nowrap; font: 600 16px / 1.1 var(--serif); text-transform: uppercase; letter-spacing: 0.03em; color: rgba(254, 249, 239, 0.72); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(color-mix(in srgb, var(--cardBg) var(--bar), transparent), color-mix(in srgb, var(--cardBg) var(--bar), transparent)) no-repeat left bottom / 100% 4px; transition: background-size 0.3s ease, color 0.14s, --bar 0.2s; }
+.artistWord { display: inline-grid; grid-template-columns: max-content max-content; justify-content: start; align-items: baseline; white-space: nowrap; font: 900 16px / 1.1 var(--serif); text-transform: lowercase; color: rgba(254, 249, 239, 0.72); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(color-mix(in srgb, var(--cardBg) var(--bar), transparent), color-mix(in srgb, var(--cardBg) var(--bar), transparent)) no-repeat left bottom / 100% 4px; transition: background-size 0.3s ease, color 0.14s, --bar 0.2s; }
+/* the lime and pink lines are the loudest colours, so at rest they are toned down to 70%; hover and picked bring it back to 100% */
+.artistWord.pink { --bar: 50%; }
+.artistWord.lime { --bar: 40%; }
+.artistWord.cream { --bar: 50%; }
 .artistWord:hover { background-size: 100% 10px; }
 .artistWord:hover, .artistWord[aria-pressed="true"] { color: #fff; --bar: 100%; }
-.artistWord[aria-pressed="true"] { text-transform: uppercase; letter-spacing: 0.03em; }
+.artistWord:hover, .artistWord[aria-pressed="true"] { text-transform: uppercase; letter-spacing: 0.03em; }
 .artistWord:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
 .artistWord > span { grid-area: 1 / 1; }
 .artistSizer { visibility: hidden; text-transform: uppercase; letter-spacing: 0.03em; height: 0; overflow: hidden; }
-.artistWord::after { content: "\2713"; margin-left: 10px; color: var(--cardBg); font: 900 0.9em var(--sans); visibility: hidden; }
+.artistWord::after { content: "\2713"; margin-left: 10px; color: #fff; font: 900 0.9em var(--sans); visibility: hidden; }
 .artistWord[aria-pressed="true"]::after { visibility: visible; }
 .oppLabel { position: relative; z-index: 1; font: 900 21px / 1.1 var(--serif); text-transform: uppercase; }
 .oppWhy { position: relative; z-index: 1; font-size: 14px; line-height: 1.38; color: var(--ink); opacity: 0.85; }
