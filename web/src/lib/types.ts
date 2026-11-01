@@ -46,7 +46,8 @@ export type CallLog = {
   requestId: string;
 };
 
-export type SearchInput = { places: string[]; types: string[]; disciplines: string[] };
+/** `subtypes` are "type.kind" tokens (e.g. "event.open_mic") naming the kinds to rank before anything is cut; empty means every kind. */
+export type SearchInput = { places: string[]; types: string[]; disciplines: string[]; subtypes?: string[] };
 
 export type SearchOutput = {
   asOf: string;

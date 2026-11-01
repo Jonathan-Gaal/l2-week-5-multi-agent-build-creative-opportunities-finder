@@ -7,7 +7,7 @@ import r from "@/components/ResultsLive.module.css";
 import { asBackendError, type BackendError, getMeta, searchBackend, visitorClient } from "@/lib/backend";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
-import { TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes } from "@/lib/typePills";
+import { TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes, subtypeTokens } from "@/lib/typePills";
 
 type Params = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -54,7 +54,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   let out: SearchOutput | null = null;
   let failure: BackendError | null = null;
   try {
-    out = await searchBackend({ places, types, disciplines }, { visitor: visitorClient(await headers()), labels });
+    out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels });
   } catch (e) {
     failure = asBackendError(e);
   }

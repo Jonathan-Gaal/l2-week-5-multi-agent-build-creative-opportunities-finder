@@ -169,6 +169,7 @@ export function visitorClient(headers: Headers): Client {
 export function searchQuery(input: SearchInput): string {
   const q = new URLSearchParams({ places: input.places.join(","), types: input.types.join(",") });
   if (input.disciplines.length) q.set("disciplines", input.disciplines.join(","));
+  if (input.subtypes?.length) q.set("subtypes", input.subtypes.join(","));
   return q.toString().replaceAll("%2C", ",");
 }
 

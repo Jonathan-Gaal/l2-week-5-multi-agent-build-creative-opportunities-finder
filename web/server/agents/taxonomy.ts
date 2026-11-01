@@ -12,6 +12,16 @@ export const REGIONS = ["nyc", "long_island", "westchester_hudson", "upstate_ny"
   "dc"] as const;
 export const TYPES = ["event", "open_call", "grant", "residency", "job"] as const;
 
+/** The kinds of opportunity the data uses (record.subtype), by broad type. "none" stands for a record with no kind. */
+export const KINDS_BY_TYPE: Record<(typeof TYPES)[number], readonly string[]> = {
+  event: ["open_mic", "workshop", "class", "drawing_session", "jam", "dance_night", "meetup", "open_studio", "show", "none"],
+  open_call: ["audition", "casting_call", "collaboration", "commission", "competition", "festival", "gallery_submission",
+    "general_call", "model_call", "paid_gig", "performance_call", "service_ad", "writing_submission", "none"],
+  grant: ["grant", "fellowship", "none"],
+  residency: ["residency", "none"],
+  job: ["full_time", "internship", "teaching_artist", "none"],
+};
+
 export type BoroughId = (typeof BOROUGHS)[number];
 export type RegionId = (typeof REGIONS)[number];
 export type PlaceId = BoroughId | RegionId;

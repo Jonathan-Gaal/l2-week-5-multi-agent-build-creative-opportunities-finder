@@ -101,6 +101,31 @@ describe("Filter", () => {
   });
 });
 
+describe("Filter: kinds are chosen before anything is ranked", () => {
+  const events = (...subs: (string | null)[]) => subs.map((s, i) => rec(`E${i}`, { typ: "event", subtype: s }));
+  const kinds = (subtypes: string[], recs: OppRecord[]) =>
+    titles(flt.select(recs, flt.makeSearchRequest(["brooklyn"], "event", DAY, [], subtypes))[0]);
+
+  it("keeps only the picked kinds, and everything when none are picked", () => {
+    const recs = events("open_mic", "workshop", "jam");
+    assert.deepEqual(kinds(["open_mic"], recs), ["E0"]);
+    assert.deepEqual(kinds(["open_mic", "jam"], recs), ["E0", "E2"]);
+    assert.deepEqual(kinds([], recs), ["E0", "E1", "E2"]);
+  });
+
+  it("a listing with a second kind fits either, and 'none' means no kind", () => {
+    const recs = [rec("Both", { typ: "event", subtype: "jam", also_subtypes: ["open_mic"] }), ...events(null, "workshop")];
+    assert.deepEqual(kinds(["open_mic"], recs), ["Both"]);
+    assert.deepEqual(kinds(["none"], recs), ["E0"]);
+  });
+
+  it("a kind that does not belong to the type is a bad request", () => {
+    const bad = flt.makeSearchRequest(["brooklyn"], "event", DAY, [], ["fellowship"]);
+    assert.match(flt.requestProblem(bad) ?? "", /unknown kind/);
+    assert.equal(flt.requestProblem(flt.makeSearchRequest(["brooklyn"], "event", DAY, [], ["open_mic"])), null);
+  });
+});
+
 describe("Filter: expiry is deadline-driven for applications, schedule-driven only for events", () => {
   const ASOF = "2026-10-29";
   it("an open_call with a passed deadline is expired even with a later event date", () => {

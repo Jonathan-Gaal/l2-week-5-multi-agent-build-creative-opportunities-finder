@@ -70,6 +70,39 @@ export function narrowCards<T extends { subtype: string | null; alsoSubtypes?: s
   });
 }
 
+/** Every kind the data uses, by broad type ("none" is a listing with no kind). Mirrors server/agents/taxonomy.KINDS_BY_TYPE. */
+const KINDS_BY_TYPE: Record<string, readonly string[]> = {
+  event: ["open_mic", "workshop", "class", "drawing_session", "jam", "dance_night", "meetup", "open_studio", "show", "none"],
+  open_call: ["audition", "casting_call", "collaboration", "commission", "competition", "festival", "gallery_submission",
+    "general_call", "model_call", "paid_gig", "performance_call", "service_ad", "writing_submission", "none"],
+  grant: ["grant", "fellowship", "none"],
+  residency: ["residency", "none"],
+  job: ["full_time", "internship", "teaching_artist", "none"],
+};
+
+/**
+ * The kinds to search for, as "type.kind" tokens, so the results service can keep only those before it ranks anything.
+ * A "rest" pill means every kind of its first type that no other pill names. A type is left out (no limit) when none of
+ * its pills was picked or all of them were, so an older link or a full pick searches everything.
+ */
+export function subtypeTokens(pillIds: readonly string[]): string[] {
+  const tokens: string[] = [];
+  for (const type of Object.keys(KINDS_BY_TYPE)) {
+    const mine = TYPE_PILLS.filter((p) => p.types.includes(type));
+    const picked = mine.filter((p) => pillIds.includes(p.id));
+    if (!picked.length || picked.length === mine.length) continue;
+    const kinds = KINDS_BY_TYPE[type]!;
+    const named = new Set(mine.flatMap((p) => p.subtypes));
+    const keep = new Set<string>();
+    for (const p of picked) {
+      p.subtypes.filter((k) => kinds.includes(k)).forEach((k) => keep.add(k));
+      if (p.rest && p.types[0] === type) kinds.filter((k) => !named.has(k)).forEach((k) => keep.add(k));
+    }
+    keep.forEach((k) => tokens.push(`${type}.${k}`));
+  }
+  return tokens;
+}
+
 export const pillLabel = (id: string): string => TYPE_PILLS.find((p) => p.id === id)?.label ?? id;
 
 /** The labels of the picked pills that belong to one broad type, e.g. ["Open mics"] for the events list. */

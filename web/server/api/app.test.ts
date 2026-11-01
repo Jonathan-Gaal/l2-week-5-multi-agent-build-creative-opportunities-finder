@@ -685,10 +685,18 @@ describe("GET /api/meta (picker lists)", () => {
 describe("parseSearchQuery", () => {
   it("expands groups, keeps type order, orders places and disciplines canonically", () => {
     assert.deepEqual(parseSearchQuery(new URLSearchParams("types=job,grant&places=dc,brooklyn,nyc&disciplines=film,music")), {
-      places: ["brooklyn", "nyc", "dc"], types: ["job", "grant"], disciplines: ["music", "film"],
+      places: ["brooklyn", "nyc", "dc"], types: ["job", "grant"], disciplines: ["music", "film"], subtypes: [],
     });
     assert.deepEqual(parseSearchQuery(new URLSearchParams("places=tristate,new_jersey&types=event"))?.places,
       ["nyc", "long_island", "westchester_hudson", "upstate_ny", "new_jersey", "connecticut"]);
+  });
+
+  it("reads the chosen kinds as type.kind tokens, in a fixed order", () => {
+    assert.deepEqual(parseSearchQuery(new URLSearchParams("places=brooklyn&types=event,open_call&subtypes=open_call.audition,event.open_mic"))?.subtypes,
+      ["event.open_mic", "open_call.audition"]);
+    for (const q of ["subtypes=open_mic", "subtypes=event.fellowship", "subtypes=event.open_mic,event.open_mic", "subtypes="]) {
+      assert.equal(parseSearchQuery(new URLSearchParams(`places=brooklyn&types=event&${q}`)), null, q);
+    }
   });
 
   it("refuses prototype keys and anything outside the lists", () => {
