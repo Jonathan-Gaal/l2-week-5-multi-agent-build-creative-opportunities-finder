@@ -9,10 +9,12 @@
 - Tier 2: best attempt that passed the checks without an accept (Reviewer rejected every time, errored,
   or was not run); if no attempt passed, the code baseline ranking. Labeled "not fully checked".
 - Tier 3: no result, with the reason.
+- A model call that finds the key unavailable (credentials, billing, credit or usage limit; classify_model_error)
+  ends the loop at once: no further attempts, the best result so far or the code baseline (Tier 2).
 Each request appends one JSON line to the trace file.
 
 Usage:
-    python -m agents.pipeline brooklyn open_call                 # Claude ranker + reviewer
+    python -m agents.pipeline brooklyn open_call                 # Claude ranker + reviewer (code ranker without credentials)
     python -m agents.pipeline brooklyn open_call --baseline      # code ranker only, no model calls
 """
 
@@ -24,7 +26,7 @@ import uuid
 from pathlib import Path
 
 from agents import filter as flt
-from agents.model import ClaudeModel, ModelError
+from agents.model import ClaudeModel, ModelError, missing_credentials, unavailable_reason
 from agents.roles import TOP_K, BaselineRanker, Ranker, Reviewer, baseline_order
 
 MAX_ATTEMPTS = 3
@@ -125,6 +127,9 @@ def run(req, records, ranker, reviewer=None, trace_path=None, max_candidates=MAX
             _add(trace["tokens"], usage)
         except ModelError as e:
             attempt["ranker_error"] = str(e)
+            if (why := unavailable_reason(e)):
+                trace["stopped"] = why
+                break
             continue
         attempt["ranking"] = [i.get("id") for i in ranking]
         problems = check_ranking(ranking, by_id, req)
@@ -141,6 +146,8 @@ def run(req, records, ranker, reviewer=None, trace_path=None, max_candidates=MAX
             _add(trace["tokens"], usage)
         except ModelError as e:
             attempt["reviewer_error"] = str(e)
+            if (why := unavailable_reason(e)):
+                trace["stopped"] = why
             break
         attempt["verdict"], attempt["critique"] = verdict["verdict"], verdict["critique"]
         if verdict["verdict"] == "accept":
@@ -168,7 +175,10 @@ def main(argv=None):
     p.add_argument("--snapshot", default=flt.SNAPSHOT)
     a = p.parse_args(argv)
     req = flt.Request(a.place, a.type, a.as_of)
-    if a.baseline:
+    why = None if a.baseline else missing_credentials()
+    if why:
+        print(f"no Claude ({why}); using the code ranker", file=sys.stderr)
+    if a.baseline or why:
         ranker, reviewer = BaselineRanker(), None
     else:
         model = ClaudeModel()

@@ -31,7 +31,7 @@ import {
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
   BUDGET_USED_UP, type Client, type Clock, DEADLINE_PASSED, type RunEvents, SERVER_BUSY, type VisitorRateLimiter,
-  asClient, concurrencyGate, dailyBudget, guardedModel, lruCache, visitorRateLimiter,
+  asClient, concurrencyGate, dailyBudget, guardedModel, lruCache, modelBreaker, visitorRateLimiter,
 } from "./controls.ts";
 import {
   API_ROUTES, type Borough, type Discipline, type ErrorCode, type ErrorResponse, type MetaResponse,
@@ -62,13 +62,15 @@ export type Limits = {
   cacheTtlMs: number;
   /** Time to live for a result degraded by the budget, the deadline or a failed model call. */
   degradedCacheTtlMs: number;
+  /** How long model calls stay off after the key is found unavailable, unless the API sent retry-after. */
+  modelCooldownMs: number;
   maxUrlLength: number;
 };
 
 export const DEFAULT_LIMITS: Limits = {
   ratePerMinute: 10, requestsPerMinute: 30, maxConcurrentRuns: 2, maxQueuedRuns: 8, queueWaitMs: 10_000,
   dailyModelCalls: 300, requestDeadlineMs: 90_000, cacheEntries: 500, cacheTtlMs: 24 * 3600_000,
-  degradedCacheTtlMs: 5 * 60_000, maxUrlLength: 512,
+  degradedCacheTtlMs: 5 * 60_000, modelCooldownMs: 10 * 60_000, maxUrlLength: 512,
 };
 
 export type AppDeps = {
@@ -216,6 +218,7 @@ export const createApp = (deps: AppDeps) => {
   // budget and cache hits are bounded too. Per process like every control here: on Vercel, per instance.
   const requestLimiter = visitorRateLimiter(limits.requestsPerMinute, 60_000, now);
   const budget = dailyBudget(limits.dailyModelCalls, now);
+  const breaker = modelBreaker(limits.modelCooldownMs, now, log);
   const gate = concurrencyGate(limits.maxConcurrentRuns, limits.maxQueuedRuns);
   const cache = lruCache<Computed>(limits.cacheEntries, now);
   const inFlight = new Map<string, Promise<Computed>>();
@@ -253,12 +256,13 @@ export const createApp = (deps: AppDeps) => {
     let ranker: RankerRole = new BaselineRanker();
     let reviewer: ReviewerRole | null = null;
     if (deps.mode !== "baseline") {
-      // With the budget used up, or no run slot, the run is aborted from the start: no model call, Tier 2 baseline.
+      // With the budget used up, the model unavailable (breaker open) or no run slot, the run is aborted from the
+      // start: no model call, Tier 2 baseline.
       if (!useModel || busy) {
-        ctl.abort(busy ? SERVER_BUSY : BUDGET_USED_UP);
+        ctl.abort(busy ? SERVER_BUSY : breaker.openReason() ?? BUDGET_USED_UP);
         events.degraded = true;
       }
-      const model = guardedModel(deps.model!, budget, ctl, events);
+      const model = guardedModel(deps.model!, budget, ctl, events, breaker);
       ranker = new Ranker(model);
       if (deps.mode === "ranker_reviewer") reviewer = new Reviewer(model);
     }
@@ -316,7 +320,7 @@ export const createApp = (deps: AppDeps) => {
       return { req, key, cached: cache.get(key), running: inFlight.get(key) };
     });
     const fresh = plans.filter((p) => !p.cached && !p.running).length;
-    const useModel = deps.mode !== "baseline" && budget.remaining() > 0;
+    const useModel = deps.mode !== "baseline" && budget.remaining() > 0 && breaker.openReason() === null;
     if (useModel && fresh > 0) charge(limiter, client, fresh);
     const reuse = async (req: SearchRequest, c: Computed, how: "cache" | "shared"): Promise<Served> => {
       const requestId = pipeline.newRequestId();

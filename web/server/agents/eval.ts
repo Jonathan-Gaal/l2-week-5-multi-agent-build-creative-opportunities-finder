@@ -7,7 +7,9 @@
  *   ranker_only      Claude ranker, no Reviewer (always Tier 2 by design)
  *   ranker_reviewer  Claude ranker + Reviewer loop
  * The two Claude modes are the required comparison. They need Anthropic credentials and are skipped,
- * with a message, when none are set. Each request can make up to 6 model calls in ranker_reviewer mode.
+ * with a message, when none are set, or stopped (no metrics: a partial run isn't comparable) as soon as a call
+ * finds the key unavailable (billing, credit or usage limit). Baseline always runs. Each request can make up
+ * to 6 model calls in ranker_reviewer mode.
  *
  * Usage:
  *   node src/agents/eval.ts                                          # every mode that can run
@@ -20,7 +22,7 @@ import { parseArgs } from "node:util";
 
 import * as flt from "./filter.ts";
 import type { OppRecord } from "./filter.ts";
-import { ClaudeModel, missingCredentials } from "./model.ts";
+import { ClaudeModel, type Model, ModelError, classifyModelError, missingCredentials } from "./model.ts";
 import * as pipeline from "./pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "./roles.ts";
 
@@ -71,9 +73,26 @@ export type ScoredOutput = {
 
 const norm = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 
-const rolesFor = (mode: Mode): [RankerRole, ReviewerRole | null] => {
+/** `model` wrapped to stop calling once a call finds the key unavailable; `unavailable()` says why, or null. */
+const stopOnUnavailable = (model: Model) => {
+  let reason: string | null = null;
+  const wrapped: Model = {
+    async call(...args) {
+      if (reason !== null) throw new ModelError(reason);
+      try {
+        return await model.call(...args);
+      } catch (e) {
+        const failure = classifyModelError(e);
+        if (failure?.kind === "unavailable") reason = failure.reason;
+        throw e;
+      }
+    },
+  };
+  return { model: wrapped, unavailable: () => reason };
+};
+
+const rolesFor = (mode: Mode, model: Model): [RankerRole, ReviewerRole | null] => {
   if (mode === "baseline") return [new BaselineRanker(), null];
-  const model = new ClaudeModel();
   return [new Ranker(model), mode === "ranker_reviewer" ? new Reviewer(model) : null];
 };
 
@@ -119,13 +138,23 @@ export const summarize = (rows: Score[]) => ({
   tier_counts: Object.fromEntries([0, 2, 3].map((t) => [t, rows.filter((r) => r.tier === t).length])),
 });
 
-export const runMode = async (mode: Mode, golden: Golden, records: OppRecord[], tracePath: string | null = null) => {
-  const [ranker, reviewer] = rolesFor(mode);
+export type ModeReport = { summary: ReturnType<typeof summarize>; requests: Score[] };
+/** A Claude mode that couldn't run: why, and how many golden requests had finished. */
+export type ModeSkipped = { skipped: string; completed: number };
+
+/** Score every golden request in `mode`. `model` (tests pass fakes) defaults to Claude; it is unused for baseline. */
+export const runMode = async (
+  mode: Mode, golden: Golden, records: OppRecord[], tracePath: string | null = null, model: Model = new ClaudeModel(),
+): Promise<ModeReport | ModeSkipped> => {
+  const guard = stopOnUnavailable(model);
+  const [ranker, reviewer] = rolesFor(mode, guard.model);
   const rows: Score[] = [];
   for (const gcase of golden.requests) {
     const pool = [...records, ...(gcase.inject ?? [])];
     const req = flt.makeRequest(gcase.place, gcase.type, gcase.as_of);
     const out = await pipeline.run(req, pool, ranker, reviewer, tracePath);
+    const unavailable = guard.unavailable();
+    if (unavailable !== null) return { skipped: `Claude unavailable: ${unavailable}`, completed: rows.length };
     rows.push(score(gcase, out, pool));
   }
   return { summary: summarize(rows), requests: rows };
@@ -147,15 +176,21 @@ const main = async () => {
   const golden: Golden = JSON.parse(readFileSync(values.golden, "utf-8"));
   const records = flt.load(values.snapshot);
   const tracePath = `${pipeline.TRACE_DIR}/eval-${flt.today()}.jsonl`;
-  const report: Record<string, Awaited<ReturnType<typeof runMode>>> = {};
+  const report: Record<string, ModeReport | ModeSkipped> = {};
   for (const mode of modes) {
     const blocked = mode !== "baseline" ? missingCredentials() : null;
     if (blocked) {
       console.error(`${mode}: skipped, ${blocked}`);
+      report[mode] = { skipped: blocked, completed: 0 };
       continue;
     }
     const result = await runMode(mode, golden, records, tracePath);
     report[mode] = result;
+    if ("skipped" in result) {
+      console.error(`${mode}: stopped, ${result.skipped} after ${result.completed} of ${golden.requests.length} requests; `
+        + "no metrics for this mode");
+      continue;
+    }
     console.log(`${mode}: ${JSON.stringify(result.summary)}`);
     for (const r of result.requests) {
       if (r.pass) continue;

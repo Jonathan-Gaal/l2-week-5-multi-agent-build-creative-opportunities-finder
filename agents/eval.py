@@ -5,7 +5,9 @@ Modes:
     ranker_only      Claude ranker, no Reviewer (always Tier 2 by design)
     ranker_reviewer  Claude ranker + Reviewer loop
 The two Claude modes are the required comparison. They need Anthropic credentials and are skipped,
-with a message, when none are set. Each request can make up to 6 model calls in ranker_reviewer mode.
+with a message, when none are set, or stopped (no metrics: a partial run isn't comparable) as soon as a call
+finds the key unavailable (billing, credit or usage limit). Baseline always runs. Each request can make up
+to 6 model calls in ranker_reviewer mode.
 
 Usage:
     python -m agents.eval                                  # every mode that can run
@@ -15,14 +17,13 @@ Usage:
 import argparse
 import datetime as dt
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
 from agents import filter as flt
 from agents import pipeline
-from agents.model import ClaudeModel
+from agents.model import ClaudeModel, ModelError, missing_credentials, unavailable_reason
 from agents.roles import BaselineRanker, Ranker, Reviewer
 
 GOLDEN = Path(__file__).resolve().parent / "golden.json"
@@ -33,22 +34,25 @@ def _norm(text):
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text.lower())).strip()
 
 
-def roles_for(mode):
+class StopOnUnavailable:
+    """`model`, but once a call finds the key unavailable every later call fails at once, with no request."""
+    def __init__(self, model):
+        self.model, self.unavailable = model, None
+
+    def call(self, system, user, schema):
+        if self.unavailable:
+            raise ModelError(self.unavailable)
+        try:
+            return self.model.call(system, user, schema)
+        except ModelError as e:
+            self.unavailable = unavailable_reason(e)
+            raise
+
+
+def roles_for(mode, model):
     if mode == "baseline":
         return BaselineRanker(), None
-    model = ClaudeModel()
     return Ranker(model), (Reviewer(model) if mode == "ranker_reviewer" else None)
-
-
-def has_credentials():
-    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or os.environ.get("ANTHROPIC_PROFILE")
-            or any(Path.home().joinpath(".config/anthropic").glob("*"))):
-        return "no Anthropic credentials (set ANTHROPIC_API_KEY or run `ant auth login`)"
-    try:
-        import anthropic  # noqa: F401
-    except ImportError:
-        return "anthropic SDK not installed (pip install anthropic)"
-    return None
 
 
 def score(case, out, records):
@@ -92,13 +96,18 @@ def summarize(rows):
     }
 
 
-def run_mode(mode, golden, records, trace_path=None):
-    ranker, reviewer = roles_for(mode)
+def run_mode(mode, golden, records, trace_path=None, model=None):
+    """Score every golden request. `model` (tests pass fakes) defaults to Claude; unused for baseline. A Claude mode
+    whose key turns out unavailable returns {"skipped": reason, "completed": n} instead of metrics."""
+    guard = StopOnUnavailable(model or ClaudeModel())
+    ranker, reviewer = roles_for(mode, guard)
     rows = []
     for case in golden["requests"]:
         pool = records + case.get("inject", [])
         req = flt.Request(case["place"], case["type"], dt.date.fromisoformat(case["as_of"]))
         out = pipeline.run(req, pool, ranker, reviewer, trace_path)
+        if guard.unavailable:
+            return {"skipped": f"Claude unavailable: {guard.unavailable}", "completed": len(rows)}
         rows.append(score(case, out, pool))
     return {"summary": summarize(rows), "requests": rows}
 
@@ -114,11 +123,16 @@ def main(argv=None):
     trace_path = pipeline.TRACE_DIR / f"eval-{dt.date.today().isoformat()}.jsonl"
     report = {}
     for mode in a.modes:
-        blocked = mode != "baseline" and has_credentials()
+        blocked = mode != "baseline" and missing_credentials()
         if blocked:
             print(f"{mode}: skipped, {blocked}", file=sys.stderr)
+            report[mode] = {"skipped": blocked, "completed": 0}
             continue
         report[mode] = run_mode(mode, golden, records, trace_path)
+        if "skipped" in report[mode]:
+            print(f"{mode}: stopped, {report[mode]['skipped']} after {report[mode]['completed']} of "
+                  f"{len(golden['requests'])} requests; no metrics for this mode", file=sys.stderr)
+            continue
         print(f"{mode}: {json.dumps(report[mode]['summary'])}")
         for r in report[mode]["requests"]:
             if not r["pass"]:

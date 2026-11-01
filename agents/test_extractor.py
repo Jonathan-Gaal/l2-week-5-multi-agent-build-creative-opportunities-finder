@@ -4,6 +4,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from unittest import mock
+
+from agents import extractor as ex
 from agents.extractor import EXTRACT_SCHEMA, MAX_PAGE_CHARS, Extractor, extract_pages
 from agents.model import ModelError
 
@@ -148,6 +151,50 @@ class ExtractPagesTests(unittest.TestCase):
         cands, stats = extract_pages(self.make_dir(), Extractor(m), {})
         self.assertEqual(len(cands), 1)
         self.assertEqual(stats["errors"][0]["error"], "refused")
+
+    def test_unavailable_key_stops_the_run_and_keeps_what_was_extracted(self):
+        m = FakeModel([model_rec()], key_error(), [])
+        cands, stats = extract_pages(self.make_dir(), Extractor(m), {"smack-mellon": SEED})
+        self.assertEqual((len(cands), len(m.calls), stats["pages"], stats["stopped"], stats["not_processed"]),
+                         (1, 2, 2, "model credit or usage limit reached", 1))
+
+    def test_transient_error_skips_the_page_only(self):
+        m = FakeModel([model_rec()], key_error(529), [])
+        _, stats = extract_pages(self.make_dir(), Extractor(m), {})
+        self.assertEqual((len(m.calls), "stopped" in stats), (3, False))
+
+
+def key_error(status=400):
+    """A ModelError from the API: 400 credit balance too low (Anthropic's used-up credit), or `status`."""
+    cause = Exception("Your credit balance is too low to access the Anthropic API.")
+    cause.status_code = status
+    e = ModelError("BadRequestError")
+    e.__cause__ = cause
+    return e
+
+
+class ExtractorMainTests(unittest.TestCase):
+    make_dir = ExtractPagesTests.make_dir
+
+    def run_main(self, model=None, missing=None):
+        out = Path(tempfile.mkdtemp()) / "candidates.json"
+        with mock.patch.object(ex, "missing_credentials", return_value=missing), \
+                mock.patch.object(ex, "ClaudeModel", return_value=model), \
+                mock.patch.object(ex, "seed_sources", return_value={"smack-mellon": SEED}), \
+                mock.patch("sys.stderr") as err, mock.patch("sys.stdout"):
+            ex.main(["--pages", str(self.make_dir()), "--out", str(out)])
+        said = "".join(c.args[0] for c in err.write.call_args_list)
+        return json.loads(out.read_text(encoding="utf-8")), said
+
+    def test_no_credentials_writes_an_empty_file_and_says_why(self):
+        cands, said = self.run_main(missing="no Anthropic credentials (set ANTHROPIC_API_KEY or run `ant auth login`)")
+        self.assertEqual(cands, [])
+        self.assertIn("extractor skipped: no Anthropic credentials", said)
+
+    def test_unavailable_mid_run_writes_the_partial_candidates(self):
+        cands, said = self.run_main(model=FakeModel([model_rec()], key_error()))
+        self.assertEqual([c["title"] for c in cands], ["Smack Mellon Artist Studio Program 2027-28"])
+        self.assertIn("stopped early: model credit or usage limit reached, 1 pages not processed", said)
 
 
 if __name__ == "__main__":

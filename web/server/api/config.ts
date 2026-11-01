@@ -87,6 +87,7 @@ export const resolveMode = (config: Config, missing: string | null): Mode => {
 };
 
 export const readConfig = (env: Env): Config => {
+  // Claude by default; with no credentials resolveMode serves the code ranker, and RANKER_MODE=baseline turns it off.
   const mode = env.RANKER_MODE?.trim() || "ranker_reviewer";
   if (!(MODES as readonly string[]).includes(mode)) throw new ConfigError(`RANKER_MODE must be one of ${MODES.join(", ")}`);
   const snapshotId = env.SNAPSHOT_ID?.trim() || undefined;
@@ -114,6 +115,39 @@ export const readConfig = (env: Env): Config => {
       dailyModelCalls: int(env, "DAILY_MODEL_CALLS", DEFAULT_LIMITS.dailyModelCalls, 0),
       requestDeadlineMs: int(env, "REQUEST_DEADLINE_MS", DEFAULT_LIMITS.requestDeadlineMs, 1000),
       cacheEntries: int(env, "CACHE_MAX_ENTRIES", DEFAULT_LIMITS.cacheEntries, 0),
+      modelCooldownMs: int(env, "MODEL_COOLDOWN_MS", DEFAULT_LIMITS.modelCooldownMs, 0),
     },
   };
+};
+
+/** Shown at most once per process when the data source falls back to a snapshot file for want of DATABASE_URL. */
+let dataSourceWarningShown = false;
+
+/** Reset the one-time data source warning. Test seam only; production never calls this. */
+export const resetDataSourceWarning = (): void => {
+  dataSourceWarningShown = false;
+};
+
+/**
+ * The config to actually run, once DATABASE_URL is accounted for (the resolveMode of the data source):
+ *   - DATABASE_URL set, or DATA_SOURCE=json: as configured.
+ *   - DATA_SOURCE=postgres set explicitly without DATABASE_URL: ConfigError (the operator asked for the database).
+ *   - DATA_SOURCE unset without DATABASE_URL: the JSON snapshot SNAPSHOT_ID, else the newest of `snapshots` (ids
+ *     with a records.json, json-source.listSnapshots), with a one-time warning; ConfigError if there is none (on
+ *     Vercel data/ isn't deployed), which the site shows as "Search isn't available right now".
+ */
+export const resolveDataSource = (config: Config, env: Env, snapshots: readonly string[]): Config => {
+  if (config.dataSource !== "postgres" || env.DATABASE_URL?.trim()) return config;
+  if (env.DATA_SOURCE?.trim()) throw new ConfigError("DATA_SOURCE=postgres needs DATABASE_URL");
+  const id = config.snapshotId ?? [...snapshots].sort().at(-1);
+  if (id === undefined || !snapshots.includes(id)) {
+    throw new ConfigError("DATABASE_URL is not set and there is no snapshot file to serve instead "
+      + "(copy web/.env.example to web/.env, or run npm run dev:local)");
+  }
+  const resolved = readConfig({ ...env, DATA_SOURCE: "json", SNAPSHOT_ID: id });
+  if (!dataSourceWarningShown) {
+    dataSourceWarningShown = true;
+    console.warn(`DATABASE_URL is not set; serving snapshot ${id} from data/snapshots (DATA_SOURCE=json).`);
+  }
+  return resolved;
 };
