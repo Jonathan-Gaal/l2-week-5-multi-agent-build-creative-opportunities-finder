@@ -15,7 +15,7 @@ export const metadata = { title: "Your opportunities | Artist Atlas" };
 
 const TIER_NOTE: Record<number, string> = {
   0: "Verified: passed the code checks and the reviewer.",
-  2: "Not fully checked: the reviewer hasn't signed off on this list, so confirm details on the original page.",
+  2: "Not fully verified: the reviewer hasn't signed off on this list, so confirm details on the original page.",
 };
 
 /** "3 expired listings removed." -> 3. Anything else counts as none. */
@@ -106,7 +106,22 @@ export default async function Results({ searchParams }: { searchParams: Params }
                       <p className="hint">Try adding another place, like Tri-state, or another kind of opportunity. We never widen a search without you.</p>
                     </div>
                   )}
-                  {g.removed && <p className="removed">{g.removed}</p>}
+                  {g.removed && g.expired.length > 0 ? (
+                    <details className={r.expired}>
+                      <summary>{g.removed}</summary>
+                      <ul className={r.expiredList}>
+                        {g.expired.map((c) => (
+                          <li key={c.key}>
+                            {c.sourceUrl ? <a href={c.sourceUrl} target="_blank" rel="noreferrer">{c.title}</a> : c.title}
+                            <span className={r.expiredMeta}>{[c.org, c.deadline].filter(Boolean).join(" · ")}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {expiredIn(g.removed) > g.expired.length && <p className={r.expiredMeta}>Showing {g.expired.length} of {expiredIn(g.removed)} expired.</p>}
+                    </details>
+                  ) : (
+                    g.removed && <p className="removed">{g.removed}</p>
+                  )}
                 </section>
               ))}
 
@@ -120,7 +135,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 <div className="stack">
                   <p className="muted-dk">
                     Listings are filtered by place, type and discipline (listings open to any artist always count), expired and incomplete ones
-                    are dropped, and the best fits across all your places are put first, one list per kind. Snapshot {out.snapshotId}, checked
+                    are dropped, and the best fits across all your places are put first, one list per kind. Snapshot {out.snapshotId}, verified
                     against {out.asOf}. If something looks wrong, quote the request id.
                   </p>
                   <ul className="muted-dk">

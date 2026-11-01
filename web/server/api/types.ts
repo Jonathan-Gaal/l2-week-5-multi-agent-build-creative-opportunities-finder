@@ -125,6 +125,8 @@ type SearchGroupBase = {
   /** E.g. "2 expired listings removed.", or null. */
   removed: string | null;
   removed_counts: RemovedCounts | null;
+  /** The expired listings behind removed_counts.expired, at most 20. */
+  expired_results: Opportunity[];
   /** Quote this when reporting a problem; it identifies the group's trace entry. */
   request_id: string;
 };

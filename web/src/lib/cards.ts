@@ -23,6 +23,16 @@ function nextDate(o: Opportunity, asOf: string): string | null {
   return ISO.test(o.deadline) && o.deadline >= asOf ? o.deadline : null;
 }
 
+/** The wording a visitor sees: the API's labels say "checked", the page says "verified". Only the words change; trustOf still reads the original label. */
+export const verifiedWording = (text: string) =>
+  text
+    .replace(/^Not checked/, "Not verified")
+    .replace(/^Checked/, "Verified")
+    .replace(/not fully checked/g, "not fully verified")
+    .replace(/without a recheck/g, "without re-verifying")
+    .replace(/not rechecked/g, "not re-verified")
+    .replace(/automated checks/g, "automated verification");
+
 /** Trust comes from the API's own label, which is the one source of truth for what was checked. */
 function trustOf(label: string): Card["trust"] {
   if (label.startsWith("Not checked")) return "unchecked";

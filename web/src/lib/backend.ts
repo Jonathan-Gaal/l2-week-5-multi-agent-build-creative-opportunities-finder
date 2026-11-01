@@ -181,6 +181,7 @@ export async function searchBackend(input: SearchInput, opts: { visitor: Client;
     tier: g.tier,
     cards: g.results.map((o) => toCard(o, res.as_of, opts.labels)),
     removed: g.removed,
+    expired: (g.expired_results ?? []).map((o) => toCard(o, res.as_of, opts.labels)),
     reason: g.tier === 3 ? g.reason : null,
   }));
   const calls: CallLog[] = res.groups.map((g) => ({

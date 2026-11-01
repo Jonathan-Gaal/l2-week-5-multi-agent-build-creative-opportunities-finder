@@ -1,3 +1,4 @@
+import { verifiedWording } from "@/lib/cards";
 import { kindLabel, kindNote } from "@/lib/kinds";
 import type { Card } from "@/lib/types";
 
@@ -15,7 +16,7 @@ export default function ResultCard({ card }: { card: Card }) {
     <article className="rcard">
       <div className="rcard-top">
         <span className="pill pill-pink">{kindLabel(card.subtype) ?? (card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel)}</span>
-        <span className={TRUST_PILL[card.trust]}>{card.label}</span>
+        <span className={TRUST_PILL[card.trust]}>{verifiedWording(card.label)}</span>
         <span className={closing ? "rcard-when closing" : "rcard-when"}>{topRight}</span>
       </div>
       <h3>{card.title}</h3>
@@ -43,7 +44,7 @@ export default function ResultCard({ card }: { card: Card }) {
       ) : (
         <p className="why">Eligibility not stated</p>
       )}
-      {card.caveat && <p className="caveat">{card.caveat.length > 220 ? `${card.caveat.slice(0, 220)}…` : card.caveat}</p>}
+      {card.caveat && <p className="caveat">{verifiedWording(card.caveat.length > 220 ? `${card.caveat.slice(0, 220)}…` : card.caveat)}</p>}
       <div className="rcard-foot">
         <span>Source: {card.source}</span>
         {card.sourceUrl && (

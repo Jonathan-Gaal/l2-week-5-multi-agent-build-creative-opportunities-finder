@@ -44,8 +44,12 @@ export type Result = {
   reason?: string | null;
   removed: string | null;
   removed_counts: RemovedCounts | null;
+  /** The expired listings behind removed_counts.expired, at most EXPIRED_SHOWN of them. */
+  expired_results?: PresentedResult[];
   request_id?: string;
 };
+
+const EXPIRED_SHOWN = 20;
 
 type Attempt = {
   n: number;
@@ -163,9 +167,10 @@ export const run = async (
   const filterTrace: Record<string, unknown> = { matched: cands.length, removed };
   trace.filter = filterTrace;
   const note = removedNote(removed);
+  const expired_results = flt.expiredRecords(records, req).slice(0, EXPIRED_SHOWN).map((r) => present(r, 2));
   if (!cands.length) {
     return finish({ tier: 3, results: [], reason: `no records match ${flt.requestLabel(req)}`, removed: note,
-                    removed_counts: removed });
+                    removed_counts: removed, expired_results });
   }
 
   const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]));
@@ -259,7 +264,7 @@ export const run = async (
     }
   }
   const results = served.map((r) => present(r, tier));
-  return finish({ tier, results, removed: note, removed_counts: removed });
+  return finish({ tier, results, removed: note, removed_counts: removed, expired_results });
 };
 
 const main = async () => {

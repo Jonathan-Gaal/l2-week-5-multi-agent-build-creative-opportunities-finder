@@ -171,7 +171,7 @@ export const parseOpportunitiesQuery = (params: URLSearchParams): { place: Place
 /** A run's result, shared by everyone asking the same question; request_id is the run's own. */
 type Computed = {
   snapshot_id: string; as_of: string; tier: 0 | 2 | 3; results: Opportunity[]; removed: string | null;
-  removed_counts: RemovedCounts | null; reason: string | null; run_request_id: string;
+  removed_counts: RemovedCounts | null; expired_results: Opportunity[]; reason: string | null; run_request_id: string;
 };
 /** One run as served to one request: the result and this request's own id for it. */
 type Served = { c: Computed; requestId: string };
@@ -271,7 +271,8 @@ export const createApp = (deps: AppDeps) => {
       if (ctl.signal.aborted && ctl.signal.reason === DEADLINE_PASSED) events.degraded = true;
       const c: Computed = {
         snapshot_id: snapshotId, as_of: req.asOf, tier: out.tier, results: out.results.map(toOpportunity),
-        removed: out.removed, removed_counts: out.removed_counts, reason: out.reason ?? null,
+        removed: out.removed, removed_counts: out.removed_counts, expired_results: (out.expired_results ?? []).map(toOpportunity),
+        reason: out.reason ?? null,
         run_request_id: out.request_id!,
       };
       if (events.degraded) {
@@ -357,7 +358,7 @@ export const createApp = (deps: AppDeps) => {
     });
     const groups = served.map(({ c, requestId }, i): SearchGroup => {
       const base = {
-        type: q.types[i]!, results: c.results, removed: c.removed, removed_counts: c.removed_counts,
+        type: q.types[i]!, results: c.results, removed: c.removed, removed_counts: c.removed_counts, expired_results: c.expired_results,
         request_id: requestId,
       };
       return c.tier === 3 ? { ...base, tier: 3, reason: c.reason ?? "no result" } : { ...base, tier: c.tier };

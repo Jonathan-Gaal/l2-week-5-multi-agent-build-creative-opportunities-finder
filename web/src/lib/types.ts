@@ -32,6 +32,8 @@ export type Group = {
   cards: Card[];
   /** E.g. "3 expired listings removed.", or null. */
   removed: string | null;
+  /** The expired listings behind the count (at most 20), for the "expired removed" list. */
+  expired: Card[];
   reason: string | null;
 };
 

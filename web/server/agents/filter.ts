@@ -219,3 +219,7 @@ export const select = (records: OppRecord[], req: Request): [OppRecord[], Remove
   }
   return [candidates, removed];
 };
+
+/** The matching records `select` drops as expired (same rule, same order), so the page can show which ones. */
+export const expiredRecords = (records: OppRecord[], req: Request): OppRecord[] =>
+  records.filter((rec) => matches(rec, req) && schemaOk(rec) && isExpired(rec, req.asOf));
