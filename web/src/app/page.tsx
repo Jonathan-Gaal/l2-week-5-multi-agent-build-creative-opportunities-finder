@@ -1,6 +1,6 @@
-import Link from "next/link";
 import meta from "@/data/meta.json";
 import DemoButton from "@/components/DemoButton";
+import FindLink from "@/components/FindLink";
 import LandingDesign from "@/components/LandingDesign";
 import MadLibsHero from "@/components/MadLibsHero";
 import s from "./Landing.module.css";
@@ -83,9 +83,9 @@ export default function Home() {
             Ready to find <em>your next one?</em>
           </h2>
           <div className={s.row}>
-            <Link href="/find" className="btn">
+            <FindLink className="btn">
               Find opportunities
-            </Link>
+            </FindLink>
             <DemoButton className="btn-ghost" label="See an example list →" />
           </div>
         </section>

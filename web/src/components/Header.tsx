@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AuthButtons from "./AuthButtons";
+import FindLink from "./FindLink";
 
 /** Every logo option. In production the wordmark (home page) and the full logo (the other pages) render and the CSS shows one; in dev all render and the Versions panel shows one (see globals.css). */
 const LOGOS = [
@@ -20,7 +21,7 @@ export default function Header({ all = false }: { all?: boolean }) {
           ))}
         </Link>
         <nav className="nav" aria-label="Main">
-          <Link href="/find">Find opportunities</Link>
+          <FindLink>Find opportunities</FindLink>
           {process.env.NODE_ENV !== "production" && <Link href="/dev">Dev tools</Link>}
         </nav>
         <AuthButtons />

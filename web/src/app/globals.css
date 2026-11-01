@@ -231,6 +231,13 @@ html[data-navlinks="off"] .nav a:not([href="/dev"]) { display: none; }
 
 /* Sign up / Log in: sits at the far right by default, or the far left (Versions panel). */
 .auth-slot { display: flex; align-items: center; gap: 10px; order: 3; margin-left: 20px; }
+.demo-user { display: inline-flex; align-items: center; text-decoration: none; }
+.demo-user:is(:hover, :focus-visible, :active) .pill { background: var(--lime); color: #000; }
+/* The Demo mode badge is a link to /login, so the Login / Sign up looks in the Versions panel would underline it: it only fills with colour. */
+html .auth-slot a.demo-user.demo-user { background: none !important; background-image: none !important; padding: 0 !important; font: inherit; color: inherit; transform: none; box-shadow: none; text-decoration: none; }
+/* On the Login or Sign up page, that button stays in its highlighted (hover) look. */
+html[data-authbtn] .auth-slot a[aria-current="page"][aria-current="page"][aria-current="page"] { background-size: 100% 3px; }
+html:not([data-authbtn]) .auth-slot a[aria-current="page"], html[data-authbtn="today"] .auth-slot a[aria-current="page"] { box-shadow: 0 0 0 3px var(--lime); }
 html[data-authcorner="left"] .auth-slot { order: -1; margin-left: 0; margin-right: 20px; }
 html[data-auth="off"] .auth-slot { display: none; }
 

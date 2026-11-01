@@ -6,7 +6,17 @@
    Narrower than this there is no room beside the card, so it stays under the top bar. */
 @media (min-width: 1400px) {
   .frame { margin-top: calc(24px - 96px * var(--logo-scale, 1) - 36px); }
+  /* The three find steps sit a little to the right, away from the logo (Login and Sign up keep the card centred). */
+  .frame:not(.frameBelowBar) { translate: 16px 0; }
 }
+/* Login and Sign up keep the card under the top bar at every width (no pull-up), like the results page. */
+.frameBelowBar { margin-top: 28px; margin-bottom: 28px; }
+@media (min-width: 1400px) {
+  .frame.frameBelowBar { margin-top: 28px; }
+}
+/* ...and just tall enough to fill the window under the top bar (96px logo times its size, plus 36px of bar padding, plus the two 28px margins), so the page doesn't scroll. */
+.frameBelowBar { display: flex; flex-direction: column; min-height: calc(100dvh - 96px * var(--logo-scale, 1) - 36px - 56px); }
+.frameBelowBar .board { flex: 1; min-height: 0; }
 .board { display: grid; grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 36px; min-height: 560px; }
 
 .left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
@@ -27,6 +37,12 @@
 .limeOn { background: var(--lime); }
 .pinkOn { background: var(--pink); }
 .plain { background: transparent; border-color: var(--plum); color: var(--paper); cursor: default; }
+
+/* The big "Explore the demo" button on Login and Sign up: the site's yellow, with the heavy black edge of the other chunky buttons. */
+.cta { font: 700 18px var(--sans); background: var(--lime); color: #000; border: 3px solid #000; border-radius: 10px; padding: 14px 24px; width: 100%; cursor: pointer; transition: transform 0.12s; }
+.cta:hover:not(:disabled) { transform: translateY(-2px); }
+.cta:disabled { opacity: 0.5; cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .cta { transition: none; } }
 
 .bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 28px; }
 .selected { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 18px; padding: 14px 18px; font-size: 15px; }

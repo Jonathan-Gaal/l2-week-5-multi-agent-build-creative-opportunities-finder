@@ -83,7 +83,7 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
   }
 
   return (
-    <div className={f.frame}>
+    <div className={`${f.frame} ${f.frameBelowBar}`}>
       <div className={f.board}>
         <div className={f.left}>
           <h1 className={f.title}>{signup ? "Create your account" : "Welcome back"}</h1>

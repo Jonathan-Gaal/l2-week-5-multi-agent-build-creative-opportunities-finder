@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import FindLink from "@/components/FindLink";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import styles from "./MadLibsHero.module.css";
 import { ART_SRC, useArt } from "./designArt";
@@ -170,9 +170,9 @@ export default function MadLibsHero({ fixedArt }: { fixedArt?: string } = {}) {
           </div>
 
           <div className={styles.actions}>
-            <Link href="/find" className={styles.cta}>
+            <FindLink className={styles.cta}>
               Find opportunities <span className={styles.arrow}>&rarr;</span>
-            </Link>
+            </FindLink>
           </div>
         </div>
       </div>
