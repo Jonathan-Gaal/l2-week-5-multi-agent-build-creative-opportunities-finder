@@ -3,12 +3,16 @@ import type { Labels } from "./taxonomy";
 import type { Card } from "./types";
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
 
 export function prettyDate(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number);
   return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
+
+/** "14 dates through 2026-12-17" is a series with 14 sessions; written the way the rest of the card writes dates. */
+export const friendlyRecurrence = (text: string | null): string | null =>
+  text && text.replace(/^(\d+) dates through /, "$1 sessions through ").replace(/\b\d{4}-\d{2}-\d{2}\b/g, (iso) => prettyDate(iso));
 
 const daysBetween = (from: string, to: string) => Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000);
 
@@ -23,11 +27,12 @@ function nextDate(o: Opportunity, asOf: string): string | null {
   return ISO.test(o.deadline) && o.deadline >= asOf ? o.deadline : null;
 }
 
-/** The wording a visitor sees: the API's labels say "checked", the page says "verified". Only the words change; trustOf still reads the original label. */
+/** The wording a visitor sees: the API's labels say "checked" and write dates as 2026-10-27, the page says "verified" and "Oct. 27, 2026". Only the words change; trustOf still reads the original label. */
 export const verifiedWording = (text: string) =>
   text
+    .replace(/\b(\d{4}-\d{2}-\d{2})\b/g, (iso) => prettyDate(iso))
     .replace(/^Not checked/, "Not verified")
-    .replace(/^Checked/, "Verified")
+    .replace(/^Checked/, "Last verified")
     .replace(/not fully checked/g, "not fully verified")
     .replace(/without a recheck/g, "without re-verifying")
     .replace(/not rechecked/g, "not re-verified")
@@ -85,7 +90,7 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     deadline: ISO.test(o.deadline) ? prettyDate(o.deadline) : o.deadline === "rolling" ? "Rolling deadline" : o.deadline === "recurring" ? "Recurring" : o.deadline,
     closesIn: next ? daysBetween(asOf, next) : null,
     eventDates: o.event_dates?.filter((d): d is string => !!d) ?? null,
-    recurrence: o.recurrence,
+    recurrence: friendlyRecurrence(o.recurrence),
     fee: o.fee === "none" ? "No fee" : o.fee,
     award: o.award,
     eligibility,

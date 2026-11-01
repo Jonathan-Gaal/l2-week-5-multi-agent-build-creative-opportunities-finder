@@ -12,6 +12,8 @@ export default function ResultCard({ card }: { card: Card }) {
   const closing = when && `${card.type === "event" ? "Next date" : "Closes"} ${when}`;
   // Top right, as on the Live board: that countdown, else when it happens or that it is rolling.
   const topRight = closing ?? card.recurrence ?? card.deadline;
+  // A real date is named ("Deadline: Nov. 10, 2026", "Date: ..."), so it is never read as the date we verified the listing.
+  const dateLabel = /\d{4}$/.test(card.deadline) ? (card.type === "event" ? "Date: " : "Deadline: ") : "";
   return (
     <article className="rcard">
       <div className="rcard-top">
@@ -29,7 +31,7 @@ export default function ResultCard({ card }: { card: Card }) {
       </p>
       <div className="facts">
         <span>
-          <b>{card.deadline}</b>
+          {dateLabel}<b>{card.deadline}</b>
         </span>
         {card.recurrence && <span>{card.recurrence}</span>}
         <span>{card.fee}</span>

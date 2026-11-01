@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import type { Opportunity } from "@api/types";
-import { publicCaveat, toCard } from "./cards.ts";
+import { friendlyRecurrence, publicCaveat, toCard, verifiedWording } from "./cards.ts";
 import type { Labels } from "./taxonomy.ts";
 
 const labels: Labels = { place: (p) => p, type: (t) => t, discipline: (d) => d };
@@ -22,7 +22,7 @@ describe("toCard countdown tracks the type's own relevant date", () => {
     // and the shown date stays the passed deadline — the two can no longer disagree.
     const card = toCard(opp({ type: "open_call", deadline: "2026-10-28", event_dates: ["2026-12-01"] }), "2026-10-29", labels);
     assert.equal(card.closesIn, null);
-    assert.equal(card.deadline, "Oct 28, 2026");
+    assert.equal(card.deadline, "Oct. 28, 2026");
   });
 
   it("an application counts down to its own deadline", () => {
@@ -45,7 +45,7 @@ describe("publicCaveat shows only notes written for readers", () => {
   });
 
   it("rewords the friendly ones", () => {
-    assert.equal(publicCaveat("Listing last updated 2025-08-01; confirm with the venue."), "Last updated Aug 1, 2025; confirm with the venue.");
+    assert.equal(publicCaveat("Listing last updated 2025-08-01; confirm with the venue."), "Last updated Aug. 1, 2025; confirm with the venue.");
     assert.equal(publicCaveat("Badslava listings are community-maintained ('Call Before You Haul!'); confirm with the venue."), "From a community-kept list; confirm with the venue.");
     assert.equal(publicCaveat("Pay is not stated on the listing."), "Pay is not stated on the listing.");
   });
@@ -61,5 +61,21 @@ describe("publicCaveat shows only notes written for readers", () => {
 
   it("the card carries the public note, not the stored one", () => {
     assert.equal(toCard(opp({ caveat: "Quotes checked against the SAM.gov API." }), "2026-11-01", labels).caveat, null);
+  });
+});
+
+describe("verifiedWording", () => {
+  it("says verified and writes dates as month, day, year", () => {
+    assert.equal(verifiedWording("Checked 2026-10-27"), "Last verified Oct. 27, 2026");
+    assert.equal(verifiedWording("Checked 2026-09-05 · not fully checked"), "Last verified Sept. 5, 2026 · not fully verified");
+    assert.equal(verifiedWording("Not checked · added without a recheck"), "Not verified · added without re-verifying");
+  });
+});
+
+describe("friendlyRecurrence", () => {
+  it("reads a generated series line plainly and leaves other schedules alone", () => {
+    assert.equal(friendlyRecurrence("14 dates through 2026-12-17"), "14 sessions through Dec. 17, 2026");
+    assert.equal(friendlyRecurrence("Weekly Wednesday 8:00pm"), "Weekly Wednesday 8:00pm");
+    assert.equal(friendlyRecurrence(null), null);
   });
 });
