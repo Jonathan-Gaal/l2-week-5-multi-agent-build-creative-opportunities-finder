@@ -11,3 +11,6 @@ data/pages/
 # full listing text copied from other sites; regenerate with: python -m backfill.run
 data/snapshot.csv
 .venv/
+
+# Claude Code session logs, backed up from ~/.claude/projects (private, can contain pasted output)
+claude-sessions/
