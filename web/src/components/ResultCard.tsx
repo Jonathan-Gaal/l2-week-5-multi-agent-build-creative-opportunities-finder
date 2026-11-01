@@ -1,4 +1,4 @@
-import { verifiedWording } from "@/lib/cards";
+import { moneyLabel, verifiedWording } from "@/lib/cards";
 import { kindLabel, kindNote } from "@/lib/kinds";
 import type { Card } from "@/lib/types";
 
@@ -9,9 +9,10 @@ export default function ResultCard({ card }: { card: Card }) {
     card.closesIn === null ? null : card.closesIn === 0 ? "today" : card.closesIn === 1 ? "tomorrow" : `in ${card.closesIn} days`;
   // Name what the countdown refers to so it is never read as a closing date it isn't: events count down to the
   // next occurrence, application types to the application deadline (the date shown beside it).
-  const closing = when && `${card.type === "event" ? "Next date" : "Closes"} ${when}`;
+  const closing = when && `${card.nextKind === "deadline" ? "Closes" : "Next date"} ${when}`;
   // Top right, as on the Live board: that countdown, else when it happens or that it is rolling.
-  const topRight = closing ?? card.recurrence ?? card.deadline;
+  const noDeadline = card.deadline === "Deadline not listed";
+  const topRight = closing ?? (card.recurrence && card.recurrence.length <= 40 ? card.recurrence : null) ?? (noDeadline ? null : card.deadline);
   // A real date is named ("Deadline: Nov. 10, 2026", "Date: ..."), so it is never read as the date we verified the listing.
   const dateLabel = /\d{4}$/.test(card.deadline) ? (card.type === "event" ? "Date: " : "Deadline: ") : "";
   return (
@@ -19,7 +20,7 @@ export default function ResultCard({ card }: { card: Card }) {
       <div className="rcard-top">
         <span className="pill pill-pink">{kindLabel(card.subtype) ?? (card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel)}</span>
         <span className={TRUST_PILL[card.trust]}>{verifiedWording(card.label)}</span>
-        <span className={closing ? "rcard-when closing" : "rcard-when"}>{topRight}</span>
+        {topRight && <span className={closing ? "rcard-when closing" : "rcard-when"}>{topRight}</span>}
       </div>
       <h3>{card.title}</h3>
       {kindNote(card.subtype) && <p className="why">{kindNote(card.subtype)}</p>}
@@ -30,12 +31,14 @@ export default function ResultCard({ card }: { card: Card }) {
         {[card.org, card.place, card.location && card.location.length < 70 ? card.location : null].filter(Boolean).join(" · ")}
       </p>
       <div className="facts">
-        <span>
-          {dateLabel}<b>{card.deadline}</b>
-        </span>
+        {!(noDeadline && card.recurrence) && (
+          <span>
+            {dateLabel}<b>{card.deadline}</b>
+          </span>
+        )}
         {card.recurrence && <span>{card.recurrence}</span>}
-        <span>{card.fee}</span>
-        {card.award && <span><b>Award:</b> {card.award.length > 110 ? `${card.award.slice(0, 110)}…` : card.award}</span>}
+        {card.fee && <span>{card.fee}</span>}
+        {card.award && <span><b>{moneyLabel(card.type, card.subtype)}:</b> {card.award.length > 110 ? `${card.award.slice(0, 110)}…` : card.award}</span>}
       </div>
       {card.eligibility.length > 0 ? (
         <ul>

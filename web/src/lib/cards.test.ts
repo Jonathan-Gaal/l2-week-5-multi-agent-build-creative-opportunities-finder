@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import type { Opportunity } from "@api/types";
-import { friendlyRecurrence, publicCaveat, toCard, verifiedWording } from "./cards.ts";
+import { feeText, friendlyRecurrence, moneyLabel, groupByKind, publicCaveat, toCard, verifiedWording } from "./cards.ts";
 import type { Labels } from "./taxonomy.ts";
 
 const labels: Labels = { place: (p) => p, type: (t) => t, discipline: (d) => d };
@@ -77,5 +77,49 @@ describe("friendlyRecurrence", () => {
     assert.equal(friendlyRecurrence("14 dates through 2026-12-17"), "14 sessions through Dec. 17, 2026");
     assert.equal(friendlyRecurrence("Weekly Wednesday 8:00pm"), "Weekly Wednesday 8:00pm");
     assert.equal(friendlyRecurrence(null), null);
+  });
+});
+
+describe("groupByKind", () => {
+  const c = (title: string, subtype: string, closesIn: number | null) => ({ title, subtype, typeLabel: "Event", closesIn });
+  it("groups by kind, soonest date first inside each group, undated last, most urgent group first", () => {
+    const groups = groupByKind([c("a", "workshop", null), c("b", "open_mic", 30), c("c", "workshop", 5), c("d", "open_mic", 2), c("e", "jam", null)]);
+    assert.deepEqual(groups.map((g) => g.kind), ["Open mic", "Workshop", "Jam"]);
+    assert.deepEqual(groups[0]!.cards.map((x) => x.title), ["d", "b"]);
+    assert.deepEqual(groups[1]!.cards.map((x) => x.title), ["c", "a"]);
+  });
+});
+
+describe("moneyLabel", () => {
+  it("calls wages pay, residency money a stipend, and grant money an award", () => {
+    assert.equal(moneyLabel("open_call", "casting_call"), "Pay");
+    assert.equal(moneyLabel("job", "full_time"), "Pay");
+    assert.equal(moneyLabel("residency", "residency"), "Stipend");
+    assert.equal(moneyLabel("grant", "fellowship"), "Award");
+    assert.equal(moneyLabel("open_call", "competition"), "Award");
+  });
+});
+
+describe("feeText", () => {
+  it("always shows a real fee or No fee, whatever the kind", () => {
+    assert.equal(feeText("none", "event", "workshop"), "No fee");
+    assert.equal(feeText("none", "open_call", "audition"), "No fee");
+    assert.equal(feeText("$25 entry", "open_call", "gallery_submission"), "$25 entry");
+    assert.equal(feeText("$10 (drink included)", "event", "open_mic"), "$10 (drink included)");
+  });
+
+  it("says Fee not listed where a fee is a real question", () => {
+    for (const [type, kind] of [["event", "open_mic"], ["event", "workshop"], ["residency", "residency"], ["open_call", "gallery_submission"],
+      ["open_call", "festival"], ["open_call", "competition"], ["open_call", "writing_submission"], ["open_call", "general_call"],
+      ["open_call", "performance_call"], ["open_call", null]] as const) {
+      for (const none of ["unknown", "Fee unknown", null]) assert.equal(feeText(none, type, kind), "Fee not listed", `${type}/${kind}`);
+    }
+  });
+
+  it("shows nothing where people are paid, cast or funded", () => {
+    for (const [type, kind] of [["open_call", "audition"], ["open_call", "casting_call"], ["open_call", "paid_gig"], ["open_call", "collaboration"],
+      ["open_call", "model_call"], ["open_call", "commission"], ["job", "full_time"], ["job", "teaching_artist"], ["grant", "grant"], ["grant", "fellowship"]] as const) {
+      assert.equal(feeText("unknown", type, kind), null, `${type}/${kind}`);
+    }
   });
 });

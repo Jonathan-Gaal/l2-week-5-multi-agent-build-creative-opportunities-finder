@@ -154,6 +154,20 @@ describe("Filter: expiry is deadline-driven for applications, schedule-driven on
   });
 });
 
+describe("Filter: a dated call with no deadline ends on its own date", () => {
+  it("an audition or paid gig with only a past date is expired; a future one is kept", () => {
+    for (const subtype of ["audition", "paid_gig"]) {
+      assert.equal(flt.isExpired(rec("X", { deadline: null, subtype, event_dates: ["2026-10-30"] }), DAY), true, subtype);
+      assert.equal(flt.isExpired(rec("X", { deadline: null, subtype, event_dates: ["2026-10-30", "2026-11-05"] }), DAY), false, subtype);
+    }
+  });
+
+  it("rolling stays open, and other kinds still ignore event dates", () => {
+    assert.equal(flt.isExpired(rec("X", { deadline: "rolling", subtype: "audition", event_dates: ["2020-01-01"] }), DAY), false);
+    assert.equal(flt.isExpired(rec("X", { deadline: null, subtype: "collaboration", event_dates: ["2020-01-01"] }), DAY), false);
+  });
+});
+
 describe("Filter: schema validates provenance format, not just presence", () => {
   it("a malformed source_url fails the schema and is never a candidate", () => {
     const bad = rec("BadUrl", { source_url: "not-a-url" });
@@ -277,6 +291,25 @@ describe("Checks", () => {
 
   it("empty ranking with candidates fails", () => {
     assert.deepEqual(pipeline.checkRanking([], byId, req()), ["ranking is empty but there are candidates"]);
+  });
+});
+
+describe("Total matches and the browse list", () => {
+  it("reports every match and lists the ones not picked, without repeating a pick", async () => {
+    const out = await pipeline.run(req(), RECORDS, new ScriptedRanker(["r1"]), new ScriptedReviewer("accept"));
+    assert.equal(out.total_matches, 3);
+    assert.equal(out.results.length, 1);
+    const picked = out.results[0]!.title;
+    assert.equal(out.more_results!.length, 2);
+    assert.ok(!out.more_results!.some((r) => r.title === picked));
+    assert.ok(out.more_results!.every((r) => /not fully checked/.test(r.label)), "unreviewed listings never read as verified");
+  });
+
+  it("a search with no matches has a zero total and an empty list", async () => {
+    const out = await pipeline.run(req("queens", "grant"), RECORDS, new ScriptedRanker());
+    assert.equal(out.tier, 3);
+    assert.equal(out.total_matches, 0);
+    assert.deepEqual(out.more_results, []);
   });
 });
 

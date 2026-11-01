@@ -127,6 +127,10 @@ type SearchGroupBase = {
   removed_counts: RemovedCounts | null;
   /** The expired listings behind removed_counts.expired, at most 20. */
   expired_results: Opportunity[];
+  /** How many listings match the search, of which `results` are the best picks. */
+  total_matches: number;
+  /** The best of the other matches, not reviewed, at most 50. */
+  more_results: Opportunity[];
   /** Quote this when reporting a problem; it identifies the group's trace entry. */
   request_id: string;
 };

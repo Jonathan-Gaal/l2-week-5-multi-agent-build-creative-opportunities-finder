@@ -168,6 +168,9 @@ export const safeHttpUrl = (value: unknown): string | null => {
   }
 };
 
+/** Kinds of call that happen on a date, so that date ends them when no deadline is given. Mirrored in web/src/lib/cards.ts. */
+export const DATED_CALL_KINDS: readonly string[] = ["audition", "casting_call", "paid_gig", "performance_call"];
+
 /** The date after which the record is gone, or null if it never expires. Only events are kept alive by their
  * schedule: for an application type (open_call, grant, residency, job) the application deadline drives expiry, so
  * a past deadline expires the record even when it lists a later event date. 'recurring', 'rolling', a missing or
@@ -180,7 +183,14 @@ export const lastDate = (rec: OppRecord): string | null => {
       return isIsoDate(last) ? last : null;
     }
   }
-  return isIsoDate(rec.deadline) ? rec.deadline : null;     // recurring, rolling, or not listed
+  if (isIsoDate(rec.deadline)) return rec.deadline;
+  // Dated occasions (an audition, a casting call, a paid gig, a call to perform) with no deadline at all (not "rolling" or
+  // "recurring"): the date the listing gives is its last date. Other application types keep ignoring event dates.
+  if (!present(rec.deadline) && DATED_CALL_KINDS.includes(rec.subtype ?? "")) {
+    const dates = (rec.event_dates ?? []).filter((d): d is string => present(d) && isIsoDate(d));
+    if (dates.length) return dates.reduce((a, b) => (b > a ? b : a));
+  }
+  return null;     // recurring, rolling, or not listed
 };
 
 export const isExpired = (rec: OppRecord, asOf: string): boolean => {

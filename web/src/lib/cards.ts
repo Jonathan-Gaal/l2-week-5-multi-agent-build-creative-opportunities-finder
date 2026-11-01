@@ -1,4 +1,5 @@
 import type { Opportunity } from "@api/types";
+import { kindLabel } from "./kinds.ts";
 import type { Labels } from "./taxonomy";
 import type { Card } from "./types";
 
@@ -19,12 +20,22 @@ const daysBetween = (from: string, to: string) => Math.round((Date.parse(to) - D
 /** The date the countdown tracks, matching the Filter's expiry semantics: for an event, the nearest upcoming
  * occurrence (else the deadline); for an application type, the application deadline, so the countdown never
  * tracks a later event date the deadline has already closed off. Null when nothing upcoming applies. */
-function nextDate(o: Opportunity, asOf: string): string | null {
+/** Kinds of call that happen on a date (an audition, a gig). Mirrors DATED_CALL_KINDS in server/agents/filter.ts. */
+const DATED_CALL_KINDS: readonly string[] = ["audition", "casting_call", "paid_gig", "performance_call"];
+
+function nextDate(o: Opportunity, asOf: string): { date: string; kind: "deadline" | "date" } | null {
+  const upcoming = () => (o.event_dates ?? []).filter((d): d is string => !!d && ISO.test(d) && d >= asOf).sort()[0];
   if (o.type === "event") {
-    const dates = (o.event_dates ?? []).filter((d): d is string => !!d && ISO.test(d) && d >= asOf).sort();
-    if (dates.length) return dates[0];
+    const d = upcoming();
+    if (d) return { date: d, kind: "date" };
   }
-  return ISO.test(o.deadline) && o.deadline >= asOf ? o.deadline : null;
+  if (ISO.test(o.deadline)) return o.deadline >= asOf ? { date: o.deadline, kind: "deadline" } : null;
+  // No deadline stated: count to the listing's own next date (an audition, a show), and say it is a date, not a deadline.
+  if (o.type !== "event" && DATED_CALL_KINDS.includes(o.subtype ?? "")) {
+    const d = o.deadline === "rolling" || o.deadline === "recurring" ? undefined : upcoming();
+    if (d) return { date: d, kind: "date" };
+  }
+  return null;
 }
 
 /** The wording a visitor sees: the API's labels say "checked" and write dates as 2026-10-27, the page says "verified" and "Oct. 27, 2026". Only the words change; trustOf still reads the original label. */
@@ -69,6 +80,31 @@ export function publicCaveat(caveat: string | null): string | null {
   return null;
 }
 
+/** What to call a listing's money: wages for work, a stipend for a residency, an award for a grant or prize. */
+export function moneyLabel(type: string, subtype: string | null): string {
+  if (type === "grant" || subtype === "competition") return "Award";
+  if (type === "residency") return "Stipend";
+  return "Pay";
+}
+
+/** Kinds where the artist is paid, cast or funded, so a missing fee is not a question worth a line on the card. */
+const NO_FEE_LINE_KINDS: readonly string[] = ["audition", "casting_call", "paid_gig", "collaboration", "model_call", "commission", "teaching_artist", "fellowship", "grant"];
+
+/**
+ * The fee line, decided the same way for every listing:
+ * - a real fee is shown as written, and "No fee" when the listing says it is free;
+ * - when the listing says nothing, "Fee not listed" is shown where a fee is a real question (events, residencies, and
+ *   calls to submit or perform: gallery, festival, competition, writing, general and perform calls, service ads);
+ * - and nothing is shown where people are paid, cast or funded (auditions, casting calls, gigs, jobs, grants, fellowships).
+ * Only the card changes; the stored fee (none, unknown or an amount) still feeds the ranking score.
+ */
+export function feeText(fee: string | null | undefined, type: string, subtype: string | null): string | null {
+  if (fee === "none") return "No fee";
+  if (fee && !/^(fee )?unknown$/i.test(fee.trim())) return fee;
+  if (type === "job" || type === "grant" || (subtype && NO_FEE_LINE_KINDS.includes(subtype))) return null;
+  return "Fee not listed";
+}
+
 export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
   const next = nextDate(o, asOf);
   const eligibility = Array.isArray(o.eligibility)
@@ -88,10 +124,11 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     place: labels.place(o.place ?? ""),
     location: o.location,
     deadline: ISO.test(o.deadline) ? prettyDate(o.deadline) : o.deadline === "rolling" ? "Rolling deadline" : o.deadline === "recurring" ? "Recurring" : o.deadline,
-    closesIn: next ? daysBetween(asOf, next) : null,
+    closesIn: next ? daysBetween(asOf, next.date) : null,
+    nextKind: next ? next.kind : null,
     eventDates: o.event_dates?.filter((d): d is string => !!d) ?? null,
     recurrence: friendlyRecurrence(o.recurrence),
-    fee: o.fee === "none" ? "No fee" : o.fee,
+    fee: feeText(o.fee, o.type, o.subtype),
     award: o.award,
     eligibility,
     source: o.source,
@@ -101,4 +138,26 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     caveat: publicCaveat(o.caveat),
     key: o.dedupe_key,
   };
+}
+
+/** The name of a card's kind (Open mic, Workshop...), falling back to its broad type, for grouping the browse list. */
+export const kindName = (card: { subtype: string | null; typeLabel: string }): string =>
+  kindLabel(card.subtype) ?? (card.subtype ? card.subtype.replace(/_/g, " ").replace(/^./, (ch) => ch.toUpperCase()) : card.typeLabel);
+
+/** Days until a card's next date; cards with no upcoming date (rolling, recurring, not listed) sort after every dated one. */
+const daysAway = (c: { closesIn?: number | null }) => c.closesIn ?? Number.POSITIVE_INFINITY;
+
+/** Groups cards by kind. Inside a group the soonest date comes first and undated cards last (the code's order holds
+ * between equal dates); groups with the soonest date come first. */
+export function groupByKind<T extends { subtype: string | null; typeLabel: string; closesIn?: number | null }>(cards: readonly T[]): { kind: string; cards: T[] }[] {
+  const groups = new Map<string, T[]>();
+  for (const c of cards) {
+    const k = kindName(c);
+    groups.set(k, [...(groups.get(k) ?? []), c]);
+  }
+  return [...groups]
+    .map(([kind, list]) => ({ kind, cards: list.map((c, i) => [c, i] as const).sort((x, y) => daysAway(x[0]) - daysAway(y[0]) || x[1] - y[1]).map(([c]) => c) }))
+    .map((g, i) => ({ g, i }))
+    .sort((x, y) => daysAway(x.g.cards[0]!) - daysAway(y.g.cards[0]!) || x.i - y.i)
+    .map(({ g }) => g);
 }

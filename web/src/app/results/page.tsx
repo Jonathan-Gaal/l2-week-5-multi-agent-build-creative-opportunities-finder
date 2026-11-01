@@ -5,6 +5,7 @@ import ResultCard from "@/components/ResultCard";
 import ResultsSidebar from "@/components/ResultsSidebar";
 import r from "@/components/ResultsLive.module.css";
 import { asBackendError, type BackendError, getMeta, searchBackend, visitorClient } from "@/lib/backend";
+import { groupByKind } from "@/lib/cards";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
 import { TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes, subtypeTokens } from "@/lib/typePills";
@@ -67,7 +68,8 @@ export default async function Results({ searchParams }: { searchParams: Params }
     const couldNotNarrow = narrowed !== null && narrowed.length === 0 && g.cards.length > 0;
     return { g, narrowed: couldNotNarrow ? null : narrowed, couldNotNarrow, cards: couldNotNarrow ? g.cards : (narrowed ?? g.cards) };
   });
-  const total = lists?.reduce((n, l) => n + l.cards.length, 0) ?? 0;
+  const total = lists?.reduce((n, l) => n + l.cards.length, 0) ?? 0;     // the picks shown
+  const matched = lists?.reduce((n, l) => n + Math.max(l.g.total, l.cards.length), 0) ?? 0;     // every listing that fits
   const expired = out?.groups.reduce((n, g) => n + expiredIn(g.removed), 0) ?? 0;
 
   return (
@@ -81,8 +83,11 @@ export default async function Results({ searchParams }: { searchParams: Params }
             <>
               <h1 className="sr-only">Your opportunities</h1>
               <div className={r.count}>
-                <span className={r.big}>{total}</span>
-                <span className={r.countText}>{total === 1 ? "match" : "matches"}, best first</span>
+                <span className={r.big}>{matched}</span>
+                <span className={r.countText}>
+                  {matched === 1 ? "match" : "matches"}
+                  {matched > total ? `. Our top ${total} picks are first; the rest are in each list's browse section.` : ", best first"}
+                </span>
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
 
@@ -90,7 +95,9 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 <section key={g.type} aria-labelledby={`h-${g.type}`}>
                   <div className={r.groupHead}>
                     <h2 id={`h-${g.type}`}>{labels.type(g.type)}</h2>
-                    <span className={r.groupNote}>{g.tier === 3 ? "Nothing found" : TIER_NOTE[g.tier]}</span>
+                    <span className={r.groupNote}>
+                      {g.tier === 3 ? "Nothing found" : g.total > cards.length ? `Top ${cards.length} of ${g.total}` : TIER_NOTE[g.tier]}
+                    </span>
                   </div>
                   {couldNotNarrow && (
                     <p className="notice">
@@ -104,6 +111,23 @@ export default async function Results({ searchParams }: { searchParams: Params }
                     <div className="empty stack">
                       <p>{g.reason}</p>
                       <p className="hint">Try adding another place, like Tri-state, or another kind of opportunity. We never widen a search without you.</p>
+                    </div>
+                  )}
+                  {g.more.length > 0 && !couldNotNarrow && (
+                    <div className={r.more}>
+                      <h3 className={r.moreHead}>More matches <span className={r.moreCount}>{g.total - cards.length}</span></h3>
+                      <p className={r.expiredMeta}>
+                        After our top {cards.length}, grouped by kind. These have not been reviewed, so confirm details on the original page.
+                      </p>
+                      {groupByKind(g.more).map((grp) => (
+                        <div key={grp.kind} className={r.moreGroup}>
+                          <h4>{grp.kind} <span className={r.moreCount}>{grp.cards.length}</span></h4>
+                          <div className={r.cards}>{grp.cards.map((c) => <ResultCard key={c.key} card={c} />)}</div>
+                        </div>
+                      ))}
+                      {g.total - cards.length > g.more.length && (
+                        <p className={r.expiredMeta}>Showing the next {g.more.length} of {g.total - cards.length}.</p>
+                      )}
                     </div>
                   )}
                   {g.removed && g.expired.length > 0 ? (

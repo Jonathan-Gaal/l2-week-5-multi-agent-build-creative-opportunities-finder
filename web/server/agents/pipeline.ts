@@ -46,10 +46,15 @@ export type Result = {
   removed_counts: RemovedCounts | null;
   /** The expired listings behind removed_counts.expired, at most EXPIRED_SHOWN of them. */
   expired_results?: PresentedResult[];
+  /** How many listings match the search (after expired, failed-schema and duplicate ones are dropped). */
+  total_matches?: number;
+  /** The best of the matches that were not picked, in the code's point order, at most MORE_SHOWN of them. */
+  more_results?: PresentedResult[];
   request_id?: string;
 };
 
 const EXPIRED_SHOWN = 20;
+const MORE_SHOWN = 50;
 
 type Attempt = {
   n: number;
@@ -170,7 +175,7 @@ export const run = async (
   const expired_results = flt.expiredRecords(records, req).slice(0, EXPIRED_SHOWN).map((r) => present(r, 2));
   if (!cands.length) {
     return finish({ tier: 3, results: [], reason: `no records match ${flt.requestLabel(req)}`, removed: note,
-                    removed_counts: removed, expired_results });
+                    removed_counts: removed, expired_results, total_matches: 0, more_results: [] });
   }
 
   const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]));
@@ -264,7 +269,9 @@ export const run = async (
     }
   }
   const results = served.map((r) => present(r, tier));
-  return finish({ tier, results, removed: note, removed_counts: removed, expired_results });
+  const pickedKeys = new Set(served.map((r) => r.dedupe_key));
+  const more_results = ordered.map(([, r]) => r).filter((r) => !pickedKeys.has(r.dedupe_key)).slice(0, MORE_SHOWN).map((r) => present(r, 2));
+  return finish({ tier, results, removed: note, removed_counts: removed, expired_results, total_matches: cands.length, more_results });
 };
 
 const main = async () => {
