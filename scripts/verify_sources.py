@@ -167,8 +167,8 @@ def _crawler(out, depth=1, per_source=6):
     return crawler.Crawler(out, depth, per_source, 40)
 
 
-def select_held(seeds, categories=None, statuses=None, ids=None):
-    return [s for s in seeds if s.get("verdict") == "hold" and s.get("url")
+def select_held(seeds, categories=None, statuses=None, ids=None, verdicts=("hold",)):
+    return [s for s in seeds if s.get("verdict") in verdicts and s.get("url")
             and (not ids or s["id"] in ids)
             and (not categories or s.get("category") in categories)
             and (not statuses or s.get("status") in statuses)]
@@ -192,7 +192,7 @@ def triage(source_result, page_log):
 
 def cmd_fetch(a):
     _, seeds = _seeds()
-    chosen = select_held(seeds, a.category, a.status, a.ids)
+    chosen = select_held(seeds, a.category, a.status, a.ids, tuple(a.verdicts))
     out = Path(a.out)
     cr = _crawler(out, a.depth, a.per_source)
     # access, tier and scrape_policy let the crawler refuse paid display-only sources outright.
@@ -304,6 +304,7 @@ def main(argv=None):
     f.add_argument("--category", nargs="*")
     f.add_argument("--status", nargs="*")
     f.add_argument("--ids", nargs="*")
+    f.add_argument("--verdicts", nargs="*", default=["hold"], help="seed verdicts to fetch; add keep to re-check approved sources")
     f.add_argument("--depth", type=int, default=1)
     f.add_argument("--per-source", type=int, default=6)
     f.add_argument("--out", required=True)
