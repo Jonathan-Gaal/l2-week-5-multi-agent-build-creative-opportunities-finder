@@ -11,7 +11,8 @@ import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
-import { TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes, subtypeTokens } from "@/lib/typePills";
+import { TYPE_PILLS, TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes, subtypeTokens } from "@/lib/typePills";
+import { chipsFor, sayList } from "@/lib/disciplineWords";
 
 type Params = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -67,7 +68,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
     if (n > 1) next.set("pg", String(n));
     return `/results?${next}#more`;
   };
-  const sidebar = <ResultsSidebar meta={meta} initial={{ d: disciplines, s: pills.length ? pills : pillsForTypes(types), p: places }} />;
+  const sidebar = <ResultsSidebar meta={meta} initial={{ d: disciplines, s: pills.length ? pills : pillsForTypes(types), p: places }} startOverHref={editHref} />;
 
   if (!places.length || !types.length) {
     return (
@@ -100,6 +101,12 @@ export default async function Results({ searchParams }: { searchParams: Params }
     const couldNotNarrow = narrowed !== null && narrowed.length === 0 && g.cards.length > 0;
     return { g, narrowed: couldNotNarrow ? null : narrowed, couldNotNarrow, cards: couldNotNarrow ? g.cards : (narrowed ?? g.cards) };
   });
+  /** The picks that found nothing, in the visitor's words: "auditions for musicians in Manhattan and Brooklyn". */
+  const selectionFor = (type: string) => {
+    const wants = TYPE_PILLS.filter((p) => p.types.includes(type) && (pills.length ? pills : pillsForTypes(types)).includes(p.id)).map((p) => p.label.toLowerCase());
+    const artists = [...new Set(disciplines.flatMap((id) => chipsFor(id).map((c) => `${c.word}s`)))];
+    return `${wants.length ? sayList(wants) : labels.type(type).toLowerCase()} for ${artists.length ? sayList(artists) : "artists"} in ${sayList(places.map((id) => labels.place(id)))}`;
+  };
   const picks = takeInTurns((lists ?? []).map((l) => l.cards), TOP_PICKS);     // the ranked list
   const pickKeys = new Set(picks.map((c) => c.key));
   const total = picks.length;
@@ -141,8 +148,8 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 </span>
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
-
               <ResultsMap pins={pins} missing={shown.length - pins.length} />
+
 
               {total > 0 && (
                 <section aria-labelledby="h-ranked">
@@ -197,8 +204,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
               {lists.filter((l) => !l.cards.length).map(({ g }) => (
                 <div key={g.type} className="empty stack">
-                  <p>{labels.type(g.type)}: {g.reason}</p>
-                  <p className="hint">Try adding another place, like Tri-state, or another kind of opportunity. We never widen a search without you.</p>
+                  <p>{selectionFor(g.type).replace(/^./, (ch) => ch.toUpperCase())}: no records match. Try widening your search.</p>
                 </div>
               ))}
 
@@ -219,28 +225,25 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 removedNotes.length > 0 && <p className="removed">{removedNotes.join(" ")}</p>
               )}
 
-              <div className={r.foot}>
-                <a className={r.ghost} href="#how">How were these ranked?</a>
-                <Link className={r.ghost} href={editHref}>Start over</Link>
+              <div className={r.howRow} data-requests={out.calls.map((c) => c.requestId).join(",")}>
+                <details className={r.howPill}>
+                  <summary>How we chose these</summary>
+                  <div className={r.howBody}>
+                    <p>We start with the places, kinds of opportunity and artist types you picked. Listings open to any artist always count.</p>
+                    <p>Anything that has already ended, or is missing key details, is left out.</p>
+                  </div>
+                </details>
+                <details className={r.howPill}>
+                  <summary>How it&apos;s ranked</summary>
+                  <div className={r.howBody}>
+                    <p>
+                      Your top {total} are the listings that fit your picks best and tell you the most: what you would get, what it costs, who
+                      can apply and when it closes.
+                    </p>
+                    <p>Everything else is below, soonest first. Use the pills to see one kind at a time.</p>
+                  </div>
+                </details>
               </div>
-
-              <details className="how" id="how">
-                <summary>How were these chosen?</summary>
-                <div className="stack">
-                  <p className="muted-dk">
-                    Listings are filtered by place, type and discipline (listings open to any artist always count), expired and incomplete ones
-                    are dropped, and the best fits across all your places are put first, one list per kind. Snapshot {out.snapshotId}, verified
-                    against {out.asOf}. If something looks wrong, quote the request id.
-                  </p>
-                  <ul className="muted-dk">
-                    {out.calls.map((c) => (
-                      <li key={c.type}>
-                        {labels.type(c.type)}: tier {c.tier}, {c.count} result{c.count === 1 ? "" : "s"}, request {c.requestId}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </details>
             </>
           )}
         </div>

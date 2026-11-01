@@ -37,7 +37,12 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
       const ml = await import("maplibre-gl");
       if (gone || !box.current) return;
       ml.setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
-      map = new ml.Map({ container: box.current, style: STYLE, center: NYC, zoom: 9.5, minZoom: 5, maxBounds: AREA, attributionControl: { compact: true } });
+      map = new ml.Map({ container: box.current, style: STYLE, center: NYC, zoom: 9.5, minZoom: 5, maxBounds: AREA, attributionControl: { compact: false },
+        // Only the + and - buttons zoom. The wheel, a double click, a pinch, a box drag and the keyboard do not (the wheel
+        // keeps scrolling the page), and the map never rotates or tilts. Click and drag still moves it around.
+        scrollZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, dragRotate: false, touchPitch: false, pitchWithRotate: false,
+      });
+      map.touchZoomRotate.disable();
       map.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
       map.on("load", () => {
         // Recolor the grey basemap: land in a lighter plum, water in near-black blue-purple, so the shoreline reads clearly.
@@ -121,7 +126,10 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         new ml.Marker({ element: el }).setLngLat(at).addTo(map);
         bounds.extend(at);
       }
-      if (pins.length > 1) map.fitBounds(bounds, { padding: 40, maxZoom: 13, duration: 0 });
+      if (pins.length > 1) {
+        map.fitBounds(bounds, { padding: 40, maxZoom: 13, duration: 0 });
+        map.jumpTo({ zoom: Math.min(map.getZoom() + 0.5, 13.5) });     // opens half a step closer than "everything just fits"
+      }
       else map.jumpTo({ center: [pins[0].lng, pins[0].lat], zoom: 13 });
     })();
     return () => {
