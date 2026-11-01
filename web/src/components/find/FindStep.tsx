@@ -130,7 +130,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
 
   return (
     <div className={s.frame}>
-    <div className={`${s.board} ${step !== "place" ? s.boardSolo : ""}`}>
+    <div className={`${s.board} ${step !== "place" ? s.boardSolo : ""} ${step === "discipline" ? s.boardTall : ""} ${step === "place" ? s.boardPlace : ""}`}>
       <div className={s.left}>
         <h1 className={s.title}>{copy.title}</h1>
         {copy.sub && (

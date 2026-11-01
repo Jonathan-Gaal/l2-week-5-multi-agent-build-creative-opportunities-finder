@@ -1,96 +1,95 @@
-import Image from "next/image";
 import Link from "next/link";
 import meta from "@/data/meta.json";
 import DemoButton from "@/components/DemoButton";
+import LandingDesign from "@/components/LandingDesign";
+import MadLibsHero from "@/components/MadLibsHero";
+import s from "./Landing.module.css";
 
-export default function Intro() {
+/**
+ * The home page: the animated sentence in the "Final 4" look (src/lib/finalFour.ts) on the first screen, then what an
+ * artist wants to know before signing up: how it works and how far to trust a result. The find steps are not repeated here.
+ */
+/** "1526" becomes "1,500+" and "126" becomes "120+": honest round numbers a visitor can take in. */
+const roundDown = (n: number, to: number) => `${(Math.floor(n / to) * to).toLocaleString("en-US")}+`;
+
+/** "2026-10-27" becomes "Oct 27". */
+const shortDay = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+export default function Home() {
   return (
-    <div className="wrap">
-      <section className="hero">
-        <div className="stack">
-          <span className="eyebrow">NYC · tri-state · open calls, grants, residencies, events, jobs</span>
-          <h1>
-            Your next gig is already out there. <em>Let&apos;s find it.</em>
-          </h1>
-          <p className="lead">
-            Artist Atlas reads listings from across New York and the region, ranks them for the kind of artist you are, and has a second
-            AI double-check the list. Every result shows where it came from and when we last checked.
-          </p>
-          <div className="cta-row">
+    <>
+      <LandingDesign />
+      <MadLibsHero fixedArt="globe-nyc" />
+
+      <div className="wrap">
+        <p className={s.proof}>
+          <b>{roundDown(meta.recordCount, 100)} opportunities</b>
+          <i aria-hidden="true">·</i>
+          from <b>{roundDown(meta.sourceCount, 10)} sources</b> across NYC and the tri-state area
+        </p>
+
+        <section className={s.section} aria-labelledby="how">
+          <p className={s.kicker}>How it works</p>
+          <h2 id="how" className={s.title}>
+            Three taps, <em>then your list.</em>
+          </h2>
+          <ol className={s.steps}>
+            <li className={`${s.step} ${s.lime}`}>
+              <span className={s.num}>1</span>
+              <h3>Say what you make</h3>
+              <p>Pick every kind of artist you are, then the kinds of opportunities you want.</p>
+            </li>
+            <li className={`${s.step} ${s.pink}`}>
+              <span className={s.num}>2</span>
+              <h3>Choose where</h3>
+              <p>Tap the map: one borough, a few, all of NYC, or the wider region.</p>
+            </li>
+            <li className={`${s.step} ${s.cream}`}>
+              <span className={s.num}>3</span>
+              <h3>Get a list that fits</h3>
+              <p>Open listings, best matches first, with the award, deadline and who can apply spelled out.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section className={s.section} aria-labelledby="trust">
+          <div className={s.trust}>
+            <div>
+              <p className={s.kicker}>Before you apply</p>
+              <h2 id="trust" className={s.title}>
+                See where it came from, <em>every time.</em>
+              </h2>
+              <p className={s.lead}>Listings change. Each result tells you how far to trust it, so you never apply blind.</p>
+            </div>
+            <ul className={s.badges}>
+              <li className={s.lime}>
+                <span className={s.badge}>Source link</span>
+                <p>Every result links to the page it came from, so you apply at the source.</p>
+              </li>
+              <li className={s.pink}>
+                <span className={s.badge}>Verified {shortDay(meta.snapshotId)}</span>
+                <p>We show the day we last verified each listing, so you know how fresh it is.</p>
+              </li>
+              <li>
+                <span className={`${s.badge} ${s.badgeLine}`}>Confirm first</span>
+                <p>If we couldn&apos;t verify a listing, we say so. Double-check the details before you apply.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section className={s.end} aria-labelledby="go">
+          <h2 id="go">
+            Ready to find <em>your next one?</em>
+          </h2>
+          <div className={s.row}>
             <Link href="/find" className="btn">
-              Find my opportunities
+              Find opportunities
             </Link>
-            <DemoButton className="btn-ghost" label="Try the live demo →" />
+            <DemoButton className="btn-ghost" label="See an example list →" />
           </div>
-          <p className="hero-sub">
-            <a href="#how">How it works</a>
-            <span aria-hidden="true">·</span>
-            <Link href="/login">Sign in</Link>
-          </p>
-        </div>
-        <div className="hero-art">
-          <Image src="/brand/logo.png" alt="Artist Atlas: an NYC figure holding up a pink globe" width={300} height={434} priority />
-        </div>
-      </section>
-
-      <div className="stats" aria-label="What is in the snapshot">
-        <div className="stat">
-          <b>{meta.recordCount.toLocaleString()}</b>
-          <span>listings</span>
-        </div>
-        <div className="stat">
-          <b>{meta.sourceCount}</b>
-          <span>sources</span>
-        </div>
-        <div className="stat">
-          <b>{meta.snapshotId}</b>
-          <span>snapshot date</span>
-        </div>
+        </section>
       </div>
-
-      <section className="section" id="how">
-        <h2>Three questions, then your list</h2>
-        <div className="grid3">
-          <div className="panel">
-            <span className="step-num">1</span>
-            <h3>Tell us about you</h3>
-            <p>What you make (pick as many as you like), what you&apos;re looking for, and where: one borough, a few, all of NYC, or the tri-state area.</p>
-          </div>
-          <div className="panel">
-            <span className="step-num">2</span>
-            <h3>We rank what&apos;s open</h3>
-            <p>Expired and incomplete listings are dropped first. Then the best fits come to the top, with the award, deadline and eligibility spelled out.</p>
-          </div>
-          <div className="panel">
-            <span className="step-num">3</span>
-            <h3>A second check</h3>
-            <p>A reviewer looks over the ranking and can send it back. You can open any result list and see how it got there.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2>We show you how much to trust each result</h2>
-        <div className="panel trust-list">
-          <div>
-            <span className="pill pill-lime">Checked 2026-10-27</span> We read the listing on its own page on that date.
-          </div>
-          <div>
-            <span className="pill pill-plain">Checked · not fully checked</span> We read it, but the reviewer hasn&apos;t signed off on this list.
-          </div>
-          <div>
-            <span className="pill pill-grey">Not checked</span> Collected by a teammate from a site we can&apos;t recheck. Confirm before you apply.
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ textAlign: "center" }}>
-        <h2>Ready?</h2>
-        <p className="muted-dk" style={{ margin: "8px 0 24px" }}>It takes about a minute.</p>
-        <Link href="/find" className="btn">
-          Find my opportunities
-        </Link>
-      </section>
-    </div>
+    </>
   );
 }

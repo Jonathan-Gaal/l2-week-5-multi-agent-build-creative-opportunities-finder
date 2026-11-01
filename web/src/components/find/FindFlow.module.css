@@ -1,6 +1,12 @@
 /* The find flow: one page per step, all on the layout of the "Tap the map" board (artifacts/design-treatments, board 2):
    text and the big button on the left, a rounded panel on the right. Buttons are the chunky ones from the Poster board (board 4). */
 .frame { position: relative; margin: 28px 0 48px; border: 2px solid var(--plum); border-radius: 22px; padding: 40px 44px; background: rgba(46, 21, 86, 0.28); }
+/* On a wide window the logo and the Login / Sign up buttons sit just outside the card, so the card is pulled up to the top and they flank it
+   on one row. The pull-up is the height of the top bar (the full logo is 96px tall times its size, plus 18px of padding top and bottom).
+   Narrower than this there is no room beside the card, so it stays under the top bar. */
+@media (min-width: 1400px) {
+  .frame { margin-top: calc(24px - 96px * var(--logo-scale, 1) - 36px); }
+}
 .board { display: grid; grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 36px; min-height: 560px; }
 
 .left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
@@ -137,6 +143,21 @@
 .explainGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; margin-top: 6px; }
 /* With the right card gone, the second step uses the whole width of the card. */
 .boardSolo { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+/* The map step: the title runs across the whole card on one line, with the directions and place buttons on the left and the map card below it on the right. */
+.boardPlace { row-gap: 18px; grid-template-rows: auto auto 1fr; }
+.boardPlace .left { display: contents; }
+.boardPlace .title { grid-column: 1 / -1; }
+.boardPlace .sub { grid-column: 1; grid-row: 2; }
+/* the three regions read as a tidy list: a thin line between them and room around each, so folded or open they sit well on the card */
+.boardPlace .placeGroups { grid-column: 1; grid-row: 3; align-self: start; align-content: start; gap: 0; margin-top: 10px; }
+.boardPlace .placeGroups > div { padding: 20px 0; border-top: 1px solid var(--plum); }
+.boardPlace .placeGroups > div:first-child { border-top: 0; padding-top: 6px; }
+.boardPlace .panel { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
+/* the artist step is as tall as the map step (the map board is 560px) */
+.boardSolo.boardTall { min-height: 560px; }
+/* ...so the sentence and the words sit lower, filling the card instead of leaving a gap at the bottom */
+.boardTall .sentence { margin-top: 70px; }
+.boardTall .artistGrid { margin-top: 80px !important; }
 .boardSolo .sub { max-width: none; text-wrap: wrap; }
 .boardSolo .explainGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 34px; margin-top: 14px; }
 /* The second step's cards: plain index cards (cream, pink or lime) taped up, a little crooked. Picking one circles it in marker. */
@@ -151,11 +172,11 @@
 /* --bar is how solid the colour line is: 0% (hidden) at rest, 100% on hover and when picked (registered so it can fade). */
 @property --bar { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
 /* The first step's kinds: big serif words on a colour bar, with a tick after the word when picked. */
-.artistWord { display: inline-grid; grid-template-columns: max-content max-content; justify-content: start; align-items: baseline; white-space: nowrap; font: 900 16px / 1.1 var(--serif); text-transform: lowercase; color: rgba(254, 249, 239, 0.72); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(color-mix(in srgb, var(--cardBg) var(--bar), transparent), color-mix(in srgb, var(--cardBg) var(--bar), transparent)) no-repeat left bottom / 100% 4px; transition: background-size 0.3s ease, color 0.14s, --bar 0.2s; }
+.artistWord { display: inline-grid; grid-template-columns: max-content max-content; justify-content: start; align-items: baseline; white-space: nowrap; font: 900 16px / 1.1 var(--serif); text-transform: lowercase; color: var(--paper); text-align: left; padding: 5px 6px 9px; border: 0; cursor: pointer; background: linear-gradient(color-mix(in srgb, var(--cardBg) var(--bar), transparent), color-mix(in srgb, var(--cardBg) var(--bar), transparent)) no-repeat left bottom / 100% 4px; transition: background-size 0.3s ease, color 0.14s, --bar 0.2s; }
 /* the lime and pink lines are the loudest colours, so at rest they are toned down to 70%; hover and picked bring it back to 100% */
-.artistWord.pink { --bar: 50%; }
-.artistWord.lime { --bar: 40%; }
-.artistWord.cream { --bar: 50%; }
+.artistWord.pink { --bar: 100%; }
+.artistWord.lime { --bar: 100%; }
+.artistWord.cream { --bar: 100%; }
 .artistWord:hover { background-size: 100% 10px; }
 .artistWord:hover, .artistWord[aria-pressed="true"] { color: #fff; --bar: 100%; }
 .artistWord:hover, .artistWord[aria-pressed="true"] { text-transform: uppercase; letter-spacing: 0.03em; }

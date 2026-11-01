@@ -1,0 +1,30 @@
+{
+  "pick": {
+    "hdr": "wordmark-white",
+    "corner": "left",
+    "authcorner": "right",
+    "authbtn": "3",
+    "ctabtn": "today",
+    "hero": "p2-8",
+    "bg": "solid",
+    "art": "globe-nyc",
+    "devtools": "off",
+    "navlinks": "off",
+    "auth": "on"
+  },
+  "size": 1.8,
+  "btn": 1.1,
+  "figs": {
+    "figure": { "x": 8, "y": 6, "s": 1 },
+    "p2-4": { "x": 0, "y": 24.5, "s": 1.75 },
+    "p2-8": { "x": 19.5, "y": 3.5, "s": 1.3 }
+  },
+  "sent": { "x": 2.5, "y": 5.5 },
+  "cta": { "x": 6, "y": 3 },
+  "sentSize": 0.95,
+  "logoY": 39,
+  "logoX": -152,
+  "auth": { "x": 200, "y": 10 },
+  "sentWide": 7.5,
+  "authSize": 1.15
+}
