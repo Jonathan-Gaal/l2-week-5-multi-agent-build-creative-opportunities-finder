@@ -7,6 +7,11 @@ terms), listed as "readable" in triage.json. The model only proposes candidates;
 place in scope, not a duplicate). So the code here owns the fields a page must never choose: `source` is the
 seed id and `source_url` is the page that was read. The record rules follow data/seeds/INVALIDATORS.md.
 
+There is no code substitute for reading a page, so without Claude it does nothing, gracefully: with no
+credentials it writes an empty candidates file and says why; when a call finds the key unavailable (billing,
+credit or usage limit) it stops calling, keeps the candidates extracted so far and says how many pages were left.
+Other failures (refusal, server error) skip that page only.
+
 Usage:
     python -m agents.extractor --pages data/research/verify-2026-10-28 --out candidates.json
     python -m agents.extractor --pages data/research/verify-2026-10-28 --out candidates.json --ids some-seed-id --max-pages 5
@@ -20,7 +25,7 @@ import sys
 from pathlib import Path
 
 from agents.filter import BOROUGHS, REGIONS, REPO, TYPES
-from agents.model import ClaudeModel, ModelError
+from agents.model import ClaudeModel, ModelError, missing_credentials, unavailable_reason
 from agents.roles import UNTRUSTED
 
 SEEDS = REPO / "data/seeds/seed-sources.json"
@@ -168,27 +173,30 @@ def seed_sources(path=SEEDS):
 
 
 def extract_pages(pages_dir, extractor, seeds=None, ids=None, max_pages=None):
-    """Run the Extractor over every readable page in `pages_dir/triage.json`. Returns (candidates, stats)."""
+    """Run the Extractor over every readable page in `pages_dir/triage.json`. Returns (candidates, stats).
+    `pages` counts the pages sent to the model. When a call finds the key unavailable, the run stops there:
+    stats["stopped"] is the reason and stats["not_processed"] the pages never sent."""
     pages_dir = Path(pages_dir)
     triage = json.loads((pages_dir / "triage.json").read_text(encoding="utf-8"))
     seeds = seeds or {}
+    todo = [(t, page) for t in triage if t["outcome"] == "readable" and not (ids and t["id"] not in ids)
+            for page in t["pages"]][:max_pages]
     candidates, errors, usage, pages = [], [], {"input_tokens": 0, "output_tokens": 0}, 0
-    for t in triage:
-        if t["outcome"] != "readable" or (ids and t["id"] not in ids):
-            continue
-        for page in t["pages"]:
-            if max_pages is not None and pages >= max_pages:
+    stats = {}
+    for t, page in todo:
+        pages += 1
+        text = (pages_dir / page["artifact"]).read_text(encoding="utf-8", errors="replace")
+        try:
+            recs, u = extractor.extract(text, seeds.get(t["id"], {"id": t["id"]}), page["url"])
+        except ModelError as e:
+            errors.append({"source": t["id"], "url": page["url"], "error": str(e)})
+            if (why := unavailable_reason(e)):
+                stats = {"stopped": why, "not_processed": len(todo) - pages}
                 break
-            pages += 1
-            text = (pages_dir / page["artifact"]).read_text(encoding="utf-8", errors="replace")
-            try:
-                recs, u = extractor.extract(text, seeds.get(t["id"], {"id": t["id"]}), page["url"])
-            except ModelError as e:
-                errors.append({"source": t["id"], "url": page["url"], "error": str(e)})
-                continue
-            candidates += recs
-            usage = {k: usage[k] + u.get(k, 0) for k in usage}
-    return candidates, {"pages": pages, "records": len(candidates), "errors": errors, "usage": usage}
+            continue
+        candidates += recs
+        usage = {k: usage[k] + u.get(k, 0) for k in usage}
+    return candidates, {"pages": pages, "records": len(candidates), "errors": errors, "usage": usage, **stats}
 
 
 def main(argv=None):
@@ -199,13 +207,20 @@ def main(argv=None):
     p.add_argument("--max-pages", type=int, help="cap on model calls (one per page)")
     p.add_argument("--model", default=None)
     a = p.parse_args(argv)
-    extractor = Extractor(ClaudeModel(a.model) if a.model else ClaudeModel())
-    cands, stats = extract_pages(a.pages, extractor, seed_sources(), a.ids, a.max_pages)
+    if (why := missing_credentials()):
+        # Nothing to extract with: an empty candidates file keeps the verify step's input well formed.
+        cands, stats = [], {"pages": 0, "records": 0, "errors": [], "usage": {"input_tokens": 0, "output_tokens": 0}}
+        print(f"extractor skipped: {why}", file=sys.stderr)
+    else:
+        extractor = Extractor(ClaudeModel(a.model) if a.model else ClaudeModel())
+        cands, stats = extract_pages(a.pages, extractor, seed_sources(), a.ids, a.max_pages)
     Path(a.out).write_text(json.dumps(cands, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{stats['pages']} pages -> {stats['records']} candidates, {len(stats['errors'])} failed pages, "
           f"tokens {stats['usage']['input_tokens']} in / {stats['usage']['output_tokens']} out")
     for e in stats["errors"]:
         print(f"  failed {e['source']} {e['url']}: {e['error']}", file=sys.stderr)
+    if "stopped" in stats:
+        print(f"stopped early: {stats['stopped']}, {stats['not_processed']} pages not processed", file=sys.stderr)
 
 
 if __name__ == "__main__":

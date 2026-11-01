@@ -47,7 +47,8 @@ export class ClaudeModel implements Model {
   }
 
   private getClient(): Anthropic {
-    this.client ??= new Anthropic({ timeout: this.timeoutMs });
+    // Let the request fall back on API failure instead of retrying inside the SDK.
+    this.client ??= new Anthropic({ timeout: this.timeoutMs, maxRetries: 0 });
     return this.client;
   }
 
@@ -64,7 +65,7 @@ export class ClaudeModel implements Model {
         ...fallback,
       }, { signal: opts.signal ?? null });
     } catch (e) {
-      if (e instanceof Anthropic.APIError) throw new ModelError(`${e.name}: ${e.message}`, { cause: e });
+      if (e instanceof Anthropic.APIError) throw new ModelError(`${e.constructor.name}: ${e.message}`, { cause: e });
       throw e;
     }
     const usage = { input_tokens: resp.usage.input_tokens, output_tokens: resp.usage.output_tokens };
@@ -78,6 +79,58 @@ export class ClaudeModel implements Model {
     }
   }
 }
+
+/**
+ * Why a model call failed at the API, for deciding what to do next:
+ *   unavailable  the key can't be used for now (credentials, access, billing, credit or usage limit): stop
+ *                calling Claude for a while and serve the code ranker. retryAfterMs: the API's retry-after.
+ *   transient    the service or connection failed: fall back for this request only.
+ *   rejected     the API refused this request (our bug, e.g. a bad schema): fall back, and look into it.
+ */
+export type ModelFailure = { kind: "unavailable" | "transient" | "rejected"; reason: string; retryAfterMs?: number };
+
+// Anthropic reports used-up credit and workspace spend limits as 400 invalid_request_error, not 402 or 429.
+const CREDIT_OR_USAGE = /credit balance|usage limit/i;
+
+/** retry-after in seconds (what the API sends), from SDK Headers or a plain object; undefined if absent or bad. */
+const retryAfterMs = (headers: unknown): number | undefined => {
+  if (!headers || typeof headers !== "object") return undefined;
+  const raw = typeof (headers as Headers).get === "function"
+    ? (headers as Headers).get("retry-after")
+    : (headers as Record<string, unknown>)["retry-after"];
+  const sec = typeof raw === "string" && /^\d+(\.\d+)?$/.test(raw.trim()) ? Number(raw) : NaN;
+  return Number.isFinite(sec) ? Math.round(sec * 1000) : undefined;
+};
+
+const messageOf = (x: unknown): string => (x && typeof x === "object" && "message" in x ? String(x.message) : "");
+
+/**
+ * Classify an API failure: a ModelError wrapping the SDK's APIError (or that error itself). null when the
+ * error didn't come from the API (refusal, cut-off or unparseable output), which keeps its bounded retries.
+ * The one place status codes are read: the server, the eval and the e2e test all call this.
+ */
+export const classifyModelError = (e: unknown): ModelFailure | null => {
+  const err = e instanceof ModelError && e.cause !== undefined ? e.cause : e;
+  if (!err || typeof err !== "object") return null;
+  const status = "status" in err && typeof err.status === "number" ? err.status : null;
+  // The SDK's message carries the response body ("400 {...credit balance is too low...}"); check the wrapper's too.
+  const message = `${messageOf(err)} ${err === e ? "" : messageOf(e)}`;
+  if (status === null) {
+    // instanceof, not .name: the SDK's errors are all named "Error". The timeout is a connection error subclass.
+    return err instanceof Anthropic.APIConnectionError || err instanceof Anthropic.APIUserAbortError
+      ? { kind: "transient", reason: "model connection unavailable" } : null;
+  }
+  if (status === 401 || status === 403) return { kind: "unavailable", reason: "model credentials or access unavailable" };
+  if (status === 402) return { kind: "unavailable", reason: "model billing unavailable" };
+  if (status === 429) {
+    const after = retryAfterMs("headers" in err ? err.headers : undefined);
+    return { kind: "unavailable", reason: "model usage or rate limit reached", ...(after === undefined ? {} : { retryAfterMs: after }) };
+  }
+  if (status === 400 && CREDIT_OR_USAGE.test(message)) return { kind: "unavailable", reason: "model credit or usage limit reached" };
+  if (status >= 500) return { kind: "transient", reason: "model service unavailable" };
+  if (status >= 400) return { kind: "rejected", reason: `model request rejected (${status})` };
+  return null;
+};
 
 /** Why Claude can't be called here, or null. Shared by the eval and the server's startup check. */
 export const missingCredentials = (): string | null => {
