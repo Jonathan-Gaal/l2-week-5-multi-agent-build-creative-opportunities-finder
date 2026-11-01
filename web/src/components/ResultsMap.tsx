@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import m from "./ResultsMap.module.css";
 
-export type Pin = { key: string; title: string; lat: number; lng: number; top: boolean; n?: number; href: string };
+export type Pin = { key: string; title: string; lat: number; lng: number; top: boolean; n?: number; href: string; approx?: boolean };
 
 const STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
-const LAND = "#3d2674";
+const LAND = "#311861";
 const WATER = "#0a0518";
 // The map never zooms out past the places a visitor can pick (New York, the tri-state area and the rest of the Northeast
 // down to DC); zooming in is unlimited. Only those states keep their name on the map.
@@ -81,18 +81,31 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         }
       });
       const bounds = new ml.LngLatBounds();
-      // One pin per address. When several listings share it, the pin says how many, and hovering or clicking lists them.
-      const spots = new Map<string, Pin[]>();
-      for (const p of pins) spots.set(`${p.lat},${p.lng}`, [...(spots.get(`${p.lat},${p.lng}`) ?? []), p]);
-      // Pink pins first so the numbered lime pins sit on top of them.
-      const groups = [...spots.values()].sort((x, y) => Number(x.some((p) => p.top)) - Number(y.some((p) => p.top)));
+      for (const p of pins) bounds.extend([p.lng, p.lat]);
+      const drawn: { marker: import("maplibre-gl").Marker; popup: import("maplibre-gl").Popup }[] = [];
+      // Pins that would sit on top of each other at this zoom become one numbered pin, so every listing can be reached; it
+      // splits apart as the map zooms in. Hovering or clicking a numbered pin lists its listings.
+      const draw = () => {
+        for (const d of drawn.splice(0)) { d.popup.remove(); d.marker.remove(); }
+        const NEAR = 16;     // pixels (pins are square boxes, so the test is on each axis)
+        const pts = pins.map((p) => ({ p, xy: map!.project([p.lng, p.lat]) })).sort((x, y) => Number(y.p.top) - Number(x.p.top));
+        const taken = new Set<string>();
+        const clusters: Pin[][] = [];
+        for (const seed of pts) {
+          if (taken.has(seed.p.key)) continue;
+          const g = pts.filter((o) => !taken.has(o.p.key) && Math.max(Math.abs(o.xy.x - seed.xy.x), Math.abs(o.xy.y - seed.xy.y)) < NEAR).map((o) => o.p);
+          g.forEach((p) => taken.add(p.key));
+          clusters.push(g);
+        }
+        // Pink pins first so the numbered lime pins sit on top of them.
+        const groups = clusters.sort((x, y) => Number(x.some((p) => p.top)) - Number(y.some((p) => p.top)));
       for (const g of groups) {
         const ranked = g.filter((p) => p.top).sort((x, y) => (x.n ?? 0) - (y.n ?? 0));
         const ordered = [...ranked, ...g.filter((p) => !p.top)];
         const first = g[0]!;
         const el = document.createElement("button");
         el.type = "button";
-        el.setAttribute("aria-label", g.length > 1 ? `${g.length} listings at this address` : `Show ${first.title}`);
+        el.setAttribute("aria-label", g.length > 1 ? `${g.length} listings here` : `Show ${first.title}`);
         if (ranked.length) {
           el.className = m.pinTop;
           el.textContent = String(ranked[0]!.n ?? "");
@@ -141,13 +154,14 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
           if (ordered.length > SHOWN) {
             const more = document.createElement("div");
             more.className = m.tipMore;
-            more.textContent = `and ${ordered.length - SHOWN} more at this address`;
+            more.textContent = `and ${ordered.length - SHOWN} more here`;
             box.append(more);
           }
           return box;
         };
+        const pinRadius = ranked.length ? 14 : g.length > 1 ? 12 : 6;     // half the pin's width, so the card's arrow touches the pin
         const at: [number, number] = [first.lng, first.lat];
-        const popup = new ml.Popup({ offset: 16, closeButton: false, closeOnClick: false, className: m.tip, maxWidth: "240px" }).setDOMContent(listing());
+        const popup = new ml.Popup({ offset: pinRadius + 4, closeButton: false, closeOnClick: false, className: m.tip, maxWidth: "240px" }).setDOMContent(listing());
         // It opens when the pointer is over the pin and stays open while the pointer is over the pin or the card itself, so the
         // link can be reached; it closes a moment after the pointer leaves both.
         let closing: number | undefined;
@@ -169,18 +183,27 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
           card.addEventListener("mouseenter", () => window.clearTimeout(closing));
           card.addEventListener("mouseleave", closeSoon);
         });
+        // Clicking a pin that holds one listing goes straight to that listing's card; a pin with several opens its list.
+        el.addEventListener("click", () => {
+          if (g.length === 1) {
+            popup.remove();
+            goRef.current(first);
+          } else open();
+        });
         el.addEventListener("mouseenter", open);
         el.addEventListener("mouseleave", closeSoon);
         el.addEventListener("focus", open);
         el.addEventListener("blur", closeSoon);
-        new ml.Marker({ element: el }).setLngLat(at).addTo(map);
-        bounds.extend(at);
+        drawn.push({ marker: new ml.Marker({ element: el }).setLngLat(at).addTo(map!), popup });
       }
+      };
       if (pins.length > 1) {
         map.fitBounds(bounds, { padding: 40, maxZoom: 13, duration: 0 });
         map.jumpTo({ zoom: Math.min(map.getZoom() + 0.5, 13.5) });     // opens half a step closer than "everything just fits"
       }
       else map.jumpTo({ center: [pins[0].lng, pins[0].lat], zoom: 13 });
+      draw();
+      map.on("zoomend", draw);
     })();
     return () => {
       gone = true;
@@ -194,7 +217,7 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
     <section className={m.card} aria-label="Map of your matches">
       <div ref={box} className={m.map} />
       <p className={m.note}>
-        Listings with an address are on the map{missing > 0 ? "; the ones without aren't" : ""}. Click a pin to jump to its listing.
+        Listings without a street address sit near their borough or town, so those pins are approximate{missing > 0 ? "; online listings aren't on the map" : ""}. Click a pin to jump to its listing.
       </p>
     </section>
   );

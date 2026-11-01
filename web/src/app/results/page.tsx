@@ -139,7 +139,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
     if (page > 1) next.set("pg", String(page));
     return `/results?${next}#card-${key}`;
   };
-  const pins: Pin[] = shown.flatMap(({ c, top }) => (points[c.key] ? [{ key: c.key, title: c.title, ...points[c.key], top, n: top ? rankOf.get(c.key) : undefined, href: hrefFor(c.key, top) }] : []));
+  const pins: Pin[] = shown.flatMap(({ c, top }) => (points[c.key] ? [{ key: c.key, title: c.title, ...points[c.key], approx: points[c.key]!.how === "area", top, n: top ? rankOf.get(c.key) : undefined, href: hrefFor(c.key, top) }] : []));
 
   return (
     <div className="wrap">

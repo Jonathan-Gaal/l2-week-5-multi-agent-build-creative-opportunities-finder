@@ -1,7 +1,8 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export type MapPoint = { lat: number; lng: number };
+/** `how`: "address" and "venue" are exact; "area" is near the listing's borough or town (it had no street address). */
+export type MapPoint = { lat: number; lng: number; how?: string };
 
 /**
  * The map points for a snapshot's listings, keyed by the listing's dedupe key. They come from the file written by

@@ -4,6 +4,10 @@ Two lookups, in this order, for each listing:
   1. a street address -> the US Census Bureau's address lookup;
   2. otherwise a venue name ("Chelsea Recreation Center, Manhattan") -> OpenStreetMap's search (Nominatim), at most one request a second.
 A result is kept only when it lands in the listing's own borough (NYC); a place that is only a city or town is not a point.
+  3. a listing with neither gets a point NEAR its main area ("how": "area"): a spot in its borough (spread over a few well-known
+     neighbourhoods so the pins don't pile up), the town named in its location, or the middle of its state or region. The map says these
+     are approximate. Listings that are online (Online, Virtual, Zoom, Remote...) get no point, and neither do NYC listings that name no
+     borough ("citywide", "unknown").
 
 Writes data/geo/<snapshot id>.json: {dedupe_key: {"lat": ..., "lng": ..., "matched": "...", "how": "address" | "venue"}}.
 Every answer (including "no match") is remembered in data/geo/_lookups.json, so a later snapshot only looks up what is new.
@@ -15,7 +19,9 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
+import math
 import re
 import time
 import urllib.parse
@@ -123,6 +129,74 @@ def lookup_venue(query):
     return {"lat": round(float(h["lat"]), 6), "lng": round(float(h["lon"]), 6), "matched": h["display_name"][:120], "how": "venue"}
 
 
+# Where a listing with no address is put: scattered close to the middle of its borough, so the pins don't pile on one dot.
+# (centre lat, centre lng, half-length km, half-width km, tilt in degrees from north towards east). Manhattan is a long thin
+# island, so its area is a tilted strip.
+BOROUGH_AREA = {
+    "manhattan": (40.7831, -73.9712, 7.0, 1.0, 29),
+    "brooklyn": (40.6501, -73.9496, 5.0, 4.0, 0),
+    "queens": (40.7282, -73.7949, 6.5, 4.5, 0),
+    "bronx": (40.8448, -73.8648, 4.0, 3.0, 0),
+    "staten_island": (40.5795, -74.1502, 4.0, 2.8, 0),
+}
+# The middle of each region outside NYC, used when the location names no town.
+REGION_CENTER = {
+    "long_island": (40.79, -73.20), "westchester_hudson": (41.15, -73.85), "upstate_ny": (42.65, -73.76), "new_jersey": (40.22, -74.76),
+    "connecticut": (41.60, -72.70), "pennsylvania": (40.00, -75.45), "massachusetts": (42.30, -71.80), "rhode_island": (41.68, -71.51),
+    "vermont": (44.05, -72.70), "new_hampshire": (43.45, -71.55), "maine": (44.40, -69.20), "maryland": (39.05, -76.64),
+    "dc": (38.9072, -77.0369), "delaware": (39.15, -75.50),
+}
+ONLINE = re.compile(r"\b(online|virtual|virtually|remote|remotely|zoom|webinar|livestream|live-stream)\b", re.I)
+
+
+def is_online(r):
+    """True for an online-only listing, by its location text or title."""
+    loc = r.get("location") or ""
+    return bool(ONLINE.search(loc) and not STREET.search(loc)) or bool(ONLINE.search(r.get("title") or ""))
+
+
+def scatter(key, lat, lng, along_km, across_km, tilt=0):
+    """A point inside an ellipse around (lat, lng), chosen from the listing's key so it is the same every run."""
+    h = hashlib.md5(key.encode("utf-8")).digest()
+    u, v = int.from_bytes(h[:4], "big") / 2**32, int.from_bytes(h[4:8], "big") / 2**32
+    r, theta = math.sqrt(u), 2 * math.pi * v
+    x, y = across_km * r * math.cos(theta), along_km * r * math.sin(theta)       # x across the area, y along it
+    t = math.radians(tilt)
+    east, north = x * math.cos(t) + y * math.sin(t), -x * math.sin(t) + y * math.cos(t)
+    return round(lat + north / 111.0, 6), round(lng + east / (111.0 * math.cos(math.radians(lat))), 6)
+
+
+def spot_in_borough(key, borough):
+    lat, lng, along, across, tilt = BOROUGH_AREA[borough]
+    la, ln = scatter(key, lat, lng, along, across, tilt)
+    return {"lat": la, "lng": ln, "matched": f"near {borough.replace('_', ' ').title()} (approximate)", "how": "area"}
+
+
+def town_query(r):
+    """"Teaneck, New Jersey" for a location that is just a town (with or without its state), else None."""
+    loc = (r.get("location") or "").strip()
+    region = r.get("region")
+    if not loc or region == "nyc" or STREET.search(loc) or NOT_A_PLACE.match(loc):
+        return None
+    parts = [p.strip() for p in loc.split(",") if p.strip()]
+    state = STATE.get(region, "")
+    if parts and re.fullmatch(r"[A-Z]{2}", parts[-1]):
+        state = parts.pop()
+    town = parts[-1] if parts else ""
+    if not town or re.search(r"\d", town) or len(town.split()) > 3 or not re.fullmatch(r"[A-Za-z][A-Za-z .'-]+", town):
+        return None
+    return f"{town}, {STATE_NAME.get(state, state)}" if state else None
+
+
+def lookup_town(query):
+    q = urllib.parse.urlencode({"q": query, "format": "jsonv2", "limit": 1, "countrycodes": "us"})
+    hits = _get(f"{NOMINATIM}?{q}")
+    if not hits:
+        return None
+    h = hits[0]
+    return {"lat": round(float(h["lat"]), 6), "lng": round(float(h["lon"]), 6), "matched": f"{h['display_name'][:100]} (approximate)", "how": "area"}
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("snapshot_id")
@@ -168,6 +242,51 @@ def main(argv=None):
             elif hit:
                 dropped += 1
         print(f"{dropped} points were outside their borough and were dropped")
+        # Listings still without a point: put them near their borough, town or region (online ones stay off the map).
+        towns = {}
+        for r in records:
+            if r["dedupe_key"] in out or is_online(r):
+                continue
+            q = town_query(r)
+            if q and ("area|" + q) not in cache:
+                towns["area|" + q] = q
+        print(f"{len(towns)} towns to look up for listings with no address")
+        for ck, q in towns.items():
+            try:
+                cache[ck] = lookup_town(q)
+            except Exception as e:
+                print(f"  error for {q!r}: {type(e).__name__}")
+                continue
+            time.sleep(1.1)
+        CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+        near, skipped = 0, 0
+        for r in records:
+            key = r["dedupe_key"]
+            if key in out:
+                continue
+            if is_online(r):
+                skipped += 1
+                continue
+            region, borough = r.get("region"), r.get("borough")
+            if region == "nyc":
+                if borough in BOROUGH_AREA:
+                    out[key] = spot_in_borough(key, borough)
+                    near += 1
+                else:
+                    skipped += 1
+                continue
+            q = town_query(r)
+            hit = cache.get("area|" + q) if q else None
+            if hit:
+                out[key] = hit
+            elif region in REGION_CENTER:
+                lat, lng = scatter(key, *REGION_CENTER[region], 18, 18)     # close to the middle of the region, not all on one dot
+                out[key] = {"lat": lat, "lng": lng, "matched": f"near {region.replace('_', ' ').title()} (approximate)", "how": "area"}
+            else:
+                skipped += 1
+                continue
+            near += 1
+        print(f"{near} listings placed near their area; {skipped} left off (online, or no borough named)")
         path = REPO / "data/geo" / f"{a.snapshot_id}.json"
         path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"wrote {len(out)} points to {path}")

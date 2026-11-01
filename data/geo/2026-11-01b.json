@@ -4066,5 +4066,4583 @@
   "lng": -73.983166,
   "matched": "254 W 54TH ST, NEW YORK, NY, 10019",
   "how": "address"
+ },
+ "2027 community engagement grants ceg|bronx|2026-10-30": {
+  "lat": 40.82123,
+  "lng": -73.840629,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "2027 bronx dance fund|bronx|2026-11-20": {
+  "lat": 40.864653,
+  "lng": -73.876047,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "triangle 2027 2028 open call studio residency|brooklyn|2026-12-15": {
+  "lat": 40.659584,
+  "lng": -73.916348,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "leimay studio access program|brooklyn|rolling": {
+  "lat": 40.638577,
+  "lng": -73.941513,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "lmcc 2027 manhattan arts grants creative engagement|manhattan|2026-11-12": {
+  "lat": 40.741615,
+  "lng": -74.003222,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lmcc 2027 manhattan arts grants umez arts engagement|manhattan|2026-11-12": {
+  "lat": 40.795417,
+  "lng": -73.969808,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lmcc 2027 manhattan arts grants creative learning|manhattan|2026-11-12": {
+  "lat": 40.800748,
+  "lng": -73.952738,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lmcc 2027 manhattan arts grants creative unrestricted|manhattan|2026-11-12": {
+  "lat": 40.806715,
+  "lng": -73.954776,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "su casa creative aging residency 2027 manhattan|manhattan|2026-11-12": {
+  "lat": 40.750359,
+  "lng": -73.988185,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "apexart 2027 28 nyc open call|manhattan|2026-10-31": {
+  "lat": 40.731457,
+  "lng": -74.007506,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "postcards from the edge a benefit for visual aids|manhattan|2026-11-20": {
+  "lat": 40.800016,
+  "lng": -73.964665,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "caac gallery 456 open call 2027|manhattan|rolling": {
+  "lat": 40.785964,
+  "lng": -73.964379,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "bathroom design open call for somad s new building|manhattan|2026-11-11": {
+  "lat": 40.818626,
+  "lng": -73.943319,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "inaugural ming fay research fellowship 2027|manhattan|2026-11-15": {
+  "lat": 40.743785,
+  "lng": -74.001133,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "2027 queens arts fund new work grant|queens|2026-11-17": {
+  "lat": 40.693643,
+  "lng": -73.75726,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2027 queens arts fund arts access grant|queens|2026-11-17": {
+  "lat": 40.701061,
+  "lng": -73.817459,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2027 artists in queens grant|queens|2026-12-01": {
+  "lat": 40.77297,
+  "lng": -73.81414,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2027 queens community arts grant|queens|2026-12-01": {
+  "lat": 40.700564,
+  "lng": -73.752684,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2027 go queens grant|queens|2026-12-01": {
+  "lat": 40.770374,
+  "lng": -73.773933,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2026 ttff micro grant queens 11385|queens|2026-10-29": {
+  "lat": 40.781326,
+  "lng": -73.802501,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "staten island arts 2027 fall project grants|staten_island|2027-01-31": {
+  "lat": 40.556197,
+  "lng": -74.165656,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "ipa 2027 independent project residency governors island|manhattan|2026-11-20": {
+  "lat": 40.769863,
+  "lng": -73.991842,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "roulette open call for performance proposals|brooklyn|rolling": {
+  "lat": 40.637836,
+  "lng": -73.924855,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "wave hill performing arts proposals concert series and live arts|bronx|rolling": {
+  "lat": 40.859773,
+  "lng": -73.850203,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "dance audition stage play my father s will|manhattan|2026-11-08": {
+  "lat": 40.766866,
+  "lng": -73.976198,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "harmony blossom prelude open call for dancers musicians poets and cultural artists|queens|None": {
+  "lat": 40.726297,
+  "lng": -73.782011,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "artswestchester arts alive 2027 grants|westchester_hudson|2026-12-08": {
+  "lat": 41.254902,
+  "lng": -73.91397,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "huntington arts council community impact micro grant round 6|long_island|2026-11-06": {
+  "lat": 40.735435,
+  "lng": -73.36722,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "call to artists vessels juried exhibition|long_island|2026-12-07": {
+  "lat": 40.68828,
+  "lng": -73.135354,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "open call veterans friends family and patriots|long_island|2026-11-05": {
+  "lat": 40.681346,
+  "lng": -73.317419,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "open call images of historic st mark s and the greater islip community|long_island|2026-11-03": {
+  "lat": 40.776955,
+  "lng": -73.313003,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "annual winter members show shades of blue|long_island|2026-11-25": {
+  "lat": 40.873238,
+  "lng": -73.364906,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "jersey city poet laureate 2027 2028|new_jersey|2026-11-06": {
+  "lat": 40.268933,
+  "lng": -74.907255,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "nj state council on the arts multiyear operating and program grants|new_jersey|2026-11-19": {
+  "lat": 40.32795,
+  "lng": -74.757103,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "i hope this letter reaches mictlan equity principal actors audition|manhattan|2026-12-01": {
+  "lat": 40.790526,
+  "lng": -73.976956,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "blanca and ines equity principal actors audition|manhattan|2026-11-03": {
+  "lat": 40.774742,
+  "lng": -73.966659,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the windjammer wednesday 7 30pm|queens|recurring": {
+  "lat": 40.737038,
+  "lng": -73.80166,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at cool beans coffee house thursday 8 00pm|queens|recurring": {
+  "lat": 40.704188,
+  "lng": -73.775194,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria sunday 8 30pm|queens|recurring": {
+  "lat": 40.766243,
+  "lng": -73.782083,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria tuesday 6 00pm|queens|recurring": {
+  "lat": 40.674893,
+  "lng": -73.773905,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at lilah s bar and grill tuesday 8 00pm|queens|recurring": {
+  "lat": 40.74765,
+  "lng": -73.798133,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria thursday 10 45pm|queens|recurring": {
+  "lat": 40.75295,
+  "lng": -73.755577,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at po boy brewery wednesday 6 30pm|long_island|recurring": {
+  "lat": 40.889536,
+  "lng": -73.060627,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "music open mic at irish whiskey bar tuesday 8 30pm|queens|recurring": {
+  "lat": 40.693096,
+  "lng": -73.829472,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at tommy s figz wednesday 7 00pm|manhattan|recurring": {
+  "lat": 40.826575,
+  "lng": -73.943153,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at grove 34 monday 9 00pm|queens|recurring": {
+  "lat": 40.711139,
+  "lng": -73.74554,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the wild goose monday 7 30pm|queens|recurring": {
+  "lat": 40.75991,
+  "lng": -73.839119,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at tootles french friday 8 30pm|queens|recurring": {
+  "lat": 40.721175,
+  "lng": -73.761169,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the shillelagh tavern wednesday 7 30pm|queens|recurring": {
+  "lat": 40.686927,
+  "lng": -73.759034,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "dance night at taj mahal lounge monday 5 00pm|queens|recurring": {
+  "lat": 40.691686,
+  "lng": -73.786203,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at freda monday 8 00pm|queens|recurring": {
+  "lat": 40.6943,
+  "lng": -73.829354,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at postcard brewing wednesday 7 30pm|queens|recurring": {
+  "lat": 40.70288,
+  "lng": -73.800192,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at grove 34 wednesday 10 00pm|queens|recurring": {
+  "lat": 40.674797,
+  "lng": -73.809977,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at the shillelagh tavern tuesday 9 00pm|queens|recurring": {
+  "lat": 40.738359,
+  "lng": -73.751695,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at royal bar and billiards monday 8 00pm|long_island|recurring": {
+  "lat": 40.721486,
+  "lng": -73.050194,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria thursday 6 00pm|queens|recurring": {
+  "lat": 40.781842,
+  "lng": -73.782253,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at the local ny sunday 8 30pm|queens|recurring": {
+  "lat": 40.675372,
+  "lng": -73.778054,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria saturday 11 00pm|queens|recurring": {
+  "lat": 40.760907,
+  "lng": -73.795303,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at bourbon street sunday 8 00pm|queens|recurring": {
+  "lat": 40.736557,
+  "lng": -73.804266,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria friday 6 00pm|queens|recurring": {
+  "lat": 40.72049,
+  "lng": -73.835458,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the windjammer monday 9 00pm|queens|recurring": {
+  "lat": 40.705829,
+  "lng": -73.789317,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the local ny thursday 7 00pm|queens|recurring": {
+  "lat": 40.782883,
+  "lng": -73.799727,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria monday 6 00pm|queens|recurring": {
+  "lat": 40.702594,
+  "lng": -73.756842,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria wednesday 6 00pm|queens|recurring": {
+  "lat": 40.783756,
+  "lng": -73.803935,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at dacia gallery friday 5 00pm|manhattan|recurring": {
+  "lat": 40.7639,
+  "lng": -73.996955,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dance night at jouvay night club saturday 9 00pm|queens|recurring": {
+  "lat": 40.737597,
+  "lng": -73.770971,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at terraza 7 thursday 7 00pm|queens|recurring": {
+  "lat": 40.713638,
+  "lng": -73.787655,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at qed astoria wednesday 9 30pm|queens|recurring": {
+  "lat": 40.710428,
+  "lng": -73.786312,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music open mic at lilahs bar and grill thursday 8 00pm|queens|recurring": {
+  "lat": 40.767396,
+  "lng": -73.824461,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "4 day workshop enhance your understanding of music theory|long_island|2026-10-27": {
+  "lat": 40.883506,
+  "lng": -73.363038,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "explore the possible strengthen your creative self through improv|long_island|2026-11-02": {
+  "lat": 40.751138,
+  "lng": -73.254837,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "long island craft guild presents general meeting|long_island|2026-11-12": {
+  "lat": 40.836029,
+  "lng": -73.218557,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "camera ministry lens based encounters|brooklyn|2026-11-13": {
+  "lat": 40.624797,
+  "lng": -73.958133,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "spiral tv pilot day player|manhattan|2026-10-28": {
+  "lat": 40.798768,
+  "lng": -73.956289,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "beginning again juried member show yellow studio arts center|westchester_hudson|2026-10-27": {
+  "lat": 41.280813,
+  "lng": -73.794706,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "solo exhibition open call at bau gallery upstate art weekend 2027|westchester_hudson|2027-01-31": {
+  "lat": 41.272181,
+  "lng": -73.818957,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "small works 2027 the still small voice upstream gallery|westchester_hudson|2026-12-09": {
+  "lat": 41.040713,
+  "lng": -73.743968,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "2027 alexander rutsch award for painting|westchester_hudson|2026-12-13": {
+  "lat": 41.00402,
+  "lng": -73.865856,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "2026 kinosaito annual community art benefit open call|westchester_hudson|2026-11-11": {
+  "lat": 41.231687,
+  "lng": -73.891609,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "community bluegrass jam|brooklyn|2026-11-16": {
+  "lat": 40.655824,
+  "lng": -73.937969,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "free ballroom dance workshop series sheepshead bay library|brooklyn|2026-10-27": {
+  "lat": 40.679169,
+  "lng": -73.983328,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "intro to drawing a relaxed creative workshop for adults mckinley park library|brooklyn|2026-10-29": {
+  "lat": 40.657881,
+  "lng": -73.956023,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "islip arts council adult classes and workshops|long_island|recurring": {
+  "lat": 40.865452,
+  "lng": -73.189864,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "introduction to wheel throwing workshop|new_jersey|2026-11-08": {
+  "lat": 40.275272,
+  "lng": -74.87465,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "nyc parks 44th annual wreath interpretations open call|manhattan|2026-11-01": {
+  "lat": 40.772325,
+  "lng": -73.968288,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "anchoring sight figure drawing with kiara ocasio|brooklyn|2026-11-08": {
+  "lat": 40.608617,
+  "lng": -73.945365,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "visual aids 2026 27 research fellowship|manhattan|2026-11-10": {
+  "lat": 40.800886,
+  "lng": -73.947324,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting high energy event performers and motivational dancers paid 350 600 per event|manhattan|2026-11-03": {
+  "lat": 40.825,
+  "lng": -73.944564,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting tall dancers for halloween and nightlife events 100 200 per gig|manhattan|None": {
+  "lat": 40.766877,
+  "lng": -73.972821,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dance teaching artist lower east side after school 40 50 hour|manhattan|None": {
+  "lat": 40.753854,
+  "lng": -74.002654,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at footlight underground every monday at 9pm|queens|recurring": {
+  "lat": 40.711029,
+  "lng": -73.828104,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at ethical culture society of bergen county third friday of the month at 7 30pm|new_jersey|recurring": {
+  "lat": 40.886016,
+  "lng": -74.007257,
+  "matched": "Teaneck Township, Bergen County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at finnegan s irish pub every sunday at 8pm|new_jersey|recurring": {
+  "lat": 40.743307,
+  "lng": -74.032375,
+  "matched": "Hoboken, Hudson County, New Jersey, 07030, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at comedy shop every wednesday at 9 30pm|manhattan|recurring": {
+  "lat": 40.800455,
+  "lng": -73.953607,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at my place restaurant every tuesday at 8 30pm|connecticut|recurring": {
+  "lat": 41.413476,
+  "lng": -73.308644,
+  "matched": "Newtown, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at absalom first friday of the month at 8pm|new_jersey|recurring": {
+  "lat": 40.886016,
+  "lng": -74.007257,
+  "matched": "Teaneck Township, Bergen County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "third space thursday open mic music comedy poetry|new_jersey|recurring": {
+  "lat": 40.493612,
+  "lng": -74.443642,
+  "matched": "New Brunswick, Middlesex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the colony every monday at 7pm|westchester_hudson|recurring": {
+  "lat": 42.041058,
+  "lng": -74.118249,
+  "matched": "Town of Woodstock, Ulster County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at jackie b s every wednesday at 6pm|westchester_hudson|recurring": {
+  "lat": 40.988522,
+  "lng": -73.808561,
+  "matched": "Village of Scarsdale, Westchester County, New York, 10583, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at o henry s publick house every sunday at 6pm|staten_island|recurring": {
+  "lat": 40.593042,
+  "lng": -74.158726,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "open mic at curly wolf saloon last wednesday of the month at 8pm|staten_island|recurring": {
+  "lat": 40.571052,
+  "lng": -74.137379,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "open mic at castleton corners pub second monday of the month at 8pm|staten_island|recurring": {
+  "lat": 40.598059,
+  "lng": -74.149528,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "open mic at jolo s vegan food bar and lounge fourth friday of the month at 7 30pm|westchester_hudson|recurring": {
+  "lat": 40.911539,
+  "lng": -73.782636,
+  "matched": "New Rochelle, Westchester County, New York, 10801, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at putnam house restaurant tap room every sunday at 7pm|connecticut|recurring": {
+  "lat": 41.371206,
+  "lng": -73.41401,
+  "matched": "Bethel, Western Connecticut Planning Region, Connecticut, 06801, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at daily press coffee and bar every tuesday at 7 30pm|brooklyn|recurring": {
+  "lat": 40.629678,
+  "lng": -73.925397,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "open mic at old man hustle bklyn bar every sunday at 11pm|brooklyn|recurring": {
+  "lat": 40.690624,
+  "lng": -73.939601,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "open mic at qed a place to show and tell second and fourth tuesday of the month at 6pm|queens|recurring": {
+  "lat": 40.783365,
+  "lng": -73.792033,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at eastern front brewing co every tuesday at 6pm|long_island|recurring": {
+  "lat": 41.011905,
+  "lng": -72.550539,
+  "matched": "Mattituck, Town of Southold, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the avenue restaurant bar first friday of the month at 8 30pm|queens|recurring": {
+  "lat": 40.731106,
+  "lng": -73.821651,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at the 14th street y third thursday of the month at 7 30pm|manhattan|recurring": {
+  "lat": 40.833584,
+  "lng": -73.93876,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at north fork taps and corks every wednesday at 7pm|long_island|recurring": {
+  "lat": 41.067221,
+  "lng": -72.440801,
+  "matched": "Southold, Town of Southold, Suffolk County, New York, 11971, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the wild goose pub nyc every monday at 7 30pm|queens|recurring": {
+  "lat": 40.75538,
+  "lng": -73.764363,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at the lemon squeeze new paltz every wednesday at 7pm|westchester_hudson|recurring": {
+  "lat": 41.746497,
+  "lng": -74.084489,
+  "matched": "Town of New Paltz, Ulster County, New York, 12561, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at doc hennigans third wednesday of the month at 8pm|staten_island|recurring": {
+  "lat": 40.557563,
+  "lng": -74.173877,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "open mic at green hill kitchen que every thursday at 7pm|long_island|recurring": {
+  "lat": 41.103296,
+  "lng": -72.359309,
+  "matched": "Village of Greenport, Town of Southold, Suffolk County, New York, 11944, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at jamian s every sunday at 7pm|new_jersey|recurring": {
+  "lat": 40.347054,
+  "lng": -74.064307,
+  "matched": "Red Bank, Monmouth County, New Jersey, 07701, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at chano s cantina every wednesday at 8pm|queens|recurring": {
+  "lat": 40.710832,
+  "lng": -73.816441,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at the hop shoppe every sunday at 7 30pm|staten_island|recurring": {
+  "lat": 40.584731,
+  "lng": -74.137357,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "open mic at bpt creates every wednesday at 8pm|connecticut|recurring": {
+  "lat": 41.179269,
+  "lng": -73.188786,
+  "matched": "Bridgeport, Greater Bridgeport Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at sankofa cafe every sunday at 12pm|new_jersey|recurring": {
+  "lat": 40.816446,
+  "lng": -74.221064,
+  "matched": "Montclair, Essex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "nyc christian harmony all day singing 2027|brooklyn|2027-05-15": {
+  "lat": 40.685643,
+  "lng": -73.97236,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "nuyorican poets cafe open mic at the loisaida center|manhattan|recurring": {
+  "lat": 40.73647,
+  "lng": -74.009396,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "w o w womxn orator wednesday open mic|manhattan|recurring": {
+  "lat": 40.764562,
+  "lng": -73.979294,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the twilight hour open mic after the final friday slam|manhattan|recurring": {
+  "lat": 40.832427,
+  "lng": -73.935282,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "nuyorican final friday slam|manhattan|recurring": {
+  "lat": 40.791084,
+  "lng": -73.957009,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at mary o s thursdays|manhattan|recurring": {
+  "lat": 40.739284,
+  "lng": -74.000399,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at slainte tuesdays|manhattan|recurring": {
+  "lat": 40.759858,
+  "lng": -73.997364,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at swift hibernian lounge tuesdays|manhattan|recurring": {
+  "lat": 40.792038,
+  "lng": -73.970275,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at 11th street bar sundays|manhattan|recurring": {
+  "lat": 40.755145,
+  "lng": -73.980442,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at the landmark tavern mondays|manhattan|recurring": {
+  "lat": 40.816118,
+  "lng": -73.942485,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at grace s wednesdays|manhattan|recurring": {
+  "lat": 40.781138,
+  "lng": -73.964215,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "irish trad session at the clonard thursdays|brooklyn|recurring": {
+  "lat": 40.605622,
+  "lng": -73.955715,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "irish seisi n at the canary sundays|brooklyn|recurring": {
+  "lat": 40.676486,
+  "lng": -73.936969,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "irish trad session at irish haven sundays|brooklyn|recurring": {
+  "lat": 40.611214,
+  "lng": -73.953482,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "irish trad session at the wolfhound|queens|recurring": {
+  "lat": 40.714251,
+  "lng": -73.777173,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "irish trad session at rambling house monthly|bronx|recurring": {
+  "lat": 40.86697,
+  "lng": -73.842397,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "last ary fall monday classes brooklyn music school|brooklyn|2027-01-25": {
+  "lat": 40.626482,
+  "lng": -73.95398,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "eclectik dance fusion|manhattan|2026-10-29": {
+  "lat": 40.822999,
+  "lng": -73.947107,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the adult double dutch culture jam|bronx|2026-12-05": {
+  "lat": 40.823789,
+  "lng": -73.886402,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "master class with jason robert brown|manhattan|2026-11-16": {
+  "lat": 40.748406,
+  "lng": -73.989304,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "master class with marc shaiman|manhattan|2026-12-14": {
+  "lat": 40.812238,
+  "lng": -73.939158,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "webop family jazz party a holiday jazz jam|manhattan|2026-12-06": {
+  "lat": 40.778612,
+  "lng": -73.967739,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dawson teaching artist residency|manhattan|2026-12-01": {
+  "lat": 40.817294,
+  "lng": -73.952968,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league re engage residency|manhattan|2027-01-04": {
+  "lat": 40.787111,
+  "lng": -73.959621,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league tv and film directing fellowship|manhattan|2027-01-04": {
+  "lat": 40.769638,
+  "lng": -73.991365,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league next stage residency|manhattan|2027-01-04": {
+  "lat": 40.729841,
+  "lng": -74.012457,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league beatrice terry residency|manhattan|2027-01-04": {
+  "lat": 40.807768,
+  "lng": -73.963268,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league rose directing fellowship|manhattan|2027-01-04": {
+  "lat": 40.76848,
+  "lng": -73.975261,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league futurenow directing fellowships|manhattan|2026-12-07": {
+  "lat": 40.766531,
+  "lng": -73.978579,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drama league re envision residency|manhattan|2027-01-04": {
+  "lat": 40.815164,
+  "lng": -73.946776,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "discovery sing along with sabrina chap|brooklyn|2026-10-28": {
+  "lat": 40.682512,
+  "lng": -73.932895,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "central city chorus auditions|manhattan|rolling": {
+  "lat": 40.732571,
+  "lng": -74.012237,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "singing circle community singing open to all|brooklyn|2026-11-14": {
+  "lat": 40.614983,
+  "lng": -73.936902,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "open lab group therapy jam band critical race therapy|brooklyn|2026-11-09": {
+  "lat": 40.639667,
+  "lng": -73.917563,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "vim vigor contemporary floorwork practice with shannon gillen|manhattan|2026-11-07": {
+  "lat": 40.826466,
+  "lng": -73.939883,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "here performance lab application|manhattan|2026-10-31": {
+  "lat": 40.761715,
+  "lng": -73.985942,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "studio samplers mini makers workshop drop in|new_jersey|2026-11-05": {
+  "lat": 40.209992,
+  "lng": -74.588849,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "trisha brown dance company class weekly|manhattan|recurring": {
+  "lat": 40.818839,
+  "lng": -73.936425,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dark room ballet open level class|manhattan|recurring": {
+  "lat": 40.765009,
+  "lng": -73.986925,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "klein technique movement class|manhattan|recurring": {
+  "lat": 40.819056,
+  "lng": -73.940095,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "blk sonic mvmnt lab|manhattan|recurring": {
+  "lat": 40.782633,
+  "lng": -73.983525,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "crip movement lab|manhattan|recurring": {
+  "lat": 40.791299,
+  "lng": -73.957297,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drawing painting open studio drop in|westchester_hudson|recurring": {
+  "lat": 41.239339,
+  "lng": -73.731796,
+  "matched": "near Westchester Hudson (approximate)",
+  "how": "area"
+ },
+ "everybody sing no audition choir weekly|manhattan|recurring": {
+  "lat": 40.807452,
+  "lng": -73.952687,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dance theatre of harlem part time men s company audition video submissions|manhattan|None": {
+  "lat": 40.7291,
+  "lng": -74.012385,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "dance theatre of harlem audition prep classes|manhattan|2026-11-04": {
+  "lat": 40.806688,
+  "lng": -73.955397,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pumpkin singalong at sakura park|manhattan|2026-10-27": {
+  "lat": 40.802069,
+  "lng": -73.956386,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the actors center fall lottery auditions|manhattan|2026-10-29": {
+  "lat": 40.788329,
+  "lng": -73.972601,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "rockaway theatre company fall winter workshops|queens|2026-11-22": {
+  "lat": 40.739681,
+  "lng": -73.840185,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "comics and narrative arts certificate program apply by dec 15|manhattan|2026-12-15": {
+  "lat": 40.751686,
+  "lng": -74.000775,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "bayside glee club men s chorus queens|queens|recurring": {
+  "lat": 40.735384,
+  "lng": -73.772428,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "residency videographer for reynaldo piniella paid gig|manhattan|2026-11-14": {
+  "lat": 40.761071,
+  "lng": -73.982447,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "shadow theatre workshop at china institute|manhattan|2026-11-10": {
+  "lat": 40.799619,
+  "lng": -73.963925,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "mantra mondays bring your own hand project craft circle|manhattan|2026-11-02": {
+  "lat": 40.771058,
+  "lng": -73.991205,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "gallim audition for male identifying and non binary dancers|manhattan|2026-11-23": {
+  "lat": 40.804158,
+  "lng": -73.949194,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "holidays at the park hudson yards vendor applications for artists|manhattan|2026-11-01": {
+  "lat": 40.819907,
+  "lng": -73.954889,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fabnyc open arts les open call for musicians and performing artists outdoor series|manhattan|rolling": {
+  "lat": 40.741704,
+  "lng": -74.00881,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lower east side printshop summer keyholder residency|manhattan|2027-03-01": {
+  "lat": 40.795756,
+  "lng": -73.970306,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lower east side printshop keyholder residency|manhattan|2027-05-31": {
+  "lat": 40.799921,
+  "lng": -73.964435,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the tiny cupboard brooklyn apply to perform on stand up shows|brooklyn|rolling": {
+  "lat": 40.683694,
+  "lng": -73.956093,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "eastville comedy club brooklyn daily open mics sign up in person|brooklyn|rolling": {
+  "lat": 40.640803,
+  "lng": -73.95905,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "dancers for nutcracker suite spicy|connecticut|None": {
+  "lat": 41.48448,
+  "lng": -72.648282,
+  "matched": "near Connecticut (approximate)",
+  "how": "area"
+ },
+ "kennedy dancers holiday showcase dancers wanted|new_jersey|2026-12-12": {
+  "lat": 40.18976,
+  "lng": -74.601273,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "need strong male dancer for nutcracker performances on december 3 5 6|maine|None": {
+  "lat": 44.395437,
+  "lng": -69.040124,
+  "matched": "near Maine (approximate)",
+  "how": "area"
+ },
+ "pro dancers wanted november concept reel casting nyc nj|new_jersey|None": {
+  "lat": 40.223113,
+  "lng": -74.598098,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "seeking soloist level dancers for nutcracker|new_jersey|None": {
+  "lat": 40.332072,
+  "lng": -74.72175,
+  "matched": "near New Jersey (approximate)",
+  "how": "area"
+ },
+ "wip 2027 the choreographic lab|massachusetts|None": {
+  "lat": 42.345611,
+  "lng": -71.618873,
+  "matched": "near Massachusetts (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at margaritaville tuesday 7 00pm|massachusetts|recurring": {
+  "lat": 42.327256,
+  "lng": -71.810757,
+  "matched": "near Massachusetts (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at infusion lounge philly s best cocktails hookahs cigars monday 6 00pm|pennsylvania|recurring": {
+  "lat": 39.976809,
+  "lng": -75.457065,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "comedy open mic at slainte irish pub restaurant monday 8 30pm|maryland|recurring": {
+  "lat": 39.06458,
+  "lng": -76.721262,
+  "matched": "near Maryland (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the heart ballroom philly banquet hall friday 7 30pm|pennsylvania|recurring": {
+  "lat": 40.048395,
+  "lng": -75.512417,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "dance night at sor ynez friday 6 00pm|pennsylvania|recurring": {
+  "lat": 40.148367,
+  "lng": -75.460129,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "dance night at sor ynez wednesday 6 00pm|pennsylvania|recurring": {
+  "lat": 39.979239,
+  "lng": -75.525314,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "comedy music poetry open mic at the haven wednesday 7 00pm|massachusetts|recurring": {
+  "lat": 42.15897,
+  "lng": -71.806288,
+  "matched": "near Massachusetts (approximate)",
+  "how": "area"
+ },
+ "dance night at izlas puerto rican cuisine tuesday 7 00pm|pennsylvania|recurring": {
+  "lat": 39.962038,
+  "lng": -75.4866,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "dance night at infusion lounge philly s best cocktails hookahs cigars friday 10 00pm|pennsylvania|recurring": {
+  "lat": 40.001554,
+  "lng": -75.24329,
+  "matched": "near Pennsylvania (approximate)",
+  "how": "area"
+ },
+ "open mic at hill s tavern every wednesday at 8pm|rhode_island|recurring": {
+  "lat": 41.910429,
+  "lng": -71.717637,
+  "matched": "Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the jetport restaurant lounge every wednesday at 7pm|pennsylvania|recurring": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at bill ash s lounge every wednesday at 8pm|massachusetts|recurring": {
+  "lat": 42.40843,
+  "lng": -71.011995,
+  "matched": "Revere, Suffolk County, Massachusetts, 02151, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at south county brewing co second and fourth thursday of the month at 6pm|pennsylvania|recurring": {
+  "lat": 39.727882,
+  "lng": -76.451908,
+  "matched": "Fawn Grove, York County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at muddy waters pub and restaurant every other wednesday at 6 30pm|massachusetts|recurring": {
+  "lat": 42.726202,
+  "lng": -71.190892,
+  "matched": "Methuen, Essex County, Massachusetts, 01844, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at oaks center cinema every tuesday at 8pm|pennsylvania|recurring": {
+  "lat": 40.133878,
+  "lng": -75.517283,
+  "matched": "Phoenixville, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the coffee loft first saturday of the month at 6 30pm|massachusetts|recurring": {
+  "lat": 42.346859,
+  "lng": -71.552519,
+  "matched": "Marlborough, Middlesex County, Massachusetts, 01752, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at newburyport brewing company second wednesday of the month at 6pm|massachusetts|recurring": {
+  "lat": 42.811659,
+  "lng": -70.871927,
+  "matched": "Newburyport, Essex County, Massachusetts, 01950, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the stone church restaurant pub every sunday at 7pm|new_hampshire|recurring": {
+  "lat": 43.079618,
+  "lng": -70.935784,
+  "matched": "Newmarket, Rockingham County, New Hampshire, 03857, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at casey magee s irish pub music hall every thursday at 7 30pm|new_hampshire|recurring": {
+  "lat": 42.765625,
+  "lng": -71.467703,
+  "matched": "Nashua, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at olde mill tavern every tuesday at 6pm|maine|recurring": {
+  "lat": 44.110761,
+  "lng": -70.679855,
+  "matched": "Harrison, Cumberland County, Maine, 04040, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at strings bar grill every wednesday at 7pm|rhode_island|recurring": {
+  "lat": 41.83104,
+  "lng": -71.54121,
+  "matched": "Johnston, Providence County, Rhode Island, 02919, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at steel city coffeehouse every thursday at 7pm|pennsylvania|recurring": {
+  "lat": 40.133878,
+  "lng": -75.517283,
+  "matched": "Phoenixville, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at may october sky stage second friday of the month at 7pm|maryland|recurring": {
+  "lat": 39.415779,
+  "lng": -77.412756,
+  "matched": "Frederick, Frederick County, Maryland, 21709, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at shipwreck tavern third wednesday of the month at 7pm|connecticut|recurring": {
+  "lat": 41.358154,
+  "lng": -72.563702,
+  "matched": "Killingworth, Lower Connecticut River Valley Planning Region, Connecticut, 06419, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at soundcheck studios every monday at 7pm|massachusetts|recurring": {
+  "lat": 42.071491,
+  "lng": -70.809207,
+  "matched": "Pembroke, Plymouth County, Massachusetts, 02359, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at shermans creek inn every tuesday at 6pm|pennsylvania|recurring": {
+  "lat": 40.324253,
+  "lng": -77.173037,
+  "matched": "Shermans Dale, Carroll Township, Perry County, Pennsylvania, 17090, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the pub at two mile corner every wednesday at 7 30pm|rhode_island|recurring": {
+  "lat": 41.545658,
+  "lng": -71.291439,
+  "matched": "Middletown, Newport County, Rhode Island, 02842, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at riverbay roadhouse every other tuesday at 7pm|maryland|recurring": {
+  "lat": 38.97864,
+  "lng": -76.492786,
+  "matched": "Annapolis, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the updike room at the greenwich hotel every tuesday at 7pm|rhode_island|recurring": {
+  "lat": 41.660379,
+  "lng": -71.455891,
+  "matched": "East Greenwich, Kent County, Rhode Island, 02818, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at christopher s pub every thursday at 6pm|new_jersey|recurring": {
+  "lat": 39.952839,
+  "lng": -74.196741,
+  "matched": "Toms River, Ocean County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at saloon every tuesday at 9pm|dc|recurring": {
+  "lat": 38.895098,
+  "lng": -77.036385,
+  "matched": "Washington, District of Columbia, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at mooney s every wednesday at 6pm|pennsylvania|recurring": {
+  "lat": 41.957296,
+  "lng": -76.517999,
+  "matched": "Athens, Bradford County, Pennsylvania, 18810, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at sparky s every sunday at 9pm|pennsylvania|recurring": {
+  "lat": 40.157556,
+  "lng": -74.832129,
+  "matched": "Levittown, Bristol Township, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at lily s pad first and third wednesday of the month at 7pm|vermont|recurring": {
+  "lat": 44.47616,
+  "lng": -73.212906,
+  "matched": "Burlington, Chittenden County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the grateful den every tuesday at 6pm|upstate_ny|recurring": {
+  "lat": 43.309941,
+  "lng": -73.644447,
+  "matched": "City of Glens Falls, Warren County, New York, 12801, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at otter river pub the onion every wednesday at 7pm|massachusetts|recurring": {
+  "lat": 42.555725,
+  "lng": -72.067393,
+  "matched": "Templeton, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at stan and joe s saloon every monday at 8pm|maryland|recurring": {
+  "lat": 38.97864,
+  "lng": -76.492786,
+  "matched": "Annapolis, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at slow hand wc third tuesday of the month at 8pm|pennsylvania|recurring": {
+  "lat": 39.959739,
+  "lng": -75.604461,
+  "matched": "West Chester, Chester County, Pennsylvania, 19383, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the back lot every monday at 7 30pm|rhode_island|recurring": {
+  "lat": 41.8501,
+  "lng": -71.46617,
+  "matched": "North Providence, Providence County, Rhode Island, 02911, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at classics pub every tuesday at 9pm|massachusetts|recurring": {
+  "lat": 42.526744,
+  "lng": -71.761489,
+  "matched": "Leominster, Worcester County, Massachusetts, 01453, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at bogie s every wednesday at 7pm|new_hampshire|recurring": {
+  "lat": 42.94172,
+  "lng": -70.837875,
+  "matched": "Hampton, Rockingham County, New Hampshire, 03842, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at veterans of foreign wars last friday of the month at 6 30pm|massachusetts|recurring": {
+  "lat": 42.065377,
+  "lng": -71.247831,
+  "matched": "Foxborough, Norfolk County, Massachusetts, 02035, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at pine loft cafe every thursday at 6 30pm|connecticut|recurring": {
+  "lat": 41.621488,
+  "lng": -72.745652,
+  "matched": "Berlin, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the circle every wednesday at 8pm|pennsylvania|recurring": {
+  "lat": 39.800532,
+  "lng": -76.983257,
+  "matched": "Hanover, York County, Pennsylvania, 17331, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at strange brew tavern every wednesday at 8pm|new_hampshire|recurring": {
+  "lat": 42.99564,
+  "lng": -71.454789,
+  "matched": "Manchester, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at navigate second friday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 40.176181,
+  "lng": -74.920248,
+  "matched": "Langhorne, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at caf 641 first thursday of the month at 6pm|massachusetts|recurring": {
+  "lat": 42.39135,
+  "lng": -71.56769,
+  "matched": "Hudson, Middlesex County, Massachusetts, 01749, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at sam s brick oven pizza every monday at 8 30pm|pennsylvania|recurring": {
+  "lat": 40.004128,
+  "lng": -75.288289,
+  "matched": "Ardmore, Lower Merion Township, Montgomery County, Pennsylvania, 19003, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at tac downtown arts music first thursday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.277318,
+  "lng": -71.41659,
+  "matched": "Framingham, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at peak s pub franconia inn every thursday at 7pm|new_hampshire|recurring": {
+  "lat": 44.227392,
+  "lng": -71.747847,
+  "matched": "Franconia, Grafton County, New Hampshire, 03580, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at nineteen carter second friday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.381366,
+  "lng": -71.637264,
+  "matched": "Berlin, Worcester County, Massachusetts, 01503, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at river garden marketplace every monday at 6pm|vermont|recurring": {
+  "lat": 42.850759,
+  "lng": -72.557291,
+  "matched": "Brattleboro, Windham County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at pelican pub and grill every thursday at 7pm|massachusetts|recurring": {
+  "lat": 42.466763,
+  "lng": -70.949494,
+  "matched": "Lynn, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at elks lodge 1933 fourth saturday of the month at 7 30pm|pennsylvania|recurring": {
+  "lat": 40.179911,
+  "lng": -76.178924,
+  "matched": "Ephrata, Lancaster County, Pennsylvania, 17522, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at td s pub every wednesday at 7pm|massachusetts|recurring": {
+  "lat": 42.142891,
+  "lng": -71.516462,
+  "matched": "Milford, Worcester County, Massachusetts, 01757, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at copper creek pub ale house every thursday at 8 30pm|maryland|recurring": {
+  "lat": 39.082619,
+  "lng": -76.571968,
+  "matched": "Severna Park, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at backward flag brewing every thursday at 6pm|new_jersey|recurring": {
+  "lat": 39.824676,
+  "lng": -74.14797,
+  "matched": "Forked River, Lacey Township, Ocean County, New Jersey, 08731, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at buskers pub every wednesday at 9pm|rhode_island|recurring": {
+  "lat": 41.489983,
+  "lng": -71.313771,
+  "matched": "Newport, Newport County, Rhode Island, 02840, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at september s too every thursday at 8pm|upstate_ny|recurring": {
+  "lat": 42.651167,
+  "lng": -73.754968,
+  "matched": "City of Albany, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the shanty on 19th every tuesday at 7pm|pennsylvania|recurring": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at pub 49 first monday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.566498,
+  "lng": -70.936296,
+  "matched": "Danvers, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at 7th sister every wednesday at 7pm|maryland|recurring": {
+  "lat": 39.415779,
+  "lng": -77.412756,
+  "matched": "Frederick, Frederick County, Maryland, 21709, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at pelican pub and grill every sunday at 7pm|massachusetts|recurring": {
+  "lat": 42.466763,
+  "lng": -70.949494,
+  "matched": "Lynn, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at lockheart restaurant every wednesday at 7pm|massachusetts|recurring": {
+  "lat": 42.296486,
+  "lng": -71.292557,
+  "matched": "Wellesley, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at whitpain tavern every thursday at 9pm|pennsylvania|recurring": {
+  "lat": 40.147809,
+  "lng": -75.272781,
+  "matched": "Blue Bell, Center Square, Whitpain Township, Montgomery County, Pennsylvania, 19422, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at kosta s old town every thursday at 5pm|maine|recurring": {
+  "lat": 44.935398,
+  "lng": -68.645891,
+  "matched": "Old Town, Penobscot County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at jewish community center every thursday at 6 30pm|connecticut|recurring": {
+  "lat": 41.579261,
+  "lng": -73.495679,
+  "matched": "Sherman, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at january may september november live lawrence library third friday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.665032,
+  "lng": -71.578592,
+  "matched": "Pepperell, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the foundry church first friday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 39.900437,
+  "lng": -75.369624,
+  "matched": "Nether Providence Township, Delaware County, Pennsylvania, 19086, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at red rose irish pub every wednesday at 7 30pm|massachusetts|recurring": {
+  "lat": 42.221219,
+  "lng": -70.939162,
+  "matched": "Weymouth, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at hawley public library third tuesday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 41.475922,
+  "lng": -75.182119,
+  "matched": "Hawley, Wayne County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at courthouse brew co every thursday at 7pm|massachusetts|recurring": {
+  "lat": 42.262562,
+  "lng": -71.801888,
+  "matched": "Worcester, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the highliner iii second and fourth thursday of the month at 7pm|connecticut|recurring": {
+  "lat": 41.286031,
+  "lng": -72.448787,
+  "matched": "Westbrook, Lower Connecticut River Valley Planning Region, Connecticut, 06498, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at patrick s pub eatery every monday at 7pm|new_hampshire|recurring": {
+  "lat": 43.54805,
+  "lng": -71.407013,
+  "matched": "Gilford, Belknap County, New Hampshire, 03249, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at blend last thursday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 40.726519,
+  "lng": -75.393491,
+  "matched": "Bath, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at caffe lena every monday at 7pm|upstate_ny|recurring": {
+  "lat": 43.082231,
+  "lng": -73.785373,
+  "matched": "City of Saratoga Springs, Saratoga County, New York, 12866, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at vfw post 5446 every wednesday at 7pm|connecticut|recurring": {
+  "lat": 41.679937,
+  "lng": -71.914728,
+  "matched": "Plainfield, Northeastern Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at woodbury heights starbucks music cafe first friday of the month at 7pm|new_jersey|recurring": {
+  "lat": 39.817058,
+  "lng": -75.155178,
+  "matched": "Woodbury Heights, Gloucester County, New Jersey, 08097, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at just rock enterprises third thursday of the month at 7pm|maryland|recurring": {
+  "lat": 38.942968,
+  "lng": -76.955803,
+  "matched": "Brentwood, Prince George's County, Maryland, 20722, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at pappy t s pub and lounge every thursday at 8pm|pennsylvania|recurring": {
+  "lat": 40.555308,
+  "lng": -75.982408,
+  "matched": "Hamburg, Berks County, Pennsylvania, 19526, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at archie s big heads every thursday at 9pm|pennsylvania|recurring": {
+  "lat": 40.206775,
+  "lng": -75.099616,
+  "matched": "Warminster Township, Bucks County, Pennsylvania, 18974, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the deep end every wednesday at 7pm|maryland|recurring": {
+  "lat": 39.658333,
+  "lng": -78.928424,
+  "matched": "Frostburg, Allegany County, Maryland, 21532, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at play by play sports bar grill every wednesday at 8pm|upstate_ny|recurring": {
+  "lat": 42.814243,
+  "lng": -73.939569,
+  "matched": "City of Schenectady, Schenectady County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at rustic barn pub every thursday at 8pm|upstate_ny|recurring": {
+  "lat": 42.728412,
+  "lng": -73.691788,
+  "matched": "City of Troy, Rensselaer County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at easton s food drink every tuesday at 6pm|upstate_ny|recurring": {
+  "lat": 42.905006,
+  "lng": -77.611668,
+  "matched": "Town of Lima, Livingston County, New York, 14485, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at guthrie center second thursday of the month at 6 30pm|massachusetts|recurring": {
+  "lat": 42.193936,
+  "lng": -73.362773,
+  "matched": "Great Barrington, Berkshire County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at weyerbacher allentown biergarten every thursday at 6pm|pennsylvania|recurring": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at jimmy the greek s every wednesday at 6pm|maine|recurring": {
+  "lat": 43.507557,
+  "lng": -70.356157,
+  "matched": "Old Orchard Beach, York County, Maine, 04064, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at killington distillery still on the mountain every sunday at 6pm|vermont|recurring": {
+  "lat": 43.67433,
+  "lng": -72.778445,
+  "matched": "Killington, Rutland County, Vermont, 05751, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at wayland free public library second tuesday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.363206,
+  "lng": -71.360672,
+  "matched": "Wayland, Middlesex County, Massachusetts, 01778, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at j p s bar and lounge every monday at 7pm|upstate_ny|recurring": {
+  "lat": 42.774245,
+  "lng": -73.700119,
+  "matched": "City of Cohoes, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at sandbox brewhouse first and third wednesday of the month at 6pm|maryland|recurring": {
+  "lat": 39.415779,
+  "lng": -77.412756,
+  "matched": "Frederick, Frederick County, Maryland, 21709, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at knights of columbus every thursday at 7 30pm|massachusetts|recurring": {
+  "lat": 42.456432,
+  "lng": -71.064182,
+  "matched": "Melrose, Middlesex County, Massachusetts, 02176, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at lehigh valley active life second sunday of the month at 2pm|pennsylvania|recurring": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at bolton street tavern second and fourth tuesday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.346859,
+  "lng": -71.552519,
+  "matched": "Marlborough, Middlesex County, Massachusetts, 01752, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the raven every thursday at 7pm|massachusetts|recurring": {
+  "lat": 42.262562,
+  "lng": -71.801888,
+  "matched": "Worcester, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at north reading community coffeehouse every monday at 6pm|massachusetts|recurring": {
+  "lat": 42.575094,
+  "lng": -71.078665,
+  "matched": "North Reading, Middlesex County, Massachusetts, 01864, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at brewers cask every wednesday at 7pm|maryland|recurring": {
+  "lat": 39.290882,
+  "lng": -76.610759,
+  "matched": "Baltimore, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at franco s trattoria third tuesday of the month at 6pm|massachusetts|recurring": {
+  "lat": 42.383428,
+  "lng": -71.416173,
+  "matched": "Sudbury, Middlesex County, Massachusetts, 01776, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the indo pub every monday at 8pm|massachusetts|recurring": {
+  "lat": 42.548974,
+  "lng": -70.878188,
+  "matched": "Beverly, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the pavillion lounge every friday at 8pm|new_jersey|recurring": {
+  "lat": 40.846255,
+  "lng": -74.743306,
+  "matched": "Mount Olive, Morris County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at time out ii at o donnell s every wednesday at 8pm|new_jersey|recurring": {
+  "lat": 39.891862,
+  "lng": -75.11619,
+  "matched": "Gloucester City, Camden County, New Jersey, 08030, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at fast eddie s billiards cafe every friday at 9pm|connecticut|recurring": {
+  "lat": 41.577099,
+  "lng": -73.41058,
+  "matched": "New Milford, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at ucc north hampton third friday of the month at 6 30pm|new_hampshire|recurring": {
+  "lat": 42.968981,
+  "lng": -70.835949,
+  "matched": "North Hampton, Rockingham County, New Hampshire, 03862, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at johnny s irish pub second and fourth thursday of the month at 7pm|upstate_ny|recurring": {
+  "lat": 43.157285,
+  "lng": -77.615214,
+  "matched": "City of Rochester, Monroe County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at mezzos every tuesday at 7pm|maryland|recurring": {
+  "lat": 39.65265,
+  "lng": -78.762383,
+  "matched": "Cumberland, Allegany County, Maryland, 21502, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the nest every tuesday at 7pm|rhode_island|recurring": {
+  "lat": 41.677046,
+  "lng": -71.26616,
+  "matched": "Bristol, Bristol County, Rhode Island, 02809, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the people s pub first wednesday of the month at 7 30pm|upstate_ny|recurring": {
+  "lat": 42.364252,
+  "lng": -73.594839,
+  "matched": "Town of Chatham, Columbia County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at muddy waters gastropub every thursday at 8pm|new_jersey|recurring": {
+  "lat": 40.668599,
+  "lng": -75.010278,
+  "matched": "Bethlehem Township, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at average joe s beernasium every thursday at 7 30pm|upstate_ny|recurring": {
+  "lat": 43.158679,
+  "lng": -76.33271,
+  "matched": "Village of Baldwinsville, Town of Lysander, Onondaga County, New York, 13027, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the bucket every thursday at 8pm|pennsylvania|recurring": {
+  "lat": 40.026681,
+  "lng": -76.533439,
+  "matched": "Wrightsville, York County, Pennsylvania, 17368, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at union music first saturday of the month at 1pm|massachusetts|recurring": {
+  "lat": 42.262562,
+  "lng": -71.801888,
+  "matched": "Worcester, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the v spot bar every tuesday at 6 30pm|pennsylvania|recurring": {
+  "lat": 41.408687,
+  "lng": -75.662129,
+  "matched": "Scranton, Lackawanna County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the starlite lounge every wednesday at 8pm|pennsylvania|recurring": {
+  "lat": 40.440697,
+  "lng": -80.002567,
+  "matched": "Pittsburgh, Allegheny County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at jake and johnny s lounge every tuesday at 8pm|rhode_island|recurring": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at tuned up brewing company every wednesday at 7 30pm|pennsylvania|recurring": {
+  "lat": 40.177828,
+  "lng": -75.545644,
+  "matched": "Spring City, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at wing power every wednesday at 6pm|rhode_island|recurring": {
+  "lat": 41.922043,
+  "lng": -71.549507,
+  "matched": "Smithfield, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at arrowhead acres first sunday of the month at 1pm|connecticut|recurring": {
+  "lat": 41.609055,
+  "lng": -72.14619,
+  "matched": "Franklin, Southeastern Connecticut Planning Region, Connecticut, 06254, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at black locust hops farm brewery second sunday of the month at 2pm|maryland|recurring": {
+  "lat": 39.704826,
+  "lng": -76.68386,
+  "matched": "Freeland, Baltimore County, Maryland, 21105, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at fast breaks restaurant every monday at 7pm|maine|recurring": {
+  "lat": 44.099072,
+  "lng": -70.21771,
+  "matched": "Lewiston, Androscoggin County, Maine, 04240, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at 7 locks brewing first wednesday of the month at 6pm|maryland|recurring": {
+  "lat": 39.081798,
+  "lng": -77.151684,
+  "matched": "Rockville, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at cedar hollow inn first wednesday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 40.036202,
+  "lng": -75.513896,
+  "matched": "Malvern, Chester County, Pennsylvania, 19355, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at riley s place every wednesday at 7pm|new_hampshire|recurring": {
+  "lat": 42.835577,
+  "lng": -71.649535,
+  "matched": "Milford, Hillsborough County, New Hampshire, 03055, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the rendezvous first and third monday of the month at 8 30pm|massachusetts|recurring": {
+  "lat": 42.608309,
+  "lng": -72.556788,
+  "matched": "Turners Falls, Montague, Franklin County, Massachusetts, 01376, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at lancaster methodist church hall third saturday of the month at 5pm|new_hampshire|recurring": {
+  "lat": 44.489906,
+  "lng": -71.569451,
+  "matched": "Lancaster, Coös County, New Hampshire, 03584, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at parish center for the arts second and fourth sunday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.579258,
+  "lng": -71.437841,
+  "matched": "Westford, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at calvert library twin beaches branch first and third thursday of the month at 6pm|maryland|recurring": {
+  "lat": 38.70488,
+  "lng": -76.533174,
+  "matched": "North Beach, Calvert County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at ocean tattoos every thursday at 6pm|new_jersey|recurring": {
+  "lat": 39.364285,
+  "lng": -74.422935,
+  "matched": "Atlantic City, Atlantic County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at cady s tavern every thursday at 7 30pm|rhode_island|recurring": {
+  "lat": 41.909763,
+  "lng": -71.665667,
+  "matched": "Chepachet, Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at cocoon coffee house first friday of the month at 7pm|pennsylvania|recurring": {
+  "lat": 41.475922,
+  "lng": -75.182119,
+  "matched": "Hawley, Wayne County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at boomerangs roadhouse every wednesday at 7pm|rhode_island|recurring": {
+  "lat": 41.70613,
+  "lng": -71.522145,
+  "matched": "West Warwick, Kent County, Rhode Island, 02893, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at donna s tavern restaurant first thursday of the month at 6 30pm|maryland|recurring": {
+  "lat": 39.262435,
+  "lng": -76.487059,
+  "matched": "Dundalk, North Point Village, Baltimore County, Maryland, 21222, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at hugh oneill s irish pub every wednesday at 8pm|massachusetts|recurring": {
+  "lat": 42.426848,
+  "lng": -71.068374,
+  "matched": "Malden, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at poets for dinner last sunday of the month at 5pm|maryland|recurring": {
+  "lat": 39.290882,
+  "lng": -76.610759,
+  "matched": "Baltimore, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the pattenburg house every wednesday at 7pm|new_jersey|recurring": {
+  "lat": 40.636212,
+  "lng": -75.016282,
+  "matched": "Pattenburg, Union, Hunterdon County, New Jersey, 08802, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at veterans of foreign wars post 350 every tuesday at 6 30pm|maryland|recurring": {
+  "lat": 38.977888,
+  "lng": -77.007476,
+  "matched": "Takoma Park, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at vfw post 7272 second and last wednesday of the month at 7 30pm|massachusetts|recurring": {
+  "lat": 42.086949,
+  "lng": -71.474644,
+  "matched": "Bellingham, Norfolk County, Massachusetts, 02019, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at center for peace through culture third wednesday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.254931,
+  "lng": -73.366539,
+  "matched": "Housatonic, Great Barrington, Berkshire County, Massachusetts, 01236, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at prescott community center second friday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.611224,
+  "lng": -71.57454,
+  "matched": "Groton, Middlesex County, Massachusetts, 01450, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at slater s every thursday at 7pm|massachusetts|recurring": {
+  "lat": 42.434234,
+  "lng": -71.609774,
+  "matched": "Bolton, Worcester County, Massachusetts, 01740, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at indian ladder farms cidery and brewery first third fourth and fifth thursday of the month at 6pm|upstate_ny|recurring": {
+  "lat": 42.700632,
+  "lng": -74.033738,
+  "matched": "Village of Altamont, Town of Guilderland, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at metzy s cantina every thursday at 7pm|massachusetts|recurring": {
+  "lat": 42.811659,
+  "lng": -70.871927,
+  "matched": "Newburyport, Essex County, Massachusetts, 01950, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the buttonwood tree every monday at 7pm|connecticut|recurring": {
+  "lat": 41.562318,
+  "lng": -72.650906,
+  "matched": "Middletown, Lower Connecticut River Valley Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at dirigible brewing company first sunday of the month at 2pm|massachusetts|recurring": {
+  "lat": 42.537592,
+  "lng": -71.51201,
+  "matched": "Littleton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at deangelos play by play sports bar grill every monday at 8pm|upstate_ny|recurring": {
+  "lat": 42.814243,
+  "lng": -73.939569,
+  "matched": "City of Schenectady, Schenectady County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at riley s place every thursday at 7pm|new_hampshire|recurring": {
+  "lat": 42.835577,
+  "lng": -71.649535,
+  "matched": "Milford, Hillsborough County, New Hampshire, 03055, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the temperance house every wednesday at 7pm|pennsylvania|recurring": {
+  "lat": 40.229405,
+  "lng": -74.936533,
+  "matched": "Newtown, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at schooners bar beer garden every monday at 7pm|massachusetts|recurring": {
+  "lat": 42.359394,
+  "lng": -71.145409,
+  "matched": "Portsmouth Street Playground, Brighton, Boston, Suffolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at signature brewery saloon every monday at 6 30pm|pennsylvania|recurring": {
+  "lat": 40.986426,
+  "lng": -75.194665,
+  "matched": "Stroudsburg, Monroe County, Pennsylvania, 18360, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at lower forge brewery second friday of the month at 7pm|new_jersey|recurring": {
+  "lat": 39.900947,
+  "lng": -74.823496,
+  "matched": "Medford Township, Burlington County, New Jersey, 08055, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the funhouse every monday at 9pm|pennsylvania|recurring": {
+  "lat": 40.617891,
+  "lng": -75.378652,
+  "matched": "Bethlehem, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at ward 4 every wednesday at 7 30pm|massachusetts|recurring": {
+  "lat": 42.330044,
+  "lng": -71.194862,
+  "matched": "Newton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at starving artist cafe every thursday at 6pm|new_jersey|recurring": {
+  "lat": 40.405879,
+  "lng": -74.977359,
+  "matched": "Stockton, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the black bear inn every tuesday at 8pm|upstate_ny|recurring": {
+  "lat": 42.730078,
+  "lng": -73.70123,
+  "matched": "City of Watervliet, Albany County, New York, 12189, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at trinity s coffeehouse third friday of the month at 7pm|massachusetts|recurring": {
+  "lat": 42.319601,
+  "lng": -71.642241,
+  "matched": "Northborough, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at java madness every saturday at 2pm|rhode_island|recurring": {
+  "lat": 41.437324,
+  "lng": -71.501447,
+  "matched": "Wakefield, South Kingstown, South County, Rhode Island, 02879, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at high note hollow first tuesday of the month at 6pm|pennsylvania|recurring": {
+  "lat": 39.952724,
+  "lng": -75.163526,
+  "matched": "Philadelphia, Philadelphia County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at deer isle every thursday at 6 30pm|maine|recurring": {
+  "lat": 44.224044,
+  "lng": -68.677597,
+  "matched": "Deer Isle, Hancock County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at scott church s the church every thursday at 7pm|pennsylvania|recurring": {
+  "lat": 40.375713,
+  "lng": -76.462612,
+  "matched": "Lebanon County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the mediator stage every thursday at 7 30pm|rhode_island|recurring": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at main street gallery work space third thursday of the month at 7pm|connecticut|recurring": {
+  "lat": 41.783402,
+  "lng": -72.523197,
+  "matched": "Manchester, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at hank dietle s tavern every monday at 7pm|maryland|recurring": {
+  "lat": 39.081798,
+  "lng": -77.151684,
+  "matched": "Rockville, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at unity house of pizza every tuesday at 6 30pm|maine|recurring": {
+  "lat": 44.611269,
+  "lng": -69.334425,
+  "matched": "Unity, Waldo County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at basil wick s every monday at 6pm|upstate_ny|recurring": {
+  "lat": 43.691484,
+  "lng": -73.986727,
+  "matched": "North Creek, Town of Johnsburg, Town of Chester, Warren County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at the waterfront hotel every wednesday at 8pm|maryland|recurring": {
+  "lat": 39.290882,
+  "lng": -76.610759,
+  "matched": "Baltimore, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at st stanislaus society every wednesday at 7pm|massachusetts|recurring": {
+  "lat": 42.590123,
+  "lng": -72.549733,
+  "matched": "Montague, Franklin County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "open mic at loaded question brewing company first wednesday of the month at 6pm|new_hampshire|recurring": {
+  "lat": 43.075131,
+  "lng": -70.760183,
+  "matched": "Portsmouth, Rockingham County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "eurydice actors audition|massachusetts|2026-11-18": {
+  "lat": 41.735387,
+  "lng": -70.193909,
+  "matched": "Dennis, Barnstable County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "fiddler on the roof actors audition|rhode_island|2026-12-11": {
+  "lat": 41.730379,
+  "lng": -71.282549,
+  "matched": "Warren, Bristol County, Rhode Island, 02885, United States (approximate)",
+  "how": "area"
+ },
+ "fright fest actors audition|new_jersey|2026-11-01": {
+  "lat": 39.776505,
+  "lng": -74.862385,
+  "matched": "Jackson, Waterford Township, Camden County, New Jersey, 08004, United States (approximate)",
+  "how": "area"
+ },
+ "the importance of being earnest actors audition|maine|2027-01-22": {
+  "lat": 44.550577,
+  "lng": -69.630317,
+  "matched": "Waterville, Kennebec County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "robert motherwell renate ponsold fellowship low residency research outer cape cod|massachusetts|2026-11-02": {
+  "lat": 42.320613,
+  "lng": -71.820724,
+  "matched": "near Massachusetts (approximate)",
+  "how": "area"
+ },
+ "the whaling museum presents crafts cocktails corn husk figures|long_island|2026-11-12": {
+  "lat": 40.7287,
+  "lng": -73.395406,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "the babylon chorale presents community holiday sing along|long_island|2026-12-12": {
+  "lat": 40.805355,
+  "lng": -73.146936,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "swing dance long island presents the mess around band|long_island|2026-12-15": {
+  "lat": 40.707523,
+  "lng": -73.245114,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "swing dance long island presents the gold coast jazz band|long_island|2026-12-29": {
+  "lat": 40.65446,
+  "lng": -73.195525,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "lisa polizzi jam|long_island|2026-10-29": {
+  "lat": 40.713587,
+  "lng": -73.322737,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "craft corner|new_jersey|2026-10-28": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "jersey art meetup jam|new_jersey|2026-10-28": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "acp byob wheel ceramics|new_jersey|2026-11-06": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "pop up choir princeton|new_jersey|2026-11-10": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "acp byob suminagashi paper marbling|new_jersey|2026-11-12": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "story verse a storytelling and poetic open mic|new_jersey|2026-11-19": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "acp byob wrapping paper palooza|new_jersey|2026-12-02": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "acp byob hand lettered gift tags place cards|new_jersey|2026-12-08": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "acp byob printed ceramic trinket dishes|new_jersey|2026-12-11": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "princeton crit small group critique|new_jersey|2027-01-12": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "harmony in motion a music movement workshop|long_island|2026-11-06": {
+  "lat": 40.772503,
+  "lng": -73.310178,
+  "matched": "near Long Island (approximate)",
+  "how": "area"
+ },
+ "graphic designer|manhattan|2026-12-19": {
+  "lat": 40.815684,
+  "lng": -73.944297,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "multimedia designer|manhattan|2026-12-13": {
+  "lat": 40.773618,
+  "lng": -73.988344,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "coburn gore lpoe art in architecture project|maine|2026-11-18": {
+  "lat": 45.379215,
+  "lng": -70.803407,
+  "matched": "Coburn Gore, Franklin County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "baxter st residency|manhattan|2026-11-25": {
+  "lat": 40.760738,
+  "lng": -73.985449,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "saltonstall juried residency|upstate_ny|2026-12-06": {
+  "lat": 42.437418,
+  "lng": -76.548372,
+  "matched": "Town of Ithaca, Tompkins County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "peep space flat file not flat file|westchester_hudson|2026-10-28": {
+  "lat": 41.076208,
+  "lng": -73.858746,
+  "matched": "Village of Tarrytown, Town of Greenburgh, Westchester County, New York, 10591, United States (approximate)",
+  "how": "area"
+ },
+ "wave farm research and production|westchester_hudson|2026-12-01": {
+  "lat": 42.310919,
+  "lng": -74.055413,
+  "matched": "Acra, Town of Cairo, Greene County, New York, 12405, United States (approximate)",
+  "how": "area"
+ },
+ "east end arts glimmer 2027|long_island|2027-01-03": {
+  "lat": 40.916869,
+  "lng": -72.662419,
+  "matched": "Town of Riverhead, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "freeport library community drum circle|long_island|2026-11-06": {
+  "lat": 40.735299,
+  "lng": -73.561578,
+  "matched": "Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "middle country library drum circle|long_island|2026-12-09": {
+  "lat": 40.883232,
+  "lng": -72.857803,
+  "matched": "Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "enfield library community drum circle|connecticut|2026-11-18": {
+  "lat": 41.976772,
+  "lng": -72.591711,
+  "matched": "Enfield, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "enfield library first wednesdays open mic|connecticut|2026-11-04": {
+  "lat": 41.976772,
+  "lng": -72.591711,
+  "matched": "Enfield, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "earth beat drum and song circle|upstate_ny|2026-10-28": {
+  "lat": 43.229454,
+  "lng": -73.447134,
+  "matched": "Washington County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "the art guild whats the message|long_island|2026-11-09": {
+  "lat": 40.735299,
+  "lng": -73.561578,
+  "matched": "Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "flushing town hall monthly jazz jam|queens|2026-11-11": {
+  "lat": 40.75853,
+  "lng": -73.826911,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "south bronx folk festival danza fiesta|bronx|2026-11-14": {
+  "lat": 40.844147,
+  "lng": -73.858858,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "snug harbor tiny gardens terrarium workshop|staten_island|2026-11-14": {
+  "lat": 40.550906,
+  "lng": -74.132153,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "shoreline arts trail open studios|connecticut|2026-11-14": {
+  "lat": 41.721865,
+  "lng": -72.730811,
+  "matched": "near Connecticut (approximate)",
+  "how": "area"
+ },
+ "patchogue arts council photographers group|long_island|2026-11-11": {
+  "lat": 40.883232,
+  "lng": -72.857803,
+  "matched": "Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "coventry arts guild ekphrastic writing workshop|connecticut|2027-03-27": {
+  "lat": 41.770099,
+  "lng": -72.30508,
+  "matched": "Coventry, Capitol Planning Region, Connecticut, 06238, United States (approximate)",
+  "how": "area"
+ },
+ "coventry arts guild ekphrastic music workshop|connecticut|2027-04-24": {
+  "lat": 41.770099,
+  "lng": -72.30508,
+  "matched": "Coventry, Capitol Planning Region, Connecticut, 06238, United States (approximate)",
+  "how": "area"
+ },
+ "enfield library crochet basics with mel|connecticut|2027-01-20": {
+  "lat": 41.976772,
+  "lng": -72.591711,
+  "matched": "Enfield, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "westport library sit and stitch|connecticut|2026-11-04": {
+  "lat": 41.141486,
+  "lng": -73.357895,
+  "matched": "Westport, Western Connecticut Planning Region, Connecticut, 06880, United States (approximate)",
+  "how": "area"
+ },
+ "derby neck library needlers club|connecticut|2026-11-14": {
+  "lat": 41.322361,
+  "lng": -73.089032,
+  "matched": "Derby, Naugatuck Valley Planning Region, Connecticut, 06418, United States (approximate)",
+  "how": "area"
+ },
+ "north bergen library creative writing club|new_jersey|2026-11-16": {
+  "lat": 40.804267,
+  "lng": -74.012084,
+  "matched": "North Bergen, Hudson County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "writers on writing endings|new_jersey|2026-11-12": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "crafts stitch club princeton|new_jersey|2026-11-19": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "plane simple woodworking meetup|connecticut|2026-11-02": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "cnc woodworking basics designing with vcarve|connecticut|2026-11-18": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "handcrafted pens wood turning workshop|connecticut|2026-11-21": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "craft your own cutting board intro to woodworking basics|connecticut|2026-11-29": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "knot just knitting crochet embroidery and more|connecticut|2026-11-29": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "crochet a granny square|new_jersey|2026-11-03": {
+  "lat": 40.094099,
+  "lng": -74.214989,
+  "matched": "Lakewood Township, Ocean County, New Jersey, 08701, United States (approximate)",
+  "how": "area"
+ },
+ "mini basket weaving craft mini cestas|new_jersey|2026-11-09": {
+  "lat": 40.094099,
+  "lng": -74.214989,
+  "matched": "Lakewood Township, Ocean County, New Jersey, 08701, United States (approximate)",
+  "how": "area"
+ },
+ "mi kmaq quill art craft|new_jersey|2026-11-10": {
+  "lat": 40.094099,
+  "lng": -74.214989,
+  "matched": "Lakewood Township, Ocean County, New Jersey, 08701, United States (approximate)",
+  "how": "area"
+ },
+ "2027 air summer communal application|westchester_hudson|2026-11-23": {
+  "lat": 42.041058,
+  "lng": -74.118249,
+  "matched": "Town of Woodstock, Ulster County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "our world in color expressions in watercolor|long_island|2026-11-18": {
+  "lat": 40.755656,
+  "lng": -73.587627,
+  "matched": "Village of Westbury, Town of North Hempstead, Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "artist vault|long_island|rolling": {
+  "lat": 40.765654,
+  "lng": -73.015108,
+  "matched": "Village of Patchogue, Town of Brookhaven, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "nai ni chen dance co 2026 audition|manhattan|rolling": {
+  "lat": 40.779037,
+  "lng": -73.963798,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "need dancers for residency|manhattan|rolling": {
+  "lat": 40.784161,
+  "lng": -73.976945,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "100 each looking for duos trios documentary shoot|manhattan|None": {
+  "lat": 40.792122,
+  "lng": -73.954342,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "wanted bassist for all original rock prog|manhattan|None": {
+  "lat": 40.750525,
+  "lng": -74.00155,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting extras actors non union feature film|manhattan|None": {
+  "lat": 40.783479,
+  "lng": -73.965805,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "now casting actors background talent for nyc feature film|manhattan|None": {
+  "lat": 40.739242,
+  "lng": -73.998369,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid photographer needed for jewelry campaign shoot|manhattan|None": {
+  "lat": 40.820661,
+  "lng": -73.946538,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "wanted drummer for cinematic rock prog fusion|manhattan|None": {
+  "lat": 40.783317,
+  "lng": -73.978657,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "2 things i need creative and spirited help with|manhattan|None": {
+  "lat": 40.758485,
+  "lng": -73.984885,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "actors extras wanted for upcoming drama film|manhattan|None": {
+  "lat": 40.772023,
+  "lng": -73.975929,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "actors extras wanted indie thriller film|manhattan|None": {
+  "lat": 40.789269,
+  "lng": -73.968179,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "assisted living nursing homes community centers pianist singer|manhattan|None": {
+  "lat": 40.811323,
+  "lng": -73.955339,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "bass guitar instruction|manhattan|None": {
+  "lat": 40.771127,
+  "lng": -73.988072,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "bassist drummer wanted for working classic rock cover band|manhattan|None": {
+  "lat": 40.809935,
+  "lng": -73.942663,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "cajon or scaled down drum kit player avail for gigs etc|manhattan|None": {
+  "lat": 40.769394,
+  "lng": -73.971378,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "can you spot a hit paid music jury 10 songs|manhattan|None": {
+  "lat": 40.800747,
+  "lng": -73.967702,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting 3 stand ins sag aftra micro budget feature october 25|manhattan|None": {
+  "lat": 40.739245,
+  "lng": -74.009196,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting vampire film|manhattan|None": {
+  "lat": 40.757519,
+  "lng": -74.000378,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "casting 2 female models actresses for outdoor shoot|manhattan|None": {
+  "lat": 40.80619,
+  "lng": -73.958062,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "content creator all nationalities are welcomed to apply|manhattan|None": {
+  "lat": 40.836015,
+  "lng": -73.931819,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "creative experimental 18 photoshoot|manhattan|None": {
+  "lat": 40.801453,
+  "lng": -73.967514,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "creative partner youtube podcast producer wanted nyc|manhattan|None": {
+  "lat": 40.831293,
+  "lng": -73.935547,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "creative video needed|manhattan|None": {
+  "lat": 40.802674,
+  "lng": -73.956261,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "day job jammer looking for p t jams bluesrock americana jazz|manhattan|None": {
+  "lat": 40.781854,
+  "lng": -73.978895,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drum teacher|manhattan|None": {
+  "lat": 40.735338,
+  "lng": -74.00474,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drummer and lead guitars wtd to start haeavy rock trio|manhattan|None": {
+  "lat": 40.743994,
+  "lng": -73.997822,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drummer available|manhattan|None": {
+  "lat": 40.756965,
+  "lng": -73.985813,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drummer looking for psychedelic band|manhattan|None": {
+  "lat": 40.778636,
+  "lng": -73.969096,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drummer seeking collaboratiopn|manhattan|None": {
+  "lat": 40.786273,
+  "lng": -73.961474,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "elite models performers entertainers casting|manhattan|None": {
+  "lat": 40.790722,
+  "lng": -73.958323,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "entertainers wanted for nightclub manhattan ny|manhattan|None": {
+  "lat": 40.812664,
+  "lng": -73.941337,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "experienced author true crime author investigative journalist|manhattan|None": {
+  "lat": 40.758856,
+  "lng": -73.995712,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "experienced jazz band for your party wedding or event|manhattan|None": {
+  "lat": 40.735866,
+  "lng": -73.998881,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fall concert pianist singer entertainer|manhattan|None": {
+  "lat": 40.824615,
+  "lng": -73.944919,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fall concert pianist singer events|manhattan|None": {
+  "lat": 40.803199,
+  "lng": -73.958251,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fall foliage shoot|manhattan|None": {
+  "lat": 40.756571,
+  "lng": -73.987499,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fall pianist singer|manhattan|None": {
+  "lat": 40.818519,
+  "lng": -73.94147,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "female model for photography|manhattan|None": {
+  "lat": 40.739849,
+  "lng": -74.008634,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "female singer needed for punky bluesy noisy band forming|manhattan|None": {
+  "lat": 40.758134,
+  "lng": -73.985679,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "filmmaker looking for people with everyday jobs short docu series n|manhattan|None": {
+  "lat": 40.812655,
+  "lng": -73.953416,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "freelance copywriter|manhattan|None": {
+  "lat": 40.774372,
+  "lng": -73.965913,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "freelance fashion copywriter|manhattan|None": {
+  "lat": 40.797311,
+  "lng": -73.955882,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "freelance photographer 100|manhattan|None": {
+  "lat": 40.78973,
+  "lng": -73.971441,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "freelance seo copywriter firearms outdoor products|manhattan|None": {
+  "lat": 40.799406,
+  "lng": -73.951712,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "full time drummer seeks touring situation|manhattan|None": {
+  "lat": 40.787722,
+  "lng": -73.979341,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "graphic designer wanted feature film movie poster 150|manhattan|None": {
+  "lat": 40.766918,
+  "lng": -73.990649,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "guitarist available|manhattan|None": {
+  "lat": 40.741842,
+  "lng": -73.996861,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "guitarist looking for active group indie post punk dark wave etc|manhattan|None": {
+  "lat": 40.787889,
+  "lng": -73.972827,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "hard rock band seeking drummer|manhattan|None": {
+  "lat": 40.736568,
+  "lng": -73.997277,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "hobbyist event photographer fri oct 16 evening manhattan paid|manhattan|None": {
+  "lat": 40.75257,
+  "lng": -74.003272,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "holiday pianist singer entertainer|manhattan|None": {
+  "lat": 40.83111,
+  "lng": -73.937667,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "iso elderly male actor for live sketch comedy show|manhattan|None": {
+  "lat": 40.761226,
+  "lng": -73.985357,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "jazz band for hire|manhattan|None": {
+  "lat": 40.748187,
+  "lng": -73.998969,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "jazz gospel drummer available|manhattan|None": {
+  "lat": 40.810438,
+  "lng": -73.95305,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "karaoke dj|manhattan|None": {
+  "lat": 40.738339,
+  "lng": -73.996936,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "kelly diamond is casting are you our next diamond|manhattan|None": {
+  "lat": 40.767083,
+  "lng": -73.98541,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "latin jazz piano trio|manhattan|None": {
+  "lat": 40.808146,
+  "lng": -73.962149,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lead guitarist wanted by singer songwriter|manhattan|None": {
+  "lat": 40.800412,
+  "lng": -73.946493,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "let me entertain you singer pianist for assisted living|manhattan|None": {
+  "lat": 40.79449,
+  "lng": -73.956468,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "lifestyle models wanted for casual photoshooting|manhattan|None": {
+  "lat": 40.83544,
+  "lng": -73.933469,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "liquid mercury style mirror chrome finish on organic wood sculptures|manhattan|None": {
+  "lat": 40.788473,
+  "lng": -73.977733,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "looking for a japanese calligraphy artist shodo for 1 2 hour lesson|manhattan|None": {
+  "lat": 40.800835,
+  "lng": -73.946152,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "looking for players for melodic rock project|manhattan|None": {
+  "lat": 40.783434,
+  "lng": -73.980203,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "makeup artist wanted tomorrow|manhattan|None": {
+  "lat": 40.737831,
+  "lng": -74.003049,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "melodic rock singer songwriter seeks female vocalist|manhattan|None": {
+  "lat": 40.779862,
+  "lng": -73.978939,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "models needed women only|manhattan|None": {
+  "lat": 40.828575,
+  "lng": -73.943285,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "models wanted for casual lifestyle photoshooting|manhattan|None": {
+  "lat": 40.787391,
+  "lng": -73.963374,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "models wanted for luxury wig brand elegant editorial aesthetics|manhattan|None": {
+  "lat": 40.796546,
+  "lng": -73.969859,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "models influencers talent marketing|manhattan|None": {
+  "lat": 40.792063,
+  "lng": -73.967532,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "musician songwriter arranger composer looking to work for free|manhattan|None": {
+  "lat": 40.750253,
+  "lng": -73.983831,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "musicians wanted for small acoustic band mid november gig|manhattan|None": {
+  "lat": 40.730941,
+  "lng": -74.005337,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "need people named josh or jared to briefly appear in comedy show|manhattan|None": {
+  "lat": 40.819193,
+  "lng": -73.953674,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "nyc marathon photographer|manhattan|None": {
+  "lat": 40.807737,
+  "lng": -73.952309,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "nyc videographer needed for interview b roll and photo shoot|manhattan|None": {
+  "lat": 40.806348,
+  "lng": -73.957414,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "nyc s weirdest living situation manhattan casting call|manhattan|None": {
+  "lat": 40.798936,
+  "lng": -73.956318,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "old school roots music electric bassist available|manhattan|None": {
+  "lat": 40.754187,
+  "lng": -73.995539,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "older musicians drums guitar keys bass|manhattan|None": {
+  "lat": 40.769547,
+  "lng": -73.989033,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "on site photo editor needed santa photos nyc|manhattan|None": {
+  "lat": 40.808762,
+  "lng": -73.959965,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open minded female model for creative gig|manhattan|None": {
+  "lat": 40.770616,
+  "lng": -73.98815,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid 100 person looking for best friends for a documentary shoot|manhattan|None": {
+  "lat": 40.794281,
+  "lng": -73.955869,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid actors models needed for hiphop music video nyc nov|manhattan|None": {
+  "lat": 40.774712,
+  "lng": -73.98449,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid bridal casting glp 1 story 300|manhattan|None": {
+  "lat": 40.769717,
+  "lng": -73.982374,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid local video assignment nyc new jersey|manhattan|None": {
+  "lat": 40.78197,
+  "lng": -73.967665,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "photography and production interns for independant magazine|manhattan|None": {
+  "lat": 40.761628,
+  "lng": -73.985139,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pianist singer|manhattan|None": {
+  "lat": 40.792909,
+  "lng": -73.976644,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pianist singer entertainer|manhattan|None": {
+  "lat": 40.778766,
+  "lng": -73.982785,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "private guitar lessons|manhattan|None": {
+  "lat": 40.818249,
+  "lng": -73.936983,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pro drummer looking for a pro tribute band|manhattan|None": {
+  "lat": 40.808475,
+  "lng": -73.957831,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "producer seeks studio share 8pm midnight east side 14th 50th st|manhattan|None": {
+  "lat": 40.781186,
+  "lng": -73.972572,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "professional guitarist singer needed daytime gigs nyc 60 hr|manhattan|None": {
+  "lat": 40.795285,
+  "lng": -73.968137,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "professional male vocalist lead background support live studio|manhattan|None": {
+  "lat": 40.801022,
+  "lng": -73.966376,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "rehearsal space available music building|manhattan|None": {
+  "lat": 40.802048,
+  "lng": -73.961776,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "repair for musicians|manhattan|None": {
+  "lat": 40.768332,
+  "lng": -73.973525,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "searching for models creatives for nyc editorial photoshoots|manhattan|None": {
+  "lat": 40.767364,
+  "lng": -73.976549,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "second wedding videography photography partner second shooter|manhattan|None": {
+  "lat": 40.74336,
+  "lng": -73.990425,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "seeking experienced dance instructor|manhattan|None": {
+  "lat": 40.751194,
+  "lng": -73.985149,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "seeking product photographer for jewelry|manhattan|None": {
+  "lat": 40.801487,
+  "lng": -73.9488,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "singer available|manhattan|None": {
+  "lat": 40.740607,
+  "lng": -74.003358,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "singer vox wanted|manhattan|None": {
+  "lat": 40.758121,
+  "lng": -73.999542,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "start up band needed for female pop singer|manhattan|None": {
+  "lat": 40.735461,
+  "lng": -74.000039,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "street interview host fun and outgoing paid weekly nyc|manhattan|None": {
+  "lat": 40.788002,
+  "lng": -73.956525,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the chris bovasso group seeks bass drums|manhattan|None": {
+  "lat": 40.773049,
+  "lng": -73.988069,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "think you know everything about your partner paid casting call|manhattan|None": {
+  "lat": 40.795819,
+  "lng": -73.957739,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "times square photographer|manhattan|None": {
+  "lat": 40.819804,
+  "lng": -73.952813,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "trumpet sax and other wind players for biweekly jam sessions|manhattan|None": {
+  "lat": 40.81212,
+  "lng": -73.944574,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "twins siblings wanted paid filming shoot 100 person|manhattan|None": {
+  "lat": 40.773158,
+  "lng": -73.974967,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "upcoming spy thriller seeking actors to play hitmen mob guys|manhattan|None": {
+  "lat": 40.816148,
+  "lng": -73.940787,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "urgent nyc casting actors needed this week brooklyn college mfa|manhattan|None": {
+  "lat": 40.758604,
+  "lng": -74.000626,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "videographer wanted short form social content|manhattan|None": {
+  "lat": 40.777409,
+  "lng": -73.966018,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "wanted a talented writer with the magic touch|manhattan|None": {
+  "lat": 40.754683,
+  "lng": -73.984477,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "2027 acc fellowships and grants|manhattan|2026-11-10": {
+  "lat": 40.824151,
+  "lng": -73.93507,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "activity host or performer|manhattan|rolling": {
+  "lat": 40.813331,
+  "lng": -73.959901,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for art dreamer s perspectives|manhattan|rolling": {
+  "lat": 40.795681,
+  "lng": -73.969068,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for essays criticism reflections and text based contributions|manhattan|rolling": {
+  "lat": 40.785679,
+  "lng": -73.960682,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "commissioned critical review for artists exhibitions|manhattan|rolling": {
+  "lat": 40.744823,
+  "lng": -74.000296,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "cultural development fund panelist open call|manhattan|rolling": {
+  "lat": 40.75299,
+  "lng": -73.996267,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open call artist features stratum journal publication|manhattan|rolling": {
+  "lat": 40.820718,
+  "lng": -73.947856,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "drew and peter mic at greenwich village comedy club|manhattan|2026-10-28": {
+  "lat": 40.83803,
+  "lng": -73.930891,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha mic show at laughing buddha comedy|manhattan|2026-10-28": {
+  "lat": 40.768119,
+  "lng": -73.971768,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at caravan of dreams|manhattan|2026-10-28": {
+  "lat": 40.779593,
+  "lng": -73.964643,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at the stand|manhattan|2026-10-28": {
+  "lat": 40.805021,
+  "lng": -73.947548,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic comedy night at 3 sheets|manhattan|2026-10-28": {
+  "lat": 40.798537,
+  "lng": -73.963369,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "orangutan comedy at housewatch|manhattan|2026-10-28": {
+  "lat": 40.752486,
+  "lng": -73.994875,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "stand up comedy at suite|manhattan|2026-10-28": {
+  "lat": 40.832004,
+  "lng": -73.93244,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "the secret mic at new york comedy club east village|manhattan|2026-10-28": {
+  "lat": 40.810929,
+  "lng": -73.954849,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "variety mic at enoch s coffee art gallery|manhattan|2026-10-28": {
+  "lat": 40.77616,
+  "lng": -73.983165,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "we wear pink at west side comedy club|manhattan|2026-10-28": {
+  "lat": 40.739601,
+  "lng": -74.004029,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "wednesday open mic at broadway comedy club|manhattan|2026-10-28": {
+  "lat": 40.756752,
+  "lng": -73.998318,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "get it going at broadway comedy club|manhattan|2026-10-29": {
+  "lat": 40.763447,
+  "lng": -73.995095,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "headliners first at west side comedy club|manhattan|2026-10-29": {
+  "lat": 40.796856,
+  "lng": -73.974082,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "friday night mics at 621 e 11th st|manhattan|2026-10-30": {
+  "lat": 40.748542,
+  "lng": -74.004947,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "friday open mic at rodney s|manhattan|2026-10-30": {
+  "lat": 40.730996,
+  "lng": -74.006385,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "phoenix mic at phoenix bar|manhattan|2026-10-30": {
+  "lat": 40.809319,
+  "lng": -73.955612,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "ladies stand up open mic at the pit|manhattan|2026-10-31": {
+  "lat": 40.787064,
+  "lng": -73.965573,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha mic at the stand|manhattan|2026-10-31": {
+  "lat": 40.745188,
+  "lng": -74.0019,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "c sweet comedy open mic at housewatch|manhattan|2026-11-01": {
+  "lat": 40.765314,
+  "lng": -73.995456,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha 1 hour mic win a show guest spot at laughing buddha comedy|manhattan|2026-11-01": {
+  "lat": 40.750096,
+  "lng": -73.984115,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha mic 6 minute spots at laughing buddha comedy|manhattan|2026-11-01": {
+  "lat": 40.804515,
+  "lng": -73.959411,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha mic win a show guest spot at laughing buddha comedy|manhattan|2026-11-01": {
+  "lat": 40.787627,
+  "lng": -73.975785,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "crash landing comedy at red eye ny|manhattan|2026-11-02": {
+  "lat": 40.75107,
+  "lng": -73.997954,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "femmes and friends at suite|manhattan|2026-11-02": {
+  "lat": 40.785535,
+  "lng": -73.959215,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha 1 hour mic 7 minute spots at laughing buddha comedy|manhattan|2026-11-02": {
+  "lat": 40.747014,
+  "lng": -73.991291,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "laughing buddha show mic 6 minute spots win a show guest spot at laughing buddha comedy|manhattan|2026-11-02": {
+  "lat": 40.83062,
+  "lng": -73.941089,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "monday with messitte at 247 w 46th st apt 1701|manhattan|2026-11-02": {
+  "lat": 40.812837,
+  "lng": -73.944869,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open mic at the pit|manhattan|2026-11-02": {
+  "lat": 40.796369,
+  "lng": -73.950185,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "actors for student written directed one act plays triple promise academy for the performing arts|brooklyn|None": {
+  "lat": 40.673581,
+  "lng": -73.958081,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "performer bowwow films|brooklyn|None": {
+  "lat": 40.661591,
+  "lng": -73.992859,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "pro bono web design performative project casting actors performers 12 31 26 williamsburg productions|brooklyn|None": {
+  "lat": 40.630436,
+  "lng": -73.949159,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "men needed for a haircut video|brooklyn|None": {
+  "lat": 40.685113,
+  "lng": -73.931683,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "100 for approximately one hour of filming|brooklyn|None": {
+  "lat": 40.672373,
+  "lng": -73.941544,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "1000 mo music rehearsal band space at danbro studios|brooklyn|None": {
+  "lat": 40.630071,
+  "lng": -73.916492,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "150 00 paid to actors needed for skits|brooklyn|None": {
+  "lat": 40.680926,
+  "lng": -73.924749,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "800 day male actor for political ad oct 6 brooklyn|brooklyn|None": {
+  "lat": 40.647114,
+  "lng": -73.918542,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "950 mo music rehearsal band space at danbro studios|brooklyn|None": {
+  "lat": 40.645565,
+  "lng": -73.91202,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer wanted skilled drummer for modern indie post punk brit|brooklyn|None": {
+  "lat": 40.636139,
+  "lng": -73.906902,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "acoustic player looking for female to sing with|brooklyn|None": {
+  "lat": 40.657608,
+  "lng": -73.979907,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "actors wanted|brooklyn|None": {
+  "lat": 40.664999,
+  "lng": -73.933814,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "affordable recording space record vocals guitar bass more|brooklyn|None": {
+  "lat": 40.620506,
+  "lng": -73.983499,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "alt rock grunge band looking for female vocalist and bassist|brooklyn|None": {
+  "lat": 40.657196,
+  "lng": -73.959566,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "analog or digital recording for bands and solo artists|brooklyn|None": {
+  "lat": 40.656363,
+  "lng": -73.907817,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "apparel graphic designer wanted for women s moto brand|brooklyn|None": {
+  "lat": 40.651332,
+  "lng": -73.9105,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "aspiring model seeking collaboration with photographers designers|brooklyn|None": {
+  "lat": 40.653149,
+  "lng": -73.911999,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "bass guitar instruction|brooklyn|None": {
+  "lat": 40.617477,
+  "lng": -73.956504,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "bass player here for band punk 77|brooklyn|None": {
+  "lat": 40.639693,
+  "lng": -73.93262,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "bass player wanted for punk garage rock show nov 21st|brooklyn|None": {
+  "lat": 40.6073,
+  "lng": -73.950721,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "brooklyn rehearsal space monthly share|brooklyn|None": {
+  "lat": 40.63151,
+  "lng": -73.922384,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "camera gimbal intern film video shoots broooklyn|brooklyn|None": {
+  "lat": 40.62622,
+  "lng": -73.982013,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "casting couples for a new tv show 1 000 per couple plus free travel|brooklyn|None": {
+  "lat": 40.619884,
+  "lng": -73.967725,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "casting real couples for cutlers court|brooklyn|None": {
+  "lat": 40.642361,
+  "lng": -73.944118,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "church guitarist|brooklyn|None": {
+  "lat": 40.66684,
+  "lng": -73.948138,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "crew wanted cinematic spec commercials all positions nyc|brooklyn|None": {
+  "lat": 40.659665,
+  "lng": -73.945009,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer avalaible for garage 60s pop|brooklyn|None": {
+  "lat": 40.672651,
+  "lng": -73.949134,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer looking for band|brooklyn|None": {
+  "lat": 40.630572,
+  "lng": -73.935176,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer needed for trip hop art rock project|brooklyn|None": {
+  "lat": 40.621075,
+  "lng": -73.955045,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer wanted psychedelic blues rock groove driven power trio|brooklyn|None": {
+  "lat": 40.687554,
+  "lng": -73.960977,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "drummer lead vocalist w electronic kit available to sub|brooklyn|None": {
+  "lat": 40.621405,
+  "lng": -73.969195,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "extras needed for web series tomorrow 10 11 women ages 21 30|brooklyn|None": {
+  "lat": 40.664188,
+  "lng": -73.906056,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "extras needed for web series tomorrow 10 4 women ages 18 40|brooklyn|None": {
+  "lat": 40.68094,
+  "lng": -73.980197,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "face painting for 5 year old bday ridgewood bushwick|brooklyn|None": {
+  "lat": 40.676368,
+  "lng": -73.954899,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "female gospel singer needed for audio video recordings|brooklyn|None": {
+  "lat": 40.637024,
+  "lng": -73.978467,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "female models and independent artists wanted|brooklyn|None": {
+  "lat": 40.620146,
+  "lng": -73.982194,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "female models needed for multiple studio sessions|brooklyn|None": {
+  "lat": 40.662651,
+  "lng": -73.909242,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "female models wanted for fine art submission|brooklyn|None": {
+  "lat": 40.662532,
+  "lng": -73.937533,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "female model paid creative shoot|brooklyn|None": {
+  "lat": 40.671771,
+  "lng": -73.928026,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "former rca producer seeks singer bass guitar flute piano drummer|brooklyn|None": {
+  "lat": 40.606837,
+  "lng": -73.942158,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "freelance photographer|brooklyn|None": {
+  "lat": 40.641843,
+  "lng": -73.925104,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "funk bass player bassist available|brooklyn|None": {
+  "lat": 40.631798,
+  "lng": -73.931879,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "gospel guitarist|brooklyn|None": {
+  "lat": 40.671121,
+  "lng": -73.951345,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "guitarist looking for priest or maiden band|brooklyn|None": {
+  "lat": 40.629394,
+  "lng": -73.9751,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "hairstylist needed tomorrow 10 6 fashion editorial shoot brooklyn|brooklyn|None": {
+  "lat": 40.625585,
+  "lng": -73.9553,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "hard rock classic rock bass player bassist available|brooklyn|None": {
+  "lat": 40.669243,
+  "lng": -73.937013,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "i play bass 70s proto punk or mid 60s pop|brooklyn|None": {
+  "lat": 40.68286,
+  "lng": -73.934274,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "in search of drummer bassist for november show|brooklyn|None": {
+  "lat": 40.687415,
+  "lng": -73.926706,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "in search of drummer bassist vocalist|brooklyn|None": {
+  "lat": 40.662858,
+  "lng": -73.99012,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "indie electro pop project looking for a drummer|brooklyn|None": {
+  "lat": 40.637092,
+  "lng": -73.931841,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "indie electro pop project looking for guitar player|brooklyn|None": {
+  "lat": 40.656054,
+  "lng": -73.943499,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "indietronica singer singer singer singer|brooklyn|None": {
+  "lat": 40.638366,
+  "lng": -73.918505,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "interactive jeans modeling m f no experience req anywhere in ny|brooklyn|None": {
+  "lat": 40.693905,
+  "lng": -73.944194,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "jazz band available for gigs events|brooklyn|None": {
+  "lat": 40.63598,
+  "lng": -73.951168,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "keyboardist wanted nyc|brooklyn|None": {
+  "lat": 40.611404,
+  "lng": -73.942808,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "looking for a lead guitarist for original rock band|brooklyn|None": {
+  "lat": 40.625159,
+  "lng": -73.961979,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "looking for actor for music video|brooklyn|None": {
+  "lat": 40.661029,
+  "lng": -73.924375,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "looking for regular looking middle aged people for photo shoot|brooklyn|None": {
+  "lat": 40.614992,
+  "lng": -73.948839,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "looking for sign language user for music video|brooklyn|None": {
+  "lat": 40.636272,
+  "lng": -73.920839,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "makeup hair artist film noir web series|brooklyn|None": {
+  "lat": 40.679395,
+  "lng": -73.958234,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "male figure drawing model for tonight perhaps ongoing|brooklyn|None": {
+  "lat": 40.644717,
+  "lng": -73.959774,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "male figure models|brooklyn|None": {
+  "lat": 40.633376,
+  "lng": -73.991027,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "metal guitarist available for session work|brooklyn|None": {
+  "lat": 40.666405,
+  "lng": -73.975069,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "mfa artist seeking black mothers birth workers for painting project|brooklyn|None": {
+  "lat": 40.653195,
+  "lng": -73.994275,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "models wanted for art magazine submission|brooklyn|None": {
+  "lat": 40.655461,
+  "lng": -73.989132,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "paid bridal casting glp 1 story 300|brooklyn|None": {
+  "lat": 40.62815,
+  "lng": -73.975868,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "paid glp 1 documentary casting earn 400 plus 200 for home filming|brooklyn|None": {
+  "lat": 40.635519,
+  "lng": -73.976737,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "paid friendly person 50 70 for a short product how to video|brooklyn|None": {
+  "lat": 40.675847,
+  "lng": -73.932387,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "photographer videographer needed content shoot for a spa|brooklyn|None": {
+  "lat": 40.643321,
+  "lng": -73.936746,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "photographer for a few natural photos|brooklyn|None": {
+  "lat": 40.646359,
+  "lng": -73.947027,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "photographer to shoot boudoir photoset of me for gift for bf|brooklyn|None": {
+  "lat": 40.649868,
+  "lng": -73.923006,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "photography document scanning gig brooklyn 30 hour|brooklyn|None": {
+  "lat": 40.628715,
+  "lng": -73.91989,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "photography design student wanted to maintain hair stylist instagram|brooklyn|None": {
+  "lat": 40.680251,
+  "lng": -73.926189,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "piano keyboard vocals wanted|brooklyn|None": {
+  "lat": 40.657011,
+  "lng": -73.907508,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "portrait photographer needed|brooklyn|None": {
+  "lat": 40.639176,
+  "lng": -73.971036,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "private drum lessons in brooklyn nyc|brooklyn|None": {
+  "lat": 40.650697,
+  "lng": -73.935362,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "pro bassist author offering affordable lessons|brooklyn|None": {
+  "lat": 40.636078,
+  "lng": -73.954149,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "product design cad collaborator wanted mate gourd prototype|brooklyn|None": {
+  "lat": 40.645669,
+  "lng": -73.903819,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "production assistant pa needed film noir web series|brooklyn|None": {
+  "lat": 40.650391,
+  "lng": -73.975557,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "professional drummer offering private lessons|brooklyn|None": {
+  "lat": 40.658211,
+  "lng": -73.90628,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "rehearsal space studio band practice space window danbro 425|brooklyn|None": {
+  "lat": 40.638517,
+  "lng": -73.978335,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "rehearsal studio to share|brooklyn|None": {
+  "lat": 40.63624,
+  "lng": -73.988428,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "rhythm guitarist malcolm looking to join ac dc group|brooklyn|None": {
+  "lat": 40.614649,
+  "lng": -73.978065,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "rnb soul disco backing singers wanted|brooklyn|None": {
+  "lat": 40.672269,
+  "lng": -73.971731,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "searching for models for luxe wig brand shoot paid opportunity|brooklyn|None": {
+  "lat": 40.678308,
+  "lng": -73.9834,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "seeking a cinematographer independent film noir web series|brooklyn|None": {
+  "lat": 40.671395,
+  "lng": -73.961395,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "seeking bass player for indie band|brooklyn|None": {
+  "lat": 40.625442,
+  "lng": -73.919648,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "seeking male actor for 10 27 film shoot|brooklyn|None": {
+  "lat": 40.645172,
+  "lng": -73.984553,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "seeking twin female actors models for experimental short film|brooklyn|None": {
+  "lat": 40.651477,
+  "lng": -73.902935,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "set dresser for props weekly vertical film noir web series|brooklyn|None": {
+  "lat": 40.687478,
+  "lng": -73.940813,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "sfx makeup artist needed|brooklyn|None": {
+  "lat": 40.61746,
+  "lng": -73.936051,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "singer songwriters musicians|brooklyn|None": {
+  "lat": 40.679132,
+  "lng": -73.964472,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "singer wanted for metal tribute|brooklyn|None": {
+  "lat": 40.665326,
+  "lng": -73.932705,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "singers musicians wanted|brooklyn|None": {
+  "lat": 40.633177,
+  "lng": -73.971247,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "songwriter looking for songwriting assistant to help transcribe|brooklyn|None": {
+  "lat": 40.62521,
+  "lng": -73.946005,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "studio rehearsal space brooklyn|brooklyn|None": {
+  "lat": 40.669466,
+  "lng": -73.959944,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "surf metal postrock band seeks drummer professional and serious only|brooklyn|None": {
+  "lat": 40.68477,
+  "lng": -73.944824,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "takara seeks lead singer vocalist male or female|brooklyn|None": {
+  "lat": 40.666076,
+  "lng": -73.94063,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "tattoo volunteers needed free november|brooklyn|None": {
+  "lat": 40.629956,
+  "lng": -73.967028,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "videographer for half day comedy shoot music artist brooklyn|brooklyn|None": {
+  "lat": 40.659595,
+  "lng": -73.957826,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "vocalist looking for a band|brooklyn|None": {
+  "lat": 40.606621,
+  "lng": -73.938748,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "vocals bass sax for proto post punk jangle freakout art rock band|brooklyn|None": {
+  "lat": 40.690967,
+  "lng": -73.951734,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "voice over talent needed no experience required|brooklyn|None": {
+  "lat": 40.62087,
+  "lng": -73.928845,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "write from home flexible article writing projects|brooklyn|None": {
+  "lat": 40.670382,
+  "lng": -73.935479,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "comedians wanted open mic community meet greet|brooklyn|None": {
+  "lat": 40.684458,
+  "lng": -73.937529,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "call for art sos installment ii where we land|brooklyn|rolling": {
+  "lat": 40.659296,
+  "lng": -73.927612,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "try new s t mic at eastville comedy club|brooklyn|2026-10-28": {
+  "lat": 40.672013,
+  "lng": -73.982352,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "island time comedy mic at mad tropical|brooklyn|2026-10-29": {
+  "lat": 40.647233,
+  "lng": -73.939469,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "trauma dump thursday open mic at eastville comedy club|brooklyn|2026-10-29": {
+  "lat": 40.628854,
+  "lng": -73.928254,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "friday mic at halyards|brooklyn|2026-10-30": {
+  "lat": 40.650378,
+  "lng": -73.964472,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "the fun mic at freddy s bar|brooklyn|2026-11-02": {
+  "lat": 40.683803,
+  "lng": -73.93281,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "2026 queens storytelling festival open call|queens|rolling": {
+  "lat": 40.683415,
+  "lng": -73.803827,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitar lessons free trial lesson|queens|None": {
+  "lat": 40.697768,
+  "lng": -73.830517,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2 actors needed 1 actress 1 actor|queens|None": {
+  "lat": 40.68399,
+  "lng": -73.827376,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "2 male actors needed for short script|queens|None": {
+  "lat": 40.72623,
+  "lng": -73.823237,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "actors editor cinematographer wanted|queens|None": {
+  "lat": 40.671155,
+  "lng": -73.80454,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "ai friendly content writers needed 100 article projects|queens|None": {
+  "lat": 40.773481,
+  "lng": -73.766206,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "americana country guitar player available not the few you see open|queens|None": {
+  "lat": 40.746406,
+  "lng": -73.825617,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "are you looking for instant results with your music career|queens|None": {
+  "lat": 40.714516,
+  "lng": -73.824744,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "band seeking male keyboardist r b neo soul jazz and rock|queens|None": {
+  "lat": 40.774894,
+  "lng": -73.781802,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "bass guitar instruction|queens|None": {
+  "lat": 40.676587,
+  "lng": -73.813447,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "cat owner wanted ugc video commercial for wearable controller|queens|None": {
+  "lat": 40.766469,
+  "lng": -73.831187,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "conga drummer here|queens|None": {
+  "lat": 40.729539,
+  "lng": -73.803686,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "country drone musicians wanted|queens|None": {
+  "lat": 40.70233,
+  "lng": -73.749611,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "drummer avalaible for garage band like the seeds music machine|queens|None": {
+  "lat": 40.725277,
+  "lng": -73.755404,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "drummer looking for band|queens|None": {
+  "lat": 40.703519,
+  "lng": -73.780916,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "drummer searching for new project|queens|None": {
+  "lat": 40.701011,
+  "lng": -73.770372,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "drummer wanted nyhc|queens|None": {
+  "lat": 40.685736,
+  "lng": -73.824601,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "experienced classic rock rhythm guitarist available|queens|None": {
+  "lat": 40.695095,
+  "lng": -73.824474,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "female for modell or dancing|queens|None": {
+  "lat": 40.725176,
+  "lng": -73.777427,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "female keys dj sampler and f drummer wanted for a f groove rock band|queens|None": {
+  "lat": 40.67621,
+  "lng": -73.796399,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "female singer wanted|queens|None": {
+  "lat": 40.672897,
+  "lng": -73.806349,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "female vocalist wanted|queens|None": {
+  "lat": 40.708252,
+  "lng": -73.769622,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitarist|queens|None": {
+  "lat": 40.717711,
+  "lng": -73.841106,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitarist looking for arena rock band|queens|None": {
+  "lat": 40.698683,
+  "lng": -73.786307,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitarist looking to form band|queens|None": {
+  "lat": 40.749888,
+  "lng": -73.829571,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitarist wanted r b neo soul jazz rock long island city|queens|None": {
+  "lat": 40.72616,
+  "lng": -73.778016,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "guitarist producer for ambient jazz trip hop etc|queens|None": {
+  "lat": 40.715571,
+  "lng": -73.761785,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "halloween event photographer sat oct 31st|queens|None": {
+  "lat": 40.726883,
+  "lng": -73.839448,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "hard rock band seeking drummer|queens|None": {
+  "lat": 40.755885,
+  "lng": -73.815634,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "heavy hardcore band seeking members|queens|None": {
+  "lat": 40.701846,
+  "lng": -73.75022,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "horn players wanted|queens|None": {
+  "lat": 40.759225,
+  "lng": -73.784683,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "independent music management company looking for female artists|queens|None": {
+  "lat": 40.730401,
+  "lng": -73.818742,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "indie rock band seeking lead guitarist|queens|None": {
+  "lat": 40.729903,
+  "lng": -73.813004,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "iso drummer for just for fun band|queens|None": {
+  "lat": 40.685089,
+  "lng": -73.787625,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "jazz oriented bass player to jam|queens|None": {
+  "lat": 40.675006,
+  "lng": -73.811224,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "jazz latin band|queens|None": {
+  "lat": 40.771985,
+  "lng": -73.824388,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "keyboard player vocalist avail|queens|None": {
+  "lat": 40.673111,
+  "lng": -73.778011,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "keyboardist vocals seeks cover band|queens|None": {
+  "lat": 40.709646,
+  "lng": -73.803337,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "keys wanted for new wave indie rock dad band|queens|None": {
+  "lat": 40.748814,
+  "lng": -73.763344,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "looking for a keyboard player|queens|None": {
+  "lat": 40.760331,
+  "lng": -73.794544,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "looking for actress|queens|None": {
+  "lat": 40.690954,
+  "lng": -73.817981,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "male model needed construction trade|queens|None": {
+  "lat": 40.780905,
+  "lng": -73.804374,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "men 18 for masculinity photo series paid shoot|queens|None": {
+  "lat": 40.699979,
+  "lng": -73.802711,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "models and dancers|queens|None": {
+  "lat": 40.699659,
+  "lng": -73.76267,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music kidz fun for kids all ages learning to play by having fun|queens|None": {
+  "lat": 40.741084,
+  "lng": -73.80086,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "music transcription services finale software lessons|queens|None": {
+  "lat": 40.747212,
+  "lng": -73.83839,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "non pressure band seeking musicians and singers over 50yrs of age|queens|None": {
+  "lat": 40.762073,
+  "lng": -73.755143,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "november 14th male models needed for medical training course 400|queens|None": {
+  "lat": 40.752073,
+  "lng": -73.83036,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "on camera spokesperson needed for short promotional video 50|queens|None": {
+  "lat": 40.700092,
+  "lng": -73.828004,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "photographer needed october 1 4 630 pm astoria|queens|None": {
+  "lat": 40.710218,
+  "lng": -73.765199,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "piano lessons first lesson free|queens|None": {
+  "lat": 40.722853,
+  "lng": -73.769085,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "pro guitar lessons beginners welcome discounts available|queens|None": {
+  "lat": 40.689701,
+  "lng": -73.812038,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "producer with pro studio available|queens|None": {
+  "lat": 40.759048,
+  "lng": -73.820259,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "record company seeks new music producers|queens|None": {
+  "lat": 40.717984,
+  "lng": -73.822092,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "retired adult novise band seeks singers and musicians|queens|None": {
+  "lat": 40.688752,
+  "lng": -73.775864,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "sag short film casting 60 poc woman minimal acting experience needed|queens|None": {
+  "lat": 40.729724,
+  "lng": -73.780327,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "scare actors needed|queens|None": {
+  "lat": 40.754309,
+  "lng": -73.820345,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "thrash death metal band in search of bassist and drummer|queens|None": {
+  "lat": 40.748719,
+  "lng": -73.799834,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "want to play guitar|queens|None": {
+  "lat": 40.729246,
+  "lng": -73.815102,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "open mic at q e d|queens|2026-10-28": {
+  "lat": 40.673639,
+  "lng": -73.776478,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "female life models wanted for paid sketching sessions|bronx|None": {
+  "lat": 40.81701,
+  "lng": -73.870504,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "gig store photo video shooter early mornings all nyc|bronx|None": {
+  "lat": 40.818072,
+  "lng": -73.849087,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "mango jam seeks pianist keyboardist|bronx|None": {
+  "lat": 40.850443,
+  "lng": -73.857252,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "music lessons|bronx|None": {
+  "lat": 40.83861,
+  "lng": -73.884566,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "now hiring musical director chicago teen edition|bronx|None": {
+  "lat": 40.814954,
+  "lng": -73.874517,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "paid glamour photoshoot 500|bronx|None": {
+  "lat": 40.836589,
+  "lng": -73.890273,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "photographer needed high school football game tomorrow 10 17|bronx|None": {
+  "lat": 40.864503,
+  "lng": -73.856698,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "producer mixer available for work at your place i teach|bronx|None": {
+  "lat": 40.834699,
+  "lng": -73.867375,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "salsa musical charts|bronx|None": {
+  "lat": 40.814788,
+  "lng": -73.851022,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "seeking tatiana jinjer x jackie mushroomhead type vocalist|bronx|None": {
+  "lat": 40.861089,
+  "lng": -73.852495,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "singers rappers musicians dancers comedians come be on tv|bronx|None": {
+  "lat": 40.86591,
+  "lng": -73.845733,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "spider salt seeks guitar player|bronx|None": {
+  "lat": 40.840292,
+  "lng": -73.873459,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "we re stating a jazz band bitches|bronx|None": {
+  "lat": 40.861937,
+  "lng": -73.850371,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "band mates wanted|staten_island|None": {
+  "lat": 40.603778,
+  "lng": -74.152444,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "bass guitar instruction|staten_island|None": {
+  "lat": 40.5745,
+  "lng": -74.164762,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "drummer wanted nyhc|staten_island|None": {
+  "lat": 40.555983,
+  "lng": -74.144658,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "event planners and promoters musicians and bands|staten_island|None": {
+  "lat": 40.584388,
+  "lng": -74.133488,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "food photographer needed wedding catering shoot oct 10 200|staten_island|None": {
+  "lat": 40.575549,
+  "lng": -74.160158,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "guitarist keyboardist for hire any event|staten_island|None": {
+  "lat": 40.557414,
+  "lng": -74.161555,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "jam band players wanted rock and roll 60 80s|staten_island|None": {
+  "lat": 40.596001,
+  "lng": -74.133335,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "jazz union for hire any combo guitar sax bass keys vocals drums|staten_island|None": {
+  "lat": 40.610637,
+  "lng": -74.140421,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "judas priest tribute band forming seeking lead guitar player|staten_island|None": {
+  "lat": 40.549522,
+  "lng": -74.143462,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "models wanted saturday 10 10 staten island|staten_island|None": {
+  "lat": 40.565673,
+  "lng": -74.120799,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "original metal band|staten_island|None": {
+  "lat": 40.587653,
+  "lng": -74.165014,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "piano synth player wanted for solo artist band situation|staten_island|None": {
+  "lat": 40.60711,
+  "lng": -74.132757,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "pro level keyboard player wanted|staten_island|None": {
+  "lat": 40.576043,
+  "lng": -74.159597,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "prvt guitar lessons 30 hour|staten_island|None": {
+  "lat": 40.560432,
+  "lng": -74.161217,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "putting original band together looking for musicians|staten_island|None": {
+  "lat": 40.594201,
+  "lng": -74.152028,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "rock and roll drummer wanted for jam sessions|staten_island|None": {
+  "lat": 40.54818,
+  "lng": -74.155396,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "tv casting dating someone incarcerated being released soon|staten_island|None": {
+  "lat": 40.597816,
+  "lng": -74.130796,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "versatile drummer wanted for solo artist|staten_island|None": {
+  "lat": 40.567954,
+  "lng": -74.168617,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "wanted solid bass player and drummer for classic rock blues rock|staten_island|None": {
+  "lat": 40.578804,
+  "lng": -74.125897,
+  "matched": "near Staten Island (approximate)",
+  "how": "area"
+ },
+ "blanca and ines nyc epa 11 03 26 intar new york ny|unknown|2026-11-03": {
+  "lat": 40.76636,
+  "lng": -73.995833,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "i hope this letter reaches mictlan nyc epa 12 01 26 intar|unknown|2026-12-01": {
+  "lat": 40.820557,
+  "lng": -73.943279,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
  }
 }

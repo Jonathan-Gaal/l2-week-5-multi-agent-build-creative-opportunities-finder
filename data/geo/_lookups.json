@@ -2395,5 +2395,1067 @@
   "how": "address"
  },
  "venue|Teaching throughout NYC and the boroughs, New York, New York": null,
- "venue|Teaching in Manhattan, New York, New York": null
+ "venue|Teaching in Manhattan, New York, New York": null,
+ "area|Teaneck, New Jersey": {
+  "lat": 40.886016,
+  "lng": -74.007257,
+  "matched": "Teaneck Township, Bergen County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hoboken, New Jersey": {
+  "lat": 40.743307,
+  "lng": -74.032375,
+  "matched": "Hoboken, Hudson County, New Jersey, 07030, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newtown, Connecticut": {
+  "lat": 41.413476,
+  "lng": -73.308644,
+  "matched": "Newtown, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Brunswick, New Jersey": {
+  "lat": 40.493612,
+  "lng": -74.443642,
+  "matched": "New Brunswick, Middlesex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Woodstock, New York": {
+  "lat": 42.041058,
+  "lng": -74.118249,
+  "matched": "Town of Woodstock, Ulster County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Scarsdale, New York": {
+  "lat": 40.988522,
+  "lng": -73.808561,
+  "matched": "Village of Scarsdale, Westchester County, New York, 10583, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Rochelle, New York": {
+  "lat": 40.911539,
+  "lng": -73.782636,
+  "matched": "New Rochelle, Westchester County, New York, 10801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethel, Connecticut": {
+  "lat": 41.371206,
+  "lng": -73.41401,
+  "matched": "Bethel, Western Connecticut Planning Region, Connecticut, 06801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Mattituck, New York": {
+  "lat": 41.011905,
+  "lng": -72.550539,
+  "matched": "Mattituck, Town of Southold, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Southold, New York": {
+  "lat": 41.067221,
+  "lng": -72.440801,
+  "matched": "Southold, Town of Southold, Suffolk County, New York, 11971, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Paltz, New York": {
+  "lat": 41.746497,
+  "lng": -74.084489,
+  "matched": "Town of New Paltz, Ulster County, New York, 12561, United States (approximate)",
+  "how": "area"
+ },
+ "area|Greenport, New York": {
+  "lat": 41.103296,
+  "lng": -72.359309,
+  "matched": "Village of Greenport, Town of Southold, Suffolk County, New York, 11944, United States (approximate)",
+  "how": "area"
+ },
+ "area|Red Bank, New Jersey": {
+  "lat": 40.347054,
+  "lng": -74.064307,
+  "matched": "Red Bank, Monmouth County, New Jersey, 07701, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bridgeport, Connecticut": {
+  "lat": 41.179269,
+  "lng": -73.188786,
+  "matched": "Bridgeport, Greater Bridgeport Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Montclair, New Jersey": {
+  "lat": 40.816446,
+  "lng": -74.221064,
+  "matched": "Montclair, Essex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Glocester, Rhode Island": {
+  "lat": 41.910429,
+  "lng": -71.717637,
+  "matched": "Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Allentown, Pennsylvania": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Revere, Massachusetts": {
+  "lat": 42.40843,
+  "lng": -71.011995,
+  "matched": "Revere, Suffolk County, Massachusetts, 02151, United States (approximate)",
+  "how": "area"
+ },
+ "area|Fawn Grove, Pennsylvania": {
+  "lat": 39.727882,
+  "lng": -76.451908,
+  "matched": "Fawn Grove, York County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Methuen, Massachusetts": {
+  "lat": 42.726202,
+  "lng": -71.190892,
+  "matched": "Methuen, Essex County, Massachusetts, 01844, United States (approximate)",
+  "how": "area"
+ },
+ "area|Phoenixville, Pennsylvania": {
+  "lat": 40.133878,
+  "lng": -75.517283,
+  "matched": "Phoenixville, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Marlborough, Massachusetts": {
+  "lat": 42.346859,
+  "lng": -71.552519,
+  "matched": "Marlborough, Middlesex County, Massachusetts, 01752, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newburyport, Massachusetts": {
+  "lat": 42.811659,
+  "lng": -70.871927,
+  "matched": "Newburyport, Essex County, Massachusetts, 01950, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newmarket, New Hampshire": {
+  "lat": 43.079618,
+  "lng": -70.935784,
+  "matched": "Newmarket, Rockingham County, New Hampshire, 03857, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nashua, New Hampshire": {
+  "lat": 42.765625,
+  "lng": -71.467703,
+  "matched": "Nashua, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Harrison, Maine": {
+  "lat": 44.110761,
+  "lng": -70.679855,
+  "matched": "Harrison, Cumberland County, Maine, 04040, United States (approximate)",
+  "how": "area"
+ },
+ "area|Johnston, Rhode Island": {
+  "lat": 41.83104,
+  "lng": -71.54121,
+  "matched": "Johnston, Providence County, Rhode Island, 02919, United States (approximate)",
+  "how": "area"
+ },
+ "area|Frederick, Maryland": {
+  "lat": 39.415779,
+  "lng": -77.412756,
+  "matched": "Frederick, Frederick County, Maryland, 21709, United States (approximate)",
+  "how": "area"
+ },
+ "area|Killingworth, Connecticut": {
+  "lat": 41.358154,
+  "lng": -72.563702,
+  "matched": "Killingworth, Lower Connecticut River Valley Planning Region, Connecticut, 06419, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pembroke, Massachusetts": {
+  "lat": 42.071491,
+  "lng": -70.809207,
+  "matched": "Pembroke, Plymouth County, Massachusetts, 02359, United States (approximate)",
+  "how": "area"
+ },
+ "area|Shermans Dale, Pennsylvania": {
+  "lat": 40.324253,
+  "lng": -77.173037,
+  "matched": "Shermans Dale, Carroll Township, Perry County, Pennsylvania, 17090, United States (approximate)",
+  "how": "area"
+ },
+ "area|Middletown, Rhode Island": {
+  "lat": 41.545658,
+  "lng": -71.291439,
+  "matched": "Middletown, Newport County, Rhode Island, 02842, United States (approximate)",
+  "how": "area"
+ },
+ "area|Annapolis, Maryland": {
+  "lat": 38.97864,
+  "lng": -76.492786,
+  "matched": "Annapolis, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|East Greenwich, Rhode Island": {
+  "lat": 41.660379,
+  "lng": -71.455891,
+  "matched": "East Greenwich, Kent County, Rhode Island, 02818, United States (approximate)",
+  "how": "area"
+ },
+ "area|Toms River, New Jersey": {
+  "lat": 39.952839,
+  "lng": -74.196741,
+  "matched": "Toms River, Ocean County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Washington, District of Columbia": {
+  "lat": 38.895098,
+  "lng": -77.036385,
+  "matched": "Washington, District of Columbia, United States (approximate)",
+  "how": "area"
+ },
+ "area|Athens, Pennsylvania": {
+  "lat": 41.957296,
+  "lng": -76.517999,
+  "matched": "Athens, Bradford County, Pennsylvania, 18810, United States (approximate)",
+  "how": "area"
+ },
+ "area|Levittown, Pennsylvania": {
+  "lat": 40.157556,
+  "lng": -74.832129,
+  "matched": "Levittown, Bristol Township, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Burlington, Vermont": {
+  "lat": 44.47616,
+  "lng": -73.212906,
+  "matched": "Burlington, Chittenden County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "area|Glens Falls, New York": {
+  "lat": 43.309941,
+  "lng": -73.644447,
+  "matched": "City of Glens Falls, Warren County, New York, 12801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Templeton, Massachusetts": {
+  "lat": 42.555725,
+  "lng": -72.067393,
+  "matched": "Templeton, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|West Chester, Pennsylvania": {
+  "lat": 39.959739,
+  "lng": -75.604461,
+  "matched": "West Chester, Chester County, Pennsylvania, 19383, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Providence, Rhode Island": {
+  "lat": 41.8501,
+  "lng": -71.46617,
+  "matched": "North Providence, Providence County, Rhode Island, 02911, United States (approximate)",
+  "how": "area"
+ },
+ "area|Leominster, Massachusetts": {
+  "lat": 42.526744,
+  "lng": -71.761489,
+  "matched": "Leominster, Worcester County, Massachusetts, 01453, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hampton, New Hampshire": {
+  "lat": 42.94172,
+  "lng": -70.837875,
+  "matched": "Hampton, Rockingham County, New Hampshire, 03842, United States (approximate)",
+  "how": "area"
+ },
+ "area|Foxborough, Massachusetts": {
+  "lat": 42.065377,
+  "lng": -71.247831,
+  "matched": "Foxborough, Norfolk County, Massachusetts, 02035, United States (approximate)",
+  "how": "area"
+ },
+ "area|Berlin, Connecticut": {
+  "lat": 41.621488,
+  "lng": -72.745652,
+  "matched": "Berlin, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hanover, Pennsylvania": {
+  "lat": 39.800532,
+  "lng": -76.983257,
+  "matched": "Hanover, York County, Pennsylvania, 17331, United States (approximate)",
+  "how": "area"
+ },
+ "area|Manchester, New Hampshire": {
+  "lat": 42.99564,
+  "lng": -71.454789,
+  "matched": "Manchester, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Langhorne, Pennsylvania": {
+  "lat": 40.176181,
+  "lng": -74.920248,
+  "matched": "Langhorne, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|hudson, Massachusetts": {
+  "lat": 42.39135,
+  "lng": -71.56769,
+  "matched": "Hudson, Middlesex County, Massachusetts, 01749, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ardmore, Pennsylvania": {
+  "lat": 40.004128,
+  "lng": -75.288289,
+  "matched": "Ardmore, Lower Merion Township, Montgomery County, Pennsylvania, 19003, United States (approximate)",
+  "how": "area"
+ },
+ "area|Framingham, Massachusetts": {
+  "lat": 42.277318,
+  "lng": -71.41659,
+  "matched": "Framingham, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Franconia, New Hampshire": {
+  "lat": 44.227392,
+  "lng": -71.747847,
+  "matched": "Franconia, Grafton County, New Hampshire, 03580, United States (approximate)",
+  "how": "area"
+ },
+ "area|Berlin, Massachusetts": {
+  "lat": 42.381366,
+  "lng": -71.637264,
+  "matched": "Berlin, Worcester County, Massachusetts, 01503, United States (approximate)",
+  "how": "area"
+ },
+ "area|Brattleboro, Vermont": {
+  "lat": 42.850759,
+  "lng": -72.557291,
+  "matched": "Brattleboro, Windham County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lynn, Massachusetts": {
+  "lat": 42.466763,
+  "lng": -70.949494,
+  "matched": "Lynn, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ephrata, Pennsylvania": {
+  "lat": 40.179911,
+  "lng": -76.178924,
+  "matched": "Ephrata, Lancaster County, Pennsylvania, 17522, United States (approximate)",
+  "how": "area"
+ },
+ "area|Milford, Massachusetts": {
+  "lat": 42.142891,
+  "lng": -71.516462,
+  "matched": "Milford, Worcester County, Massachusetts, 01757, United States (approximate)",
+  "how": "area"
+ },
+ "area|Severna Park, Maryland": {
+  "lat": 39.082619,
+  "lng": -76.571968,
+  "matched": "Severna Park, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Forked River, New Jersey": {
+  "lat": 39.824676,
+  "lng": -74.14797,
+  "matched": "Forked River, Lacey Township, Ocean County, New Jersey, 08731, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newport, Rhode Island": {
+  "lat": 41.489983,
+  "lng": -71.313771,
+  "matched": "Newport, Newport County, Rhode Island, 02840, United States (approximate)",
+  "how": "area"
+ },
+ "area|Albany, New York": {
+  "lat": 42.651167,
+  "lng": -73.754968,
+  "matched": "City of Albany, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Danvers, Massachusetts": {
+  "lat": 42.566498,
+  "lng": -70.936296,
+  "matched": "Danvers, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wellesley, Massachusetts": {
+  "lat": 42.296486,
+  "lng": -71.292557,
+  "matched": "Wellesley, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Blue Bell, Pennsylvania": {
+  "lat": 40.147809,
+  "lng": -75.272781,
+  "matched": "Blue Bell, Center Square, Whitpain Township, Montgomery County, Pennsylvania, 19422, United States (approximate)",
+  "how": "area"
+ },
+ "area|Old Town, Maine": {
+  "lat": 44.935398,
+  "lng": -68.645891,
+  "matched": "Old Town, Penobscot County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Sherman, Connecticut": {
+  "lat": 41.579261,
+  "lng": -73.495679,
+  "matched": "Sherman, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pepperell, Massachusetts": {
+  "lat": 42.665032,
+  "lng": -71.578592,
+  "matched": "Pepperell, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nether Providence Township, Pennsylvania": {
+  "lat": 39.900437,
+  "lng": -75.369624,
+  "matched": "Nether Providence Township, Delaware County, Pennsylvania, 19086, United States (approximate)",
+  "how": "area"
+ },
+ "area|Weymouth, Massachusetts": {
+  "lat": 42.221219,
+  "lng": -70.939162,
+  "matched": "Weymouth, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hawley, Pennsylvania": {
+  "lat": 41.475922,
+  "lng": -75.182119,
+  "matched": "Hawley, Wayne County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Worcester, Massachusetts": {
+  "lat": 42.262562,
+  "lng": -71.801888,
+  "matched": "Worcester, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westbrook, Connecticut": {
+  "lat": 41.286031,
+  "lng": -72.448787,
+  "matched": "Westbrook, Lower Connecticut River Valley Planning Region, Connecticut, 06498, United States (approximate)",
+  "how": "area"
+ },
+ "area|Gilford, New Hampshire": {
+  "lat": 43.54805,
+  "lng": -71.407013,
+  "matched": "Gilford, Belknap County, New Hampshire, 03249, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bath, Pennsylvania": {
+  "lat": 40.726519,
+  "lng": -75.393491,
+  "matched": "Bath, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Saratoga Springs, New York": {
+  "lat": 43.082231,
+  "lng": -73.785373,
+  "matched": "City of Saratoga Springs, Saratoga County, New York, 12866, United States (approximate)",
+  "how": "area"
+ },
+ "area|Plainfield, Connecticut": {
+  "lat": 41.679937,
+  "lng": -71.914728,
+  "matched": "Plainfield, Northeastern Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Woodbury Heights, New Jersey": {
+  "lat": 39.817058,
+  "lng": -75.155178,
+  "matched": "Woodbury Heights, Gloucester County, New Jersey, 08097, United States (approximate)",
+  "how": "area"
+ },
+ "area|Brentwood, Maryland": {
+  "lat": 38.942968,
+  "lng": -76.955803,
+  "matched": "Brentwood, Prince George's County, Maryland, 20722, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hamburg, Pennsylvania": {
+  "lat": 40.555308,
+  "lng": -75.982408,
+  "matched": "Hamburg, Berks County, Pennsylvania, 19526, United States (approximate)",
+  "how": "area"
+ },
+ "area|Warminster, Pennsylvania": {
+  "lat": 40.206775,
+  "lng": -75.099616,
+  "matched": "Warminster Township, Bucks County, Pennsylvania, 18974, United States (approximate)",
+  "how": "area"
+ },
+ "area|Frostburg, Maryland": {
+  "lat": 39.658333,
+  "lng": -78.928424,
+  "matched": "Frostburg, Allegany County, Maryland, 21532, United States (approximate)",
+  "how": "area"
+ },
+ "area|Schenectady, New York": {
+  "lat": 42.814243,
+  "lng": -73.939569,
+  "matched": "City of Schenectady, Schenectady County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Troy, New York": {
+  "lat": 42.728412,
+  "lng": -73.691788,
+  "matched": "City of Troy, Rensselaer County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lima, New York": {
+  "lat": 42.905006,
+  "lng": -77.611668,
+  "matched": "Town of Lima, Livingston County, New York, 14485, United States (approximate)",
+  "how": "area"
+ },
+ "area|Great Barrington, Massachusetts": {
+  "lat": 42.193936,
+  "lng": -73.362773,
+  "matched": "Great Barrington, Berkshire County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Old Orchard Beach, Maine": {
+  "lat": 43.507557,
+  "lng": -70.356157,
+  "matched": "Old Orchard Beach, York County, Maine, 04064, United States (approximate)",
+  "how": "area"
+ },
+ "area|Killington, Vermont": {
+  "lat": 43.67433,
+  "lng": -72.778445,
+  "matched": "Killington, Rutland County, Vermont, 05751, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wayland, Massachusetts": {
+  "lat": 42.363206,
+  "lng": -71.360672,
+  "matched": "Wayland, Middlesex County, Massachusetts, 01778, United States (approximate)",
+  "how": "area"
+ },
+ "area|Cohoes, New York": {
+  "lat": 42.774245,
+  "lng": -73.700119,
+  "matched": "City of Cohoes, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Melrose, Massachusetts": {
+  "lat": 42.456432,
+  "lng": -71.064182,
+  "matched": "Melrose, Middlesex County, Massachusetts, 02176, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Reading, Massachusetts": {
+  "lat": 42.575094,
+  "lng": -71.078665,
+  "matched": "North Reading, Middlesex County, Massachusetts, 01864, United States (approximate)",
+  "how": "area"
+ },
+ "area|Baltimore, Maryland": {
+  "lat": 39.290882,
+  "lng": -76.610759,
+  "matched": "Baltimore, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Sudbury, Massachusetts": {
+  "lat": 42.383428,
+  "lng": -71.416173,
+  "matched": "Sudbury, Middlesex County, Massachusetts, 01776, United States (approximate)",
+  "how": "area"
+ },
+ "area|Beverly, Massachusetts": {
+  "lat": 42.548974,
+  "lng": -70.878188,
+  "matched": "Beverly, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Mount Olive, New Jersey": {
+  "lat": 40.846255,
+  "lng": -74.743306,
+  "matched": "Mount Olive, Morris County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Gloucester City, New Jersey": {
+  "lat": 39.891862,
+  "lng": -75.11619,
+  "matched": "Gloucester City, Camden County, New Jersey, 08030, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Milford, Connecticut": {
+  "lat": 41.577099,
+  "lng": -73.41058,
+  "matched": "New Milford, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Hampton, New Hampshire": {
+  "lat": 42.968981,
+  "lng": -70.835949,
+  "matched": "North Hampton, Rockingham County, New Hampshire, 03862, United States (approximate)",
+  "how": "area"
+ },
+ "area|Rochester, New York": {
+  "lat": 43.157285,
+  "lng": -77.615214,
+  "matched": "City of Rochester, Monroe County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Cumberland, Maryland": {
+  "lat": 39.65265,
+  "lng": -78.762383,
+  "matched": "Cumberland, Allegany County, Maryland, 21502, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bristol, Rhode Island": {
+  "lat": 41.677046,
+  "lng": -71.26616,
+  "matched": "Bristol, Bristol County, Rhode Island, 02809, United States (approximate)",
+  "how": "area"
+ },
+ "area|Chatham, New York": {
+  "lat": 42.364252,
+  "lng": -73.594839,
+  "matched": "Town of Chatham, Columbia County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethlehem Township, New Jersey": {
+  "lat": 40.668599,
+  "lng": -75.010278,
+  "matched": "Bethlehem Township, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Baldwinsville, New York": {
+  "lat": 43.158679,
+  "lng": -76.33271,
+  "matched": "Village of Baldwinsville, Town of Lysander, Onondaga County, New York, 13027, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wrightsville, Pennsylvania": {
+  "lat": 40.026681,
+  "lng": -76.533439,
+  "matched": "Wrightsville, York County, Pennsylvania, 17368, United States (approximate)",
+  "how": "area"
+ },
+ "area|Scranton, Pennsylvania": {
+  "lat": 41.408687,
+  "lng": -75.662129,
+  "matched": "Scranton, Lackawanna County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pittsburgh, Pennsylvania": {
+  "lat": 40.440697,
+  "lng": -80.002567,
+  "matched": "Pittsburgh, Allegheny County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Providence, Rhode Island": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Spring City, Pennsylvania": {
+  "lat": 40.177828,
+  "lng": -75.545644,
+  "matched": "Spring City, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Smithfield, Rhode Island": {
+  "lat": 41.922043,
+  "lng": -71.549507,
+  "matched": "Smithfield, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Franklin, Connecticut": {
+  "lat": 41.609055,
+  "lng": -72.14619,
+  "matched": "Franklin, Southeastern Connecticut Planning Region, Connecticut, 06254, United States (approximate)",
+  "how": "area"
+ },
+ "area|Freeland, Maryland": {
+  "lat": 39.704826,
+  "lng": -76.68386,
+  "matched": "Freeland, Baltimore County, Maryland, 21105, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lewiston, Maine": {
+  "lat": 44.099072,
+  "lng": -70.21771,
+  "matched": "Lewiston, Androscoggin County, Maine, 04240, United States (approximate)",
+  "how": "area"
+ },
+ "area|Rockville, Maryland": {
+  "lat": 39.081798,
+  "lng": -77.151684,
+  "matched": "Rockville, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Malvern, Pennsylvania": {
+  "lat": 40.036202,
+  "lng": -75.513896,
+  "matched": "Malvern, Chester County, Pennsylvania, 19355, United States (approximate)",
+  "how": "area"
+ },
+ "area|Milford, New Hampshire": {
+  "lat": 42.835577,
+  "lng": -71.649535,
+  "matched": "Milford, Hillsborough County, New Hampshire, 03055, United States (approximate)",
+  "how": "area"
+ },
+ "area|Turners Falls, Massachusetts": {
+  "lat": 42.608309,
+  "lng": -72.556788,
+  "matched": "Turners Falls, Montague, Franklin County, Massachusetts, 01376, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lancaster, New Hampshire": {
+  "lat": 44.489906,
+  "lng": -71.569451,
+  "matched": "Lancaster, Coös County, New Hampshire, 03584, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westford, Massachusetts": {
+  "lat": 42.579258,
+  "lng": -71.437841,
+  "matched": "Westford, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Beach, Maryland": {
+  "lat": 38.70488,
+  "lng": -76.533174,
+  "matched": "North Beach, Calvert County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Atlantic City, New Jersey": {
+  "lat": 39.364285,
+  "lng": -74.422935,
+  "matched": "Atlantic City, Atlantic County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Chepachet, Rhode Island": {
+  "lat": 41.909763,
+  "lng": -71.665667,
+  "matched": "Chepachet, Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|West Warwick, Rhode Island": {
+  "lat": 41.70613,
+  "lng": -71.522145,
+  "matched": "West Warwick, Kent County, Rhode Island, 02893, United States (approximate)",
+  "how": "area"
+ },
+ "area|Dundalk, Maryland": {
+  "lat": 39.262435,
+  "lng": -76.487059,
+  "matched": "Dundalk, North Point Village, Baltimore County, Maryland, 21222, United States (approximate)",
+  "how": "area"
+ },
+ "area|Malden, Massachusetts": {
+  "lat": 42.426848,
+  "lng": -71.068374,
+  "matched": "Malden, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pattenburg, New Jersey": {
+  "lat": 40.636212,
+  "lng": -75.016282,
+  "matched": "Pattenburg, Union, Hunterdon County, New Jersey, 08802, United States (approximate)",
+  "how": "area"
+ },
+ "area|Takoma Park, Maryland": {
+  "lat": 38.977888,
+  "lng": -77.007476,
+  "matched": "Takoma Park, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bellingham, Massachusetts": {
+  "lat": 42.086949,
+  "lng": -71.474644,
+  "matched": "Bellingham, Norfolk County, Massachusetts, 02019, United States (approximate)",
+  "how": "area"
+ },
+ "area|Housatonic, Massachusetts": {
+  "lat": 42.254931,
+  "lng": -73.366539,
+  "matched": "Housatonic, Great Barrington, Berkshire County, Massachusetts, 01236, United States (approximate)",
+  "how": "area"
+ },
+ "area|Groton, Massachusetts": {
+  "lat": 42.611224,
+  "lng": -71.57454,
+  "matched": "Groton, Middlesex County, Massachusetts, 01450, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bolton, Massachusetts": {
+  "lat": 42.434234,
+  "lng": -71.609774,
+  "matched": "Bolton, Worcester County, Massachusetts, 01740, United States (approximate)",
+  "how": "area"
+ },
+ "area|Altamont, New York": {
+  "lat": 42.700632,
+  "lng": -74.033738,
+  "matched": "Village of Altamont, Town of Guilderland, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Middletown, Connecticut": {
+  "lat": 41.562318,
+  "lng": -72.650906,
+  "matched": "Middletown, Lower Connecticut River Valley Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Littleton, Massachusetts": {
+  "lat": 42.537592,
+  "lng": -71.51201,
+  "matched": "Littleton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newtown, Pennsylvania": {
+  "lat": 40.229405,
+  "lng": -74.936533,
+  "matched": "Newtown, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Portsmouth, Massachusetts": {
+  "lat": 42.359394,
+  "lng": -71.145409,
+  "matched": "Portsmouth Street Playground, Brighton, Boston, Suffolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Stroudsburg, Pennsylvania": {
+  "lat": 40.986426,
+  "lng": -75.194665,
+  "matched": "Stroudsburg, Monroe County, Pennsylvania, 18360, United States (approximate)",
+  "how": "area"
+ },
+ "area|Medford, New Jersey": {
+  "lat": 39.900947,
+  "lng": -74.823496,
+  "matched": "Medford Township, Burlington County, New Jersey, 08055, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethlehem, Pennsylvania": {
+  "lat": 40.617891,
+  "lng": -75.378652,
+  "matched": "Bethlehem, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newton, Massachusetts": {
+  "lat": 42.330044,
+  "lng": -71.194862,
+  "matched": "Newton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Stockton, New Jersey": {
+  "lat": 40.405879,
+  "lng": -74.977359,
+  "matched": "Stockton, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Watervliet, New York": {
+  "lat": 42.730078,
+  "lng": -73.70123,
+  "matched": "City of Watervliet, Albany County, New York, 12189, United States (approximate)",
+  "how": "area"
+ },
+ "area|Northborough, Massachusetts": {
+  "lat": 42.319601,
+  "lng": -71.642241,
+  "matched": "Northborough, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wakefield, Rhode Island": {
+  "lat": 41.437324,
+  "lng": -71.501447,
+  "matched": "Wakefield, South Kingstown, South County, Rhode Island, 02879, United States (approximate)",
+  "how": "area"
+ },
+ "area|Philadelphia, Pennsylvania": {
+  "lat": 39.952724,
+  "lng": -75.163526,
+  "matched": "Philadelphia, Philadelphia County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Deer Isle, Maine": {
+  "lat": 44.224044,
+  "lng": -68.677597,
+  "matched": "Deer Isle, Hancock County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lebanon, Pennsylvania": {
+  "lat": 40.375713,
+  "lng": -76.462612,
+  "matched": "Lebanon County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|PROVIDENCE, Rhode Island": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Manchester, Connecticut": {
+  "lat": 41.783402,
+  "lng": -72.523197,
+  "matched": "Manchester, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Unity, Maine": {
+  "lat": 44.611269,
+  "lng": -69.334425,
+  "matched": "Unity, Waldo County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Creek, New York": {
+  "lat": 43.691484,
+  "lng": -73.986727,
+  "matched": "North Creek, Town of Johnsburg, Town of Chester, Warren County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Montague, Massachusetts": {
+  "lat": 42.590123,
+  "lng": -72.549733,
+  "matched": "Montague, Franklin County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Portsmouth, New Hampshire": {
+  "lat": 43.075131,
+  "lng": -70.760183,
+  "matched": "Portsmouth, Rockingham County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Dennis, Massachusetts": {
+  "lat": 41.735387,
+  "lng": -70.193909,
+  "matched": "Dennis, Barnstable County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Warren, Rhode Island": {
+  "lat": 41.730379,
+  "lng": -71.282549,
+  "matched": "Warren, Bristol County, Rhode Island, 02885, United States (approximate)",
+  "how": "area"
+ },
+ "area|Jackson, New Jersey": {
+  "lat": 39.776505,
+  "lng": -74.862385,
+  "matched": "Jackson, Waterford Township, Camden County, New Jersey, 08004, United States (approximate)",
+  "how": "area"
+ },
+ "area|Waterville, Maine": {
+  "lat": 44.550577,
+  "lng": -69.630317,
+  "matched": "Waterville, Kennebec County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Princeton, New Jersey": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Coburn Gore, Maine": {
+  "lat": 45.379215,
+  "lng": -70.803407,
+  "matched": "Coburn Gore, Franklin County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ithaca, New York": {
+  "lat": 42.437418,
+  "lng": -76.548372,
+  "matched": "Town of Ithaca, Tompkins County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Tarrytown, New York": {
+  "lat": 41.076208,
+  "lng": -73.858746,
+  "matched": "Village of Tarrytown, Town of Greenburgh, Westchester County, New York, 10591, United States (approximate)",
+  "how": "area"
+ },
+ "area|Acra, New York": {
+  "lat": 42.310919,
+  "lng": -74.055413,
+  "matched": "Acra, Town of Cairo, Greene County, New York, 12405, United States (approximate)",
+  "how": "area"
+ },
+ "area|Riverhead, New York": {
+  "lat": 40.916869,
+  "lng": -72.662419,
+  "matched": "Town of Riverhead, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nassau, New York": {
+  "lat": 40.735299,
+  "lng": -73.561578,
+  "matched": "Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Suffolk, New York": {
+  "lat": 40.883232,
+  "lng": -72.857803,
+  "matched": "Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Enfield, Connecticut": {
+  "lat": 41.976772,
+  "lng": -72.591711,
+  "matched": "Enfield, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Washington County, New York": {
+  "lat": 43.229454,
+  "lng": -73.447134,
+  "matched": "Washington County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Coventry, Connecticut": {
+  "lat": 41.770099,
+  "lng": -72.30508,
+  "matched": "Coventry, Capitol Planning Region, Connecticut, 06238, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westport, Connecticut": {
+  "lat": 41.141486,
+  "lng": -73.357895,
+  "matched": "Westport, Western Connecticut Planning Region, Connecticut, 06880, United States (approximate)",
+  "how": "area"
+ },
+ "area|Derby, Connecticut": {
+  "lat": 41.322361,
+  "lng": -73.089032,
+  "matched": "Derby, Naugatuck Valley Planning Region, Connecticut, 06418, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Bergen, New Jersey": {
+  "lat": 40.804267,
+  "lng": -74.012084,
+  "matched": "North Bergen, Hudson County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Haven, Connecticut": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lakewood, New Jersey": {
+  "lat": 40.094099,
+  "lng": -74.214989,
+  "matched": "Lakewood Township, Ocean County, New Jersey, 08701, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westbury, New York": {
+  "lat": 40.755656,
+  "lng": -73.587627,
+  "matched": "Village of Westbury, Town of North Hempstead, Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Patchogue, New York": {
+  "lat": 40.765654,
+  "lng": -73.015108,
+  "matched": "Village of Patchogue, Town of Brookhaven, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ }
 }
