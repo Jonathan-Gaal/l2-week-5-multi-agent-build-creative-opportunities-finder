@@ -1,10 +1,11 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import m from "./ResultsMap.module.css";
 
-export type Pin = { key: string; title: string; lat: number; lng: number; top: boolean; n?: number };
+export type Pin = { key: string; title: string; lat: number; lng: number; top: boolean; n?: number; href: string };
 
 const STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
 const LAND = "#3d2674";
@@ -16,18 +17,36 @@ const STATES = ["New York", "New Jersey", "Connecticut", "Pennsylvania", "Massac
 const NYC: [number, number] = [-73.97, 40.73];
 
 /** Move the page to a result card and flash it, so a pin and its card are easy to connect. */
-function showCard(key: string) {
+function showCard(key: string): boolean {
   const el = document.getElementById(`card-${key}`);
-  if (!el) return;
+  if (!el) return false;
   el.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
   el.classList.remove("rcard-flash");
   void el.offsetWidth;
   el.classList.add("rcard-flash");
+  window.setTimeout(() => el.classList.remove("rcard-flash"), 3100);
+  return true;
 }
 
 /** A dark street map: a pink dot for every listing with an address, numbered lime pins for the top picks. */
 export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: number }) {
   const box = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  // The map is built once for a set of pins and kept while the page changes underneath it (paging "More matches" must not rebuild it).
+  const pinsKey = pins.map((p) => `${p.key}:${p.n ?? ""}`).join("|");
+
+  /** Take the visitor to a listing's card: scroll to it here, or move to the page of the list that holds it, without reloading. */
+  const goRef = useRef<(p: Pin) => void>(() => {});
+  useEffect(() => {
+    goRef.current = (p) => {
+      if (showCard(p.key)) return;
+      router.push(p.href, { scroll: false });
+      let tries = 0;
+      const wait = window.setInterval(() => {
+        if (showCard(p.key) || ++tries > 40) window.clearInterval(wait);
+      }, 100);
+    };
+  }, [router]);
 
   useEffect(() => {
     if (!box.current || !pins.length) return;
@@ -89,8 +108,10 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         } else {
           el.className = m.pin;
         }
-        // The list of listings at this address: plain text on hover, clickable buttons once the pin is clicked.
-        const listing = (clickable: boolean, max: number) => {
+        // What shows when the pointer is over a pin: at most two listings at this address, each with a "Go to this listing" link.
+        // Two keeps the card short enough to sit inside the map; the rest are in the list under the map.
+        const SHOWN = 2;
+        const listing = () => {
           const box = document.createElement("div");
           if (g.length > 1) {
             const head = document.createElement("div");
@@ -98,31 +119,60 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
             head.textContent = `${g.length} listings here`;
             box.append(head);
           }
-          for (const p of ordered.slice(0, max)) {
-            const row = document.createElement(clickable ? "button" : "div");
+          for (const p of ordered.slice(0, SHOWN)) {
+            const row = document.createElement("a");
             row.className = m.tipRow;
-            row.textContent = `${p.top ? `${p.n}. ` : ""}${p.title}`;
-            if (clickable) row.addEventListener("click", () => showCard(p.key));
+            const title = document.createElement("span");
+            title.className = m.tipTitle;
+            title.textContent = `${p.top ? `${p.n}. ` : ""}${p.title}`;
+            row.href = p.href;
+            // The card is on this page: scroll to it. Otherwise move to the page of the list that holds it, without reloading.
+            row.addEventListener("click", (e) => {
+              e.preventDefault();
+              popup.remove();
+              goRef.current(p);
+            });
+            const go = document.createElement("span");
+            go.className = m.tipGo;
+            go.textContent = "Go to this listing →";
+            row.append(title, go);
             box.append(row);
           }
-          if (ordered.length > max) {
+          if (ordered.length > SHOWN) {
             const more = document.createElement("div");
             more.className = m.tipMore;
-            more.textContent = `and ${ordered.length - max} more`;
+            more.textContent = `and ${ordered.length - SHOWN} more at this address`;
             box.append(more);
           }
           return box;
         };
         const at: [number, number] = [first.lng, first.lat];
-        const tip = new ml.Popup({ offset: 16, closeButton: false, className: m.tip }).setDOMContent(listing(false, 5));
-        const pinned = new ml.Popup({ offset: 16, closeButton: true, className: m.tip, maxWidth: "300px" }).setDOMContent(listing(true, 40));
-        el.addEventListener("mouseenter", () => !pinned.isOpen() && tip.setLngLat(at).addTo(map!));
-        el.addEventListener("mouseleave", () => tip.remove());
-        el.addEventListener("click", () => {
-          tip.remove();
-          if (g.length === 1) showCard(first.key);
-          else pinned.setLngLat(at).addTo(map!);
+        const popup = new ml.Popup({ offset: 16, closeButton: false, closeOnClick: false, className: m.tip, maxWidth: "240px" }).setDOMContent(listing());
+        // It opens when the pointer is over the pin and stays open while the pointer is over the pin or the card itself, so the
+        // link can be reached; it closes a moment after the pointer leaves both.
+        let closing: number | undefined;
+        const open = () => {
+          window.clearTimeout(closing);
+          if (popup.isOpen()) return;
+          // Put the card on the side of the pin with the most room (below a pin in the top half of the map, above one in the
+          // bottom half, and tucked in from the left or right edge), so it is never cut off by the edge of the map.
+          const pt = map!.project(at);
+          const size = map!.getContainer().getBoundingClientRect();
+          const v = pt.y < size.height / 2 ? "top" : "bottom";
+          const h = pt.x < 130 ? "-left" : pt.x > size.width - 130 ? "-right" : "";
+          popup.options.anchor = `${v}${h}` as "top";
+          popup.setLngLat(at).addTo(map!);
+        };
+        const closeSoon = () => { window.clearTimeout(closing); closing = window.setTimeout(() => popup.remove(), 350); };
+        popup.on("open", () => {
+          const card = popup.getElement();
+          card.addEventListener("mouseenter", () => window.clearTimeout(closing));
+          card.addEventListener("mouseleave", closeSoon);
         });
+        el.addEventListener("mouseenter", open);
+        el.addEventListener("mouseleave", closeSoon);
+        el.addEventListener("focus", open);
+        el.addEventListener("blur", closeSoon);
         new ml.Marker({ element: el }).setLngLat(at).addTo(map);
         bounds.extend(at);
       }
@@ -136,7 +186,8 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
       gone = true;
       map?.remove();
     };
-  }, [pins]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- rebuilt only when the set of pins changes
+  }, [pinsKey]);
 
   if (!pins.length) return null;
   return (

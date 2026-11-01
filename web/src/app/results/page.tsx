@@ -4,6 +4,7 @@ import BackendFailure from "@/components/BackendFailure";
 import ResultCard from "@/components/ResultCard";
 import ResultsMap, { type Pin } from "@/components/ResultsMap";
 import ResultsSidebar from "@/components/ResultsSidebar";
+import ScrollToCard from "@/components/ScrollToCard";
 import r from "@/components/ResultsLive.module.css";
 import { asBackendError, type BackendError, getMeta, searchBackend, visitorClient } from "@/lib/backend";
 import { soonestFirst } from "@/lib/cards";
@@ -128,7 +129,17 @@ export default async function Results({ searchParams }: { searchParams: Params }
   // The ranked picks are numbered 1, 2, 3... down the page; a pin carries the same number as its card.
   const rankOf = new Map(picks.map((c, i) => [c.key, i + 1] as const));
   const shown = [...picks.map((c) => ({ c, top: true })), ...rest.map((c) => ({ c, top: false }))];
-  const pins: Pin[] = shown.flatMap(({ c, top }) => (points[c.key] ? [{ key: c.key, title: c.title, ...points[c.key], top, n: top ? rankOf.get(c.key) : undefined }] : []));
+  // Where a pin's "Go to this listing" leads: the ranked cards are on this page; any other listing is on a page of the
+  // "More matches" list, so the link opens that page of the full list and jumps to the card.
+  const restPage = new Map(rest.map((c, i) => [c.key, Math.floor(i / PAGE_SIZE) + 1] as const));
+  const hrefFor = (key: string, top: boolean) => {
+    if (top) return `#card-${key}`;
+    const next = new URLSearchParams(choices);
+    const page = restPage.get(key) ?? 1;
+    if (page > 1) next.set("pg", String(page));
+    return `/results?${next}#card-${key}`;
+  };
+  const pins: Pin[] = shown.flatMap(({ c, top }) => (points[c.key] ? [{ key: c.key, title: c.title, ...points[c.key], top, n: top ? rankOf.get(c.key) : undefined, href: hrefFor(c.key, top) }] : []));
 
   return (
     <div className="wrap">
@@ -140,6 +151,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
           {out && lists && (
             <>
               <h1 className="sr-only">Your opportunities</h1>
+              <ScrollToCard />
               <div className={r.count}>
                 <span className={r.big}>{matched}</span>
                 <span className={r.countText}>

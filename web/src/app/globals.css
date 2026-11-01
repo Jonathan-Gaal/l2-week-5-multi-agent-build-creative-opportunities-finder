@@ -133,9 +133,13 @@ html { scrollbar-gutter: stable; }
 .cards { display: grid; gap: 16px; }
 .rcard { background: #fffcf6; color: var(--ink); border-radius: 18px; padding: 16px 20px; display: grid; gap: 6px; }
 .pill-sub { background: transparent; color: var(--pink-dk); border: 2px solid var(--pink-dk); }
-.rcard-flash { animation: rcardFlash 1.6s ease-out; }
-@keyframes rcardFlash { 0% { box-shadow: 0 0 0 4px var(--lime); } 100% { box-shadow: 0 0 0 4px transparent; } }
-@media (prefers-reduced-motion: reduce) { .rcard-flash { animation: none; box-shadow: 0 0 0 4px var(--lime); } }
+/* A card a map pin led to glows yellow for three seconds: an outline that fades out, with a glow that radiates outward in three pulses. */
+.rcard-flash { outline: 3px solid var(--lime); outline-offset: 2px; animation: rcardOutline 3s ease-out forwards, rcardRadiate 1s ease-out 3; }
+@keyframes rcardOutline { 0%, 55% { outline-color: var(--lime); } 100% { outline-color: rgba(220, 252, 5, 0); } }
+@keyframes rcardRadiate {
+  0% { box-shadow: 0 0 0 0 rgba(220, 252, 5, 0.75), 0 0 18px 2px rgba(220, 252, 5, 0.55); }
+  100% { box-shadow: 0 0 0 28px rgba(220, 252, 5, 0), 0 0 44px 16px rgba(220, 252, 5, 0); }
+}
 .rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .rcard-when { margin-left: auto; font: 700 14px var(--sans); color: var(--muted); }
 .rcard-when.closing { color: var(--pink-dk); }
