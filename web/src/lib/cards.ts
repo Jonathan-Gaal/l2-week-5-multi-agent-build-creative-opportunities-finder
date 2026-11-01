@@ -106,15 +106,21 @@ export function feeText(fee: string | null | undefined, type: string, subtype: s
   return "Fee not listed";
 }
 
+/** Sources whose address ends in the date (.../event/some-class/2026-11-03/): the events calendar they run gives each date its own page. */
+const DATE_AT_END_SOURCES: readonly string[] = ["huntington-arts", "daisys-li", "arts-council-princeton", "five-points-arts"];
+
 /**
- * NYC Parks gives every date of a repeating event its own page, with the date in the address
- * (.../events/2026/10/29/eclectik-dance-fusion). The stored link is the first date's page, which says "event passed" once
- * that day is over, so the card links to the page for the next date instead. Any other link is left as it is.
+ * Where a repeating event's page for a given date lives. Some sources give every date its own page with the date in the
+ * address: NYC Parks (.../events/2026/10/29/eclectik-dance-fusion) and the four sources above. The stored link is the
+ * first date's page, which is old once that day is over, so the card links to the page for the next date instead. Any
+ * other link (a single page for the whole series, say) is left as it is.
  */
 export function nextOccurrenceUrl(source: string, url: string | null, nextDay: string | null): string | null {
-  if (!url || !nextDay || source !== "nyc-parks-events") return url;
-  const day = /^(\d{4})-(\d{2})-(\d{2})$/.exec(nextDay);
-  return day ? url.replace(/\/events\/\d{4}\/\d{2}\/\d{2}\//, `/events/${day[1]}/${day[2]}/${day[3]}/`) : url;
+  const day = nextDay ? /^(\d{4})-(\d{2})-(\d{2})$/.exec(nextDay) : null;
+  if (!url || !day) return url;
+  if (source === "nyc-parks-events") return url.replace(/\/events\/\d{4}\/\d{2}\/\d{2}\//, `/events/${day[1]}/${day[2]}/${day[3]}/`);
+  if (DATE_AT_END_SOURCES.includes(source)) return url.replace(/\/\d{4}-\d{2}-\d{2}\/?$/, `/${nextDay}/`);
+  return url;
 }
 
 export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {

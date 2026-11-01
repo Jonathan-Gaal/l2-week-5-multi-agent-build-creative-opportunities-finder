@@ -136,6 +136,13 @@ describe("nextOccurrenceUrl", () => {
   it("points an NYC Parks listing at the page for its next date", () => {
     assert.equal(nextOccurrenceUrl("nyc-parks-events", first, "2026-11-05"), "https://www.nycgovparks.org/events/2026/11/05/eclectik-dance-fusion");
   });
+  it("does the same for sources whose address ends in the date", () => {
+    assert.equal(nextOccurrenceUrl("huntington-arts", "https://www.huntingtonarts.org/event/adult-acting-classes/2026-10-27/", "2026-11-03"),
+      "https://www.huntingtonarts.org/event/adult-acting-classes/2026-11-03/");
+    assert.equal(nextOccurrenceUrl("five-points-arts", "https://fivepointsarts.org/event/watercolor/2026-10-29/", "2026-11-05"),
+      "https://fivepointsarts.org/event/watercolor/2026-11-05/");
+    assert.equal(nextOccurrenceUrl("huntington-arts", "https://www.huntingtonarts.org/event/one-off-show/", "2026-11-05"), "https://www.huntingtonarts.org/event/one-off-show/");
+  });
   it("leaves other sources, other addresses and a missing next date alone", () => {
     assert.equal(nextOccurrenceUrl("jalopy-theatre", first, "2026-11-05"), first);
     assert.equal(nextOccurrenceUrl("nyc-parks-events", first, null), first);
