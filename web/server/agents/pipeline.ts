@@ -54,7 +54,7 @@ export type Result = {
 };
 
 const EXPIRED_SHOWN = 20;
-const MORE_SHOWN = 50;
+const MORE_SHOWN = 2000;     // in practice every match; the results page shows them a page at a time
 
 type Attempt = {
   n: number;

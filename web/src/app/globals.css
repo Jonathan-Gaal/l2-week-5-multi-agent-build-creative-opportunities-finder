@@ -132,6 +132,9 @@ html { scrollbar-gutter: stable; }
 .group-meta { color: var(--muted-dk); font-size: 14px; }
 .cards { display: grid; gap: 16px; }
 .rcard { background: #fffcf6; color: var(--ink); border-radius: 18px; padding: 16px 20px; display: grid; gap: 6px; }
+.rcard-flash { animation: rcardFlash 1.6s ease-out; }
+@keyframes rcardFlash { 0% { box-shadow: 0 0 0 4px var(--lime); } 100% { box-shadow: 0 0 0 4px transparent; } }
+@media (prefers-reduced-motion: reduce) { .rcard-flash { animation: none; box-shadow: 0 0 0 4px var(--lime); } }
 .rcard-top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .rcard-when { margin-left: auto; font: 700 14px var(--sans); color: var(--muted); }
 .rcard-when.closing { color: var(--pink-dk); }

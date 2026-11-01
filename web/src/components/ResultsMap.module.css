@@ -1,0 +1,22 @@
+.card { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 10px; display: grid; gap: 8px; }
+.map { height: 340px; border-radius: 14px; overflow: hidden; background: #0a0518; }
+.note { margin: 0 6px 2px; font-size: 14px; color: var(--muted-dk); }
+
+.pin { width: 12px; height: 12px; padding: 0; border-radius: 50%; border: 2px solid #1d0f3a; background: var(--pink); cursor: pointer; }
+.pin:hover { transform: scale(1.5); }
+.pinMany { width: 24px; height: 24px; padding: 0; border-radius: 50%; border: 2px solid #1d0f3a; background: var(--pink); color: #000; font: 800 12px var(--sans); cursor: pointer; display: grid; place-items: center; }
+.pinMany:hover { transform: scale(1.15); }
+.badge { position: absolute; top: -8px; right: -10px; min-width: 20px; height: 20px; padding: 0 4px; border-radius: 999px; background: var(--pink); border: 2px solid #1d0f3a; color: #000; font: 800 11px var(--sans); display: grid; place-items: center; }
+.pinTop { position: relative; width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 2px solid #000; background: var(--lime); color: #000; font: 800 14px var(--sans); cursor: pointer; display: grid; place-items: center; }
+.pinTop:hover { transform: scale(1.15); }
+.tipHead { font-weight: 800; margin-bottom: 4px; }
+.tipRow { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 3px 0; font: 600 13px var(--sans); color: #000; }
+button.tipRow { cursor: pointer; text-decoration: underline; }
+.tipMore { font-size: 12px; color: #555; padding-top: 3px; }
+.pin:focus-visible, .pinMany:focus-visible, .pinTop:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
+
+.tip :global(.maplibregl-popup-content) { background: var(--paper); color: #000; font: 700 13px var(--sans); border-radius: 8px; padding: 6px 10px; max-width: 280px; max-height: 260px; overflow-y: auto; }
+.tip :global(.maplibregl-popup-tip) { border-top-color: var(--paper); border-bottom-color: var(--paper); }
+
+@media (max-width: 900px) { .map { height: 260px; } }
+@media (prefers-reduced-motion: reduce) { .pin, .pinTop { transition: none; } }

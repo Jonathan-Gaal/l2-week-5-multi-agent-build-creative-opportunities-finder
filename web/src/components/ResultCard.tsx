@@ -16,7 +16,7 @@ export default function ResultCard({ card }: { card: Card }) {
   // A real date is named ("Deadline: Nov. 10, 2026", "Date: ..."), so it is never read as the date we verified the listing.
   const dateLabel = /\d{4}$/.test(card.deadline) ? (card.type === "event" ? "Date: " : "Deadline: ") : "";
   return (
-    <article className="rcard">
+    <article className="rcard" id={`card-${card.key}`}>
       <div className="rcard-top">
         <span className="pill pill-pink">{kindLabel(card.subtype) ?? (card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel)}</span>
         <span className={TRUST_PILL[card.trust]}>{verifiedWording(card.label)}</span>
