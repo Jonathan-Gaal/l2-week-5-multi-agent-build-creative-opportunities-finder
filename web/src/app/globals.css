@@ -66,6 +66,8 @@ html { scrollbar-gutter: stable; }
 .btn-small { padding: 8px 16px; font-size: 14px; }
 .pill { display: inline-block; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
 .pill-lime { background: var(--lime); color: #000; }
+/* the "Demo mode" tag in the top bar is a yellow outline, not a solid pill */
+.auth-slot .pill-lime { background: transparent; color: var(--paper); border: 2px solid var(--lime); padding: 1px 12px; }
 .pill-pink { background: var(--pink); color: #000; }
 .pill-plain { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
 /* on the landing page this pill sits on a dark panel, so it needs light text */

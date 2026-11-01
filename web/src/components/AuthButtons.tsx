@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -13,6 +14,7 @@ import { useAuth } from "@/lib/auth-context";
  */
 export default function AuthButtons() {
   const { status, user, signOut } = useAuth();
+  const onFindStep = usePathname().startsWith("/find"); // the "Demo mode" tag stays off the three find steps for now
   const [signingOut, setSigningOut] = useState(false);
 
   if (status === "loading") return <div className="auth-slot" />;
@@ -40,7 +42,7 @@ export default function AuthButtons() {
     );
   }
 
-  const demo = status === "guest" || status === "signed-in"; // signed-in here means an anonymous (demo) session
+  const demo = (status === "guest" || status === "signed-in") && !onFindStep; // signed-in here means an anonymous (demo) session
   return (
     <div className="auth-slot">
       {demo && (

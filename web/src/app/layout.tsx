@@ -11,7 +11,7 @@ const dmSans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Artist Atlas | Find your next opportunity in NYC",
   description:
-    "Open calls, grants, residencies, events and jobs for NYC and tri-state artists, ranked for you, with the source and check date on every result.",
+    "Open calls, grants, residencies, events and jobs for NYC and tri-state artists, ranked for you, with the source and verification date on every result.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
