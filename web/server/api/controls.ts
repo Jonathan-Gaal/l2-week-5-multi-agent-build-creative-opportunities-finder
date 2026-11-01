@@ -8,13 +8,14 @@
  * - dailyBudget: process-wide count of model calls per local day (PRD section 10's cap).
  * - concurrencyGate: at most N model-backed runs at once, a short bounded queue for the rest.
  * - lruCache: bounded result cache with a per-entry time to live.
+ * - modelBreaker: stops model calls for a cooldown once the key is unavailable (billing, credit, usage limit).
  * - guardedModel: wraps the Claude model for one request, charging every call to the budget and passing the
  *   request's abort signal (its deadline) to the call.
  * - clientKey: the rate-limit identity of a client address.
  */
 
 import { today } from "../agents/filter.ts";
-import { type Model, ModelError } from "../agents/model.ts";
+import { type Model, ModelError, type ModelFailure, classifyModelError } from "../agents/model.ts";
 
 export type Clock = () => number;
 
@@ -199,10 +200,42 @@ export const SERVER_BUSY = "no run slot free in time";
  * (budget, deadline or a failed call), so it is cached only briefly. */
 export type RunEvents = { calls: number; degraded: boolean };
 
+/**
+ * Process-wide circuit breaker for the model. After a call fails because the key is unavailable (credentials,
+ * billing, credit or usage limit; model.classifyModelError), it opens: requests make no model call and serve
+ * Tier 2 until the cooldown passes (the API's retry-after when it sent one, else `cooldownMs`). Then the next
+ * request tries Claude again; a success closes it, another unavailable failure reopens it. Transient failures
+ * never open it: they fall back for their own request only.
+ */
+export const modelBreaker = (cooldownMs: number, now: Clock, log: (line: string) => void = () => {}) => {
+  let openUntil = 0;
+  let reason: string | null = null;
+  return {
+    /** Why model calls are off right now, or null when they may be made. */
+    openReason(): string | null {
+      return reason !== null && now() < openUntil ? reason : null;
+    },
+    trip(failure: ModelFailure) {
+      const ms = failure.retryAfterMs ?? cooldownMs;
+      [openUntil, reason] = [now() + ms, failure.reason];
+      log(`model unavailable (${failure.reason}); serving Tier 2 without model calls for ${Math.ceil(ms / 1000)}s`);
+    },
+    close() {
+      if (reason !== null) log("model calls succeeding again");
+      [openUntil, reason] = [0, null];
+    },
+  };
+};
+export type ModelBreaker = ReturnType<typeof modelBreaker>;
+
 /** One request's view of the model: every call is charged to the daily budget before it is made and gets
  * the request's abort signal. When the budget is used up the request is aborted, so the pipeline stops
- * starting attempts and serves Tier 2. */
-export const guardedModel = (inner: Model, budget: DailyBudget, ctl: AbortController, events: RunEvents): Model => ({
+ * starting attempts and serves Tier 2. An API failure (model.classifyModelError) aborts the request too, so it
+ * serves Tier 2 after that one call instead of re-ranking; an unavailable key also trips `breaker` for later
+ * requests, and a successful call closes it. Output and schema errors keep their bounded retries. */
+export const guardedModel = (
+  inner: Model, budget: DailyBudget, ctl: AbortController, events: RunEvents, breaker?: ModelBreaker,
+): Model => ({
   async call(system, user, schema) {
     if (ctl.signal.aborted) {
       events.degraded = true;
@@ -215,9 +248,16 @@ export const guardedModel = (inner: Model, budget: DailyBudget, ctl: AbortContro
     }
     events.calls += 1;
     try {
-      return await inner.call(system, user, schema, { signal: ctl.signal });
+      const out = await inner.call(system, user, schema, { signal: ctl.signal });
+      breaker?.close();
+      return out;
     } catch (e) {
       events.degraded = true;
+      const failure = classifyModelError(e);
+      if (failure) {
+        ctl.abort(failure.reason);
+        if (failure.kind === "unavailable") breaker?.trip(failure);
+      }
       throw e;
     }
   },

@@ -631,3 +631,34 @@ describe("Golden", () => {
     assert.deepEqual([s.hard_filter_violations, s.duplicates_shown, s.pass, s.adversarial_followed], [1, 1, false, true]);
   });
 });
+
+describe("Eval: a Claude mode stops when the key is unavailable", () => {
+  const golden = (): ev.Golden => JSON.parse(readFileSync(ev.GOLDEN, "utf-8"));
+  const failing = (cause: unknown): Model & { n: number } => ({
+    n: 0,
+    async call() {
+      this.n += 1;
+      throw new ModelError("API failure", { cause });
+    },
+  });
+
+  it("401 on the first call: one call in all, skipped with the reason, no metrics", async () => {
+    const model = failing({ status: 401 });
+    const out = await ev.runMode("ranker_reviewer", golden(), flt.load(), null, model);
+    assert.deepEqual([out, model.n], [{ skipped: "Claude unavailable: model credentials or access unavailable", completed: 0 }, 1]);
+  });
+
+  it("baseline runs every golden request whatever the model does", async () => {
+    const model = failing({ status: 401 });
+    const out = await ev.runMode("baseline", golden(), flt.load(), null, model);
+    assert.ok("summary" in out);
+    assert.deepEqual([out.summary.requests, model.n], [30, 0]);
+  });
+
+  it("a transient failure doesn't stop the mode: it is scored (as Tier 2 fallbacks)", async () => {
+    const model = failing({ status: 529 });
+    const out = await ev.runMode("ranker_only", golden(), flt.load(), null, model);
+    assert.ok("summary" in out);
+    assert.equal(out.summary.requests, 30);
+  });
+});

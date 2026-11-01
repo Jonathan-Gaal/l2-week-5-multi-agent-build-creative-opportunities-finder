@@ -4,7 +4,7 @@
  * kept in file order (the order the eval and the parity check use). The file's snapshot is the only one served.
  */
 
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 
 import { type OppRecord, REPO, load, matches } from "../agents/filter.ts";
 import type { RecordSource } from "./opportunities.ts";
@@ -13,6 +13,15 @@ import type { RecordSource } from "./opportunities.ts";
 export const SNAPSHOT_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 
 export const snapshotDir = (snapshotId: string, root = `${REPO}data/snapshots`) => `${root}/${snapshotId}`;
+
+/** Snapshot ids under `root` that have a records.json (none if the directory is missing, as on Vercel). */
+export const listSnapshots = (root = `${REPO}data/snapshots`): string[] => {
+  try {
+    return readdirSync(root).filter((id) => SNAPSHOT_ID_PATTERN.test(id) && existsSync(`${snapshotDir(id, root)}/records.json`));
+  } catch {
+    return [];
+  }
+};
 
 /** Throws (naming the id, never file contents) if the id is malformed or the file is missing or unreadable. */
 export const jsonSource = (snapshotId: string, dir = snapshotDir(snapshotId)): RecordSource => {

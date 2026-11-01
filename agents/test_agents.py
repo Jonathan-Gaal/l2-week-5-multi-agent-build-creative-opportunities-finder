@@ -7,7 +7,7 @@ from pathlib import Path
 from agents import eval as ev
 from agents import filter as flt
 from agents import pipeline
-from agents.model import ModelError
+from agents.model import ModelError, ModelFailure, classify_model_error
 from agents.roles import Ranker, Reviewer, listing
 
 DAY = dt.date(2026, 11, 1)
@@ -279,6 +279,108 @@ class Golden(unittest.TestCase):
         s = ev.score(case, out, [a, a2, q])
         self.assertEqual((s["hard_filter_violations"], s["duplicates_shown"], s["pass"], s["adversarial_followed"]),
                          (1, 1, False, True))
+
+
+
+class FakeAPIError(Exception):
+    """Stands in for the SDK's APIStatusError: status_code, response.headers, the body in the message."""
+    def __init__(self, status, message="", headers=None):
+        super().__init__(f"Error code: {status} - {message}")
+        self.status_code, self.response = status, type("R", (), {"headers": headers or {}})()
+
+
+class APIConnectionError(Exception):
+    pass
+
+
+class APITimeoutError(APIConnectionError):
+    pass
+
+
+def api_error(status, message="", headers=None):
+    """A ModelError raised from an API error, the way ClaudeModel.call raises it."""
+    e = ModelError(f"FakeAPIError: {message}")
+    e.__cause__ = FakeAPIError(status, message, headers) if isinstance(status, int) else status
+    return e
+
+
+CREDIT = "Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."
+USAGE = "You have reached your specified API usage limits. You will regain access on 2026-12-01 at 00:00 UTC."
+
+
+class Classifier(unittest.TestCase):
+    # Same table as web/server/agents/model.test.ts.
+    def test_table(self):
+        access = ModelFailure("unavailable", "model credentials or access unavailable")
+        limit = ModelFailure("unavailable", "model credit or usage limit reached")
+        rate = ModelFailure("unavailable", "model usage or rate limit reached")
+        service = ModelFailure("transient", "model service unavailable")
+        conn = ModelFailure("transient", "model connection unavailable")
+        table = [
+            ("401", api_error(401, "invalid x-api-key"), access),
+            ("403", api_error(403, "permission denied"), access),
+            ("402", api_error(402), ModelFailure("unavailable", "model billing unavailable")),
+            ("429", api_error(429), rate),
+            ("429 retry-after", api_error(429, headers={"retry-after": "30"}), rate._replace(retry_after_s=30.0)),
+            ("429 bad retry-after", api_error(429, headers={"retry-after": "soon"}), rate),
+            ("400 credit", api_error(400, CREDIT), limit),
+            ("400 usage", api_error(400, USAGE), limit),
+            ("400 upper case", api_error(400, CREDIT.upper()), limit),
+            ("400 plain", api_error(400, "schema invalid"), ModelFailure("rejected", "model request rejected (400)")),
+            ("404", api_error(404), ModelFailure("rejected", "model request rejected (404)")),
+            ("500", api_error(500), service),
+            ("529", api_error(529, "Overloaded"), service),
+            ("connection", api_error(APIConnectionError("reset")), conn),
+            ("timeout", api_error(APITimeoutError()), conn),
+            ("bare API error", FakeAPIError(401), access),
+            ("refused", ModelError("refused"), None),
+            ("not JSON", api_error(ValueError("bad json")), None),
+            ("not an error", "oops", None),
+        ]
+        for name, error, expected in table:
+            with self.subTest(name):
+                self.assertEqual(classify_model_error(error), expected)
+
+
+class UnavailableKey(unittest.TestCase):
+    req = flt.Request("brooklyn", "open_call", DAY)
+
+    def test_ranker_401_stops_the_loop_after_one_call_and_serves_the_baseline(self):
+        rk = ScriptedRanker(api_error(401), ["r1"], ["r1"])
+        rv = ScriptedReviewer("accept")
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "t.jsonl"
+            out = pipeline.run(self.req, RECORDS, rk, rv, path)
+            t = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual((out["tier"], len(out["results"]), len(rk.calls), rv.calls), (2, 3, 1, 0))
+        self.assertEqual((t["stopped"], t["fallback"], len(t["attempts"])),
+                         ("model credentials or access unavailable", "code baseline", 1))
+
+    def test_reviewer_credit_error_keeps_the_checked_ranking_at_tier_2(self):
+        rk = ScriptedRanker(["r2"])          # baseline order is B (award), A, C: r2 is A
+        out = pipeline.run(self.req, RECORDS, rk, ScriptedReviewer(api_error(400, CREDIT)))
+        self.assertEqual((out["tier"], [r["title"] for r in out["results"]], len(rk.calls)), (2, ["A"], 1))
+
+    def test_transient_ranker_error_still_retries(self):
+        rk = ScriptedRanker(api_error(529), ["r1"])
+        out = pipeline.run(self.req, RECORDS, rk, ScriptedReviewer("accept"))
+        self.assertEqual((out["tier"], len(rk.calls)), (0, 2))
+
+    def test_eval_mode_stops_with_the_reason_and_no_metrics(self):
+        class Failing:
+            n = 0
+
+            def call(self, *a):
+                self.n += 1
+                raise api_error(402)
+        golden, m = json.loads(ev.GOLDEN.read_text(encoding="utf-8")), Failing()
+        out = ev.run_mode("ranker_reviewer", golden, flt.load(), None, m)
+        self.assertEqual((out, m.n), ({"skipped": "Claude unavailable: model billing unavailable", "completed": 0}, 1))
+
+    def test_eval_baseline_runs_every_request_without_the_model(self):
+        golden = json.loads(ev.GOLDEN.read_text(encoding="utf-8"))
+        out = ev.run_mode("baseline", golden, flt.load(), None, object())
+        self.assertEqual(out["summary"]["requests"], 30)
 
 
 if __name__ == "__main__":

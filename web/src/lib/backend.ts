@@ -15,10 +15,10 @@ import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse
 import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
 import { type TraceSink, dailyFileSink } from "../../server/agents/trace.ts";
 import { createApp, META } from "../../server/api/app.ts";
-import { type Config, readConfig, resolveMode } from "../../server/api/config.ts";
+import { type Config, readConfig, resolveDataSource, resolveMode } from "../../server/api/config.ts";
 import { type Client, clientKey } from "../../server/api/controls.ts";
 import { SHARED_NETWORK, visitorClient as clientFor, visitorSecret } from "../../server/api/visitor.ts";
-import { jsonSource } from "../../server/db/json-source.ts";
+import { jsonSource, listSnapshots } from "../../server/db/json-source.ts";
 import { postgresSource } from "../../server/db/opportunities.ts";
 import { getPool } from "../../server/db/pool.ts";
 import { postgresSink } from "../../server/db/traces.ts";
@@ -76,17 +76,16 @@ let api: Api | null = null;
 
 /**
  * The API, built once per server process from the environment (web/.env.example): the record source (Postgres, or
- * the JSON snapshot with DATA_SOURCE=json) and the Claude model unless RANKER_MODE=baseline or credentials are
+ * the JSON snapshot with DATA_SOURCE=json or without DATABASE_URL) and the Claude model unless RANKER_MODE=baseline or credentials are
  * missing (then the code baseline, Tier 2). Its cache, rate limits and daily budget live in this process. Throws on
  * missing or invalid settings (data source, limits), but never on absent Claude credentials; the next call retries.
  */
 function getApi(): Api {
   if (api) return api;
-  const config = readConfig(process.env);
+  // Without DATABASE_URL (and no explicit DATA_SOURCE) serve the newest snapshot file instead, warning once; with
+  // no snapshot file either, this throws and the page shows "Search isn't available right now".
+  const config = resolveDataSource(readConfig(process.env), process.env, listSnapshots());
   const useJson = config.dataSource === "json";
-  if (!useJson && !process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is not set (copy web/.env.example to web/.env, or run npm run dev:local)");
-  }
   // Missing Claude credentials degrade an LLM mode to the code baseline (Tier 2) instead of throwing, so the app
   // always serves results; resolveMode warns once per process when it does. RANKER_MODE=baseline stays baseline.
   const mode = resolveMode(config, missingCredentials());
