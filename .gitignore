@@ -14,3 +14,6 @@ data/snapshot.csv
 
 # Claude Code session logs, backed up from ~/.claude/projects (private, can contain pasted output)
 claude-sessions/
+
+# raw pages saved by a data refresh; regenerate with: python3 scripts/verify_sources.py fetch
+data/research/
