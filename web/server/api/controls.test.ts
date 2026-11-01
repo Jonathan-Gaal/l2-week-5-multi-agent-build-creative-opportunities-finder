@@ -4,7 +4,7 @@ import { describe, it } from "node:test";
 import { type Model, ModelError } from "../agents/model.ts";
 import {
   BUDGET_USED_UP, NETWORK_CEILING_FACTOR, type RunEvents, asClient, clientKey, concurrencyGate, dailyBudget,
-  guardedModel, lruCache, rateLimiter, visitorRateLimiter,
+  guardedModel, lruCache, modelBreaker, rateLimiter, visitorRateLimiter,
 } from "./controls.ts";
 
 const clock = (start = new Date(2026, 9, 28, 12).getTime()) => {
@@ -288,6 +288,96 @@ describe("guardedModel", () => {
     const bad: Model = { call: async () => { throw new ModelError("APIError: overloaded"); } };
     await assert.rejects(guardedModel(bad, b, new AbortController(), ev).call("s", "u", {}), ModelError);
     assert.deepEqual([ev, b.remaining()], [{ calls: 1, degraded: true }, 4]);
+  });
+});
+
+describe("modelBreaker", () => {
+  const KEY = { kind: "unavailable", reason: "model billing unavailable" } as const;
+
+  it("closed until tripped; open for the default cooldown; closed again after it", () => {
+    const c = clock();
+    const b = modelBreaker(1000, c.now);
+    assert.equal(b.openReason(), null);
+    b.trip(KEY);
+    c.t += 999;
+    assert.equal(b.openReason(), "model billing unavailable");
+    c.t += 1;
+    assert.equal(b.openReason(), null);
+  });
+
+  it("retry-after wins over the default cooldown, shorter or longer", () => {
+    const c = clock();
+    const b = modelBreaker(1000, c.now);
+    b.trip({ ...KEY, retryAfterMs: 5000 });
+    c.t += 4999;
+    assert.notEqual(b.openReason(), null);
+    c.t += 1;
+    assert.equal(b.openReason(), null);
+    b.trip({ ...KEY, retryAfterMs: 10 });
+    c.t += 10;
+    assert.equal(b.openReason(), null);
+  });
+
+  it("close() closes at once and logs the recovery only when it had been tripped", () => {
+    const c = clock();
+    const logs: string[] = [];
+    const b = modelBreaker(60_000, c.now, (l) => logs.push(l));
+    b.close();
+    b.trip(KEY);
+    b.close();
+    assert.deepEqual([b.openReason(), logs], [null, [
+      "model unavailable (model billing unavailable); serving Tier 2 without model calls for 60s",
+      "model calls succeeding again",
+    ]]);
+  });
+});
+
+describe("guardedModel and the breaker", () => {
+  const failing = (cause: unknown): Model & { n: number } => ({
+    n: 0,
+    async call() {
+      this.n += 1;
+      throw new ModelError("API failure", { cause });
+    },
+  });
+  const run = async (model: Model, b: ReturnType<typeof modelBreaker>) => {
+    const ctl = new AbortController();
+    const ev: RunEvents = { calls: 0, degraded: false };
+    await guardedModel(model, dailyBudget(5, clock().now), ctl, ev, b).call("s", "u", {}).catch(() => {});
+    return { reason: ctl.signal.reason as unknown, ev };
+  };
+
+  it("an unavailable key aborts the request with the reason and trips the breaker", async () => {
+    const b = modelBreaker(1000, clock().now);
+    const out = await run(failing({ status: 401 }), b);
+    assert.deepEqual([out.reason, out.ev, b.openReason()],
+      ["model credentials or access unavailable", { calls: 1, degraded: true }, "model credentials or access unavailable"]);
+  });
+
+  it("a transient failure aborts this request only: the breaker stays closed", async () => {
+    const b = modelBreaker(1000, clock().now);
+    const out = await run(failing({ status: 529 }), b);
+    assert.deepEqual([out.reason, b.openReason()], ["model service unavailable", null]);
+  });
+
+  it("a rejected request aborts as a bug-type reason, breaker closed", async () => {
+    const b = modelBreaker(1000, clock().now);
+    const out = await run(failing({ status: 400 }), b);
+    assert.deepEqual([out.reason, b.openReason()], ["model request rejected (400)", null]);
+  });
+
+  it("an output error (no API status) neither aborts nor trips: the loop may retry", async () => {
+    const b = modelBreaker(1000, clock().now);
+    const out = await run(failing(new SyntaxError("bad json")), b);
+    assert.deepEqual([out.reason, b.openReason()], [undefined, null]);
+  });
+
+  it("a successful call closes an open breaker", async () => {
+    const b = modelBreaker(60_000, clock().now);
+    b.trip({ kind: "unavailable", reason: "x" });
+    const ok: Model = { call: async () => [{}, { input_tokens: 1, output_tokens: 1 }] };
+    await run(ok, b);
+    assert.equal(b.openReason(), null);
   });
 });
 

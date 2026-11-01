@@ -1,12 +1,15 @@
-// ONE real search through the real Ranker + Reviewer (Claude) and the real Postgres. COSTS MONEY.
-// Opt-in only: runs when DATABASE_URL is set, Anthropic credentials are available, and RUN_PAID_TESTS=1.
+// ONE real search through the real Postgres, ranked by Claude (Ranker + Reviewer) when that is allowed and possible,
+// else by the code ranker. Needs DATABASE_URL (skipped without it); reads only.
+//   npm run test:e2e:claude                    deterministic: code ranker, no model calls, no key needed
+//   RUN_PAID_TESTS=1 npm run test:e2e:claude   real Claude calls, COSTS MONEY (needs Anthropic credentials)
+// With RUN_PAID_TESTS=1 but no credentials it runs deterministic. If Claude turns out unavailable (credentials,
+// billing, credit or usage limit; model.classifyModelError) the test checks the graceful Tier 2 fallback instead.
 // DAILY_MODEL_CALLS caps the spend at 6 model calls (the loop's own maximum: 3 Ranker + 3 Reviewer).
-//   RUN_PAID_TESTS=1 npm run test:e2e:claude
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 
 import * as flt from "../../server/agents/filter.ts";
-import { missingCredentials } from "../../server/agents/model.ts";
+import { classifyModelError, missingCredentials } from "../../server/agents/model.ts";
 import { isUnverified } from "../../server/agents/pipeline.ts";
 import type { OpportunitiesResponse } from "../../server/api/types.ts";
 import { loadRecords } from "../../server/db/opportunities.ts";
@@ -16,18 +19,16 @@ const MAX_MODEL_CALLS = 6;
 const PLACE = "brooklyn";
 const TYPE = "open_call";
 
-const skipReason = (): string | false => {
-  const missing: string[] = [];
-  if (process.env.RUN_PAID_TESTS !== "1") missing.push("RUN_PAID_TESTS=1 is not set (this suite makes paid Claude calls)");
-  if (!process.env.DATABASE_URL) missing.push("DATABASE_URL is not set");
-  const creds = missingCredentials();
-  if (creds) missing.push(creds);
-  return missing.length ? `paid Claude e2e skipped: ${missing.join("; ")}` : false;
-};
-const SKIP = skipReason();
+const SKIP = process.env.DATABASE_URL ? false : "e2e skipped: DATABASE_URL is not set (this suite reads Postgres)";
+// Why this run makes no paid calls, or null when it calls Claude.
+const NO_PAID = process.env.RUN_PAID_TESTS !== "1"
+  ? "RUN_PAID_TESTS=1 is not set (that gate allows paid Claude calls)"
+  : missingCredentials();
 if (SKIP) console.log(`# ${SKIP}`);
+else if (NO_PAID) console.log(`# deterministic run, no model calls: ${NO_PAID}`);
 
-describe("one real search through Ranker + Reviewer", { skip: SKIP }, () => {
+const title = NO_PAID ? "one search through the code ranker (deterministic)" : "one real search through Ranker + Reviewer";
+describe(title, { skip: SKIP }, () => {
   let app: Started;
   after(async () => {
     if (app) {
@@ -38,17 +39,24 @@ describe("one real search through Ranker + Reviewer", { skip: SKIP }, () => {
   });
   before(async () => {
     app = await startApp({
-      RANKER_MODE: "ranker_reviewer", SNAPSHOT_ID: TEST_SNAPSHOT,
+      RANKER_MODE: NO_PAID ? "baseline" : "ranker_reviewer", SNAPSHOT_ID: TEST_SNAPSHOT,
       DAILY_MODEL_CALLS: String(MAX_MODEL_CALLS),
     });
   });
 
-  it(`${PLACE} ${TYPE}: tier 0 or 2, hard filters hold, labels follow PRD section 8, cached on repeat`, { timeout: 10 * 60_000 }, async () => {
+  it(`${PLACE} ${TYPE}: right tier, hard filters hold, labels follow PRD section 8, cached on repeat`, { timeout: 10 * 60_000 }, async () => {
     const r = await app.get(opp(PLACE, TYPE));
     assert.equal(r.status, 200, JSON.stringify(r.body));
     const body = r.body as OpportunitiesResponse;
+
+    // Claude was called but the key is unavailable: the run must have fallen back to the code ranker.
+    const unavailable = app.model?.errors.map(classifyModelError).find((f) => f?.kind === "unavailable") ?? null;
+    if (unavailable) console.log(`# Claude unavailable: ${unavailable.reason}; ran deterministic`);
+    const deterministic = app.model === null || unavailable !== null;
+
     assert.equal(body.snapshot_id, TEST_SNAPSHOT);
-    assert.ok(body.tier === 0 || body.tier === 2, `tier ${body.tier}`);
+    if (deterministic) assert.equal(body.tier, 2, "the code ranker is never fully checked");
+    else assert.ok(body.tier === 0 || body.tier === 2, `tier ${body.tier}`);
     assert.ok(body.results.length >= 1 && body.results.length <= 5, `${body.results.length} results`);
 
     // Hard filters, checked against the database rows the server read.
@@ -76,13 +84,20 @@ describe("one real search through Ranker + Reviewer", { skip: SKIP }, () => {
     }
     if (unverified) assert.equal(body.tier, 2, "a result with an unchecked record is never tier 0");
 
-    // The trace line for the run: at least one attempt and real token counts.
+    // The trace line for the run, and what the model was asked.
     const run = app.trace(body.as_of).find((l) => l.request_id === body.request_id);
     assert.ok(run, "trace line for the run");
     assert.ok(Array.isArray(run.attempts) && run.attempts.length >= 1, "at least one attempt");
-    assert.ok(run.tokens.input_tokens > 0 && run.tokens.output_tokens > 0, "nonzero token counts");
-    const calls = app.model!.calls;
-    assert.ok(calls >= 1 && calls <= MAX_MODEL_CALLS);
+    const calls = app.model?.calls ?? 0;
+    if (app.model === null) {
+      assert.deepEqual(run.tokens, { input_tokens: 0, output_tokens: 0 }, "no model tokens");
+    } else if (unavailable) {
+      assert.equal(calls, 1, "one failed call, then no more");
+      assert.equal(run.fallback, "code baseline");
+    } else {
+      assert.ok(run.tokens.input_tokens > 0 && run.tokens.output_tokens > 0, "nonzero token counts");
+      assert.ok(calls >= 1 && calls <= MAX_MODEL_CALLS);
+    }
     console.log(`# run: tier ${body.tier}, ${run.attempts.length} attempt(s), ${calls} model calls, `
       + `${run.tokens.input_tokens} input + ${run.tokens.output_tokens} output tokens`);
 
@@ -91,7 +106,7 @@ describe("one real search through Ranker + Reviewer", { skip: SKIP }, () => {
     assert.equal(again.status, 200);
     const second = again.body as OpportunitiesResponse;
     assert.deepEqual({ ...second, request_id: "" }, { ...body, request_id: "" });
-    assert.equal(app.model!.calls, calls, "no model call for the repeat");
+    assert.equal(app.model?.calls ?? 0, calls, "no model call for the repeat");
     const hit = app.trace(body.as_of).find((l) => l.request_id === second.request_id);
     assert.ok(hit, "trace line for the repeat");
     assert.deepEqual([hit.served_from, hit.run_request_id, hit.model_calls], ["cache", body.request_id, 0]);

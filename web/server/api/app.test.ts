@@ -9,7 +9,7 @@ import { type CallOptions, type Model, ModelError } from "../agents/model.ts";
 import { dailyFileSink } from "../agents/trace.ts";
 import { type Queryable, postgresSource } from "../db/opportunities.ts";
 import { type AppDeps, type Limits, createApp, parseOpportunitiesQuery, parseSearchQuery, safeHttpUrl } from "./app.ts";
-import { ConfigError, readConfig, resetCredentialWarning, resolveMode } from "./config.ts";
+import { ConfigError, readConfig, resetCredentialWarning, resetDataSourceWarning, resolveDataSource, resolveMode } from "./config.ts";
 import { type Client, NETWORK_CEILING_FACTOR } from "./controls.ts";
 import type { MetaResponse, OpportunitiesResponse, SearchResponse } from "./types.ts";
 
@@ -322,6 +322,18 @@ describe("errors", () => {
     assert.ok(!text.includes("claude") && !text.includes("api") && !text.includes("anthropic"));
   });
 
+  for (const status of [400, 401, 402, 403, 404, 429, 500, 529]) {
+    it(`model access failure ${status} falls back after one call`, async () => {
+      const model = fakeModel();
+      model.error = new ModelError("model request denied", { cause: { status } });
+      const r = await start({ model }).then((s) => s.get(opp("brooklyn", "open_call")));
+      assert.equal(r.status, 200);
+      assert.equal(r.body.tier, 2);
+      assert.ok(r.body.results.length > 0);
+      assert.equal(model.calls, 1);
+    });
+  }
+
   it("an unexpected error in the pipeline is 500 generic", async () => {
     const model = fakeModel();
     model.error = new TypeError("bug at roles.ts:42");
@@ -342,7 +354,8 @@ describe("readConfig", () => {
   it("defaults", () => {
     const c = readConfig({});
     assert.deepEqual([c.mode, c.snapshotId, c.limits.ratePerMinute, c.limits.requestsPerMinute, c.limits.dailyModelCalls,
-      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs], ["ranker_reviewer", undefined, 10, 30, 300, 2, 90_000]);
+      c.limits.maxConcurrentRuns, c.limits.requestDeadlineMs, c.limits.modelCooldownMs],
+    ["ranker_reviewer", undefined, 10, 30, 300, 2, 90_000, 600_000]);
     assert.ok(c.traceDir?.endsWith("traces"));
     assert.equal(readConfig({ VERCEL: "1" }).traceDir, null);        // read-only filesystem: tracing off by default
   });
@@ -393,7 +406,7 @@ describe("readConfig", () => {
       // A search charges one per type, so fewer than five per minute could never serve a full search.
       { RATE_LIMIT_PER_MINUTE: "4" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "0" }, { SEARCH_RATE_LIMIT_PER_MINUTE: "1.5" },
       { DATA_SOURCE: "mysql" }, { DATA_SOURCE: "json" }, { DATA_SOURCE: "json", SNAPSHOT_ID: "../secrets" },
-      { TRACE_SINK: "s3" }]) {
+      { TRACE_SINK: "s3" }, { MODEL_COOLDOWN_MS: "10m" }]) {
       assert.throws(() => readConfig(env), (e: Error) => e instanceof ConfigError && !Object.values(env).some((v) => e.message.includes(v)));
     }
   });
@@ -427,10 +440,15 @@ describe("resolveMode (credential-aware effective mode)", () => {
     assert.equal(mode, "baseline");   // backend maps "baseline" -> model: null
   });
 
-  it("credentials present + default mode: runs the full LLM pipeline (ranker_reviewer)", () => {
+  it("credentials present + RANKER_MODE=ranker_reviewer: runs the full LLM pipeline", () => {
     resetCredentialWarning();
-    const mode = resolveMode(readConfig({}), null);
+    const mode = resolveMode(readConfig({ RANKER_MODE: "ranker_reviewer" }), null);
     assert.equal(mode, "ranker_reviewer");   // backend maps a non-baseline mode -> new ClaudeModel(...)
+  });
+
+  it("credentials present + default mode: Claude ranks again (ranker_reviewer)", () => {
+    resetCredentialWarning();
+    assert.equal(resolveMode(readConfig({}), null), "ranker_reviewer");
   });
 
   it("RANKER_MODE=baseline without credentials: stays baseline, with no warning (the operator chose it)", () => {
@@ -454,10 +472,115 @@ describe("resolveMode (credential-aware effective mode)", () => {
   it("warns at most once per process across repeated resolves, not per request", () => {
     resetCredentialWarning();
     const warnings = captureWarn(() => {
-      resolveMode(readConfig({}), NO_CREDS);   // first build/request: warns
-      resolveMode(readConfig({}), NO_CREDS);   // second build/request in the same process: silent
+      resolveMode(readConfig({ RANKER_MODE: "ranker_reviewer" }), NO_CREDS);   // first build/request: warns
+      resolveMode(readConfig({ RANKER_MODE: "ranker_reviewer" }), NO_CREDS);   // second in the same process: silent
     });
     assert.deepEqual(warnings, [EXPECTED_WARNING]);
+  });
+});
+
+describe("model breaker: an unavailable key stops model calls for a cooldown, then Claude is tried again", () => {
+  const COOLDOWN = 10 * 60_000;
+  // A different type per request, so no request is a cache hit.
+  const ask = (get: (p: string) => Promise<{ body: { tier: number } }>, type: string) =>
+    get(opp("brooklyn", type)).then((r) => r.body.tier);
+
+  it("401: one call, then zero calls (Tier 2) until the cooldown passes; a success closes it", async () => {
+    const model = fakeModel();
+    model.error = new ModelError("AuthenticationError: 401 invalid x-api-key", { cause: { status: 401 } });
+    const { get, clock, logs } = await start({ model });
+    assert.deepEqual([await ask(get, "open_call"), model.calls], [2, 1]);
+    assert.ok(logs.includes("model unavailable (model credentials or access unavailable); serving Tier 2 without model calls for 600s"));
+    assert.deepEqual([await ask(get, "grant"), model.calls], [2, 1]);          // open: no call at all
+    clock.t += COOLDOWN - 1;
+    assert.deepEqual([await ask(get, "residency"), model.calls], [2, 1]);      // 1 ms short: still open
+    model.error = null;                                                        // key put back
+    clock.t += 1;
+    assert.deepEqual([await ask(get, "event"), model.calls], [0, 3]);          // tried again: Ranker + Reviewer, Tier 0
+    assert.deepEqual([await ask(get, "job"), model.calls], [0, 5]);            // closed: stays on Claude
+    assert.ok(logs.includes("model calls succeeding again"));
+  });
+
+  it("400 'credit balance is too low' opens it like 401", async () => {
+    const model = fakeModel();
+    model.error = new ModelError("BadRequestError: 400 Your credit balance is too low to access the Anthropic API.",
+      { cause: { status: 400 } });
+    const { get } = await start({ model });
+    assert.deepEqual([await ask(get, "open_call"), await ask(get, "grant"), model.calls], [2, 2, 1]);
+  });
+
+  it("429 honours retry-after (60 s) instead of the 10 minute default", async () => {
+    const model = fakeModel();
+    model.error = new ModelError("RateLimitError: 429", { cause: { status: 429, headers: new Headers({ "retry-after": "60" }) } });
+    const { get, clock } = await start({ model });
+    await ask(get, "open_call");
+    clock.t += 59_999;
+    assert.deepEqual([await ask(get, "grant"), model.calls], [2, 1]);
+    model.error = null;
+    clock.t += 1;
+    assert.deepEqual([await ask(get, "residency"), model.calls], [0, 3]);
+  });
+
+  it("MODEL_COOLDOWN_MS sets the default cooldown", async () => {
+    const model = fakeModel();
+    model.error = new ModelError("402", { cause: { status: 402 } });
+    const { get, clock } = await start({ model, limits: { modelCooldownMs: 1000 } });
+    await ask(get, "open_call");
+    model.error = null;
+    clock.t += 1000;
+    assert.deepEqual([await ask(get, "grant"), model.calls], [0, 3]);
+  });
+
+  for (const status of [500, 529, 404]) {
+    it(`${status} falls back for that request only: the next request calls Claude`, async () => {
+      const model = fakeModel();
+      model.error = new ModelError(`${status}`, { cause: { status } });
+      const { get } = await start({ model });
+      assert.deepEqual([await ask(get, "open_call"), await ask(get, "grant"), model.calls], [2, 2, 2]);
+    });
+  }
+});
+
+describe("resolveDataSource (no DATABASE_URL: serve a snapshot file)", () => {
+  const SNAPS = ["2026-10-20", "2026-10-27", "2026-09-30"];
+  const resolve = (env: Record<string, string>, snaps: string[] = SNAPS) => {
+    resetDataSourceWarning();
+    let out: [string, string | undefined] | undefined;
+    const warnings = captureWarn(() => {
+      const c = resolveDataSource(readConfig(env), env, snaps);
+      out = [c.dataSource, c.snapshotId];
+    });
+    return { out, warnings };
+  };
+
+  it("DATABASE_URL set: postgres as configured, no warning", () => {
+    assert.deepEqual(resolve({ DATABASE_URL: "postgresql://x" }), { out: ["postgres", undefined], warnings: [] });
+  });
+
+  it("unset: the newest snapshot, warned once per process", () => {
+    assert.deepEqual(resolve({}), {
+      out: ["json", "2026-10-27"],
+      warnings: ["DATABASE_URL is not set; serving snapshot 2026-10-27 from data/snapshots (DATA_SOURCE=json)."],
+    });
+    const again = captureWarn(() => resolveDataSource(readConfig({}), {}, SNAPS));
+    assert.deepEqual(again, []);
+  });
+
+  it("unset with SNAPSHOT_ID: that snapshot", () => {
+    assert.deepEqual(resolve({ SNAPSHOT_ID: "2026-10-20" }).out, ["json", "2026-10-20"]);
+  });
+
+  it("no snapshot file (as on Vercel), or SNAPSHOT_ID without one: ConfigError", () => {
+    assert.throws(() => resolve({}, []), (e: Error) => e instanceof ConfigError && /no snapshot file/.test(e.message));
+    assert.throws(() => resolve({ SNAPSHOT_ID: "2026-01-01" }), ConfigError);
+  });
+
+  it("explicit DATA_SOURCE=postgres without DATABASE_URL: ConfigError, no fallback", () => {
+    assert.throws(() => resolve({ DATA_SOURCE: "postgres" }), (e: Error) => e instanceof ConfigError && /needs DATABASE_URL/.test(e.message));
+  });
+
+  it("DATA_SOURCE=json: unchanged", () => {
+    assert.deepEqual(resolve({ DATA_SOURCE: "json", SNAPSHOT_ID: "2026-09-30" }), { out: ["json", "2026-09-30"], warnings: [] });
   });
 });
 

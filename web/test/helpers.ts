@@ -19,7 +19,8 @@ import { closePool, getPool } from "../server/db/pool.ts";
 export const TEST_SNAPSHOT = "2026-10-27";
 
 type CountingDb = Queryable & { queries: number };
-type CountingModel = Model & { calls: number };
+/** `errors`: what each failed call threw, so a test can tell why a run fell back. */
+type CountingModel = Model & { calls: number; errors: unknown[] };
 
 export type Started = {
   config: Config;
@@ -42,9 +43,15 @@ const countingDb = (inner: Queryable): CountingDb => ({
 
 const countingModel = (inner: Model): CountingModel => ({
   calls: 0,
-  call(...args) {
+  errors: [],
+  async call(...args) {
     this.calls += 1;
-    return inner.call(...args);
+    try {
+      return await inner.call(...args);
+    } catch (e) {
+      this.errors.push(e);
+      throw e;
+    }
   },
 });
 
