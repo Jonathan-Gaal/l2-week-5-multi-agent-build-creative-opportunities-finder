@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import type { Opportunity } from "@api/types";
-import { feeText, friendlyRecurrence, moneyLabel, groupByKind, publicCaveat, toCard, verifiedWording, soonestFirst } from "./cards.ts";
+import { feeText, friendlyRecurrence, moneyLabel, nextOccurrenceUrl, groupByKind, publicCaveat, toCard, verifiedWording, soonestFirst } from "./cards.ts";
 import type { Labels } from "./taxonomy.ts";
 
 const labels: Labels = { place: (p) => p, type: (t) => t, discipline: (d) => d };
@@ -128,5 +128,18 @@ describe("soonestFirst", () => {
   it("puts the nearest date first and undated cards last, keeping the given order between equal dates", () => {
     const cards = [{ id: "a", closesIn: null }, { id: "b", closesIn: 9 }, { id: "c", closesIn: 2 }, { id: "d", closesIn: 9 }, { id: "e" }];
     assert.deepEqual(soonestFirst(cards).map((c) => c.id), ["c", "b", "d", "a", "e"]);
+  });
+});
+
+describe("nextOccurrenceUrl", () => {
+  const first = "https://www.nycgovparks.org/events/2026/10/29/eclectik-dance-fusion";
+  it("points an NYC Parks listing at the page for its next date", () => {
+    assert.equal(nextOccurrenceUrl("nyc-parks-events", first, "2026-11-05"), "https://www.nycgovparks.org/events/2026/11/05/eclectik-dance-fusion");
+  });
+  it("leaves other sources, other addresses and a missing next date alone", () => {
+    assert.equal(nextOccurrenceUrl("jalopy-theatre", first, "2026-11-05"), first);
+    assert.equal(nextOccurrenceUrl("nyc-parks-events", first, null), first);
+    assert.equal(nextOccurrenceUrl("nyc-parks-events", "https://www.nycgovparks.org/parks/central-park", "2026-11-05"), "https://www.nycgovparks.org/parks/central-park");
+    assert.equal(nextOccurrenceUrl("nyc-parks-events", null, "2026-11-05"), null);
   });
 });

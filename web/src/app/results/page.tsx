@@ -27,6 +27,17 @@ function pageOf<T>(items: readonly T[], page: number) {
   return { at, pages, from, shown: items.slice(from, at * PAGE_SIZE) };
 }
 
+const TOP_PICKS = 5;     // the ranked list is five listings in all, as the results service ranks them
+
+/** Takes the best of each type in turn (every type's own ranking kept) until there are `n`, so no type is crowded out. */
+function takeInTurns<T>(lists: readonly (readonly T[])[], n: number): T[] {
+  const out: T[] = [];
+  for (let i = 0; out.length < n && lists.some((l) => i < l.length); i++) {
+    for (const l of lists) if (i < l.length && out.length < n) out.push(l[i]!);
+  }
+  return out;
+}
+
 /** Page numbers to show: the first, the last and the neighbours of the current page, with gaps marked. */
 function pageNumbers(at: number, pages: number): (number | null)[] {
   const keep = [...new Set([1, pages, at - 1, at, at + 1].filter((n) => n >= 1 && n <= pages))].sort((a, b) => a - b);
@@ -89,14 +100,17 @@ export default async function Results({ searchParams }: { searchParams: Params }
     const couldNotNarrow = narrowed !== null && narrowed.length === 0 && g.cards.length > 0;
     return { g, narrowed: couldNotNarrow ? null : narrowed, couldNotNarrow, cards: couldNotNarrow ? g.cards : (narrowed ?? g.cards) };
   });
-  const total = lists?.reduce((n, l) => n + l.cards.length, 0) ?? 0;     // the picks shown
+  const picks = takeInTurns((lists ?? []).map((l) => l.cards), TOP_PICKS);     // the ranked list
+  const pickKeys = new Set(picks.map((c) => c.key));
+  const total = picks.length;
   const matched = lists?.reduce((n, l) => n + Math.max(l.g.total, l.cards.length), 0) ?? 0;     // every listing that fits
   const expired = out?.groups.reduce((n, g) => n + expiredIn(g.removed), 0) ?? 0;
   const expiredItems = out?.groups.flatMap((g) => g.expired) ?? [];     // one list for every type
   const removedNotes = out?.groups.flatMap((g) => (g.removed ? [g.removed] : [])) ?? [];
 
   // The rest of the matches: one list across every type, soonest first, that can be narrowed to one kind by the pills above it.
-  const rest = soonestFirst((lists ?? []).filter((l) => !l.couldNotNarrow).flatMap((l) => l.g.more));
+  // The rest: every match that is not one of the five, from the ranked lists' leftovers and the browse lists.
+  const rest = soonestFirst([...(lists ?? []).flatMap((l) => l.cards).filter((c) => !pickKeys.has(c.key)), ...(lists ?? []).filter((l) => !l.couldNotNarrow).flatMap((l) => l.g.more)]);
   const kinds = TOP_TAGS.map((t) => [t, rest.filter((c) => c.tag === t).length] as const).filter(([, n]) => n > 0);
   const kind = typeof q.kind === "string" && kinds.some(([k]) => k === q.kind) ? q.kind : null;
   const narrowedRest = kind ? rest.filter((c) => c.tag === kind) : rest;
@@ -105,8 +119,8 @@ export default async function Results({ searchParams }: { searchParams: Params }
   // Map pins: every listing shown (top picks and the browse lists) that has a street address; every top pick (the ranked list) gets a numbered pin, in the order shown on the page.
   const points = out ? await loadPoints(out.snapshotId) : {};
   // The ranked picks are numbered 1, 2, 3... down the page; a pin carries the same number as its card.
-  const rankOf = new Map((lists ?? []).flatMap((l) => l.cards).map((c, i) => [c.key, i + 1] as const));
-  const shown = lists?.flatMap((l) => [...l.cards.map((c) => ({ c, top: true })), ...(l.couldNotNarrow ? [] : l.g.more).map((c) => ({ c, top: false }))]) ?? [];
+  const rankOf = new Map(picks.map((c, i) => [c.key, i + 1] as const));
+  const shown = [...picks.map((c) => ({ c, top: true })), ...rest.map((c) => ({ c, top: false }))];
   const pins: Pin[] = shown.flatMap(({ c, top }) => (points[c.key] ? [{ key: c.key, title: c.title, ...points[c.key], top, n: top ? rankOf.get(c.key) : undefined }] : []));
 
   return (
@@ -134,7 +148,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 <section aria-labelledby="h-ranked">
                   <h2 id="h-ranked" className={r.rankedHead}>{total === 1 ? "Your Top Pick" : `Your Top ${total} Ranked List`}</h2>
                   <div className={r.cards}>
-                    {lists.flatMap((l) => l.cards).map((c) => (
+                    {picks.map((c) => (
                       <div key={c.key} className={r.ranked}>
                         <span className={r.rank} aria-label={`Rank ${rankOf.get(c.key)}`}>{rankOf.get(c.key)}</span>
                         <ResultCard card={c} />

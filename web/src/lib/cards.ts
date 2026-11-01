@@ -106,6 +106,17 @@ export function feeText(fee: string | null | undefined, type: string, subtype: s
   return "Fee not listed";
 }
 
+/**
+ * NYC Parks gives every date of a repeating event its own page, with the date in the address
+ * (.../events/2026/10/29/eclectik-dance-fusion). The stored link is the first date's page, which says "event passed" once
+ * that day is over, so the card links to the page for the next date instead. Any other link is left as it is.
+ */
+export function nextOccurrenceUrl(source: string, url: string | null, nextDay: string | null): string | null {
+  if (!url || !nextDay || source !== "nyc-parks-events") return url;
+  const day = /^(\d{4})-(\d{2})-(\d{2})$/.exec(nextDay);
+  return day ? url.replace(/\/events\/\d{4}\/\d{2}\/\d{2}\//, `/events/${day[1]}/${day[2]}/${day[3]}/`) : url;
+}
+
 export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
   const next = nextDate(o, asOf);
   const eligibility = Array.isArray(o.eligibility)
@@ -135,7 +146,7 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     award: o.award,
     eligibility,
     source: o.source,
-    sourceUrl: o.source_url,
+    sourceUrl: nextOccurrenceUrl(o.source, o.source_url, next?.kind === "date" ? next.date : null),
     label: o.label,
     trust: trustOf(o.label),
     caveat: publicCaveat(o.caveat),
