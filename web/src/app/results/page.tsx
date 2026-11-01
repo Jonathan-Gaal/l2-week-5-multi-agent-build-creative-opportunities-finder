@@ -6,7 +6,8 @@ import ResultsMap, { type Pin } from "@/components/ResultsMap";
 import ResultsSidebar from "@/components/ResultsSidebar";
 import r from "@/components/ResultsLive.module.css";
 import { asBackendError, type BackendError, getMeta, searchBackend, visitorClient } from "@/lib/backend";
-import { groupByKind } from "@/lib/cards";
+import { soonestFirst } from "@/lib/cards";
+import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
@@ -16,24 +17,14 @@ type Params = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export const metadata = { title: "Your opportunities | Artist Atlas" };
 
-const PAGE_SIZE = 10;     // cards per page in each "More matches" section
+const PAGE_SIZE = 10;     // cards per page in the "More matches" list
 
-/**
- * A page of the browse list. The whole list is put in order once (kind by kind, soonest date first), then cut into pages,
- * so a kind keeps its place from page to page; a kind that carries over from the page before says "continued".
- */
-function pageOfMore<T extends Parameters<typeof groupByKind>[0][number]>(more: readonly T[], page: number) {
-  const all = groupByKind(more).flatMap((g) => g.cards.map((card, i) => ({ card, kind: g.kind, size: g.cards.length, first: i === 0 })));
-  const pages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+/** One page of a list. A page number outside the list falls back to the nearest real page. */
+function pageOf<T>(items: readonly T[], page: number) {
+  const pages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
   const at = Math.min(Math.max(1, page), pages);
   const from = (at - 1) * PAGE_SIZE;
-  const runs: { kind: string; size: number; continued: boolean; cards: T[] }[] = [];
-  for (const [i, e] of all.slice(from, at * PAGE_SIZE).entries()) {
-    const last = runs[runs.length - 1];
-    if (last && last.kind === e.kind) last.cards.push(e.card);
-    else runs.push({ kind: e.kind, size: e.size, continued: i === 0 && !e.first, cards: [e.card] });
-  }
-  return { at, pages, from, count: Math.min(PAGE_SIZE, all.length - from), runs };
+  return { at, pages, from, shown: items.slice(from, at * PAGE_SIZE) };
 }
 
 /** Page numbers to show: the first, the last and the neighbours of the current page, with gaps marked. */
@@ -58,11 +49,12 @@ export default async function Results({ searchParams }: { searchParams: Params }
   const choices = new URLSearchParams({ d: disciplines.join(","), t: types.join(","), p: places.join(",") });
   if (pills.length) choices.set("s", pills.join(","));
   const editHref = `/find/discipline?${choices}`;
-  const pageHref = (type: string, n: number) => {
+  // A link to a page of the "More matches" list, optionally narrowed to one kind (Audition, Open mic...).
+  const moreHref = (kind: string | null, n: number) => {
     const next = new URLSearchParams(choices);
-    for (const [k, v] of Object.entries(q)) if (k.startsWith("pg_") && typeof v === "string") next.set(k, v);
-    next.set(`pg_${type}`, String(n));
-    return `/results?${next}#more-${type}`;
+    if (kind) next.set("kind", kind);
+    if (n > 1) next.set("pg", String(n));
+    return `/results?${next}#more`;
   };
   const sidebar = <ResultsSidebar meta={meta} initial={{ d: disciplines, s: pills.length ? pills : pillsForTypes(types), p: places }} />;
 
@@ -100,6 +92,15 @@ export default async function Results({ searchParams }: { searchParams: Params }
   const total = lists?.reduce((n, l) => n + l.cards.length, 0) ?? 0;     // the picks shown
   const matched = lists?.reduce((n, l) => n + Math.max(l.g.total, l.cards.length), 0) ?? 0;     // every listing that fits
   const expired = out?.groups.reduce((n, g) => n + expiredIn(g.removed), 0) ?? 0;
+  const expiredItems = out?.groups.flatMap((g) => g.expired) ?? [];     // one list for every type
+  const removedNotes = out?.groups.flatMap((g) => (g.removed ? [g.removed] : [])) ?? [];
+
+  // The rest of the matches: one list across every type, soonest first, that can be narrowed to one kind by the pills above it.
+  const rest = soonestFirst((lists ?? []).filter((l) => !l.couldNotNarrow).flatMap((l) => l.g.more));
+  const kinds = TOP_TAGS.map((t) => [t, rest.filter((c) => c.tag === t).length] as const).filter(([, n]) => n > 0);
+  const kind = typeof q.kind === "string" && kinds.some(([k]) => k === q.kind) ? q.kind : null;
+  const narrowedRest = kind ? rest.filter((c) => c.tag === kind) : rest;
+  const pg = pageOf(narrowedRest, Number(q.pg) || 1);
 
   // Map pins: every listing shown (top picks and the browse lists) that has a street address; every top pick (the ranked list) gets a numbered pin, in the order shown on the page.
   const points = out ? await loadPoints(out.snapshotId) : {};
@@ -131,7 +132,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
               {total > 0 && (
                 <section aria-labelledby="h-ranked">
-                  <h2 id="h-ranked" className={r.rankedHead}>Our top {total} ranked {total === 1 ? "pick" : "picks"}</h2>
+                  <h2 id="h-ranked" className={r.rankedHead}>{total === 1 ? "Your Top Pick" : `Your Top ${total} Ranked List`}</h2>
                   <div className={r.cards}>
                     {lists.flatMap((l) => l.cards).map((c) => (
                       <div key={c.key} className={r.ranked}>
@@ -143,69 +144,66 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 </section>
               )}
 
-              {lists.map(({ g, couldNotNarrow, cards }) => (
-                <section key={g.type} aria-labelledby={`h-${g.type}`}>
+              {lists.filter((l) => l.couldNotNarrow).map(({ g }) => (
+                <p key={g.type} className="notice">
+                  We couldn&apos;t narrow {labels.type(g.type)} to {pickedLabelsFor(g.type, pills).join(" and ").toLowerCase()}, so it shows every kind we ranked.
+                </p>
+              ))}
+
+              {rest.length > 0 && (
+                <section id="more" aria-labelledby="h-more">
                   <div className={r.groupHead}>
-                    <h2 id={`h-${g.type}`}>{labels.type(g.type)}</h2>
-                    <span className={r.groupNote}>
-                      {g.tier === 3 ? "Nothing found" : `${g.total} ${g.total === 1 ? "match" : "matches"}`}
-                    </span>
+                    <h2 id="h-more">More matches</h2>
+                    <span className={r.groupNote}>{narrowedRest.length} {kind ? kind.toLowerCase() : "in all"}</span>
                   </div>
-                  {couldNotNarrow && (
-                    <p className="notice">
-                      We couldn&apos;t narrow this list to {pickedLabelsFor(g.type, pills).join(" and ").toLowerCase()}, so it shows every kind of{" "}
-                      {labels.type(g.type).toLowerCase()} result we ranked.
-                    </p>
-                  )}
-                  {!cards.length && (
-                    <div className="empty stack">
-                      <p>{g.reason}</p>
-                      <p className="hint">Try adding another place, like Tri-state, or another kind of opportunity. We never widen a search without you.</p>
-                    </div>
-                  )}
-                  {g.more.length > 0 && !couldNotNarrow && (() => {
-                    const pg = pageOfMore(g.more, Number(q[`pg_${g.type}`]) || 1);
-                    return (
-                      <div className={r.more} id={`more-${g.type}`}>
-                        <p className={r.expiredMeta}>By kind, soonest first. Not reviewed, so check the original page.</p>
-                        {pg.runs.map((run) => (
-                          <div key={`${run.kind}${run.continued}`} className={r.moreGroup}>
-                            <h4>{run.kind}{run.continued ? " (continued)" : ""} <span className={r.moreCount}>{run.size}</span></h4>
-                            <div className={r.cards}>{run.cards.map((c) => <ResultCard key={c.key} card={c} />)}</div>
-                          </div>
+                  <nav className={r.kinds} aria-label="Narrow the list to one kind">
+                    <Link className={kind === null ? r.kindOn : r.kindPill} href={moreHref(null, 1)} aria-current={kind === null ? "true" : undefined}>
+                      All <span>{rest.length}</span>
+                    </Link>
+                    {kinds.map(([k, n]) => (
+                      <Link key={k} className={kind === k ? r.kindOn : r.kindPill} href={moreHref(k, 1)} aria-current={kind === k ? "true" : undefined}>
+                        {k} <span>{n}</span>
+                      </Link>
+                    ))}
+                  </nav>
+                  <div className={r.cards}>{pg.shown.map((c) => <ResultCard key={c.key} card={c} />)}</div>
+                  {pg.pages > 1 && (
+                    <nav className={r.pager} aria-label="Pages of more matches">
+                      <span className={r.pagerNote}>{pg.from + 1}–{pg.from + pg.shown.length} of {narrowedRest.length}</span>
+                      {pg.at > 1 && <Link className={r.pageLink} href={moreHref(kind, pg.at - 1)}>Previous</Link>}
+                      {pageNumbers(pg.at, pg.pages).map((n, i) =>
+                        n === null ? <span key={`gap${i}`} className={r.pageGap}>…</span> : (
+                          <Link key={n} className={n === pg.at ? r.pageNow : r.pageLink} href={moreHref(kind, n)} aria-current={n === pg.at ? "page" : undefined}>{n}</Link>
                         ))}
-                        {pg.pages > 1 && (
-                          <nav className={r.pager} aria-label={`${labels.type(g.type)} pages`}>
-                            <span className={r.pagerNote}>{pg.from + 1}–{pg.from + pg.count} of {g.more.length}</span>
-                            {pg.at > 1 && <Link className={r.pageLink} href={pageHref(g.type, pg.at - 1)}>Previous</Link>}
-                            {pageNumbers(pg.at, pg.pages).map((n, i) =>
-                              n === null ? <span key={`gap${i}`} className={r.pageGap}>…</span> : (
-                                <Link key={n} className={n === pg.at ? r.pageNow : r.pageLink} href={pageHref(g.type, n)} aria-current={n === pg.at ? "page" : undefined}>{n}</Link>
-                              ))}
-                            {pg.at < pg.pages && <Link className={r.pageLink} href={pageHref(g.type, pg.at + 1)}>Next</Link>}
-                          </nav>
-                        )}
-                      </div>
-                    );
-                  })()}
-                  {g.removed && g.expired.length > 0 ? (
-                    <details className={r.expired}>
-                      <summary>{g.removed}</summary>
-                      <ul className={r.expiredList}>
-                        {g.expired.map((c) => (
-                          <li key={c.key}>
-                            {c.sourceUrl ? <a href={c.sourceUrl} target="_blank" rel="noreferrer">{c.title}</a> : c.title}
-                            <span className={r.expiredMeta}>{[c.org, c.deadline].filter(Boolean).join(" · ")}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      {expiredIn(g.removed) > g.expired.length && <p className={r.expiredMeta}>Showing {g.expired.length} of {expiredIn(g.removed)} expired.</p>}
-                    </details>
-                  ) : (
-                    g.removed && <p className="removed">{g.removed}</p>
+                      {pg.at < pg.pages && <Link className={r.pageLink} href={moreHref(kind, pg.at + 1)}>Next</Link>}
+                    </nav>
                   )}
                 </section>
+              )}
+
+              {lists.filter((l) => !l.cards.length).map(({ g }) => (
+                <div key={g.type} className="empty stack">
+                  <p>{labels.type(g.type)}: {g.reason}</p>
+                  <p className="hint">Try adding another place, like Tri-state, or another kind of opportunity. We never widen a search without you.</p>
+                </div>
               ))}
+
+              {expiredItems.length > 0 ? (
+                <details className={r.expired}>
+                  <summary>{expired} expired {expired === 1 ? "listing" : "listings"} removed</summary>
+                  <ul className={r.expiredList}>
+                    {expiredItems.map((c) => (
+                      <li key={c.key}>
+                        {c.sourceUrl ? <a href={c.sourceUrl} target="_blank" rel="noreferrer">{c.title}</a> : c.title}
+                        <span className={r.expiredMeta}>{[c.org, c.deadline].filter(Boolean).join(" · ")}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {expired > expiredItems.length && <p className={r.expiredMeta}>Showing {expiredItems.length} of {expired} expired.</p>}
+                </details>
+              ) : (
+                removedNotes.length > 0 && <p className="removed">{removedNotes.join(" ")}</p>
+              )}
 
               <div className={r.foot}>
                 <a className={r.ghost} href="#how">How were these ranked?</a>

@@ -1,6 +1,6 @@
 {
  "snapshot_id": "2026-11-01",
- "count": 1525,
+ "count": 1521,
  "records": [
   {
    "title": "2027 Community Engagement Grants (CEG)",
@@ -23641,12 +23641,7 @@
    "recurrence": null,
    "fee": "unknown",
    "award": null,
-   "eligibility": [
-    {
-     "requirement": "as stated",
-     "quote": "Front-of-house and box office management"
-    }
-   ],
+   "eligibility": [],
    "source": "dance-nyc-listings",
    "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Sketches-Emerging-Artist-Series-Works-in-Progress-Showings/",
    "disciplines": [
@@ -23660,7 +23655,8 @@
    "dedupe_key": "sketches emerging artist series works in progress showings|unknown|2026-12-18",
    "category_confidence": "medium",
    "category_reason": "Apply or propose to perform or present work; not an audition.",
-   "also_subtypes": []
+   "also_subtypes": [],
+   "caveat": "Eligibility not listed (the stored line was about box-office management and was removed)."
   },
   {
    "title": "Ballet for Young Audiences is seeking male and female dancers for The Nutcracker",
@@ -23763,7 +23759,7 @@
    "title": "Dance Filmmaker & Composer Booking Fall/Winter: Reels, Spotlights, Trailers, Documentation",
    "org": null,
    "opportunity_type": "open_call",
-   "subtype": "general_call",
+   "subtype": "service_ad",
    "borough": "unknown",
    "region": "nyc",
    "deadline": null,
@@ -23789,8 +23785,9 @@
    "fetched_at": "2026-10-27",
    "dedupe_key": "dance filmmaker composer booking fall winter reels spotlights trailers documentation|unknown|None",
    "category_confidence": "low",
-   "category_reason": "Booking page for dance filmmakers and composers; not clear what is on offer.",
-   "also_subtypes": []
+   "category_reason": "Read directly 2026-11-01: a Brooklyn director/composer offering dance reels, documentation and trailers for hire (from $250); not hiring.",
+   "also_subtypes": [],
+   "caveat": "Offered by Travis Sherwood; booking October through January. Dancer reels and audition tapes from $250, performance documentation from $500; sliding scale for independent artists."
   },
   {
    "title": "Dancers for Nutcracker Suite & Spicy",
@@ -23822,38 +23819,6 @@
    "dedupe_key": "dancers for nutcracker suite spicy|connecticut|None",
    "category_confidence": "high",
    "category_reason": "Audition notice.",
-   "also_subtypes": []
-  },
-  {
-   "title": "Get a SOLO from GALLIM",
-   "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "general_call",
-   "borough": "unknown",
-   "region": "nyc",
-   "deadline": null,
-   "recurrence": null,
-   "fee": "unknown",
-   "award": null,
-   "eligibility": [
-    {
-     "requirement": "as stated",
-     "quote": "Compensation: License for Solo"
-    }
-   ],
-   "source": "dance-nyc-listings",
-   "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Get-a-SOLO-from-GALLIM/",
-   "disciplines": [
-    "dance"
-   ],
-   "extraction": "mara_backfill_verified",
-   "contributed_by": "Mara Munoz (origin/feature/backfill)",
-   "snapshot_id": "2026-11-01b",
-   "checked_at": "2026-10-27",
-   "fetched_at": "2026-10-27",
-   "dedupe_key": "get a solo from gallim|unknown|None",
-   "category_confidence": "low",
-   "category_reason": "'Get a solo from Gallim'; unclear whether class or audition.",
    "also_subtypes": []
   },
   {
@@ -24052,15 +24017,20 @@
   {
    "title": "Preserve Dance Within the Rise of A.I.",
    "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "general_call",
+   "opportunity_type": "event",
+   "subtype": "workshop",
    "borough": "unknown",
    "region": "nyc",
    "deadline": null,
    "recurrence": null,
    "fee": "unknown",
    "award": null,
-   "eligibility": [],
+   "eligibility": [
+    {
+     "requirement": "Intermediate and advanced dance artists",
+     "quote": "an immersive dance experience rooted in PRESERVING DANCE IN THE RISE OF A.I. by way of analog mediums"
+    }
+   ],
    "source": "dance-nyc-listings",
    "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Preserve-Dance-Within-the-Rise-of-A.I/",
    "disciplines": [
@@ -24073,8 +24043,15 @@
    "fetched_at": "2026-10-27",
    "dedupe_key": "preserve dance within the rise of a i|unknown|None",
    "category_confidence": "low",
-   "category_reason": "Unclear (title is about AI and dance); guessed.",
-   "also_subtypes": []
+   "category_reason": "Read directly 2026-11-01: an immersive multi-day dance workshop.",
+   "also_subtypes": [],
+   "event_dates": [
+    "2026-12-03",
+    "2026-12-04",
+    "2026-12-05",
+    "2026-12-06"
+   ],
+   "caveat": "FTS Movement Immersion (From The Soil Movement), 10 AM-5 PM, New York City; 20 spots; scholarship available. Registration closes Nov. 1, 2026. Fee not stated."
   },
   {
    "title": "PRO DANCERS WANTED | NOVEMBER CONCEPT REEL CASTING | NYC/NJ",
@@ -24107,7 +24084,7 @@
    "title": "Seeking Performing Artists Who Identify as Disabled",
    "org": null,
    "opportunity_type": "open_call",
-   "subtype": "performance_call",
+   "subtype": "paid_gig",
    "borough": "unknown",
    "region": "nyc",
    "deadline": null,
@@ -24133,7 +24110,7 @@
    "fetched_at": "2026-10-27",
    "dedupe_key": "seeking performing artists who identify as disabled|unknown|None",
    "category_confidence": "low",
-   "category_reason": "Seeking disabled performing artists; unclear what for.",
+   "category_reason": "Re-homed 2026-11-01: paid performing work ($17 per hour).",
    "also_subtypes": []
   },
   {
@@ -24327,8 +24304,8 @@
   {
    "title": "SOLO Experience Deadline EXTENDED",
    "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "performance_call",
+   "opportunity_type": "event",
+   "subtype": "workshop",
    "borough": "unknown",
    "region": "nyc",
    "deadline": "2026-11-07",
@@ -24337,8 +24314,8 @@
    "award": null,
    "eligibility": [
     {
-     "requirement": "as stated",
-     "quote": "Compensation: License to perform solo"
+     "requirement": "Dancers who want to learn and perform a GALLIM solo",
+     "quote": "a two-day intensive where participants learn Andrea Miller's Middle Length Poem"
     }
    ],
    "source": "dance-nyc-listings",
@@ -24353,8 +24330,13 @@
    "fetched_at": "2026-10-27",
    "dedupe_key": "solo experience deadline extended|unknown|2026-11-07",
    "category_confidence": "low",
-   "category_reason": "Solo performance license; unclear, guessed.",
-   "also_subtypes": []
+   "category_reason": "Read directly 2026-11-01: a two-day workshop, not an audition.",
+   "also_subtypes": [],
+   "event_dates": [
+    "2026-12-19",
+    "2027-01-18"
+   ],
+   "caveat": "GALLIM two-day intensive (Dec. 19 and Jan. 18) with Andrea Miller; ends with a license to perform the solo. Apply by Nov. 7, 2026; notified Nov. 11. Fee not stated."
   },
   {
    "title": "2027 Winter Residency with KTCO",
@@ -38292,7 +38274,8 @@
    ],
    "extraction": "crawl_reviewed",
    "event_dates": [
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
    ],
    "opens_at": null,
    "caveat": "Organizer confirms November 14–15, 2026; public visiting artists studios. Artist membership is not currently open to unsolicited submissions; visit and apply routes differ.",
@@ -43126,37 +43109,6 @@
    "also_subtypes": []
   },
   {
-   "title": "Build Stronger O-1 / EB-1 Evidence Through Publication",
-   "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "general_call",
-   "borough": "manhattan",
-   "region": "nyc",
-   "deadline": "rolling",
-   "recurrence": null,
-   "fee": "unknown",
-   "award": null,
-   "location": null,
-   "eligibility": [],
-   "source": "aaartsalliance",
-   "source_url": "https://www.aaartsalliance.org/opportunities/build-stronger-o-1-eb-1-evidence-through-publication",
-   "disciplines": [
-    "all"
-   ],
-   "extraction": "mara_backfill_unverified",
-   "event_dates": null,
-   "opens_at": null,
-   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
-   "event_website": null,
-   "snapshot_id": "2026-11-01b",
-   "checked_at": "2026-10-27",
-   "fetched_at": "2026-10-27",
-   "dedupe_key": "build stronger o 1 eb 1 evidence through publication|manhattan|rolling",
-   "category_confidence": "low",
-   "category_reason": "Pay-to-publish style offer; may not be a real opportunity.",
-   "also_subtypes": []
-  },
-  {
    "title": "CALL FOR ART: DREAMER'S PERSPECTIVES",
    "org": null,
    "opportunity_type": "open_call",
@@ -43253,7 +43205,7 @@
    "title": "Cultural Development Fund Panelist Open Call",
    "org": null,
    "opportunity_type": "open_call",
-   "subtype": "general_call",
+   "subtype": "paid_gig",
    "borough": "manhattan",
    "region": "nyc",
    "deadline": "rolling",
@@ -43277,7 +43229,7 @@
    "fetched_at": "2026-10-27",
    "dedupe_key": "cultural development fund panelist open call|manhattan|rolling",
    "category_confidence": "medium",
-   "category_reason": "Panelist call (a paid review role).",
+   "category_reason": "Re-homed 2026-11-01: a paid panelist (review) role.",
    "also_subtypes": []
   },
   {
@@ -43309,37 +43261,6 @@
    "dedupe_key": "open call artist features stratum journal publication|manhattan|rolling",
    "category_confidence": "low",
    "category_reason": "Journal feature call; may be a paid-promotion scheme.",
-   "also_subtypes": []
-  },
-  {
-   "title": "Open Call: International Artist Professional Development & Evidence Mapping",
-   "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "general_call",
-   "borough": "manhattan",
-   "region": "nyc",
-   "deadline": "rolling",
-   "recurrence": null,
-   "fee": "unknown",
-   "award": null,
-   "location": null,
-   "eligibility": [],
-   "source": "aaartsalliance",
-   "source_url": "https://www.aaartsalliance.org/opportunities/open-call-international-artist-professional-development-evidence-mapping-c75938f6-1a38-4216-9249-5c52929ff43a",
-   "disciplines": [
-    "all"
-   ],
-   "extraction": "mara_backfill_unverified",
-   "event_dates": null,
-   "opens_at": null,
-   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
-   "event_website": null,
-   "snapshot_id": "2026-11-01b",
-   "checked_at": "2026-10-27",
-   "fetched_at": "2026-10-27",
-   "dedupe_key": "open call international artist professional development evidence mapping|manhattan|rolling",
-   "category_confidence": "low",
-   "category_reason": "Professional-development offer; may not be a real opportunity.",
    "also_subtypes": []
   },
   {
@@ -44292,7 +44213,7 @@
    "title": "Gallery Players POTUS Backstage Crew (Gallery Players)",
    "org": "Gallery Players",
    "opportunity_type": "open_call",
-   "subtype": "general_call",
+   "subtype": "paid_gig",
    "borough": "brooklyn",
    "region": "nyc",
    "deadline": null,
@@ -44329,7 +44250,7 @@
    "fetched_at": "2026-11-01",
    "dedupe_key": "gallery players potus backstage crew gallery players|brooklyn|None",
    "category_confidence": "medium",
-   "category_reason": "Backstage crew call, not acting. Supports a shoot or show, tagged production crew.",
+   "category_reason": "Re-homed 2026-11-01: paid backstage crew work ($200 per gig).",
    "also_subtypes": []
   },
   {
@@ -49789,37 +49710,6 @@
    "dedupe_key": "want to play guitar|queens|None",
    "category_confidence": "medium",
    "category_reason": "Musician looking for bandmates or a band; no pay stated.",
-   "also_subtypes": []
-  },
-  {
-   "title": "Affordable artist and manufacturing space survey",
-   "org": null,
-   "opportunity_type": "open_call",
-   "subtype": "general_call",
-   "borough": "queens",
-   "region": "nyc",
-   "deadline": "rolling",
-   "recurrence": null,
-   "fee": "unknown",
-   "award": null,
-   "location": null,
-   "eligibility": [],
-   "source": "aaartsalliance",
-   "source_url": "https://www.aaartsalliance.org/opportunities/affordable-artist-and-manufacturing-space-survey",
-   "disciplines": [
-    "all"
-   ],
-   "extraction": "mara_backfill_unverified",
-   "event_dates": null,
-   "opens_at": null,
-   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
-   "event_website": null,
-   "snapshot_id": "2026-11-01b",
-   "checked_at": "2026-10-27",
-   "fetched_at": "2026-10-27",
-   "dedupe_key": "affordable artist and manufacturing space survey|queens|rolling",
-   "category_confidence": "medium",
-   "category_reason": "A survey of artists, not an opportunity.",
    "also_subtypes": []
   },
   {

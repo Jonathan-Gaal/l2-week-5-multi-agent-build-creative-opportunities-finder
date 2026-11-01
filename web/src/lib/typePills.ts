@@ -26,7 +26,7 @@ export const TYPE_PILLS: readonly TypePill[] = [
   { id: "festivals", label: "Festivals", types: ["open_call"], subtypes: ["festival"], explain: "A call for artists to apply, submit work or perform at a festival." },
   { id: "workshops", label: "Workshops/Classes", types: ["event"], subtypes: ["workshop", "class", "drawing_session"], explain: "Classes, workshops and lessons where you learn or practice a creative skill with an instructor." },
   { id: "social_events", label: "Social events", types: ["event"], subtypes: [], rest: true, explain: "Take part in gatherings like jam sessions, dance nights, festivals, screenings and meetups." },
-  { id: "collaborations", label: "Collaborations", types: ["open_call"], subtypes: ["collaboration"], explain: "Artists looking to team up: partners to create with, talent for hire, shared spaces or services." },
+  { id: "collaborations", label: "Collaborations", types: ["open_call"], subtypes: ["collaboration", "service_ad"], explain: "Artists looking to team up: partners to create with, talent for hire, shared spaces or services." },
   // Two broad types: one-time paid work (open calls) and ongoing positions (jobs). Its "rest" is the job type, listed first.
   { id: "paid_gigs", label: "Other gigs/Jobs", types: ["job", "open_call"], subtypes: ["paid_gig", "model_call"], rest: true, explain: "From one-time paid work, such as performances and shoots to ongoing positions." },
 ];

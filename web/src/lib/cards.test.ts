@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import type { Opportunity } from "@api/types";
-import { feeText, friendlyRecurrence, moneyLabel, groupByKind, publicCaveat, toCard, verifiedWording } from "./cards.ts";
+import { feeText, friendlyRecurrence, moneyLabel, groupByKind, publicCaveat, toCard, verifiedWording, soonestFirst } from "./cards.ts";
 import type { Labels } from "./taxonomy.ts";
 
 const labels: Labels = { place: (p) => p, type: (t) => t, discipline: (d) => d };
@@ -121,5 +121,12 @@ describe("feeText", () => {
       ["open_call", "model_call"], ["open_call", "commission"], ["job", "full_time"], ["job", "teaching_artist"], ["grant", "grant"], ["grant", "fellowship"]] as const) {
       assert.equal(feeText("unknown", type, kind), null, `${type}/${kind}`);
     }
+  });
+});
+
+describe("soonestFirst", () => {
+  it("puts the nearest date first and undated cards last, keeping the given order between equal dates", () => {
+    const cards = [{ id: "a", closesIn: null }, { id: "b", closesIn: 9 }, { id: "c", closesIn: 2 }, { id: "d", closesIn: 9 }, { id: "e" }];
+    assert.deepEqual(soonestFirst(cards).map((c) => c.id), ["c", "b", "d", "a", "e"]);
   });
 });

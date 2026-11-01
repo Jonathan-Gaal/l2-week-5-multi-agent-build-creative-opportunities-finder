@@ -1,5 +1,6 @@
 import type { Opportunity } from "@api/types";
 import { kindLabel } from "./kinds.ts";
+import { subTag, topTag } from "./tags.ts";
 import type { Labels } from "./taxonomy";
 import type { Card } from "./types";
 
@@ -121,6 +122,8 @@ export function toCard(o: Opportunity, asOf: string, labels: Labels): Card {
     typeLabel: labels.type(o.type),
     subtype: o.subtype,
     alsoSubtypes: o.also_subtypes ?? [],
+    tag: topTag(o),
+    subtag: subTag(o),
     place: labels.place(o.place ?? ""),
     location: o.location,
     deadline: ISO.test(o.deadline) ? prettyDate(o.deadline) : o.deadline === "rolling" ? "Rolling deadline" : o.deadline === "recurring" ? "Recurring" : o.deadline,
@@ -146,6 +149,11 @@ export const kindName = (card: { subtype: string | null; typeLabel: string }): s
 
 /** Days until a card's next date; cards with no upcoming date (rolling, recurring, not listed) sort after every dated one. */
 const daysAway = (c: { closesIn?: number | null }) => c.closesIn ?? Number.POSITIVE_INFINITY;
+
+/** Cards soonest first; cards with no upcoming date go last, and the order given holds between equal dates. */
+export function soonestFirst<T extends { closesIn?: number | null }>(cards: readonly T[]): T[] {
+  return cards.map((c, i) => [c, i] as const).sort((x, y) => daysAway(x[0]) - daysAway(y[0]) || x[1] - y[1]).map(([c]) => c);
+}
 
 /** Groups cards by kind. Inside a group the soonest date comes first and undated cards last (the code's order holds
  * between equal dates); groups with the soonest date come first. */

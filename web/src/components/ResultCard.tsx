@@ -1,5 +1,5 @@
 import { moneyLabel, verifiedWording } from "@/lib/cards";
-import { kindLabel, kindNote } from "@/lib/kinds";
+import { kindNote } from "@/lib/kinds";
 import type { Card } from "@/lib/types";
 
 const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unchecked: "pill pill-grey" } as const;
@@ -18,15 +18,13 @@ export default function ResultCard({ card }: { card: Card }) {
   return (
     <article className="rcard" id={`card-${card.key}`}>
       <div className="rcard-top">
-        <span className="pill pill-pink">{kindLabel(card.subtype) ?? (card.subtype ? card.subtype.replace(/_/g, " ") : card.typeLabel)}</span>
+        <span className="pill pill-pink">{card.tag}</span>
+        {card.subtag && <span className="pill pill-sub">{card.subtag}</span>}
         <span className={TRUST_PILL[card.trust]}>{verifiedWording(card.label)}</span>
         {topRight && <span className={closing ? "rcard-when closing" : "rcard-when"}>{topRight}</span>}
       </div>
       <h3>{card.title}</h3>
       {kindNote(card.subtype) && <p className="why">{kindNote(card.subtype)}</p>}
-      {card.alsoSubtypes.length > 0 && (
-        <p className="why">Also: {card.alsoSubtypes.map((k) => kindLabel(k) ?? k.replace(/_/g, " ")).join(", ")}</p>
-      )}
       <p className="org">
         {[card.org, card.place, card.location && card.location.length < 70 ? card.location : null].filter(Boolean).join(" · ")}
       </p>

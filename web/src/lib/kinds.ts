@@ -8,7 +8,7 @@ export type KindInfo = { label: string; note?: string };
 export const KINDS: Record<string, KindInfo> = {
   festival: { label: "Festival call", note: "Submissions or applications to a festival." },
   gallery_submission: { label: "Gallery submission", note: "A call to show visual work (exhibition, juried show, market)." },
-  casting_call: { label: "Casting call", note: "Acting or on-screen work, not a regular paid gig." },
+  casting_call: { label: "Casting call", note: "Acting or on-screen work. Pay varies, so check the listing." },
   model_call: { label: "Model call", note: "Modeling work: photo shoots, brands or art classes." },
   writing_submission: { label: "Writing submission", note: "Send writing to a journal or call." },
   collaboration: { label: "Collaboration", note: "An artist looking to work with other artists. Not always paid." },

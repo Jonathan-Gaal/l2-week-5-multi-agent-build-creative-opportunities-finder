@@ -1,0 +1,139 @@
+[
+ {
+  "reason": "A survey of artists, not an opportunity.",
+  "record": {
+   "title": "Affordable artist and manufacturing space survey",
+   "org": null,
+   "opportunity_type": "open_call",
+   "subtype": "general_call",
+   "borough": "queens",
+   "region": "nyc",
+   "deadline": "rolling",
+   "recurrence": null,
+   "fee": "unknown",
+   "award": null,
+   "location": null,
+   "eligibility": [],
+   "source": "aaartsalliance",
+   "source_url": "https://www.aaartsalliance.org/opportunities/affordable-artist-and-manufacturing-space-survey",
+   "disciplines": [
+    "all"
+   ],
+   "extraction": "mara_backfill_unverified",
+   "event_dates": null,
+   "opens_at": null,
+   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
+   "event_website": null,
+   "snapshot_id": "2026-11-01b",
+   "checked_at": "2026-10-27",
+   "fetched_at": "2026-10-27",
+   "dedupe_key": "affordable artist and manufacturing space survey|queens|rolling",
+   "category_confidence": "medium",
+   "category_reason": "A survey of artists, not an opportunity.",
+   "also_subtypes": []
+  }
+ },
+ {
+  "reason": "A pay-to-publish style offer, not a real opportunity.",
+  "record": {
+   "title": "Build Stronger O-1 / EB-1 Evidence Through Publication",
+   "org": null,
+   "opportunity_type": "open_call",
+   "subtype": "general_call",
+   "borough": "manhattan",
+   "region": "nyc",
+   "deadline": "rolling",
+   "recurrence": null,
+   "fee": "unknown",
+   "award": null,
+   "location": null,
+   "eligibility": [],
+   "source": "aaartsalliance",
+   "source_url": "https://www.aaartsalliance.org/opportunities/build-stronger-o-1-eb-1-evidence-through-publication",
+   "disciplines": [
+    "all"
+   ],
+   "extraction": "mara_backfill_unverified",
+   "event_dates": null,
+   "opens_at": null,
+   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
+   "event_website": null,
+   "snapshot_id": "2026-11-01b",
+   "checked_at": "2026-10-27",
+   "fetched_at": "2026-10-27",
+   "dedupe_key": "build stronger o 1 eb 1 evidence through publication|manhattan|rolling",
+   "category_confidence": "low",
+   "category_reason": "Pay-to-publish style offer; may not be a real opportunity.",
+   "also_subtypes": []
+  }
+ },
+ {
+  "reason": "A professional-development offer, not a real opportunity.",
+  "record": {
+   "title": "Open Call: International Artist Professional Development & Evidence Mapping",
+   "org": null,
+   "opportunity_type": "open_call",
+   "subtype": "general_call",
+   "borough": "manhattan",
+   "region": "nyc",
+   "deadline": "rolling",
+   "recurrence": null,
+   "fee": "unknown",
+   "award": null,
+   "location": null,
+   "eligibility": [],
+   "source": "aaartsalliance",
+   "source_url": "https://www.aaartsalliance.org/opportunities/open-call-international-artist-professional-development-evidence-mapping-c75938f6-1a38-4216-9249-5c52929ff43a",
+   "disciplines": [
+    "all"
+   ],
+   "extraction": "mara_backfill_unverified",
+   "event_dates": null,
+   "opens_at": null,
+   "caveat": "From Mara's backfill on 2026-10-27 (A4 (Asian American Arts Alliance)); not rechecked because A4's terms don't allow automated checks. Confirm details on the listing.",
+   "event_website": null,
+   "snapshot_id": "2026-11-01b",
+   "checked_at": "2026-10-27",
+   "fetched_at": "2026-10-27",
+   "dedupe_key": "open call international artist professional development evidence mapping|manhattan|rolling",
+   "category_confidence": "low",
+   "category_reason": "Professional-development offer; may not be a real opportunity.",
+   "also_subtypes": []
+  }
+ },
+ {
+  "reason": "Same program as 'SOLO Experience Deadline EXTENDED' (GALLIM two-day solo intensive); the extended listing is kept.",
+  "record": {
+   "title": "Get a SOLO from GALLIM",
+   "org": null,
+   "opportunity_type": "open_call",
+   "subtype": "general_call",
+   "borough": "unknown",
+   "region": "nyc",
+   "deadline": null,
+   "recurrence": null,
+   "fee": "unknown",
+   "award": null,
+   "eligibility": [
+    {
+     "requirement": "as stated",
+     "quote": "Compensation: License for Solo"
+    }
+   ],
+   "source": "dance-nyc-listings",
+   "source_url": "https://www.dance.nyc/for-artists/listings/2026/10/Get-a-SOLO-from-GALLIM/",
+   "disciplines": [
+    "dance"
+   ],
+   "extraction": "mara_backfill_verified",
+   "contributed_by": "Mara Munoz (origin/feature/backfill)",
+   "snapshot_id": "2026-11-01b",
+   "checked_at": "2026-10-27",
+   "fetched_at": "2026-10-27",
+   "dedupe_key": "get a solo from gallim|unknown|None",
+   "category_confidence": "low",
+   "category_reason": "'Get a solo from Gallim'; unclear whether class or audition.",
+   "also_subtypes": []
+  }
+ }
+]

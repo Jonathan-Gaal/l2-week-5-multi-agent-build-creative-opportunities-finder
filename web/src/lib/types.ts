@@ -8,6 +8,9 @@ export type Card = {
   subtype: string | null;
   /** Other kinds this listing also is (same broad type). It still appears once in the list. */
   alsoSubtypes: string[];
+  /** The top tag (one of the eleven step-two choices) and the small tag beside it (null when the top tag says it all). */
+  tag: string;
+  subtag: string | null;
   place: string;
   location: string | null;
   deadline: string;

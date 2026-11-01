@@ -2,12 +2,12 @@
   "snapshot_id": "2026-11-01b",
   "snapshot_date": "2026-11-01",
   "status": "staging",
-  "record_count": 1525,
+  "record_count": 1521,
   "by_borough": {
-    "manhattan": 546,
+    "manhattan": 544,
+    "unknown": 530,
     "brooklyn": 248,
-    "queens": 109,
-    "unknown": 58,
+    "queens": 108,
     "staten_island": 40,
     "bronx": 39,
     "citywide": 12
@@ -1036,5 +1036,35 @@
   "compliance_notes": [
     "2026-10-27: a Squarespace collector requested '?format=json' collection URLs after checking robots.txt for the page path only. Squarespace's default robots.txt disallows '/*?format=json', so these requests were disallowed on every site involved (including jalopytheatre.org, anbealbochtcafe.com, brooklynmusicschool.org, hudsonvalleymoca.org, kundiman.org, culturehub.org, and DCLA roster sites). All data from that endpoint was deleted. The two records first found that way (Hudson Valley MOCA Artist Club, An Beal Bocht Poor Mouth Writers' Night) were also found on robots-allowed event pages in the crawl and verified there, so they remain. The collector now checks the exact URL it requests.",
     "2026-10-27: a full-URL robots audit of every record (75 hosts) found 2 on robots-disallowed pages (societyillustrators.org event pages, also disallowed for the events API query). Both records and all fetched data from that host were removed; the source is presentation-only. The verifier now checks robots.txt before fetching."
+  ],
+  "corrections": [
+    {
+      "date": "2026-11-01",
+      "removed": [
+        {
+          "title": "Affordable artist and manufacturing space survey",
+          "reason": "A survey of artists, not an opportunity."
+        },
+        {
+          "title": "Build Stronger O-1 / EB-1 Evidence Through Publication",
+          "reason": "A pay-to-publish style offer, not a real opportunity."
+        },
+        {
+          "title": "Open Call: International Artist Professional Development & Evidence Mapping",
+          "reason": "A professional-development offer, not a real opportunity."
+        },
+        {
+          "title": "Get a SOLO from GALLIM",
+          "reason": "Same program as 'SOLO Experience Deadline EXTENDED' (GALLIM two-day solo intensive); the extended listing is kept."
+        }
+      ],
+      "rehomed": [
+        "SOLO Experience (workshop)",
+        "Preserve Dance Within the Rise of A.I. (workshop)",
+        "Dance Filmmaker & Composer Booking (service_ad)",
+        "Cultural Development Fund Panelist, Gallery Players crew, Seeking Performing Artists Who Identify as Disabled (paid_gig)"
+      ],
+      "note": "Pages for the first three were read directly (dance.nyc, Claude-User allowed). Removed records are kept in removed.json."
+    }
   ]
 }

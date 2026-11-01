@@ -34,6 +34,12 @@
 .moreCount { font-size: 13px; font-family: var(--font-body, inherit); color: var(--ink); background: var(--lime); border-radius: 999px; padding: 1px 9px; margin-left: 6px; vertical-align: 2px; }
 .moreGroup { margin-top: 20px; }
 .moreGroup h4 { font-size: 16px; margin: 0 0 10px; color: var(--paper); }
+.kinds { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+.kindPill, .kindOn { display: inline-flex; align-items: center; gap: 7px; font: 700 14px var(--sans); padding: 5px 8px 5px 13px; border-radius: 999px; text-decoration: none; border: 2px solid var(--plum); color: var(--paper); }
+.kindPill:hover { border-color: var(--lime); }
+.kindPill span, .kindOn span { font-size: 12px; font-weight: 800; background: var(--lime); color: #000; border-radius: 999px; padding: 1px 8px; }
+.kindOn { background: var(--lime); border-color: var(--lime); color: #000; }
+.kindOn span { background: #000; color: var(--lime); }
 .pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 22px; }
 .pagerNote { font-size: 14px; color: var(--muted-dk); margin-right: 8px; }
 .pageLink, .pageNow { font: 700 14px var(--sans); min-width: 38px; text-align: center; padding: 7px 13px; border-radius: 999px; text-decoration: none; border: 2px solid var(--plum); color: var(--paper); }
