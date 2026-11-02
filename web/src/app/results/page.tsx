@@ -156,7 +156,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
   return (
     <div className="wrap">
-      <div className={r.board}>
+      <div className={r.board} data-snapshot={out?.snapshotId} data-pins={pins.length}>
         {sidebar}
         <div className={r.main}>
           {failure && <BackendFailure title="We couldn't get your results" failure={failure} retryHref={`/results?${choices}`} />}

@@ -3590,5 +3590,487 @@
   "lng": -73.83016,
   "matched": "137-35 NORTHERN BLVD, FLUSHING, NY, 11354",
   "how": "address"
+ },
+ "venue|SoHo, New York, New York": null,
+ "venue|NYC Tri State, New York, New York": {
+  "lat": 40.737067,
+  "lng": -74.001122,
+  "matched": "NYC AIDS Memorial Park at St. Vincent's Triangle, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Brooklyn, New York, New York": null,
+ "venue|Midtown West, New York, New York": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "venue|Midtown, New York, New York": null,
+ "venue|East Village, New York, New York": null,
+ "venue|Greenwich Village, New York, New York": null,
+ "venue|Bear Mountain, New York, New York": {
+  "lat": 41.312907,
+  "lng": -74.006163,
+  "matched": "Bear Mountain, Town of Highlands, Orange County, New York, 10922, United States",
+  "how": "venue"
+ },
+ "venue|Upper West Side, New York, New York": null,
+ "venue|Downtown Manhattan, New York, New York": {
+  "lat": 40.701272,
+  "lng": -74.008072,
+  "matched": "Downtown Manhattan Heliport, East River Greenway, Whitehall, Manhattan, New York County, New York, 10041, United States",
+  "how": "venue"
+ },
+ "venue|Jersey City, New York, New York": {
+  "lat": 40.675199,
+  "lng": -74.04904,
+  "matched": "Upper New York Bay, Jersey City, Hudson County, New Jersey, United States",
+  "how": "venue"
+ },
+ "venue|Remote/Middletown NY, New York, New York": null,
+ "venue|Upper East Side, New York, New York": null,
+ "venue|Queens and Nassau, New York, New York": null,
+ "venue|Flatiron, New York, New York": {
+  "lat": 40.741059,
+  "lng": -73.989642,
+  "matched": "Flatiron Building, 175, 5th Avenue, Flatiron District, Manhattan Community Board 5, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "venue|Theory Lounge, New York, New York": null,
+ "venue|NYC/NJ/CT, New York, New York": null,
+ "venue|Murray Hill, New York, New York": null,
+ "venue|UCB theater, New York, New York": null,
+ "venue|Chinatown/Little Italy, New York, New York": {
+  "lat": 40.719418,
+  "lng": -74.002315,
+  "matched": "The First National City Bank of New York, Lispenard Street, Little Italy, Lower Manhattan, Manhattan, New York County, N",
+  "how": "venue"
+ },
+ "address|1411 Broadway, New York, NY": {
+  "lat": 40.753676,
+  "lng": -73.987145,
+  "matched": "1411 BROADWAY, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "venue|NYC metro, New York, New York": {
+  "lat": 40.678209,
+  "lng": -73.900563,
+  "matched": "East New York Yard, Broadway, Broadway Junction, Brooklyn, Kings County, New York, 11207, United States",
+  "how": "venue"
+ },
+ "venue|Midtown East, New York, New York": null,
+ "venue|East Side Manhattan, New York, New York": {
+  "lat": 40.772591,
+  "lng": -73.961832,
+  "matched": "Temple Israel, 112, East 75th Street, Upper East Side, Manhattan Community Board 8, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "venue|Harlem, New York, New York": null,
+ "address|270 Meserole St, Brooklyn, NY": {
+  "lat": 40.708552,
+  "lng": -73.937684,
+  "matched": "270 MESEROLE ST, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "address|802 Dean St, Brooklyn, NY": {
+  "lat": 40.679228,
+  "lng": -73.963636,
+  "matched": "802 DEAN ST, BROOKLYN, NY, 11238",
+  "how": "address"
+ },
+ "venue|Park Slope, Brooklyn, New York": null,
+ "venue|Brooklyn, Brooklyn, New Jersey": {
+  "lat": 40.673905,
+  "lng": -73.895333,
+  "matched": "New Jersey Avenue, Broadway Junction, Brooklyn, Kings County, New York, 11207, United States",
+  "how": "venue"
+ },
+ "venue|East Meadow, Brooklyn, New York": null,
+ "venue|Park Place, Brooklyn, New York": {
+  "lat": 40.674819,
+  "lng": -73.957647,
+  "matched": "Park Place, Brooklyn, Kings County, New York, 11233, United States",
+  "how": "venue"
+ },
+ "venue|Flatbush, Brooklyn, New York": null,
+ "venue|Bushwick, Brooklyn, New York": null,
+ "venue|Long Island or Queens, Brooklyn, New York": null,
+ "venue|Queens and Long Island, Brooklyn, New York": null,
+ "venue|Brooklyn/Ridgewood, Brooklyn, New York": {
+  "lat": 40.703668,
+  "lng": -73.916026,
+  "matched": "New York Engine Company 271, Himrod Street, Ridgewood, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "venue|Tri-State, Brooklyn, New York": {
+  "lat": 40.681655,
+  "lng": -74.007451,
+  "matched": "Tri-State Trucking, 195, Van Brunt Street, Red Hook, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "venue|NYC, Brooklyn, New York": {
+  "lat": 40.699336,
+  "lng": -73.942747,
+  "matched": "NYC Health + Hospitals/Woodhull, 760, Broadway, Brooklyn, Kings County, New York, 11206, United States",
+  "how": "venue"
+ },
+ "venue|East Williamsburg, Brooklyn, New York": {
+  "lat": 40.721773,
+  "lng": -73.962194,
+  "matched": "Marsha P. Johnson State Park, 90, Williamsburg, Brooklyn, Kings County, New York, 11249, United States",
+  "how": "venue"
+ },
+ "venue|Westchester, Brooklyn, New York": null,
+ "venue|KEYBAR Bushwick, Brooklyn, New York": {
+  "lat": 40.700022,
+  "lng": -73.929458,
+  "matched": "Keybar, 143, Troutman Street, Bushwick, Brooklyn, Kings County, New York, 11206, United States",
+  "how": "venue"
+ },
+ "venue|Long Island City, Queens, New York": null,
+ "venue|Park Slope, Queens, New York": {
+  "lat": 40.734502,
+  "lng": -73.882935,
+  "matched": "Grand Slope, Elmhurst, Queens, Queens County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Far Rockaway, Queens, New York": null,
+ "venue|Brooklyn, Queens, New York": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "venue|Forest Hills, Queens, New York": null,
+ "venue|Queens and Nassau, Queens, New York": null,
+ "venue|Queens/Nassau, Queens, New York": {
+  "lat": 40.719088,
+  "lng": -73.729637,
+  "matched": "Queens, 225th Street, Queens, Queens County, New York, Town of Hempstead, Nassau County, New York, 11428, United States",
+  "how": "venue"
+ },
+ "venue|Elmont, Queens, New York": {
+  "lat": 40.682959,
+  "lng": -73.725888,
+  "matched": "Hook Creek Boulevard - Elmont Road, Queens, Queens County, North Valley Stream, Town of Hempstead, Nassau County, New Yo",
+  "how": "venue"
+ },
+ "venue|Nassau/Queens, Queens, New York": {
+  "lat": 40.666348,
+  "lng": -73.83683,
+  "matched": "Nassau Expressway, Queens, Queens County, New York, 11422, United States",
+  "how": "venue"
+ },
+ "venue|Queens/Brooklyn, Queens, New York": {
+  "lat": 40.703668,
+  "lng": -73.916026,
+  "matched": "New York Engine Company 271, Himrod Street, Ridgewood, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "venue|Staten Island, Queens, New York": null,
+ "venue|Bronx/NYC, Bronx, New York": {
+  "lat": 40.862243,
+  "lng": -73.877154,
+  "matched": "New York Botanical Garden, 2900, Southern Boulevard, The Bronx, Bronx County, New York, 10458, United States",
+  "how": "venue"
+ },
+ "venue|Park Slope, Staten Island, New York": null,
+ "venue|Brooklyn, Staten Island, New York": {
+  "lat": 40.578352,
+  "lng": -74.168916,
+  "matched": "Brooklyn Staten Island Blood Services, 2791, Richmond Avenue, Staten Island, Richmond County, New York, 10314, United St",
+  "how": "venue"
+ },
+ "venue|HatchSpace, Brattleboro, Vermont": null,
+ "venue|14BC Gallery, New York, New York": {
+  "lat": 40.728783,
+  "lng": -73.97689,
+  "matched": "14BC Gallery, 626, East 14th Street, Stuy Town, Manhattan Community Board 3, Manhattan, New York County, New York, 10009",
+  "how": "venue"
+ },
+ "venue|The Untitled Space, New York, New York": null,
+ "venue|Woodstock Byrdcliffe Guild, Woodstock, New York": {
+  "lat": 42.040564,
+  "lng": -74.119592,
+  "matched": "Woodstock Byrdcliffe Guild, 34, Tinker Street, Town of Woodstock, Ulster County, New York, 12498, United States",
+  "how": "venue"
+ },
+ "venue|Susquehanna Art Museum, Harrisburg, Pennsylvania": {
+  "lat": 40.271,
+  "lng": -76.889611,
+  "matched": "Susquehanna Art Museum, 1401, North 3rd Street, New Fox Ridge, Midtown, Harrisburg, Dauphin County, Pennsylvania, 17102,",
+  "how": "venue"
+ },
+ "venue|Escalada Art, Brooklyn, New York": null,
+ "venue|A Space Gallery, Brooklyn, New York": null,
+ "venue|KUNSTRAUM, Brooklyn, New York": null,
+ "venue|Marquis Studios, New York, New York": null,
+ "venue|Tannery Pond Center, North Creek, New York": null,
+ "venue|Annmarie Sculpture Garden & Arts Center, Solomons, Maryland": {
+  "lat": 38.346507,
+  "lng": -76.452333,
+  "matched": "Annmarie Sculpture Garden and Arts Center, 13480, Dowell Road, Solomons, Calvert County, Maryland, 20629, United States",
+  "how": "venue"
+ },
+ "venue|Escalada Art, New York, New York": null,
+ "venue|Accent Sisters, New York, New York": null,
+ "venue|First Street Gallery, New York, New York": null,
+ "venue|Data Through Design, Brooklyn, New York": null,
+ "venue|Van Alen Institute, Brooklyn, New York": {
+  "lat": 40.680048,
+  "lng": -73.989232,
+  "matched": "Van Alen Institute, 303, Bond Street, Gowanus, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "venue|UrbanGlass, Brooklyn, New York": null,
+ "venue|Seven House Gallery, Brooklyn, New York": null,
+ "venue|City of Hoboken Cultural Affairs, Hoboken, New Jersey": null,
+ "venue|Create! Magazine, Philadelphia, Pennsylvania": null,
+ "venue|Gather Center, Brooklyn, New York": null,
+ "venue|Raia Project, New York, New York": null,
+ "venue|745th Studio, New York, New York": null,
+ "venue|Artists Space Inc, New York, New York": null,
+ "venue|The Frick Collection, New York, New York": null,
+ "venue|Friends of the High Line, New York, New York": {
+  "lat": 40.742994,
+  "lng": -74.005529,
+  "matched": "Friends of the High Line, West 16th Street, Chelsea District, Manhattan Community Board 4, Manhattan, New York County, N",
+  "how": "venue"
+ },
+ "venue|Alessandro Berni Gallery, New York, New York": null,
+ "venue|Hybrid: Father & Finn, Brooklyn, New York": null,
+ "venue|Beat Train Productions, New York, New York": null,
+ "venue|Hybrid: Grand Central Atelier, Queens, New York": null,
+ "venue|Hybrid: Open Plans, New York, New York": null,
+ "venue|Parrish Art Museum, Water Mill, New York": {
+  "lat": 40.904653,
+  "lng": -72.365722,
+  "matched": "Parrish Art Museum, 279, Montauk Highway, Cobb, Water Mill, Town of Southampton, Suffolk County, New York, 11976, United",
+  "how": "venue"
+ },
+ "venue|Hybrid: AKC Museum of the Dog, New York, New York": null,
+ "venue|The Cooper Union for the Advancement of Science and Art, New York, New York": null,
+ "venue|Hybrid: Young Concert Artists, New York, New York": null,
+ "venue|Hybrid: The Shed, New York, New York": null,
+ "venue|Aiston Fine Art Services, Queens, New York": null,
+ "venue|Beam Center, Brooklyn, New York": {
+  "lat": 40.685673,
+  "lng": -74.00528,
+  "matched": "Beam Center, 60, Sackett Street, Red Hook Container Terminal, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "venue|Remote, New York, New York": {
+  "lat": 43.040727,
+  "lng": -73.952834,
+  "matched": "Kenneth A. Kesselring Laboratory, West Milton, Town of Milton, Saratoga County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Aetna Fine Art, Valley Stream, New York": null,
+ "venue|Chelsea Frames, New York, New York": null,
+ "venue|New York University Arts and Science, New York, New York": null,
+ "venue|Hybrid: Artist, Brooklyn, New York": null,
+ "venue|BRDG Studios, Cherry Hill Township, New Jersey": null,
+ "venue|Educational Alliance, New York, New York": {
+  "lat": 41.456245,
+  "lng": -73.570615,
+  "matched": "The Educational Alliance Camp, Putnam Lake, Town of Patterson, Putnam County, New York, 12563, United States",
+  "how": "venue"
+ },
+ "venue|Phillips Auctioneers, Queens, New York": null,
+ "venue|NYU Tisch School of the Arts, New York, New York": {
+  "lat": 40.72782,
+  "lng": -73.98847,
+  "matched": "NYU Tisch School of the Arts, 113, 2nd Avenue, East Village, Manhattan Community Board 3, Manhattan, New York County, Ne",
+  "how": "venue"
+ },
+ "venue|Hybrid: Solomon R. Guggenheim Museum and Foundation, New York, New York": null,
+ "venue|The Apollo via TOC Arts Partners, New York, New York": null,
+ "venue|Creative Art Works, New York, New York": null,
+ "venue|The second Lsc, Brooklyn, New York": null,
+ "venue|Hybrid: Waterwell, New York, New York": null,
+ "venue|Van Der Plas Gallery, New York, New York": null,
+ "venue|RAREculture Art and Design, New York, New York": null,
+ "venue|Safcore LLC, Queens, New York": null,
+ "venue|Happy Medium Creative Goods, Brooklyn, New York": null,
+ "venue|Hybrid: Liberty Science Center, Jersey City, New Jersey": null,
+ "venue|Brooklyn Robot Foundry, Brooklyn, New York": null,
+ "venue|NEW YORK ACADEMY OF ART, New York, New York": {
+  "lat": 40.718384,
+  "lng": -74.006077,
+  "matched": "New York Academy of Art, 111, Franklin Street, Tribeca, Lower Manhattan, Manhattan, New York County, New York, 10013, Un",
+  "how": "venue"
+ },
+ "venue|Atta Inc, New York, New York": null,
+ "venue|Hunter College - Department of Art & Art History / Hunter College Art Galleries, New York, New York": null,
+ "venue|Long Island Print Shop, Deer Park, New York": null,
+ "venue|The Winter Show, New York, New York": null,
+ "venue|SITU Fabrication, Brooklyn, New York": null,
+ "venue|Rodney Smith Archive, Palisades, New York": null,
+ "venue|KPF, New York, New York": null,
+ "venue|APPARATUS, Brooklyn, New York": {
+  "lat": 40.627744,
+  "lng": -73.997897,
+  "matched": "New York Thawing Apparatus Company 64, 1339, 61st Street, Borough Park, Brooklyn, Kings County, New York, 11219, United ",
+  "how": "venue"
+ },
+ "venue|Basics Transport LLC, New York, New York": null,
+ "venue|Jill Platner, New York, New York": null,
+ "venue|Columbia University School of the Arts, New York, New York": null,
+ "venue|The Hispanic Society Museum & Library, New York, New York": null,
+ "venue|Maquette Fine Art Services, Washington, District of Columbia": null,
+ "venue|Hybrid: Library Company of Philadelphia, Philadelphia, Pennsylvania": null,
+ "venue|Hamilton College, Clinton, New York": {
+  "lat": 43.050905,
+  "lng": -75.40492,
+  "matched": "Hamilton College, 198, College Hill Road, Town of Kirkland, Oneida County, New York, 13323, United States",
+  "how": "venue"
+ },
+ "venue|Julio Valdez Studio LLC, New York, New York": null,
+ "venue|James Conkle, Brooklyn, New York": null,
+ "venue|Farmstead Arts, Basking Ridge, New Jersey": null,
+ "venue|Access Contemporary Music, New York, New York": null,
+ "venue|kimberly k, new paltz, New York": null,
+ "venue|Studio Solid Ceramics Studio, Brooklyn, New York": null,
+ "venue|Studios Williamsburg, Brooklyn, New York": {
+  "lat": 40.717407,
+  "lng": -73.943027,
+  "matched": "So Gold Studios, 448, Humboldt Street, Williamsburg, Brooklyn, Kings County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "venue|Simon, Brooklyn, New York": {
+  "lat": 40.641675,
+  "lng": -74.002909,
+  "matched": "Simon's BBQ, 4823, 8th Avenue, Dyker Heights, Brooklyn, Kings County, New York, 11220, United States",
+  "how": "venue"
+ },
+ "venue|Claire Price Artist, Brooklyn, New York": null,
+ "venue|ABRA, Brooklyn, New York": null,
+ "venue|Individual, Brooklyn, New York": null,
+ "venue|Chinchilla MGMT - Covert St, Queens, New York": null,
+ "venue|The Old American Can Factory, Brooklyn, New York": {
+  "lat": 40.674837,
+  "lng": -73.987853,
+  "matched": "The Old American Can Factory, 232, 3rd Street, Gowanus, Brooklyn, Kings County, New York, 11215, United States",
+  "how": "venue"
+ },
+ "venue|URBAN YARD STUDIO LLC; FOOTBRIDGE STUDIOS LLC; QUEENSBRIDGE STUDIOS INC., Queens, New York": null,
+ "venue|Gwen Hardie, Brooklyn, New York": null,
+ "venue|TribecaSpaces.com, New York, New York": null,
+ "venue|Private Artist Studio, Brooklyn, New York": null,
+ "venue|Bushwick Studio, Brooklyn, New York": {
+  "lat": 40.70535,
+  "lng": -73.927572,
+  "matched": "LightSpace Studios New York, 1115, Flushing Avenue, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "venue|Ridgewood Art Studios, Queens, New York": null,
+ "venue|The Mt. Haven Bronx Art, Bronx, New York": null,
+ "venue|Grand Morgan Art, Brooklyn, New York": null,
+ "venue|ArtBuilt, Brooklyn, New York": null,
+ "venue|Art Studios, Queens, New York": null,
+ "venue|OPERA America's National Opera Center, New York, New York": null,
+ "venue|J&M STUDIOS, Brooklyn, New York": {
+  "lat": 40.701143,
+  "lng": -73.967399,
+  "matched": "Steiner Studios, Brooklyn, Kings County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Chinchilla MGMT - 19th Street/4th FL, Brooklyn, New York": null,
+ "address|351 Fort Washington Avenue, New York, NY": {
+  "lat": 40.84648,
+  "lng": -73.940155,
+  "matched": "351 FORT WASHINGTON AVE, NEW YORK, NY, 10033",
+  "how": "address"
+ },
+ "venue|Multi-Use Room, Queens, New York": null,
+ "address|4900 Independence Ave, Bronx, NY": {
+  "lat": 40.897883,
+  "lng": -73.911269,
+  "matched": "4900 INDEPENDENCE AVE, BRONX, NY, 10471",
+  "how": "address"
+ },
+ "address|106-16 173 Street, NY": {
+  "lat": 40.70184,
+  "lng": -73.783347,
+  "matched": "106-16 173RD ST, JAMAICA, NY, 11433",
+  "how": "address"
+ },
+ "venue|Multi-Use Room B, New York, New York": null,
+ "venue|Garrison Art Center, Garrison, New York": {
+  "lat": 41.382597,
+  "lng": -73.947296,
+  "matched": "Garrison Art Center, 23, Garrison Lodge, Garrison, Town of Philipstown, Putnam County, New York, 10524, United States",
+  "how": "venue"
+ },
+ "venue|The Purchase PAC, Purchase, New York": null,
+ "venue|Westhab Dayspring, Yonkers, New York": null,
+ "venue|Downtown Ridgefield, Connecticut": null,
+ "venue|Pelham Art Center, Pelham, New York": null,
+ "address|125 W 18th St, New York, NY 10011": {
+  "lat": 40.740217,
+  "lng": -73.995712,
+  "matched": "125 W 18TH ST, NEW YORK, NY, 10011",
+  "how": "address"
+ },
+ "area|Valley Stream, New York": {
+  "lat": 40.663136,
+  "lng": -73.705696,
+  "matched": "Village of Valley Stream, Town of Hempstead, Nassau County, New York, 11580, United States (approximate)",
+  "how": "area"
+ },
+ "area|Cherry Hill Township, New Jersey": {
+  "lat": 39.934835,
+  "lng": -75.030726,
+  "matched": "Cherry Hill Township, Camden County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Jersey City, New Jersey": {
+  "lat": 40.721568,
+  "lng": -74.047455,
+  "matched": "Jersey City, Hudson County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Deer Park, New York": {
+  "lat": 40.76225,
+  "lng": -73.322859,
+  "matched": "Deer Park, Town of Babylon, Suffolk County, New York, 11729, United States (approximate)",
+  "how": "area"
+ },
+ "area|Palisades, New York": {
+  "lat": 41.018282,
+  "lng": -73.91637,
+  "matched": "Palisades, Sparkill, Town of Orangetown, Rockland County, New York, 10964, United States (approximate)",
+  "how": "area"
+ },
+ "area|Basking Ridge, New Jersey": {
+  "lat": 40.706409,
+  "lng": -74.549273,
+  "matched": "Basking Ridge, Bernards Township, Somerset County, New Jersey, 02794, United States (approximate)",
+  "how": "area"
+ },
+ "area|new paltz, New York": {
+  "lat": 41.746497,
+  "lng": -74.084489,
+  "matched": "Town of New Paltz, Ulster County, New York, 12561, United States (approximate)",
+  "how": "area"
+ },
+ "area|Purchase, New York": {
+  "lat": 41.040595,
+  "lng": -73.71448,
+  "matched": "Purchase, Town/Village of Harrison, Westchester County, New York, 10577, United States (approximate)",
+  "how": "area"
+ },
+ "area|Yonkers, New York": {
+  "lat": 40.93121,
+  "lng": -73.898747,
+  "matched": "City of Yonkers, Westchester County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Downtown Ridgefield, Connecticut": null,
+ "area|Pelham, New York": {
+  "lat": 40.909821,
+  "lng": -73.807911,
+  "matched": "Town of Pelham, Westchester County, New York, 10803, United States (approximate)",
+  "how": "area"
  }
 }

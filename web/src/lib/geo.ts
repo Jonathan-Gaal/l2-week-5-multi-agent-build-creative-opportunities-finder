@@ -6,18 +6,26 @@ import novemberPoints from "../data/map-points/2026-11-01b.json" with { type: "j
 export type MapPoint = { lat: number; lng: number; how?: string };
 
 /**
- * The map points for a snapshot's listings, keyed by the listing's dedupe key. They come from the file written by
- * scripts/geocode_listings.py. The published snapshot's coordinates are imported into the server bundle so
- * Vercel does not depend on data/geo/ outside the web project. Other local snapshots can still use that folder.
+ * The map points bundled into the server build, by snapshot id, oldest first. Each file is written by
+ * scripts/geocode_listings.py; the script also writes the deployable copy in src/data/map-points/. Add the new import and
+ * entry here when a new snapshot's points are bundled.
+ */
+const BUNDLED: [string, Record<string, MapPoint>][] = [["2026-11-01b", novemberPoints]];
+
+/**
+ * The map points for a snapshot's listings, keyed by the listing's dedupe key (title | place | deadline). The bundled points for
+ * that snapshot are used when there are some. A snapshot with no bundled points of its own (for example the id of a database
+ * snapshot that was loaded after the last build) uses the newest bundled ones: the key names the listing, so a listing
+ * that is the same gets the same pin and one that is not simply has none. Other local snapshots can still use data/geo/.
  */
 export async function loadPoints(snapshotId: string): Promise<Record<string, MapPoint>> {
   if (!/^[\w.-]+$/.test(snapshotId)) return {};
-  if (snapshotId === "2026-11-01b") return novemberPoints;
+  const own = BUNDLED.find(([id]) => id === snapshotId);
+  if (own) return own[1];
   try {
     const file = path.resolve(process.cwd(), "..", "data", "geo", `${snapshotId}.json`);
-    const raw = JSON.parse(await readFile(file, "utf-8")) as Record<string, MapPoint>;
-    return raw;
+    return JSON.parse(await readFile(file, "utf-8")) as Record<string, MapPoint>;
   } catch {
-    return {};
+    return BUNDLED[BUNDLED.length - 1]?.[1] ?? {};
   }
 }
