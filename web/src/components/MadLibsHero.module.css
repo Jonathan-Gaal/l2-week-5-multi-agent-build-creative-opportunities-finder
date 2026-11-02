@@ -168,7 +168,7 @@
 
 @media (max-width: 720px) {
   .page { flex-direction: column; justify-content: center; }
-  .figure { position: static; transform: none; width: 56vw; margin: 0 0 8px -10vw; align-self: flex-start; }
+  .figure { position: static; transform: none; width: 56vw; height: auto; margin: 0 0 8px -10vw; align-self: flex-start; }
   .content { margin-left: 0; }
   .sentence { font-size: calc(clamp(24px, 6.4vw, 34px) * var(--sent-scale, 1)); }
 }
@@ -236,3 +236,18 @@
 :global(html[data-bg="rising"]) .glow,
 :global(html[data-bg="diagonal"]) .glow,
 :global(html[data-bg="stripes"]) .glow { display: none; }
+
+/* Locked design: from 721px up the whole first screen scales with the width of the window (one unit, vw), tuned on a 1905 x 920
+   window, so the figure, the sentence and the button keep exactly the same proportions at any width and never overlap.
+   Below 720px the phone layout above takes over. */
+@media (min-width: 721px) {
+  .page { min-height: max(100vh, 48.3vw); padding: 5.04vw 0 2.1vw; }
+  .glow { right: -7.35vw; top: -8.4vw; width: 24.1vw; height: 24.1vw; }
+  .page :global(.wrap) { max-width: none; width: 100%; margin: 0; padding: 0; }
+  .figure { height: 36.75vw; }
+  .content { margin-left: 47.9vw; width: 29.4vw; }
+  .sentence { font-size: calc(2.415vw * var(--sent-scale, 1)); max-width: none; }
+  .line { font-size: 1.155vw; margin-top: 1.37vw; }
+  .actions { margin-top: 1.575vw; gap: 0.74vw 1.15vw; }
+  .cta { font-size: calc(1.05vw * var(--cta-scale, 1)); padding-bottom: 0.32vw; gap: 0.53vw; }
+}
