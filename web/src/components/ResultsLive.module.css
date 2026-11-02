@@ -2,7 +2,7 @@
    chips you can change (the list updates itself, no next button), the count and the cards on the right. */
 .board { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 22px; padding: 24px 0 48px; align-items: start; }
 
-.sideColumn { position: sticky; top: 16px; display: grid; gap: 16px; }
+.sideColumn { position: sticky; top: 16px; display: grid; gap: 16px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--plum) transparent; }     /* a column taller than the window scrolls inside itself, so the panels under the answers (More demos) can be reached */
 .side { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
 /* On wide windows the panel sits a little further left than the column, toward the edge of the screen. */
 /* The panel reaches out toward the left edge of the window (up to 150px, never closer than about 21px to it) and keeps its right edge where the column ends, so it gets wider rather than leaving a gap. */
@@ -84,7 +84,7 @@
 
 @media (max-width: 900px) {
   .board { grid-template-columns: minmax(0, 1fr); }
-  .sideColumn { position: static; }
+  .sideColumn { position: static; max-height: none; overflow: visible; }
 }
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
 
