@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import bundledRuns from "../data/demo-runs.json" with { type: "json" };
 import { DEMO_PRESETS, demoPreset } from "./demoPresets.ts";
 
 /**
@@ -37,11 +38,12 @@ export function recordRun(run: Omit<SavedRun, "savedAt">): void {
   }
 }
 
-/** Every saved run, newest first. Empty when there are none (always the case in production). */
+/**
+ * Every saved run for the demo. On a dev machine with Claude Code as the model it is the runs recorded in runs/claude-code-live-runs/;
+ * everywhere else (including the deployed site) it is the three bundled in src/data/demo-runs.json, so the replay list always works.
+ */
 export function listRuns(): SavedRun[] {
-  if (process.env.NODE_ENV === "production" || process.env.CLAUDE_CODE_AS_MODEL !== "1") return [];
-  if (!existsSync(DIR)) return [];
-  return readdirSync(DIR)
+  const fromDisk = process.env.NODE_ENV === "production" || process.env.CLAUDE_CODE_AS_MODEL !== "1" || !existsSync(DIR) ? [] : readdirSync(DIR)
     .filter((f) => f.endsWith(".json"))
     .flatMap((f) => {
       try {
@@ -49,7 +51,8 @@ export function listRuns(): SavedRun[] {
       } catch {
         return [];
       }
-    })
+    });
+  return (fromDisk.length ? fromDisk : (bundledRuns as SavedRun[]))
     .filter((r) => demoPreset(r.url))
     .sort((a, b) => DEMO_PRESETS.findIndex((p) => p.name === demoPreset(a.url)?.name) - DEMO_PRESETS.findIndex((p) => p.name === demoPreset(b.url)?.name));
 }

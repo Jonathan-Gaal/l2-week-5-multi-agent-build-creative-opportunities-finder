@@ -194,10 +194,9 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
                 {signup ? "Login" : "Sign up"}
               </Link>
             </p>
-            {(preview || demoDetails) && (
+            {(preview || demoDetails) && !signup && (
               <p className={a.note}>
-                Demo account: nothing is saved. Press{" "}
-                {signup ? "Create account" : "Login"} to try the flow.
+                Demo account: nothing is saved. Press Login to try the flow.
               </p>
             )}
           </>

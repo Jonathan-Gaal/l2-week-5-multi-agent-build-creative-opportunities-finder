@@ -2,7 +2,7 @@
    chips you can change (the list updates itself, no next button), the count and the cards on the right. */
 .board { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 22px; padding: 24px 0 48px; align-items: start; }
 
-.sideColumn { position: sticky; top: 16px; display: grid; gap: 16px; }
+.sideColumn { position: sticky; top: 16px; display: grid; gap: 16px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--plum) transparent; }     /* a column taller than the window scrolls inside itself, so the panels under the answers (More demos) can be reached */
 .side { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
 /* On wide windows the panel sits a little further left than the column, toward the edge of the screen. */
 /* The panel reaches out toward the left edge of the window (up to 150px, never closer than about 21px to it) and keeps its right edge where the column ends, so it gets wider rather than leaving a gap. */
@@ -68,23 +68,21 @@
 .on_lime { background: var(--lime); }
 .on_pink { background: var(--pink); }
 .on_cream { background: var(--paper); }
-.howRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; margin-top: 18px; }
+.howRow { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 44px; align-items: start; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--plum); }
 @media (max-width: 700px) { .howRow { grid-template-columns: 1fr; } }
 .solid { font: 700 15px var(--sans); background: var(--lime); color: #000; border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .solid:hover { filter: brightness(1.08); }
-.howPill summary { list-style: none; display: inline-block; cursor: pointer; font: 700 15px var(--sans); color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; }
-.howPill summary::-webkit-details-marker { display: none; }
-.howPill summary:hover, .howPill[open] summary { background: rgba(220, 252, 5, 0.12); }
-.howPill summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.howBody { margin-top: 10px; padding: 14px 18px; border: 2px solid var(--plum); border-radius: 18px; display: grid; gap: 8px; }
-.howBody p { margin: 0; color: var(--muted-dk); line-height: 1.5; }
+.how { display: grid; gap: 14px; align-content: start; }
+.howHead { margin: 0; justify-self: start; font: 900 clamp(20px, 2.2vw, 24px) var(--serif); color: var(--paper); padding-bottom: 8px; border-bottom: 4px solid var(--lime); }
+.howBody { display: grid; gap: 10px; max-width: 46ch; }
+.howBody p { margin: 0; color: var(--muted-dk); font-size: 15px; line-height: 1.55; }
 .foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .ghost { font: 700 15px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .ghost:hover { background: rgba(220, 252, 5, 0.12); }
 
 @media (max-width: 900px) {
   .board { grid-template-columns: minmax(0, 1fr); }
-  .sideColumn { position: static; }
+  .sideColumn { position: static; max-height: none; overflow: visible; }
 }
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
 
