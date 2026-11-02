@@ -10,6 +10,7 @@ import { asBackendError, type BackendError, getMeta, searchBackend, visitorClien
 import { soonestFirst } from "@/lib/cards";
 import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
+import { freezeResults, frozenResults } from "@/lib/demoResults";
 import { recordRun } from "@/lib/savedRuns";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
@@ -90,8 +91,12 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
   let out: SearchOutput | null = null;
   let failure: BackendError | null = null;
+  // A demo replay (?replay=1) shows the results that were recorded for that search, so it plays the same on the deployed site
+  // as it did when it was recorded, with no model, database or local files. Any other visit searches for real.
+  const recorded = q.replay === "1" ? frozenResults(`/results?${choices}`) : null;
   try {
-    out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels });
+    out = recorded ?? await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels });
+    if (!recorded) freezeResults(`/results?${choices}`, out);     // while Claude Code is the model on a dev machine, keep a demo search's results
   } catch (e) {
     failure = asBackendError(e);
   }
