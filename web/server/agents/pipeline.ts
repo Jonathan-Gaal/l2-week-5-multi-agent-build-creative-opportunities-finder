@@ -26,12 +26,12 @@ import type { OppRecord, RemovedCounts, Request } from "./filter.ts";
 import { ClaudeModel, ModelError, type Usage } from "./model.ts";
 import {
   BaselineRanker, type Candidate, type RankItem, Ranker, type RankerRole, Reviewer, type ReviewerRole, TOP_K,
-  baselineOrder, looksLikeInstructions,
+  baselineOrder, looksLikeInstructions, withoutRepeats,
 } from "./roles.ts";
 import { type TraceSink, fileSink, writeTrace } from "./trace.ts";
 
 export const MAX_ATTEMPTS = 3;
-const MAX_CANDIDATES = 80;
+const MAX_CANDIDATES = 150;
 export const TRACE_DIR = `${flt.REPO}traces`;
 
 export type Tier = 0 | 2 | 3;
@@ -178,9 +178,10 @@ export const run = async (
                     removed_counts: removed, expired_results, total_matches: 0, more_results: [] });
   }
 
-  const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]));
-  filterTrace.sent_to_ranker = Math.min(ordered.length, maxCandidates);
-  const shown: Candidate[] = ordered.slice(0, maxCandidates).map(([, r], i) => [`r${i + 1}`, r]);
+  const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]), req);
+  const forRanker = withoutRepeats(ordered);     // the same call listed twice goes to the Ranker once
+  filterTrace.sent_to_ranker = Math.min(forRanker.length, maxCandidates);
+  const shown: Candidate[] = forRanker.slice(0, maxCandidates).map(([, r], i) => [`r${i + 1}`, r]);
   const byId = new Map(shown);
 
   let best: RankItem[] | null = null;
