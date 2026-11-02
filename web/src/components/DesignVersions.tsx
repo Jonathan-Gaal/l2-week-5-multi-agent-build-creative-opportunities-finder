@@ -63,6 +63,8 @@ type Settings = {
   auth: Pos;
   /** Size of the Sign up / Login buttons, 1 = normal. */
   authSize: number;
+  /** How see-through the main graphic is, 0 (invisible) to 100 (solid). Older saved versions do not have it. */
+  figAlpha?: number;
 };
 const ORIGINAL: Fig = { x: 0, y: 0, s: 1 }; // a version's built-in starting spot, as built from its mockup
 type Saved = { id: string; name: string; at: number; settings: Settings };
@@ -80,6 +82,7 @@ const DEFAULTS: Settings = {
   logoX: 0,
   auth: NO_MOVE,
   authSize: 1,
+  figAlpha: 100,
 };
 
 const store = {
@@ -117,6 +120,8 @@ const applySettings = (s: Settings) => {
   root.style.setProperty("--fig-x", `${f.x}vw`);
   root.style.setProperty("--fig-y", `${f.y}vh`);
   root.style.setProperty("--fig-scale", String(f.s));
+  root.style.setProperty("--fig-alpha", String((s.figAlpha ?? 100) / 100));
+  store.set("figalpha", String(s.figAlpha ?? 100));
   root.style.setProperty("--sent-x", `${s.sent.x}vw`);
   root.style.setProperty("--sent-y", `${s.sent.y}vh`);
   root.style.setProperty("--cta-x", `${s.cta.x}vw`);
@@ -208,6 +213,7 @@ const readSettings = (): Settings => ({
   logoX: num(store.get("logox", "0"), 0, -400, 400),
   auth: readPx(store.get("authpos", "{}")),
   authSize: num(store.get("authsize", "1"), 1, 0.5, 3),
+  figAlpha: num(store.get("figalpha", "100"), 100, 0, 100),
 });
 
 /** Looks saved in the repo (design-versions.json) show up for everyone; ones saved only in this browser are added, and win on the same id. */
@@ -622,7 +628,8 @@ export default function DesignVersions() {
                 </option>
               ))}
             </select>
-            {reset("Reset this layout's graphic to original", () => setFig(ORIGINAL))}
+            <Slider id="fig-alpha" label="Transparency (0 clear, 100 solid)" min={0} max={100} step={1} value={s.figAlpha ?? 100} shown={`${s.figAlpha ?? 100}`} onChange={(v) => change({ ...s, figAlpha: v })} />
+            {reset("Reset this layout's graphic to original", () => change({ ...s, figs: { ...s.figs, [hero]: ORIGINAL }, figAlpha: 100 }))}
           </Section>
 
           <Section id="sentence" title="Sentence" hint="Moves and resizes the “I’m a … looking for …” text" open={sec === "sentence"} onToggle={setSec}>

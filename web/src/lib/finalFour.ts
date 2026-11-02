@@ -28,6 +28,7 @@ export const FINAL4_VARS: Record<string, string> = {
   "--fig-x": `${fig.x}vw`,
   "--fig-y": `${fig.y}vh`,
   "--fig-scale": String(fig.s),
+  "--fig-alpha": String(((look as { figAlpha?: number }).figAlpha ?? 100) / 100),
   "--sent-x": `${look.sent.x}vw`,
   "--sent-y": `${look.sent.y}vh`,
   "--cta-x": `${look.cta.x}vw`,

@@ -218,6 +218,7 @@
 .vfade {
   translate: var(--fig-x, 0) var(--fig-y, 0);
   scale: var(--fig-scale, 1);
+  filter: opacity(var(--fig-alpha, 1)); /* transparency slider; a filter so it stacks with a layout's own fade */
 }
 
 /* The wide wordmark is sized by width, not height, when the Graphic section picks it. */

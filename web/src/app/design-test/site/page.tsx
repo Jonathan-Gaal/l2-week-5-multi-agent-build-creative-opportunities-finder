@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Design test: site top bar | Artist Atlas",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
  * in the Versions panel. Use "Copy as code" in the panel when it looks right. Not linked from the app.
  */
 export default function SiteBarTest() {
+  if (process.env.NODE_ENV === "production") notFound(); // dev-only, like /dev
   return (
     <div className="wrap">
       <div style={{ margin: "28px 0 48px", border: "2px solid var(--plum)", borderRadius: 22, padding: "40px 44px", background: "rgba(46, 21, 86, 0.28)" }}>
