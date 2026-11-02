@@ -10,7 +10,7 @@ export type MapPoint = { lat: number; lng: number; how?: string };
  * scripts/geocode_listings.py; the script also writes the deployable copy in src/data/map-points/. Add the new import and
  * entry here when a new snapshot's points are bundled.
  */
-const BUNDLED: [string, Record<string, MapPoint>][] = [["2026-11-01b", novemberPoints]];
+const BUNDLED: [string, Record<string, MapPoint>][] = [["2026-11-01b", novemberPoints], ["2026-11-02", novemberPoints]];  // 2026-11-02 holds the same listings, so the same points
 
 /**
  * The map points for a snapshot's listings, keyed by the listing's dedupe key (title | place | deadline). The bundled points for
