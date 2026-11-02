@@ -294,6 +294,11 @@ def main(argv=None):
         path = REPO / "data/geo" / f"{a.snapshot_id}.json"
         path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"wrote {len(out)} points to {path}")
+        # Ship the same coordinates with the Next.js app; Vercel's project root is web/.
+        web_path = REPO / "web/src/data/map-points" / f"{a.snapshot_id}.json"
+        web_path.parent.mkdir(parents=True, exist_ok=True)
+        web_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"wrote deployable map points to {web_path}")
 
 
 if __name__ == "__main__":

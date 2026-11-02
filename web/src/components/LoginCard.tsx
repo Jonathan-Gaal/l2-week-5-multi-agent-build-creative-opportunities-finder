@@ -56,9 +56,10 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
 
   // Without Firebase the form still shows, filled in with a made-up demo artist, and submitting it enters the demo.
   const preview = !firebaseEnabled;
-  const [name, setName] = useState(preview ? "Demo Artist" : "");
-  const [email, setEmail] = useState(preview ? "demo.artist@example.com" : "");
-  const [password, setPassword] = useState(preview ? "demo-password" : "");
+  const [name, setName] = useState("Demo Artist");
+  const [email, setEmail] = useState("demo.artist@example.com");
+  const [password, setPassword] = useState("demo-password");
+  const demoDetails = email === "demo.artist@example.com" && password === "demo-password";
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<null | "credentials" | "google">(null);
   const submitting = busy !== null;
@@ -69,7 +70,7 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
     setError(null);
     setBusy("credentials");
     try {
-      if (preview) await startDemo();
+      if (preview || demoDetails) await startDemo();
       else if (signup) await signUpEmail(email, password);
       else await signInEmail(email, password);
       router.push("/find");
@@ -193,7 +194,7 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
                 {signup ? "Login" : "Sign up"}
               </Link>
             </p>
-            {preview && (
+            {(preview || demoDetails) && (
               <p className={a.note}>
                 Demo account: nothing is saved. Press{" "}
                 {signup ? "Create account" : "Login"} to try the flow.

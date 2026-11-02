@@ -1,0 +1,36 @@
+{
+ "name": "Alex · Manhattan auditions",
+ "url": "/results?d=theater&t=open_call&p=manhattan&s=auditions",
+ "artists": [
+  "actor"
+ ],
+ "wants": [
+  "Auditions"
+ ],
+ "places": [
+  "Manhattan"
+ ],
+ "top": [
+  {
+   "n": 1,
+   "title": "The Phantom of the Opera (Tour) - NYC EPA (11.04.26) (Box 5 Company, LLC)"
+  },
+  {
+   "n": 2,
+   "title": "Unannounced Play - NYC EPA (11.02.26) (Revised) (TTP Downtown Corp | New York, NY)"
+  },
+  {
+   "n": 3,
+   "title": "City Center Encores! 2027 Season - NYC EPA (11.05.26) & (11.06.26) (New York City Center Inc.)"
+  },
+  {
+   "n": 4,
+   "title": "Welcome Table - NYC EPA (11.03.26) (New York Shakespeare Festival)"
+  },
+  {
+   "n": 5,
+   "title": "Grass - NYC EPA (11.04.26) (Park Avenue Armory)"
+  }
+ ],
+ "savedAt": "2026-11-02T13:47:41.222Z"
+}

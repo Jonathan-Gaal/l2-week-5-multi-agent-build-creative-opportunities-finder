@@ -4,14 +4,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import DemoReplays from "./DemoReplays";
 
 type SavedRun = { name: string; savedAt: string; href: string; top: string[] };
 
 /**
- * The "Demo mode" tag. Double-click it to open a drop-down of the saved runs (searches answered once with Claude Code acting as
- * the Ranker and Reviewer); picking one plays that run through the find flow and on to its results. There is nothing to open on
+ * The "Demo mode" tag. Triple-click it to open a drop-down of saved runs (searches answered once through the model bridge).
+ * Picking one plays that run through the find flow and on to its results. There is nothing to open on
  * the live site, where no run is saved. On the pages where the tag is a link to Login, a single click still goes there, after
- * a moment, so a double-click can tell itself apart.
+ * a moment, so a triple-click can tell itself apart.
  */
 function DemoBadge({ link }: { link: boolean }) {
   const router = useRouter();
@@ -38,8 +39,8 @@ function DemoBadge({ link }: { link: boolean }) {
   const toggle = async () => {
     window.clearTimeout(timer.current);
     if (open) return setOpen(false);
-    let list = runs;
-    if (!list) {
+    let list: SavedRun[];
+    {
       try {
         list = (await (await fetch("/api/demo-runs")).json()) as SavedRun[];
       } catch {
@@ -50,25 +51,29 @@ function DemoBadge({ link }: { link: boolean }) {
     if (list.length) setOpen(true);
   };
   return (
-    <span className="demo-wrap" ref={box} onDoubleClick={toggle}>
+    <span className="demo-wrap" ref={box} title="Click three times to replay a demo" onClick={(e) => {
+      if (e.detail >= 2) window.clearTimeout(timer.current);
+      if (e.detail === 3 || e.detail === 0) void toggle();
+    }}>
       {link ? (
         <Link
           href="/login"
           className="demo-user"
-          aria-label="You are in demo mode. Log in or sign up"
+          aria-label="Demo mode. Click three times for saved replays, or once to log in"
+          aria-expanded={open}
           onClick={(e) => {
             if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
             e.preventDefault();
             window.clearTimeout(timer.current);
-            timer.current = window.setTimeout(() => router.push("/login"), 300);
+            if (e.detail === 1) timer.current = window.setTimeout(() => router.push("/login"), 650);
           }}
         >
           <span className="pill pill-lime">Demo mode</span>
         </Link>
       ) : (
-        <span className="pill pill-lime" aria-label="You are in demo mode">
+        <button type="button" className="pill pill-lime" aria-label="Demo mode. Click three times for saved replays" aria-expanded={open}>
           Demo mode
-        </span>
+        </button>
       )}
       {open && runs && (
         <ul className="demo-runs" aria-label="Saved runs to replay">
@@ -136,6 +141,9 @@ export default function AuthButtons() {
     return (
       <div className="auth-slot">
         <DemoBadge link />
+        {(pathname === "/find" || pathname === "/find/discipline") && <DemoReplays />}
+        <Link href="/login" className="btn btn-ghost btn-small" aria-current={pathname === "/login" ? "page" : undefined}>Login</Link>
+        <Link href="/signup" className="btn btn-small" aria-current={pathname === "/signup" ? "page" : undefined}>Sign up</Link>
       </div>
     );
   }

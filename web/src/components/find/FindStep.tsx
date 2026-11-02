@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { MetaResponse } from "@api/types";
 import { TYPE_PILLS, typesOf } from "@/lib/typePills";
 import { article, chipList, chipText, chipsFor, idsOf } from "@/lib/disciplineWords";
-import { spellOut, toggleGroup, togglePlace } from "@/lib/places";
+import { GROUP_IDS, spellOut, toggleGroup, togglePlace, type PlaceGroup } from "@/lib/places";
 import { makeCursor } from "@/lib/replayCursor";
 import PlaceMap, { PlaceChips } from "./PlaceMap";
 import s from "./FindFlow.module.css";
@@ -173,9 +173,22 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
       await wait(900);
       for (const p of picks) {
         if (stop) return;
-        const el = document.querySelector<HTMLElement>(`[data-pick="${p.pick}"]`);
+        if (step === "place") {
+          const group = (Object.keys(GROUP_IDS) as PlaceGroup[]).find((g) => GROUP_IDS[g].includes(p.pick));
+          const fold = group && document.querySelector<HTMLButtonElement>(`[aria-controls="places-${group}"]`);
+          if (fold && fold.getAttribute("aria-expanded") === "false") {
+            await glideTo(fold);
+            if (stop) return;
+            cursor.click();
+            fold.click();
+            await wait(450);
+          }
+        }
+        // NYC is the whole-city shortcut, selected by the existing group-title button.
+        const el = document.querySelector<HTMLElement>(p.pick === "nyc" && step === "place" ? '[data-group="nyc"]' : `[data-pick="${p.pick}"]`);
         if (el) {
           await glideTo(el);
+          if (stop) return;
           cursor.click();
           el.click();     // the real button, so the page reacts exactly as it does for a person
         } else p.apply();

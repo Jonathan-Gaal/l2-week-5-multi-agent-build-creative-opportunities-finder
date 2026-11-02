@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { DEMO_PRESETS, demoPreset } from "./demoPresets.ts";
 
 /**
  * Saved runs for the demo: the searches that went through the pipeline with Claude Code answering the Ranker and Reviewer
@@ -26,8 +27,11 @@ export function recordRun(run: Omit<SavedRun, "savedAt">): void {
     mkdirSync(DIR, { recursive: true });
     const file = `${DIR}/${createHash("sha1").update(run.url).digest("hex").slice(0, 16)}.json`;
     // The first time a search is seen fixes its date; seeing it again refreshes its picks (the ranking may have changed since).
-    const savedAt = existsSync(file) ? (JSON.parse(readFileSync(file, "utf-8")) as SavedRun).savedAt : new Date().toISOString();
-    writeFileSync(file, JSON.stringify({ ...run, savedAt }, null, 1), "utf-8");
+    const previous = existsSync(file) ? readFileSync(file, "utf-8") : null;
+    const savedAt = previous ? (JSON.parse(previous) as SavedRun).savedAt : new Date().toISOString();
+    const next = JSON.stringify({ ...run, name: demoPreset(run.url)?.name ?? run.name, savedAt }, null, 1);
+    // Replaying unchanged results must not rewrite a watched file and trigger a refresh cycle.
+    if (next !== previous) writeFileSync(file, next, "utf-8");
   } catch {
     // a run that cannot be recorded is simply not listed
   }
@@ -35,6 +39,7 @@ export function recordRun(run: Omit<SavedRun, "savedAt">): void {
 
 /** Every saved run, newest first. Empty when there are none (always the case in production). */
 export function listRuns(): SavedRun[] {
+  if (process.env.NODE_ENV === "production" || process.env.CLAUDE_CODE_AS_MODEL !== "1") return [];
   if (!existsSync(DIR)) return [];
   return readdirSync(DIR)
     .filter((f) => f.endsWith(".json"))
@@ -45,7 +50,8 @@ export function listRuns(): SavedRun[] {
         return [];
       }
     })
-    .sort((a, b) => b.savedAt.localeCompare(a.savedAt));
+    .filter((r) => demoPreset(r.url))
+    .sort((a, b) => DEMO_PRESETS.findIndex((p) => p.name === demoPreset(a.url)?.name) - DEMO_PRESETS.findIndex((p) => p.name === demoPreset(b.url)?.name));
 }
 
 /** The find flow's first step, set to play this run's picks: the replay carries them (rd, rs, rp) from step to step. */

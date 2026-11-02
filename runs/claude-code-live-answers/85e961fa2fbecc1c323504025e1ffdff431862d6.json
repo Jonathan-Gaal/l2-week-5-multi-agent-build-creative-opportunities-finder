@@ -1,0 +1,8 @@
+{
+ "savedAt": "2026-11-02T13:51:07.582Z",
+ "request": "Request: Staten Island residency (Poetry) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Mabou Mines S",
+ "reply": {
+  "verdict": "accept",
+  "critique": "This is the only candidate. It satisfies the implemented borough rule through its citywide tag and the discipline rule through its all-disciplines tag. The ranking correctly distinguishes citywide eligibility from a Staten Island venue and explicitly states the missing details. No extra opportunity is invented and none is omitted."
+ }
+}
