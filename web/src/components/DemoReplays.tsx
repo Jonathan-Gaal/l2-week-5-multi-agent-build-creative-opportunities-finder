@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { demoKey } from "@/lib/demoPresets";
+import { demoKey, replaySession } from "@/lib/demoPresets";
 import s from "./DemoReplays.module.css";
 
 type Demo = { name: string; url: string; href: string; top: string[] };
@@ -40,7 +40,7 @@ export default function DemoReplays({ panel = false }: { panel?: boolean }) {
   const list = (
     <ul className={s.list} aria-label={panel ? "More demos" : "Saved demo replays"}>
       {visible.map((r) => <li key={r.href}>
-        <button type="button" onClick={() => { setOpen(false); router.push(r.href); }}>
+        <button type="button" onClick={() => { setOpen(false); router.push(replaySession(r.href, crypto.randomUUID())); }}>
           <strong>{r.name}</strong>
           <span>{r.top.join(" · ")}</span>
         </button>
