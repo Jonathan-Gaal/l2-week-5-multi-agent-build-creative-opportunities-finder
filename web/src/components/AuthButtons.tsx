@@ -142,6 +142,8 @@ export default function AuthButtons() {
       <div className="auth-slot">
         <DemoBadge link />
         {(pathname === "/find" || pathname === "/find/discipline") && <DemoReplays />}
+        <Link href="/login" className="btn btn-ghost btn-small" aria-current={pathname === "/login" ? "page" : undefined}>Login</Link>
+        <Link href="/signup" className="btn btn-small" aria-current={pathname === "/signup" ? "page" : undefined}>Sign up</Link>
       </div>
     );
   }
