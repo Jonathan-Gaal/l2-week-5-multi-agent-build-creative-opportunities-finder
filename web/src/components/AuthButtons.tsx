@@ -138,11 +138,14 @@ export default function AuthButtons() {
   }
 
   const demo = status === "guest" || status === "signed-in"; // signed-in here means an anonymous (demo) session
+  // On the find pages the top right is just "Demo mode" with a drop-down arrow listing the replays by title, so it never crowds the question.
+  if (demo && pathname.startsWith("/find")) {
+    return <div className="auth-slot"><DemoReplays label="Demo mode" fallback /></div>;
+  }
   if (demo && !onResults) {
     return (
       <div className="auth-slot">
         <DemoBadge link />
-        {(pathname === "/find" || pathname === "/find/discipline") && <DemoReplays />}
         <Link href="/login" className="btn btn-ghost btn-small" aria-current={pathname === "/login" ? "page" : undefined}>Login</Link>
         <Link href="/signup" className="btn btn-small" aria-current={pathname === "/signup" ? "page" : undefined}>Sign up</Link>
       </div>
