@@ -47,13 +47,16 @@ function pageNumbers(at: number, pages: number): (number | null)[] {
   return keep.flatMap((n, i) => (i > 0 && n - keep[i - 1]! > 1 ? [null, n] : [n]));
 }
 
+/** Milliseconds on a monotonic clock; a function so the render below reads the clock once, on the server. */
+const clock = () => performance.now();
+
 /** "3 expired listings removed." -> 3. Anything else counts as none. */
 const expiredIn = (removed: string | null) => Number(removed?.match(/(\d+)\s+expired/)?.[1] ?? 0);
 
 /** The results page, on the layout of the "Live" board: your answers as chips on the left, the count and cards on the right. */
 export default async function Results({ searchParams }: { searchParams: Params }) {
   const q = await searchParams;
-  const startedAt = performance.now();
+  const startedAt = clock();
   const meta = getMeta();
   const labels = labelsFor(meta);
   const allowed = pickerChoices(meta);
@@ -97,7 +100,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   }
 
   // A replay from the demo (a saved run played back) keeps the "Finding your opportunities" screen up for about three seconds.
-  if (q.replay === "1" && process.env.CLAUDE_CODE_AS_MODEL === "1") await new Promise((done) => setTimeout(done, Math.max(0, 3000 - (performance.now() - startedAt))));
+  if (q.replay === "1" && process.env.CLAUDE_CODE_AS_MODEL === "1") await new Promise((done) => setTimeout(done, Math.max(0, 3000 - (clock() - startedAt))));
 
   // Narrow each list to the picked pills (open mics only, not every event); null means no narrowing applies. The results
   // service ranks by broad type first, so its top list can hold none of the picked kind even when many exist. In that
