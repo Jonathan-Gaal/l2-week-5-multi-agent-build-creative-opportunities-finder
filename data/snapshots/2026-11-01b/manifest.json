@@ -2,15 +2,15 @@
   "snapshot_id": "2026-11-01b",
   "snapshot_date": "2026-11-01",
   "status": "staging",
-  "record_count": 1521,
+  "record_count": 1510,
   "by_borough": {
+    "unknown": 546,
     "manhattan": 544,
-    "unknown": 530,
-    "brooklyn": 248,
-    "queens": 108,
-    "staten_island": 40,
-    "bronx": 39,
-    "citywide": 12
+    "brooklyn": 232,
+    "queens": 97,
+    "bronx": 34,
+    "staten_island": 31,
+    "citywide": 26
   },
   "borough_rule": "borough is the borough that eligibility is restricted to. If eligibility is not borough-restricted, it is the venue's borough. 'citywide' means eligibility is any NYC resident and the opportunity is not limited to one borough's residents. 'unknown' is used when the venue borough is not stated; such records cannot match a borough filter.",
   "dedupe_key": "normalized title | borough (or region when borough is null) | deadline.",
@@ -31,7 +31,15 @@
     "2026-11-01 (b): the 44 Playbill Jobs listings were read directly, one page each, at Mara's request. Playbill's robots.txt blocks ClaudeBot, anthropic-ai and Claude-Web but not Claude-User, the agent used when a person asks Claude to read a page. Details come from each page as read by the page-reading tool; eligibility quotes were not re-checked against the raw page text. `deadline` holds only an application deadline the page states. `event_dates` holds the audition or gig dates that end the listing, and `recurrence` says in plain words what each date is. One listing limited to ages 5 to 18 was removed.",
     "2026-11-01 (b): 45 audition listings stored the audition date as `deadline`; it now sits in `event_dates` with a plain-language line in `recurrence`. Listings whose record shows a real application deadline were left alone.",
     "2026-11-01 (b): 10 Playbill listings that ask for an emailed or online submission by a deadline, with no audition appointment, were relabeled from audition to casting call.",
-    "2026-11-01 (b): Scratch Off 2026 (open submissions of original work to a showcase) is a call to perform, not a casting call."
+    "2026-11-01 (b): Scratch Off 2026 (open submissions of original work to a showcase) is a call to perform, not a casting call.",
+    "2026-11-02: 32 records from NYFA's Artist Opportunities board (nyfa.org/opportunities), each read from its own listing page. NYFA returns 403 to plain requests but its robots.txt allows crawling; the pages were read with a browser-style user agent at Mara's direction. Eligibility quotes were matched verbatim against the listing text. The listings' own apply links were not visited. Online listings are kept when they are open worldwide, US-wide or NYC-based, and carry borough 'citywide' and region 'nyc' like the other online records.",
+    "2026-11-02: 63 records from NYFA's job board (nyfa.org/jobs) and 27 from its studio and space classifieds (nyfa.org/spaces), each read from its own listing page with the same browser-style user agent used for the opportunities board, at Mara's direction. Of 240 jobs, 24 outside the covered regions and 8 already past their deadline were dropped. Jobs kept are hands-on creative or arts-sector roles (studio assistants, art handlers, preparators, fabricators, printers, framers, teaching artists and faculty, designers, curatorial and conservation fellowships, DJs, models); back-office roles (development, finance, HR, marketing, executive, gallery sales) were left out. Spaces are filed as open_call/collaboration at Mara's direction; their fee field holds the rent. Quotes were matched verbatim against the listing text; the apply pages were not visited. NYFA labels some annual salaries as hourly; those were corrected to per-year.",
+    "2026-11-02: 5 more NYC Parks events (Artful Gatherings, Seasonal Door Sign, Mindful Needle Felting at Wave Hill, Craft & Chill, Holiday Silent Disco). NYC Parks returned 403 to plain requests; with Mara's go-ahead the events calendar (/events/arts, 107 list pages at 4-second intervals) and the five event pages were read with a browser-style user agent. robots.txt was checked: event pages are allowed, /*json and /*xml are not and were not requested. Of 4,850 calendar entries (428 distinct titles) most are fitness classes, children's programs, markets and attend-only shows or exhibits; only adult-friendly art-making and dance events were kept. Quotes were matched verbatim against the event pages.",
+    "2026-11-02: 8 more ArtsWestchester artist-opportunity listings (artswestchester.org/artist-opportunities, pages 1 and 2), each read from its own page with a plain request at 5-second intervals; no browser-style header was needed this time and the earlier Cloudflare challenge did not appear. robots.txt allows these pages; its Content-signal is search=yes, ai-train=no, and the pages were read only to build listing records. Quotes were matched verbatim. Three listings already past their deadline (a Mamaroneck Artists Guild membership and holiday market, Yellow Studio Small Works) were skipped. El Museo del Barrio (Cloudflare 'Just a moment' challenge), Brooklyn Museum (Vercel security checkpoint) and Entry Thingy (Cloudflare challenge) still block automated requests and were not read.",
+    "2026-11-02: Society of Illustrators pages (home, awards and calls, workshop, Holiday Craft Fair, vendor application, jobs) and moccafest.org were read one page at a time at Mara's request through the page-reading tool, with no browser-style header. societyillustrators.org robots.txt disallows ClaudeBot, anthropic-ai, Claude-Web and GPTBot but not Claude-User, and allows * everywhere except /wp-admin/ (the earlier removal note describes the rules as they stood then). Findings: the Illustrators Annual call closed Oct 21; scholarships are student-only; the Creating Characters workshop is for ages 9 to 14; Holiday Craft Fair vendor applications closed Aug 3; the only job is a bartender. One record added (MoCCA Arts Festival tabling). Details come from the page-reading tool's summary; the quote was not re-checked against the raw page text.",
+    "2026-11-02: all 311 Craigslist records were re-read one post at a time through the page-reading tool at Mara's request (no browser-style header; Craigslist robots.txt allows post pages and has no Claude-specific rule; its terms prohibit automated access, so this was a decision by Mara for this class project, to be disclosed to Jon). Each post's posted and updated dates were read from the page. Rule applied: remove posts posted more than 14 days before 2026-11-02 (before 2026-10-19) unless the poster updated them within the last 14 days. Removed 133: 63 deleted pages (HTTP 410), 65 old and not updated, 1 outside the regions, 4 not real creative opportunities or no longer the saved post. Kept 178: 118 recent and 60 posted earlier but updated in the last 14 days (these can be removed on request). Kept records now carry extraction agent_direct_read, a fresh checked date, and location and pay taken from the page. Details come from the page-reading tool's summaries, not raw page text.",
+    "2026-11-02: remaining title-only records re-read. 44 Playbill job pages were read one at a time through the page-reading tool (Playbill's robots.txt disallows ClaudeBot, anthropic-ai and Claude-Web but not Claude-User; no browser-style header was used); 6 NYFA event pages were read with the approved browser-style header (dates match; no price is shown); the Pelham Art Center class, Huntington Arts, openmikes and Actors Center pages were read directly. Removed 12: 2 pages that now return 404, 7 Playbill posts whose deadline or date has passed, and 3 Playbill auditions outside the regions (Vero Beach FL x2, Norfolk VA). Could not verify: 3 BroadwayWorld audition pages (they load as the general Equity listings page, not the specific audition) and the Actors Center auditions page (shows no auditions); both kept as stored. Not re-read because the sites' terms prohibit automated access and Mara has not approved them: AAA Alliance (20) and FireMics (34); Jalopy (7) renders with JavaScript.",
+    "2026-11-02: every record's artist types and kind were checked by reading its listing page (1,128 records), by another session's page reads (314), or against the stored title (68). open mics from openmikes.org and badslava.com were read page by page. Records still title-only: FireMics, A4 and Jalopy. The retag details and counts are in reports/retag-by-reading/REPORT.md; records.retagged.json carries the extra read_* fields (pay, fee, deadline, dates, location, closed status)."
   ],
   "sources": {
     "ingested_with_records": [
@@ -139,7 +147,10 @@
       "regional-woodstock-byrdcliffe-residency",
       "mara-craigslist-new-york",
       "mara-firemics-open-mics",
-      "playbill-jobs"
+      "playbill-jobs",
+      "nyfa-opportunities",
+      "nyfa-jobs",
+      "nyfa-spaces"
     ],
     "ingested_zero_open_records": {
       "dcla-funding-for-artists": "Index only. Used to find each borough funder's live page.",
@@ -925,6 +936,429 @@
       "reason": "out of scope",
       "detail": "Limited to children and teens (ages 5 to 18); out of scope",
       "checked": "2026-11-01"
+    },
+    {
+      "title": "CALL FOR ARTISTS | Artist Interview With ArtVanguard",
+      "source": "nyfa-opportunities",
+      "reason": "pay_to_publish",
+      "detail": "A fee applies to selected artists who proceed with publication."
+    },
+    {
+      "title": "60 Minute Career Strategy Consultation - Coaching for Creatives",
+      "source": "nyfa-opportunities",
+      "reason": "not_an_opportunity",
+      "detail": "Paid coaching service."
+    },
+    {
+      "title": "Bookkeeping to Fractional CFO for Artists, Studios, and Galleries",
+      "source": "nyfa-opportunities",
+      "reason": "not_an_opportunity",
+      "detail": "Business service for artists."
+    },
+    {
+      "title": "Artist Spotlight: Featured Interview Opportunity",
+      "source": "nyfa-opportunities",
+      "reason": "not_an_opportunity",
+      "detail": "Interview feature offer."
+    },
+    {
+      "title": "MFA in Performance and Interactive Media Arts at Brooklyn College",
+      "source": "nyfa-opportunities",
+      "reason": "not_an_opportunity",
+      "detail": "Degree program."
+    },
+    {
+      "title": "Applications for MGC Community Print Studio Membership",
+      "source": "nyfa-opportunities",
+      "reason": "not_an_opportunity",
+      "detail": "Studio membership, not a call or grant."
+    },
+    {
+      "title": "Accepting 10-minute New Plays About Queens, NY",
+      "source": "nyfa-opportunities",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-31."
+    },
+    {
+      "title": "The Homiens Art Prize",
+      "source": "nyfa-opportunities",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-29."
+    },
+    {
+      "title": "Triangle Residency Open Call; SoMad Bathroom Design Open Call; 2027-2028 A.I.R. Fellowship; Smack Mellon Artist Studio Program; Arts Grants for Queens; GO Queens Grant",
+      "source": "nyfa-opportunities",
+      "reason": "duplicate",
+      "detail": "Already in the snapshot from the organizer's own page or another source."
+    },
+    {
+      "title": "Miami, FL / Portland, OR / Steuben, WI listings (3)",
+      "source": "nyfa-opportunities",
+      "reason": "outside_scope",
+      "detail": "Located outside the covered regions."
+    },
+    {
+      "title": "Art handler for exhibition installation in Chelsea loft October 29",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-28."
+    },
+    {
+      "title": "Head Preparator",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-11-01."
+    },
+    {
+      "title": "Studio Manager for World-Renowned Artist",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-26."
+    },
+    {
+      "title": "Multidisciplinary Arts Instructor at Drawing Room",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-31."
+    },
+    {
+      "title": "Teaching Artists - Dance, Music, Visual Arts",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-28."
+    },
+    {
+      "title": "Curator of Education and Outreach (Head of Learning and Community Engagement)",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-11-01."
+    },
+    {
+      "title": "Co-Collaboration Leads of MCC Youth Company Performance Lab",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-30."
+    },
+    {
+      "title": "Art Guide",
+      "source": "nyfa-jobs",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-16."
+    },
+    {
+      "title": "Bronx Spaces : Private Large and Small/Windowed and Interior Work Spaces for Rent 24/7 Access",
+      "source": "nyfa-spaces",
+      "reason": "not_kept",
+      "detail": "posted 2025-07-14, likely stale"
+    },
+    {
+      "title": "Advance Realty Corp 09/24/2026",
+      "source": "nyfa-spaces",
+      "reason": "not_kept",
+      "detail": "office space, not an artist space"
+    },
+    {
+      "title": "NYFA jobs: development, finance, HR, marketing, executive, gallery sales and administration roles (about 115 listings)",
+      "source": "nyfa-jobs",
+      "reason": "not_creative_role",
+      "detail": "Back-office arts-sector roles; not creative work for an artist. Re-add on request."
+    },
+    {
+      "title": "NYFA jobs outside the covered regions (24 listings in CA, IL, FL, TX, WI, NC)",
+      "source": "nyfa-jobs",
+      "reason": "outside_scope",
+      "detail": "Located outside the covered regions."
+    },
+    {
+      "title": "Mamaroneck Artists Guild: membership jury and Artful Giving holiday market",
+      "source": "artswestchester",
+      "reason": "past_deadline",
+      "detail": "Deadline 2026-10-31."
+    },
+    {
+      "title": "Small Works by Yellow Studio Arts Center at Beehive",
+      "source": "artswestchester",
+      "reason": "past_deadline",
+      "detail": "Submissions closed 2026-10-21."
+    },
+    {
+      "title": "Illustrators 69th Annual Competition",
+      "source": "society-of-illustrators",
+      "reason": "past_deadline",
+      "detail": "Call extended to Oct 21."
+    },
+    {
+      "title": "Creating Characters & Stories (Society of Illustrators workshop)",
+      "source": "society-of-illustrators",
+      "reason": "youth_only",
+      "detail": "Ages 9 to 14."
+    },
+    {
+      "title": "Holiday Craft Fair vendor applications (Society of Illustrators)",
+      "source": "society-of-illustrators",
+      "reason": "past_deadline",
+      "detail": "Applications closed Aug 3, 2026."
+    },
+    {
+      "title": "63 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "page deleted (HTTP 410 Gone)",
+      "titles": [
+        "**Paid Photographer Needed For Jewelry Campaign Shoot",
+        "Bass guitar instruction",
+        "Cajon or scaled down drum kit player avail for gigs etc",
+        "CASTING 3 STAND-INs — SAG-AFTRA MICRO BUDGET FEATURE — October 25",
+        "DRUMMER SEEKING COLLABORATIOPN",
+        "Entertainers Wanted for Nightclub (Manhattan NY)",
+        "FALL CONCERT, PIANIST/SINGER/ENTERTAINER",
+        "FALL CONCERT, Pianist/Singer/Events",
+        "Female Singer needed for punky/bluesy/noisy band forming",
+        "Freelance Podcast Video Editors Needed — Ongoing Remote Work",
+        "Jazz Band For Hire!",
+        "Let Me Entertain You!!!! Singer/Pianist for assisted living",
+        "NYC Marathon Photographer",
+        "Old School, Roots music electric bassist available",
+        "ON-SITE PHOTO EDITOR NEEDED- SANTA PHOTOS | NYC",
+        "Paid Remote Testers Wanted ($25/hr): Photographers, DAM & Stock Photo",
+        "PIANIST/SINGER",
+        "PIANIST/SINGER/ENTERTAINER",
+        "Repair for musicians",
+        "Seeking Product Photographer for Jewelry",
+        "Times Square Photographer",
+        "$$$ MEN needed for a HAIRCUT video $$$",
+        "$150.00 PAID  TO ACTORS NEEDED FOR SKITS",
+        "$800/Day — Male Actor for Political Ad — Oct. 6 (Brooklyn)",
+        "Analog or Digital Recording for Bands and Solo Artists",
+        "Bass player here for band punk 77",
+        "Brooklyn Rehearsal Space – Monthly Share",
+        "Crew Wanted: Cinematic Spec Commercials, All Positions (NYC)",
+        "Drummer avalaible for garage 60s pop",
+        "Drummer Looking for Band",
+        "Drummer needed for trip hop art rock project",
+        "Face Painting for 5 year old Bday - Ridgewood/Bushwick",
+        "Female Models and Independent Artists wanted",
+        "Gospel Guitarist",
+        "I play bass, 70s proto punk, or mid 60s pop",
+        "Indie electro-pop project looking for a Drummer",
+        "Jazz band available for gigs/events",
+        "Looking For Sign Language User for Music Video",
+        "Male figure drawing model for tonight, perhaps ongoing",
+        "METAL GUITARIST AVAILABLE FOR SESSION WORK",
+        "MFA Artist Seeking Black Mothers & Birth Workers for Painting Project",
+        "Models Wanted for Art Magazine Submission",
+        "Photographer for a few natural photos",
+        "PIANO LESSONS-Experienced Teacher-Online",
+        "Private Drum Lessons in Brooklyn, NYC",
+        "Product Design / CAD Collaborator Wanted — Mate Gourd Prototype",
+        "Professional Drummer Offering Private Lessons",
+        "SESSION GUITARIST AVAILABLE FOR REMOTE PROJECTS",
+        "SINGERS!   MUSICIANS!   WANTED!!!",
+        "Studio Rehearsal Space – Brooklyn",
+        "AI-Friendly Content Writers Needed - $100 Article Projects",
+        "Drummer avalaible for garage band like the Seeds /Music Machine",
+        "Guitarist",
+        "Independent Music / Management Company Looking For Female Artists",
+        "On-Camera Spokesperson Needed for Short Promotional Video — $50",
+        "Photographer needed, October 1, 4-630 pm, Astoria",
+        "MUSIC LESSONS",
+        "Paid glamour photoshoot $500",
+        "SALSA MUSICAL CHARTS",
+        "Band mates wanted!",
+        "Food Photographer Needed – Wedding/Catering Shoot – Oct. 10 – $200",
+        "JAZZ UNION for hire any- combo -GUITAR-SAX-BASS-KEYS-VOCALS-DRUMS",
+        "PRVT GUITAR LESSONS $30 HOUR"
+      ]
+    },
+    {
+      "title": "65 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "posted more than 14 days ago and not updated since",
+      "titles": [
+        "ACTORS & EXTRAS WANTED – INDIE THRILLER FILM",
+        "Casting Vampire Film",
+        "Content Creator - All nationalities are welcomed to apply",
+        "CREATIVE PARTNER / YOUTUBE & PODCAST PRODUCER WANTED — NYC",
+        "Creative video needed",
+        "Experienced Author / True Crime Author / Investigative Journalist",
+        "Freelance Photographer - $100",
+        "Hobbyist event photographer, Fri Oct 16 evening, Manhattan (paid)",
+        "Kelly Diamond Is Casting – Are You Our Next Diamond?",
+        "Liquid Mercury style Mirror Chrome Finish on Organic Wood Sculptures.",
+        "looking for a Japanese calligraphy artist (shodo) for 1-2 hour lesson",
+        "MAKEUP ARTIST WANTED – TOMORROW!",
+        "Models wanted for Luxury Wig Brand | Elegant Editorial Aesthetics",
+        "NYC Videographer Needed for Interview, B-Roll and Photo Shoot",
+        "PAID $100/person — Looking for best friends for a documentary shoot",
+        "Paid Local Video Assignment — NYC / New Jersey",
+        "Photography and  Production Interns for independant Magazine",
+        "Remote Article Writers Needed - Projects Around $100 Each",
+        "Searching for Models & Creatives for NYC Editorial Photoshoots",
+        "SEEKING EXPERIENCED DANCE INSTRUCTOR",
+        "Start up band needed for female pop singer",
+        "Street Interview Host, Fun and Outgoing, Paid Weekly (NYC)",
+        "URGENT NYC CASTING – Actors Needed This Week | Brooklyn College MFA",
+        "Videographer Wanted – Short-Form Social Content",
+        "Wanted: A Talented Writer with the Magic Touch",
+        "$100 for approximately one hour of filming",
+        "Camera & Gimbal Intern – Film/Video Shoots {Broooklyn}",
+        "Extras needed for web series TOMORROW 10/11!!! (Women ages 21-30)",
+        "Extras needed for web series TOMORROW 10/4!!! (Women ages 18-40)",
+        "Female Models Needed for Multiple Studio Sessions",
+        "Former RCA Producer seeks singer + bass, guitar, flute, piano, drummer",
+        "Freelance Photographer",
+        "Hairstylist Needed Tomorrow 10/6 — Fashion Editorial Shoot — Brooklyn",
+        "Interactive Jeans Modeling M&F - No Experience Req - Anywhere in NY",
+        "LOOKING FOR ACTOR FOR MUSIC VIDEO",
+        "Male Figure Models",
+        "Paid: friendly person (50–70) for a short product how-to video",
+        "Photographer to shoot boudoir photoset of me for gift for bf",
+        "Photography & Document Scanning Gig – Brooklyn | $30/Hour",
+        "Photography/design student wanted to maintain hair stylist Instagram",
+        "Portrait Photographer needed",
+        "RnB / Soul / Disco Backing Singers Wanted",
+        "Searching for Models for Luxe Wig Brand Shoot | Paid Opportunity",
+        "VOICE OVER TALENT NEEDED  – NO EXPERIENCE REQUIRED",
+        "Write From Home - Flexible Article Writing Projects",
+        "2 actors needed 1 actress, 1 actor",
+        "2 male actors needed for short script",
+        "Female for modell or dancing",
+        "Female keys /dj/sampler and f drummer wanted for a f groove rock band",
+        "guitarist looking to form band",
+        "Halloween Event Photographer - Sat Oct 31st",
+        "iso drummer for just-for-fun band",
+        "Looking for actress",
+        "MALE MODEL NEEDED: CONSTRUCTION/TRADE",
+        "Models and dancers",
+        "Music Kidz Fun For Kids All Ages Learning to play by having fun",
+        "Scare Actors Needed",
+        "Female Life Models Wanted for Paid Sketching Sessions",
+        "Photographer Needed: High School Football Game TOMORROW 10/17",
+        "SINGERS, RAPPERS, MUSICIANS, DANCERS, COMEDIANS COME BE ON TV",
+        "we're stating a jazz band - bitches",
+        "JUDAS PRIEST TRIBUTE BAND FORMING! SEEKING LEAD GUITAR PLAYER!",
+        "MODELS WANTED: Saturday 10/10 | Staten Island",
+        "Pro level keyboard player wanted",
+        "Wanted, Solid Bass player and Drummer for Classic Rock, Blues Rock"
+      ]
+    },
+    {
+      "title": "1 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "outside the covered regions (Atlanta, GA)",
+      "titles": [
+        "CASTING REAL COUPLES FOR CUTLERS COURT"
+      ]
+    },
+    {
+      "title": "1 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "not a real creative opportunity: vague solicitation, not an opportunity",
+      "titles": [
+        "Are You Looking For Instant Results With Your Music Career ?"
+      ]
+    },
+    {
+      "title": "1 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "not a real creative opportunity: page now describes a different post (a wheelchair-user ring-controller pilot)",
+      "titles": [
+        "Cat Owner Wanted – UGC Video Commercial for wearable controller"
+      ]
+    },
+    {
+      "title": "1 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "not a real creative opportunity: nude medical-exam training, not creative work",
+      "titles": [
+        "November 14th - Male Models Needed for Medical Training Course $400"
+      ]
+    },
+    {
+      "title": "1 Craigslist listings",
+      "source": "mara-craigslist-new-york",
+      "reason": "craigslist_reread_2026-11-02",
+      "detail": "not a real creative opportunity: app referral scheme, not creative work",
+      "titles": [
+        "Paid Voice Recording Gig Remote $10/Hour"
+      ]
+    },
+    {
+      "title": "Swing Dance Long Island presents Gene Casey and the Lone Sharks",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "page returns 404 (event gone)"
+    },
+    {
+      "title": "Open mic at Just Rock Enterprises (Third Thursday of the month at 7pm)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "page returns 404 (listing gone)"
+    },
+    {
+      "title": "Casting staged reading of Torch Song Trilogy Part 2: Fugue for a Nursery (Gallery Players)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "application deadline Oct 29 has passed"
+    },
+    {
+      "title": "Girl from the North Country (Spotlight Repertory Theatre)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "application deadline Oct 28 has passed"
+    },
+    {
+      "title": "Ain't Too Proud - NYC EPA (10.28.26) (Revised) (Harborside Productions LLC | Northport, NY)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "audition Oct 28 has passed"
+    },
+    {
+      "title": "Perfect Crime (Role of James Ascher) - Submit for NYC Appointments (Deadline: 10.30.26) (Perfect Crime Inc.)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "application deadline Oct 30 has passed"
+    },
+    {
+      "title": "Actor and Violinist for December Play at The Tank NYC (Clara Livingston)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "monologue deadline Oct 31 has passed"
+    },
+    {
+      "title": "John Proctor is the Villain - Submit for NYC Appointments (Deadline: 11.04.26) (Virginia Stage Company)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "audition is in Norfolk, VA (outside the regions)"
+    },
+    {
+      "title": "Hairspray - Submit for NYC Appointments (Deadline: Thursday, November 5, 2026) (Riverside Theatre Inc. | Vero Beach, FL)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "audition is in Vero Beach, FL (outside the regions)"
+    },
+    {
+      "title": "On the Town - Submit for NYC Appointment (Deadline: 11.09.26) (Riverside Theatre Inc.)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "audition is in Vero Beach, FL (outside the regions)"
+    },
+    {
+      "title": "'The Grandest Princess Ball Ever,' Times Square, NYC (The Princess Party Co)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "application deadline Nov 1 has passed"
+    },
+    {
+      "title": "Local Male and Female Character Performers for Large IP Brand (NYC/New Jersey) (Full Stop Productions)",
+      "source": "title-only reread 2026-11-02",
+      "reason": "reread_removed",
+      "detail": "listed date Oct 24 has passed"
     }
   ],
   "known_gaps": [
@@ -937,81 +1371,83 @@
     "Eventbrite's public event search was shut down in 2019; the API can only re-read known event IDs, so it is not used."
   ],
   "by_discipline": {
-    "music": 555,
-    "comedy": 434,
-    "singer": 402,
-    "dance": 205,
-    "theater": 175,
-    "poet": 142,
-    "visual": 88,
-    "craft": 48,
-    "all": 44,
-    "model": 33,
-    "film": 32,
-    "photographer": 26,
-    "literary": 26,
-    "videographer": 12,
-    "crew": 10
+    "music": 503,
+    "comedy": 503,
+    "poet": 217,
+    "dance": 207,
+    "visual": 179,
+    "singer": 168,
+    "theater": 115,
+    "craft": 65,
+    "all": 61,
+    "writing": 27,
+    "film": 26,
+    "model": 18,
+    "photographer": 12,
+    "videographer": 9,
+    "crew": 6
   },
   "disciplines_field": "Added 2026-10-27. Tags which practices a record is open to; 'all' means any discipline. Not a request filter in v1 (PRD inputs are borough and type); available to the Ranker.",
   "by_region": {
-    "nyc": 1052,
+    "nyc": 1015,
+    "pennsylvania": 88,
     "massachusetts": 86,
-    "pennsylvania": 85,
-    "long_island": 52,
-    "dc": 49,
-    "new_jersey": 48,
+    "long_island": 54,
+    "new_jersey": 52,
+    "dc": 50,
     "maryland": 46,
-    "connecticut": 35,
-    "upstate_ny": 18,
-    "westchester_hudson": 17,
+    "connecticut": 36,
+    "westchester_hudson": 25,
+    "upstate_ny": 20,
     "rhode_island": 14,
     "new_hampshire": 11,
     "maine": 9,
-    "vermont": 3
+    "vermont": 4
   },
   "region_field": "Scope (2026-10-27): anywhere an NYC artist can reasonably reach - NY, NJ, CT, PA, MA, RI, VT, NH, ME, DE, MD, DC. 'nyc' records carry a borough; others have borough null. The PRD still lists non-NYC as a non-goal and needs updating.",
   "by_type": {
-    "event/open_mic": 686,
-    "event/dance_night": 111,
-    "event/workshop": 110,
-    "open_call/collaboration": 106,
-    "open_call/audition": 86,
-    "open_call/paid_gig": 85,
-    "open_call/service_ad": 56,
-    "open_call/casting_call": 55,
-    "event/jam": 33,
-    "open_call/model_call": 32,
-    "event/class": 28,
-    "residency/residency": 23,
-    "open_call/gallery_submission": 21,
-    "grant/grant": 17,
-    "open_call/performance_call": 16,
-    "open_call/festival": 9,
-    "open_call/general_call": 9,
-    "grant/fellowship": 8,
-    "event/show": 7,
-    "job/full_time": 5,
-    "open_call/competition": 4,
-    "event/drawing_session": 4,
-    "job/teaching_artist": 4,
-    "open_call/commission": 3,
-    "open_call/writing_submission": 3,
-    "event/meetup": 2,
-    "event/open_studio": 1,
-    "job/internship": 1
+    "event/open_mic": 671,
+    "event/dance_night": 110,
+    "event/workshop": 90,
+    "open_call/audition": 79,
+    "open_call/collaboration": 79,
+    "open_call/service_ad": 65,
+    "event/jam": 46,
+    "event/class": 45,
+    "open_call/paid_gig": 42,
+    "open_call/gallery_submission": 37,
+    "job/full_time": 34,
+    "open_call/casting_call": 27,
+    "residency/residency": 26,
+    "grant/grant": 23,
+    "event/meetup": 18,
+    "job/teaching_artist": 17,
+    "open_call/model_call": 17,
+    "job/None": 15,
+    "open_call/performance_call": 14,
+    "open_call/festival": 11,
+    "grant/fellowship": 10,
+    "event/show": 8,
+    "open_call/competition": 6,
+    "open_call/commission": 5,
+    "job/internship": 4,
+    "open_call/writing_submission": 4,
+    "open_call/general_call": 4,
+    "event/drawing_session": 2,
+    "event/open_studio": 1
   },
   "by_extraction": {
-    "structured": 765,
-    "mara_backfill_unverified": 360,
+    "structured": 897,
+    "agent_direct_read": 213,
     "crawl_reviewed": 120,
-    "manual": 82,
-    "api": 67,
-    "mara_backfill_verified": 44,
-    "agent_direct_read": 44,
+    "null": 81,
+    "api": 66,
+    "mara_backfill_unverified": 46,
+    "mara_backfill_verified": 43,
     "jsonld": 33,
     "rendered": 7,
-    "auto_text": 3
+    "auto_text": 3,
+    "manual": 1
   },
   "scope_notes": [
     "2026-10-27: scope widened to every creative discipline (open-ended), the NYC tri-state metro, and participatory events (jams, open mics, drum circles, drawing sessions, workshops, classes) plus paid performer and teaching gigs.",
