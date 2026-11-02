@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { demoKey } from "@/lib/demoPresets";
+import { REPLAY_NOTE, demoKey } from "@/lib/demoPresets";
 import s from "./DemoReplays.module.css";
 
 type Demo = { name: string; url: string; href: string; top: string[] };
@@ -38,6 +38,8 @@ export default function DemoReplays({ panel = false }: { panel?: boolean }) {
   const visible = panel ? runs.filter((r) => demoKey(r.url) !== demoKey(`/results?${params}`)) : runs;
   if (!visible.length) return null;
   const list = (
+    <>
+    <p className={s.note}>{REPLAY_NOTE}</p>
     <ul className={s.list} aria-label={panel ? "More demos" : "Saved demo replays"}>
       {visible.map((r) => <li key={r.href}>
         <button type="button" onClick={() => { setOpen(false); router.push(r.href); }}>
@@ -46,6 +48,7 @@ export default function DemoReplays({ panel = false }: { panel?: boolean }) {
         </button>
       </li>)}
     </ul>
+    </>
   );
   return (
     <div ref={box} className={panel ? s.panel : s.menu}>

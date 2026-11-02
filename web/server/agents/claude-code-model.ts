@@ -10,10 +10,10 @@
  * after a short pause (CLAUDE_CODE_REPLAY_MS, default 1200) instead of waiting for the session, so a search that was
  * answered once replays quickly through the real pipeline. CLAUDE_CODE_FRESH=1 ignores saved answers and asks again.
  */
-import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 
 import { type CallOptions, type Model, ModelError, type Usage } from "./model.ts";
+import { promptKey } from "./replay-model.ts";
 
 const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
@@ -32,7 +32,7 @@ export class ClaudeCodeModel implements Model {
   }
 
   async call(system: string, user: string, schema: Record<string, unknown>, opts: CallOptions = {}): Promise<[unknown, Usage]> {
-    const key = createHash("sha1").update(JSON.stringify([system, user, schema])).digest("hex");
+    const key = promptKey(system, user, schema);
     const savedPath = `${this.savedDir}/${key}.json`;
     if (existsSync(savedPath) && process.env.CLAUDE_CODE_FRESH !== "1") {
       try {

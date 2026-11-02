@@ -10,6 +10,8 @@ import { asBackendError, type BackendError, getMeta, searchBackend, visitorClien
 import { soonestFirst } from "@/lib/cards";
 import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
+import { REPLAY_NOTE } from "@/lib/demoPresets";
+import { savedReplayFor } from "@/lib/demoReplays";
 import { recordRun } from "@/lib/savedRuns";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
@@ -91,7 +93,9 @@ export default async function Results({ searchParams }: { searchParams: Params }
   let out: SearchOutput | null = null;
   let failure: BackendError | null = null;
   try {
-    out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels });
+    // A saved demo search reached through the replay flow (replay=1) is served from its saved answers when they hold.
+    const replay = savedReplayFor(new URLSearchParams({ ...Object.fromEntries(choices), replay: typeof q.replay === "string" ? q.replay : "" })) !== null;
+    out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels, replay });
   } catch (e) {
     failure = asBackendError(e);
   }
@@ -115,7 +119,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   const picks = takeInTurns((lists ?? []).map((l) => l.cards), TOP_PICKS);     // the ranked list
   const pickKeys = new Set(picks.map((c) => c.key));
   const total = picks.length;
-  if (out && total > 0) {     // while Claude Code plays the model, keep this search so the demo can replay it
+  if (out && total > 0) {     // while the local model bridge records (never in production), keep this search so the demo can replay it
     const artists = [...new Set(disciplines.flatMap((id) => chipsFor(id).map((c) => c.word)))];
     const wants = TYPE_PILLS.filter((p) => (pills.length ? pills : pillsForTypes(types)).includes(p.id)).map((p) => p.label);
     const where = places.map((id) => labels.place(id));
@@ -173,6 +177,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 </span>
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
+              {out.replay && <p className="notice" role="note">{REPLAY_NOTE} Nothing here is ranked live, and dates are as of that day.</p>}
               <ResultsMap pins={pins} missing={shown.length - pins.length} />
 
 

@@ -1,7 +1,7 @@
 import { connection } from "next/server";
 import { listRuns, replayHref } from "@/lib/savedRuns";
 
-/** The saved runs for the demo badge's drop-down. Empty on the live site, where nothing is saved. */
+/** The saved demo runs for the demo badge's drop-down and "Replay a demo": the three bundled ones, on the live site too. */
 export async function GET() {
   await connection();
   return Response.json(listRuns().map((r) => ({ name: r.name, url: r.url, savedAt: r.savedAt, href: replayHref(r.url), top: r.top.slice(0, 3).map((t) => t.title) })), { headers: { "Cache-Control": "no-store" } });

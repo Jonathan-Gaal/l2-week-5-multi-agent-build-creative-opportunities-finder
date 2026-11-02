@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { REPLAY_NOTE } from "@/lib/demoPresets";
 import DemoReplays from "./DemoReplays";
 
 type SavedRun = { name: string; savedAt: string; href: string; top: string[] };
 
 /**
- * The "Demo mode" tag. Triple-click it to open a drop-down of saved runs (searches answered once through the model bridge).
- * Picking one plays that run through the find flow and on to its results. There is nothing to open on
- * the live site, where no run is saved. On the pages where the tag is a link to Login, a single click still goes there, after
+ * The "Demo mode" tag. Triple-click it to open a drop-down of the saved demo runs (their answers recorded from Codex, served
+ * read-only; src/lib/demoReplays.ts). Picking one plays that run through the find flow and on to its results. On the pages where the tag is a link to Login, a single click still goes there, after
  * a moment, so a triple-click can tell itself apart.
  */
 function DemoBadge({ link }: { link: boolean }) {
@@ -78,6 +78,7 @@ function DemoBadge({ link }: { link: boolean }) {
       {open && runs && (
         <ul className="demo-runs" aria-label="Saved runs to replay">
           <li className="demo-runs-head">Replay a saved run</li>
+          <li className="demo-runs-note">{REPLAY_NOTE}</li>
           {runs.map((r) => (
             <li key={r.href}>
               <button

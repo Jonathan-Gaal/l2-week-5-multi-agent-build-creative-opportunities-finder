@@ -1,0 +1,372 @@
+{
+ "snapshot": "2026-11-01b",
+ "asOf": "2026-11-01",
+ "answeredBy": "Codex",
+ "runs": [
+  {
+   "name": "Alex · Manhattan auditions",
+   "url": "/results?d=theater&t=open_call&p=manhattan&s=auditions",
+   "artists": [
+    "actor"
+   ],
+   "wants": [
+    "Auditions"
+   ],
+   "places": [
+    "Manhattan"
+   ],
+   "top": [
+    {
+     "n": 1,
+     "title": "The Phantom of the Opera (Tour) - NYC EPA (11.04.26) (Box 5 Company, LLC)"
+    },
+    {
+     "n": 2,
+     "title": "Unannounced Play - NYC EPA (11.02.26) (Revised) (TTP Downtown Corp | New York, NY)"
+    },
+    {
+     "n": 3,
+     "title": "City Center Encores! 2027 Season - NYC EPA (11.05.26) & (11.06.26) (New York City Center Inc.)"
+    },
+    {
+     "n": 4,
+     "title": "Welcome Table - NYC EPA (11.03.26) (New York Shakespeare Festival)"
+    },
+    {
+     "n": 5,
+     "title": "Grass - NYC EPA (11.04.26) (Park Avenue Armory)"
+    }
+   ],
+   "savedAt": "2026-11-02T13:47:41.222Z"
+  },
+  {
+   "name": "Sam · Art & writing across the tri-state",
+   "url": "/results?d=visual%2Cwriting&t=open_call&p=nyc%2Clong_island%2Cnew_jersey%2Cupstate_ny%2Cwestchester_hudson%2Cconnecticut&s=open_calls",
+   "artists": [
+    "visual artist",
+    "writer"
+   ],
+   "wants": [
+    "Submissions/Open calls"
+   ],
+   "places": [
+    "Anywhere in NYC",
+    "Long Island",
+    "New Jersey",
+    "Upstate NY",
+    "Westchester & Hudson Valley",
+    "Connecticut"
+   ],
+   "top": [
+    {
+     "n": 1,
+     "title": "Propose a Spring Street Mural"
+    },
+    {
+     "n": 2,
+     "title": "Smack Mellon Emerging Artist Summer 2027 Group Exhibition"
+    },
+    {
+     "n": 3,
+     "title": "Artist Vault"
+    },
+    {
+     "n": 4,
+     "title": "Open Call for Artists & Writers - DiP Magazine Issue 1"
+    },
+    {
+     "n": 5,
+     "title": "Postcards From the Edge: A Benefit for Visual AIDS"
+    }
+   ],
+   "savedAt": "2026-11-02T13:48:58.268Z"
+  },
+  {
+   "name": "Jordan · Poetry on Staten Island",
+   "url": "/results?d=poet&t=open_call%2Cresidency&p=staten_island&s=open_calls%2Cresidencies",
+   "artists": [
+    "poet"
+   ],
+   "wants": [
+    "Submissions/Open calls",
+    "Residencies"
+   ],
+   "places": [
+    "Staten Island"
+   ],
+   "top": [
+    {
+     "n": 1,
+     "title": "Mabou Mines SUITE/space: performance residency for early career artists"
+    }
+   ],
+   "savedAt": "2026-11-02T13:51:07.621Z"
+  }
+ ],
+ "answers": {
+  "12783bada4892b44350dffa72512bb7aadf410a4": {
+   "ranking": [
+    {
+     "id": "r7",
+     "reason": "A non-union audition on Nov 5 with callbacks Nov 6 at Ripley-Grier Studios in Manhattan, paying a starting $125 per show; limited to ages 18 to 30, posted by Playbill Jobs, and the nearest paid call open to non-union performers."
+    },
+    {
+     "id": "r31",
+     "reason": "Open to Equity and non-Equity performers, pays $200 to $800 a day, auditions by Zoom, and prefers people local to the five boroughs; runs through Dec 31."
+    },
+    {
+     "id": "r29",
+     "reason": "Non-union performers are paid $100 per gig for Brooklyn performances on Dec 4, 9 and 13, with rehearsals starting Nov 5."
+    },
+    {
+     "id": "r30",
+     "reason": "A non-union Twelfth Night with a $700 stipend, auditions Dec 7 and 8 at The Players Theatre in Manhattan, and a clear rehearsal and run schedule."
+    },
+    {
+     "id": "r35",
+     "reason": "Roulette takes performance proposals for music and theater on a rolling basis and programs them into its Brooklyn season; no pay is stated, but anyone can apply at any time."
+    }
+   ]
+  },
+  "19c65e31b731cae8cfea0f188df0325a906cb601": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "A union call (Equity members first) for an unannounced play on Nov 2 at Pearl Studios, paying $1,496 a week in rehearsal and $2,500 in performance; from Playbill Jobs, with a full schedule and location, and the nearest date on the list."
+    },
+    {
+     "id": "r3",
+     "reason": "A union call for the New York Shakespeare Festival's Welcome Table on Nov 3 at the Actors' Equity Audition Center, paying $1,929 a week; a named venue, a full rehearsal and run schedule, and soon."
+    },
+    {
+     "id": "r6",
+     "reason": "A union call for The Phantom of the Opera (Tour) on Nov 4 at Pearl Studios, paying a $2,599 weekly minimum; a clear date and location, from Playbill Jobs."
+    },
+    {
+     "id": "r7",
+     "reason": "A non-union audition on Nov 5 with callbacks Nov 6 at Ripley-Grier Studios, paying a starting $125 per show; limited to ages 18 to 30, so it is the open option for performers without union membership."
+    },
+    {
+     "id": "r35",
+     "reason": "Roulette takes performance proposals for music and theater on a rolling basis and programs them into its Brooklyn season; no pay is stated, but it is the one music call and anyone can apply at any time."
+    }
+   ]
+  },
+  "4822b8e15cb2c60be17c7abc3f25f86bdb8c1511": {
+   "verdict": "accept",
+   "critique": "The ranking fits the request and the updated rubric. The three union calls are the soonest and best paid on the list (Nov 2 to 4, $1,496 to $2,599 a week), each with a venue and a schedule, and the reasons say they are union calls. The non-union Princess Ball keeps an open option for performers outside the union, and Roulette is the one music call. Other Equity auditions, such as Grass or Encores, are comparable but not clearly better. The Craigslist casting posts state no dates or pay and are unverified, so leaving them out is right."
+  },
+  "638618e8701c043955313369d88f7ef00b879ab5": {
+   "verdict": "accept",
+   "critique": "The ranking fits the request. The two organisation-run calls with the most detail (Smack Mellon and Culture Lab LIC) lead, followed by the Harmony Blossom performance call. The Craigslist post at $400 is the only unverified listing with a stated amount and date, and the reason tells the reader to confirm it. No clearly better listing was left out; the remaining Craigslist posts state no pay or are services or band-forming ads."
+  },
+  "7b64302027967d4c4ca8532bad29f9332df2d0b6": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "A real group exhibition for emerging artists living and working in the NYC area, with a small stipend and a stated Dec 1 deadline."
+    },
+    {
+     "id": "r3",
+     "reason": "Culture Lab LIC reviews band and live-performer proposals year-round at a named Long Island City venue; hands-on, though pay is not stated."
+    },
+    {
+     "id": "r2",
+     "reason": "An open call to perform at the Nov 14 Prelude in Queens, open to dancers, musicians and poets; compensation is not guaranteed and there is no deadline or venue yet."
+    },
+    {
+     "id": "r45",
+     "reason": "Pays a stated $400 for a Nov 14 job, but it is a Craigslist post by an individual that has not been rechecked, so confirm before sharing details."
+    },
+    {
+     "id": "r63",
+     "reason": "A rolling open call for storytellers and theater artists in Queens; hands-on, but the listing gives no pay, eligibility or location and has not been rechecked."
+    }
+   ]
+  },
+  "809ff362fd21166ca1942fc2e8efa1c6ee64acc5": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "Only matching residency in this snapshot: a citywide performance opportunity open across disciplines, with a November 22 deadline. It is not a confirmed Staten Island venue; poetry suitability, precise eligibility, location, pay and fees need confirmation."
+    }
+   ]
+  },
+  "814cae84765dcbd838fc9c90685dcd6893fac7d3": {
+   "verdict": "accept",
+   "critique": "Every ranked listing is open to a non-union NYC performer, and the first four state pay (a starting $125 per show, $200 to $800 a day, $100 per gig, a $700 stipend) with dates and locations. Roulette is the one music call and is a reasonable fifth; the Tiny Cupboard stand-up call and Culture Lab LIC are comparable rolling calls, so nothing clearly better was left out. The Equity-only auditions pay more but are limited to union members, and the Craigslist casting posts are unverified with no pay or dates, so leaving both out is right."
+  },
+  "84ae43ae35dd4dca3abbc08c37259907da65595d": {
+   "verdict": "accept",
+   "critique": "The five selections match the requested disciplines and geographic union. Princeton offers a fee-free paid commission; Smack Mellon offers a stipend; Artist Vault is fee-free and broadly eligible. DiP directly serves both selected disciplines, with a clear deadline, while the final free exhibition is explicitly identified as a donation rather than artist pay. HERALBONY has an unestablished disability eligibility requirement; many alternatives charge fees or lack actionable terms. No clearly better broadly applicable candidate is omitted."
+  },
+  "85e961fa2fbecc1c323504025e1ffdff431862d6": {
+   "verdict": "accept",
+   "critique": "This is the only candidate. It satisfies the implemented borough rule through its citywide tag and the discipline rule through its all-disciplines tag. The ranking correctly distinguishes citywide eligibility from a Staten Island venue and explicitly states the missing details. No extra opportunity is invented and none is omitted."
+  },
+  "92bedfc28dbce0a8d1c228ce2341540da39a3d7e": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "A free NYC Parks open mic on Dec 5 at the Greenbelt Nature Center on Staten Island; the only event here with a specific date, a named venue and no fee, from an official source."
+    },
+    {
+     "id": "r98",
+     "reason": "Jalopy Theatre's open mic every Wednesday at 315 Columbia St, Brooklyn, with sign-up at 6pm and the draw at 6:30pm; a clear schedule from the venue itself, for musicians and singers."
+    },
+    {
+     "id": "r97",
+     "reason": "EastVille Comedy Club in Brooklyn runs open mics daily with in-person sign-up, so a comedian can show up any day; the listing gives no street address."
+    },
+    {
+     "id": "r40",
+     "reason": "A weekly Monday 8pm open mic for comedy, music and poetry at Red Eye NY, 355 W. 41st St in Manhattan, free to perform; from a community-kept list, so confirm with the venue."
+    },
+    {
+     "id": "r22",
+     "reason": "A weekly Thursday 8pm open mic for comedy, music and poetry at Cool Beans! Coffee House, 50-20 39th Ave in Queens, free to perform; from a community-kept list, so confirm with the venue."
+    }
+   ]
+  },
+  "9c2fb801732d18319272470e3b550075749fa070": {
+   "verdict": "accept",
+   "critique": "All five are NYC open mics that welcome music or comedy, and the first is the only dated event, free through NYC Parks. The Jalopy listing has a street address, a weekly schedule and sign-up times from the venue itself. EastVille has no street address, which is a weakness, but it is daily and from an organization, so a comparable community-list mic with an address (such as SoHo Playhouse) is not clearly better. The Boston and New Jersey mics were rightly left out for an NYC artist, and the Craigslist-style copied-in mic listings state nothing beyond a date."
+  },
+  "a456907da8d9b00dc570061377566caca7096d9c": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "A free NYC Parks open mic on Dec 5 at the Greenbelt Nature Center on Staten Island; the only event here with a specific date, a named venue and no fee, from an official source."
+    },
+    {
+     "id": "r98",
+     "reason": "Jalopy Theatre's open mic every Wednesday at 315 Columbia St, Brooklyn, with sign-up at 6pm and the draw at 6:30pm; a clear schedule from the venue itself, for musicians and singers."
+    },
+    {
+     "id": "r97",
+     "reason": "EastVille Comedy Club in Brooklyn runs open mics daily with in-person sign-up, so a comedian can show up any day; the listing gives no street address."
+    },
+    {
+     "id": "r40",
+     "reason": "A weekly Monday 8pm open mic for comedy, music and poetry at Red Eye NY, 355 W. 41st St in Manhattan, free to perform; from a community-kept list, so confirm with the venue."
+    },
+    {
+     "id": "r22",
+     "reason": "A weekly Thursday 8pm open mic for comedy, music and poetry at Cool Beans! Coffee House, 50-20 39th Ave in Queens, free to perform; from a community-kept list, so confirm with the venue."
+    }
+   ]
+  },
+  "b9f4b8db303d6f14a0a7428e092927539f1362a0": {
+   "verdict": "accept",
+   "critique": "All five are NYC open mics that welcome music or comedy, and the first is the only dated event, free through NYC Parks. The Jalopy listing has a street address, a weekly schedule and sign-up times from the venue itself. EastVille has no street address, which is a weakness, but it is daily and from an organization, so a comparable community-list mic with an address is not clearly better. The Boston and New Jersey mics were rightly left out for an NYC artist."
+  },
+  "bdb5e578270d6f638bbaa2b99afc64eb944f9162": {
+   "verdict": "accept",
+   "critique": "All five are NYC open mics that welcome music and comedy and have a named venue, a street address and a regular time, and the first is the only dated event, free through NYC Parks. The Boston and New Jersey mics were rightly left out for an NYC artist. Most of these come from a community-kept list that says to confirm with the venue, which the cards already show."
+  },
+  "c97cf74abf540fb9b6c7a14cf406fe49c0acac34": {
+   "verdict": "accept",
+   "critique": "All five are paid, hands-on Manhattan auditions for Equity actors, with union eligibility explicitly disclosed, exact locations, and upcoming dates. The selections balance pay, actionable schedules and established Playbill sources. Hamilton pays more but is later and less fully scheduled here; the TTP and Grass duplicate board listings do not improve variety. No clearly better candidate is omitted."
+  },
+  "ca98435f0f1f45455fc55b43f2dfcd860e50b4c8": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "A free NYC Parks open mic on Dec 5 at the Greenbelt Nature Center on Staten Island; the only event here with a specific date, a named venue and no fee."
+    },
+    {
+     "id": "r11",
+     "reason": "A weekly Thursday 8pm open mic for comedy, music and poetry at Cool Beans! Coffee House in Queens, with a street address and no listed fee."
+    },
+    {
+     "id": "r43",
+     "reason": "A weekly Wednesday 7:30pm open mic for comedy, music and poetry at The Red Doors in Brooklyn, with a street address and no listed fee."
+    },
+    {
+     "id": "r29",
+     "reason": "A weekly Monday 8pm open mic for comedy, music and poetry at Red Eye NY in Manhattan, with a street address and no listed fee."
+    },
+    {
+     "id": "r32",
+     "reason": "A weekly Saturday 3pm open mic at SoHo Playhouse in Manhattan, covering comedy, music and poetry, with a street address and no listed fee."
+    }
+   ]
+  },
+  "cfab7f4c13d8ed6378e94f5ee98c365e14ea33e3": {
+   "ranking": [
+    {
+     "id": "r17",
+     "reason": "Hands-on mural commission in Princeton, NJ, open to local and regional artists, with no fee and a stated $500 stipend plus some materials; rolling applications and a named site."
+    },
+    {
+     "id": "r12",
+     "reason": "Greater-NYC emerging visual artists can apply for a DUMBO group exhibition with a small stipend; December 1 deadline and clear eligibility. Confirm the fee."
+    },
+    {
+     "id": "r15",
+     "reason": "No-fee rolling consideration for group and solo exhibitions at PAC / MoCA Long Island; open to all mediums and career stages."
+    },
+    {
+     "id": "r35",
+     "reason": "Directly fits both visual art and writing: DiP Magazine accepts artists and writers for its first issue, with online submission and a November 23 deadline. Pay and fee are not stated."
+    },
+    {
+     "id": "r5",
+     "reason": "Free, hands-on exhibition submission open to artists anywhere, with a November 20 deadline and a named Manhattan gallery. This is a benefit donation: sale proceeds go to Visual AIDS, not the artist."
+    }
+   ]
+  },
+  "d8a4541fe7f2d688242ed5ae4360e63491243651": {
+   "ranking": [
+    {
+     "id": "r6",
+     "reason": "Paid union call for Equity actors in Manhattan; $2,599 weekly minimum, November 4 audition and a full studio address."
+    },
+    {
+     "id": "r1",
+     "reason": "Paid union call; $2,500 per performance week and $1,496 during rehearsal, with a November 2 audition and full schedule at Pearl Studios."
+    },
+    {
+     "id": "r7",
+     "reason": "Paid union call for New York City Center; $2,189 weekly minimum, November 5-6 auditions and a stated studio address."
+    },
+    {
+     "id": "r3",
+     "reason": "Paid union call for Equity actors; $1,929 weekly minimum, November 3 audition, exact address and production schedule."
+    },
+    {
+     "id": "r4",
+     "reason": "Paid union call from Park Avenue Armory and National Black Theatre; $1,500 weekly minimum, November 4 audition and full location and production dates."
+    }
+   ]
+  },
+  "f95fd1408f66ac58feede5bcaaa67d42efd6ce99": {
+   "ranking": [
+    {
+     "id": "r1",
+     "reason": "Non-union audition on Nov 5 at Ripley-Grier Studios in Manhattan, paying a starting $125 per show; limited to ages 18 to 30, and the nearest date of the open calls that pay."
+    },
+    {
+     "id": "r26",
+     "reason": "Open to Equity and non-Equity performers, pays $200 to $800 a day, auditions by Zoom, and prefers people local to the five boroughs; the deadline is Dec 31."
+    },
+    {
+     "id": "r25",
+     "reason": "Non-union performers are paid $100 per gig for Brooklyn performances on Dec 4, 9 and 13, with rehearsals starting Nov 5."
+    },
+    {
+     "id": "r38",
+     "reason": "A non-union Twelfth Night with a $700 stipend, auditions Dec 7 and 8 at The Players Theatre, and a clear schedule through March."
+    },
+    {
+     "id": "r44",
+     "reason": "Roulette takes performance proposals for music and theater on a rolling basis and programs them into its Brooklyn season; no pay is stated, but anyone can apply at any time."
+    }
+   ]
+  },
+  "fb14f51bae7078824069cb641907f7a9152e4ac7": {
+   "verdict": "accept",
+   "critique": "Every ranked listing is open to a non-union NYC performer and the first four state pay (a starting $125 per show, $200 to $800 a day, $100 per gig, a $700 stipend), with dates and locations. The Equity-only auditions pay more but are limited to union members, so leaving them out is right. The set leans toward acting; Roulette is the only music call, and a couple of other rolling music calls (Culture Lab LIC, FABnyc) are comparable, so nothing clearly better was left out."
+  }
+ }
+}

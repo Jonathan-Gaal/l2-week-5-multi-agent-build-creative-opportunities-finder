@@ -7,6 +7,9 @@ export const DEMO_PRESETS = [
   { name: "Jordan · Poetry on Staten Island", d: ["poet"], s: ["open_calls", "residencies"], p: ["staten_island"] },
 ] as const;
 
+/** How a saved replay is labeled wherever it is offered or shown: whose answers they are, and when they were recorded. */
+export const REPLAY_NOTE = "Saved replay: the ranking answers were recorded from Codex on Nov 1, 2026.";
+
 /** Ignore order, duplicates and results-page controls when identifying the current search. */
 export function demoKey(url: string): string {
   const q = new URL(url, "http://demo").searchParams;
