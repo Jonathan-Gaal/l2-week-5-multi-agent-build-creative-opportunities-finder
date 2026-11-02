@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import meta from "@/data/meta.json";
-import DemoButton from "@/components/DemoButton";
 import LandingDesign from "@/components/LandingDesign";
 import MadLibsHero from "@/components/MadLibsHero";
 import s from "./Landing.module.css";
@@ -160,7 +160,7 @@ export default function Home() {
             Ready to find <em>your next creative opportunity?</em>
           </h2>
           <div className={s.row}>
-            <DemoButton className="btn-ghost" label={"Let's go →"} />
+            <Link className="btn btn-ghost" href="/login">Let&apos;s go →</Link>
           </div>
         </section>
       </div>
