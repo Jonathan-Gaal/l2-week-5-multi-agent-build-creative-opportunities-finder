@@ -49,7 +49,7 @@ export default function ResultCard({ card }: { card: Card }) {
       )}
       {card.caveat && <p className="caveat">{verifiedWording(card.caveat.length > 220 ? `${card.caveat.slice(0, 220)}…` : card.caveat)}</p>}
       <div className="rcard-foot">
-        <span>Source: {card.source}</span>
+        <span>Source: {card.source === "mara-craigslist-new-york" ? "Craigslist (posted by an individual)" : card.source}</span>
         {card.sourceUrl && (
           <a href={card.sourceUrl} target="_blank" rel="noopener noreferrer">
             View the listing ↗

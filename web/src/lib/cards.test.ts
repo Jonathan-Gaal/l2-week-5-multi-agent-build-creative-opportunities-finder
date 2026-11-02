@@ -66,8 +66,8 @@ describe("publicCaveat shows only notes written for readers", () => {
 
 describe("verifiedWording", () => {
   it("says verified and writes dates as month, day, year", () => {
-    assert.equal(verifiedWording("Checked 2026-10-27"), "Last verified Oct. 27, 2026");
-    assert.equal(verifiedWording("Checked 2026-09-05 · not fully checked"), "Last verified Sept. 5, 2026 · not fully verified");
+    assert.equal(verifiedWording("Checked 2026-10-27"), "Verified Oct. 27, 2026");
+    assert.equal(verifiedWording("Checked 2026-09-05 · not fully checked"), "Verified Sept. 5, 2026 · not fully verified");
     assert.equal(verifiedWording("Not checked · added without a recheck"), "Not verified · added without re-verifying");
   });
 });

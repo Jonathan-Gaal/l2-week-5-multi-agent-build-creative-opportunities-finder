@@ -43,7 +43,9 @@ const SPACE_WORDS = /rehearsal|\bspace\b|for rent|\brent(al)?\b|\/mo\b/i;
 /** The small tag, or null where the top tag already says it (open mics, grants, fellowships, residencies, general calls). */
 export function subTag(c: Tagged): string | null {
   const k = c.subtype ?? "";
-  if (k === "service_ad") return LESSON_WORDS.test(c.title) ? "Lessons" : SPACE_WORDS.test(c.title) ? "Space for rent" : "Artist for hire";
-  if (k === "show") return /festival/i.test(c.title) ? "Festival" : "Show";   // a festival or show to attend, not a call for artists
-  return SUBTAGS[k] ?? null;
+  const tag = k === "service_ad" ? (LESSON_WORDS.test(c.title) ? "Lessons" : SPACE_WORDS.test(c.title) ? "Space for rent" : "Artist for hire")
+    : k === "show" ? (/festival/i.test(c.title) ? "Festival" : "Show")   // a festival or show to attend, not a call for artists
+    : (SUBTAGS[k] ?? null);
+  // "Auditions" with "Audition" beside it says nothing new: leave the small tag off when the top tag already starts with it.
+  return tag && topTag(c).toLowerCase().startsWith(tag.toLowerCase()) ? null : tag;
 }

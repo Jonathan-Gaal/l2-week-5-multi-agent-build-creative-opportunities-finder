@@ -44,7 +44,7 @@ export const verifiedWording = (text: string) =>
   text
     .replace(/\b(\d{4}-\d{2}-\d{2})\b/g, (iso) => prettyDate(iso))
     .replace(/^Not checked/, "Not verified")
-    .replace(/^Checked/, "Last verified")
+    .replace(/^Checked/, "Verified")
     .replace(/not fully checked/g, "not fully verified")
     .replace(/without a recheck/g, "without re-verifying")
     .replace(/not rechecked/g, "not re-verified")
