@@ -28,7 +28,7 @@ export default function Home() {
         <p className={s.proof}>
           <b>{roundDown(meta.recordCount, 100)} opportunities</b>
           <i aria-hidden="true">·</i>
-          from <b>{roundDown(meta.sourceCount, 10)} sources</b> across NYC and the tri-state area
+          from <b>{roundDown(meta.sourceCount, 10)} sources</b> across NYC, the tri-state area and beyond
         </p>
 
         <section className={s.section} aria-labelledby="why">
