@@ -42,7 +42,6 @@ export default function DemoReplays({ panel = false, label = "Replay a demo", fa
       {visible.map((r) => <li key={r.href}>
         <button type="button" onClick={() => { setOpen(false); router.push(replaySession(r.href, crypto.randomUUID())); }}>
           <strong>{r.name}</strong>
-          {panel && <span>{r.top.join(" · ")}</span>}
         </button>
       </li>)}
     </ul>

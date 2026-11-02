@@ -89,7 +89,6 @@ function DemoBadge({ link }: { link: boolean }) {
                 }}
               >
                 <strong>{r.name}</strong>
-                <span>{r.top.join(" · ")}</span>
               </button>
             </li>
           ))}
