@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T03:38:05.388Z",
+ "request": "Request: Queens open call opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Smack Mellon Emerging Artist ",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "A real group exhibition for emerging artists living and working in the NYC area, with a small stipend and a stated Dec 1 deadline."
+   },
+   {
+    "id": "r3",
+    "reason": "Culture Lab LIC reviews band and live-performer proposals year-round at a named Long Island City venue; hands-on, though pay is not stated."
+   },
+   {
+    "id": "r2",
+    "reason": "An open call to perform at the Nov 14 Prelude in Queens, open to dancers, musicians and poets; compensation is not guaranteed and there is no deadline or venue yet."
+   },
+   {
+    "id": "r45",
+    "reason": "Pays a stated $400 for a Nov 14 job, but it is a Craigslist post by an individual that has not been rechecked, so confirm before sharing details."
+   },
+   {
+    "id": "r63",
+    "reason": "A rolling open call for storytellers and theater artists in Queens; hands-on, but the listing gives no pay, eligibility or location and has not been rechecked."
+   }
+  ]
+ }
+}

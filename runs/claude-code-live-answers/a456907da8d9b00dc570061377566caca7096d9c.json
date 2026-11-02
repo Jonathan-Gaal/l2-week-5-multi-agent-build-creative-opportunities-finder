@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T04:29:39.943Z",
+ "request": "Request: Manhattan, Brooklyn, Queens, The Bronx, Staten Island, Long Island, New Jersey, Massachusetts event (Music, Com",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "A free NYC Parks open mic on Dec 5 at the Greenbelt Nature Center on Staten Island; the only event here with a specific date, a named venue and no fee, from an official source."
+   },
+   {
+    "id": "r98",
+    "reason": "Jalopy Theatre's open mic every Wednesday at 315 Columbia St, Brooklyn, with sign-up at 6pm and the draw at 6:30pm; a clear schedule from the venue itself, for musicians and singers."
+   },
+   {
+    "id": "r97",
+    "reason": "EastVille Comedy Club in Brooklyn runs open mics daily with in-person sign-up, so a comedian can show up any day; the listing gives no street address."
+   },
+   {
+    "id": "r40",
+    "reason": "A weekly Monday 8pm open mic for comedy, music and poetry at Red Eye NY, 355 W. 41st St in Manhattan, free to perform; from a community-kept list, so confirm with the venue."
+   },
+   {
+    "id": "r22",
+    "reason": "A weekly Thursday 8pm open mic for comedy, music and poetry at Cool Beans! Coffee House, 50-20 39th Ave in Queens, free to perform; from a community-kept list, so confirm with the venue."
+   }
+  ]
+ }
+}
