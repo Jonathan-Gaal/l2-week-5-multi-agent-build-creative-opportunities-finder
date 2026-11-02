@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import BackendFailure from "@/components/BackendFailure";
 import ResultCard from "@/components/ResultCard";
+import { groupWithDetails } from "@/lib/readDetails";
 import ResultsMap, { type Pin } from "@/components/ResultsMap";
 import ResultsSidebar from "@/components/ResultsSidebar";
 import ScrollToCard from "@/components/ScrollToCard";
@@ -106,7 +107,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   // Narrow each list to the picked pills (open mics only, not every event); null means no narrowing applies. The results
   // service ranks by broad type first, so its top list can hold none of the picked kind even when many exist. In that
   // case show the whole list and say so, rather than claim nothing was found.
-  const lists = out?.groups.map((g) => {
+  const lists = out?.groups.map(groupWithDetails).map((g) => {
     const narrowed = narrowCards(g.type, g.cards, pills);
     const couldNotNarrow = narrowed !== null && narrowed.length === 0 && g.cards.length > 0;
     return { g, narrowed: couldNotNarrow ? null : narrowed, couldNotNarrow, cards: couldNotNarrow ? g.cards : (narrowed ?? g.cards) };

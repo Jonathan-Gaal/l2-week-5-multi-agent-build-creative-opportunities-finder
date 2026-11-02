@@ -1,4 +1,7 @@
 /** One result card, already shaped for display. */
+/** What was read on the listing's own page; a field the page did not give is absent. */
+export type ReadDetails = { pay?: string; fee?: string; dates?: string; where?: string; by?: string };
+
 export type Card = {
   title: string;
   org: string | null;
@@ -29,6 +32,8 @@ export type Card = {
   trust: "checked" | "partial" | "unchecked";
   caveat: string | null;
   key: string;
+  /** Added by the results page from the bundled page details; absent in other views. */
+  read?: ReadDetails;
 };
 
 export type Group = {
