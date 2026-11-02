@@ -4,6 +4,14 @@ import type { Card } from "@/lib/types";
 
 const TRUST_PILL = { checked: "pill pill-lime", partial: "pill pill-plain", unchecked: "pill pill-grey" } as const;
 
+/** What was read on the listing's own page, as label and text rows; a field the page did not give is not shown. */
+const readRows = (card: Card): [string, string][] => {
+  const d = card.read;
+  if (!d) return [];
+  const rows: [string, string | undefined][] = [["Pay", d.pay], ["Fee", d.fee], ["Dates", d.dates], ["Where", d.where], ["Apply by", d.by]];
+  return rows.filter((r): r is [string, string] => !!r[1]);
+};
+
 export default function ResultCard({ card }: { card: Card }) {
   const when =
     card.closesIn === null ? null : card.closesIn === 0 ? "today" : card.closesIn === 1 ? "tomorrow" : `in ${card.closesIn} days`;
@@ -38,6 +46,16 @@ export default function ResultCard({ card }: { card: Card }) {
         {card.fee && <span>{card.fee}</span>}
         {card.award && <span><b>{moneyLabel(card.type, card.subtype)}:</b> {card.award.length > 110 ? `${card.award.slice(0, 110)}…` : card.award}</span>}
       </div>
+      {readRows(card).length > 0 && (
+        <dl className="read">
+          {readRows(card).map(([label, text]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{text.length > 160 ? `${text.slice(0, 160)}…` : text}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
       {card.eligibility.length > 0 ? (
         <ul>
           {card.eligibility.map((e) => (
