@@ -68,14 +68,14 @@
 .on_lime { background: var(--lime); }
 .on_pink { background: var(--pink); }
 .on_cream { background: var(--paper); }
-.howRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; margin-top: 18px; }
+.howRow { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 44px; align-items: start; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--plum); }
 @media (max-width: 700px) { .howRow { grid-template-columns: 1fr; } }
 .solid { font: 700 15px var(--sans); background: var(--lime); color: #000; border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .solid:hover { filter: brightness(1.08); }
-.how { display: grid; gap: 8px; align-content: start; }
-.howHead { margin: 0; font: 700 18px var(--sans); color: var(--paper); text-decoration: underline; text-decoration-color: var(--lime); text-decoration-thickness: 3px; text-underline-offset: 6px; justify-self: start; }
-.howBody { margin-top: 6px; display: grid; gap: 8px; }
-.howBody p { margin: 0; color: var(--muted-dk); line-height: 1.5; }
+.how { display: grid; gap: 14px; align-content: start; }
+.howHead { margin: 0; justify-self: start; font: 900 clamp(20px, 2.2vw, 24px) var(--serif); color: var(--paper); padding-bottom: 8px; border-bottom: 4px solid var(--lime); }
+.howBody { display: grid; gap: 10px; max-width: 46ch; }
+.howBody p { margin: 0; color: var(--muted-dk); font-size: 15px; line-height: 1.55; }
 .foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .ghost { font: 700 15px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .ghost:hover { background: rgba(220, 252, 5, 0.12); }
