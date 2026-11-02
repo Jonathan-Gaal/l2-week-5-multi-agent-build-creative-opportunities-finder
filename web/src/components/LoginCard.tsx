@@ -21,7 +21,10 @@ export type AuthMode = "signin" | "signup";
 
 /** Map Firebase auth error codes to plain, actionable copy; fall back to the message, then a generic line. */
 function friendlyError(err: unknown): string {
-  const code = typeof err === "object" && err !== null && "code" in err ? String((err as { code: unknown }).code) : "";
+  const code =
+    typeof err === "object" && err !== null && "code" in err
+      ? String((err as { code: unknown }).code)
+      : "";
   switch (code) {
     case "auth/invalid-email":
       return "That doesn't look like a valid email address.";
@@ -41,16 +44,21 @@ function friendlyError(err: unknown): string {
     case "auth/too-many-requests":
       return "Too many attempts. Wait a moment and try again.";
     default:
-      return err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.";
+      return err instanceof Error && err.message
+        ? err.message
+        : "Something went wrong. Please try again.";
   }
 }
 
 export default function LoginCard({ mode }: { mode: AuthMode }) {
   const router = useRouter();
-  const { signUpEmail, signInEmail, signInGoogle } = useAuth();
+  const { signUpEmail, signInEmail, signInGoogle, startDemo } = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // Without Firebase the form still shows, filled in with a made-up demo artist, and submitting it enters the demo.
+  const preview = !firebaseEnabled;
+  const [name, setName] = useState(preview ? "Demo Artist" : "");
+  const [email, setEmail] = useState(preview ? "demo.artist@example.com" : "");
+  const [password, setPassword] = useState(preview ? "demo-password" : "");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<null | "credentials" | "google">(null);
   const submitting = busy !== null;
@@ -61,7 +69,8 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
     setError(null);
     setBusy("credentials");
     try {
-      if (signup) await signUpEmail(email, password);
+      if (preview) await startDemo();
+      else if (signup) await signUpEmail(email, password);
       else await signInEmail(email, password);
       router.push("/find");
     } catch (err) {
@@ -74,7 +83,8 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
     setError(null);
     setBusy("google");
     try {
-      await signInGoogle();
+      if (preview) await startDemo();
+      else await signInGoogle();
       router.push("/find");
     } catch (err) {
       setError(friendlyError(err));
@@ -86,59 +96,110 @@ export default function LoginCard({ mode }: { mode: AuthMode }) {
     <div className={`${f.frame} ${f.frameBelowBar}`}>
       <div className={f.board}>
         <div className={f.left}>
-          <h1 className={f.title}>{signup ? "Create your account" : "Welcome back"}</h1>
+          <h1 className={f.title}>
+            {signup ? "Create your account" : "Welcome back"}
+          </h1>
           <p className={f.sub}>
-            {signup ? "Save your search and come back to it." : "Log in to pick up where you left off."} This sign-in is a demo: an
-            account unlocks nothing the demo doesn&apos;t. It&apos;s here to show the flow works.
+            {signup
+              ? "Save your search and come back to it."
+              : "Log in to pick up where you left off."}{" "}
+            This sign-in is a demo: an account unlocks nothing the demo
+            doesn&apos;t. It&apos;s here to show the flow works.
           </p>
           <div className={f.bottom}>
-            <DemoButton plain className={f.cta} label="Explore the demo →" disabled={submitting} />
-            <p className={a.demoNote}>No account needed. You get everything an account would.</p>
+            <DemoButton
+              plain
+              className={f.cta}
+              label="Explore the demo →"
+              disabled={submitting}
+            />
+            <p className={a.demoNote}>
+              No account needed. You get everything an account would.
+            </p>
           </div>
         </div>
 
         <div className={f.panel}>
           <h2 className={a.title2}>{signup ? "Sign up" : "Login"}</h2>
-          {firebaseEnabled ? (
-            <>
-              <form onSubmit={handleSubmit} noValidate>
+          <>
+            <form onSubmit={handleSubmit} noValidate>
+              {signup && (
                 <div className={a.field}>
-                  <label htmlFor="auth-email">Email</label>
-                  <input id="auth-email" className={a.input} type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} disabled={submitting} />
-                </div>
-                <div className={a.field}>
-                  <label htmlFor="auth-password">Password</label>
+                  <label htmlFor="auth-name">Name</label>
                   <input
-                    id="auth-password"
+                    id="auth-name"
                     className={a.input}
-                    type="password"
-                    autoComplete={signup ? "new-password" : "current-password"}
-                    required
-                    minLength={6}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    type="text"
+                    autoComplete="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     disabled={submitting}
                   />
                 </div>
-                {error && (
-                  <p className={a.error} role="alert">
-                    {error}
-                  </p>
-                )}
-                <button type="submit" className={a.submit} disabled={submitting}>
-                  {busy === "credentials" ? (signup ? "Creating account…" : "Logging in…") : signup ? "Create account" : "Login"}
-                </button>
-              </form>
-              <button type="button" className={a.google} onClick={handleGoogle} disabled={submitting}>
-                {busy === "google" ? "Connecting…" : "Continue with Google"}
+              )}
+              <div className={a.field}>
+                <label htmlFor="auth-email">Email</label>
+                <input
+                  id="auth-email"
+                  className={a.input}
+                  type="email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={submitting}
+                />
+              </div>
+              <div className={a.field}>
+                <label htmlFor="auth-password">Password</label>
+                <input
+                  id="auth-password"
+                  className={a.input}
+                  type="password"
+                  autoComplete={signup ? "new-password" : "current-password"}
+                  required
+                  minLength={6}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={submitting}
+                />
+              </div>
+              {error && (
+                <p className={a.error} role="alert">
+                  {error}
+                </p>
+              )}
+              <button type="submit" className={a.submit} disabled={submitting}>
+                {busy === "credentials"
+                  ? signup
+                    ? "Creating account…"
+                    : "Logging in…"
+                  : signup
+                    ? "Create account"
+                    : "Login"}
               </button>
-              <p className={a.switch}>
-                {signup ? "Already have an account?" : "New here?"} <Link href={signup ? "/login" : "/signup"}>{signup ? "Login" : "Sign up"}</Link>
+            </form>
+            <button
+              type="button"
+              className={a.google}
+              onClick={handleGoogle}
+              disabled={submitting}
+            >
+              {busy === "google" ? "Connecting…" : "Continue with Google"}
+            </button>
+            <p className={a.switch}>
+              {signup ? "Already have an account?" : "New here?"}{" "}
+              <Link href={signup ? "/login" : "/signup"}>
+                {signup ? "Login" : "Sign up"}
+              </Link>
+            </p>
+            {preview && (
+              <p className={a.note}>
+                Demo account: nothing is saved. Press{" "}
+                {signup ? "Create account" : "Login"} to try the flow.
               </p>
-            </>
-          ) : (
-            <p className={a.note}>Sign-in isn&apos;t set up in this environment yet, so use the demo button on the left.</p>
-          )}
+            )}
+          </>
         </div>
       </div>
     </div>
