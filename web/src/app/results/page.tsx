@@ -178,6 +178,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 </span>
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
+              {recorded && <p className="notice" role="note">Saved replay: the ranking answers were recorded from Codex on Nov 1, 2026. Nothing here is ranked live, and dates are as of that day.</p>}
               <ResultsMap pins={pins} missing={shown.length - pins.length} />
 
 
