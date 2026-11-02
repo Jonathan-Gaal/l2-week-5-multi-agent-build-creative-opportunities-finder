@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T13:47:15.625Z",
+ "request": "Request: Manhattan open call (Acting) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Unannounced Play ",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r6",
+    "reason": "Paid union call for Equity actors in Manhattan; $2,599 weekly minimum, November 4 audition and a full studio address."
+   },
+   {
+    "id": "r1",
+    "reason": "Paid union call; $2,500 per performance week and $1,496 during rehearsal, with a November 2 audition and full schedule at Pearl Studios."
+   },
+   {
+    "id": "r7",
+    "reason": "Paid union call for New York City Center; $2,189 weekly minimum, November 5-6 auditions and a stated studio address."
+   },
+   {
+    "id": "r3",
+    "reason": "Paid union call for Equity actors; $1,929 weekly minimum, November 3 audition, exact address and production schedule."
+   },
+   {
+    "id": "r4",
+    "reason": "Paid union call from Park Avenue Armory and National Black Theatre; $1,500 weekly minimum, November 4 audition and full location and production dates."
+   }
+  ]
+ }
+}

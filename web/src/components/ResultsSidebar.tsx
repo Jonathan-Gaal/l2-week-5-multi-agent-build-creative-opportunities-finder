@@ -8,6 +8,7 @@ import { TRI_IDS, WIDE_IDS, placeOn, spellOut } from "@/lib/places";
 import { TYPE_PILLS } from "@/lib/typePills";
 import type { Choice } from "./find/FindStep";
 import r from "./ResultsLive.module.css";
+import DemoReplays from "./DemoReplays";
 
 const WIGGLE_MS = 700;
 
@@ -40,6 +41,7 @@ export default function ResultsSidebar({ meta, initial, startOverHref }: { meta:
   );
 
   return (
+    <div className={r.sideColumn}>
     <aside className={r.side} aria-label="Your choices">
       <div>
         <h2 className={r.label}>I&apos;m a</h2>
@@ -66,5 +68,7 @@ export default function ResultsSidebar({ meta, initial, startOverHref }: { meta:
         </Link>
       </div>
     </aside>
+    <DemoReplays panel />
+    </div>
   );
 }

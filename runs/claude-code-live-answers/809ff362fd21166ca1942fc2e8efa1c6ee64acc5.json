@@ -1,0 +1,12 @@
+{
+ "savedAt": "2026-11-02T13:49:26.833Z",
+ "request": "Request: Staten Island residency (Poetry) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Mabou Mines S",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "Only matching residency in this snapshot: a citywide performance opportunity open across disciplines, with a November 22 deadline. It is not a confirmed Staten Island venue; poetry suitability, precise eligibility, location, pay and fees need confirmation."
+   }
+  ]
+ }
+}

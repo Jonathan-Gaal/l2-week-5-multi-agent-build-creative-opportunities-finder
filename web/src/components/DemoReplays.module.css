@@ -1,0 +1,12 @@
+.menu { position: relative; }
+.trigger { font: 700 14px var(--sans); color: var(--paper); background: transparent; border: 2px solid var(--lime); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+.trigger:hover { background: var(--ink-3); }
+.dropdown { position: absolute; right: 0; top: calc(100% + 12px); width: min(380px, 88vw); background: var(--ink-2); border: 2px solid var(--plum); border-radius: 18px; padding: 10px; box-shadow: 0 14px 40px #0008; z-index: 100; }
+.panel { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; }
+.panel h2 { font: 700 12px var(--sans); text-transform: uppercase; letter-spacing: .12em; color: var(--lime); margin: 0 0 12px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.list button { display: grid; gap: 5px; width: 100%; text-align: left; border: 1px solid var(--plum); border-radius: 12px; padding: 12px; background: transparent; color: var(--paper); cursor: pointer; white-space: normal; }
+.list button:hover { border-color: var(--lime); background: var(--ink-3); }
+.list strong { font: 700 15px var(--sans); }
+.list span { color: var(--muted-dk); font: 400 12px/1.5 var(--sans); }
+.list button:focus-visible, .trigger:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }

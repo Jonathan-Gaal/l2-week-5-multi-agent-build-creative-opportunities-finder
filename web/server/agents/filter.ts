@@ -138,7 +138,8 @@ export const traceRequest = (req: Request): Record<string, unknown> =>
  *  records.recategorized.json (corrected artist types and kinds), else records.json. */
 export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] => {
   const fixed = [`${snapshotDir}/records.retagged.json`, `${snapshotDir}/records.recategorized.json`].find((p) => existsSync(p));
-  return JSON.parse(readFileSync(fixed ?? `${snapshotDir}/records.json`, "utf-8")).records;
+  // Runtime-only local data: do not make Turbopack watch every possible file under the repository.
+  return JSON.parse(readFileSync(/* turbopackIgnore: true */ fixed ?? `${snapshotDir}/records.json`, "utf-8")).records;
 };
 
 /** A real calendar date written YYYY-MM-DD. */

@@ -2,11 +2,12 @@
    chips you can change (the list updates itself, no next button), the count and the cards on the right. */
 .board { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 22px; padding: 24px 0 48px; align-items: start; }
 
-.side { position: sticky; top: 16px; background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
+.sideColumn { position: sticky; top: 16px; display: grid; gap: 16px; }
+.side { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
 /* On wide windows the panel sits a little further left than the column, toward the edge of the screen. */
 /* The panel reaches out toward the left edge of the window (up to 150px, never closer than about 21px to it) and keeps its right edge where the column ends, so it gets wider rather than leaving a gap. */
 @media (min-width: 1100px) {
-  .side { --reach: max(0px, min(150px, (100vw - 1080px) / 2 - 8px)); justify-self: start; width: calc(330px + var(--reach)); margin-left: calc(-1 * var(--reach)); margin-top: 44px; }
+  .sideColumn { --reach: max(0px, min(150px, (100vw - 1080px) / 2 - 8px)); justify-self: start; width: calc(330px + var(--reach)); margin-left: calc(-1 * var(--reach)); margin-top: 44px; }
   .main { margin-top: 44px; }     /* the right side starts at the same height as the panel */
 }
 .label { font: 700 12px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); margin: 0 0 8px; }
@@ -83,7 +84,7 @@
 
 @media (max-width: 900px) {
   .board { grid-template-columns: minmax(0, 1fr); }
-  .side { position: static; }
+  .sideColumn { position: static; }
 }
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
 

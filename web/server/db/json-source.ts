@@ -17,7 +17,7 @@ export const snapshotDir = (snapshotId: string, root = `${REPO}data/snapshots`) 
 /** Snapshot ids under `root` that have a records.json (none if the directory is missing, as on Vercel). */
 export const listSnapshots = (root = `${REPO}data/snapshots`): string[] => {
   try {
-    return readdirSync(root).filter((id) => SNAPSHOT_ID_PATTERN.test(id) && existsSync(`${snapshotDir(id, root)}/records.json`));
+    return readdirSync(/* turbopackIgnore: true */ root).filter((id) => SNAPSHOT_ID_PATTERN.test(id) && existsSync(`${snapshotDir(id, root)}/records.json`));
   } catch {
     return [];
   }
