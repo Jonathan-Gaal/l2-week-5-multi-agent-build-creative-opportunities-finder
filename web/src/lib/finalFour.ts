@@ -16,6 +16,9 @@ const room = "max(0px, (100vw - 1080px) / 2) + 8px";
 const nudgeLeft = (px: number) => `max(${px}px, calc(-1 * (${room})))`;
 const nudgeRight = (px: number) => `min(${px}px, calc(${room}))`;
 
+/** The up/down nudges were tuned in "vh" on a 1905 x 920 window. In "vw" they scale with the width like everything else on the home page, so the picture never slides against the sentence. */
+const vw = (vh: number) => `${Math.round(vh * 0.483 * 100) / 100}vw`;
+
 const fig = (look.figs as Record<string, { x: number; y: number; s: number }>)[look.pick.hero] ?? { x: 0, y: 0, s: 1 };
 
 /** Attributes put on <html>, which the CSS keys off (data-hero, data-bg, data-hdr and so on). */
@@ -26,13 +29,13 @@ export const FINAL4_VARS: Record<string, string> = {
   "--logo-scale": String(look.size),
   "--cta-scale": String(look.btn),
   "--fig-x": `${fig.x}vw`,
-  "--fig-y": `${fig.y}vh`,
+  "--fig-y": vw(fig.y),
   "--fig-scale": String(fig.s),
   "--fig-alpha": String(((look as { figAlpha?: number }).figAlpha ?? 100) / 100),
   "--sent-x": `${look.sent.x}vw`,
-  "--sent-y": `${look.sent.y}vh`,
+  "--sent-y": vw(look.sent.y),
   "--cta-x": `${look.cta.x}vw`,
-  "--cta-y": `${look.cta.y}vh`,
+  "--cta-y": vw(look.cta.y),
   "--logo-x": nudgeLeft(look.logoX),
   "--logo-y": `${look.logoY}px`,
   "--auth-x": nudgeRight(look.auth.x),
