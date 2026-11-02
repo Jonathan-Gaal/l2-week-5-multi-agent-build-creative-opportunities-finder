@@ -256,15 +256,15 @@ export default async function Results({ searchParams }: { searchParams: Params }
               )}
 
               <div className={r.howRow} data-requests={out.calls.map((c) => c.requestId).join(",")}>
-                <details className={r.howPill}>
-                  <summary>How we chose these</summary>
+                <section className={r.how} aria-labelledby="h-chose">
+                  <h2 id="h-chose" className={r.howHead}>How we chose these</h2>
                   <div className={r.howBody}>
                     <p>We start with the places, kinds of opportunity and artist types you picked. Listings open to any artist always count.</p>
                     <p>Anything that has already ended, or is missing key details, is left out.</p>
                   </div>
-                </details>
-                <details className={r.howPill}>
-                  <summary>How it&apos;s ranked</summary>
+                </section>
+                <section className={r.how} aria-labelledby="h-how-ranked">
+                  <h2 id="h-how-ranked" className={r.howHead}>How it&apos;s ranked</h2>
                   <div className={r.howBody}>
                     <p>
                       Your top {total} are the listings that fit your picks best and tell you the most: what you would get, what it costs, who
@@ -272,7 +272,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                     </p>
                     <p>Everything else is below, soonest first. Use the pills to see one kind at a time.</p>
                   </div>
-                </details>
+                </section>
               </div>
             </>
           )}

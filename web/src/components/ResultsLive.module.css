@@ -72,11 +72,9 @@
 @media (max-width: 700px) { .howRow { grid-template-columns: 1fr; } }
 .solid { font: 700 15px var(--sans); background: var(--lime); color: #000; border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .solid:hover { filter: brightness(1.08); }
-.howPill summary { list-style: none; display: inline-block; cursor: pointer; font: 700 15px var(--sans); color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; }
-.howPill summary::-webkit-details-marker { display: none; }
-.howPill summary:hover, .howPill[open] summary { background: rgba(220, 252, 5, 0.12); }
-.howPill summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.howBody { margin-top: 10px; padding: 14px 18px; border: 2px solid var(--plum); border-radius: 18px; display: grid; gap: 8px; }
+.how { display: grid; gap: 8px; align-content: start; }
+.howHead { margin: 0; font: 700 18px var(--sans); color: var(--paper); text-decoration: underline; text-decoration-color: var(--lime); text-decoration-thickness: 3px; text-underline-offset: 6px; justify-self: start; }
+.howBody { margin-top: 6px; display: grid; gap: 8px; }
 .howBody p { margin: 0; color: var(--muted-dk); line-height: 1.5; }
 .foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .ghost { font: 700 15px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
