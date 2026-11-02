@@ -10,8 +10,7 @@ import { asBackendError, type BackendError, getMeta, searchBackend, visitorClien
 import { soonestFirst } from "@/lib/cards";
 import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
-import { REPLAY_NOTE } from "@/lib/demoPresets";
-import { savedReplayFor } from "@/lib/demoReplays";
+import { freezeResults, frozenResults } from "@/lib/demoResults";
 import { recordRun } from "@/lib/savedRuns";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
@@ -92,10 +91,12 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
   let out: SearchOutput | null = null;
   let failure: BackendError | null = null;
+  // A demo replay (?replay=1) shows the results that were recorded for that search, so it plays the same on the deployed site
+  // as it did when it was recorded, with no model, database or local files. Any other visit searches for real.
+  const recorded = q.replay === "1" ? frozenResults(`/results?${choices}`) : null;
   try {
-    // A saved demo search reached through the replay flow (replay=1) is served from its saved answers when they hold.
-    const replay = savedReplayFor(new URLSearchParams({ ...Object.fromEntries(choices), replay: typeof q.replay === "string" ? q.replay : "" })) !== null;
-    out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels, replay });
+    out = recorded ?? await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(await headers()), labels });
+    if (!recorded) freezeResults(`/results?${choices}`, out);     // while Claude Code is the model on a dev machine, keep a demo search's results
   } catch (e) {
     failure = asBackendError(e);
   }
@@ -119,7 +120,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
   const picks = takeInTurns((lists ?? []).map((l) => l.cards), TOP_PICKS);     // the ranked list
   const pickKeys = new Set(picks.map((c) => c.key));
   const total = picks.length;
-  if (out && total > 0) {     // while the local model bridge records (never in production), keep this search so the demo can replay it
+  if (out && total > 0) {     // while Claude Code plays the model, keep this search so the demo can replay it
     const artists = [...new Set(disciplines.flatMap((id) => chipsFor(id).map((c) => c.word)))];
     const wants = TYPE_PILLS.filter((p) => (pills.length ? pills : pillsForTypes(types)).includes(p.id)).map((p) => p.label);
     const where = places.map((id) => labels.place(id));
@@ -160,7 +161,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
 
   return (
     <div className="wrap">
-      <div className={r.board}>
+      <div className={r.board} data-snapshot={out?.snapshotId} data-pins={pins.length}>
         {sidebar}
         <div className={r.main}>
           {failure && <BackendFailure title="We couldn't get your results" failure={failure} retryHref={`/results?${choices}`} />}
@@ -177,7 +178,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                 </span>
                 {expired > 0 && <span className={r.removed}>{expired} expired removed</span>}
               </div>
-              {out.replay && <p className="notice" role="note">{REPLAY_NOTE} Nothing here is ranked live, and dates are as of that day.</p>}
+              {recorded && <p className="notice" role="note">Saved replay: the ranking answers were recorded from Codex on Nov 1, 2026. Nothing here is ranked live, and dates are as of that day.</p>}
               <ResultsMap pins={pins} missing={shown.length - pins.length} />
 
 
@@ -256,15 +257,15 @@ export default async function Results({ searchParams }: { searchParams: Params }
               )}
 
               <div className={r.howRow} data-requests={out.calls.map((c) => c.requestId).join(",")}>
-                <details className={r.howPill}>
-                  <summary>How we chose these</summary>
+                <section className={r.how} aria-labelledby="h-chose">
+                  <h2 id="h-chose" className={r.howHead}>How we chose these</h2>
                   <div className={r.howBody}>
                     <p>We start with the places, kinds of opportunity and artist types you picked. Listings open to any artist always count.</p>
                     <p>Anything that has already ended, or is missing key details, is left out.</p>
                   </div>
-                </details>
-                <details className={r.howPill}>
-                  <summary>How it&apos;s ranked</summary>
+                </section>
+                <section className={r.how} aria-labelledby="h-how-ranked">
+                  <h2 id="h-how-ranked" className={r.howHead}>How it&apos;s ranked</h2>
                   <div className={r.howBody}>
                     <p>
                       Your top {total} are the listings that fit your picks best and tell you the most: what you would get, what it costs, who
@@ -272,7 +273,7 @@ export default async function Results({ searchParams }: { searchParams: Params }
                     </p>
                     <p>Everything else is below, soonest first. Use the pills to see one kind at a time.</p>
                   </div>
-                </details>
+                </section>
               </div>
             </>
           )}

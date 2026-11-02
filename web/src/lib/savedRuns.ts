@@ -1,25 +1,29 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import bundledRuns from "../data/demo-runs.json" with { type: "json" };
 import { DEMO_PRESETS, demoPreset } from "./demoPresets.ts";
-import { BUNDLED_RUNS, type SavedRun } from "./demoReplays.ts";
-
-export type { SavedRun } from "./demoReplays.ts";
 
 /**
- * Saved runs for the demo: the three searches that went through the pipeline with their Ranker and Reviewer answers saved
- * (answered by Codex through the local model bridge, CLAUDE_CODE_AS_MODEL=1). Each one is a small file in
- * runs/claude-code-live-runs/ holding the picks, the address of its results page and the top results; the answers are in
- * runs/claude-code-live-answers/. Both are bundled into src/data/demo-replays/ (scripts/bundle-demo-replays.ts), so the
- * deployed site lists and replays them too, read-only (src/lib/demoReplays.ts).
+ * Saved runs for the demo: the searches that went through the pipeline with Claude Code answering the Ranker and Reviewer
+ * (CLAUDE_CODE_AS_MODEL=1, local development only). Each one is a small file in runs/claude-code-live-runs/ holding the picks, the
+ * address of its results page and the top results. The model's answers themselves are in runs/claude-code-live-answers/ (see
+ * server/agents/claude-code-model.ts), so opening a saved run's address replays it quickly through the real pipeline.
  */
 const DIR = `${process.cwd()}/../runs/claude-code-live-runs`;
 
-/** Local recording: the model bridge is on outside production, so new runs are written to, and listed from, runs/. */
-const recording = () => process.env.CLAUDE_CODE_AS_MODEL === "1" && process.env.NODE_ENV !== "production";
+export type SavedRun = {
+  name: string;
+  url: string;
+  savedAt: string;
+  artists: string[];
+  wants: string[];
+  places: string[];
+  top: { n: number; title: string }[];
+};
 
-/** Keeps a record of this search the first time it is seen. Only while recording locally; never in production. */
+/** Keeps a record of this search the first time it is seen. Only runs while Claude Code is the model; never in production. */
 export function recordRun(run: Omit<SavedRun, "savedAt">): void {
-  if (!recording()) return;
+  if (process.env.CLAUDE_CODE_AS_MODEL !== "1" || process.env.NODE_ENV === "production") return;
   try {
     mkdirSync(DIR, { recursive: true });
     const file = `${DIR}/${createHash("sha1").update(run.url).digest("hex").slice(0, 16)}.json`;
@@ -34,10 +38,12 @@ export function recordRun(run: Omit<SavedRun, "savedAt">): void {
   }
 }
 
-/** Every saved demo run, in preset order: the three bundled ones, or while recording locally, what runs/ holds now. */
+/**
+ * Every saved run for the demo. On a dev machine with Claude Code as the model it is the runs recorded in runs/claude-code-live-runs/;
+ * everywhere else (including the deployed site) it is the three bundled in src/data/demo-runs.json, so the replay list always works.
+ */
 export function listRuns(): SavedRun[] {
-  if (!recording() || !existsSync(DIR)) return [...BUNDLED_RUNS];
-  return readdirSync(DIR)
+  const fromDisk = process.env.NODE_ENV === "production" || process.env.CLAUDE_CODE_AS_MODEL !== "1" || !existsSync(DIR) ? [] : readdirSync(DIR)
     .filter((f) => f.endsWith(".json"))
     .flatMap((f) => {
       try {
@@ -45,7 +51,8 @@ export function listRuns(): SavedRun[] {
       } catch {
         return [];
       }
-    })
+    });
+  return (fromDisk.length ? fromDisk : (bundledRuns as SavedRun[]))
     .filter((r) => demoPreset(r.url))
     .sort((a, b) => DEMO_PRESETS.findIndex((p) => p.name === demoPreset(a.url)?.name) - DEMO_PRESETS.findIndex((p) => p.name === demoPreset(b.url)?.name));
 }

@@ -23,10 +23,7 @@ import { jsonSource, listSnapshots } from "../../server/db/json-source.ts";
 import { postgresSource } from "../../server/db/opportunities.ts";
 import { getPool } from "../../server/db/pool.ts";
 import { postgresSink } from "../../server/db/traces.ts";
-import { ReplayModel } from "../../server/agents/replay-model.ts";
 import { toCard } from "./cards";
-import { REPLAY_ANSWERS, REPLAY_DAY, replayHolds } from "./demoReplays";
-import { searchQuery } from "./searchQuery.ts";
 import type { Labels } from "./taxonomy";
 import type { CallLog, Group, SearchInput, SearchOutput } from "./types";
 
@@ -76,24 +73,18 @@ const traceSink = (config: Config): TraceSink | null =>
     : config.traceDir ? dailyFileSink(config.traceDir) : null;
 
 type Api = ReturnType<typeof createApp>;
-/** `replay` serves the saved demo searches (src/lib/demoReplays.ts); null while the local model bridge is on. */
-let apis: { api: Api; replay: Api | null } | null = null;
-
-/** A clock whose "today" is `day` (the clock still runs, so rate limits and the cache behave). */
-function pinnedClock(day: string): () => number {
-  const base = new Date(`${day}T12:00:00`).getTime();
-  const started = Date.now();
-  return () => base + (Date.now() - started);
-}
+let api: Api | null = null;
 
 /**
- * Local development only, with Claude Code as the model: DEMO_AS_OF=2026-11-01 makes the site's "today" that day, so a saved
- * run's prompts, which carry "as of <date>", match on any day it is replayed.
+ * Local development only, with Claude Code as the model: DEMO_AS_OF=2026-11-01 makes the site's "today" that day (the clock still
+ * runs, so rate limits and the cache behave), so a saved run's prompts, which carry "as of <date>", match on any day it is replayed.
  */
 function demoClock(byClaudeCode: boolean): (() => number) | null {
   const day = process.env.DEMO_AS_OF?.trim();
   if (!byClaudeCode || !day || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return null;
-  return pinnedClock(day);
+  const base = new Date(`${day}T12:00:00`).getTime();
+  const started = Date.now();
+  return () => base + (Date.now() - started);
 }
 
 /**
@@ -102,8 +93,8 @@ function demoClock(byClaudeCode: boolean): (() => number) | null {
  * missing (then the code baseline, Tier 2). Its cache, rate limits and daily budget live in this process. Throws on
  * missing or invalid settings (data source, limits), but never on absent Claude credentials; the next call retries.
  */
-function getApis(): { api: Api; replay: Api | null } {
-  if (apis) return apis;
+function getApi(): Api {
+  if (api) return api;
   // Without DATABASE_URL (and no explicit DATA_SOURCE) serve the newest snapshot file instead, warning once; with
   // no snapshot file either, this throws and the page shows "Search isn't available right now".
   const config = resolveDataSource(readConfig(process.env), process.env, listSnapshots());
@@ -114,9 +105,8 @@ function getApis(): { api: Api; replay: Api | null } {
   // queue folder (server/agents/claude-code-model.ts), so the full pipeline runs with no key.
   const byClaudeCode = process.env.CLAUDE_CODE_AS_MODEL === "1" && process.env.NODE_ENV !== "production";
   const mode = byClaudeCode ? config.mode : resolveMode(config, missingCredentials());
-  const source = useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool());
-  const api = createApp({
-    source,
+  api = createApp({
+    source: useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool()),
     model: mode === "baseline" ? null : byClaudeCode ? new ClaudeCodeModel(`${process.cwd()}/.claude-code-queue`, `${process.cwd()}/../runs/claude-code-live-answers`)
       : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
     mode,
@@ -125,26 +115,16 @@ function getApis(): { api: Api; replay: Api | null } {
     limits: config.limits,
     ...(demoClock(byClaudeCode) ? { now: demoClock(byClaudeCode)! } : {}),
   });
-  // The saved demo searches, read-only: the same records, answered only from the bundled answers (no key, no network,
-  // no file or trace writes), on the day they were recorded. Off while the local bridge records, which replays them itself.
-  const replay = byClaudeCode ? null : createApp({
-    source, model: new ReplayModel(REPLAY_ANSWERS), mode: "ranker_reviewer", snapshotId: config.snapshotId,
-    trace: null, limits: config.limits, now: pinnedClock(REPLAY_DAY),
-  });
-  apis = { api, replay };
-  return apis;
+  return api;
 }
 
-/** One API call for `client` (a rate-limit identity), to the normal API or the saved-replay one. Errors come back as
- * BackendError with friendly text. */
-async function callApi<T>(path: string, client: string | Client, which: "api" | "replay" = "api"): Promise<T> {
+/** One API call for `client` (a rate-limit identity). Errors come back as BackendError with friendly text. */
+async function callApi<T>(path: string, client: string | Client): Promise<T> {
   // The API reads the clock (deadlines, cache, rate limits): this is per-request work, never part of a prerender.
   await connection();
   let res: Response;
   try {
-    const app = getApis()[which];
-    if (!app) throw new Error("saved replays are off while the local model bridge is on");
-    res = await app(new Request(`http://api${path}`), client);
+    res = await getApi()(new Request(`http://api${path}`), client);
   } catch (e) {
     // A setup problem (missing or invalid settings): the detail is for the server log, never the visitor.
     console.error(`results API unavailable: ${(e as Error).message}`);
@@ -202,30 +182,18 @@ export function visitorClient(headers: Headers): Client {
   return clientFor(headers.get("cookie"), address ? clientKey(address) : SHARED_NETWORK, visitorSecret());
 }
 
-export { searchQuery } from "./searchQuery.ts";
-
-/**
- * The saved replay of a demo search, or null to serve it the normal way: when the local bridge is on (it replays
- * itself), when a prompt has no saved answer (ReplayMiss fails the replay run, logged by the API), or when the result
- * is not the recorded one (another snapshot is published, or the run was degraded). Never a live model call.
- */
-async function savedReplay(path: string, visitor: Client): Promise<SearchResponse | null> {
-  try {
-    if (!getApis().replay) return null;
-    const res = await callApi<SearchResponse>(path, visitor, "replay");
-    return replayHolds(res) ? res : null;
-  } catch {
-    return null;
-  }
+/** The /api/search query for picker choices. Commas are left readable; the API splits on them. */
+export function searchQuery(input: SearchInput): string {
+  const q = new URLSearchParams({ places: input.places.join(","), types: input.types.join(",") });
+  if (input.disciplines.length) q.set("disciplines", input.disciplines.join(","));
+  if (input.subtypes?.length) q.set("subtypes", input.subtypes.join(","));
+  return q.toString().replaceAll("%2C", ",");
 }
 
-/** One search, one call. `visitor` is the end user's rate-limit identity (visitorClient). `replay`: the request is one of
- * the saved demo searches (demoReplays.savedReplayFor); it is served from the saved answers when they still hold. */
-export async function searchBackend(input: SearchInput, opts: { visitor: Client; labels: Labels; replay?: boolean }): Promise<SearchOutput> {
+/** One search, one call. `visitor` is the end user's rate-limit identity (visitorClient). */
+export async function searchBackend(input: SearchInput, opts: { visitor: Client; labels: Labels }): Promise<SearchOutput> {
   const query = searchQuery(input);
-  const path = `${ROUTES.search}?${query}`;
-  const saved = opts.replay ? await savedReplay(path, opts.visitor) : null;
-  const res = saved ?? await callApi<SearchResponse>(path, opts.visitor);
+  const res = await callApi<SearchResponse>(`${ROUTES.search}?${query}`, opts.visitor);
   const groups: Group[] = res.groups.map((g) => ({
     type: g.type,
     tier: g.tier,
@@ -239,5 +207,5 @@ export async function searchBackend(input: SearchInput, opts: { visitor: Client;
   const calls: CallLog[] = res.groups.map((g) => ({
     type: g.type, tier: g.tier, count: g.results.length, removed: g.removed, requestId: g.request_id,
   }));
-  return { asOf: res.as_of, snapshotId: res.snapshot_id, groups, calls, query, replay: saved !== null };
+  return { asOf: res.as_of, snapshotId: res.snapshot_id, groups, calls, query };
 }

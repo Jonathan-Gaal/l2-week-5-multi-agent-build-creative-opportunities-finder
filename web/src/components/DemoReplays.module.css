@@ -10,4 +10,3 @@
 .list strong { font: 700 15px var(--sans); }
 .list span { color: var(--muted-dk); font: 400 12px/1.5 var(--sans); }
 .list button:focus-visible, .trigger:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.note { color: var(--muted-dk); font: 400 12px/1.5 var(--sans); margin: 0 0 8px; }

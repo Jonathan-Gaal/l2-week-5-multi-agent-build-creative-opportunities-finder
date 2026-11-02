@@ -7,9 +7,6 @@ export const DEMO_PRESETS = [
   { name: "Jordan · Poetry on Staten Island", d: ["poet"], s: ["open_calls", "residencies"], p: ["staten_island"] },
 ] as const;
 
-/** How a saved replay is labeled wherever it is offered or shown: whose answers they are, and when they were recorded. */
-export const REPLAY_NOTE = "Saved replay: the ranking answers were recorded from Codex on Nov 1, 2026.";
-
 /** Ignore order, duplicates and results-page controls when identifying the current search. */
 export function demoKey(url: string): string {
   const q = new URL(url, "http://demo").searchParams;
@@ -21,4 +18,16 @@ export function demoKey(url: string): string {
 
 export function demoPreset(url: string) {
   return DEMO_PRESETS.find((p) => demoKey(`/results?${new URLSearchParams({ d: p.d.join(","), s: p.s.join(","), p: p.p.join(",") })}`) === demoKey(url));
+}
+
+/** A new session forces cached find pages to remount, even when replaying the same search twice. */
+export function replaySession(href: string, id: string): string {
+  const url = new URL(href, "http://demo");
+  url.searchParams.set("rid", id);
+  return `${url.pathname}?${url.searchParams}`;
+}
+
+/** Completed steps come from this replay's target; the step being animated always starts empty. */
+export function replayStart(step: "discipline" | "type" | "place", target: { d: string[]; s: string[] }) {
+  return { d: step === "discipline" ? [] : [...target.d], s: step === "place" ? [...target.s] : [], p: [] as string[] };
 }

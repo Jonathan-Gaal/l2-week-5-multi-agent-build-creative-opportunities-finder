@@ -1,0 +1,101 @@
+[
+ {
+  "name": "Jordan · Poetry on Staten Island",
+  "url": "/results?d=poet&t=open_call%2Cresidency&p=staten_island&s=open_calls%2Cresidencies",
+  "artists": [
+   "poet"
+  ],
+  "wants": [
+   "Submissions/Open calls",
+   "Residencies"
+  ],
+  "places": [
+   "Staten Island"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "Mabou Mines SUITE/space: performance residency for early career artists"
+   }
+  ],
+  "savedAt": "2026-11-02T13:51:07.621Z"
+ },
+ {
+  "name": "Alex · Manhattan auditions",
+  "url": "/results?d=theater&t=open_call&p=manhattan&s=auditions",
+  "artists": [
+   "actor"
+  ],
+  "wants": [
+   "Auditions"
+  ],
+  "places": [
+   "Manhattan"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "The Phantom of the Opera (Tour) - NYC EPA (11.04.26) (Box 5 Company, LLC)"
+   },
+   {
+    "n": 2,
+    "title": "Unannounced Play - NYC EPA (11.02.26) (Revised) (TTP Downtown Corp | New York, NY)"
+   },
+   {
+    "n": 3,
+    "title": "City Center Encores! 2027 Season - NYC EPA (11.05.26) & (11.06.26) (New York City Center Inc.)"
+   },
+   {
+    "n": 4,
+    "title": "Welcome Table - NYC EPA (11.03.26) (New York Shakespeare Festival)"
+   },
+   {
+    "n": 5,
+    "title": "Grass - NYC EPA (11.04.26) (Park Avenue Armory)"
+   }
+  ],
+  "savedAt": "2026-11-02T13:47:41.222Z"
+ },
+ {
+  "name": "Sam · Art & writing across the tri-state",
+  "url": "/results?d=visual%2Cwriting&t=open_call&p=nyc%2Clong_island%2Cnew_jersey%2Cupstate_ny%2Cwestchester_hudson%2Cconnecticut&s=open_calls",
+  "artists": [
+   "visual artist",
+   "writer"
+  ],
+  "wants": [
+   "Submissions/Open calls"
+  ],
+  "places": [
+   "Anywhere in NYC",
+   "Long Island",
+   "New Jersey",
+   "Upstate NY",
+   "Westchester & Hudson Valley",
+   "Connecticut"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "Propose a Spring Street Mural"
+   },
+   {
+    "n": 2,
+    "title": "Smack Mellon Emerging Artist Summer 2027 Group Exhibition"
+   },
+   {
+    "n": 3,
+    "title": "Artist Vault"
+   },
+   {
+    "n": 4,
+    "title": "Open Call for Artists & Writers - DiP Magazine Issue 1"
+   },
+   {
+    "n": 5,
+    "title": "Postcards From the Edge: A Benefit for Visual AIDS"
+   }
+  ],
+  "savedAt": "2026-11-02T13:48:58.268Z"
+ }
+]

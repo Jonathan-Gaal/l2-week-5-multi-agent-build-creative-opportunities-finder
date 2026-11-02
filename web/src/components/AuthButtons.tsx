@@ -4,14 +4,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
-import { REPLAY_NOTE } from "@/lib/demoPresets";
 import DemoReplays from "./DemoReplays";
+import { replaySession } from "@/lib/demoPresets";
 
 type SavedRun = { name: string; savedAt: string; href: string; top: string[] };
 
 /**
- * The "Demo mode" tag. Triple-click it to open a drop-down of the saved demo runs (their answers recorded from Codex, served
- * read-only; src/lib/demoReplays.ts). Picking one plays that run through the find flow and on to its results. On the pages where the tag is a link to Login, a single click still goes there, after
+ * The "Demo mode" tag. Triple-click it to open a drop-down of saved runs (searches answered once through the model bridge).
+ * Picking one plays that run through the find flow and on to its results. There is nothing to open on
+ * the live site, where no run is saved. On the pages where the tag is a link to Login, a single click still goes there, after
  * a moment, so a triple-click can tell itself apart.
  */
 function DemoBadge({ link }: { link: boolean }) {
@@ -78,18 +79,16 @@ function DemoBadge({ link }: { link: boolean }) {
       {open && runs && (
         <ul className="demo-runs" aria-label="Saved runs to replay">
           <li className="demo-runs-head">Replay a saved run</li>
-          <li className="demo-runs-note">{REPLAY_NOTE}</li>
           {runs.map((r) => (
             <li key={r.href}>
               <button
                 type="button"
                 onClick={() => {
                   setOpen(false);     // the list goes away and the replay starts
-                  router.push(r.href);
+                  router.push(replaySession(r.href, crypto.randomUUID()));
                 }}
               >
                 <strong>{r.name}</strong>
-                <span>{r.top.join(" · ")}</span>
               </button>
             </li>
           ))}
@@ -112,7 +111,7 @@ export default function AuthButtons() {
   const onResults = pathname.startsWith("/results"); // the results page shows Login and Sign up (after the Demo mode tag, in demo mode)
   const [signingOut, setSigningOut] = useState(false);
 
-  if (status === "loading") return <div className="auth-slot" />;
+  if (status === "loading") return <div className="auth-slot"><Link href="/login" className="btn btn-ghost btn-small">Login</Link><Link href="/signup" className="btn btn-small">Sign up</Link></div>;
 
   if (status === "signed-in" && !user?.isAnonymous) {
     const out = async () => {
@@ -138,11 +137,14 @@ export default function AuthButtons() {
   }
 
   const demo = status === "guest" || status === "signed-in"; // signed-in here means an anonymous (demo) session
+  // On the find pages the top right is just "Demo mode" with a drop-down arrow listing the replays by title, so it never crowds the question.
+  if (demo && pathname.startsWith("/find")) {
+    return <div className="auth-slot"><DemoReplays label="Demo mode" fallback /></div>;
+  }
   if (demo && !onResults) {
     return (
       <div className="auth-slot">
         <DemoBadge link />
-        {(pathname === "/find" || pathname === "/find/discipline") && <DemoReplays />}
         <Link href="/login" className="btn btn-ghost btn-small" aria-current={pathname === "/login" ? "page" : undefined}>Login</Link>
         <Link href="/signup" className="btn btn-small" aria-current={pathname === "/signup" ? "page" : undefined}>Sign up</Link>
       </div>

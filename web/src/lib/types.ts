@@ -67,8 +67,6 @@ export type SearchOutput = {
   calls: CallLog[];
   /** The query string of the one GET /api/search call, for the dev tools. */
   query: string;
-  /** Served from a saved demo replay (src/lib/demoReplays.ts), not ranked live. */
-  replay?: boolean;
 };
 
 /** One step of a run, shown in order in the dev playback. */

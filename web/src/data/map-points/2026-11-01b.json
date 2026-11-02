@@ -2471,12 +2471,6 @@
   "matched": "151 LAUREL AVE, NORTHPORT, NY, 11768",
   "how": "address"
  },
- "swing dance long island presents gene casey and the lone sharks|long_island|2026-11-17": {
-  "lat": 40.868155,
-  "lng": -73.353569,
-  "matched": "631 PULASKI RD, GREENLAWN, NY, 11740",
-  "how": "address"
- },
  "the art guild presents alcohol inks with vera worthington|long_island|2026-11-19": {
   "lat": 40.807888,
   "lng": -73.671451,
@@ -3027,6 +3021,12 @@
   "lat": 40.764618,
   "lng": -73.769537,
   "matched": "214-35 40TH AVE, BAYSIDE, NY, 11361",
+  "how": "address"
+ },
+ "mabou mines suite space performance residency for early career artists|citywide|2026-11-22": {
+  "lat": 40.728217,
+  "lng": -73.984772,
+  "matched": "150 1ST AVE, NEW YORK, NY, 10009",
   "how": "address"
  },
  "comedy open mic at club 624 wednesday 7 30pm|pennsylvania|recurring": {
@@ -4133,11 +4133,89 @@
   "matched": "250 W 54TH ST, NEW YORK, NY, 10019",
   "how": "address"
  },
- "casting staged reading of torch song trilogy part 2 fugue for a nursery gallery players|brooklyn|None": {
-  "lat": 40.667357,
-  "lng": -73.991127,
-  "matched": "199 14TH ST, BROOKLYN, NY, 11215",
+ "wanted bassist for all original rock prog|manhattan|None": {
+  "lat": 40.737067,
+  "lng": -74.001122,
+  "matched": "NYC AIDS Memorial Park at St. Vincent's Triangle, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "wanted drummer for cinematic rock prog fusion|manhattan|None": {
+  "lat": 40.737067,
+  "lng": -74.001122,
+  "matched": "NYC AIDS Memorial Park at St. Vincent's Triangle, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "can you spot a hit paid music jury 10 songs|manhattan|None": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "day job jammer looking for p t jams bluesrock americana jazz|manhattan|None": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "drum teacher|manhattan|None": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "elite models performers entertainers casting|manhattan|None": {
+  "lat": 40.752694,
+  "lng": -73.977253,
+  "matched": "Grand Central Terminal, 89, East 42nd Street, Midtown, Manhattan Community Board 5, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "filmmaker looking for people with everyday jobs short docu series n|manhattan|None": {
+  "lat": 40.701272,
+  "lng": -74.008072,
+  "matched": "Downtown Manhattan Heliport, East River Greenway, Whitehall, Manhattan, New York County, New York, 10041, United States",
+  "how": "venue"
+ },
+ "iso elderly male actor for live sketch comedy show|manhattan|None": {
+  "lat": 40.741059,
+  "lng": -73.989642,
+  "matched": "Flatiron Building, 175, 5th Avenue, Flatiron District, Manhattan Community Board 5, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "nyc s weirdest living situation manhattan casting call|manhattan|None": {
+  "lat": 40.719418,
+  "lng": -74.002315,
+  "matched": "The First National City Bank of New York, Lispenard Street, Little Italy, Lower Manhattan, Manhattan, New York County, N",
+  "how": "venue"
+ },
+ "paid actors models needed for hiphop music video nyc nov|manhattan|None": {
+  "lat": 40.753676,
+  "lng": -73.987145,
+  "matched": "1411 BROADWAY, NEW YORK, NY, 10018",
   "how": "address"
+ },
+ "producer seeks studio share 8pm midnight east side 14th 50th st|manhattan|None": {
+  "lat": 40.772591,
+  "lng": -73.961832,
+  "matched": "Temple Israel, 112, East 75th Street, Upper East Side, Manhattan Community Board 8, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "professional male vocalist lead background support live studio|manhattan|None": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "rehearsal space available music building|manhattan|None": {
+  "lat": 40.75529,
+  "lng": -74.006741,
+  "matched": "West 30th Street Heliport, West 30th Street, Manhattan Community Board 4, Manhattan, New York County, New York, 10199, U",
+  "how": "venue"
+ },
+ "trumpet sax and other wind players for biweekly jam sessions|manhattan|None": {
+  "lat": 40.741059,
+  "lng": -73.989642,
+  "matched": "Flatiron Building, 175, 5th Avenue, Flatiron District, Manhattan Community Board 5, Manhattan, New York County, New York",
+  "how": "venue"
  },
  "gallery players potus backstage crew gallery players|brooklyn|None": {
   "lat": 40.667357,
@@ -4145,22 +4223,166 @@
   "matched": "199 14TH ST, BROOKLYN, NY, 11215",
   "how": "address"
  },
- "girl from the north country spotlight repertory theatre|staten_island|None": {
-  "lat": 40.644429,
-  "lng": -74.076714,
-  "matched": "55 RICHMOND TER, STATEN ISLAND, NY, 10301",
+ "1000 mo music rehearsal band space at danbro studios|brooklyn|None": {
+  "lat": 40.708552,
+  "lng": -73.937684,
+  "matched": "270 MESEROLE ST, BROOKLYN, NY, 11206",
   "how": "address"
  },
- "ain t too proud nyc epa 10 28 26 revised harborside productions llc northport ny|unknown|2026-10-28": {
-  "lat": 40.758213,
-  "lng": -73.984046,
-  "matched": "165 W 46TH ST, NEW YORK, NY, 10036",
+ "950 mo music rehearsal band space at danbro studios|brooklyn|None": {
+  "lat": 40.708552,
+  "lng": -73.937684,
+  "matched": "270 MESEROLE ST, BROOKLYN, NY, 11206",
   "how": "address"
  },
- "actor and violinist for december play at the tank nyc clara livingston|unknown|2026-10-31": {
-  "lat": 40.753663,
-  "lng": -73.99329,
-  "matched": "The Tank, 312, West 36th Street, Hudson Yards, Manhattan Community Board 4, Manhattan, New York County, New York, 10119,",
+ "live or online saxophone clarinet flute lessons|brooklyn|None": {
+  "lat": 40.679228,
+  "lng": -73.963636,
+  "matched": "802 DEAN ST, BROOKLYN, NY, 11238",
+  "how": "address"
+ },
+ "actors wanted|brooklyn|None": {
+  "lat": 40.673905,
+  "lng": -73.895333,
+  "matched": "New Jersey Avenue, Broadway Junction, Brooklyn, Kings County, New York, 11207, United States",
+  "how": "venue"
+ },
+ "church guitarist|brooklyn|None": {
+  "lat": 40.674819,
+  "lng": -73.957647,
+  "matched": "Park Place, Brooklyn, Kings County, New York, 11233, United States",
+  "how": "venue"
+ },
+ "in search of drummer bassist vocalist|brooklyn|None": {
+  "lat": 40.703668,
+  "lng": -73.916026,
+  "matched": "New York Engine Company 271, Himrod Street, Ridgewood, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "paid glp 1 documentary casting earn 400 plus 200 for home filming|brooklyn|None": {
+  "lat": 40.681655,
+  "lng": -74.007451,
+  "matched": "Tri-State Trucking, 195, Van Brunt Street, Red Hook, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "production assistant pa needed film noir web series|brooklyn|None": {
+  "lat": 40.699336,
+  "lng": -73.942747,
+  "matched": "NYC Health + Hospitals/Woodhull, 760, Broadway, Brooklyn, Kings County, New York, 11206, United States",
+  "how": "venue"
+ },
+ "rehearsal space studio band practice space window danbro 425|brooklyn|None": {
+  "lat": 40.721773,
+  "lng": -73.962194,
+  "matched": "Marsha P. Johnson State Park, 90, Williamsburg, Brooklyn, Kings County, New York, 11249, United States",
+  "how": "venue"
+ },
+ "rehearsal studio to share|brooklyn|None": {
+  "lat": 40.721773,
+  "lng": -73.962194,
+  "matched": "Marsha P. Johnson State Park, 90, Williamsburg, Brooklyn, Kings County, New York, 11249, United States",
+  "how": "venue"
+ },
+ "seeking male actor for 10 27 film shoot|brooklyn|None": {
+  "lat": 40.721773,
+  "lng": -73.962194,
+  "matched": "Marsha P. Johnson State Park, 90, Williamsburg, Brooklyn, Kings County, New York, 11249, United States",
+  "how": "venue"
+ },
+ "comedians wanted open mic community meet greet|brooklyn|None": {
+  "lat": 40.700022,
+  "lng": -73.929458,
+  "matched": "Keybar, 143, Troutman Street, Bushwick, Brooklyn, Kings County, New York, 11206, United States",
+  "how": "venue"
+ },
+ "bass guitar instruction|queens|None": {
+  "lat": 40.734502,
+  "lng": -73.882935,
+  "matched": "Grand Slope, Elmhurst, Queens, Queens County, New York, United States",
+  "how": "venue"
+ },
+ "country drone musicians wanted|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "drummer wanted nyhc|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "female singer wanted|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "female vocalist wanted|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "guitarist looking for arena rock band|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "horn players wanted|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "keys wanted for new wave indie rock dad band|queens|None": {
+  "lat": 40.727843,
+  "lng": -73.929006,
+  "matched": "Brooklyn-Queens Expressway, Queens, Queens County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "looking for a keyboard player|queens|None": {
+  "lat": 40.719088,
+  "lng": -73.729637,
+  "matched": "Queens, 225th Street, Queens, Queens County, New York, Town of Hempstead, Nassau County, New York, 11428, United States",
+  "how": "venue"
+ },
+ "non pressure band seeking musicians and singers over 50yrs of age|queens|None": {
+  "lat": 40.719088,
+  "lng": -73.729637,
+  "matched": "Queens, 225th Street, Queens, Queens County, New York, Town of Hempstead, Nassau County, New York, 11428, United States",
+  "how": "venue"
+ },
+ "producer with pro studio available|queens|None": {
+  "lat": 40.682959,
+  "lng": -73.725888,
+  "matched": "Hook Creek Boulevard - Elmont Road, Queens, Queens County, North Valley Stream, Town of Hempstead, Nassau County, New Yo",
+  "how": "venue"
+ },
+ "retired adult novise band seeks singers and musicians|queens|None": {
+  "lat": 40.666348,
+  "lng": -73.83683,
+  "matched": "Nassau Expressway, Queens, Queens County, New York, 11422, United States",
+  "how": "venue"
+ },
+ "thrash death metal band in search of bassist and drummer|queens|None": {
+  "lat": 40.703668,
+  "lng": -73.916026,
+  "matched": "New York Engine Company 271, Himrod Street, Ridgewood, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "gig store photo video shooter early mornings all nyc|bronx|None": {
+  "lat": 40.862243,
+  "lng": -73.877154,
+  "matched": "New York Botanical Garden, 2900, Southern Boulevard, The Bronx, Bronx County, New York, 10458, United States",
+  "how": "venue"
+ },
+ "drummer wanted nyhc|staten_island|None": {
+  "lat": 40.578352,
+  "lng": -74.168916,
+  "matched": "Brooklyn Staten Island Blood Services, 2791, Richmond Avenue, Staten Island, Richmond County, New York, 10314, United St",
   "how": "venue"
  },
  "unannounced play nyc epa 11 02 26 revised ttp downtown corp new york ny|unknown|2026-11-02": {
@@ -4229,12 +4451,6 @@
   "matched": "165 W 46TH ST, NEW YORK, NY, 10036",
   "how": "address"
  },
- "the grandest princess ball ever times square nyc the princess party co|unknown|None": {
-  "lat": 40.753533,
-  "lng": -73.992398,
-  "matched": "520 8TH AVE, NEW YORK, NY, 10018",
-  "how": "address"
- },
  "actors needed for play yet a stranger in this world dionysia collective|unknown|None": {
   "lat": 40.719061,
   "lng": -73.986235,
@@ -4263,6 +4479,156 @@
   "lat": 40.764259,
   "lng": -73.983166,
   "matched": "254 W 54TH ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "open call small works group gallery exhibit in nyc|manhattan|2026-11-15": {
+  "lat": 40.728783,
+  "lng": -73.97689,
+  "matched": "14BC Gallery, 626, East 14th Street, Stuy Town, Manhattan Community Board 3, Manhattan, New York County, New York, 10009",
+  "how": "venue"
+ },
+ "byrdcliffe historic cottage residency summer 2027|westchester_hudson|2026-11-09": {
+  "lat": 42.040564,
+  "lng": -74.119592,
+  "matched": "Woodstock Byrdcliffe Guild, 34, Tinker Street, Town of Woodstock, Ulster County, New York, 12498, United States",
+  "how": "venue"
+ },
+ "what remains juried exhibition at susquehanna art museum|pennsylvania|2026-11-22": {
+  "lat": 40.271,
+  "lng": -76.889611,
+  "matched": "Susquehanna Art Museum, 1401, North 3rd Street, New Fox Ridge, Midtown, Harrisburg, Dauphin County, Pennsylvania, 17102,",
+  "how": "venue"
+ },
+ "mlk days 2027|maryland|2026-12-01": {
+  "lat": 38.346507,
+  "lng": -76.452333,
+  "matched": "Annmarie Sculpture Garden and Arts Center, 13480, Dowell Road, Solomons, Calvert County, Maryland, 20629, United States",
+  "how": "venue"
+ },
+ "open call re paris prize a travel fellowship for architects designers|brooklyn|2026-11-22": {
+  "lat": 40.680048,
+  "lng": -73.989232,
+  "matched": "Van Alen Institute, 303, Bond Street, Gowanus, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "art project manager|manhattan|None": {
+  "lat": 40.742994,
+  "lng": -74.005529,
+  "matched": "Friends of the High Line, West 16th Street, Chelsea District, Manhattan Community Board 4, Manhattan, New York County, N",
+  "how": "venue"
+ },
+ "lead preparator|long_island|None": {
+  "lat": 40.904653,
+  "lng": -72.365722,
+  "matched": "Parrish Art Museum, 279, Montauk Highway, Cobb, Water Mill, Town of Southampton, Suffolk County, New York, 11976, United",
+  "how": "venue"
+ },
+ "metalworking craft skills program instructor|brooklyn|2026-11-09": {
+  "lat": 40.685673,
+  "lng": -74.00528,
+  "matched": "Beam Center, 60, Sackett Street, Red Hook Container Terminal, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "digital fabrication craft skills program instructor|brooklyn|2026-11-16": {
+  "lat": 40.685673,
+  "lng": -74.00528,
+  "matched": "Beam Center, 60, Sackett Street, Red Hook Container Terminal, Brooklyn, Kings County, New York, 11231, United States",
+  "how": "venue"
+ },
+ "chair of collaborative arts associate or full professor tenure line|manhattan|2026-11-24": {
+  "lat": 40.72782,
+  "lng": -73.98847,
+  "matched": "NYU Tisch School of the Arts, 113, 2nd Avenue, East Village, Manhattan Community Board 3, Manhattan, New York County, Ne",
+  "how": "venue"
+ },
+ "seeking plus sized models for nyaa art classes|manhattan|None": {
+  "lat": 40.718384,
+  "lng": -74.006077,
+  "matched": "New York Academy of Art, 111, Franklin Street, Tribeca, Lower Manhattan, Manhattan, New York County, New York, 10013, Un",
+  "how": "venue"
+ },
+ "craft associate|brooklyn|2026-11-12": {
+  "lat": 40.627744,
+  "lng": -73.997897,
+  "matched": "New York Thawing Apparatus Company 64, 1339, 61st Street, Borough Park, Brooklyn, Kings County, New York, 11219, United ",
+  "how": "venue"
+ },
+ "finishing associate|brooklyn|2026-11-12": {
+  "lat": 40.627744,
+  "lng": -73.997897,
+  "matched": "New York Thawing Apparatus Company 64, 1339, 61st Street, Borough Park, Brooklyn, Kings County, New York, 11219, United ",
+  "how": "venue"
+ },
+ "assistant professor of art time based media|upstate_ny|2026-11-15": {
+  "lat": 43.050905,
+  "lng": -75.40492,
+  "matched": "Hamilton College, 198, College Hill Road, Town of Kirkland, Oneida County, New York, 13323, United States",
+  "how": "venue"
+ },
+ "studio space available in williamsburg semi private 850 mo|brooklyn|None": {
+  "lat": 40.717407,
+  "lng": -73.943027,
+  "matched": "So Gold Studios, 448, Humboldt Street, Williamsburg, Brooklyn, Kings County, New York, 11211, United States",
+  "how": "venue"
+ },
+ "studio space in gowanus with ceramic kiln|brooklyn|None": {
+  "lat": 40.641675,
+  "lng": -74.002909,
+  "matched": "Simon's BBQ, 4823, 8th Avenue, Dyker Heights, Brooklyn, Kings County, New York, 11220, United States",
+  "how": "venue"
+ },
+ "epic gallery studio for short long term rental at the old american can factory|brooklyn|None": {
+  "lat": 40.674837,
+  "lng": -73.987853,
+  "matched": "The Old American Can Factory, 232, 3rd Street, Gowanus, Brooklyn, Kings County, New York, 11215, United States",
+  "how": "venue"
+ },
+ "studio space bushwick|brooklyn|None": {
+  "lat": 40.70535,
+  "lng": -73.927572,
+  "matched": "LightSpace Studios New York, 1115, Flushing Avenue, Bushwick, Brooklyn, Kings County, New York, 11237, United States",
+  "how": "venue"
+ },
+ "studio space available for visual artists|brooklyn|None": {
+  "lat": 40.701143,
+  "lng": -73.967399,
+  "matched": "Steiner Studios, Brooklyn, Kings County, New York, United States",
+  "how": "venue"
+ },
+ "artful gatherings|manhattan|2026-11-21": {
+  "lat": 40.84648,
+  "lng": -73.940155,
+  "matched": "351 FORT WASHINGTON AVE, NEW YORK, NY, 10033",
+  "how": "address"
+ },
+ "mindful needle felting|bronx|2026-11-29": {
+  "lat": 40.897883,
+  "lng": -73.911269,
+  "matched": "4900 INDEPENDENCE AVE, BRONX, NY, 10471",
+  "how": "address"
+ },
+ "craft chill|queens|recurring": {
+  "lat": 40.70184,
+  "lng": -73.783347,
+  "matched": "106-16 173RD ST, JAMAICA, NY, 11433",
+  "how": "address"
+ },
+ "artist toolbox series garrison art center|westchester_hudson|2026-11-08": {
+  "lat": 41.382597,
+  "lng": -73.947296,
+  "matched": "Garrison Art Center, 23, Garrison Lodge, Garrison, Town of Philipstown, Putnam County, New York, 10524, United States",
+  "how": "venue"
+ },
+ "open call garrison art center 2028 gallery exhibition season|westchester_hudson|2027-01-15": {
+  "lat": 41.382597,
+  "lng": -73.947296,
+  "matched": "Garrison Art Center, 23, Garrison Lodge, Garrison, Town of Philipstown, Putnam County, New York, 10524, United States",
+  "how": "venue"
+ },
+ "mocca arts festival 2027 exhibitor tabling applications|manhattan|None": {
+  "lat": 40.740217,
+  "lng": -73.995712,
+  "matched": "125 W 18TH ST, NEW YORK, NY, 10011",
   "how": "address"
  },
  "2027 community engagement grants ceg|bronx|2026-10-30": {
@@ -5663,12 +6029,6 @@
   "matched": "Woodbury Heights, Gloucester County, New Jersey, 08097, United States (approximate)",
   "how": "area"
  },
- "open mic at just rock enterprises third thursday of the month at 7pm|maryland|recurring": {
-  "lat": 38.942968,
-  "lng": -76.955803,
-  "matched": "Brentwood, Prince George's County, Maryland, 20722, United States (approximate)",
-  "how": "area"
- },
  "open mic at pappy t s pub and lounge every thursday at 8pm|pennsylvania|recurring": {
   "lat": 40.555308,
   "lng": -75.982408,
@@ -6563,12 +6923,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "wanted bassist for all original rock prog|manhattan|None": {
-  "lat": 40.750525,
-  "lng": -74.00155,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "casting extras actors non union feature film|manhattan|None": {
   "lat": 40.783479,
   "lng": -73.965805,
@@ -6578,18 +6932,6 @@
  "now casting actors background talent for nyc feature film|manhattan|None": {
   "lat": 40.739242,
   "lng": -73.998369,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "paid photographer needed for jewelry campaign shoot|manhattan|None": {
-  "lat": 40.820661,
-  "lng": -73.946538,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "wanted drummer for cinematic rock prog fusion|manhattan|None": {
-  "lat": 40.783317,
-  "lng": -73.978657,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6605,21 +6947,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "actors extras wanted indie thriller film|manhattan|None": {
-  "lat": 40.789269,
-  "lng": -73.968179,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "assisted living nursing homes community centers pianist singer|manhattan|None": {
   "lat": 40.811323,
   "lng": -73.955339,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "bass guitar instruction|manhattan|None": {
-  "lat": 40.771127,
-  "lng": -73.988072,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6629,69 +6959,15 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "cajon or scaled down drum kit player avail for gigs etc|manhattan|None": {
-  "lat": 40.769394,
-  "lng": -73.971378,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "can you spot a hit paid music jury 10 songs|manhattan|None": {
-  "lat": 40.800747,
-  "lng": -73.967702,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "casting 3 stand ins sag aftra micro budget feature october 25|manhattan|None": {
-  "lat": 40.739245,
-  "lng": -74.009196,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "casting vampire film|manhattan|None": {
-  "lat": 40.757519,
-  "lng": -74.000378,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "casting 2 female models actresses for outdoor shoot|manhattan|None": {
   "lat": 40.80619,
   "lng": -73.958062,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "content creator all nationalities are welcomed to apply|manhattan|None": {
-  "lat": 40.836015,
-  "lng": -73.931819,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "creative experimental 18 photoshoot|manhattan|None": {
   "lat": 40.801453,
   "lng": -73.967514,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "creative partner youtube podcast producer wanted nyc|manhattan|None": {
-  "lat": 40.831293,
-  "lng": -73.935547,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "creative video needed|manhattan|None": {
-  "lat": 40.802674,
-  "lng": -73.956261,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "day job jammer looking for p t jams bluesrock americana jazz|manhattan|None": {
-  "lat": 40.781854,
-  "lng": -73.978895,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "drum teacher|manhattan|None": {
-  "lat": 40.735338,
-  "lng": -74.00474,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6713,45 +6989,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "drummer seeking collaboratiopn|manhattan|None": {
-  "lat": 40.786273,
-  "lng": -73.961474,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "elite models performers entertainers casting|manhattan|None": {
-  "lat": 40.790722,
-  "lng": -73.958323,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "entertainers wanted for nightclub manhattan ny|manhattan|None": {
-  "lat": 40.812664,
-  "lng": -73.941337,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "experienced author true crime author investigative journalist|manhattan|None": {
-  "lat": 40.758856,
-  "lng": -73.995712,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "experienced jazz band for your party wedding or event|manhattan|None": {
   "lat": 40.735866,
   "lng": -73.998881,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "fall concert pianist singer entertainer|manhattan|None": {
-  "lat": 40.824615,
-  "lng": -73.944919,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "fall concert pianist singer events|manhattan|None": {
-  "lat": 40.803199,
-  "lng": -73.958251,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6773,18 +7013,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "female singer needed for punky bluesy noisy band forming|manhattan|None": {
-  "lat": 40.758134,
-  "lng": -73.985679,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "filmmaker looking for people with everyday jobs short docu series n|manhattan|None": {
-  "lat": 40.812655,
-  "lng": -73.953416,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "freelance copywriter|manhattan|None": {
   "lat": 40.774372,
   "lng": -73.965913,
@@ -6797,12 +7025,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "freelance photographer 100|manhattan|None": {
-  "lat": 40.78973,
-  "lng": -73.971441,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "freelance seo copywriter firearms outdoor products|manhattan|None": {
   "lat": 40.799406,
   "lng": -73.951712,
@@ -6812,12 +7034,6 @@
  "full time drummer seeks touring situation|manhattan|None": {
   "lat": 40.787722,
   "lng": -73.979341,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "graphic designer wanted feature film movie poster 150|manhattan|None": {
-  "lat": 40.766918,
-  "lng": -73.990649,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6839,27 +7055,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "hobbyist event photographer fri oct 16 evening manhattan paid|manhattan|None": {
-  "lat": 40.75257,
-  "lng": -74.003272,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "holiday pianist singer entertainer|manhattan|None": {
   "lat": 40.83111,
   "lng": -73.937667,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "iso elderly male actor for live sketch comedy show|manhattan|None": {
-  "lat": 40.761226,
-  "lng": -73.985357,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "jazz band for hire|manhattan|None": {
-  "lat": 40.748187,
-  "lng": -73.998969,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6875,12 +7073,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "kelly diamond is casting are you our next diamond|manhattan|None": {
-  "lat": 40.767083,
-  "lng": -73.98541,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "latin jazz piano trio|manhattan|None": {
   "lat": 40.808146,
   "lng": -73.962149,
@@ -6893,39 +7085,15 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "let me entertain you singer pianist for assisted living|manhattan|None": {
-  "lat": 40.79449,
-  "lng": -73.956468,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "lifestyle models wanted for casual photoshooting|manhattan|None": {
   "lat": 40.83544,
   "lng": -73.933469,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "liquid mercury style mirror chrome finish on organic wood sculptures|manhattan|None": {
-  "lat": 40.788473,
-  "lng": -73.977733,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "looking for a japanese calligraphy artist shodo for 1 2 hour lesson|manhattan|None": {
-  "lat": 40.800835,
-  "lng": -73.946152,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "looking for players for melodic rock project|manhattan|None": {
   "lat": 40.783434,
   "lng": -73.980203,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "makeup artist wanted tomorrow|manhattan|None": {
-  "lat": 40.737831,
-  "lng": -74.003049,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6944,12 +7112,6 @@
  "models wanted for casual lifestyle photoshooting|manhattan|None": {
   "lat": 40.787391,
   "lng": -73.963374,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "models wanted for luxury wig brand elegant editorial aesthetics|manhattan|None": {
-  "lat": 40.796546,
-  "lng": -73.969859,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -6977,39 +7139,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "nyc marathon photographer|manhattan|None": {
-  "lat": 40.807737,
-  "lng": -73.952309,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "nyc videographer needed for interview b roll and photo shoot|manhattan|None": {
-  "lat": 40.806348,
-  "lng": -73.957414,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "nyc s weirdest living situation manhattan casting call|manhattan|None": {
-  "lat": 40.798936,
-  "lng": -73.956318,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "old school roots music electric bassist available|manhattan|None": {
-  "lat": 40.754187,
-  "lng": -73.995539,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "older musicians drums guitar keys bass|manhattan|None": {
   "lat": 40.769547,
   "lng": -73.989033,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "on site photo editor needed santa photos nyc|manhattan|None": {
-  "lat": 40.808762,
-  "lng": -73.959965,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -7019,45 +7151,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "paid 100 person looking for best friends for a documentary shoot|manhattan|None": {
-  "lat": 40.794281,
-  "lng": -73.955869,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "paid actors models needed for hiphop music video nyc nov|manhattan|None": {
-  "lat": 40.774712,
-  "lng": -73.98449,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "paid bridal casting glp 1 story 300|manhattan|None": {
   "lat": 40.769717,
   "lng": -73.982374,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "paid local video assignment nyc new jersey|manhattan|None": {
-  "lat": 40.78197,
-  "lng": -73.967665,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "photography and production interns for independant magazine|manhattan|None": {
-  "lat": 40.761628,
-  "lng": -73.985139,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "pianist singer|manhattan|None": {
-  "lat": 40.792909,
-  "lng": -73.976644,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "pianist singer entertainer|manhattan|None": {
-  "lat": 40.778766,
-  "lng": -73.982785,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -7073,57 +7169,15 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "producer seeks studio share 8pm midnight east side 14th 50th st|manhattan|None": {
-  "lat": 40.781186,
-  "lng": -73.972572,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "professional guitarist singer needed daytime gigs nyc 60 hr|manhattan|None": {
   "lat": 40.795285,
   "lng": -73.968137,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "professional male vocalist lead background support live studio|manhattan|None": {
-  "lat": 40.801022,
-  "lng": -73.966376,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "rehearsal space available music building|manhattan|None": {
-  "lat": 40.802048,
-  "lng": -73.961776,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "repair for musicians|manhattan|None": {
-  "lat": 40.768332,
-  "lng": -73.973525,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "searching for models creatives for nyc editorial photoshoots|manhattan|None": {
-  "lat": 40.767364,
-  "lng": -73.976549,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "second wedding videography photography partner second shooter|manhattan|None": {
   "lat": 40.74336,
   "lng": -73.990425,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "seeking experienced dance instructor|manhattan|None": {
-  "lat": 40.751194,
-  "lng": -73.985149,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "seeking product photographer for jewelry|manhattan|None": {
-  "lat": 40.801487,
-  "lng": -73.9488,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -7139,18 +7193,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "start up band needed for female pop singer|manhattan|None": {
-  "lat": 40.735461,
-  "lng": -74.000039,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "street interview host fun and outgoing paid weekly nyc|manhattan|None": {
-  "lat": 40.788002,
-  "lng": -73.956525,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "the chris bovasso group seeks bass drums|manhattan|None": {
   "lat": 40.773049,
   "lng": -73.988069,
@@ -7163,18 +7205,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "times square photographer|manhattan|None": {
-  "lat": 40.819804,
-  "lng": -73.952813,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "trumpet sax and other wind players for biweekly jam sessions|manhattan|None": {
-  "lat": 40.81212,
-  "lng": -73.944574,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
  "twins siblings wanted paid filming shoot 100 person|manhattan|None": {
   "lat": 40.773158,
   "lng": -73.974967,
@@ -7184,24 +7214,6 @@
  "upcoming spy thriller seeking actors to play hitmen mob guys|manhattan|None": {
   "lat": 40.816148,
   "lng": -73.940787,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "urgent nyc casting actors needed this week brooklyn college mfa|manhattan|None": {
-  "lat": 40.758604,
-  "lng": -74.000626,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "videographer wanted short form social content|manhattan|None": {
-  "lat": 40.777409,
-  "lng": -73.966018,
-  "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "wanted a talented writer with the magic touch|manhattan|None": {
-  "lat": 40.754683,
-  "lng": -73.984477,
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
@@ -7433,42 +7445,6 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "men needed for a haircut video|brooklyn|None": {
-  "lat": 40.685113,
-  "lng": -73.931683,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "100 for approximately one hour of filming|brooklyn|None": {
-  "lat": 40.672373,
-  "lng": -73.941544,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "1000 mo music rehearsal band space at danbro studios|brooklyn|None": {
-  "lat": 40.630071,
-  "lng": -73.916492,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "150 00 paid to actors needed for skits|brooklyn|None": {
-  "lat": 40.680926,
-  "lng": -73.924749,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "800 day male actor for political ad oct 6 brooklyn|brooklyn|None": {
-  "lat": 40.647114,
-  "lng": -73.918542,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "950 mo music rehearsal band space at danbro studios|brooklyn|None": {
-  "lat": 40.645565,
-  "lng": -73.91202,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "drummer wanted skilled drummer for modern indie post punk brit|brooklyn|None": {
   "lat": 40.636139,
   "lng": -73.906902,
@@ -7481,12 +7457,6 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "actors wanted|brooklyn|None": {
-  "lat": 40.664999,
-  "lng": -73.933814,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "affordable recording space record vocals guitar bass more|brooklyn|None": {
   "lat": 40.620506,
   "lng": -73.983499,
@@ -7496,12 +7466,6 @@
  "alt rock grunge band looking for female vocalist and bassist|brooklyn|None": {
   "lat": 40.657196,
   "lng": -73.959566,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "analog or digital recording for bands and solo artists|brooklyn|None": {
-  "lat": 40.656363,
-  "lng": -73.907817,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7523,69 +7487,15 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "bass player here for band punk 77|brooklyn|None": {
-  "lat": 40.639693,
-  "lng": -73.93262,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "bass player wanted for punk garage rock show nov 21st|brooklyn|None": {
   "lat": 40.6073,
   "lng": -73.950721,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "brooklyn rehearsal space monthly share|brooklyn|None": {
-  "lat": 40.63151,
-  "lng": -73.922384,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "camera gimbal intern film video shoots broooklyn|brooklyn|None": {
-  "lat": 40.62622,
-  "lng": -73.982013,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "casting couples for a new tv show 1 000 per couple plus free travel|brooklyn|None": {
   "lat": 40.619884,
   "lng": -73.967725,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "casting real couples for cutlers court|brooklyn|None": {
-  "lat": 40.642361,
-  "lng": -73.944118,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "church guitarist|brooklyn|None": {
-  "lat": 40.66684,
-  "lng": -73.948138,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "crew wanted cinematic spec commercials all positions nyc|brooklyn|None": {
-  "lat": 40.659665,
-  "lng": -73.945009,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "drummer avalaible for garage 60s pop|brooklyn|None": {
-  "lat": 40.672651,
-  "lng": -73.949134,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "drummer looking for band|brooklyn|None": {
-  "lat": 40.630572,
-  "lng": -73.935176,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "drummer needed for trip hop art rock project|brooklyn|None": {
-  "lat": 40.621075,
-  "lng": -73.955045,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7601,39 +7511,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "extras needed for web series tomorrow 10 11 women ages 21 30|brooklyn|None": {
-  "lat": 40.664188,
-  "lng": -73.906056,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "extras needed for web series tomorrow 10 4 women ages 18 40|brooklyn|None": {
-  "lat": 40.68094,
-  "lng": -73.980197,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "face painting for 5 year old bday ridgewood bushwick|brooklyn|None": {
-  "lat": 40.676368,
-  "lng": -73.954899,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "female gospel singer needed for audio video recordings|brooklyn|None": {
   "lat": 40.637024,
   "lng": -73.978467,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "female models and independent artists wanted|brooklyn|None": {
-  "lat": 40.620146,
-  "lng": -73.982194,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "female models needed for multiple studio sessions|brooklyn|None": {
-  "lat": 40.662651,
-  "lng": -73.909242,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7649,27 +7529,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "former rca producer seeks singer bass guitar flute piano drummer|brooklyn|None": {
-  "lat": 40.606837,
-  "lng": -73.942158,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "freelance photographer|brooklyn|None": {
-  "lat": 40.641843,
-  "lng": -73.925104,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "funk bass player bassist available|brooklyn|None": {
   "lat": 40.631798,
   "lng": -73.931879,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "gospel guitarist|brooklyn|None": {
-  "lat": 40.671121,
-  "lng": -73.951345,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7679,39 +7541,15 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "hairstylist needed tomorrow 10 6 fashion editorial shoot brooklyn|brooklyn|None": {
-  "lat": 40.625585,
-  "lng": -73.9553,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "hard rock classic rock bass player bassist available|brooklyn|None": {
   "lat": 40.669243,
   "lng": -73.937013,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "i play bass 70s proto punk or mid 60s pop|brooklyn|None": {
-  "lat": 40.68286,
-  "lng": -73.934274,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "in search of drummer bassist for november show|brooklyn|None": {
   "lat": 40.687415,
   "lng": -73.926706,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "in search of drummer bassist vocalist|brooklyn|None": {
-  "lat": 40.662858,
-  "lng": -73.99012,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "indie electro pop project looking for a drummer|brooklyn|None": {
-  "lat": 40.637092,
-  "lng": -73.931841,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7727,18 +7565,6 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "interactive jeans modeling m f no experience req anywhere in ny|brooklyn|None": {
-  "lat": 40.693905,
-  "lng": -73.944194,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "jazz band available for gigs events|brooklyn|None": {
-  "lat": 40.63598,
-  "lng": -73.951168,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "keyboardist wanted nyc|brooklyn|None": {
   "lat": 40.611404,
   "lng": -73.942808,
@@ -7751,21 +7577,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "looking for actor for music video|brooklyn|None": {
-  "lat": 40.661029,
-  "lng": -73.924375,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "looking for regular looking middle aged people for photo shoot|brooklyn|None": {
   "lat": 40.614992,
   "lng": -73.948839,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "looking for sign language user for music video|brooklyn|None": {
-  "lat": 40.636272,
-  "lng": -73.920839,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7775,51 +7589,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "male figure drawing model for tonight perhaps ongoing|brooklyn|None": {
-  "lat": 40.644717,
-  "lng": -73.959774,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "male figure models|brooklyn|None": {
-  "lat": 40.633376,
-  "lng": -73.991027,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "metal guitarist available for session work|brooklyn|None": {
-  "lat": 40.666405,
-  "lng": -73.975069,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "mfa artist seeking black mothers birth workers for painting project|brooklyn|None": {
-  "lat": 40.653195,
-  "lng": -73.994275,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "models wanted for art magazine submission|brooklyn|None": {
-  "lat": 40.655461,
-  "lng": -73.989132,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "paid bridal casting glp 1 story 300|brooklyn|None": {
   "lat": 40.62815,
   "lng": -73.975868,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "paid glp 1 documentary casting earn 400 plus 200 for home filming|brooklyn|None": {
-  "lat": 40.635519,
-  "lng": -73.976737,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "paid friendly person 50 70 for a short product how to video|brooklyn|None": {
-  "lat": 40.675847,
-  "lng": -73.932387,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7829,45 +7601,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "photographer for a few natural photos|brooklyn|None": {
-  "lat": 40.646359,
-  "lng": -73.947027,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "photographer to shoot boudoir photoset of me for gift for bf|brooklyn|None": {
-  "lat": 40.649868,
-  "lng": -73.923006,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "photography document scanning gig brooklyn 30 hour|brooklyn|None": {
-  "lat": 40.628715,
-  "lng": -73.91989,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "photography design student wanted to maintain hair stylist instagram|brooklyn|None": {
-  "lat": 40.680251,
-  "lng": -73.926189,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "piano keyboard vocals wanted|brooklyn|None": {
   "lat": 40.657011,
   "lng": -73.907508,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "portrait photographer needed|brooklyn|None": {
-  "lat": 40.639176,
-  "lng": -73.971036,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "private drum lessons in brooklyn nyc|brooklyn|None": {
-  "lat": 40.650697,
-  "lng": -73.935362,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7877,51 +7613,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "product design cad collaborator wanted mate gourd prototype|brooklyn|None": {
-  "lat": 40.645669,
-  "lng": -73.903819,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "production assistant pa needed film noir web series|brooklyn|None": {
-  "lat": 40.650391,
-  "lng": -73.975557,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "professional drummer offering private lessons|brooklyn|None": {
-  "lat": 40.658211,
-  "lng": -73.90628,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "rehearsal space studio band practice space window danbro 425|brooklyn|None": {
-  "lat": 40.638517,
-  "lng": -73.978335,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "rehearsal studio to share|brooklyn|None": {
-  "lat": 40.63624,
-  "lng": -73.988428,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "rhythm guitarist malcolm looking to join ac dc group|brooklyn|None": {
   "lat": 40.614649,
   "lng": -73.978065,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "rnb soul disco backing singers wanted|brooklyn|None": {
-  "lat": 40.672269,
-  "lng": -73.971731,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "searching for models for luxe wig brand shoot paid opportunity|brooklyn|None": {
-  "lat": 40.678308,
-  "lng": -73.9834,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7934,12 +7628,6 @@
  "seeking bass player for indie band|brooklyn|None": {
   "lat": 40.625442,
   "lng": -73.919648,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "seeking male actor for 10 27 film shoot|brooklyn|None": {
-  "lat": 40.645172,
-  "lng": -73.984553,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -7973,21 +7661,9 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "singers musicians wanted|brooklyn|None": {
-  "lat": 40.633177,
-  "lng": -73.971247,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
  "songwriter looking for songwriting assistant to help transcribe|brooklyn|None": {
   "lat": 40.62521,
   "lng": -73.946005,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "studio rehearsal space brooklyn|brooklyn|None": {
-  "lat": 40.669466,
-  "lng": -73.959944,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -8024,24 +7700,6 @@
  "vocals bass sax for proto post punk jangle freakout art rock band|brooklyn|None": {
   "lat": 40.690967,
   "lng": -73.951734,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "voice over talent needed no experience required|brooklyn|None": {
-  "lat": 40.62087,
-  "lng": -73.928845,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "write from home flexible article writing projects|brooklyn|None": {
-  "lat": 40.670382,
-  "lng": -73.935479,
-  "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "comedians wanted open mic community meet greet|brooklyn|None": {
-  "lat": 40.684458,
-  "lng": -73.937529,
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
@@ -8093,27 +7751,9 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "2 actors needed 1 actress 1 actor|queens|None": {
-  "lat": 40.68399,
-  "lng": -73.827376,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "2 male actors needed for short script|queens|None": {
-  "lat": 40.72623,
-  "lng": -73.823237,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "actors editor cinematographer wanted|queens|None": {
   "lat": 40.671155,
   "lng": -73.80454,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "ai friendly content writers needed 100 article projects|queens|None": {
-  "lat": 40.773481,
-  "lng": -73.766206,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8123,45 +7763,15 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "are you looking for instant results with your music career|queens|None": {
-  "lat": 40.714516,
-  "lng": -73.824744,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "band seeking male keyboardist r b neo soul jazz and rock|queens|None": {
   "lat": 40.774894,
   "lng": -73.781802,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "bass guitar instruction|queens|None": {
-  "lat": 40.676587,
-  "lng": -73.813447,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "cat owner wanted ugc video commercial for wearable controller|queens|None": {
-  "lat": 40.766469,
-  "lng": -73.831187,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "conga drummer here|queens|None": {
   "lat": 40.729539,
   "lng": -73.803686,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "country drone musicians wanted|queens|None": {
-  "lat": 40.70233,
-  "lng": -73.749611,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "drummer avalaible for garage band like the seeds music machine|queens|None": {
-  "lat": 40.725277,
-  "lng": -73.755404,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8177,57 +7787,9 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "drummer wanted nyhc|queens|None": {
-  "lat": 40.685736,
-  "lng": -73.824601,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "experienced classic rock rhythm guitarist available|queens|None": {
   "lat": 40.695095,
   "lng": -73.824474,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "female for modell or dancing|queens|None": {
-  "lat": 40.725176,
-  "lng": -73.777427,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "female keys dj sampler and f drummer wanted for a f groove rock band|queens|None": {
-  "lat": 40.67621,
-  "lng": -73.796399,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "female singer wanted|queens|None": {
-  "lat": 40.672897,
-  "lng": -73.806349,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "female vocalist wanted|queens|None": {
-  "lat": 40.708252,
-  "lng": -73.769622,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "guitarist|queens|None": {
-  "lat": 40.717711,
-  "lng": -73.841106,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "guitarist looking for arena rock band|queens|None": {
-  "lat": 40.698683,
-  "lng": -73.786307,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "guitarist looking to form band|queens|None": {
-  "lat": 40.749888,
-  "lng": -73.829571,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8243,12 +7805,6 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "halloween event photographer sat oct 31st|queens|None": {
-  "lat": 40.726883,
-  "lng": -73.839448,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "hard rock band seeking drummer|queens|None": {
   "lat": 40.755885,
   "lng": -73.815634,
@@ -8261,27 +7817,9 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "horn players wanted|queens|None": {
-  "lat": 40.759225,
-  "lng": -73.784683,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "independent music management company looking for female artists|queens|None": {
-  "lat": 40.730401,
-  "lng": -73.818742,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "indie rock band seeking lead guitarist|queens|None": {
   "lat": 40.729903,
   "lng": -73.813004,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "iso drummer for just for fun band|queens|None": {
-  "lat": 40.685089,
-  "lng": -73.787625,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8309,75 +7847,15 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "keys wanted for new wave indie rock dad band|queens|None": {
-  "lat": 40.748814,
-  "lng": -73.763344,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "looking for a keyboard player|queens|None": {
-  "lat": 40.760331,
-  "lng": -73.794544,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "looking for actress|queens|None": {
-  "lat": 40.690954,
-  "lng": -73.817981,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "male model needed construction trade|queens|None": {
-  "lat": 40.780905,
-  "lng": -73.804374,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "men 18 for masculinity photo series paid shoot|queens|None": {
   "lat": 40.699979,
   "lng": -73.802711,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "models and dancers|queens|None": {
-  "lat": 40.699659,
-  "lng": -73.76267,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "music kidz fun for kids all ages learning to play by having fun|queens|None": {
-  "lat": 40.741084,
-  "lng": -73.80086,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "music transcription services finale software lessons|queens|None": {
   "lat": 40.747212,
   "lng": -73.83839,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "non pressure band seeking musicians and singers over 50yrs of age|queens|None": {
-  "lat": 40.762073,
-  "lng": -73.755143,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "november 14th male models needed for medical training course 400|queens|None": {
-  "lat": 40.752073,
-  "lng": -73.83036,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "on camera spokesperson needed for short promotional video 50|queens|None": {
-  "lat": 40.700092,
-  "lng": -73.828004,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "photographer needed october 1 4 630 pm astoria|queens|None": {
-  "lat": 40.710218,
-  "lng": -73.765199,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8393,39 +7871,15 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "producer with pro studio available|queens|None": {
-  "lat": 40.759048,
-  "lng": -73.820259,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "record company seeks new music producers|queens|None": {
   "lat": 40.717984,
   "lng": -73.822092,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "retired adult novise band seeks singers and musicians|queens|None": {
-  "lat": 40.688752,
-  "lng": -73.775864,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "sag short film casting 60 poc woman minimal acting experience needed|queens|None": {
   "lat": 40.729724,
   "lng": -73.780327,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "scare actors needed|queens|None": {
-  "lat": 40.754309,
-  "lng": -73.820345,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "thrash death metal band in search of bassist and drummer|queens|None": {
-  "lat": 40.748719,
-  "lng": -73.799834,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -8441,27 +7895,9 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "female life models wanted for paid sketching sessions|bronx|None": {
-  "lat": 40.81701,
-  "lng": -73.870504,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "gig store photo video shooter early mornings all nyc|bronx|None": {
-  "lat": 40.818072,
-  "lng": -73.849087,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
  "mango jam seeks pianist keyboardist|bronx|None": {
   "lat": 40.850443,
   "lng": -73.857252,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "music lessons|bronx|None": {
-  "lat": 40.83861,
-  "lng": -73.884566,
   "matched": "near Bronx (approximate)",
   "how": "area"
  },
@@ -8471,27 +7907,9 @@
   "matched": "near Bronx (approximate)",
   "how": "area"
  },
- "paid glamour photoshoot 500|bronx|None": {
-  "lat": 40.836589,
-  "lng": -73.890273,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "photographer needed high school football game tomorrow 10 17|bronx|None": {
-  "lat": 40.864503,
-  "lng": -73.856698,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
  "producer mixer available for work at your place i teach|bronx|None": {
   "lat": 40.834699,
   "lng": -73.867375,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "salsa musical charts|bronx|None": {
-  "lat": 40.814788,
-  "lng": -73.851022,
   "matched": "near Bronx (approximate)",
   "how": "area"
  },
@@ -8501,28 +7919,10 @@
   "matched": "near Bronx (approximate)",
   "how": "area"
  },
- "singers rappers musicians dancers comedians come be on tv|bronx|None": {
-  "lat": 40.86591,
-  "lng": -73.845733,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
  "spider salt seeks guitar player|bronx|None": {
   "lat": 40.840292,
   "lng": -73.873459,
   "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "we re stating a jazz band bitches|bronx|None": {
-  "lat": 40.861937,
-  "lng": -73.850371,
-  "matched": "near Bronx (approximate)",
-  "how": "area"
- },
- "band mates wanted|staten_island|None": {
-  "lat": 40.603778,
-  "lng": -74.152444,
-  "matched": "near Staten Island (approximate)",
   "how": "area"
  },
  "bass guitar instruction|staten_island|None": {
@@ -8531,21 +7931,9 @@
   "matched": "near Staten Island (approximate)",
   "how": "area"
  },
- "drummer wanted nyhc|staten_island|None": {
-  "lat": 40.555983,
-  "lng": -74.144658,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
  "event planners and promoters musicians and bands|staten_island|None": {
   "lat": 40.584388,
   "lng": -74.133488,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
- "food photographer needed wedding catering shoot oct 10 200|staten_island|None": {
-  "lat": 40.575549,
-  "lng": -74.160158,
   "matched": "near Staten Island (approximate)",
   "how": "area"
  },
@@ -8561,24 +7949,6 @@
   "matched": "near Staten Island (approximate)",
   "how": "area"
  },
- "jazz union for hire any combo guitar sax bass keys vocals drums|staten_island|None": {
-  "lat": 40.610637,
-  "lng": -74.140421,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
- "judas priest tribute band forming seeking lead guitar player|staten_island|None": {
-  "lat": 40.549522,
-  "lng": -74.143462,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
- "models wanted saturday 10 10 staten island|staten_island|None": {
-  "lat": 40.565673,
-  "lng": -74.120799,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
  "original metal band|staten_island|None": {
   "lat": 40.587653,
   "lng": -74.165014,
@@ -8588,18 +7958,6 @@
  "piano synth player wanted for solo artist band situation|staten_island|None": {
   "lat": 40.60711,
   "lng": -74.132757,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
- "pro level keyboard player wanted|staten_island|None": {
-  "lat": 40.576043,
-  "lng": -74.159597,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
- "prvt guitar lessons 30 hour|staten_island|None": {
-  "lat": 40.560432,
-  "lng": -74.161217,
   "matched": "near Staten Island (approximate)",
   "how": "area"
  },
@@ -8627,12 +7985,6 @@
   "matched": "near Staten Island (approximate)",
   "how": "area"
  },
- "wanted solid bass player and drummer for classic rock blues rock|staten_island|None": {
-  "lat": 40.578804,
-  "lng": -74.125897,
-  "matched": "near Staten Island (approximate)",
-  "how": "area"
- },
  "blanca and ines nyc epa 11 03 26 intar new york ny|unknown|2026-11-03": {
   "lat": 40.76636,
   "lng": -73.995833,
@@ -8643,6 +7995,576 @@
   "lat": 40.820557,
   "lng": -73.943279,
   "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for applicants scholarship awards for two month woodworking intensive|vermont|2027-02-15": {
+  "lat": 42.850759,
+  "lng": -72.557291,
+  "matched": "Brattleboro, Windham County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "open call women in art volume 1 wild at heart gallery exhibition hardcover art book the untitled space|manhattan|2026-12-21": {
+  "lat": 40.812349,
+  "lng": -73.956682,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "open call escalada art holiday show|brooklyn|2026-11-30": {
+  "lat": 40.632149,
+  "lng": -73.933615,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "call for artists a mess up curated group exhibition at a space gallery|brooklyn|2026-11-08": {
+  "lat": 40.6281,
+  "lng": -73.975645,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "open call for artists in residence 2027|brooklyn|2026-12-31": {
+  "lat": 40.645698,
+  "lng": -73.905482,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "teaching arts teaching inclusively a professional development training opportunity|manhattan|2026-11-24": {
+  "lat": 40.767506,
+  "lng": -73.99182,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for artists tannery pond center north creek ny|upstate_ny|2026-12-20": {
+  "lat": 43.691484,
+  "lng": -73.986727,
+  "matched": "North Creek, Town of Johnsburg, Town of Chester, Warren County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "space open call for artists|manhattan|2026-11-14": {
+  "lat": 40.789221,
+  "lng": -73.965727,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "as above so below magic in the digital age 00 00|manhattan|2026-11-15": {
+  "lat": 40.776205,
+  "lng": -73.98054,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for artists first street gallery selects 2027 juried exhibition|manhattan|2026-11-13": {
+  "lat": 40.828142,
+  "lng": -73.941355,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "data through design exhibition call for proposals|brooklyn|2026-11-15": {
+  "lat": 40.624639,
+  "lng": -73.98532,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "winter workshops urbanglass|brooklyn|None": {
+  "lat": 40.672109,
+  "lng": -73.929648,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "open call curated group exhibition spring 2027 seven house gallery|brooklyn|2026-11-15": {
+  "lat": 40.611517,
+  "lng": -73.94368,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "800 monroe resilency park sculpture|new_jersey|2026-11-30": {
+  "lat": 40.743307,
+  "lng": -74.032375,
+  "matched": "Hoboken, Hudson County, New Jersey, 07030, United States (approximate)",
+  "how": "area"
+ },
+ "call for art create magazine print issue 61 juried by deep space gallery|pennsylvania|2026-11-30": {
+  "lat": 39.952724,
+  "lng": -75.163526,
+  "matched": "Philadelphia, Philadelphia County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "calling artwork music performance for integration genesis from synthesis brooklyn|brooklyn|2026-11-08": {
+  "lat": 40.657749,
+  "lng": -73.968796,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "studio assistant|manhattan|None": {
+  "lat": 40.731434,
+  "lng": -74.008127,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paid p t curatorial internship|manhattan|2026-11-15": {
+  "lat": 40.743467,
+  "lng": -74.00087,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "anne l poulet curatorial fellowship 2027 29|manhattan|2026-12-15": {
+  "lat": 40.773938,
+  "lng": -73.984599,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "stephen k and janie woo scher fellowship 2027 28|manhattan|2026-12-15": {
+  "lat": 40.76889,
+  "lng": -73.993404,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "alexis gregory fellowship for european decorative arts 2027 2028|manhattan|2026-12-15": {
+  "lat": 40.750424,
+  "lng": -73.99023,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "art handler chelsea gallery|manhattan|None": {
+  "lat": 40.765721,
+  "lng": -73.99183,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "holiday hiring artists wanted for hand painted monograms|brooklyn|None": {
+  "lat": 40.619989,
+  "lng": -73.984906,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "seeking talented outside the box djs music enthusiasts for our growing team|manhattan|2026-11-11": {
+  "lat": 40.815372,
+  "lng": -73.958677,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "postdoctoral instructor in art history and the classical tradition|queens|2026-11-15": {
+  "lat": 40.686664,
+  "lng": -73.777203,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "director of exhibition development|manhattan|2026-11-13": {
+  "lat": 40.775409,
+  "lng": -73.989399,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "collections exhibitions manager|manhattan|2026-11-30": {
+  "lat": 40.761428,
+  "lng": -73.984323,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "full time tenure track faculty position for assistant or associate professor in the school of art|manhattan|2027-01-19": {
+  "lat": 40.752336,
+  "lng": -73.99391,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "graphic design media associate|manhattan|None": {
+  "lat": 40.821964,
+  "lng": -73.937815,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "associate director of graphic design|manhattan|None": {
+  "lat": 40.779311,
+  "lng": -73.976341,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "art handler or lead art handler crew chief|queens|None": {
+  "lat": 40.763672,
+  "lng": -73.830346,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "part time art handler|queens|None": {
+  "lat": 40.680226,
+  "lng": -73.785957,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "art handling specialist valley stream ny|long_island|None": {
+  "lat": 40.663136,
+  "lng": -73.705696,
+  "matched": "Village of Valley Stream, Town of Hempstead, Nassau County, New York, 11580, United States (approximate)",
+  "how": "area"
+ },
+ "custom picture framer for high end conservation framing studio|manhattan|2026-11-02": {
+  "lat": 40.770242,
+  "lng": -73.98598,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "visiting clinical assistant professor arts cultures|manhattan|2026-11-22": {
+  "lat": 40.757785,
+  "lng": -73.997586,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "studio operations manager|brooklyn|None": {
+  "lat": 40.67204,
+  "lng": -73.969386,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "lead installer senior carpenter|new_jersey|None": {
+  "lat": 39.934835,
+  "lng": -75.030726,
+  "matched": "Cherry Hill Township, Camden County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "painting arts instructor temporary|manhattan|2026-12-04": {
+  "lat": 40.77884,
+  "lng": -73.984135,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pt seasonal art handler|queens|None": {
+  "lat": 40.733775,
+  "lng": -73.773521,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "chanel culture fund curatorial fellowship|manhattan|None": {
+  "lat": 40.747609,
+  "lng": -73.994636,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "artistic director|manhattan|2026-11-04": {
+  "lat": 40.79569,
+  "lng": -73.958695,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "integrated arts teaching artist 2d 3d visual art|manhattan|None": {
+  "lat": 40.765754,
+  "lng": -73.995336,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "character design teaching artist|manhattan|None": {
+  "lat": 40.778871,
+  "lng": -73.973174,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "graphic design teaching artist|manhattan|None": {
+  "lat": 40.787928,
+  "lng": -73.954797,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "airbrush painter|brooklyn|None": {
+  "lat": 40.665006,
+  "lng": -73.964756,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "associate producer|manhattan|2026-11-16": {
+  "lat": 40.784592,
+  "lng": -73.956869,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "gallery assistant art handling filmmaking internship|manhattan|2026-11-21": {
+  "lat": 40.794273,
+  "lng": -73.964422,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "in house artist at commercial art design studio|manhattan|2026-11-18": {
+  "lat": 40.757221,
+  "lng": -74.000097,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "safcore design build studio fabrication build lead woodshop|queens|2026-11-04": {
+  "lat": 40.715743,
+  "lng": -73.759763,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "pottery production assistant|brooklyn|None": {
+  "lat": 40.662697,
+  "lng": -73.96944,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "production assistant materials|brooklyn|None": {
+  "lat": 40.62948,
+  "lng": -73.92938,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "exhibit developer|new_jersey|None": {
+  "lat": 40.721568,
+  "lng": -74.047455,
+  "matched": "Jersey City, Hudson County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "workshop assistant|brooklyn|2026-11-02": {
+  "lat": 40.624991,
+  "lng": -73.924111,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "experienced woodworker patternmaker cabinetmaker|manhattan|None": {
+  "lat": 40.790076,
+  "lng": -73.95991,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "gallery curator deputy director|manhattan|2026-11-16": {
+  "lat": 40.804024,
+  "lng": -73.953098,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "fine art printer and shipper|long_island|None": {
+  "lat": 40.76225,
+  "lng": -73.322859,
+  "matched": "Deer Park, Town of Babylon, Suffolk County, New York, 11729, United States (approximate)",
+  "how": "area"
+ },
+ "the winter show run of show internship program|manhattan|2026-11-12": {
+  "lat": 40.772418,
+  "lng": -73.972345,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "custom fabricator|brooklyn|2026-11-03": {
+  "lat": 40.645915,
+  "lng": -73.92054,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "fine art printer archivist|westchester_hudson|2026-11-17": {
+  "lat": 41.018282,
+  "lng": -73.91637,
+  "matched": "Palisades, Sparkill, Town of Orangetown, Rockland County, New York, 10964, United States (approximate)",
+  "how": "area"
+ },
+ "video producer shooter editor|manhattan|None": {
+  "lat": 40.758232,
+  "lng": -73.980574,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "part time on call fine art handler|manhattan|2026-11-05": {
+  "lat": 40.812631,
+  "lng": -73.956455,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "pt production jeweler|manhattan|None": {
+  "lat": 40.782819,
+  "lng": -73.983186,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "assistant professor associate professor of visual arts tenure track|manhattan|None": {
+  "lat": 40.789485,
+  "lng": -73.966958,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "canal projects curatorial fellowship|manhattan|None": {
+  "lat": 40.773664,
+  "lng": -73.984942,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "paper conservation fellow|manhattan|None": {
+  "lat": 40.791168,
+  "lng": -73.972007,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "driver art handler position dc office full time p t|dc|None": {
+  "lat": 38.895098,
+  "lng": -77.036385,
+  "matched": "Washington, District of Columbia, United States (approximate)",
+  "how": "area"
+ },
+ "innovation fellowship for independent researchers|pennsylvania|2027-01-17": {
+  "lat": 39.952724,
+  "lng": -75.163526,
+  "matched": "Philadelphia, Philadelphia County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "visiting artists lodging|manhattan|None": {
+  "lat": 40.738967,
+  "lng": -74.010448,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "red hook studio share office shooting space|brooklyn|None": {
+  "lat": 40.667618,
+  "lng": -73.919198,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "studio spaces available basking ridge nj private rooms inside historic farmhouse|new_jersey|None": {
+  "lat": 40.706409,
+  "lng": -74.549273,
+  "matched": "Basking Ridge, Bernards Township, Somerset County, New Jersey, 02794, United States (approximate)",
+  "how": "area"
+ },
+ "very affordable rehearsal space in midtown with piano|manhattan|None": {
+  "lat": 40.798021,
+  "lng": -73.955752,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "kunstraum studios artist hub and gallery short and long term|brooklyn|None": {
+  "lat": 40.673326,
+  "lng": -73.976359,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "winter writer s upstate retreat new paltz 2 bdrm flexible dates|westchester_hudson|None": {
+  "lat": 41.746497,
+  "lng": -74.084489,
+  "matched": "Town of New Paltz, Ulster County, New York, 12561, United States (approximate)",
+  "how": "area"
+ },
+ "gorgeous light filled ceramic studio opening up for memberships|brooklyn|None": {
+  "lat": 40.647862,
+  "lng": -73.907932,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "artist studio spaces available 544 park avenue brooklyn|brooklyn|None": {
+  "lat": 40.671461,
+  "lng": -73.922248,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "studio space in prime gowanus carroll gardens gowanus|brooklyn|None": {
+  "lat": 40.686527,
+  "lng": -73.951761,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "share studio with lots of light|brooklyn|None": {
+  "lat": 40.614497,
+  "lng": -73.935717,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "new ridgewood artist studios starting at 475 opening november 1st|queens|None": {
+  "lat": 40.762682,
+  "lng": -73.828305,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "bright new private artist studios workspaces for monthly rent in prime lic|queens|None": {
+  "lat": 40.67993,
+  "lng": -73.822553,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "private sunny workspace on top floor climate controlled huge window in great location|brooklyn|None": {
+  "lat": 40.669324,
+  "lng": -73.908448,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "private art studio for rent in tribeca soho 180 385 sq ft amazing manhattan location in artist filled building|manhattan|None": {
+  "lat": 40.765742,
+  "lng": -73.977831,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "large private artist studio shared creative workspace 2200sf|brooklyn|None": {
+  "lat": 40.674257,
+  "lng": -73.970353,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "beautiful art creative studio w sink in ridgewood queens short walk from greenpoint|queens|None": {
+  "lat": 40.683172,
+  "lng": -73.762615,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "private art and creative studios in mt haven bronx|bronx|None": {
+  "lat": 40.839309,
+  "lng": -73.899308,
+  "matched": "near Bronx (approximate)",
+  "how": "area"
+ },
+ "beautiful private art studio in greenpoint east williamsburg brooklyn|brooklyn|None": {
+  "lat": 40.613839,
+  "lng": -73.943291,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "affordable studios available artbuilt at the brooklyn army terminal in sunset park|brooklyn|None": {
+  "lat": 40.690664,
+  "lng": -73.942263,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "850 and up private professional built art studio for rent work only long island city ny|queens|None": {
+  "lat": 40.760644,
+  "lng": -73.829637,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "new improved rehearsal studios performance halls recordings and more at the national opera center|manhattan|None": {
+  "lat": 40.811268,
+  "lng": -73.956247,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "gowanus artist studios starting at 575|brooklyn|None": {
+  "lat": 40.640326,
+  "lng": -73.993854,
+  "matched": "near Brooklyn (approximate)",
+  "how": "area"
+ },
+ "create your own seasonal door sign|queens|2026-11-07": {
+  "lat": 40.753046,
+  "lng": -73.805962,
+  "matched": "near Queens (approximate)",
+  "how": "area"
+ },
+ "holiday silent disco series|manhattan|2026-11-06": {
+  "lat": 40.834498,
+  "lng": -73.935926,
+  "matched": "near Manhattan (approximate)",
+  "how": "area"
+ },
+ "call for vendors songs of the spirit holiday village craft fair|westchester_hudson|2026-11-15": {
+  "lat": 41.040595,
+  "lng": -73.71448,
+  "matched": "Purchase, Town/Village of Harrison, Westchester County, New York, 10577, United States (approximate)",
+  "how": "area"
+ },
+ "dance teaching artist westhab dayspring afterschool program yonkers|westchester_hudson|2026-11-30": {
+  "lat": 40.93121,
+  "lng": -73.898747,
+  "matched": "City of Yonkers, Westchester County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "teddy trail ridgefield public art project seeks design ideas|connecticut|2026-11-15": {
+  "lat": 41.735003,
+  "lng": -72.587445,
+  "matched": "near Connecticut (approximate)",
+  "how": "area"
+ },
+ "call for teaching artists pelham art center|westchester_hudson|2026-12-31": {
+  "lat": 40.909821,
+  "lng": -73.807911,
+  "matched": "Town of Pelham, Westchester County, New York, 10803, United States (approximate)",
   "how": "area"
  }
 }
