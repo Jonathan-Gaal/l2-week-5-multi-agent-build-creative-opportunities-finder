@@ -54,9 +54,9 @@
 .sideBtn { background: none; border: 0; padding: 0 0 5px; color: var(--paper); font: italic 900 26px var(--serif); text-decoration: none; background: linear-gradient(var(--pink), var(--pink)) no-repeat left bottom / 0 3px; cursor: pointer; white-space: nowrap; transition: color 0.12s, background-size 0.35s ease; position: absolute; top: 50%; translate: 0 -50%; }
 .sideBack { right: calc(100% + 44px); }
 .sideNext { left: calc(100% + 44px); }
-.sideBtn:hover, .sideBtn:focus-visible, .sideBtn:active { background-size: 100% 3px; }
+.sideBtn:hover, .sideBtn:focus-visible, .sideBtn:active, .sideBtn[data-press="true"] { background-size: 100% 3px; }
 .sideBtn .arrow { transition: color 0.12s; }
-.sideBtn:hover .arrow, .sideBtn:focus-visible .arrow, .sideBtn:active .arrow { color: var(--lime); }
+.sideBtn:hover .arrow, .sideBtn:focus-visible .arrow, .sideBtn:active .arrow, .sideBtn[data-press="true"] .arrow { color: var(--lime); }
 .sideBtn:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
 @media (max-width: 1340px) {
   .sides { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 28px; border-top: 2px solid var(--plum); padding-top: 20px; }

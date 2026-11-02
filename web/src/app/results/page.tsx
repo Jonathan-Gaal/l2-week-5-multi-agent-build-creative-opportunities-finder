@@ -10,6 +10,7 @@ import { asBackendError, type BackendError, getMeta, searchBackend, visitorClien
 import { soonestFirst } from "@/lib/cards";
 import { TOP_TAGS } from "@/lib/tags";
 import { loadPoints } from "@/lib/geo";
+import { recordRun } from "@/lib/savedRuns";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
 import type { SearchOutput } from "@/lib/types";
 import { TYPE_PILLS, TYPE_PILL_IDS, narrowCards, pickedLabelsFor, pillsForTypes, subtypeTokens } from "@/lib/typePills";
@@ -52,6 +53,7 @@ const expiredIn = (removed: string | null) => Number(removed?.match(/(\d+)\s+exp
 /** The results page, on the layout of the "Live" board: your answers as chips on the left, the count and cards on the right. */
 export default async function Results({ searchParams }: { searchParams: Params }) {
   const q = await searchParams;
+  const startedAt = performance.now();
   const meta = getMeta();
   const labels = labelsFor(meta);
   const allowed = pickerChoices(meta);
@@ -94,6 +96,9 @@ export default async function Results({ searchParams }: { searchParams: Params }
     failure = asBackendError(e);
   }
 
+  // A replay from the demo (a saved run played back) keeps the "Finding your opportunities" screen up for about three seconds.
+  if (q.replay === "1" && process.env.CLAUDE_CODE_AS_MODEL === "1") await new Promise((done) => setTimeout(done, Math.max(0, 3000 - (performance.now() - startedAt))));
+
   // Narrow each list to the picked pills (open mics only, not every event); null means no narrowing applies. The results
   // service ranks by broad type first, so its top list can hold none of the picked kind even when many exist. In that
   // case show the whole list and say so, rather than claim nothing was found.
@@ -111,6 +116,15 @@ export default async function Results({ searchParams }: { searchParams: Params }
   const picks = takeInTurns((lists ?? []).map((l) => l.cards), TOP_PICKS);     // the ranked list
   const pickKeys = new Set(picks.map((c) => c.key));
   const total = picks.length;
+  if (out && total > 0) {     // while Claude Code plays the model, keep this search so the demo can replay it
+    const artists = [...new Set(disciplines.flatMap((id) => chipsFor(id).map((c) => c.word)))];
+    const wants = TYPE_PILLS.filter((p) => (pills.length ? pills : pillsForTypes(types)).includes(p.id)).map((p) => p.label);
+    const where = places.map((id) => labels.place(id));
+    recordRun({
+      name: `${artists.length ? sayList(artists) : "Any artist"}: ${wants.length ? sayList(wants.map((w) => w.toLowerCase())) : "opportunities"} in ${where.length > 3 ? `${where.length} places` : sayList(where)}`,
+      url: `/results?${choices}`, artists, wants, places: where, top: picks.map((c, i) => ({ n: i + 1, title: c.title })),
+    });
+  }
   const matched = lists?.reduce((n, l) => n + Math.max(l.g.total, l.cards.length), 0) ?? 0;     // every listing that fits
   const expired = out?.groups.reduce((n, g) => n + expiredIn(g.removed), 0) ?? 0;
   const expiredItems = out?.groups.flatMap((g) => g.expired) ?? [];     // one list for every type

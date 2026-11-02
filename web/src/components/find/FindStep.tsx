@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { MetaResponse } from "@api/types";
 import { TYPE_PILLS, typesOf } from "@/lib/typePills";
 import { article, chipList, chipText, chipsFor, idsOf } from "@/lib/disciplineWords";
 import { spellOut, toggleGroup, togglePlace } from "@/lib/places";
+import { makeCursor } from "@/lib/replayCursor";
 import PlaceMap, { PlaceChips } from "./PlaceMap";
 import s from "./FindFlow.module.css";
 
@@ -58,9 +59,9 @@ const COPY = {
 } as const;
 
 /** One kind of opportunity as a taped-up index card. Picking it circles it in marker; the card colour never changes. */
-function OppCard({ i, on, label, why, onClick }: { i: number; on: boolean; label: string; why?: string; onClick: () => void }) {
+function OppCard({ i, on, label, why, pick, onClick }: { i: number; on: boolean; label: string; why?: string; pick?: string; onClick: () => void }) {
   return (
-    <button type="button" className={`${s.oppCard} ${s[CARD_TONES[(i + Math.floor(i / 3)) % CARD_TONES.length]]}`} style={{ ["--tilt" as string]: `${TILTS[i % TILTS.length]}deg`, ["--tape" as string]: i % 2 ? "4deg" : "-3deg" }} aria-pressed={on} onClick={onClick}>
+    <button type="button" data-pick={pick} className={`${s.oppCard} ${s[CARD_TONES[(i + Math.floor(i / 3)) % CARD_TONES.length]]}`} style={{ ["--tilt" as string]: `${TILTS[i % TILTS.length]}deg`, ["--tape" as string]: i % 2 ? "4deg" : "-3deg" }} aria-pressed={on} onClick={onClick}>
       <svg className={s.circ} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <path d={CIRCLE} />
       </svg>
@@ -73,7 +74,7 @@ function OppCard({ i, on, label, why, onClick }: { i: number; on: boolean; label
 /** One kind of artist: a big serif word on a colour bar that rises to fill the word when picked. The colours run lime, pink, cream, shifted a step each row of four. */
 function ArtistWord({ i, id, on, children, onClick }: { i: number; id: string; on: boolean; children: React.ReactNode; onClick: () => void }) {
   return (
-    <button type="button" className={`${s.artistWord} ${s[artistTone(i, id)]}`} aria-pressed={on} onClick={onClick}>
+    <button type="button" data-pick={id} className={`${s.artistWord} ${s[artistTone(i, id)]}`} aria-pressed={on} onClick={onClick}>
       <span>{children}</span>
       {/* an invisible capitalised copy keeps the button the same width whether it is picked (capitals) or not, so the rows never reshuffle */}
       <span className={s.artistSizer} aria-hidden="true">
@@ -98,6 +99,12 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
   const [nudge, setNudge] = useState(0); // each early press restarts the wiggle
   const alertTimer = useRef<number | undefined>(undefined);
   useEffect(() => () => window.clearTimeout(alertTimer.current), []);
+  // A saved run from the demo (/demo) plays itself: with ?replay=1 each step picks the saved choices one by one, presses Next,
+  // and carries on to the next step, so the results page opens the way it would after someone had gone through the flow.
+  const params = useSearchParams();
+  const replay = params.get("replay") === "1";
+  const replayQuery = new URLSearchParams({ replay: "1", rd: params.get("rd") ?? "", rs: params.get("rs") ?? "", rp: params.get("rp") ?? "" }).toString();
+  const [pressing, setPressing] = useState(false);
   const copy = COPY[step];
   const shownPills = TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value)));
   const allOn = shownPills.length > 0 && shownPills.every((p) => c.s.includes(p.id));
@@ -127,6 +134,69 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
     }
     router.push(next);
   };
+
+  const keysRef = useRef(keys);
+  const nextRef = useRef(next);
+  useEffect(() => {
+    // The results address of a replay carries replay=1, so the results page keeps its loading screen up for a few seconds.
+    nextRef.current = replay ? `${next}${next.includes("?") ? "&" : "?"}${step === "place" ? "replay=1" : replayQuery}` : next;
+  });
+  useEffect(() => {
+    if (!replay) return;
+    const list = (key: string) => (params.get(key) ?? "").split(",").filter(Boolean);
+    // What this step picks, in order: the thing to click, and what to do instead if it is not on screen (a folded group of places).
+    const picks: { pick: string; apply: () => void }[] =
+      step === "discipline"
+        ? list("rd").flatMap((id) => {
+            const key = chipsFor(id)[0]?.key;
+            if (!key) return [];
+            return [{ pick: key, apply: () => {
+              keysRef.current = [...keysRef.current, key];
+              setKeys(keysRef.current);
+              setC((prev) => ({ ...prev, d: idsOf(keysRef.current) }));
+            } }];
+          })
+        : step === "type"
+          ? list("rs").map((id) => ({ pick: id, apply: () => setC((prev) => ({ ...prev, s: prev.s.includes(id) ? prev.s : [...prev.s, id] })) }))
+          : list("rp").map((id) => ({ pick: id, apply: () => setC((prev) => ({ ...prev, p: prev.p.includes(id) ? prev.p : togglePlace(prev.p, id) })) }));
+    let stop = false;
+    const cursor = makeCursor();
+    const wait = (ms: number) => new Promise<void>((done) => window.setTimeout(done, ms));
+    const glideTo = async (el: Element) => {
+      el.scrollIntoView({ block: "center", behavior: "smooth" });
+      await wait(400);
+      const r = el.getBoundingClientRect();
+      cursor.move(r.left + r.width / 2, r.top + r.height / 2);
+      await wait(800);
+    };
+    void (async () => {
+      await wait(900);
+      for (const p of picks) {
+        if (stop) return;
+        const el = document.querySelector<HTMLElement>(`[data-pick="${p.pick}"]`);
+        if (el) {
+          await glideTo(el);
+          cursor.click();
+          el.click();     // the real button, so the page reacts exactly as it does for a person
+        } else p.apply();
+        await wait(450);
+      }
+      await wait(700);
+      const nextButton = document.querySelector('[data-pick="next"]');
+      if (nextButton && !stop) {
+        await glideTo(nextButton);
+        cursor.click();
+        setPressing(true);
+        await wait(450);
+      }
+      if (!stop) router.push(nextRef.current);
+    })();
+    return () => {
+      stop = true;
+      cursor.remove();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- a replay starts once per step
+  }, [replay, step]);
 
   return (
     <div className={s.frame}>
@@ -176,7 +246,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
         {step === "type" && (
           <div className={s.explainGrid} role="group" aria-label="Kinds of opportunity">
             {shownPills.map((p, i) => (
-              <OppCard key={p.id} i={i} on={c.s.includes(p.id)} label={p.label} why={p.explain} onClick={() => setC({ ...c, s: toggle(c.s, p.id) })} />
+              <OppCard key={p.id} i={i} pick={p.id} on={c.s.includes(p.id)} label={p.label} why={p.explain} onClick={() => setC({ ...c, s: toggle(c.s, p.id) })} />
             ))}
             <OppCard
               i={shownPills.length}
@@ -212,7 +282,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
         </span>{" "}
         Back
       </Link>
-      <button type="button" className={`${s.sideBtn} ${s.sideNext}`} onClick={go}>
+      <button type="button" data-pick="next" className={`${s.sideBtn} ${s.sideNext}`} data-press={pressing ? "true" : undefined} onClick={go}>
         Next{" "}
         <span className={s.arrow} aria-hidden="true">
           →

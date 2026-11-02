@@ -210,6 +210,7 @@ export function PlaceChips({
                   <button
                     key={id}
                     type="button"
+                    data-pick={id}
                     className={`${s.chip} ${s.placeChip} ${group === "nyc" ? s.pNyc : group === "tri" ? s.pTri : s.pWide} ${s.chipSmall}`}
                     style={{ ["--tilt" as string]: `${TILTS[i % TILTS.length]}deg` }}
                     aria-pressed={placeOn(places, id)}
