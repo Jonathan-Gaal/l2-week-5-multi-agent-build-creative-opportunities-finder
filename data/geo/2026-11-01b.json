@@ -281,6 +281,12 @@
   "matched": "1241 HALSEY ST, BROOKLYN, NY, 11237",
   "how": "address"
  },
+ "comedy music poetry open mic at the windjammer wednesday 7 30pm|queens|recurring": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
  "comedy open mic at laughing buddha comedy wednesday 9 45pm|manhattan|recurring": {
   "lat": 40.749798,
   "lng": -73.99512,
@@ -521,6 +527,12 @@
   "matched": "3 LAKELAND AVE, SAYVILLE, NY, 11782",
   "how": "address"
  },
+ "comedy music poetry open mic at cool beans coffee house thursday 8 00pm|queens|recurring": {
+  "lat": 40.748843,
+  "lng": -73.913521,
+  "matched": "50-20 39TH AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
  "comedy open mic at producers club theaters sunday 5 00pm|manhattan|recurring": {
   "lat": 40.759186,
   "lng": -73.990549,
@@ -537,6 +549,12 @@
   "lat": 40.806623,
   "lng": -73.926814,
   "matched": "53 BRUCKNER BLVD, BRONX, NY, 10454",
+  "how": "address"
+ },
+ "comedy music poetry open mic at qed astoria sunday 8 30pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
   "how": "address"
  },
  "comedy open mic at pete s candy store saturday 3 30pm|brooklyn|recurring": {
@@ -581,6 +599,12 @@
   "matched": "358 W 44TH ST, NEW YORK, NY, 10036",
   "how": "address"
  },
+ "comedy music poetry open mic at qed astoria tuesday 6 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
  "music open mic at the bitter end sunday 7 00pm|manhattan|recurring": {
   "lat": 40.728406,
   "lng": -73.999505,
@@ -591,6 +615,12 @@
   "lat": 40.726354,
   "lng": -74.00421,
   "matched": "15 VANDAM ST, NEW YORK, NY, 10013",
+  "how": "address"
+ },
+ "comedy music poetry open mic at qed astoria thursday 10 45pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
   "how": "address"
  },
  "comedy open mic at sesh comedy tuesday 5 00pm|manhattan|recurring": {
@@ -639,6 +669,12 @@
   "lat": 40.753338,
   "lng": -73.990449,
   "matched": "240 W 37TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "music open mic at irish whiskey bar tuesday 8 30pm|queens|recurring": {
+  "lat": 40.767374,
+  "lng": -73.921085,
+  "matched": "28-48 31ST ST, ASTORIA, NY, 11102",
   "how": "address"
  },
  "comedy open mic at laughing buddha comedy saturday 6 30pm|manhattan|recurring": {
@@ -725,6 +761,12 @@
   "matched": "487 ATLANTIC AVE, BROOKLYN, NY, 11217",
   "how": "address"
  },
+ "comedy open mic at grove 34 monday 9 00pm|queens|recurring": {
+  "lat": 40.761235,
+  "lng": -73.922592,
+  "matched": "31-83 34TH ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
  "comedy open mic at new york comedy club east village wednesday 5 00pm|manhattan|recurring": {
   "lat": 40.726355,
   "lng": -73.989667,
@@ -773,10 +815,22 @@
   "matched": "61 CHRISTOPHER ST, NEW YORK, NY, 10014",
   "how": "address"
  },
+ "comedy music poetry open mic at the wild goose monday 7 30pm|queens|recurring": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
  "music open mic at birdland jazz club monday 9 00pm|manhattan|recurring": {
   "lat": 40.758774,
   "lng": -73.989259,
   "matched": "315 W 44TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "music open mic at tootles french friday 8 30pm|queens|recurring": {
+  "lat": 40.774301,
+  "lng": -73.907998,
+  "matched": "36-15 DITMARS BLVD, ASTORIA, NY, 11105",
   "how": "address"
  },
  "dance night at silo wednesday 8 00pm|brooklyn|recurring": {
@@ -845,6 +899,12 @@
   "matched": "487 ATLANTIC AVE, BROOKLYN, NY, 11217",
   "how": "address"
  },
+ "comedy music poetry open mic at the shillelagh tavern wednesday 7 30pm|queens|recurring": {
+  "lat": 40.761115,
+  "lng": -73.909216,
+  "matched": "47-22 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
+ },
  "dance night at you should be dancing thursday 8 00pm|manhattan|recurring": {
   "lat": 40.744432,
   "lng": -73.990376,
@@ -879,6 +939,12 @@
   "lat": 40.764357,
   "lng": -73.985335,
   "matched": "318 W 53RD ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "dance night at taj mahal lounge monday 5 00pm|queens|recurring": {
+  "lat": 40.767251,
+  "lng": -73.912171,
+  "matched": "25-27 STEINWAY ST, ASTORIA, NY, 11103",
   "how": "address"
  },
  "comedy open mic at the fear city comedy club sunday 6 00pm|manhattan|recurring": {
@@ -953,6 +1019,12 @@
   "matched": "172 RIVINGTON ST, NEW YORK, NY, 10002",
   "how": "address"
  },
+ "comedy open mic at grove 34 wednesday 10 00pm|queens|recurring": {
+  "lat": 40.761235,
+  "lng": -73.922592,
+  "matched": "31-83 34TH ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
  "comedy open mic at pine box rock shop monday 6 00pm|brooklyn|recurring": {
   "lat": 40.705394,
   "lng": -73.932953,
@@ -975,6 +1047,12 @@
   "lat": 40.729997,
   "lng": -73.979455,
   "matched": "538 E 14TH ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "music open mic at the shillelagh tavern tuesday 9 00pm|queens|recurring": {
+  "lat": 40.761115,
+  "lng": -73.909216,
+  "matched": "47-22 30TH AVE, ASTORIA, NY, 11103",
   "how": "address"
  },
  "comedy open mic at phoenix bar sunday 4 00pm|manhattan|recurring": {
@@ -1083,6 +1161,12 @@
   "lat": 40.719065,
   "lng": -73.984811,
   "matched": "172 RIVINGTON ST, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "comedy music poetry open mic at qed astoria thursday 6 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
   "how": "address"
  },
  "comedy open mic at caravan of dreams wednesday 7 00pm|manhattan|recurring": {
@@ -1289,6 +1373,12 @@
   "matched": "358 W 44TH ST, NEW YORK, NY, 10036",
   "how": "address"
  },
+ "comedy open mic at the local ny sunday 8 30pm|queens|recurring": {
+  "lat": 40.749614,
+  "lng": -73.947557,
+  "matched": "13-02 44TH AVE, LONG ISLAND CITY, NY, 11101",
+  "how": "address"
+ },
  "dance night at cantina taqueria tequila bar wednesday 6 00pm|manhattan|recurring": {
   "lat": 40.802763,
   "lng": -73.956664,
@@ -1409,6 +1499,12 @@
   "matched": "410 8TH AVE, NEW YORK, NY, 10001",
   "how": "address"
  },
+ "comedy music poetry open mic at qed astoria saturday 11 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
  "comedy open mic at laughing buddha comedy tuesday 4 30pm|manhattan|recurring": {
   "lat": 40.749798,
   "lng": -73.99512,
@@ -1437,6 +1533,12 @@
   "lat": 40.749798,
   "lng": -73.99512,
   "matched": "410 8TH AVE, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "music open mic at bourbon street sunday 8 00pm|queens|recurring": {
+  "lat": 40.764124,
+  "lng": -73.771333,
+  "matched": "40-12 BELL BLVD, BAYSIDE, NY, 11361",
   "how": "address"
  },
  "comedy open mic at black cat les tuesday 7 30pm|manhattan|recurring": {
@@ -1565,6 +1667,12 @@
   "matched": "10 MINTHORNE ST, STATEN ISLAND, NY, 10301",
   "how": "address"
  },
+ "comedy music poetry open mic at qed astoria friday 6 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
  "comedy open mic at west side comedy club friday 5 00pm|manhattan|recurring": {
   "lat": 40.780639,
   "lng": -73.980239,
@@ -1619,6 +1727,12 @@
   "matched": "318 W 53RD ST, NEW YORK, NY, 10019",
   "how": "address"
  },
+ "comedy music poetry open mic at the windjammer monday 9 00pm|queens|recurring": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
  "comedy open mic at producers club theaters tuesday 5 00pm|manhattan|recurring": {
   "lat": 40.759186,
   "lng": -73.990549,
@@ -1629,6 +1743,12 @@
   "lat": 40.693789,
   "lng": -73.92985,
   "matched": "1114 DEKALB AVE, BROOKLYN, NY, 11221",
+  "how": "address"
+ },
+ "comedy music poetry open mic at the local ny thursday 7 00pm|queens|recurring": {
+  "lat": 40.749614,
+  "lng": -73.947557,
+  "matched": "13-02 44TH AVE, LONG ISLAND CITY, NY, 11101",
   "how": "address"
  },
  "comedy open mic at good judy monday 7 00pm|brooklyn|recurring": {
@@ -1713,6 +1833,12 @@
   "lat": 40.94546,
   "lng": -73.067331,
   "matched": "250 E MAIN ST, PORT JEFFERSON, NY, 11777",
+  "how": "address"
+ },
+ "comedy music poetry open mic at qed astoria monday 6 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
   "how": "address"
  },
  "comedy open mic at skybox sports bar monday 7 00pm|manhattan|recurring": {
@@ -2039,6 +2165,12 @@
   "matched": "1139 JEFFERSON AVE, BROOKLYN, NY, 11221",
   "how": "address"
  },
+ "comedy music poetry open mic at qed astoria wednesday 6 00pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
  "music poetry open mic at enoch s arts coffee wednesday 5 00pm|manhattan|recurring": {
   "lat": 40.756164,
   "lng": -73.997907,
@@ -2141,6 +2273,12 @@
   "matched": "99 MACDOUGAL ST, NEW YORK, NY, 10012",
   "how": "address"
  },
+ "dance night at jouvay night club saturday 9 00pm|queens|recurring": {
+  "lat": 40.696197,
+  "lng": -73.804351,
+  "matched": "147-02 LIBERTY AVE, JAMAICA, NY, 11435",
+  "how": "address"
+ },
  "comedy open mic at flop house comedy club wednesday 6 30pm|brooklyn|recurring": {
   "lat": 40.712437,
   "lng": -73.956116,
@@ -2159,6 +2297,12 @@
   "matched": "1114 DEKALB AVE, BROOKLYN, NY, 11221",
   "how": "address"
  },
+ "comedy music poetry open mic at terraza 7 thursday 7 00pm|queens|recurring": {
+  "lat": 40.74747,
+  "lng": -73.881978,
+  "matched": "40-19 GLEANE ST, ELMHURST, NY, 11373",
+  "how": "address"
+ },
  "comedy music poetry open mic at lust77 bar grill tuesday 6 00pm|manhattan|recurring": {
   "lat": 40.817405,
   "lng": -73.942081,
@@ -2175,6 +2319,12 @@
   "lat": 40.764282,
   "lng": -73.982908,
   "matched": "243 W 54TH ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "comedy music poetry open mic at qed astoria wednesday 9 30pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
   "how": "address"
  },
  "comedy open mic at the stand thursday 5 00pm|manhattan|recurring": {
@@ -2381,6 +2531,36 @@
   "matched": "230 W END AVE, NEW YORK, NY, 10023",
   "how": "address"
  },
+ "open mic at footlight underground every monday at 9pm|queens|recurring": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
+ "open mic at qed a place to show and tell second and fourth tuesday of the month at 6pm|queens|recurring": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "open mic at the avenue restaurant bar first friday of the month at 8 30pm|queens|recurring": {
+  "lat": 40.702003,
+  "lng": -73.879351,
+  "matched": "71-22 MYRTLE AVE, GLENDALE, NY, 11385",
+  "how": "address"
+ },
+ "open mic at the wild goose pub nyc every monday at 7 30pm|queens|recurring": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "open mic at chano s cantina every wednesday at 8pm|queens|recurring": {
+  "lat": 40.757251,
+  "lng": -73.929121,
+  "matched": "35-55 31ST ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
  "sunday sing fall into winter edition a seven week group class with emily eagen|brooklyn|2026-11-01": {
   "lat": 40.681495,
   "lng": -74.004323,
@@ -2470,6 +2650,12 @@
   "lng": -73.977374,
   "matched": "Brooklyn Music School, 126, Saint Felix Street, Fort Greene, Brooklyn, Kings County, New York, 11217, United States",
   "how": "venue"
+ },
+ "irish trad session at the wolfhound|queens|recurring": {
+  "lat": 40.764144,
+  "lng": -73.915671,
+  "matched": "38-14 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
  },
  "beginner west coast swing with jes ann nail|manhattan|2026-10-29": {
   "lat": 40.753338,
@@ -2835,6 +3021,12 @@
   "lat": 40.714134,
   "lng": -73.98862,
   "matched": "197 E BROADWAY, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "bayside glee club men s chorus queens|queens|recurring": {
+  "lat": 40.764618,
+  "lng": -73.769537,
+  "matched": "214-35 40TH AVE, BAYSIDE, NY, 11361",
   "how": "address"
  },
  "comedy open mic at club 624 wednesday 7 30pm|pennsylvania|recurring": {
@@ -3893,6 +4085,12 @@
   "matched": "Point Pleasant Borough Public Library, Taylor Avenue, West Point Pleasant, Point Pleasant, Ocean County, New Jersey, 087",
   "how": "venue"
  },
+ "flushing town hall monthly jazz jam|queens|2026-11-11": {
+  "lat": 40.763618,
+  "lng": -73.83016,
+  "matched": "137-35 NORTHERN BLVD, FLUSHING, NY, 11354",
+  "how": "address"
+ },
  "bridgewater library writers group|new_jersey|2026-11-07": {
   "lat": 40.559813,
   "lng": -74.551715,
@@ -4283,39 +4481,9 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "comedy music poetry open mic at the windjammer wednesday 7 30pm|queens|recurring": {
-  "lat": 40.737038,
-  "lng": -73.80166,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at cool beans coffee house thursday 8 00pm|queens|recurring": {
-  "lat": 40.704188,
-  "lng": -73.775194,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria sunday 8 30pm|queens|recurring": {
-  "lat": 40.766243,
-  "lng": -73.782083,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria tuesday 6 00pm|queens|recurring": {
-  "lat": 40.674893,
-  "lng": -73.773905,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "music open mic at lilah s bar and grill tuesday 8 00pm|queens|recurring": {
   "lat": 40.74765,
   "lng": -73.798133,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria thursday 10 45pm|queens|recurring": {
-  "lat": 40.75295,
-  "lng": -73.755577,
   "matched": "near Queens (approximate)",
   "how": "area"
  },
@@ -4325,46 +4493,10 @@
   "matched": "near Long Island (approximate)",
   "how": "area"
  },
- "music open mic at irish whiskey bar tuesday 8 30pm|queens|recurring": {
-  "lat": 40.693096,
-  "lng": -73.829472,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "comedy open mic at tommy s figz wednesday 7 00pm|manhattan|recurring": {
   "lat": 40.826575,
   "lng": -73.943153,
   "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "comedy open mic at grove 34 monday 9 00pm|queens|recurring": {
-  "lat": 40.711139,
-  "lng": -73.74554,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at the wild goose monday 7 30pm|queens|recurring": {
-  "lat": 40.75991,
-  "lng": -73.839119,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "music open mic at tootles french friday 8 30pm|queens|recurring": {
-  "lat": 40.721175,
-  "lng": -73.761169,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at the shillelagh tavern wednesday 7 30pm|queens|recurring": {
-  "lat": 40.686927,
-  "lng": -73.759034,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "dance night at taj mahal lounge monday 5 00pm|queens|recurring": {
-  "lat": 40.691686,
-  "lng": -73.786203,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "comedy music poetry open mic at freda monday 8 00pm|queens|recurring": {
@@ -4379,100 +4511,16 @@
   "matched": "near Queens (approximate)",
   "how": "area"
  },
- "comedy open mic at grove 34 wednesday 10 00pm|queens|recurring": {
-  "lat": 40.674797,
-  "lng": -73.809977,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "music open mic at the shillelagh tavern tuesday 9 00pm|queens|recurring": {
-  "lat": 40.738359,
-  "lng": -73.751695,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "music open mic at royal bar and billiards monday 8 00pm|long_island|recurring": {
   "lat": 40.721486,
   "lng": -73.050194,
   "matched": "near Long Island (approximate)",
   "how": "area"
  },
- "comedy music poetry open mic at qed astoria thursday 6 00pm|queens|recurring": {
-  "lat": 40.781842,
-  "lng": -73.782253,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy open mic at the local ny sunday 8 30pm|queens|recurring": {
-  "lat": 40.675372,
-  "lng": -73.778054,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria saturday 11 00pm|queens|recurring": {
-  "lat": 40.760907,
-  "lng": -73.795303,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "music open mic at bourbon street sunday 8 00pm|queens|recurring": {
-  "lat": 40.736557,
-  "lng": -73.804266,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria friday 6 00pm|queens|recurring": {
-  "lat": 40.72049,
-  "lng": -73.835458,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at the windjammer monday 9 00pm|queens|recurring": {
-  "lat": 40.705829,
-  "lng": -73.789317,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at the local ny thursday 7 00pm|queens|recurring": {
-  "lat": 40.782883,
-  "lng": -73.799727,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria monday 6 00pm|queens|recurring": {
-  "lat": 40.702594,
-  "lng": -73.756842,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria wednesday 6 00pm|queens|recurring": {
-  "lat": 40.783756,
-  "lng": -73.803935,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "comedy open mic at dacia gallery friday 5 00pm|manhattan|recurring": {
   "lat": 40.7639,
   "lng": -73.996955,
   "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "dance night at jouvay night club saturday 9 00pm|queens|recurring": {
-  "lat": 40.737597,
-  "lng": -73.770971,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at terraza 7 thursday 7 00pm|queens|recurring": {
-  "lat": 40.713638,
-  "lng": -73.787655,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
- "comedy music poetry open mic at qed astoria wednesday 9 30pm|queens|recurring": {
-  "lat": 40.710428,
-  "lng": -73.786312,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "music open mic at lilahs bar and grill thursday 8 00pm|queens|recurring": {
@@ -4607,12 +4655,6 @@
   "matched": "near Manhattan (approximate)",
   "how": "area"
  },
- "open mic at footlight underground every monday at 9pm|queens|recurring": {
-  "lat": 40.711029,
-  "lng": -73.828104,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "open mic at ethical culture society of bergen county third friday of the month at 7 30pm|new_jersey|recurring": {
   "lat": 40.886016,
   "lng": -74.007257,
@@ -4703,22 +4745,10 @@
   "matched": "near Brooklyn (approximate)",
   "how": "area"
  },
- "open mic at qed a place to show and tell second and fourth tuesday of the month at 6pm|queens|recurring": {
-  "lat": 40.783365,
-  "lng": -73.792033,
-  "matched": "near Queens (approximate)",
-  "how": "area"
- },
  "open mic at eastern front brewing co every tuesday at 6pm|long_island|recurring": {
   "lat": 41.011905,
   "lng": -72.550539,
   "matched": "Mattituck, Town of Southold, Suffolk County, New York, United States (approximate)",
-  "how": "area"
- },
- "open mic at the avenue restaurant bar first friday of the month at 8 30pm|queens|recurring": {
-  "lat": 40.731106,
-  "lng": -73.821651,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "open mic at the 14th street y third thursday of the month at 7 30pm|manhattan|recurring": {
@@ -4731,12 +4761,6 @@
   "lat": 41.067221,
   "lng": -72.440801,
   "matched": "Southold, Town of Southold, Suffolk County, New York, 11971, United States (approximate)",
-  "how": "area"
- },
- "open mic at the wild goose pub nyc every monday at 7 30pm|queens|recurring": {
-  "lat": 40.75538,
-  "lng": -73.764363,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "open mic at the lemon squeeze new paltz every wednesday at 7pm|westchester_hudson|recurring": {
@@ -4761,12 +4785,6 @@
   "lat": 40.347054,
   "lng": -74.064307,
   "matched": "Red Bank, Monmouth County, New Jersey, 07701, United States (approximate)",
-  "how": "area"
- },
- "open mic at chano s cantina every wednesday at 8pm|queens|recurring": {
-  "lat": 40.710832,
-  "lng": -73.816441,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "open mic at the hop shoppe every sunday at 7 30pm|staten_island|recurring": {
@@ -4869,12 +4887,6 @@
   "lat": 40.611214,
   "lng": -73.953482,
   "matched": "near Brooklyn (approximate)",
-  "how": "area"
- },
- "irish trad session at the wolfhound|queens|recurring": {
-  "lat": 40.714251,
-  "lng": -73.777173,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "irish trad session at rambling house monthly|bronx|recurring": {
@@ -5085,12 +5097,6 @@
   "lat": 40.751686,
   "lng": -74.000775,
   "matched": "near Manhattan (approximate)",
-  "how": "area"
- },
- "bayside glee club men s chorus queens|queens|recurring": {
-  "lat": 40.735384,
-  "lng": -73.772428,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "residency videographer for reynaldo piniella paid gig|manhattan|2026-11-14": {
@@ -6399,12 +6405,6 @@
   "lat": 40.735299,
   "lng": -73.561578,
   "matched": "Nassau County, New York, United States (approximate)",
-  "how": "area"
- },
- "flushing town hall monthly jazz jam|queens|2026-11-11": {
-  "lat": 40.75853,
-  "lng": -73.826911,
-  "matched": "near Queens (approximate)",
   "how": "area"
  },
  "south bronx folk festival danza fiesta|bronx|2026-11-14": {

@@ -1,0 +1,11 @@
+{
+ "_note": "Street addresses found by reading each listing's own page, for listings whose location text has no street address. dedupe_key -> address. Used by scripts/geocode_listings.py before it reads the listing's location text.",
+ "open mic at footlight underground every monday at 9pm|queens|recurring": "552 Grandview Ave, Ridgewood, NY 11385",
+ "open mic at qed a place to show and tell second and fourth tuesday of the month at 6pm|queens|recurring": "27-16 23rd Ave, Astoria, NY 11105",
+ "open mic at the avenue restaurant bar first friday of the month at 8 30pm|queens|recurring": "71-22 Myrtle Ave, Glendale, NY 11385",
+ "open mic at the wild goose pub nyc every monday at 7 30pm|queens|recurring": "54-20 Roosevelt Ave, Woodside, NY 11377",
+ "open mic at chano s cantina every wednesday at 8pm|queens|recurring": "35-55 31st St, Astoria, NY 11106",
+ "irish trad session at the wolfhound|queens|recurring": "38-14 30th Ave, Astoria, NY 11103",
+ "bayside glee club men s chorus queens|queens|recurring": "214-35 40th Ave, Bayside, NY 11361",
+ "flushing town hall monthly jazz jam|queens|2026-11-11": "137-35 Northern Blvd, Flushing, NY 11354"
+}

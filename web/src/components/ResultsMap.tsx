@@ -83,28 +83,17 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
       const bounds = new ml.LngLatBounds();
       for (const p of pins) bounds.extend([p.lng, p.lat]);
       const drawn: { marker: import("maplibre-gl").Marker; popup: import("maplibre-gl").Popup }[] = [];
-      // Pins that would sit on top of each other at this zoom become one numbered pin, so every listing can be reached; it
-      // splits apart as the map zooms in. Hovering or clicking a numbered pin lists its listings.
+      // Listings at the same spot share one numbered pin. Hovering or clicking a numbered pin lists its listings.
       const draw = () => {
         for (const d of drawn.splice(0)) { d.popup.remove(); d.marker.remove(); }
-        // Two pins merge when their boxes touch: a ranked pin is 28px wide, a numbered group 24px, a single listing 12px. Merging
-        // repeats until no two pins touch, so a pin never sits half-hidden under its neighbour.
-        const pts = pins.map((p) => ({ p, xy: map!.project([p.lng, p.lat]) })).sort((x, y) => Number(y.p.top) - Number(x.p.top));
-        type Cluster = { at: { x: number; y: number }; members: Pin[] };
-        const clusters: Cluster[] = pts.map(({ p, xy }) => ({ at: xy, members: [p] }));
-        const radius = (c: Cluster) => (c.members.some((p) => p.top) ? 14 : c.members.length > 1 ? 12 : 6);
-        const touching = (x: Cluster, y: Cluster) => Math.max(Math.abs(x.at.x - y.at.x), Math.abs(x.at.y - y.at.y)) < radius(x) + radius(y);
-        for (let merged = true; merged;) {
-          merged = false;
-          for (let i = 0; i < clusters.length && !merged; i++) {
-            for (let j = i + 1; j < clusters.length && !merged; j++) {
-              if (!touching(clusters[i]!, clusters[j]!)) continue;
-              clusters[i]!.members.push(...clusters[j]!.members);
-              clusters.splice(j, 1);
-              merged = true;
-            }
-          }
+        // Only listings at the very same spot share a pin (a numbered pin); listings at different addresses always keep their own
+        // pins, however close they are. Zoom in to pull close pins apart.
+        const spots = new Map<string, Pin[]>();
+        for (const p of [...pins].sort((x, y) => Number(y.top) - Number(x.top))) {
+          const k = `${p.lat.toFixed(5)},${p.lng.toFixed(5)}`;
+          spots.set(k, [...(spots.get(k) ?? []), p]);
         }
+        const clusters = [...spots.values()].map((members) => ({ members }));
         // Pink pins first so the numbered lime pins sit on top of them.
         const groups = clusters.map((c) => c.members).sort((x, y) => Number(x.some((p) => p.top)) - Number(y.some((p) => p.top)));
       for (const g of groups) {
@@ -172,13 +161,13 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         const open = () => {
           window.clearTimeout(closing);
           if (popup.isOpen()) return;
-          // Put the card beside the pin, pointing at it, never on top of it: to the right of the pin, or to its left when the
-          // right is too tight. Near the top or bottom edge its corner lines up with the pin instead, so it stays inside the map.
+          // Put the card where its arrow points straight at the pin and nothing covers it: beside the pin (to its right, or to its
+          // left when the right is too tight), or, for a pin near the top or bottom edge, below or above it.
           const pt = map!.project(at);
           const size = map!.getContainer().getBoundingClientRect();
-          const side = pt.x > size.width - 270 ? "right" : "left";
-          const v = pt.y < 90 ? "top-" : pt.y > size.height - 90 ? "bottom-" : "";
-          popup.options.anchor = `${v}${side}` as "left";
+          const nearEdge = pt.y < 100 || pt.y > size.height - 100;
+          const centred = pt.x > 130 && pt.x < size.width - 130;
+          popup.options.anchor = nearEdge && centred ? (pt.y < size.height / 2 ? "top" : "bottom") : pt.x > size.width - 270 ? "right" : "left";
           popup.setLngLat(at).addTo(map!);
         };
         const closeSoon = () => { window.clearTimeout(closing); closing = window.setTimeout(() => popup.remove(), 350); };

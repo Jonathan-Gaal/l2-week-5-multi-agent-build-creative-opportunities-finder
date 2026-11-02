@@ -33,6 +33,7 @@ CENSUS = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
 UA = "ArtistAtlas/1.0 (class project; address lookup for a map of arts listings)"
 CACHE = REPO / "data/geo/_lookups.json"
+MANUAL = REPO / "data/geo/_manual_addresses.json"     # dedupe_key -> a street address found on the listing's own page
 STATE = {"nyc": "NY", "long_island": "NY", "westchester_hudson": "NY", "upstate_ny": "NY", "new_jersey": "NJ", "connecticut": "CT",
          "pennsylvania": "PA", "massachusetts": "MA", "rhode_island": "RI", "vermont": "VT", "new_hampshire": "NH", "maine": "ME",
          "maryland": "MD", "dc": "DC", "delaware": "DE"}
@@ -66,6 +67,8 @@ def extract_address(location, region, borough=None):
     state = state if state in STATE.values() else STATE.get(region, "")
     if not city and region == "nyc":
         city = CITY.get(borough or "", "New York")     # without a city the lookup can pick the wrong borough
+    if region == "nyc" and not zip_ and city.lower() == "queens":     # the lookup doesn't know "Queens" as a city; with no city it finds the right neighbourhood
+        city = ""
     if not city and not zip_ and region != "nyc":     # a street and state alone can match a same-named street in the wrong town
         return None
     parts = [street, city, f"{state} {zip_}".strip()]
@@ -205,9 +208,10 @@ def main(argv=None):
     a = p.parse_args(argv)
     records = json.loads((REPO / "data/snapshots" / a.snapshot_id / "records.json").read_text(encoding="utf-8"))["records"]
     cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    manual = json.loads(MANUAL.read_text(encoding="utf-8")) if MANUAL.exists() else {}
     wanted, todo = [], {}                      # wanted: (dedupe_key, cache key, region, borough); todo: cache key -> (kind, text)
     for r in records:
-        addr = extract_address(r.get("location"), r.get("region"), r.get("borough"))
+        addr = manual.get(r["dedupe_key"]) or extract_address(r.get("location"), r.get("region"), r.get("borough"))
         venue = None if addr else venue_query(r.get("location"), r.get("region"), r.get("borough"))
         if not (addr or venue):
             continue

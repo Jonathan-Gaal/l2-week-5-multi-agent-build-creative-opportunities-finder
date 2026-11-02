@@ -3457,5 +3457,138 @@
   "lng": -73.015108,
   "matched": "Village of Patchogue, Town of Brookhaven, Suffolk County, New York, United States (approximate)",
   "how": "area"
+ },
+ "address|552 Grandview Ave, NY": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
+ "address|50-20 39th Ave, NY": {
+  "lat": 40.748843,
+  "lng": -73.913521,
+  "matched": "50-20 39TH AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|27-16 23rd Ave, NY": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|28-48 31st St, NY": {
+  "lat": 40.767374,
+  "lng": -73.921085,
+  "matched": "28-48 31ST ST, ASTORIA, NY, 11102",
+  "how": "address"
+ },
+ "address|31-83 34th St, NY": {
+  "lat": 40.761235,
+  "lng": -73.922592,
+  "matched": "31-83 34TH ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
+ "address|5420 Roosevelt Ave, NY": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|36-15 Ditmars Blvd, NY": {
+  "lat": 40.774301,
+  "lng": -73.907998,
+  "matched": "36-15 DITMARS BLVD, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|47-22 30th Ave, NY": {
+  "lat": 40.761115,
+  "lng": -73.909216,
+  "matched": "47-22 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|25-27 Steinway St, NY": {
+  "lat": 40.767251,
+  "lng": -73.912171,
+  "matched": "25-27 STEINWAY ST, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|8-01 Seneca Ave, NY": {
+  "lat": 43.003786,
+  "lng": -78.176527,
+  "matched": "1 SENECA AVE, BATAVIA, NY, 14020",
+  "how": "address"
+ },
+ "address|111-30 Beach Channel Dr, NY": null,
+ "address|13-02 44th Ave, NY": {
+  "lat": 40.749614,
+  "lng": -73.947557,
+  "matched": "13-02 44TH AVE, LONG ISLAND CITY, NY, 11101",
+  "how": "address"
+ },
+ "address|40-12 Bell Blvd, NY": {
+  "lat": 40.764124,
+  "lng": -73.771333,
+  "matched": "40-12 BELL BLVD, BAYSIDE, NY, 11361",
+  "how": "address"
+ },
+ "address|147-02 Liberty Ave, NY": {
+  "lat": 40.696197,
+  "lng": -73.804351,
+  "matched": "147-02 LIBERTY AVE, JAMAICA, NY, 11435",
+  "how": "address"
+ },
+ "address|40-19 Gleane St, NY": {
+  "lat": 40.74747,
+  "lng": -73.881978,
+  "matched": "40-19 GLEANE ST, ELMHURST, NY, 11373",
+  "how": "address"
+ },
+ "address|552 Grandview Ave, Ridgewood, NY 11385": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
+ "address|27-16 23rd Ave, Astoria, NY 11105": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|71-22 Myrtle Ave, Glendale, NY 11385": {
+  "lat": 40.702003,
+  "lng": -73.879351,
+  "matched": "71-22 MYRTLE AVE, GLENDALE, NY, 11385",
+  "how": "address"
+ },
+ "address|54-20 Roosevelt Ave, Woodside, NY 11377": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|35-55 31st St, Astoria, NY 11106": {
+  "lat": 40.757251,
+  "lng": -73.929121,
+  "matched": "35-55 31ST ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
+ "address|38-14 30th Ave, Astoria, NY 11103": {
+  "lat": 40.764144,
+  "lng": -73.915671,
+  "matched": "38-14 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|214-35 40th Ave, Bayside, NY 11361": {
+  "lat": 40.764618,
+  "lng": -73.769537,
+  "matched": "214-35 40TH AVE, BAYSIDE, NY, 11361",
+  "how": "address"
+ },
+ "address|137-35 Northern Blvd, Flushing, NY 11354": {
+  "lat": 40.763618,
+  "lng": -73.83016,
+  "matched": "137-35 NORTHERN BLVD, FLUSHING, NY, 11354",
+  "how": "address"
  }
 }

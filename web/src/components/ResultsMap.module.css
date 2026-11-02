@@ -7,7 +7,7 @@
 .pinMany { width: 24px; height: 24px; padding: 0; border-radius: 50%; border: 2px solid #1d0f3a; background: var(--pink); color: #000; font: 800 12px var(--sans); cursor: pointer; display: grid; place-items: center; }
 .pinMany:hover { transform: scale(1.15); }
 .badge { position: absolute; top: -8px; right: -10px; min-width: 20px; height: 20px; padding: 0 4px; border-radius: 999px; background: var(--pink); border: 2px solid #1d0f3a; color: #000; font: 800 11px var(--sans); display: grid; place-items: center; }
-.pinTop { position: relative; width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 2px solid #000; background: var(--lime); color: #000; font: 800 14px var(--sans); cursor: pointer; display: grid; place-items: center; }
+.pinTop { width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 2px solid #000; background: var(--lime); color: #000; font: 800 14px var(--sans); cursor: pointer; display: grid; place-items: center; }
 .pinTop:hover { transform: scale(1.15); }
 .tipHead { font-weight: 800; margin-bottom: 4px; }
 .tipRow { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 3px 0; font: 600 13px var(--sans); color: #000; }
@@ -19,7 +19,13 @@
 .pin:focus-visible, .pinMany:focus-visible, .pinTop:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
 
 .tip :global(.maplibregl-popup-content) { background: var(--paper); color: #000; font: 700 13px var(--sans); border-radius: 8px; padding: 6px 10px; max-width: 240px; }
-.tip :global(.maplibregl-popup-tip) { border-top-color: var(--paper); border-bottom-color: var(--paper); }
+/* The arrow takes the card's colour on the one side that points at the pin. */
+.tip:global(.maplibregl-popup-anchor-top) :global(.maplibregl-popup-tip) { border-bottom-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-top-left) :global(.maplibregl-popup-tip) { border-bottom-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-top-right) :global(.maplibregl-popup-tip) { border-bottom-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-bottom) :global(.maplibregl-popup-tip) { border-top-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-bottom-left) :global(.maplibregl-popup-tip) { border-top-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-bottom-right) :global(.maplibregl-popup-tip) { border-top-color: var(--paper); }
 .tip:global(.maplibregl-popup-anchor-left) :global(.maplibregl-popup-tip) { border-right-color: var(--paper); }
 .tip:global(.maplibregl-popup-anchor-right) :global(.maplibregl-popup-tip) { border-left-color: var(--paper); }
 
