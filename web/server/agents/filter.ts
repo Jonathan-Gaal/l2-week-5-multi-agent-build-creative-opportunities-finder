@@ -22,7 +22,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { BOROUGHS, PLACE_LABELS, type PlaceId, REGIONS, TYPES, disciplineLabel, fitsDisciplines, isDiscipline } from "./taxonomy.ts";
+import { BOROUGHS, KINDS_BY_TYPE, PLACE_LABELS, type PlaceId, REGIONS, type TypeId, TYPES, disciplineLabel, fitsDisciplines, isDiscipline } from "./taxonomy.ts";
 
 /**
  * The repo root (holds data/, agents/, traces/), ending in a separator. Under Node (tests, CLI scripts) this file
@@ -76,8 +76,9 @@ export type OppRecord = {
   [field: string]: unknown;
 };
 
-/** `places`: one or more borough or region ids. `disciplines`: discipline ids; empty means no discipline filter. */
-export type Request = { places: readonly string[]; type: string; asOf: string; disciplines: readonly string[] };
+/** `places`: one or more borough or region ids. `disciplines`: discipline ids; empty means no discipline filter.
+ * `subtypes`: kinds of this type to keep (see taxonomy.KINDS_BY_TYPE, "none" for a record with no kind); empty means every kind. */
+export type Request = { places: readonly string[]; type: string; asOf: string; disciplines: readonly string[]; subtypes: readonly string[] };
 
 export type RemovedCounts = { expired: number; failed_schema: number; duplicate: number };
 
@@ -88,12 +89,13 @@ export const today = (d: Date = new Date()): string => {
 
 /** A single-place request with no discipline filter (the Python port's request). */
 export const makeRequest = (place: string, type: string, asOf: string = today()): Request =>
-  ({ places: [place], type, asOf, disciplines: [] });
+  ({ places: [place], type, asOf, disciplines: [], subtypes: [] });
 
 /** A request over several places and optional disciplines. */
 export const makeSearchRequest = (
   places: readonly string[], type: string, asOf: string = today(), disciplines: readonly string[] = [],
-): Request => ({ places, type, asOf, disciplines });
+  subtypes: readonly string[] = [],
+): Request => ({ places, type, asOf, disciplines, subtypes });
 
 const isBorough = (p: string) => (BOROUGHS as readonly string[]).includes(p);
 const isPlace = (p: string) => isBorough(p) || (REGIONS as readonly string[]).includes(p);
@@ -108,6 +110,9 @@ export const requestProblem = (req: Request): string | null => {
   }
   const badDiscipline = req.disciplines.find((d) => !isDiscipline(d));
   if (badDiscipline !== undefined) return `unknown discipline '${badDiscipline}'`;
+  const kinds = KINDS_BY_TYPE[req.type as TypeId] ?? [];
+  const badKind = req.subtypes.find((k) => !kinds.includes(k));
+  if (badKind !== undefined) return `unknown kind '${badKind}' for ${req.type}`;
   return null;
 };
 
@@ -125,12 +130,16 @@ export const requestLabel = (req: Request): string => {
 
 /** The request as the trace records it: the Python port's shape for one place and no disciplines. */
 export const traceRequest = (req: Request): Record<string, unknown> =>
-  req.places.length === 1 && !req.disciplines.length
+  req.places.length === 1 && !req.disciplines.length && !req.subtypes.length
     ? { place: req.places[0], type: req.type, as_of: req.asOf }
-    : { places: req.places, type: req.type, disciplines: req.disciplines, as_of: req.asOf };
+    : { places: req.places, type: req.type, disciplines: req.disciplines, ...(req.subtypes.length ? { subtypes: req.subtypes } : {}), as_of: req.asOf };
 
-export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] =>
-  JSON.parse(readFileSync(`${snapshotDir}/records.json`, "utf-8")).records;
+/** Reads records.retagged.json (artist types and kinds checked by reading the listings) when the snapshot has one, then
+ *  records.recategorized.json (corrected artist types and kinds), else records.json. */
+export const load = (snapshotDir: string = SNAPSHOT): OppRecord[] => {
+  const fixed = [`${snapshotDir}/records.retagged.json`, `${snapshotDir}/records.recategorized.json`].find((p) => existsSync(p));
+  return JSON.parse(readFileSync(fixed ?? `${snapshotDir}/records.json`, "utf-8")).records;
+};
 
 /** A real calendar date written YYYY-MM-DD. */
 export const isIsoDate = (value: unknown): value is string => {
@@ -160,6 +169,9 @@ export const safeHttpUrl = (value: unknown): string | null => {
   }
 };
 
+/** Kinds of call that happen on a date, so that date ends them when no deadline is given. Mirrored in web/src/lib/cards.ts. */
+export const DATED_CALL_KINDS: readonly string[] = ["audition", "casting_call", "paid_gig", "performance_call"];
+
 /** The date after which the record is gone, or null if it never expires. Only events are kept alive by their
  * schedule: for an application type (open_call, grant, residency, job) the application deadline drives expiry, so
  * a past deadline expires the record even when it lists a later event date. 'recurring', 'rolling', a missing or
@@ -172,7 +184,14 @@ export const lastDate = (rec: OppRecord): string | null => {
       return isIsoDate(last) ? last : null;
     }
   }
-  return isIsoDate(rec.deadline) ? rec.deadline : null;     // recurring, rolling, or not listed
+  if (isIsoDate(rec.deadline)) return rec.deadline;
+  // Dated occasions (an audition, a casting call, a paid gig, a call to perform) with no deadline at all (not "rolling" or
+  // "recurring"): the date the listing gives is its last date. Other application types keep ignoring event dates.
+  if (!present(rec.deadline) && DATED_CALL_KINDS.includes(rec.subtype ?? "")) {
+    const dates = (rec.event_dates ?? []).filter((d): d is string => present(d) && isIsoDate(d));
+    if (dates.length) return dates.reduce((a, b) => (b > a ? b : a));
+  }
+  return null;     // recurring, rolling, or not listed
 };
 
 export const isExpired = (rec: OppRecord, asOf: string): boolean => {
@@ -189,11 +208,18 @@ export const schemaOk = (rec: OppRecord): boolean =>
 export const matchesPlace = (rec: OppRecord, place: string): boolean =>
   isBorough(place) ? rec.borough === place || rec.borough === "citywide" : rec.region === place;
 
-/** Place, type and discipline hard filters (not expiry). */
+/** A record fits the picked kinds when its main kind, or one of its extra kinds (also_subtypes), is picked. */
+export const fitsSubtypes = (rec: OppRecord, subtypes: readonly string[]): boolean => {
+  if (!subtypes.length) return true;
+  const extra = Array.isArray(rec.also_subtypes) ? rec.also_subtypes : [];
+  return [rec.subtype || "none", ...extra].some((k) => typeof k === "string" && subtypes.includes(k));
+};
+
+/** Place, type, discipline and kind hard filters (not expiry). */
 export const matches = (rec: OppRecord, req: Request): boolean => {
   if (rec.opportunity_type !== req.type) return false;
   if (!req.places.some((p) => matchesPlace(rec, p))) return false;
-  return fitsDisciplines(rec.disciplines, req.disciplines);
+  return fitsDisciplines(rec.disciplines, req.disciplines) && fitsSubtypes(rec, req.subtypes);
 };
 
 /** Return [candidates, removed] where removed counts excluded matches by reason. */
@@ -216,3 +242,7 @@ export const select = (records: OppRecord[], req: Request): [OppRecord[], Remove
   }
   return [candidates, removed];
 };
+
+/** The matching records `select` drops as expired (same rule, same order), so the page can show which ones. */
+export const expiredRecords = (records: OppRecord[], req: Request): OppRecord[] =>
+  records.filter((rec) => matches(rec, req) && schemaOk(rec) && isExpired(rec, req.asOf));

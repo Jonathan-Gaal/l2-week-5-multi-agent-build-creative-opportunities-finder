@@ -794,8 +794,8 @@ describe("GET /api/meta (picker lists)", () => {
     const { get, db } = await start();
     const meta = (await get("/api/meta")).body as MetaResponse;
     assert.deepEqual(meta.types.map((t) => t.value), ["open_call", "grant", "residency", "event", "job"]);
-    assert.deepEqual(meta.types[0], { value: "open_call", label: "Open calls & auditions", hint: "Submit work or show up and be considered" });
-    assert.deepEqual(meta.disciplines.map((d) => d.value), ["music", "comedy", "dance", "theater", "writing", "visual", "film", "craft"]);
+    assert.deepEqual(meta.types[0], { value: "open_call", label: "Open calls, auditions & gigs", hint: "Submit work, try out, find paid work or partners" });
+    assert.deepEqual(meta.disciplines.map((d) => d.value), ["music", "comedy", "dance", "theater", "writing", "visual", "film", "craft", "photographer", "videographer", "crew", "model", "singer", "poet"]);
     assert.deepEqual(meta.disciplines[0], { value: "music", label: "Music", tags: ["music", "sound"] });
     assert.deepEqual(meta.place_groups.map((g) => [g.value, g.members.length]), [["nyc", 1], ["tristate", 6], ["wider", 9]]);
     const regions = new Set(meta.regions.map((r) => r.value));
@@ -808,10 +808,18 @@ describe("GET /api/meta (picker lists)", () => {
 describe("parseSearchQuery", () => {
   it("expands groups, keeps type order, orders places and disciplines canonically", () => {
     assert.deepEqual(parseSearchQuery(new URLSearchParams("types=job,grant&places=dc,brooklyn,nyc&disciplines=film,music")), {
-      places: ["brooklyn", "nyc", "dc"], types: ["job", "grant"], disciplines: ["music", "film"],
+      places: ["brooklyn", "nyc", "dc"], types: ["job", "grant"], disciplines: ["music", "film"], subtypes: [],
     });
     assert.deepEqual(parseSearchQuery(new URLSearchParams("places=tristate,new_jersey&types=event"))?.places,
       ["nyc", "long_island", "westchester_hudson", "upstate_ny", "new_jersey", "connecticut"]);
+  });
+
+  it("reads the chosen kinds as type.kind tokens, in a fixed order", () => {
+    assert.deepEqual(parseSearchQuery(new URLSearchParams("places=brooklyn&types=event,open_call&subtypes=open_call.audition,event.open_mic"))?.subtypes,
+      ["event.open_mic", "open_call.audition"]);
+    for (const q of ["subtypes=open_mic", "subtypes=event.fellowship", "subtypes=event.open_mic,event.open_mic", "subtypes="]) {
+      assert.equal(parseSearchQuery(new URLSearchParams(`places=brooklyn&types=event&${q}`)), null, q);
+    }
   });
 
   it("refuses prototype keys and anything outside the lists", () => {

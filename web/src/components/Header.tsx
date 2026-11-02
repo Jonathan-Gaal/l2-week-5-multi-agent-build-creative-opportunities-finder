@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import AuthButtons from "./AuthButtons";
+import FindLink from "./FindLink";
 
-/** Every logo option. In production only the wordmark renders; in dev all render and the Versions panel shows one (see globals.css). */
+/** Every logo option. In production the wordmark (home page) and the full logo (the other pages) render and the CSS shows one; in dev all render and the Versions panel shows one (see globals.css). */
 const LOGOS = [
   { id: "full", src: "/brand/logo-full.png", w: 66, h: 96 },
   { id: "wordmark", src: "/brand/logo-wordmark.png", w: 73, h: 40 },
@@ -15,12 +16,12 @@ export default function Header({ all = false }: { all?: boolean }) {
     <header className="site-header">
       <div className="wrap">
         <Link href="/" className="logo-slot" aria-label="Artist Atlas home">
-          {LOGOS.filter((l) => all || l.id === "wordmark").map((l) => (
-            <Image key={l.id} className={`lg lg-${l.id}`} src={l.src} alt="" width={l.w} height={l.h} priority />
+          {LOGOS.filter((l) => all || l.id === "wordmark" || l.id === "full").map((l) => (
+            <Image key={l.id} className={`lg lg-${l.id}`} src={l.src} alt="" width={l.w} height={l.h} priority={l.id === "wordmark"} />
           ))}
         </Link>
         <nav className="nav" aria-label="Main">
-          <Link href="/find">Find opportunities</Link>
+          <FindLink>Find opportunities</FindLink>
           {process.env.NODE_ENV !== "production" && <Link href="/dev">Dev tools</Link>}
         </nav>
         <AuthButtons />

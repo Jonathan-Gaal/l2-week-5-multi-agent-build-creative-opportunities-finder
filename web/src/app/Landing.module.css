@@ -1,0 +1,114 @@
+/* The home page below the animated sentence. Same brand as the find steps: serif headings, lime, pink and cream, taped cards. */
+.proof {
+  margin: 56px 0 0;
+  text-align: center;
+  color: var(--muted-dk);
+  font-size: clamp(16px, 1.7vw, 19px);
+}
+.proof b { color: var(--paper); font-weight: 700; }
+.proof i { color: var(--lime); font-style: normal; margin: 0 10px; }
+
+.section { margin-top: 110px; }
+.kicker { margin: 0 0 10px; font: 700 13px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); }
+.title { margin: 0; font: 900 clamp(32px, 4.4vw, 54px) / 1.05 var(--serif); text-wrap: balance; max-width: 18ch; }
+.title em { color: var(--pink); }
+.lead { margin: 16px 0 0; color: var(--muted-dk); font-size: 18px; max-width: 52ch; }
+
+.lime { --c: var(--lime); }
+.pink { --c: var(--pink); }
+.cream { --c: var(--paper); }
+
+/* Three steps, shown as small sketches of the real screens (pick, map, list) with a lime arrow leading from one to the next. */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; margin: 50px 0 0; padding: 0; list-style: none; }
+.shot { position: relative; display: grid; gap: 14px; align-content: start; }
+.shot:not(:last-child)::after { content: "→"; position: absolute; right: -34px; top: 82px; font: 900 30px var(--serif); color: var(--lime); }
+.win { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 14px; height: 190px; overflow: hidden; display: grid; grid-template-rows: 30px 1fr; }
+.winBar { display: flex; gap: 6px; align-items: center; padding: 0 12px; background: rgba(0, 0, 0, 0.28); }
+.winBar i { width: 9px; height: 9px; border-radius: 50%; background: var(--plum); }
+.winBar i:first-child { background: var(--pink); }
+.winBar i:nth-child(2) { background: var(--lime); }
+.winBody { padding: 16px; min-height: 0; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pills span { height: 22px; border-radius: 999px; border: 2px solid var(--muted-dk); }
+.pills .on { background: var(--pink); border-color: var(--pink); }
+.rows { display: grid; gap: 8px; }
+.rows div { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; background: var(--ink); border-radius: 8px; padding: 9px 10px; }
+.rows em { display: block; height: 7px; border-radius: 4px; background: var(--muted-dk); opacity: 0.8; }
+.rows em + em { margin-top: 5px; width: 60%; opacity: 0.4; }
+.rows u { text-decoration: none; background: var(--lime); color: #000; border-radius: 999px; font: 700 10px var(--sans); padding: 2px 8px; }
+.shot h3 { margin: 4px 0 0; font: 900 26px / 1.1 var(--serif); }
+.shot h3 b { color: var(--lime); }
+.shot p { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 34ch; }
+
+/* How to read a result: a short list, each with its badge. */
+.trust { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: start; }
+.badges { margin: 0; padding: 0; list-style: none; display: grid; gap: 26px; }
+.badges li { display: grid; gap: 8px; justify-items: start; }
+.sourceLink { color: var(--lime); font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+.onDark { color: var(--paper); border-color: var(--paper); } /* the outline pill is dark-on-cream on a result card; on this purple it flips to cream */
+.badges p { margin: 0; color: var(--muted-dk); font-size: 17px; max-width: 46ch; }
+
+/* Why it exists: the figure from the logo, weighed down, with dead listings dropping around him. */
+.story { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+.story .lead + .lead { margin-top: 14px; }
+/* A single line under the three steps: what happens behind the scenes. */
+.behind { margin: 44px auto 0; max-width: 62ch; padding: 16px 22px; border: 2px dashed var(--plum); border-radius: 14px; color: var(--muted-dk); font-size: 18px; line-height: 1.5; text-align: center; }
+.behind b { color: var(--lime); }
+/* "What Artist Atlas does": centred, with a three-part row (you tell us, we read, you get) across the full width. */
+.does { text-align: center; display: grid; justify-items: center; }
+.does .title { max-width: 18ch; text-wrap: balance; }
+.doesLead { font-size: clamp(18px, 1.9vw, 24px); max-width: none; margin: 18px 0 0; color: var(--paper); }
+.doesChips { list-style: none; margin: 36px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.doesChips li { background: var(--ink-2); border: 2px solid var(--plum); border-radius: 999px; padding: 12px 24px; font: 700 clamp(16px, 1.5vw, 19px) var(--sans); color: var(--paper); }
+.doesChips li:nth-child(odd) { border-color: var(--lime); }
+.doesChips li:nth-child(even) { border-color: var(--pink); }
+/* "Why" section: three short problems, each with a pink cross, then the fix on a lime rule. */
+.problems { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--plum); max-width: 520px; }
+.problems li { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; column-gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--plum); font: 500 clamp(18px, 1.6vw, 21px) / 1.3 var(--sans); color: var(--paper); }
+.problems li::before { content: "✕"; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--pink); color: #000; font: 900 13px var(--sans); }
+.problems b { color: var(--pink); font-weight: 700; }
+.fix { margin: 30px 0 0; padding-left: 18px; border-left: 4px solid var(--lime); color: var(--muted-dk); font-size: 18px; line-height: 1.5; max-width: 40ch; }
+.fix b { display: block; color: var(--lime); font: 900 24px / 1.15 var(--serif); margin-bottom: 6px; }
+/* The pictures are shown as they are, with no blend or fade; the animated bits sit on top of them. */
+.photo { display: block; width: 100%; height: auto; }
+.stuck { position: relative; width: 100%; }
+.scrap { position: absolute; transform: rotate(var(--r, 0deg)); box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.4); animation: scrapDrop 3.6s ease-in-out infinite; white-space: nowrap; }
+.scrap:nth-of-type(2) { animation-delay: 0.6s; }
+.scrap:nth-of-type(3) { animation-delay: 1.2s; }
+.scrap:nth-of-type(4) { animation-delay: 1.8s; }
+@keyframes scrapDrop { 0%, 100% { translate: 0 0; } 50% { translate: 0 8px; } }
+
+/* Behind the list: five numbered stages in the order a search runs. A dashed lime line joins each dot to the next and stops at the last one, which is a tick. */
+.under { position: relative; margin: 46px 0 0 14px; padding: 0 0 0 44px; list-style: none; display: grid; gap: 38px; counter-reset: step; }
+.under li { position: relative; display: grid; gap: 6px; max-width: 70ch; counter-increment: step; }
+.under li::before { content: counter(step); position: absolute; left: -59px; top: 4px; box-sizing: border-box; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: #000; font: 900 14px var(--sans); box-shadow: 0 0 0 4px var(--ink); }
+.under li:not(:last-child)::after { content: ""; position: absolute; left: -45px; top: 38px; bottom: -42px; border-left: 3px dashed var(--lime); }
+.under li:last-child::before { content: "✓"; background: var(--pink); color: #000; font-size: 16px; }
+.stage { font: 700 12px var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--lime); }
+.under h3 { margin: 0; font: 900 28px / 1.1 var(--serif); }
+.under p { margin: 0; color: var(--muted-dk); font-size: 18px; max-width: 52ch; }
+.under p b { color: var(--paper); font-weight: 700; }
+
+/* The ending: the plain picture with confetti and a speech bubble coming from his mouth, in the clear space to his right. */
+.happy { position: relative; width: min(760px, 100%); margin-bottom: 4px; }
+.confetti { position: absolute; width: 10px; height: 16px; border-radius: 2px; animation: confetti 2.6s ease-in-out infinite; }
+@keyframes confetti { 0%, 100% { translate: 0 0; } 50% { translate: 0 12px; } }
+.bubble { position: absolute; left: 55%; top: 15%; background: var(--paper); color: var(--ink); font: 900 clamp(15px, 2.2vw, 22px) / 1 var(--serif); padding: 10px 16px; border: 3px solid #000; border-radius: 16px; box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.45); white-space: nowrap; rotate: 3deg; }
+/* the little tail points back toward his mouth */
+.bubble::after { content: ""; position: absolute; left: -9px; bottom: 9px; width: 14px; height: 14px; background: var(--paper); border-left: 3px solid #000; border-bottom: 3px solid #000; rotate: 45deg; }
+.end .kicker { margin: 0; }
+@media (prefers-reduced-motion: reduce) { .scrap, .confetti { animation: none; } }
+
+/* The last call to action. */
+.end { margin: 120px 0 40px; text-align: center; display: grid; justify-items: center; gap: 26px; }
+.end h2 { margin: 0; font: 900 clamp(36px, 5vw, 64px) / 1.03 var(--serif); text-wrap: balance; max-width: 24ch; }
+.end h2 em { color: var(--pink); }
+.row { display: flex; flex-wrap: wrap; gap: 14px 22px; justify-content: center; align-items: center; }
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .shot:not(:last-child)::after { content: "↓"; right: auto; left: 6px; top: auto; bottom: -42px; }
+  .trust { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .story { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .section { margin-top: 80px; }
+}

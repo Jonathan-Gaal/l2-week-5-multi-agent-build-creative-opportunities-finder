@@ -1,0 +1,45 @@
+{
+ "total": 1510,
+ "evidence": {
+  "page_read": 1128,
+  "other_session": 314,
+  "title_only": 66,
+  "template_rule": 2
+ },
+ "confidence": {
+  "high": 336,
+  "medium": 1086,
+  "low": 88
+ },
+ "page_read": 1128,
+ "page_tags_changed": 315,
+ "page_kind_changed": 58,
+ "changed_all": 423,
+ "renamed_only": 20,
+ "tags_changed_all": 347,
+ "kind_changed_all": 105,
+ "past_or_closed_among_read": 64,
+ "consider_removing": 24,
+ "out_of_area": 308,
+ "status_closed": 65,
+ "status_expired": 21,
+ "out_of_area_by_region": {
+  "maine": 9,
+  "massachusetts": 86,
+  "pennsylvania": 88,
+  "dc": 50,
+  "maryland": 46,
+  "rhode_island": 14,
+  "new_hampshire": 11,
+  "vermont": 4
+ },
+ "read_fields_filled": {
+  "pay": 130,
+  "fee": 735,
+  "deadline": 134,
+  "dates": 1048,
+  "location": 1107
+ },
+ "read_fee_where_stored_unknown": 60,
+ "read_deadline_differs_from_stored": 79
+}

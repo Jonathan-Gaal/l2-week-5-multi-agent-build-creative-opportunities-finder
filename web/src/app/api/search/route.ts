@@ -1,5 +1,6 @@
 import { asBackendError, backendHealth, FRIENDLY, getMeta, searchBackend, visitorClient } from "@/lib/backend";
 import { labelsFor, pickerChoices, pickIds } from "@/lib/taxonomy";
+import { TYPE_PILL_IDS, subtypeTokens, typesOf } from "@/lib/typePills";
 
 const pick = (value: unknown, allowed: Set<string>): string[] => (Array.isArray(value) ? pickIds(value, allowed) : []);
 
@@ -47,12 +48,14 @@ export async function POST(request: Request) {
     const meta = getMeta();
     const allowed = pickerChoices(meta);
     const places = pick(b.places, allowed.places);
-    const types = pick(b.types, allowed.types);
+    // /dev2 sends the find-flow pills instead of broad types: the pills give both the types and the kinds to keep.
+    const pills = pick(b.pills, TYPE_PILL_IDS);
+    const types = pills.length ? pick(typesOf(pills), allowed.types) : pick(b.types, allowed.types);
     const disciplines = pick(b.disciplines, allowed.disciplines);
     if (!places.length || !types.length) {
       return Response.json({ error: "bad_request", message: "Pick at least one place and one type." }, { status: 400 });
     }
-    const out = await searchBackend({ places, types, disciplines }, { visitor: visitorClient(request.headers), labels: labelsFor(meta) });
+    const out = await searchBackend({ places, types, disciplines, subtypes: subtypeTokens(pills) }, { visitor: visitorClient(request.headers), labels: labelsFor(meta) });
     return Response.json(out);
   } catch (e) {
     const { code } = asBackendError(e);

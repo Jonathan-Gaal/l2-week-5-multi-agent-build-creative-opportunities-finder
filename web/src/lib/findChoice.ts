@@ -1,7 +1,7 @@
 import type { MetaResponse } from "@api/types";
 import type { Choice } from "@/components/find/FindStep";
 import { pickerChoices, pickIds } from "./taxonomy";
-import { TYPE_PILL_IDS, pillsForTypes } from "./typePills";
+import { OLD_PILL_IDS, TYPE_PILL_IDS, pillsForTypes } from "./typePills";
 
 type Params = { [key: string]: string | string[] | undefined };
 
@@ -13,7 +13,7 @@ export function readChoice(q: Params, meta: MetaResponse): Choice {
   const allowed = pickerChoices(meta);
   const d = pickIds(q.d, allowed.disciplines);
   const p = pickIds(q.p, allowed.places);
-  let s = pickIds(q.s, TYPE_PILL_IDS);
+  let s = [...new Set(pickIds(q.s, new Set([...TYPE_PILL_IDS, ...Object.keys(OLD_PILL_IDS)])).map((id) => OLD_PILL_IDS[id] ?? id))];
   if (!s.length) s = pillsForTypes(pickIds(q.t, allowed.types));
   return { d, s, p };
 }

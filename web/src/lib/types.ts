@@ -6,13 +6,21 @@ export type Card = {
   /** Display label for `type`, from the API's meta lists. */
   typeLabel: string;
   subtype: string | null;
+  /** Other kinds this listing also is (same broad type). It still appears once in the list. */
+  alsoSubtypes: string[];
+  /** The top tag (one of the eleven step-two choices) and the small tag beside it (null when the top tag says it all). */
+  tag: string;
+  subtag: string | null;
   place: string;
   location: string | null;
   deadline: string;
   closesIn: number | null;
+  /** What closesIn counts to: the application deadline, or a date the listing gives (an event, an audition). */
+  nextKind: "deadline" | "date" | null;
   eventDates: string[] | null;
   recurrence: string | null;
-  fee: string;
+  /** A real fee, No fee, or Fee not listed where a fee is a real question; null where a fee line would say nothing. */
+  fee: string | null;
   award: string | null;
   eligibility: string[];
   source: string;
@@ -30,6 +38,12 @@ export type Group = {
   cards: Card[];
   /** E.g. "3 expired listings removed.", or null. */
   removed: string | null;
+  /** The expired listings behind the count (at most 20), for the "expired removed" list. */
+  expired: Card[];
+  /** How many listings match this search; `cards` are the best of them. */
+  total: number;
+  /** The best of the other matches (not reviewed), for the browse list. */
+  more: Card[];
   reason: string | null;
 };
 
@@ -42,7 +56,8 @@ export type CallLog = {
   requestId: string;
 };
 
-export type SearchInput = { places: string[]; types: string[]; disciplines: string[] };
+/** `subtypes` are "type.kind" tokens (e.g. "event.open_mic") naming the kinds to rank before anything is cut; empty means every kind. */
+export type SearchInput = { places: string[]; types: string[]; disciplines: string[]; subtypes?: string[] };
 
 export type SearchOutput = {
   asOf: string;

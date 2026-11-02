@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AuthButtons from "./AuthButtons";
+import FindLink from "./FindLink";
 
 export default function HeaderOriginal({ icon = "/brand/logo-mark.png", textSize }: { icon?: string; textSize?: number }) {
   return (
@@ -12,7 +13,7 @@ export default function HeaderOriginal({ icon = "/brand/logo-mark.png", textSize
           Artist Atlas
         </Link>
         <nav className="nav" aria-label="Main">
-          <Link href="/find">Find opportunities</Link>
+          <FindLink>Find opportunities</FindLink>
           {process.env.NODE_ENV !== "production" && <Link href="/dev">Dev tools</Link>}
         </nav>
         <AuthButtons />

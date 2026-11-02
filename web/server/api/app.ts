@@ -26,7 +26,7 @@ import * as pipeline from "../agents/pipeline.ts";
 import { BaselineRanker, Ranker, type RankerRole, Reviewer, type ReviewerRole } from "../agents/roles.ts";
 import { type TraceSink, writeTrace } from "../agents/trace.ts";
 import {
-  DISCIPLINES, OTHER_PLACE_LABELS, PLACE_GROUPS, PLACE_LABELS, TYPE_INFO, canonicalDisciplines, expandPlaceChoices,
+  DISCIPLINES, KINDS_BY_TYPE, OTHER_PLACE_LABELS, PLACE_GROUPS, PLACE_LABELS, TYPE_INFO, canonicalDisciplines, expandPlaceChoices,
 } from "../agents/taxonomy.ts";
 import { NoPublishedSnapshotError, type RecordSource } from "../db/opportunities.ts";
 import {
@@ -131,7 +131,10 @@ const isType = (v: string): v is OpportunityType => (TYPES as readonly string[])
 const PLACE_CHOICES: ReadonlySet<string> = new Set([...BOROUGHS, ...REGIONS, ...PLACE_GROUPS.map((g) => g.id)]);
 const TYPE_CHOICES: ReadonlySet<string> = new Set(TYPES);
 const DISCIPLINE_CHOICES: ReadonlySet<string> = new Set(DISCIPLINES.map((d) => d.id));
-const SEARCH_PARAMS: ReadonlySet<string> = new Set(["places", "types", "disciplines"]);
+const SEARCH_PARAMS: ReadonlySet<string> = new Set(["places", "types", "disciplines", "subtypes"]);
+/** Every "type.kind" token a search may carry, e.g. "event.open_mic" (kind "none" is a record with no kind). */
+const SUBTYPE_CHOICES: ReadonlySet<string> = new Set(
+  Object.entries(KINDS_BY_TYPE).flatMap(([type, kinds]) => kinds.map((k) => `${type}.${k}`)));
 
 /** A comma-separated list of distinct ids from `allowed` (at least one), or null. */
 const idList = (raw: string | null, allowed: ReadonlySet<string>): string[] | null => {
@@ -142,7 +145,7 @@ const idList = (raw: string | null, allowed: ReadonlySet<string>): string[] | nu
 };
 
 /** A validated search: places expanded and in canonical order, types in the order asked, disciplines canonical. */
-export type SearchSpec = { places: Place[]; types: OpportunityType[]; disciplines: Discipline[] };
+export type SearchSpec = { places: Place[]; types: OpportunityType[]; disciplines: Discipline[]; subtypes: string[] };
 
 /** The validated search, or null. `places` and `types` are required and `disciplines` is optional; each is a
  * list of distinct ids from the closed lists, given at most once; nothing else (in particular not as_of). */
@@ -152,11 +155,13 @@ export const parseSearchQuery = (params: URLSearchParams): SearchSpec | null => 
   const places = idList(params.get("places"), PLACE_CHOICES);
   const types = idList(params.get("types"), TYPE_CHOICES);
   const disciplines = params.has("disciplines") ? idList(params.get("disciplines"), DISCIPLINE_CHOICES) : [];
-  if (places === null || types === null || disciplines === null) return null;
+  const subtypes = params.has("subtypes") ? idList(params.get("subtypes"), SUBTYPE_CHOICES) : [];
+  if (places === null || types === null || disciplines === null || subtypes === null) return null;
   return {
     places: expandPlaceChoices(places),
     types: types as OpportunityType[],
     disciplines: canonicalDisciplines(disciplines),
+    subtypes: [...subtypes].sort(),   // canonical, so the same choices in any order share one cached run
   };
 };
 
@@ -173,7 +178,8 @@ export const parseOpportunitiesQuery = (params: URLSearchParams): { place: Place
 /** A run's result, shared by everyone asking the same question; request_id is the run's own. */
 type Computed = {
   snapshot_id: string; as_of: string; tier: 0 | 2 | 3; results: Opportunity[]; removed: string | null;
-  removed_counts: RemovedCounts | null; reason: string | null; run_request_id: string;
+  removed_counts: RemovedCounts | null; expired_results: Opportunity[]; total_matches: number; more_results: Opportunity[];
+  reason: string | null; run_request_id: string;
 };
 /** One run as served to one request: the result and this request's own id for it. */
 type Served = { c: Computed; requestId: string };
@@ -185,7 +191,7 @@ type ServeOptions = {
 
 /** Cache and in-flight key: everything that decides a run's result (places and disciplines arrive canonical). */
 const runKey = (snapshotId: string, req: SearchRequest) =>
-  JSON.stringify([snapshotId, req.places, req.type, req.disciplines, req.asOf]);
+  JSON.stringify([snapshotId, req.places, req.type, req.disciplines, req.subtypes, req.asOf]);
 
 class HttpError extends Error {
   override name = "HttpError";
@@ -275,7 +281,9 @@ export const createApp = (deps: AppDeps) => {
       if (ctl.signal.aborted && ctl.signal.reason === DEADLINE_PASSED) events.degraded = true;
       const c: Computed = {
         snapshot_id: snapshotId, as_of: req.asOf, tier: out.tier, results: out.results.map(toOpportunity),
-        removed: out.removed, removed_counts: out.removed_counts, reason: out.reason ?? null,
+        removed: out.removed, removed_counts: out.removed_counts, expired_results: (out.expired_results ?? []).map(toOpportunity),
+        total_matches: out.total_matches ?? out.results.length, more_results: (out.more_results ?? []).map(toOpportunity),
+        reason: out.reason ?? null,
         run_request_id: out.request_id!,
       };
       if (events.degraded) {
@@ -355,13 +363,15 @@ export const createApp = (deps: AppDeps) => {
     charge(requestLimiter, client);
     const asOf = today(new Date(now()));
     const snapshotId = await snapshotFor();
-    const reqs = q.types.map((type) => makeSearchRequest(q.places, type, asOf, q.disciplines));
+    const reqs = q.types.map((type) => makeSearchRequest(q.places, type, asOf, q.disciplines,
+      q.subtypes.filter((t) => t.startsWith(`${type}.`)).map((t) => t.slice(type.length + 1))));
     const served = await serve(reqs, snapshotId, client, {
       whenBusy: "baseline", traceFields: { search_id: pipeline.newRequestId() },
     });
     const groups = served.map(({ c, requestId }, i): SearchGroup => {
       const base = {
-        type: q.types[i]!, results: c.results, removed: c.removed, removed_counts: c.removed_counts,
+        type: q.types[i]!, results: c.results, removed: c.removed, removed_counts: c.removed_counts, expired_results: c.expired_results,
+        total_matches: c.total_matches, more_results: c.more_results,
         request_id: requestId,
       };
       return c.tier === 3 ? { ...base, tier: 3, reason: c.reason ?? "no result" } : { ...base, tier: c.tier };

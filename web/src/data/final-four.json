@@ -1,0 +1,29 @@
+{
+  "pick": {
+    "hdr": "wordmark",
+    "corner": "left",
+    "authcorner": "right",
+    "authbtn": "3",
+    "ctabtn": "today",
+    "hero": "figure",
+    "bg": "spotlight",
+    "art": "default",
+    "devtools": "off",
+    "navlinks": "off",
+    "auth": "on"
+  },
+  "size": 1.5,
+  "btn": 1.25,
+  "figs": {
+    "figure": { "x": 8.5, "y": 12.5, "s": 1.4 }
+  },
+  "sent": { "x": 4, "y": 0 },
+  "cta": { "x": 4, "y": 0 },
+  "sentSize": 1,
+  "sentWide": 0,
+  "logoY": 31,
+  "logoX": -171,
+  "auth": { "x": 194, "y": 7 },
+  "authSize": 1.1,
+  "figAlpha": 72
+}

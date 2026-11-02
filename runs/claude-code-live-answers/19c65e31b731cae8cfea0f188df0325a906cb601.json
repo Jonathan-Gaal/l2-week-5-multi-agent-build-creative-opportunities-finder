@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T04:58:21.982Z",
+ "request": "Request: Manhattan, Brooklyn, Queens, The Bronx, Staten Island, Long Island, New Jersey, Massachusetts open call (Music,",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "A union call (Equity members first) for an unannounced play on Nov 2 at Pearl Studios, paying $1,496 a week in rehearsal and $2,500 in performance; from Playbill Jobs, with a full schedule and location, and the nearest date on the list."
+   },
+   {
+    "id": "r3",
+    "reason": "A union call for the New York Shakespeare Festival's Welcome Table on Nov 3 at the Actors' Equity Audition Center, paying $1,929 a week; a named venue, a full rehearsal and run schedule, and soon."
+   },
+   {
+    "id": "r6",
+    "reason": "A union call for The Phantom of the Opera (Tour) on Nov 4 at Pearl Studios, paying a $2,599 weekly minimum; a clear date and location, from Playbill Jobs."
+   },
+   {
+    "id": "r7",
+    "reason": "A non-union audition on Nov 5 with callbacks Nov 6 at Ripley-Grier Studios, paying a starting $125 per show; limited to ages 18 to 30, so it is the open option for performers without union membership."
+   },
+   {
+    "id": "r35",
+    "reason": "Roulette takes performance proposals for music and theater on a rolling basis and programs them into its Brooklyn season; no pay is stated, but it is the one music call and anyone can apply at any time."
+   }
+  ]
+ }
+}

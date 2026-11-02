@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "id": "final-4",
+    "name": "Final 4",
+    "at": 1793433600000,
+    "settings": {
+      "pick": {
+        "hdr": "wordmark-white",
+        "corner": "left",
+        "authcorner": "right",
+        "authbtn": "3",
+        "ctabtn": "today",
+        "hero": "p2-8",
+        "bg": "solid",
+        "art": "globe-nyc",
+        "devtools": "off",
+        "navlinks": "off",
+        "auth": "on"
+      },
+      "size": 1.8,
+      "btn": 1.1,
+      "figs": {
+        "figure": { "x": 8, "y": 6, "s": 1 },
+        "p2-4": { "x": 0, "y": 24.5, "s": 1.75 },
+        "p2-8": { "x": 19.5, "y": 3.5, "s": 1.3 }
+      },
+      "sent": { "x": 2.5, "y": 5.5 },
+      "cta": { "x": 6, "y": 3 },
+      "sentSize": 0.95,
+      "logoY": 39,
+      "logoX": -152,
+      "auth": { "x": 200, "y": 10 },
+      "sentWide": 7.5,
+      "authSize": 1.15
+    }
+  },
+  {
+    "id": "site-bar-1",
+    "name": "Site bar 1",
+    "at": 1793520000000,
+    "settings": {
+      "pick": {
+        "hdr": "full",
+        "corner": "left",
+        "hero": "p2-8",
+        "art": "globe-nyc",
+        "bg": "solid",
+        "devtools": "off",
+        "navlinks": "off",
+        "authcorner": "right",
+        "authbtn": "11",
+        "ctabtn": "today",
+        "auth": "on"
+      },
+      "size": 1.6,
+      "btn": 1.1,
+      "figs": {
+        "figure": { "x": 8, "y": 6, "s": 1 },
+        "p2-4": { "x": 0, "y": 24.5, "s": 1.75 },
+        "p2-8": { "x": 19.5, "y": 3.5, "s": 1.3 }
+      },
+      "sent": { "x": 2.5, "y": 5.5 },
+      "cta": { "x": 6, "y": 3 },
+      "sentSize": 0.95,
+      "sentWide": 7.5,
+      "logoY": 11,
+      "logoX": -152,
+      "auth": { "x": 200, "y": -22 },
+      "authSize": 1.15
+    }
+  }
+]

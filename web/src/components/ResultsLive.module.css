@@ -3,16 +3,22 @@
 .board { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 22px; padding: 24px 0 48px; align-items: start; }
 
 .side { position: sticky; top: 16px; background: var(--ink-2); border: 2px solid var(--plum); border-radius: 22px; padding: 20px; display: grid; gap: 18px; }
+/* On wide windows the panel sits a little further left than the column, toward the edge of the screen. */
+/* The panel reaches out toward the left edge of the window (up to 150px, never closer than about 21px to it) and keeps its right edge where the column ends, so it gets wider rather than leaving a gap. */
+@media (min-width: 1100px) {
+  .side { --reach: max(0px, min(150px, (100vw - 1080px) / 2 - 8px)); justify-self: start; width: calc(330px + var(--reach)); margin-left: calc(-1 * var(--reach)); margin-top: 44px; }
+  .main { margin-top: 44px; }     /* the right side starts at the same height as the panel */
+}
 .label { font: 700 12px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime); margin: 0 0 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { font: 700 14px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--plum); border-radius: 999px; padding: 3px 11px; cursor: pointer; transition: background 0.12s, border-color 0.12s; }
 .chip:hover { border-color: var(--lime); }
 .chip:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
-.chip[aria-pressed="true"] { color: #000; padding: 5px 13px; border-color: transparent; }
-.lime[aria-pressed="true"] { background: var(--lime); }
-.pink[aria-pressed="true"] { background: var(--pink); }
-.cream[aria-pressed="true"] { background: var(--paper); }
-.wider { border-color: var(--lime); color: var(--lime); }
+/* A picked chip is an outline pill in its colour (same size as an unpicked one, so nothing shifts). */
+.chip[aria-pressed="true"] { background: transparent; }
+.lime[aria-pressed="true"] { color: var(--lime); border-color: var(--lime); }
+.pink[aria-pressed="true"] { color: var(--pink); border-color: var(--pink); }
+.cream[aria-pressed="true"] { color: var(--paper); border-color: var(--paper); }
 .status { margin: 0; padding-top: 12px; border-top: 1px solid var(--plum); font-size: 14px; color: var(--muted-dk); min-height: 2.4em; }
 .status b { color: var(--lime); }
 
@@ -21,11 +27,56 @@
 .big { font: 900 clamp(44px, 6vw, 56px) / 1 var(--serif); color: var(--lime); }
 .countText { font-size: 19px; font-weight: 700; }
 .removed { margin-left: auto; font-size: 14px; color: var(--muted-dk); }
+.expired { margin-top: 10px; color: var(--muted-dk); font-size: 14px; }
+.expired summary { cursor: pointer; }
+.expired summary:hover { color: var(--lime); }
+.expiredList { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.expiredList li { display: flex; flex-direction: column; gap: 2px; font-size: 15px; }
+.expiredList a { color: var(--paper); }
+.expiredMeta { font-size: 13px; color: var(--muted-dk); }
 
+.more { margin-top: 6px; }
+.moreHead { font-size: 18px; margin: 0 0 4px; color: var(--paper); }
+.moreCount { font-size: 13px; font-family: var(--font-body, inherit); color: var(--ink); background: var(--lime); border-radius: 999px; padding: 1px 9px; margin-left: 6px; vertical-align: 2px; }
+.moreGroup { margin-top: 20px; }
+.moreGroup h4 { font-size: 16px; margin: 0 0 10px; color: var(--paper); }
+.kinds { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+.kindPill, .kindOn { display: inline-flex; align-items: center; gap: 7px; font: 700 14px var(--sans); padding: 5px 8px 5px 13px; border-radius: 999px; text-decoration: none; border: 2px solid var(--plum); color: var(--paper); }
+.kindPill:hover { border-color: var(--lime); }
+.kindPill span, .kindOn span { font-size: 12px; font-weight: 800; background: var(--lime); color: #000; border-radius: 999px; padding: 1px 8px; }
+.kindOn { background: var(--lime); border-color: var(--lime); color: #000; }
+.kindOn span { background: #000; color: var(--lime); }
+.pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 22px; }
+.pagerNote { font-size: 14px; color: var(--muted-dk); margin-right: 8px; }
+.pageLink, .pageNow { font: 700 14px var(--sans); min-width: 38px; text-align: center; padding: 7px 13px; border-radius: 999px; text-decoration: none; border: 2px solid var(--plum); color: var(--paper); }
+.pageLink:hover { border-color: var(--lime); }
+.pageNow { background: var(--lime); border-color: var(--lime); color: #000; }
+.pageGap { color: var(--muted-dk); }
 .groupHead { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; margin: 14px 0 2px; }
 .groupHead h2 { font-size: clamp(22px, 3vw, 28px); }
 .groupNote { font-size: 14px; color: var(--muted-dk); }
+.rankedHead { font: 900 clamp(24px, 3.4vw, 32px) var(--serif); color: var(--lime); margin: 8px 0 12px; }
+.ranked { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; align-items: start; }
+.rank { font: 900 clamp(38px, 5vw, 52px) / 1 var(--serif); color: var(--lime); text-align: center; padding-top: 6px; text-shadow: 0 0 18px rgba(220, 252, 5, 0.35); }
+@media (max-width: 600px) { .ranked { grid-template-columns: 40px minmax(0, 1fr); gap: 8px; } }
 .cards { display: grid; gap: 12px; }
+.sideActions { display: grid; gap: 10px; justify-items: center; padding-top: 14px; border-top: 1px solid var(--plum); }
+.chips { list-style: none; margin: 0; padding: 0; }
+.static { cursor: default; pointer-events: none; }
+.on_lime, .on_pink, .on_cream { color: #000; border-color: transparent; padding: 5px 13px; }
+.on_lime { background: var(--lime); }
+.on_pink { background: var(--pink); }
+.on_cream { background: var(--paper); }
+.howRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; margin-top: 18px; }
+@media (max-width: 700px) { .howRow { grid-template-columns: 1fr; } }
+.solid { font: 700 15px var(--sans); background: var(--lime); color: #000; border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
+.solid:hover { filter: brightness(1.08); }
+.howPill summary { list-style: none; display: inline-block; cursor: pointer; font: 700 15px var(--sans); color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; }
+.howPill summary::-webkit-details-marker { display: none; }
+.howPill summary:hover, .howPill[open] summary { background: rgba(220, 252, 5, 0.12); }
+.howPill summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.howBody { margin-top: 10px; padding: 14px 18px; border: 2px solid var(--plum); border-radius: 18px; display: grid; gap: 8px; }
+.howBody p { margin: 0; color: var(--muted-dk); line-height: 1.5; }
 .foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .ghost { font: 700 15px var(--sans); background: transparent; color: var(--paper); border: 2px solid var(--lime); border-radius: 999px; padding: 11px 22px; text-decoration: none; }
 .ghost:hover { background: rgba(220, 252, 5, 0.12); }
@@ -35,3 +86,20 @@
   .side { position: static; }
 }
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
+
+
+
+/* Start over: plain text with an arrow, set like Back and Next in the find flow (italic serif). */
+.startOver { color: var(--paper); font: italic 900 24px var(--serif); text-decoration: none; background: linear-gradient(var(--pink), var(--pink)) no-repeat left bottom / 0 3px; padding-bottom: 4px; transition: background-size 0.35s ease; }
+.startOver span { transition: color 0.12s; }
+.startOver:hover { background-size: 100% 3px; }
+.startOver:hover span, .startOver:focus-visible span { color: var(--lime); }
+.startOver:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { .startOver, .startOver span { transition: none; } }
+
+/* Tapping a chip wiggles Start over (a colour flash instead for people who prefer less motion). */
+.wiggle { animation: soWiggle 0.7s ease-in-out; }
+@keyframes soWiggle { 0%, 100% { transform: translateX(0); } 15% { transform: translateX(-9px) rotate(-2deg); } 30% { transform: translateX(8px) rotate(2deg); } 45% { transform: translateX(-7px) rotate(-1.5deg); } 60% { transform: translateX(6px) rotate(1.5deg); } 75% { transform: translateX(-3px); } }
+@media (prefers-reduced-motion: reduce) { .wiggle { animation: soFlash 0.7s ease-in-out; } @keyframes soFlash { 0%, 100% { color: var(--paper); } 30%, 70% { color: var(--lime); } } }
+.chip:active { transform: none; }
+

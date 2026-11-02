@@ -8,8 +8,8 @@
  * double-click can't fire two sign-ins. [Doherty]
  */
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 
 type DemoButtonProps = {
@@ -27,6 +27,13 @@ export default function DemoButton({ label = "Explore the demo →", className, 
   const router = useRouter();
   const { startDemo } = useAuth();
   const [pending, setPending] = useState(false);
+  const pathname = usePathname();
+
+  // Next keeps the page you leave in memory, so without this the button would still be "pending" (greyed out) when you come back to it.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset the in-flight flag whenever this page is shown again
+    setPending(false);
+  }, [pathname]);
 
   async function handleDemo() {
     setPending(true);

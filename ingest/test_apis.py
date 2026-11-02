@@ -145,7 +145,7 @@ class NycJobs(unittest.TestCase):
 
     def test_keeps_external_open_creative_job_with_salary(self):
         r = apis._job_record(self.job())
-        self.assertEqual((r["opportunity_type"], r["award"], r["borough"], r["disciplines"]), ("job", "$70,000–$80,000 per year", "manhattan", ["design"]))
+        self.assertEqual((r["opportunity_type"], r["award"], r["borough"], r["disciplines"]), ("job", "$70,000–$80,000 per year", "manhattan", ["visual"]))
         self.assertEqual(r["source_url"], "https://cityjobs.nyc.gov/job/805925")
         self.assertEqual([e["requirement"] for e in r["eligibility"]], ["minimum qualifications", "residency"])
 
@@ -156,7 +156,7 @@ class NycJobs(unittest.TestCase):
             self.assertIsNone(apis._job_record(self.job(business_title=title)), title)
 
     def test_title_variants(self):
-        self.assertEqual(apis._job_record(self.job(business_title="Director of Design, Bureau of Communications"))["disciplines"], ["design"])
+        self.assertEqual(apis._job_record(self.job(business_title="Director of Design, Bureau of Communications"))["disciplines"], ["visual"])
         self.assertEqual(apis._job_record(self.job(business_title="Staff Writer"))["disciplines"], ["literary"])
 
     def test_borough_and_salary_parsing(self):

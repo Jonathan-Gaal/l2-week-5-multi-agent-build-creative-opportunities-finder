@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T03:49:11.126Z",
+ "request": "Request: Manhattan, Brooklyn, Queens, The Bronx, Staten Island, Long Island, New Jersey, Massachusetts event (Music, Com",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "A free NYC Parks open mic on Dec 5 at the Greenbelt Nature Center on Staten Island; the only event here with a specific date, a named venue and no fee."
+   },
+   {
+    "id": "r11",
+    "reason": "A weekly Thursday 8pm open mic for comedy, music and poetry at Cool Beans! Coffee House in Queens, with a street address and no listed fee."
+   },
+   {
+    "id": "r43",
+    "reason": "A weekly Wednesday 7:30pm open mic for comedy, music and poetry at The Red Doors in Brooklyn, with a street address and no listed fee."
+   },
+   {
+    "id": "r29",
+    "reason": "A weekly Monday 8pm open mic for comedy, music and poetry at Red Eye NY in Manhattan, with a street address and no listed fee."
+   },
+   {
+    "id": "r32",
+    "reason": "A weekly Saturday 3pm open mic at SoHo Playhouse in Manhattan, covering comedy, music and poetry, with a street address and no listed fee."
+   }
+  ]
+ }
+}
