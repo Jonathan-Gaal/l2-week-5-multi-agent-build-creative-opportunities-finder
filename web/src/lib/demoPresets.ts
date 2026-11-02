@@ -1,10 +1,12 @@
 import { spellOut } from "./places.ts";
 
-/** The three local presentation searches. Keep the date and snapshot fixed after recording. */
+/** The five presentation searches. Keep the date and snapshot fixed after recording. */
 export const DEMO_PRESETS = [
   { name: "Alex · Manhattan auditions", d: ["theater"], s: ["auditions"], p: ["manhattan"] },
   { name: "Sam · Art & writing across the tri-state", d: ["visual", "writing"], s: ["open_calls"], p: ["nyc", "long_island", "new_jersey", "upstate_ny", "westchester_hudson", "connecticut"] },
   { name: "Jordan · Poetry on Staten Island", d: ["poet"], s: ["open_calls", "residencies"], p: ["staten_island"] },
+  { name: "Denise · Dance grants and residencies in NYC", d: ["dance"], s: ["grants", "fellowships", "residencies"], p: ["nyc"] },
+  { name: "Evan · Brooklyn open mics and bands", d: ["music"], s: ["open_mics", "collaborations"], p: ["brooklyn"] },
 ] as const;
 
 /** Ignore order, duplicates and results-page controls when identifying the current search. */

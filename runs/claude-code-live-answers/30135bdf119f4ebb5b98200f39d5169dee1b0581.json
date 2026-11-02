@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T17:21:07.276Z",
+ "request": "Request: Brooklyn open call (Music) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"'Epic' Gallery / St",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r2",
+    "reason": "A November show that pays $100 for a drummer and bassist, with a clear date and hands-on playing."
+   },
+   {
+    "id": "r15",
+    "reason": "Bass player wanted for a punk/garage rock show on Nov 21, a specific upcoming gig."
+   },
+   {
+    "id": "r13",
+    "reason": "An alt rock/grunge band looking for a female vocalist and a bassist, a clear band-member opening."
+   },
+   {
+    "id": "r24",
+    "reason": "An original rock band looking for a lead guitarist, a direct band-member opening."
+   },
+   {
+    "id": "r17",
+    "reason": "A drummer wanted for a psychedelic blues rock band, a direct band-member opening."
+   }
+  ]
+ }
+}
