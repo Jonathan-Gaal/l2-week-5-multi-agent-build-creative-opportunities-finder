@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
-import { makeRequest, makeSearchRequest } from "../agents/filter.ts";
-import { NoPublishedSnapshotError, type Queryable, loadRecords } from "./opportunities.ts";
+import { makeRequest, makeSearchRequest, select } from "../agents/filter.ts";
+import { NoPublishedSnapshotError, type Queryable, loadRecords, queryValues } from "./opportunities.ts";
 
 /** Answers the snapshot lookup with `published` and every other query with `rows`, recording each call. */
 const fakeDb = (published: string[], rows: unknown[] = []) => {
@@ -51,5 +51,34 @@ describe("loadRecords", () => {
     assert.equal(out.snapshotId, "2026-10-27");
     assert.equal(calls.length, 1);
     assert.equal(calls[0]!.values[0], "2026-10-27");
+  });
+});
+
+describe("extra kinds (also_subtypes) and fetched_at on the Postgres path", () => {
+  // A casting call that is also a paid gig, as the database returns it (dates as text, arrays as arrays).
+  const row = {
+    title: "Paid reading", dedupe_key: "k1", source: "backstage", source_url: "https://example.org/a", checked_at: "2026-11-01",
+    snapshot_id: "s", opportunity_type: "open_call", subtype: "casting_call", also_subtypes: ["paid_gig"], borough: "manhattan",
+    region: "nyc", deadline: "2026-12-01", event_dates: null, disciplines: ["theater"], eligibility: [], fetched_at: "2026-10-27",
+  };
+
+  it("selects also_subtypes and fetched_at (as YYYY-MM-DD text), and passes them through unchanged", async () => {
+    const { db, calls } = fakeDb(["s"], [row]);
+    const out = await loadRecords(db, makeSearchRequest(["manhattan"], "open_call", "2026-11-01", [], ["paid_gig"]));
+    assert.match(calls[1]!.text, /\bsubtype, also_subtypes,/);
+    assert.match(calls[1]!.text, /fetched_at::text as fetched_at/);
+    assert.deepEqual(out.records[0]!.also_subtypes, ["paid_gig"]);
+    assert.equal(out.records[0]!.fetched_at, "2026-10-27");
+  });
+
+  it("the database never filters by kind, so a row picked only through also_subtypes reaches the Filter, which keeps it", async () => {
+    const req = makeSearchRequest(["manhattan"], "open_call", "2026-11-01", [], ["paid_gig"]);
+    assert.deepEqual(queryValues(req, "s"), queryValues({ ...req, subtypes: [] }, "s"));
+    const { db, calls } = fakeDb(["s"], [row]);
+    const { records } = await loadRecords(db, req);
+    assert.doesNotMatch(calls[1]!.text.split("where")[1]!, /subtype/);
+    assert.deepEqual(select(records, req)[0].map((r) => r.dedupe_key), ["k1"]);
+    // Without the column (the old select) the same row is dropped: the reason it is selected.
+    assert.deepEqual(select([{ ...row, also_subtypes: undefined }], req)[0], []);
   });
 });

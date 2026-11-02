@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T17:21:07.250Z",
+ "request": "Request: Brooklyn event (Music) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Comedy / Music / Poetry",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r3",
+    "reason": "Jalopy is an established Brooklyn music venue with a weekly open mic, so a musician can plan around it."
+   },
+   {
+    "id": "r5",
+    "reason": "Music-only open mic at Brooklyn Music Kitchen on Mondays with no fee listed."
+   },
+   {
+    "id": "r6",
+    "reason": "A second weekly music-only slot at Brooklyn Music Kitchen on Wednesdays, no fee listed."
+   },
+   {
+    "id": "r4",
+    "reason": "Music open mic on Sundays in Brooklyn with no fee listed."
+   },
+   {
+    "id": "r7",
+    "reason": "Music open mic on Thursdays at Kitty Kiernans with no fee listed."
+   }
+  ]
+ }
+}

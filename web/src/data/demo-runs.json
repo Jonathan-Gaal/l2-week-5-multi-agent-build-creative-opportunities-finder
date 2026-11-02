@@ -1,26 +1,5 @@
 [
  {
-  "name": "Jordan · Poetry on Staten Island",
-  "url": "/results?d=poet&t=open_call%2Cresidency&p=staten_island&s=open_calls%2Cresidencies",
-  "artists": [
-   "poet"
-  ],
-  "wants": [
-   "Submissions/Open calls",
-   "Residencies"
-  ],
-  "places": [
-   "Staten Island"
-  ],
-  "top": [
-   {
-    "n": 1,
-    "title": "Mabou Mines SUITE/space: performance residency for early career artists"
-   }
-  ],
-  "savedAt": "2026-11-02T13:51:07.621Z"
- },
- {
   "name": "Alex · Manhattan auditions",
   "url": "/results?d=theater&t=open_call&p=manhattan&s=auditions",
   "artists": [
@@ -97,5 +76,101 @@
    }
   ],
   "savedAt": "2026-11-02T13:48:58.268Z"
+ },
+ {
+  "name": "Jordan · Poetry on Staten Island",
+  "url": "/results?d=poet&t=open_call%2Cresidency&p=staten_island&s=open_calls%2Cresidencies",
+  "artists": [
+   "poet"
+  ],
+  "wants": [
+   "Submissions/Open calls",
+   "Residencies"
+  ],
+  "places": [
+   "Staten Island"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "Mabou Mines SUITE/space: performance residency for early career artists"
+   }
+  ],
+  "savedAt": "2026-11-02T13:51:07.621Z"
+ },
+ {
+  "name": "Denise · Dance grants and residencies in NYC",
+  "url": "/results?d=dance&t=grant%2Cresidency&p=nyc&s=grants%2Cfellowships%2Cresidencies",
+  "artists": [
+   "dancer"
+  ],
+  "wants": [
+   "Grants",
+   "Fellowships",
+   "Residencies"
+  ],
+  "places": [
+   "Anywhere in NYC"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "LMCC 2027 Manhattan Arts Grants: Creative Unrestricted"
+   },
+   {
+    "n": 2,
+    "title": "Movement Research Artist-in-Residence 2027-2028"
+   },
+   {
+    "n": 3,
+    "title": "2027 Bronx Dance Fund"
+   },
+   {
+    "n": 4,
+    "title": "Triangle 2027-2028 Open Call (studio residency)"
+   },
+   {
+    "n": 5,
+    "title": "Rauschenberg Medical Emergency Grants Cycle 39"
+   }
+  ],
+  "savedAt": "2026-11-02T17:19:15.078Z"
+ },
+ {
+  "name": "Evan · Brooklyn open mics and bands",
+  "url": "/results?d=music&t=event%2Copen_call&p=brooklyn&s=open_mics%2Ccollaborations",
+  "artists": [
+   "musician"
+  ],
+  "wants": [
+   "Open mics",
+   "Collaborations"
+  ],
+  "places": [
+   "Brooklyn"
+  ],
+  "top": [
+   {
+    "n": 1,
+    "title": "Jalopy Open Mic (every Wednesday)"
+   },
+   {
+    "n": 2,
+    "title": "In Search of Drummer & Bassist For November Show"
+   },
+   {
+    "n": 3,
+    "title": "Music open mic at Brooklyn Music Kitchen (Monday 7:00pm)"
+   },
+   {
+    "n": 4,
+    "title": "Bass player wanted for punk/ garage rock show Nov 21st"
+   },
+   {
+    "n": 5,
+    "title": "Music open mic at Brooklyn Music Kitchen (Wednesday 8:00pm)"
+   }
+  ],
+  "savedAt": "2026-11-02T17:21:37.971Z"
  }
 ]

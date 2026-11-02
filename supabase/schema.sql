@@ -33,6 +33,7 @@ create table public.opportunities (
   location         text,
   eligibility      jsonb not null default '[]',
   disciplines      text[] not null default '{}',
+  also_subtypes    text[] not null default '{}',   -- extra kinds; added by also_subtypes.sql on existing installs
   source           text not null,
   source_url       text not null,
   event_website    text,

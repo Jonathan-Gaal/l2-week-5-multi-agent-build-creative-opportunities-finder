@@ -26,7 +26,7 @@ URL = os.environ.get("SUPABASE_URL", "https://ofjwdioysmzfeiqlfrkl.supabase.co")
 BATCH = 200
 COLUMNS = ("dedupe_key", "title", "org", "opportunity_type", "subtype", "borough", "region", "deadline", "recurrence",
            "event_dates", "opens_at", "fee", "award", "location", "eligibility", "disciplines", "source", "source_url",
-           "event_website", "extraction", "caveat", "checked_at", "fetched_at")
+           "event_website", "extraction", "caveat", "checked_at", "fetched_at", "also_subtypes")
 
 
 def row(rec, snapshot_id):
@@ -34,6 +34,7 @@ def row(rec, snapshot_id):
     end = last_date(rec)
     out.update(snapshot_id=snapshot_id, last_date=end.isoformat() if end else None,
                eligibility=rec.get("eligibility") or [], disciplines=rec.get("disciplines") or [],
+               also_subtypes=rec.get("also_subtypes") or [],
                event_dates=rec.get("event_dates") or None)
     return out
 

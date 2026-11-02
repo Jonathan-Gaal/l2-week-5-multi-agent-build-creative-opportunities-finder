@@ -1,0 +1,8 @@
+{
+ "savedAt": "2026-11-02T17:21:37.825Z",
+ "request": "Request: Brooklyn event (Music) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Comedy / Music / Poetry",
+ "reply": {
+  "verdict": "accept",
+  "critique": "The picks are real recurring open mics for musicians, led by an established venue, with no fees listed."
+ }
+}

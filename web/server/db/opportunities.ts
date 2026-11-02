@@ -27,13 +27,18 @@ export class NoPublishedSnapshotError extends Error {
   override name = "NoPublishedSnapshotError";
 }
 
-// Dates come back as YYYY-MM-DD text, the same as records.json, instead of JS Date objects.
-const COLUMNS = `title, dedupe_key, source, source_url, checked_at::text as checked_at, snapshot_id,
-  opportunity_type, org, subtype, borough, region, deadline, event_dates::text[] as event_dates, recurrence,
-  fee, award, location, eligibility, disciplines, extraction, caveat`;
+// Every field the request path reads, so a row looks to the Filter, Ranker and prompts exactly as its records.json
+// record does. Dates come back as YYYY-MM-DD text, the same as records.json, instead of JS Date objects.
+// also_subtypes (extra kinds, filter.fitsSubtypes) needs supabase/also_subtypes.sql applied first; fetched_at feeds
+// roles.baselineScore (an old anonymous post loses points), so the candidate order matches the JSON path.
+export const COLUMNS = `title, dedupe_key, source, source_url, checked_at::text as checked_at, snapshot_id,
+  opportunity_type, org, subtype, also_subtypes, borough, region, deadline, event_dates::text[] as event_dates, recurrence,
+  fee, award, location, eligibility, disciplines, extraction, caveat, fetched_at::text as fetched_at`;
 
 // The same rules as filter.matches, so only rows that can match leave the database: any borough place
 // (borough or 'citywide'), any region place, and, when disciplines are given, a shared tag or 'all'.
+// Kinds (subtype / also_subtypes) are deliberately not filtered here: filter.select applies them, so a row whose
+// picked kind is only in also_subtypes is never dropped by the database.
 const QUERY = `select ${COLUMNS} from public.opportunities
   where snapshot_id = $1 and opportunity_type = $2
     and (borough = any($3::text[]) or region = any($4::text[]))

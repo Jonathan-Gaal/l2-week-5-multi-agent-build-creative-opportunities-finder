@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T17:18:40.765Z",
+ "request": "Request: Nyc residency (Dance) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Movement Research Artist",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "Dance-specific and the most complete listing: an 18-month residency (Jul 2027 to Dec 2028) with residency fees, rehearsal space and commissioning support, for NYC-based early career dance artists. Closes Nov 10."
+   },
+   {
+    "id": "r5",
+    "reason": "Open to any artist in any medium. A three-month studio residency in DUMBO plus a 3-day intensive. No application fee through Nov 30 ($10 after). Closes Dec 15."
+   },
+   {
+    "id": "r6",
+    "reason": "For artists developing or rehearsing movement-based work (dance and theater). 8 to 100 rehearsal hours a year in Brooklyn. Rolling, so there is no deadline pressure."
+   },
+   {
+    "id": "r8",
+    "reason": "A performance residency for early career artists with a published deadline of Nov 22. The listing does not state an award, so it ranks below the ones that do."
+   },
+   {
+    "id": "r2",
+    "reason": "Residency placing individual artists, or pairs, at a Manhattan senior center. Open to all disciplines, so dance counts. Closes Nov 12."
+   }
+  ]
+ }
+}
