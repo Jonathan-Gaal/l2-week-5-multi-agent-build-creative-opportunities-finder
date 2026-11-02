@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import DemoReplays from "./DemoReplays";
+import { replaySession } from "@/lib/demoPresets";
 
 type SavedRun = { name: string; savedAt: string; href: string; top: string[] };
 
@@ -84,7 +85,7 @@ function DemoBadge({ link }: { link: boolean }) {
                 type="button"
                 onClick={() => {
                   setOpen(false);     // the list goes away and the replay starts
-                  router.push(r.href);
+                  router.push(replaySession(r.href, crypto.randomUUID()));
                 }}
               >
                 <strong>{r.name}</strong>
@@ -111,7 +112,7 @@ export default function AuthButtons() {
   const onResults = pathname.startsWith("/results"); // the results page shows Login and Sign up (after the Demo mode tag, in demo mode)
   const [signingOut, setSigningOut] = useState(false);
 
-  if (status === "loading") return <div className="auth-slot" />;
+  if (status === "loading") return <div className="auth-slot"><Link href="/login" className="btn btn-ghost btn-small">Login</Link><Link href="/signup" className="btn btn-small">Sign up</Link></div>;
 
   if (status === "signed-in" && !user?.isAnonymous) {
     const out = async () => {

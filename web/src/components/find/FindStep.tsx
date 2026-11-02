@@ -8,6 +8,7 @@ import { TYPE_PILLS, typesOf } from "@/lib/typePills";
 import { article, chipList, chipText, chipsFor, idsOf } from "@/lib/disciplineWords";
 import { GROUP_IDS, spellOut, toggleGroup, togglePlace, type PlaceGroup } from "@/lib/places";
 import { makeCursor } from "@/lib/replayCursor";
+import { replayStart } from "@/lib/demoPresets";
 import PlaceMap, { PlaceChips } from "./PlaceMap";
 import s from "./FindFlow.module.css";
 
@@ -92,24 +93,34 @@ function Chip({ on, tone, i, onClick, describedBy, children }: { on: boolean; to
   );
 }
 
-export default function FindStep({ step, initial, meta }: { step: Step; initial: Choice; meta: MetaResponse }) {
+type FindStepProps = { step: Step; initial: Choice; meta: MetaResponse };
+
+export default function FindStep(props: FindStepProps) {
+  const params = useSearchParams();
+  return <FindStepContent key={`${props.step}:${params}`} {...props} />;
+}
+
+function FindStepContent({ step, initial, meta }: FindStepProps) {
   const router = useRouter();
-  const [c, setC] = useState<Choice>({ ...initial, p: spellOut(initial.p) });
+  const params = useSearchParams();
+  const list = (key: string) => (params.get(key) ?? "").split(",").filter(Boolean);
+  const replay = params.get("replay") === "1";
+  const start = replay ? replayStart(step, { d: list("rd"), s: list("rs") }) : { ...initial, p: spellOut(initial.p) };
+  const [c, setC] = useState<Choice>(start);
+  const frameRef = useRef<HTMLDivElement>(null);
   const [tried, setTried] = useState(false);
   const [nudge, setNudge] = useState(0); // each early press restarts the wiggle
   const alertTimer = useRef<number | undefined>(undefined);
   useEffect(() => () => window.clearTimeout(alertTimer.current), []);
   // A saved run from the demo (/demo) plays itself: with ?replay=1 each step picks the saved choices one by one, presses Next,
   // and carries on to the next step, so the results page opens the way it would after someone had gone through the flow.
-  const params = useSearchParams();
-  const replay = params.get("replay") === "1";
-  const replayQuery = new URLSearchParams({ replay: "1", rd: params.get("rd") ?? "", rs: params.get("rs") ?? "", rp: params.get("rp") ?? "" }).toString();
+  const replayQuery = new URLSearchParams({ replay: "1", rid: params.get("rid") ?? "", rd: params.get("rd") ?? "", rs: params.get("rs") ?? "", rp: params.get("rp") ?? "" }).toString();
   const [pressing, setPressing] = useState(false);
   const copy = COPY[step];
   const shownPills = TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value)));
   const allOn = shownPills.length > 0 && shownPills.every((p) => c.s.includes(p.id));
   // Which chips are lit on the first step. A split discipline lights both of its chips when it arrives from the address.
-  const [keys, setKeys] = useState<string[]>(() => initial.d.flatMap((id) => chipsFor(id).map((x) => x.key)));
+  const [keys, setKeys] = useState<string[]>(() => start.d.flatMap((id) => chipsFor(id).map((x) => x.key)));
   const allKinds = chipList(meta.disciplines.map((d) => d.value)).sort((a, b) => (SHOWN_ORDER.indexOf(a.key) + 1 || 99) - (SHOWN_ORDER.indexOf(b.key) + 1 || 99));
   // in the order they were picked, so the sentence reads the way the person chose
   const picked = keys.flatMap((k) => allKinds.filter((x) => x.key === k));
@@ -175,7 +186,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
         if (stop) return;
         if (step === "place") {
           const group = (Object.keys(GROUP_IDS) as PlaceGroup[]).find((g) => GROUP_IDS[g].includes(p.pick));
-          const fold = group && document.querySelector<HTMLButtonElement>(`[aria-controls="places-${group}"]`);
+          const fold = group && frameRef.current?.querySelector<HTMLButtonElement>(`[aria-controls="places-${group}"]`);
           if (fold && fold.getAttribute("aria-expanded") === "false") {
             await glideTo(fold);
             if (stop) return;
@@ -185,7 +196,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
           }
         }
         // NYC is the whole-city shortcut, selected by the existing group-title button.
-        const el = document.querySelector<HTMLElement>(p.pick === "nyc" && step === "place" ? '[data-group="nyc"]' : `[data-pick="${p.pick}"]`);
+        const el = frameRef.current?.querySelector<HTMLElement>(p.pick === "nyc" && step === "place" ? '[data-group="nyc"]' : `[data-pick="${p.pick}"]`);
         if (el) {
           await glideTo(el);
           if (stop) return;
@@ -195,7 +206,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
         await wait(450);
       }
       await wait(700);
-      const nextButton = document.querySelector('[data-pick="next"]');
+      const nextButton = frameRef.current?.querySelector('[data-pick="next"]');
       if (nextButton && !stop) {
         await glideTo(nextButton);
         cursor.click();
@@ -212,7 +223,7 @@ export default function FindStep({ step, initial, meta }: { step: Step; initial:
   }, [replay, step]);
 
   return (
-    <div className={s.frame}>
+    <div className={s.frame} ref={frameRef}>
     <div className={`${s.board} ${step !== "place" ? s.boardSolo : ""} ${step === "discipline" ? s.boardTall : ""} ${step === "place" ? s.boardPlace : ""}`}>
       <div className={s.left}>
         <h1 className={s.title}>{copy.title}</h1>
