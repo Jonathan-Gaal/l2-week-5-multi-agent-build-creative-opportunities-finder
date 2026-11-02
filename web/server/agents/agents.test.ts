@@ -101,6 +101,31 @@ describe("Filter", () => {
   });
 });
 
+describe("Filter: kinds are chosen before anything is ranked", () => {
+  const events = (...subs: (string | null)[]) => subs.map((s, i) => rec(`E${i}`, { typ: "event", subtype: s }));
+  const kinds = (subtypes: string[], recs: OppRecord[]) =>
+    titles(flt.select(recs, flt.makeSearchRequest(["brooklyn"], "event", DAY, [], subtypes))[0]);
+
+  it("keeps only the picked kinds, and everything when none are picked", () => {
+    const recs = events("open_mic", "workshop", "jam");
+    assert.deepEqual(kinds(["open_mic"], recs), ["E0"]);
+    assert.deepEqual(kinds(["open_mic", "jam"], recs), ["E0", "E2"]);
+    assert.deepEqual(kinds([], recs), ["E0", "E1", "E2"]);
+  });
+
+  it("a listing with a second kind fits either, and 'none' means no kind", () => {
+    const recs = [rec("Both", { typ: "event", subtype: "jam", also_subtypes: ["open_mic"] }), ...events(null, "workshop")];
+    assert.deepEqual(kinds(["open_mic"], recs), ["Both"]);
+    assert.deepEqual(kinds(["none"], recs), ["E0"]);
+  });
+
+  it("a kind that does not belong to the type is a bad request", () => {
+    const bad = flt.makeSearchRequest(["brooklyn"], "event", DAY, [], ["fellowship"]);
+    assert.match(flt.requestProblem(bad) ?? "", /unknown kind/);
+    assert.equal(flt.requestProblem(flt.makeSearchRequest(["brooklyn"], "event", DAY, [], ["open_mic"])), null);
+  });
+});
+
 describe("Filter: expiry is deadline-driven for applications, schedule-driven only for events", () => {
   const ASOF = "2026-10-29";
   it("an open_call with a passed deadline is expired even with a later event date", () => {
@@ -126,6 +151,20 @@ describe("Filter: expiry is deadline-driven for applications, schedule-driven on
     for (const d of ["rolling", "recurring", null]) {
       assert.equal(flt.isExpired(rec("X", { deadline: d, event_dates: ["2020-01-01"] }), ASOF), false);
     }
+  });
+});
+
+describe("Filter: a dated call with no deadline ends on its own date", () => {
+  it("an audition or paid gig with only a past date is expired; a future one is kept", () => {
+    for (const subtype of ["audition", "paid_gig"]) {
+      assert.equal(flt.isExpired(rec("X", { deadline: null, subtype, event_dates: ["2026-10-30"] }), DAY), true, subtype);
+      assert.equal(flt.isExpired(rec("X", { deadline: null, subtype, event_dates: ["2026-10-30", "2026-11-05"] }), DAY), false, subtype);
+    }
+  });
+
+  it("rolling stays open, and other kinds still ignore event dates", () => {
+    assert.equal(flt.isExpired(rec("X", { deadline: "rolling", subtype: "audition", event_dates: ["2020-01-01"] }), DAY), false);
+    assert.equal(flt.isExpired(rec("X", { deadline: null, subtype: "collaboration", event_dates: ["2020-01-01"] }), DAY), false);
   });
 });
 
@@ -192,7 +231,7 @@ describe("Filter: several places and disciplines", () => {
 
   it("labels for several places and disciplines read naturally", () => {
     assert.equal(flt.requestLabel(search(["brooklyn", "new_jersey"], [], "grant")), "Brooklyn, New Jersey grant");
-    assert.equal(flt.requestLabel(search(["bronx"], ["music", "theater"], "event")), "Bronx event (Music, Theater & performance)");
+    assert.equal(flt.requestLabel(search(["bronx"], ["music", "theater"], "event")), "Bronx event (Music, Acting)");
     assert.deepEqual(flt.traceRequest(search(["brooklyn", "dc"], ["music"])),
       { places: ["brooklyn", "dc"], type: "open_call", disciplines: ["music"], as_of: DAY });
   });
@@ -252,6 +291,25 @@ describe("Checks", () => {
 
   it("empty ranking with candidates fails", () => {
     assert.deepEqual(pipeline.checkRanking([], byId, req()), ["ranking is empty but there are candidates"]);
+  });
+});
+
+describe("Total matches and the browse list", () => {
+  it("reports every match and lists the ones not picked, without repeating a pick", async () => {
+    const out = await pipeline.run(req(), RECORDS, new ScriptedRanker(["r1"]), new ScriptedReviewer("accept"));
+    assert.equal(out.total_matches, 3);
+    assert.equal(out.results.length, 1);
+    const picked = out.results[0]!.title;
+    assert.equal(out.more_results!.length, 2);
+    assert.ok(!out.more_results!.some((r) => r.title === picked));
+    assert.ok(out.more_results!.every((r) => /not fully checked/.test(r.label)), "unreviewed listings never read as verified");
+  });
+
+  it("a search with no matches has a zero total and an empty list", async () => {
+    const out = await pipeline.run(req("queens", "grant"), RECORDS, new ScriptedRanker());
+    assert.equal(out.tier, 3);
+    assert.equal(out.total_matches, 0);
+    assert.deepEqual(out.more_results, []);
   });
 });
 

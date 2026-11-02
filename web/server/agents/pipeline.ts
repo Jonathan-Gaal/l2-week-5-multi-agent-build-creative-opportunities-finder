@@ -26,12 +26,12 @@ import type { OppRecord, RemovedCounts, Request } from "./filter.ts";
 import { ClaudeModel, ModelError, type Usage } from "./model.ts";
 import {
   BaselineRanker, type Candidate, type RankItem, Ranker, type RankerRole, Reviewer, type ReviewerRole, TOP_K,
-  baselineOrder, looksLikeInstructions,
+  baselineOrder, looksLikeInstructions, withoutRepeats,
 } from "./roles.ts";
 import { type TraceSink, fileSink, writeTrace } from "./trace.ts";
 
 export const MAX_ATTEMPTS = 3;
-const MAX_CANDIDATES = 80;
+const MAX_CANDIDATES = 150;
 export const TRACE_DIR = `${flt.REPO}traces`;
 
 export type Tier = 0 | 2 | 3;
@@ -44,8 +44,17 @@ export type Result = {
   reason?: string | null;
   removed: string | null;
   removed_counts: RemovedCounts | null;
+  /** The expired listings behind removed_counts.expired, at most EXPIRED_SHOWN of them. */
+  expired_results?: PresentedResult[];
+  /** How many listings match the search (after expired, failed-schema and duplicate ones are dropped). */
+  total_matches?: number;
+  /** The best of the matches that were not picked, in the code's point order, at most MORE_SHOWN of them. */
+  more_results?: PresentedResult[];
   request_id?: string;
 };
+
+const EXPIRED_SHOWN = 20;
+const MORE_SHOWN = 2000;     // in practice every match; the results page shows them a page at a time
 
 type Attempt = {
   n: number;
@@ -99,6 +108,7 @@ export const present = (rec: OppRecord, tier: Tier) => {
   const fee = rec.fee;
   return {
     title: rec.title, org: rec.org ?? null, type: rec.opportunity_type, subtype: rec.subtype ?? null,
+    also_subtypes: Array.isArray(rec.also_subtypes) ? rec.also_subtypes.filter((k): k is string => typeof k === "string") : [],
     place: rec.borough || rec.region || null, location: rec.location ?? null,
     deadline: rec.deadline || "Deadline not listed",
     event_dates: rec.event_dates?.length ? rec.event_dates : null, recurrence: rec.recurrence ?? null,
@@ -162,14 +172,16 @@ export const run = async (
   const filterTrace: Record<string, unknown> = { matched: cands.length, removed };
   trace.filter = filterTrace;
   const note = removedNote(removed);
+  const expired_results = flt.expiredRecords(records, req).slice(0, EXPIRED_SHOWN).map((r) => present(r, 2));
   if (!cands.length) {
     return finish({ tier: 3, results: [], reason: `no records match ${flt.requestLabel(req)}`, removed: note,
-                    removed_counts: removed });
+                    removed_counts: removed, expired_results, total_matches: 0, more_results: [] });
   }
 
-  const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]));
-  filterTrace.sent_to_ranker = Math.min(ordered.length, maxCandidates);
-  const shown: Candidate[] = ordered.slice(0, maxCandidates).map(([, r], i) => [`r${i + 1}`, r]);
+  const ordered = baselineOrder(cands.map((r): [null, OppRecord] => [null, r]), req);
+  const forRanker = withoutRepeats(ordered);     // the same call listed twice goes to the Ranker once
+  filterTrace.sent_to_ranker = Math.min(forRanker.length, maxCandidates);
+  const shown: Candidate[] = forRanker.slice(0, maxCandidates).map(([, r], i) => [`r${i + 1}`, r]);
   const byId = new Map(shown);
 
   let best: RankItem[] | null = null;
@@ -258,7 +270,9 @@ export const run = async (
     }
   }
   const results = served.map((r) => present(r, tier));
-  return finish({ tier, results, removed: note, removed_counts: removed });
+  const pickedKeys = new Set(served.map((r) => r.dedupe_key));
+  const more_results = ordered.map(([, r]) => r).filter((r) => !pickedKeys.has(r.dedupe_key)).slice(0, MORE_SHOWN).map((r) => present(r, 2));
+  return finish({ tier, results, removed: note, removed_counts: removed, expired_results, total_matches: cands.length, more_results });
 };
 
 const main = async () => {

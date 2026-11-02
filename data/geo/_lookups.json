@@ -1,0 +1,3594 @@
+{
+ "address|500 8th Ave, New York, NY 10018": {
+  "lat": 40.752877,
+  "lng": -73.992876,
+  "matched": "500 8TH AVE, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|165 W 46th St, New York, NY 10036": {
+  "lat": 40.758213,
+  "lng": -73.984046,
+  "matched": "165 W 46TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|500 W 52nd St, New York, NY 10019": null,
+ "address|520 8th Ave, New York, NY 10018": {
+  "lat": 40.753533,
+  "lng": -73.992398,
+  "matched": "520 8TH AVE, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|305 W 38th St, New York, NY 10018": {
+  "lat": 40.754832,
+  "lng": -73.991772,
+  "matched": "305 W 38TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|150 Convent Ave, New York, NY 10031": {
+  "lat": 40.818056,
+  "lng": -73.951629,
+  "matched": "150 CONVENT AVE, NEW YORK, NY, 10031",
+  "how": "address"
+ },
+ "address|1601 Broadway, New York, NY 10019": {
+  "lat": 40.760428,
+  "lng": -73.984722,
+  "matched": "1601 BROADWAY, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "address|232 52nd St, Brooklyn, NY 11220": {
+  "lat": 40.647481,
+  "lng": -74.017397,
+  "matched": "232 52ND ST, BROOKLYN, NY, 11220",
+  "how": "address"
+ },
+ "address|11 City Pl, White Plains, NY 10601": {
+  "lat": 41.031963,
+  "lng": -73.764574,
+  "matched": "11 CITY PL, WHITE PLAINS, NY, 10601",
+  "how": "address"
+ },
+ "address|190 Snake Hill Rd, Garrison, NY 10524": {
+  "lat": 41.385591,
+  "lng": -73.922554,
+  "matched": "190 SNAKE HILL RD, GARRISON, NY, 10524",
+  "how": "address"
+ },
+ "address|419 West 206 Street, New York, NY 10034": {
+  "lat": 40.86323,
+  "lng": -73.917902,
+  "matched": "419 W 206TH ST, NEW YORK, NY, 10034",
+  "how": "address"
+ },
+ "address|54 Grove St, Shelton, CT 06484": {
+  "lat": 41.309256,
+  "lng": -73.082234,
+  "matched": "54 GROVE ST, SHELTON, CT, 06484",
+  "how": "address"
+ },
+ "address|107 Macon St, Brooklyn, NY": {
+  "lat": 40.681419,
+  "lng": -73.947219,
+  "matched": "107 MACON ST, BROOKLYN, NY, 11216",
+  "how": "address"
+ },
+ "address|214 Starr St, Brooklyn, NY": {
+  "lat": 40.704791,
+  "lng": -73.923353,
+  "matched": "214 STARR ST, BROOKLYN, NY, 11237",
+  "how": "address"
+ },
+ "address|410 8th Ave, New York, NY": {
+  "lat": 40.749798,
+  "lng": -73.99512,
+  "matched": "410 8TH AVE, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|85 Ave, A New York, NY": {
+  "lat": 40.725305,
+  "lng": -73.984167,
+  "matched": "85 AVE A, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|1241 Halsey St, Brooklyn, NY": {
+  "lat": 40.693522,
+  "lng": -73.907658,
+  "matched": "1241 HALSEY ST, BROOKLYN, NY, 11237",
+  "how": "address"
+ },
+ "address|12 St, Marks Pl New York, NY": {
+  "lat": 40.729213,
+  "lng": -73.989257,
+  "matched": "12 SAINT MARKS PL, NEW YORK, NY, 10003",
+  "how": "address"
+ },
+ "address|177 Vanderbilt Ave, Brooklyn, NY": {
+  "lat": 40.692393,
+  "lng": -73.969608,
+  "matched": "177 VANDERBILT AVE, BROOKLYN, NY, 11205",
+  "how": "address"
+ },
+ "address|445 W 238th St, Bronx, NY": {
+  "lat": 40.88733,
+  "lng": -73.904956,
+  "matched": "445 W 238TH ST, BRONX, NY, 10463",
+  "how": "address"
+ },
+ "address|15 Vandam St, New York, NY": {
+  "lat": 40.726354,
+  "lng": -74.00421,
+  "matched": "15 VANDAM ST, NEW YORK, NY, 10013",
+  "how": "address"
+ },
+ "address|552 Grandview Ave, Queens, NY": null,
+ "address|99 MacDougal St, New York, NY": {
+  "lat": 40.72951,
+  "lng": -74.000991,
+  "matched": "99 MACDOUGAL ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "address|17 Essex St, New York, NY": {
+  "lat": 40.715218,
+  "lng": -73.990004,
+  "matched": "17 ESSEX ST, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "address|236 W 78th St, New York, NY": {
+  "lat": 40.782923,
+  "lng": -73.980064,
+  "matched": "236 W 78TH ST, NEW YORK, NY, 10024",
+  "how": "address"
+ },
+ "address|243 W 54th St, New York, NY": {
+  "lat": 40.764282,
+  "lng": -73.982908,
+  "matched": "243 W 54TH ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "address|600 Metropolitan Ave, Brooklyn, NY": {
+  "lat": 40.714045,
+  "lng": -73.948975,
+  "matched": "600 METROPOLITAN AVE, BROOKLYN, NY, 11211",
+  "how": "address"
+ },
+ "address|487 Atlantic Ave, Brooklyn, NY": {
+  "lat": 40.685719,
+  "lng": -73.981553,
+  "matched": "487 ATLANTIC AVE, BROOKLYN, NY, 11217",
+  "how": "address"
+ },
+ "address|318 W 53rd St, New York, NY": {
+  "lat": 40.764357,
+  "lng": -73.985335,
+  "matched": "318 W 53RD ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "address|358 W 44th St, New York, NY": {
+  "lat": 40.759186,
+  "lng": -73.990549,
+  "matched": "358 W 44TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|66 Greenpoint Ave, Brooklyn, NY": {
+  "lat": 40.729754,
+  "lng": -73.958302,
+  "matched": "66 GREENPOINT AVE, BROOKLYN, NY, 11222",
+  "how": "address"
+ },
+ "address|1118 1st Ave, New York, NY": {
+  "lat": 40.761189,
+  "lng": -73.960739,
+  "matched": "1118 1ST AVE, NEW YORK, NY, 10065",
+  "how": "address"
+ },
+ "address|519 Atlantic Ave, Brooklyn, NY": {
+  "lat": 40.685307,
+  "lng": -73.980494,
+  "matched": "519 ATLANTIC AVE, BROOKLYN, NY, 11217",
+  "how": "address"
+ },
+ "address|100A 7th Ave, S New York, NY": {
+  "lat": 40.733183,
+  "lng": -74.00313,
+  "matched": "100A 7TH AVE S, NEW YORK, NY, 10014",
+  "how": "address"
+ },
+ "address|45 Stone St, New York, NY": {
+  "lat": 40.70429,
+  "lng": -74.010529,
+  "matched": "45 STONE ST, NEW YORK, NY, 10004",
+  "how": "address"
+ },
+ "address|611 Nostrand Ave, Brooklyn, NY": {
+  "lat": 40.67626,
+  "lng": -73.949825,
+  "matched": "611 NOSTRAND AVE, BROOKLYN, NY, 11216",
+  "how": "address"
+ },
+ "address|232 E 9th St, New York, NY": {
+  "lat": 40.729613,
+  "lng": -73.988381,
+  "matched": "232 E 9TH ST, NEW YORK, NY, 10003",
+  "how": "address"
+ },
+ "address|81 S 6th St, Brooklyn, NY": {
+  "lat": 40.711035,
+  "lng": -73.965269,
+  "matched": "81 S 6TH ST, BROOKLYN, NY, 11249",
+  "how": "address"
+ },
+ "address|352 W 44th St, New York, NY": {
+  "lat": 40.759116,
+  "lng": -73.990383,
+  "matched": "352 W 44TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|151 W 30th St, New York, NY": {
+  "lat": 40.747935,
+  "lng": -73.991031,
+  "matched": "151 W 30TH ST, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|2171 2nd Ave, New York, NY": {
+  "lat": 40.794195,
+  "lng": -73.939916,
+  "matched": "2171 2ND AVE, NEW YORK, NY, 10029",
+  "how": "address"
+ },
+ "address|10 Cooper St, Brooklyn, NY": {
+  "lat": 40.683716,
+  "lng": -73.911215,
+  "matched": "10 COOPER ST, BROOKLYN, NY, 11207",
+  "how": "address"
+ },
+ "address|2048 Amsterdam Ave, New York, NY": {
+  "lat": 40.835566,
+  "lng": -73.940147,
+  "matched": "2048 AMSTERDAM AVE, NEW YORK, NY, 10032",
+  "how": "address"
+ },
+ "address|301 E 84th St, New York, NY": {
+  "lat": 40.776583,
+  "lng": -73.952602,
+  "matched": "301 E 84TH ST, NEW YORK, NY, 10028",
+  "how": "address"
+ },
+ "address|406 3rd Ave, Brooklyn, NY": {
+  "lat": 40.67318,
+  "lng": -73.989675,
+  "matched": "406 3RD AVE, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|617 W 46th St, New York, NY": {
+  "lat": 40.763586,
+  "lng": -73.996796,
+  "matched": "617 W 46TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|140 1st Ave, New York, NY": {
+  "lat": 40.727834,
+  "lng": -73.98505,
+  "matched": "140 1ST AVE, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|55 Water St, Brooklyn, NY": {
+  "lat": 40.703346,
+  "lng": -73.99219,
+  "matched": "55 WATER ST, BROOKLYN, NY, 11201",
+  "how": "address"
+ },
+ "address|3 Lakeland Ave, Sayville, NY": {
+  "lat": 40.740877,
+  "lng": -73.085116,
+  "matched": "3 LAKELAND AVE, SAYVILLE, NY, 11782",
+  "how": "address"
+ },
+ "address|50-20 39th Ave, Queens, NY": null,
+ "address|143 Troutman St, Brooklyn, NY": {
+  "lat": 40.699975,
+  "lng": -73.929437,
+  "matched": "143 TROUTMAN ST, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "address|53 Bruckner Blvd, Bronx, NY": {
+  "lat": 40.806623,
+  "lng": -73.926814,
+  "matched": "53 BRUCKNER BLVD, BRONX, NY, 10454",
+  "how": "address"
+ },
+ "address|27-16 23rd Ave, Queens, NY": null,
+ "address|709 Lorimer St, Brooklyn, NY": {
+  "lat": 40.718128,
+  "lng": -73.950113,
+  "matched": "709 LORIMER ST, BROOKLYN, NY, 11211",
+  "how": "address"
+ },
+ "address|160 W 25th St, New York, NY": {
+  "lat": 40.744863,
+  "lng": -73.99363,
+  "matched": "160 W 25TH ST, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|2412 3rd Ave, Bronx, NY": {
+  "lat": 40.808524,
+  "lng": -73.93047,
+  "matched": "2412 3RD AVE, BRONX, NY, 10454",
+  "how": "address"
+ },
+ "address|33 Main St, East Rockaway, NY": {
+  "lat": 40.640023,
+  "lng": -73.661935,
+  "matched": "33 MAIN ST, EAST ROCKAWAY, NY, 11518",
+  "how": "address"
+ },
+ "address|147 Bleecker St, New York, NY": {
+  "lat": 40.728406,
+  "lng": -73.999505,
+  "matched": "147 BLEECKER ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "venue|200 Wilson St Unit E3 Port Jefferson NY, New York": null,
+ "address|55 Chrystie St, New York, NY": {
+  "lat": 40.716703,
+  "lng": -73.994632,
+  "matched": "55 CHRYSTIE ST, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "address|212 E 52nd St, New York, NY": {
+  "lat": 40.756889,
+  "lng": -73.96956,
+  "matched": "212 E 52ND ST, NEW YORK, NY, 10022",
+  "how": "address"
+ },
+ "address|201 W 75th St, New York, NY": {
+  "lat": 40.780639,
+  "lng": -73.980239,
+  "matched": "201 W 75TH ST, NEW YORK, NY, 10023",
+  "how": "address"
+ },
+ "address|1515 Atlantic Ave, Brooklyn, NY": {
+  "lat": 40.678051,
+  "lng": -73.939123,
+  "matched": "1515 ATLANTIC AVE, BROOKLYN, NY, 11213",
+  "how": "address"
+ },
+ "address|107 MacDougal St, New York, NY": {
+  "lat": 40.729773,
+  "lng": -74.00077,
+  "matched": "107 MACDOUGAL ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "address|240 W 37th St, New York, NY": {
+  "lat": 40.753338,
+  "lng": -73.990449,
+  "matched": "240 W 37TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|28-48 31st St, Queens, NY": null,
+ "address|1460 N Clinton Ave, unit O Bay Shore, NY": {
+  "lat": 40.744964,
+  "lng": -73.266083,
+  "matched": "1460 N CLINTON AVE, BAY SHORE, NY, 11706",
+  "how": "address"
+ },
+ "address|1000 S 8th Ave, New York, NY": null,
+ "address|2417 Third Ave, Bronx, NY": {
+  "lat": 40.808334,
+  "lng": -73.930938,
+  "matched": "2417 3RD AVE, BRONX, NY, 10451",
+  "how": "address"
+ },
+ "address|64 N Country Rd, Smithtown, NY": {
+  "lat": 40.857974,
+  "lng": -73.186292,
+  "matched": "64 N COUNTRY RD, SMITHTOWN, NY, 11787",
+  "how": "address"
+ },
+ "address|228 W 47th St, New York, NY": {
+  "lat": 40.759395,
+  "lng": -73.985238,
+  "matched": "228 W 47TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|506 5th Ave, Brooklyn, NY": {
+  "lat": 40.667165,
+  "lng": -73.988067,
+  "matched": "506 5TH AVE, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|31-83 34th St, Queens, NY": null,
+ "address|85 E 4th St, New York, NY": {
+  "lat": 40.726355,
+  "lng": -73.989667,
+  "matched": "85 E 4TH ST, NEW YORK, NY, 10003",
+  "how": "address"
+ },
+ "address|1832 Westchester Ave, Bronx, NY": {
+  "lat": 40.832243,
+  "lng": -73.86486,
+  "matched": "1832 WESTCHESTER AVE, BRONX, NY, 10472",
+  "how": "address"
+ },
+ "address|62 Court, St Brooklyn, NY": {
+  "lat": 40.692033,
+  "lng": -73.991311,
+  "matched": "62 COURT ST, BROOKLYN, NY, 11201",
+  "how": "address"
+ },
+ "address|61 Christopher St, New York, NY": {
+  "lat": 40.733718,
+  "lng": -74.002497,
+  "matched": "61 CHRISTOPHER ST, NEW YORK, NY, 10014",
+  "how": "address"
+ },
+ "address|5420 Roosevelt Ave, Queens, NY": null,
+ "address|315 West 44th St, New York, NY": {
+  "lat": 40.758774,
+  "lng": -73.989259,
+  "matched": "315 W 44TH ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|36-15 Ditmars Blvd, Queens, NY": null,
+ "address|90 Scott Ave, Brooklyn, NY": {
+  "lat": 40.710416,
+  "lng": -73.922885,
+  "matched": "90 SCOTT AVE, BROOKLYN, NY, 11237",
+  "how": "address"
+ },
+ "address|603 Vanderbilt Ave, Brooklyn, NY": {
+  "lat": 40.679352,
+  "lng": -73.968174,
+  "matched": "603 VANDERBILT AVE, BROOKLYN, NY, 11238",
+  "how": "address"
+ },
+ "address|241 E 24th St, New York, NY": {
+  "lat": 40.739155,
+  "lng": -73.981699,
+  "matched": "241 E 24TH ST, NEW YORK, NY, 10010",
+  "how": "address"
+ },
+ "address|447 E 13th St, New York, NY": {
+  "lat": 40.730269,
+  "lng": -73.981995,
+  "matched": "447 E 13TH ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|172 Rivington St, New York, NY": {
+  "lat": 40.719065,
+  "lng": -73.984811,
+  "matched": "172 RIVINGTON ST, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "address|627 5th Ave, Brooklyn, NY": {
+  "lat": 40.663333,
+  "lng": -73.99126,
+  "matched": "627 5TH AVE, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|47-22 30th Ave, Queens, NY": null,
+ "address|37 W 26th St, New York, NY": {
+  "lat": 40.744432,
+  "lng": -73.990376,
+  "matched": "37 W 26TH ST, NEW YORK, NY, 10010",
+  "how": "address"
+ },
+ "address|355 W. 41st St, New York, NY": {
+  "lat": 40.757308,
+  "lng": -73.99177,
+  "matched": "355 W 41ST ST, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|154 W 29th St, New York, NY": {
+  "lat": 40.747265,
+  "lng": -73.991663,
+  "matched": "154 W 29TH ST, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|25-27 Steinway St, Queens, NY": null,
+ "address|362 Grand St, Brooklyn, NY": {
+  "lat": 40.712437,
+  "lng": -73.956116,
+  "matched": "362 GRAND ST, BROOKLYN, NY, 11211",
+  "how": "address"
+ },
+ "address|159 20th St, Brooklyn, NY": {
+  "lat": 40.663626,
+  "lng": -73.995564,
+  "matched": "159 20TH ST, BROOKLYN, NY, 11232",
+  "how": "address"
+ },
+ "address|8-01 Seneca Ave, Queens, NY": null,
+ "address|12 Grattan St, Brooklyn, NY": {
+  "lat": 40.705394,
+  "lng": -73.932953,
+  "matched": "12 GRATTAN ST, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "address|111-30 Beach Channel Dr, Queens, NY": null,
+ "address|992 Amsterdam Ave, New York, NY": {
+  "lat": 40.802451,
+  "lng": -73.96433,
+  "matched": "992 AMSTERDAM AVE, NEW YORK, NY, 10025",
+  "how": "address"
+ },
+ "address|750A St, Nicholas Ave New York, NY": {
+  "lat": 40.825563,
+  "lng": -73.943557,
+  "matched": "750A ST NICHOLAS AVE, NEW YORK, NY, 10031",
+  "how": "address"
+ },
+ "address|538 E 14th St, New York, NY": {
+  "lat": 40.729997,
+  "lng": -73.979455,
+  "matched": "538 E 14TH ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|8 W 38th St, New York, NY": {
+  "lat": 40.751018,
+  "lng": -73.98302,
+  "matched": "8 W 38TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|422 Forest Ave, Staten Island, NY": {
+  "lat": 40.630786,
+  "lng": -74.103366,
+  "matched": "422 FOREST AVE, STATEN ISLAND, NY, 10301",
+  "how": "address"
+ },
+ "address|167 Graham Ave, Brooklyn, NY": {
+  "lat": 40.707883,
+  "lng": -73.943367,
+  "matched": "167 GRAHAM AVE, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "address|83 W Hoffman Ave, Lindenhurst, NY": {
+  "lat": 40.685961,
+  "lng": -73.376106,
+  "matched": "83 W HOFFMAN AVE, LINDENHURST, NY, 11757",
+  "how": "address"
+ },
+ "address|98 Meserole Ave, Brooklyn, NY": {
+  "lat": 40.726963,
+  "lng": -73.952904,
+  "matched": "98 MESEROLE AVE, BROOKLYN, NY, 11222",
+  "how": "address"
+ },
+ "address|247 Dyckman St, New York, NY": {
+  "lat": 40.866342,
+  "lng": -73.928128,
+  "matched": "247 DYCKMAN ST, NEW YORK, NY, 10034",
+  "how": "address"
+ },
+ "venue|164 NY-25A Mt Sinai NY, New York": null,
+ "address|697 10th Ave, New York, NY": {
+  "lat": 40.763247,
+  "lng": -73.992921,
+  "matched": "697 10TH AVE, NEW YORK, NY, 10036",
+  "how": "address"
+ },
+ "address|94 St, Marks Place New York, NY": {
+  "lat": 40.727489,
+  "lng": -73.9852,
+  "matched": "94 SAINT MARKS PL, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|405 East 6th St, New York, NY": {
+  "lat": 40.726395,
+  "lng": -73.985988,
+  "matched": "405 E 6TH ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|1664 1st Ave, New York, NY": {
+  "lat": 40.777301,
+  "lng": -73.948977,
+  "matched": "1664 1ST AVE, NEW YORK, NY, 10028",
+  "how": "address"
+ },
+ "address|554 W 158th St, New York, NY": {
+  "lat": 40.834092,
+  "lng": -73.943177,
+  "matched": "554 W 158TH ST, NEW YORK, NY, 10032",
+  "how": "address"
+ },
+ "venue|308 Bowery New York NY, New York, New York": {
+  "lat": 40.724889,
+  "lng": -73.992611,
+  "matched": "Duane Park, 308, Bowery, NoHo, Manhattan, New York County, New York, 10012, United States",
+  "how": "venue"
+ },
+ "address|284 Ronkonkoma Ave, Lake Ronkonkoma, NY": {
+  "lat": 40.815014,
+  "lng": -73.112337,
+  "matched": "284 RONKONKOMA AVE, LAKE RONKONKOMA, NY, 11779",
+  "how": "address"
+ },
+ "address|192 Mercer St, New York, NY": {
+  "lat": 40.726241,
+  "lng": -73.997149,
+  "matched": "192 MERCER ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "address|1205 Surf Ave, Brooklyn, NY": {
+  "lat": 40.5756,
+  "lng": -73.979834,
+  "matched": "1205 SURF AVE, BROOKLYN, NY, 11224",
+  "how": "address"
+ },
+ "address|1395 Lexington Ave, New York, NY": {
+  "lat": 40.783114,
+  "lng": -73.952857,
+  "matched": "1395 LEXINGTON AVE, NEW YORK, NY, 10128",
+  "how": "address"
+ },
+ "address|158 Bleecker St, New York, NY": {
+  "lat": 40.728457,
+  "lng": -73.999888,
+  "matched": "158 BLEECKER ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "address|382A E Meadow Ave, East Meadow, NY": {
+  "lat": 40.714524,
+  "lng": -73.559895,
+  "matched": "382A E MEADOW AVE, EAST MEADOW, NY, 11554",
+  "how": "address"
+ },
+ "address|112 W 25th St, New York, NY": {
+  "lat": 40.744304,
+  "lng": -73.992305,
+  "matched": "112 W 25TH ST, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|187 Orchard St, New York, NY": {
+  "lat": 40.721662,
+  "lng": -73.988498,
+  "matched": "187 ORCHARD ST, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "address|48 W 21st St, New York, NY": {
+  "lat": 40.740862,
+  "lng": -73.992101,
+  "matched": "48 W 21ST ST, NEW YORK, NY, 10010",
+  "how": "address"
+ },
+ "address|1114 Dekalb Ave, Brooklyn, NY": {
+  "lat": 40.693789,
+  "lng": -73.92985,
+  "matched": "1114 DEKALB AVE, BROOKLYN, NY, 11221",
+  "how": "address"
+ },
+ "address|13-02 44th Ave, Queens, NY": null,
+ "address|2099 Frederick Douglass Blvd, New York, NY": {
+  "lat": 40.802763,
+  "lng": -73.956664,
+  "matched": "2099 FREDERICK DOUGLASS BLVD, NEW YORK, NY, 10026",
+  "how": "address"
+ },
+ "address|144 Montague St, Brooklyn, NY": {
+  "lat": 40.694518,
+  "lng": -73.993524,
+  "matched": "144 MONTAGUE ST, BROOKLYN, NY, 11201",
+  "how": "address"
+ },
+ "address|5009 Broadway, New York, NY": {
+  "lat": 40.869233,
+  "lng": -73.917036,
+  "matched": "5009 BROADWAY, NEW YORK, NY, 10034",
+  "how": "address"
+ },
+ "address|76 E 1st St, New York, NY": {
+  "lat": 40.723299,
+  "lng": -73.988348,
+  "matched": "76 E 1ST ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|1000 Broadway, Brooklyn, NY": {
+  "lat": 40.695778,
+  "lng": -73.933224,
+  "matched": "1000 BROADWAY, BROOKLYN, NY, 11221",
+  "how": "address"
+ },
+ "address|339 E 10th St, New York, NY": {
+  "lat": 40.727051,
+  "lng": -73.980188,
+  "matched": "339 E 10TH ST, NEW YORK, NY, 10009",
+  "how": "address"
+ },
+ "address|2154 Third Ave, New York, NY": {
+  "lat": 40.799033,
+  "lng": -73.93931,
+  "matched": "2154 3RD AVE, NEW YORK, NY, 10035",
+  "how": "address"
+ },
+ "address|1568 2nd Ave, New York, NY": {
+  "lat": 40.774857,
+  "lng": -73.953859,
+  "matched": "1568 2ND AVE, NEW YORK, NY, 10028",
+  "how": "address"
+ },
+ "address|10 Brooklyn Ave, Freeport, NY": {
+  "lat": 40.657485,
+  "lng": -73.583784,
+  "matched": "10 BROOKLYN AVE, FREEPORT, NY, 11520",
+  "how": "address"
+ },
+ "address|116 E 16th St, New York, NY": {
+  "lat": 40.735398,
+  "lng": -73.988221,
+  "matched": "116 E 16TH ST, NEW YORK, NY, 10003",
+  "how": "address"
+ },
+ "address|40-12 Bell Blvd, Queens, NY": null,
+ "address|538 Hart St, Brooklyn, NY": {
+  "lat": 40.696551,
+  "lng": -73.929746,
+  "matched": "538 HART ST, BROOKLYN, NY, 11221",
+  "how": "address"
+ },
+ "address|1662 Atlantic Ave, Brooklyn, NY": {
+  "lat": 40.677572,
+  "lng": -73.935787,
+  "matched": "1662 ATLANTIC AVE, BROOKLYN, NY, 11213",
+  "how": "address"
+ },
+ "address|259 Melrose St, Brooklyn, NY": {
+  "lat": 40.701974,
+  "lng": -73.929817,
+  "matched": "259 MELROSE ST, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "address|7 E 36th St, New York, NY": {
+  "lat": 40.749592,
+  "lng": -73.983152,
+  "matched": "7 E 36TH ST, NEW YORK, NY, 10016",
+  "how": "address"
+ },
+ "address|24 Marcy Ave, Brooklyn, NY": {
+  "lat": 40.7134,
+  "lng": -73.954827,
+  "matched": "24 MARCY AVE, BROOKLYN, NY, 11211",
+  "how": "address"
+ },
+ "address|3233 E Tremont Ave, Bronx, NY": {
+  "lat": 40.835742,
+  "lng": -73.833029,
+  "matched": "3233 E TREMONT AVE, BRONX, NY, 10461",
+  "how": "address"
+ },
+ "address|10 Minthorne St, Staten Island, NY": {
+  "lat": 40.637634,
+  "lng": -74.075408,
+  "matched": "10 MINTHORNE ST, STATEN ISLAND, NY, 10301",
+  "how": "address"
+ },
+ "address|9715 3rd Ave, Brooklyn, NY": {
+  "lat": 40.615625,
+  "lng": -74.034183,
+  "matched": "9715 3RD AVE, BROOKLYN, NY, 11209",
+  "how": "address"
+ },
+ "address|300 W 116 St, New York, NY": {
+  "lat": 40.804398,
+  "lng": -73.955471,
+  "matched": "300 W 116TH ST, NEW YORK, NY, 10026",
+  "how": "address"
+ },
+ "address|563 5th Ave, Brooklyn, NY": {
+  "lat": 40.665319,
+  "lng": -73.989429,
+  "matched": "563 5TH AVE, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|1 7th Ave, S New York, NY": {
+  "lat": 40.729549,
+  "lng": -74.005039,
+  "matched": "1 7TH AVE S, NEW YORK, NY, 10014",
+  "how": "address"
+ },
+ "address|507 Seguine Ave, Staten Island, NY": {
+  "lat": 40.51396,
+  "lng": -74.196603,
+  "matched": "507 SEGUINE AVE, STATEN ISLAND, NY, 10309",
+  "how": "address"
+ },
+ "address|297 Bond St, Brooklyn, NY": {
+  "lat": 40.680104,
+  "lng": -73.989367,
+  "matched": "297 BOND ST, BROOKLYN, NY, 11231",
+  "how": "address"
+ },
+ "address|250 East Main Street, Port Jefferson, NY": {
+  "lat": 40.94546,
+  "lng": -73.067331,
+  "matched": "250 E MAIN ST, PORT JEFFERSON, NY, 11777",
+  "how": "address"
+ },
+ "address|2241 1st Ave, New York, NY": {
+  "lat": 40.795449,
+  "lng": -73.935899,
+  "matched": "2241 1ST AVE, NEW YORK, NY, 10029",
+  "how": "address"
+ },
+ "address|753 Nostrand Ave, Brooklyn, NY": {
+  "lat": 40.671577,
+  "lng": -73.950264,
+  "matched": "753 NOSTRAND AVE, BROOKLYN, NY, 11216",
+  "how": "address"
+ },
+ "address|415 Classon Ave, Brooklyn, NY": {
+  "lat": 40.686748,
+  "lng": -73.959505,
+  "matched": "415 CLASSON AVE, BROOKLYN, NY, 11238",
+  "how": "address"
+ },
+ "address|768 Amsterdam Ave, New York, NY": {
+  "lat": 40.795199,
+  "lng": -73.96962,
+  "matched": "768 AMSTERDAM AVE, NEW YORK, NY, 10025",
+  "how": "address"
+ },
+ "address|89 South St, New York, NY": {
+  "lat": 40.705874,
+  "lng": -74.003858,
+  "matched": "89 SOUTH ST, NEW YORK, NY, 10038",
+  "how": "address"
+ },
+ "address|230 Main St, Farmingdale, NY": {
+  "lat": 40.733391,
+  "lng": -73.446041,
+  "matched": "230 MAIN ST, FARMINGDALE, NY, 11735",
+  "how": "address"
+ },
+ "address|718 5th Ave, Brooklyn, NY": {
+  "lat": 40.660443,
+  "lng": -73.99446,
+  "matched": "718 5TH AVE, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|6 Wyckoff Ave, Brooklyn, NY": {
+  "lat": 40.706822,
+  "lng": -73.923377,
+  "matched": "6 WYCKOFF AVE, BROOKLYN, NY, 11237",
+  "how": "address"
+ },
+ "address|124 N Carll Ave, Babylon, NY": {
+  "lat": 40.700749,
+  "lng": -73.325946,
+  "matched": "124 N CARLL AVE, BABYLON, NY, 11702",
+  "how": "address"
+ },
+ "address|385 S Main St, Freeport, NY": {
+  "lat": 40.646908,
+  "lng": -73.575729,
+  "matched": "385 S MAIN ST, FREEPORT, NY, 11520",
+  "how": "address"
+ },
+ "address|204 Varick St, New York, NY": {
+  "lat": 40.728699,
+  "lng": -74.005221,
+  "matched": "204 VARICK ST, NEW YORK, NY, 10014",
+  "how": "address"
+ },
+ "address|1139 Jefferson Ave, Brooklyn, NY": {
+  "lat": 40.689499,
+  "lng": -73.915124,
+  "matched": "1139 JEFFERSON AVE, BROOKLYN, NY, 11221",
+  "how": "address"
+ },
+ "address|115 E Main St, East Islip, NY": {
+  "lat": 40.73233,
+  "lng": -73.185382,
+  "matched": "115 E MAIN ST, EAST ISLIP, NY, 11730",
+  "how": "address"
+ },
+ "address|480 10th Ave, New York, NY": {
+  "lat": 40.756164,
+  "lng": -73.997907,
+  "matched": "480 10TH AVE, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|86 34th St, Brooklyn, NY": {
+  "lat": 40.657082,
+  "lng": -74.006104,
+  "matched": "86 34TH ST, BROOKLYN, NY, 11232",
+  "how": "address"
+ },
+ "address|519 2nd Ave, New York, NY": {
+  "lat": 40.74162,
+  "lng": -73.978271,
+  "matched": "519 2ND AVE, NEW YORK, NY, 10016",
+  "how": "address"
+ },
+ "address|880 Flushing Ave, Brooklyn, NY": {
+  "lat": 40.701908,
+  "lng": -73.936744,
+  "matched": "880 FLUSHING AVE, BROOKLYN, NY, 11206",
+  "how": "address"
+ },
+ "venue|621 East 11st New York NY, New York, New York": null,
+ "address|445 Troutman St, Brooklyn, NY": {
+  "lat": 40.70795,
+  "lng": -73.921556,
+  "matched": "445 TROUTMAN ST, BROOKLYN, NY, 11237",
+  "how": "address"
+ },
+ "address|147-02 Liberty Ave, Queens, NY": null,
+ "address|40-19 Gleane St, Queens, NY": null,
+ "address|2363 Adam Clayton Powell Jr Blvd, New York, NY": {
+  "lat": 40.817405,
+  "lng": -73.942081,
+  "matched": "2363 ADAM CLAYTON POWELL JR BLVD, NEW YORK, NY, 10030",
+  "how": "address"
+ },
+ "address|112 New Lots Ave, Brooklyn, NY": {
+  "lat": 40.658191,
+  "lng": -73.90113,
+  "matched": "112 NEW LOTS AVE, BROOKLYN, NY, 11212",
+  "how": "address"
+ },
+ "address|503 Columbus Ave, New York, NY": {
+  "lat": 40.785259,
+  "lng": -73.972983,
+  "matched": "503 COLUMBUS AVE, NEW YORK, NY, 10024",
+  "how": "address"
+ },
+ "address|213 Main Street, NY 11743": {
+  "lat": 40.871882,
+  "lng": -73.424419,
+  "matched": "213 MAIN ST, HUNTINGTON, NY, 11743",
+  "how": "address"
+ },
+ "address|338 Main Street, NY 11743": {
+  "lat": 40.870735,
+  "lng": -73.429918,
+  "matched": "338 MAIN ST, HUNTINGTON, NY, 11743",
+  "how": "address"
+ },
+ "address|631 Pulaski Road, NY 11740": {
+  "lat": 40.868155,
+  "lng": -73.353569,
+  "matched": "631 PULASKI RD, GREENLAWN, NY, 11740",
+  "how": "address"
+ },
+ "address|266 East Pulaski Road, NY 11740": {
+  "lat": 40.8573,
+  "lng": -73.3887,
+  "matched": "266 PULASKI RD, GREENLAWN, NY, 11740",
+  "how": "address"
+ },
+ "address|1 Museum Drive, NY 11576": {
+  "lat": 40.808085,
+  "lng": -73.643219,
+  "matched": "1 MUSEUM DR, ROSLYN, NY, 11576",
+  "how": "address"
+ },
+ "address|200 Port Washington Boulevard, NY 11050": null,
+ "address|95 Harbor Rd, NY 11724": {
+  "lat": 40.866816,
+  "lng": -73.461803,
+  "matched": "95 HARBOR RD, COLD SPRING HARBOR, NY, 11724",
+  "how": "address"
+ },
+ "address|200 Port Washington Boulevard, NY 11030": {
+  "lat": 40.807888,
+  "lng": -73.671451,
+  "matched": "200 PORT WASHINGTON BLVD, MANHASSET, NY, 11030",
+  "how": "address"
+ },
+ "address|151 Laurel Road, NY 11768": {
+  "lat": 40.896266,
+  "lng": -73.337084,
+  "matched": "151 LAUREL AVE, NORTHPORT, NY, 11768",
+  "how": "address"
+ },
+ "address|1725 Brentwood Rd, NY 11717": {
+  "lat": 40.769324,
+  "lng": -73.246113,
+  "matched": "1725 BRENTWOOD RD, BRENTWOOD, NY, 11717",
+  "how": "address"
+ },
+ "address|1000 Richmond Terrace, Staten Island, NY 10301": {
+  "lat": 40.64483,
+  "lng": -74.100918,
+  "matched": "1000 RICHMOND TER, STATEN ISLAND, NY, 10301",
+  "how": "address"
+ },
+ "venue|New York City, New York, New York": null,
+ "address|230 West End Avenue, New York, NY 10023": {
+  "lat": 40.778752,
+  "lng": -73.985161,
+  "matched": "230 W END AVE, NEW YORK, NY, 10023",
+  "how": "address"
+ },
+ "venue|Ridgewood, Queens, New York": null,
+ "venue|Teaneck, New Jersey": null,
+ "venue|Hoboken, New Jersey": null,
+ "venue|New York, New York, New York": null,
+ "venue|Newtown, Connecticut": null,
+ "venue|New Brunswick, New Jersey": null,
+ "venue|Woodstock, New York": null,
+ "venue|Scarsdale, New York": null,
+ "venue|Staten Island, Staten Island, New York": null,
+ "venue|New Rochelle, New York": null,
+ "venue|Bethel, Connecticut": null,
+ "venue|Brooklyn, Brooklyn, New York": null,
+ "venue|Williamsburg, Brooklyn, New York": null,
+ "venue|Astoria, Queens, New York": null,
+ "venue|Mattituck, New York": null,
+ "venue|Glendale, Queens, New York": null,
+ "venue|Southold, New York": null,
+ "venue|New York City, Queens, New York": null,
+ "venue|New Paltz, New York": null,
+ "venue|Greenport, New York": null,
+ "venue|Red Bank, New Jersey": null,
+ "venue|Queens, Queens, New York": null,
+ "venue|Bridgeport, Connecticut": null,
+ "venue|Montclair, New Jersey": null,
+ "address|315 Columbia St, Brooklyn, NY": {
+  "lat": 40.681495,
+  "lng": -74.004323,
+  "matched": "315 COLUMBIA ST, BROOKLYN, NY, 11231",
+  "how": "address"
+ },
+ "address|251 W 80th St, New York, NY": {
+  "lat": 40.784653,
+  "lng": -73.979623,
+  "matched": "251 W 80TH ST, NEW YORK, NY, 10024",
+  "how": "address"
+ },
+ "address|199 Carroll St, Brooklyn, NY": {
+  "lat": 40.681556,
+  "lng": -73.998084,
+  "matched": "199 CARROLL ST, BROOKLYN, NY, 11231",
+  "how": "address"
+ },
+ "address|314 East 19th St, New York, NY": {
+  "lat": 40.735215,
+  "lng": -73.982339,
+  "matched": "314 E 19TH ST, NEW YORK, NY, 10003",
+  "how": "address"
+ },
+ "venue|Church of the Village, New York, New York": {
+  "lat": 40.738157,
+  "lng": -74.00039,
+  "matched": "Church of the Village, 201, West 13th Street, Union Square, Manhattan, New York County, New York, 10011, United States",
+  "how": "venue"
+ },
+ "venue|Loisaida Center, New York, New York": null,
+ "venue|Bowery Poetry Club, New York, New York": {
+  "lat": 40.724914,
+  "lng": -73.992602,
+  "matched": "Bowery Poetry, 308, Bowery, NoHo, Manhattan, New York County, New York, 10012, United States",
+  "how": "venue"
+ },
+ "venue|Brooklyn Music School, Brooklyn, New York": {
+  "lat": 40.686069,
+  "lng": -73.977374,
+  "matched": "Brooklyn Music School, 126, Saint Felix Street, Fort Greene, Brooklyn, Kings County, New York, 11217, United States",
+  "how": "venue"
+ },
+ "address|240 W 37th St, New York, NY 10018": {
+  "lat": 40.753338,
+  "lng": -73.990449,
+  "matched": "240 W 37TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|361 Manhattan Avenue, Brooklyn, NY 11211": {
+  "lat": 40.716622,
+  "lng": -73.946515,
+  "matched": "361 MANHATTAN AVE, BROOKLYN, NY, 11211",
+  "how": "address"
+ },
+ "address|320 East 43rd Street, New York, NY 10017": {
+  "lat": 40.750275,
+  "lng": -73.97135,
+  "matched": "320 E 43RD ST, NEW YORK, NY, 10017",
+  "how": "address"
+ },
+ "address|445 West 238th Street, The Bronx, NY 10463": {
+  "lat": 40.88733,
+  "lng": -73.904956,
+  "matched": "445 W 238TH ST, BRONX, NY, 10463",
+  "how": "address"
+ },
+ "address|445 West 238th Street, Bronx, NY": {
+  "lat": 40.88733,
+  "lng": -73.904956,
+  "matched": "445 W 238TH ST, BRONX, NY, 10463",
+  "how": "address"
+ },
+ "venue|Washington Square Park, New York, New York": {
+  "lat": 40.730896,
+  "lng": -73.9976,
+  "matched": "Washington Square Park, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "venue|NYPL - George Bruce, New York, New York": null,
+ "venue|Hunts Point Recreation Center, Bronx, New York": {
+  "lat": 40.814969,
+  "lng": -73.889238,
+  "matched": "Hunts Point Recreation Center, 765, Manida Street, Hunts Point, The Bronx, Bronx County, New York, 10474, United States",
+  "how": "venue"
+ },
+ "venue|Crotona Park, Bronx, New York": {
+  "lat": 40.838813,
+  "lng": -73.892398,
+  "matched": "Crotona Park, The Bronx, Bronx County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Starlight Park, Bronx, New York": {
+  "lat": 40.833949,
+  "lng": -73.88216,
+  "matched": "Starlight Park, The Bronx, Bronx County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Inwood Hill Park, New York, New York": {
+  "lat": 40.872274,
+  "lng": -73.925427,
+  "matched": "Inwood Hill Park, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Lost Battalion Hall Recreation Center, Queens, New York": {
+  "lat": 40.731816,
+  "lng": -73.865502,
+  "matched": "Lost Battalion Hall Recreation Center, 93-29, Queens Boulevard, Rego Park, Elmhurst, Queens, Queens County, New York, 11",
+  "how": "venue"
+ },
+ "venue|Brookfield Park, Staten Island, New York": {
+  "lat": 40.565074,
+  "lng": -74.162599,
+  "matched": "Brookfield Park, Richmond County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Marine Park, Brooklyn, New York": {
+  "lat": 40.605579,
+  "lng": -73.934197,
+  "matched": "Marine Park, Brooklyn, Kings County, New York, United States",
+  "how": "venue"
+ },
+ "venue|St. Mary’s Recreation Center, Bronx, New York": null,
+ "venue|Blood Root Valley, Staten Island, New York": {
+  "lat": 40.591334,
+  "lng": -74.141159,
+  "matched": "Blood Root Valley, Richmond County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Grand Army Plaza, Brooklyn, New York": {
+  "lat": 40.674896,
+  "lng": -73.970874,
+  "matched": "Grand Army Plaza, Flatbush Avenue, Park Slope, Brooklyn, Kings County, New York, 11238, United States",
+  "how": "venue"
+ },
+ "venue|Blue Heron Park, Staten Island, New York": {
+  "lat": 40.531929,
+  "lng": -74.180792,
+  "matched": "Blue Heron Park, Richmond County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Randall's Island Park, New York, New York": {
+  "lat": 40.793939,
+  "lng": -73.91761,
+  "matched": "Randalls Island Park, Manhattan, New York County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Van Cortlandt Park, Bronx, New York": {
+  "lat": 40.897075,
+  "lng": -73.88658,
+  "matched": "Van Cortlandt Park, Bronx County, New York, Westchester County, New York, United States",
+  "how": "venue"
+ },
+ "venue|Chelsea Recreation Center, New York, New York": {
+  "lat": 40.748296,
+  "lng": -74.00222,
+  "matched": "Chelsea Recreation Center, 430, West 25th Street, Chelsea District, Manhattan Community Board 4, Manhattan, New York Cou",
+  "how": "venue"
+ },
+ "venue|Herbert Von King Cultural Arts Center, Brooklyn, New York": {
+  "lat": 40.689829,
+  "lng": -73.946405,
+  "matched": "Herbert Von King Cultural Arts Center, 670, Lafayette Avenue, Brooklyn, Kings County, New York, 11216, United States",
+  "how": "venue"
+ },
+ "venue|Greenbelt Recreation Center, Staten Island, New York": {
+  "lat": 40.591781,
+  "lng": -74.139261,
+  "matched": "Greenbelt Recreation Center, 501, Brielle Avenue, Staten Island, Richmond County, New York, 10314, United States",
+  "how": "venue"
+ },
+ "venue|St. John’s Recreation Center, Brooklyn, New York": {
+  "lat": 40.673884,
+  "lng": -73.934899,
+  "matched": "St. John’s Recreation Center, 1251, Prospect Place, Brownsville, Brooklyn, Kings County, New York, 11213, United States",
+  "how": "venue"
+ },
+ "venue|Highbridge Recreation Center, New York, New York": {
+  "lat": 40.842781,
+  "lng": -73.934246,
+  "matched": "Highbridge Recreation Center, 2301, Amsterdam Avenue, Washington Heights, Manhattan Community Board 12, Manhattan, New Y",
+  "how": "venue"
+ },
+ "address|1701 Main Street, Peekskill, NY": {
+  "lat": 41.293662,
+  "lng": -73.907207,
+  "matched": "1701 MAIN ST, PEEKSKILL, NY, 10566",
+  "how": "address"
+ },
+ "address|647 Fulton St, Brooklyn, NY": {
+  "lat": 40.688277,
+  "lng": -73.979184,
+  "matched": "647 FULTON ST, BROOKLYN, NY, 11217",
+  "how": "address"
+ },
+ "address|269 W 39th Street, New York City, NY 10018": {
+  "lat": 40.755002,
+  "lng": -73.990245,
+  "matched": "269 W 39TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "venue|NYC Midtown Studio, New York, New York": null,
+ "address|263 West 86th Street, New York, NY 10024": {
+  "lat": 40.78852,
+  "lng": -73.976838,
+  "matched": "263 W 86TH ST, NEW YORK, NY, 10024",
+  "how": "address"
+ },
+ "venue|Jazz at Lincoln Center, New York, New York": null,
+ "address|197 East Broadway, New York, NY": {
+  "lat": 40.714134,
+  "lng": -73.98862,
+  "matched": "197 E BROADWAY, NEW YORK, NY, 10002",
+  "how": "address"
+ },
+ "venue|Harlem Y, New York, New York": null,
+ "address|624 S 6th St, Philadelphia, PA": {
+  "lat": 39.941498,
+  "lng": -75.152533,
+  "matched": "624 S 6TH ST, PHILADELPHIA, PA, 19147",
+  "how": "address"
+ },
+ "address|2201 P St, NW Washington, DC": {
+  "lat": 38.909692,
+  "lng": -77.04887,
+  "matched": "2201 P ST NW, WASHINGTON, DC, 20037",
+  "how": "address"
+ },
+ "address|399 Faneuil Hall Sq, Boston, MA": null,
+ "address|339 N 11th St, Philadelphia, PA": {
+  "lat": 39.958564,
+  "lng": -75.156739,
+  "matched": "339 N 11TH ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|1343 Connecticut Ave, NW Washington, DC": {
+  "lat": 38.908066,
+  "lng": -77.042447,
+  "matched": "1343 CONNECTICUT AVE NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|1 Lansdowne St, Boston, MA": {
+  "lat": 42.347215,
+  "lng": -71.094465,
+  "matched": "1 LANSDOWNE ST, BOSTON, MA, 02215",
+  "how": "address"
+ },
+ "address|112 Chestnut St, Philadelphia, PA": {
+  "lat": 39.94818,
+  "lng": -75.142996,
+  "matched": "112 CHESTNUT ST, PHILADELPHIA, PA, 19106",
+  "how": "address"
+ },
+ "address|100 Warrenton St, Boston, MA": {
+  "lat": 42.350448,
+  "lng": -71.066068,
+  "matched": "100 WARRENTON ST, BOSTON, MA, 02116",
+  "how": "address"
+ },
+ "address|443 W Broadway, Boston, MA": {
+  "lat": 42.336268,
+  "lng": -71.047039,
+  "matched": "443 W BROADWAY, BOSTON, MA, 02127",
+  "how": "address"
+ },
+ "address|119 Park St, Boston, MA": {
+  "lat": 42.299114,
+  "lng": -71.059126,
+  "matched": "119 PARK ST, BOSTON, MA, 02122",
+  "how": "address"
+ },
+ "address|1205 U St, NW Washington, DC": {
+  "lat": 38.917055,
+  "lng": -77.028213,
+  "matched": "1205 U ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|80 Beverly St, Boston, MA": {
+  "lat": 42.366321,
+  "lng": -71.060017,
+  "matched": "80 BEVERLY ST, BOSTON, MA, 02114",
+  "how": "address"
+ },
+ "address|801 9th St, NW Ste A Washington, DC": {
+  "lat": 38.899868,
+  "lng": -77.023892,
+  "matched": "801 9TH ST NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|123 Chestnut St, Philadelphia, PA": {
+  "lat": 39.948347,
+  "lng": -75.143403,
+  "matched": "123 CHESTNUT ST, PHILADELPHIA, PA, 19106",
+  "how": "address"
+ },
+ "address|1348 Florida Ave, NW Washington, DC": {
+  "lat": 38.920234,
+  "lng": -77.030771,
+  "matched": "1348 FLORIDA AVE NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|1140 Connecticut Ave, NW Washington, DC": {
+  "lat": 38.904885,
+  "lng": -77.040754,
+  "matched": "1140 CONNECTICUT AVE NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|301 W 29th St, Baltimore, MD": {
+  "lat": 39.322094,
+  "lng": -76.622217,
+  "matched": "301 W 29TH ST, BALTIMORE, MD, 21211",
+  "how": "address"
+ },
+ "address|117 Chestnut St, Philadelphia, PA": {
+  "lat": 39.948341,
+  "lng": -75.143356,
+  "matched": "117 CHESTNUT ST, PHILADELPHIA, PA, 19106",
+  "how": "address"
+ },
+ "address|958 Tremont St, Boston, MA": {
+  "lat": 42.337591,
+  "lng": -71.083409,
+  "matched": "958 TREMONT ST, BOSTON, MA, 02120",
+  "how": "address"
+ },
+ "address|2437 15th St, NW Washington, DC": {
+  "lat": 38.921828,
+  "lng": -77.035159,
+  "matched": "2437 15TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|601 Pennsylvania Ave, SE Washington, DC": {
+  "lat": 38.885429,
+  "lng": -76.998424,
+  "matched": "601 PENNSYLVANIA AVE SE, WASHINGTON, DC, 20003",
+  "how": "address"
+ },
+ "address|1219 Connecticut Ave, NW Washington, DC": {
+  "lat": 38.905867,
+  "lng": -77.041162,
+  "matched": "1219 CONNECTICUT AVE NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|932 Market St, Philadelphia, PA": {
+  "lat": 39.951339,
+  "lng": -75.155711,
+  "matched": "932 MARKET ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|541 Tremont St, Boston, MA": {
+  "lat": 42.344204,
+  "lng": -71.071288,
+  "matched": "541 TREMONT ST, BOSTON, MA, 02116",
+  "how": "address"
+ },
+ "address|6815 Emlen St, Philadelphia, PA": {
+  "lat": 40.049686,
+  "lng": -75.190537,
+  "matched": "6815 EMLEN ST, PHILADELPHIA, PA, 19119",
+  "how": "address"
+ },
+ "address|1230 9th St, NW Washington, DC": {
+  "lat": 38.906377,
+  "lng": -77.024034,
+  "matched": "1230 9TH ST NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|1216 18th St, NW Washington, DC": {
+  "lat": 38.905827,
+  "lng": -77.041759,
+  "matched": "1216 18TH ST NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "venue|16 S 2nd St 2nd Floor Philadelphia PA, Pennsylvania": null,
+ "address|2549 N Howard St, Baltimore, MD": {
+  "lat": 39.318602,
+  "lng": -76.619718,
+  "matched": "2549 N HOWARD ST, BALTIMORE, MD, 21218",
+  "how": "address"
+ },
+ "address|61-63 Chatham St, Boston, MA": {
+  "lat": 42.359768,
+  "lng": -71.053988,
+  "matched": "63 CHATHAM ST, BOSTON, MA, 02109",
+  "how": "address"
+ },
+ "address|1214 18th St, NW Washington, DC": {
+  "lat": 38.905813,
+  "lng": -77.041759,
+  "matched": "1214 18TH ST NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|30 W North Ave, Baltimore, MD": {
+  "lat": 39.311189,
+  "lng": -76.616994,
+  "matched": "30 W NORTH AVE, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "address|9 Lansdowne St, Boston, MA": {
+  "lat": 42.347223,
+  "lng": -71.0948,
+  "matched": "9 LANSDOWNE ST, BOSTON, MA, 02215",
+  "how": "address"
+ },
+ "address|15 Lansdowne St, Boston, MA": {
+  "lat": 42.347224,
+  "lng": -71.095047,
+  "matched": "15 LANSDOWNE ST, BOSTON, MA, 02215",
+  "how": "address"
+ },
+ "address|45 Union St, Boston, MA": {
+  "lat": 42.361369,
+  "lng": -71.057022,
+  "matched": "45 UNION ST, BOSTON, MA, 02108",
+  "how": "address"
+ },
+ "address|3134 Eastern Ave, Baltimore, MD": {
+  "lat": 39.286494,
+  "lng": -76.572,
+  "matched": "3134 EASTERN AVE, BALTIMORE, MD, 21224",
+  "how": "address"
+ },
+ "address|1116 Boylston St, Boston, MA": {
+  "lat": 42.346883,
+  "lng": -71.089056,
+  "matched": "1116 BOYLSTON ST, BOSTON, MA, 02215",
+  "how": "address"
+ },
+ "address|2714 Georgia Ave, NW Washington, DC": {
+  "lat": 38.925462,
+  "lng": -77.022782,
+  "matched": "2714 GEORGIA AVE NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|2903 O'Donnell St, Baltimore, MD": {
+  "lat": 39.279985,
+  "lng": -76.57527,
+  "matched": "2903 ODONNELL ST, BALTIMORE, MD, 21224",
+  "how": "address"
+ },
+ "address|338 Washington St, Boston, MA": {
+  "lat": 42.356741,
+  "lng": -71.058931,
+  "matched": "338 WASHINGTON ST, BOSTON, MA, 02108",
+  "how": "address"
+ },
+ "address|2221 Adams Pl, NE Washington, DC": {
+  "lat": 38.919299,
+  "lng": -76.974453,
+  "matched": "2221 ADAMS PL NE, WASHINGTON, DC, 20018",
+  "how": "address"
+ },
+ "address|939 Boylston St, Boston, MA": {
+  "lat": 42.348132,
+  "lng": -71.084899,
+  "matched": "939 BOYLSTON ST, BOSTON, MA, 02115",
+  "how": "address"
+ },
+ "address|65 Chatham St, Boston, MA": {
+  "lat": 42.35977,
+  "lng": -71.053975,
+  "matched": "65 CHATHAM ST, BOSTON, MA, 02109",
+  "how": "address"
+ },
+ "address|117 E Berkeley St, Boston, MA": {
+  "lat": 42.343686,
+  "lng": -71.065257,
+  "matched": "117 E BERKELEY ST, BOSTON, MA, 02118",
+  "how": "address"
+ },
+ "address|102 W. Girard Ave, Philadelphia, PA": {
+  "lat": 39.968849,
+  "lng": -75.136367,
+  "matched": "102 W GIRARD AVE, PHILADELPHIA, PA, 19123",
+  "how": "address"
+ },
+ "address|120 W 25th St, Baltimore, MD": {
+  "lat": 39.317839,
+  "lng": -76.619154,
+  "matched": "120 W 25TH ST, BALTIMORE, MD, 21218",
+  "how": "address"
+ },
+ "address|801 S Decker Ave, Baltimore, MD": {
+  "lat": 39.283285,
+  "lng": -76.573414,
+  "matched": "801 S DECKER AVE, BALTIMORE, MD, 21224",
+  "how": "address"
+ },
+ "address|801 N 3rd St, Philadelphia, PA": {
+  "lat": 39.96344,
+  "lng": -75.142779,
+  "matched": "801 N 3RD ST, PHILADELPHIA, PA, 19123",
+  "how": "address"
+ },
+ "address|435 S Huntington Ave, Boston, MA": {
+  "lat": 42.339399,
+  "lng": -71.091691,
+  "matched": "435 HUNTINGTON AVE, BOSTON, MA, 02115",
+  "how": "address"
+ },
+ "address|200 International Dr, Baltimore, MD": {
+  "lat": 39.28245,
+  "lng": -76.602106,
+  "matched": "200 INTERNATIONAL DR, BALTIMORE, MD, 21202",
+  "how": "address"
+ },
+ "address|1700 Thames St, Baltimore, MD": null,
+ "address|1431-39 N 52nd St, Philadelphia, PA": {
+  "lat": 39.975199,
+  "lng": -75.226472,
+  "matched": "1431 N 52ND ST, PHILADELPHIA, PA, 19131",
+  "how": "address"
+ },
+ "address|1214 Sansom St, Philadelphia, PA": {
+  "lat": 39.949617,
+  "lng": -75.160662,
+  "matched": "1214 SANSOM ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|150 South St, Philadelphia, PA": {
+  "lat": 39.941063,
+  "lng": -75.145202,
+  "matched": "150 SOUTH ST, PHILADELPHIA, PA, 19147",
+  "how": "address"
+ },
+ "address|912 Washington Blvd, Baltimore, MD": {
+  "lat": 39.282987,
+  "lng": -76.631565,
+  "matched": "912 WASHINGTON BLVD, BALTIMORE, MD, 21230",
+  "how": "address"
+ },
+ "address|439 Tremont St, Boston, MA": {
+  "lat": 42.346924,
+  "lng": -71.069021,
+  "matched": "439 TREMONT ST, BOSTON, MA, 02116",
+  "how": "address"
+ },
+ "venue|2038 E Willard St 1st Fl Philadelphia PA, Pennsylvania": null,
+ "address|10 S 2nd St, Philadelphia, PA": {
+  "lat": 39.949692,
+  "lng": -75.143867,
+  "matched": "10 S 2ND ST, PHILADELPHIA, PA, 19106",
+  "how": "address"
+ },
+ "address|11 Marshall St, Boston, MA": {
+  "lat": 42.361526,
+  "lng": -71.056823,
+  "matched": "11 MARSHALL ST, BOSTON, MA, 02108",
+  "how": "address"
+ },
+ "address|254 S 12th St, Philadelphia, PA": {
+  "lat": 39.947055,
+  "lng": -75.161015,
+  "matched": "254 S 12TH ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|120 W. North Ave, Baltimore, MD": {
+  "lat": 39.311146,
+  "lng": -76.618259,
+  "matched": "120 W NORTH AVE, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "address|2418 Saint Paul St, Baltimore, MD": {
+  "lat": 39.317005,
+  "lng": -76.615413,
+  "matched": "2418 SAINT PAUL ST, BALTIMORE, MD, 21218",
+  "how": "address"
+ },
+ "address|1919 Passyunk Ave, Philadelphia, PA": {
+  "lat": 39.923853,
+  "lng": -75.17883,
+  "matched": "1919 W PASSYUNK AVE, PHILADELPHIA, PA, 19145",
+  "how": "address"
+ },
+ "address|321 E Cromwell St, Baltimore, MD": {
+  "lat": 39.263742,
+  "lng": -76.606854,
+  "matched": "321 E CROMWELL ST, BALTIMORE, MD, 21230",
+  "how": "address"
+ },
+ "address|1400 Greenmount Ave, Baltimore, MD": {
+  "lat": 39.305366,
+  "lng": -76.608413,
+  "matched": "1400 GREENMOUNT AVE, BALTIMORE, MD, 21202",
+  "how": "address"
+ },
+ "address|1101 Kenyon St, NW Washington, DC": {
+  "lat": 38.929728,
+  "lng": -77.027821,
+  "matched": "1101 KENYON ST NW, WASHINGTON, DC, 20010",
+  "how": "address"
+ },
+ "address|1800 N American St, Philadelphia, PA": null,
+ "address|2030 Centre St, Boston, MA": {
+  "lat": 42.280825,
+  "lng": -71.158083,
+  "matched": "2030 CENTRE ST, BOSTON, MA, 02132",
+  "how": "address"
+ },
+ "address|813 S Broadway, Baltimore, MD": {
+  "lat": 39.282432,
+  "lng": -76.59306,
+  "matched": "813 S BROADWAY, BALTIMORE, MD, 21231",
+  "how": "address"
+ },
+ "address|2101 E York St, Philadelphia, PA": {
+  "lat": 39.982465,
+  "lng": -75.128449,
+  "matched": "2101 E YORK ST, PHILADELPHIA, PA, 19125",
+  "how": "address"
+ },
+ "address|1400 S 2nd St, Philadelphia, PA": {
+  "lat": 39.930266,
+  "lng": -75.148135,
+  "matched": "1400 S 2ND ST, PHILADELPHIA, PA, 19147",
+  "how": "address"
+ },
+ "address|4600 Walnut St, Philadelphia, PA": {
+  "lat": 39.955435,
+  "lng": -75.213741,
+  "matched": "4600 WALNUT ST, PHILADELPHIA, PA, 19139",
+  "how": "address"
+ },
+ "address|10 Old Colony Ave, Boston, MA": {
+  "lat": 42.33749,
+  "lng": -71.056725,
+  "matched": "10 OLD COLONY AVE, BOSTON, MA, 02127",
+  "how": "address"
+ },
+ "address|5928 Falls Rd, Baltimore, MD": {
+  "lat": 39.369075,
+  "lng": -76.648836,
+  "matched": "5928 FALLS RD, BALTIMORE, MD, 21209",
+  "how": "address"
+ },
+ "address|934 Dorchester Ave, Boston, MA": {
+  "lat": 42.318904,
+  "lng": -71.056651,
+  "matched": "934 DORCHESTER AVE, BOSTON, MA, 02125",
+  "how": "address"
+ },
+ "address|108 Cambridge St, Boston, MA": {
+  "lat": 42.361175,
+  "lng": -71.063072,
+  "matched": "108 CAMBRIDGE ST, BOSTON, MA, 02114",
+  "how": "address"
+ },
+ "address|1906 Rittenhouse Square, Philadelphia, PA": {
+  "lat": 39.94872,
+  "lng": -75.17294,
+  "matched": "1906 RITTENHOUSE SQ, PHILADELPHIA, PA, 19103",
+  "how": "address"
+ },
+ "address|2031 Sansom St, Philadelphia, PA": {
+  "lat": 39.951423,
+  "lng": -75.174256,
+  "matched": "2031 SANSOM ST, PHILADELPHIA, PA, 19103",
+  "how": "address"
+ },
+ "address|737 S Broadway, Baltimore, MD": {
+  "lat": 39.283171,
+  "lng": -76.593114,
+  "matched": "737 S BROADWAY, BALTIMORE, MD, 21231",
+  "how": "address"
+ },
+ "address|13639 Philmont Ave, Philadelphia, PA": {
+  "lat": 40.133004,
+  "lng": -75.006937,
+  "matched": "13639 PHILMONT AVE, PHILADELPHIA, PA, 19116",
+  "how": "address"
+ },
+ "address|1705 Chancellor St, Philadelphia, PA": {
+  "lat": 39.949462,
+  "lng": -75.169329,
+  "matched": "1705 CHANCELLOR ST, PHILADELPHIA, PA, 19103",
+  "how": "address"
+ },
+ "address|238 Huntington Ave, Boston, MA": {
+  "lat": 42.342337,
+  "lng": -71.085186,
+  "matched": "238 HUNTINGTON AVE, BOSTON, MA, 02115",
+  "how": "address"
+ },
+ "address|647 W Pratt St, Ste B Baltimore, MD": {
+  "lat": 39.28608,
+  "lng": -76.625252,
+  "matched": "647 W PRATT ST, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "venue|JPNDC Brewery Complex Boston MA, Massachusetts": null,
+ "address|6734 Germantown Ave, Philadelphia, PA": {
+  "lat": 40.053096,
+  "lng": -75.186116,
+  "matched": "6734 GERMANTOWN AVE, PHILADELPHIA, PA, 19119",
+  "how": "address"
+ },
+ "address|4708 Baltimore Ave, Philadelphia, PA": {
+  "lat": 39.948528,
+  "lng": -75.217345,
+  "matched": "4708 BALTIMORE AVE, PHILADELPHIA, PA, 19143",
+  "how": "address"
+ },
+ "address|1611 Eckington Place, NE Washington, DC": {
+  "lat": 38.911793,
+  "lng": -77.004524,
+  "matched": "1611 ECKINGTON PL NE, WASHINGTON, DC, 20002",
+  "how": "address"
+ },
+ "address|101 W Monument St, Baltimore, MD": {
+  "lat": 39.29747,
+  "lng": -76.617174,
+  "matched": "101 W MONUMENT ST, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "address|26 Central Ave, Boston, MA": {
+  "lat": 42.257545,
+  "lng": -71.121058,
+  "matched": "26 CENTRAL AVE, BOSTON, MA, 02136",
+  "how": "address"
+ },
+ "address|1800 Walnut St, Philadelphia, PA": {
+  "lat": 39.950084,
+  "lng": -75.170753,
+  "matched": "1800 WALNUT ST, PHILADELPHIA, PA, 19103",
+  "how": "address"
+ },
+ "address|116 Rhode Island Ave, NW Washington, DC": {
+  "lat": 38.915396,
+  "lng": -77.012897,
+  "matched": "116 RHODE ISLAND AVE NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|1315 Sansom St, Philadelphia, PA": {
+  "lat": 39.949973,
+  "lng": -75.162563,
+  "matched": "1315 SANSOM ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|1316 S 36th St, Philadelphia, PA": {
+  "lat": 39.938446,
+  "lng": -75.201938,
+  "matched": "1316 S 36TH ST, PHILADELPHIA, PA, 19146",
+  "how": "address"
+ },
+ "address|300 Hanson St, Philadelphia, PA": {
+  "lat": 39.953686,
+  "lng": -75.21921,
+  "matched": "300 S HANSON ST, PHILADELPHIA, PA, 19143",
+  "how": "address"
+ },
+ "address|2725 N American St, Philadelphia, PA": null,
+ "address|924 N Charles St, Baltimore, MD": {
+  "lat": 39.300026,
+  "lng": -76.615911,
+  "matched": "924 N CHARLES ST, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "address|1463 Dorchester Ave, Boston, MA": {
+  "lat": 42.30098,
+  "lng": -71.060036,
+  "matched": "1463 DORCHESTER AVE, BOSTON, MA, 02122",
+  "how": "address"
+ },
+ "address|33 E Laurel St, Philadelphia, PA": {
+  "lat": 39.964988,
+  "lng": -75.136372,
+  "matched": "33 E LAUREL ST, PHILADELPHIA, PA, 19123",
+  "how": "address"
+ },
+ "address|3222 11th St, NW Washington, DC": {
+  "lat": 38.929924,
+  "lng": -77.02788,
+  "matched": "3222 11TH ST NW, WASHINGTON, DC, 20010",
+  "how": "address"
+ },
+ "address|1010 St, Paul St Baltimore, MD": {
+  "lat": 39.301269,
+  "lng": -76.614409,
+  "matched": "1010 SAINT PAUL ST, BALTIMORE, MD, 21202",
+  "how": "address"
+ },
+ "address|338 Newbury St, Boston, MA": {
+  "lat": 42.348561,
+  "lng": -71.086243,
+  "matched": "338 NEWBURY ST, BOSTON, MA, 02115",
+  "how": "address"
+ },
+ "address|700 N 2nd St, Philadelphia, PA": {
+  "lat": 39.96196,
+  "lng": -75.141241,
+  "matched": "700 N 2ND ST, PHILADELPHIA, PA, 19123",
+  "how": "address"
+ },
+ "address|4540 Baltimore Ave, Philadelphia, PA": {
+  "lat": 39.948882,
+  "lng": -75.214177,
+  "matched": "4540 BALTIMORE AVE, PHILADELPHIA, PA, 19143",
+  "how": "address"
+ },
+ "address|7312-18 Castor Ave, Philadelphia, PA": {
+  "lat": 40.051479,
+  "lng": -75.065866,
+  "matched": "7312 CASTOR AVE, PHILADELPHIA, PA, 19152",
+  "how": "address"
+ },
+ "address|79 Broadway, St Boston, MA": {
+  "lat": 42.349787,
+  "lng": -71.067187,
+  "matched": "79 BROADWAY, BOSTON, MA, 02116",
+  "how": "address"
+ },
+ "address|243 S Camac St, Philadelphia, PA": {
+  "lat": 39.947198,
+  "lng": -75.161636,
+  "matched": "243 S CAMAC ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|2463 18th St, NW Washington, DC": {
+  "lat": 38.922364,
+  "lng": -77.042525,
+  "matched": "2463 18TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|265 South Broad St, Philadelphia, PA": {
+  "lat": 39.947342,
+  "lng": -75.164552,
+  "matched": "265 S BROAD ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|7 N Beacon St, Boston, MA": {
+  "lat": 42.353759,
+  "lng": -71.138296,
+  "matched": "7 N BEACON ST, BOSTON, MA, 02134",
+  "how": "address"
+ },
+ "address|2438 18th St, NW Washington, DC": {
+  "lat": 38.92139,
+  "lng": -77.042364,
+  "matched": "2438 18TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|2021 14th St, NW Washington, DC": {
+  "lat": 38.917259,
+  "lng": -77.031878,
+  "matched": "2021 14TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|816 H St, NE Washington, DC": {
+  "lat": 38.90026,
+  "lng": -76.994715,
+  "matched": "816 H ST NE, WASHINGTON, DC, 20002",
+  "how": "address"
+ },
+ "address|1280 4th St, NE Washington, DC": {
+  "lat": 38.908709,
+  "lng": -76.999483,
+  "matched": "1280 4TH ST NE, WASHINGTON, DC, 20002",
+  "how": "address"
+ },
+ "address|2020 O St, NW Washington, DC": {
+  "lat": 38.908513,
+  "lng": -77.045849,
+  "matched": "2020 O ST NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|2030 Frankford Ave, Philadelphia, PA": {
+  "lat": 39.979063,
+  "lng": -75.130073,
+  "matched": "2030 FRANKFORD AVE, PHILADELPHIA, PA, 19125",
+  "how": "address"
+ },
+ "address|119 W Saratoga St, Baltimore, MD": {
+  "lat": 39.292948,
+  "lng": -76.617073,
+  "matched": "119 W SARATOGA ST, BALTIMORE, MD, 21201",
+  "how": "address"
+ },
+ "address|1221 Connecticut Ave, NW Washington, DC": {
+  "lat": 38.905881,
+  "lng": -77.04117,
+  "matched": "1221 CONNECTICUT AVE NW, WASHINGTON, DC, 20036",
+  "how": "address"
+ },
+ "address|1310 Drury St, Philadelphia, PA": {
+  "lat": 39.95016,
+  "lng": -75.162043,
+  "matched": "1310 DRURY ST, PHILADELPHIA, PA, 19107",
+  "how": "address"
+ },
+ "address|3908 12th St, NE Washington, DC": {
+  "lat": 38.937393,
+  "lng": -76.990634,
+  "matched": "3908 12TH ST NE, WASHINGTON, DC, 20017",
+  "how": "address"
+ },
+ "address|2323 18th St, NW Washington, DC": {
+  "lat": 38.920205,
+  "lng": -77.04181,
+  "matched": "2323 18TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|713 H St, NW Washington, DC": {
+  "lat": 38.899871,
+  "lng": -77.022096,
+  "matched": "713 H ST NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|3721 Midvale Ave, Philadelphia, PA": {
+  "lat": 40.009761,
+  "lng": -75.193285,
+  "matched": "3721 MIDVALE AVE, PHILADELPHIA, PA, 19129",
+  "how": "address"
+ },
+ "address|847 N 3rd St, Philadelphia, PA": {
+  "lat": 39.964135,
+  "lng": -75.142632,
+  "matched": "847 N 3RD ST, PHILADELPHIA, PA, 19123",
+  "how": "address"
+ },
+ "address|3001 Boston St, Baltimore, MD": {
+  "lat": 39.278006,
+  "lng": -76.574594,
+  "matched": "3001 BOSTON ST, BALTIMORE, MD, 21224",
+  "how": "address"
+ },
+ "address|3605 14th St, NW Ste A Washington, DC": {
+  "lat": 38.93635,
+  "lng": -77.032657,
+  "matched": "3605 14TH ST NW, WASHINGTON, DC, 20010",
+  "how": "address"
+ },
+ "address|2461 18th St, NW Washington, DC": {
+  "lat": 38.922335,
+  "lng": -77.042517,
+  "matched": "2461 18TH ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|450 K St, NW Washington, DC": {
+  "lat": 38.902463,
+  "lng": -77.017848,
+  "matched": "450 K ST NW, WASHINGTON, DC, 20001",
+  "how": "address"
+ },
+ "address|224 Market St, Boston, MA": {
+  "lat": 42.35495,
+  "lng": -71.149775,
+  "matched": "224 MARKET ST, BOSTON, MA, 02135",
+  "how": "address"
+ },
+ "address|911 W 36th St, Baltimore, MD": {
+  "lat": 39.331102,
+  "lng": -76.63169,
+  "matched": "911 W 36TH ST, BALTIMORE, MD, 21211",
+  "how": "address"
+ },
+ "address|540 Penn St, NE Washington, DC": {
+  "lat": 38.910119,
+  "lng": -76.996762,
+  "matched": "540 PENN ST NE, WASHINGTON, DC, 20002",
+  "how": "address"
+ },
+ "address|22 S 3rd St, Philadelphia, PA": {
+  "lat": 39.94967,
+  "lng": -75.145865,
+  "matched": "22 S 3RD ST, PHILADELPHIA, PA, 19106",
+  "how": "address"
+ },
+ "address|5916 York Rd, Baltimore, MD": {
+  "lat": 39.364311,
+  "lng": -76.610075,
+  "matched": "5916 YORK RD, BALTIMORE, MD, 21212",
+  "how": "address"
+ },
+ "address|801 E St, NW Washington, DC": {
+  "lat": 38.896191,
+  "lng": -77.023029,
+  "matched": "801 E ST NW, WASHINGTON, DC, 20004",
+  "how": "address"
+ },
+ "address|3496 Washington St, Boston, MA": {
+  "lat": 42.306309,
+  "lng": -71.107546,
+  "matched": "3496 WASHINGTON ST, BOSTON, MA, 02130",
+  "how": "address"
+ },
+ "address|1710 Aliceanna St, Baltimore, MD": {
+  "lat": 39.283623,
+  "lng": -76.592632,
+  "matched": "1710 ALICEANNA ST, BALTIMORE, MD, 21231",
+  "how": "address"
+ },
+ "address|738 Massachusetts Ave, Boston, MA": {
+  "lat": 42.335472,
+  "lng": -71.075538,
+  "matched": "738 MASSACHUSETTS AVE, BOSTON, MA, 02118",
+  "how": "address"
+ },
+ "venue|1029 Vermont Ave NW #400 Washington DC, District of Columbia": {
+  "lat": 38.903515,
+  "lng": -77.032902,
+  "matched": "Stan's Restaurant, 1029, Vermont Avenue Northwest, Downtown, Ward 2, Washington, District of Columbia, 20005, United Sta",
+  "how": "venue"
+ },
+ "address|1340 U St, NW Washington, DC": {
+  "lat": 38.916943,
+  "lng": -77.030586,
+  "matched": "1340 U ST NW, WASHINGTON, DC, 20009",
+  "how": "address"
+ },
+ "address|71 Lansdowne St, Boston, MA": {
+  "lat": 42.347228,
+  "lng": -71.097347,
+  "matched": "71 LANSDOWNE ST, BOSTON, MA, 02215",
+  "how": "address"
+ },
+ "address|1508 North Capitol St, NW Washington, DC": {
+  "lat": 38.909842,
+  "lng": -77.009188,
+  "matched": "1508 N CAPITOL ST NW, WASHINGTON, DC, 20002",
+  "how": "address"
+ },
+ "venue|625 Monroe St NE #312 Washington DC, District of Columbia": {
+  "lat": 38.931838,
+  "lng": -76.997623,
+  "matched": "Cornerstone Apartments, 625, Monroe Street Northeast, Edgewood, Ward 5, Washington, District of Columbia, 20018, United ",
+  "how": "venue"
+ },
+ "address|147 Hanover St, Boston, MA": {
+  "lat": 42.361667,
+  "lng": -71.057182,
+  "matched": "147 HANOVER ST, BOSTON, MA, 02108",
+  "how": "address"
+ },
+ "address|3 Harvard Ave, Boston, MA": {
+  "lat": 42.355432,
+  "lng": -71.132821,
+  "matched": "3 HARVARD AVE, BOSTON, MA, 02134",
+  "how": "address"
+ },
+ "address|144 South St, Boston, MA": {
+  "lat": 42.350944,
+  "lng": -71.057304,
+  "matched": "144 SOUTH ST, BOSTON, MA, 02111",
+  "how": "address"
+ },
+ "venue|Glocester, Rhode Island": null,
+ "venue|Allentown, Pennsylvania": null,
+ "venue|Revere, Massachusetts": null,
+ "venue|Fawn Grove, Pennsylvania": null,
+ "venue|Methuen, Massachusetts": null,
+ "venue|Phoenixville, Pennsylvania": null,
+ "venue|Marlborough, Massachusetts": null,
+ "venue|Newburyport, Massachusetts": null,
+ "venue|Newmarket, New Hampshire": null,
+ "venue|Nashua, New Hampshire": null,
+ "venue|Harrison, Maine": null,
+ "venue|Johnston, Rhode Island": null,
+ "venue|Frederick, Maryland": null,
+ "venue|Killingworth, Connecticut": null,
+ "venue|Pembroke, Massachusetts": null,
+ "venue|Shermans Dale, Pennsylvania": null,
+ "venue|Middletown, Rhode Island": null,
+ "venue|Annapolis, Maryland": null,
+ "venue|East Greenwich, Rhode Island": null,
+ "venue|Toms River, New Jersey": null,
+ "venue|Washington, District of Columbia": null,
+ "venue|Athens, Pennsylvania": null,
+ "venue|Levittown, Pennsylvania": null,
+ "venue|Burlington, Vermont": null,
+ "venue|Glens Falls, New York": null,
+ "venue|Templeton, Massachusetts": null,
+ "venue|West Chester, Pennsylvania": null,
+ "venue|North Providence, Rhode Island": null,
+ "venue|Leominster, Massachusetts": null,
+ "venue|Hampton, New Hampshire": null,
+ "venue|Foxborough, Massachusetts": null,
+ "venue|Berlin, Connecticut": null,
+ "venue|Hanover, Pennsylvania": null,
+ "venue|Manchester, New Hampshire": null,
+ "venue|Langhorne, Pennsylvania": null,
+ "venue|hudson, Massachusetts": null,
+ "venue|Ardmore, Pennsylvania": null,
+ "venue|Framingham, Massachusetts": null,
+ "venue|Franconia, New Hampshire": null,
+ "venue|Berlin, Massachusetts": null,
+ "venue|Devon, Pennsylvania": {
+  "lat": 40.04736,
+  "lng": -75.422951,
+  "matched": "Devon, North Devon Boulevard, Devon, Easttown Township, Chester County, Pennsylvania, 19333, United States",
+  "how": "venue"
+ },
+ "venue|Brattleboro, Vermont": null,
+ "venue|Lynn, Massachusetts": null,
+ "venue|Ephrata, Pennsylvania": null,
+ "venue|Milford, Massachusetts": null,
+ "venue|Severna Park, Maryland": null,
+ "venue|Forked River, New Jersey": null,
+ "venue|Newport, Rhode Island": null,
+ "venue|Albany, New York": null,
+ "venue|Danvers, Massachusetts": null,
+ "venue|Wellesley, Massachusetts": null,
+ "venue|Blue Bell, Pennsylvania": null,
+ "venue|Old Town, Maine": null,
+ "venue|Sherman, Connecticut": null,
+ "venue|Pepperell, Massachusetts": null,
+ "venue|Nether Providence Township, Pennsylvania": null,
+ "venue|Weymouth, Massachusetts": null,
+ "venue|Hawley, Pennsylvania": null,
+ "venue|Worcester, Massachusetts": null,
+ "venue|Westbrook, Connecticut": null,
+ "venue|Gilford, New Hampshire": null,
+ "venue|Bath, Pennsylvania": null,
+ "venue|Saratoga Springs, New York": null,
+ "venue|Plainfield, Connecticut": null,
+ "venue|Woodbury Heights, New Jersey": null,
+ "venue|Brentwood, Maryland": null,
+ "venue|Hamburg, Pennsylvania": null,
+ "venue|Warminster, Pennsylvania": null,
+ "venue|Frostburg, Maryland": null,
+ "venue|Schenectady, New York": null,
+ "venue|Troy, New York": null,
+ "venue|Lima, New York": null,
+ "venue|Great Barrington, Massachusetts": null,
+ "venue|Old Orchard Beach, Maine": null,
+ "venue|Killington, Vermont": null,
+ "venue|Wayland, Massachusetts": null,
+ "venue|Cohoes, New York": null,
+ "venue|Melrose, Massachusetts": null,
+ "venue|North Reading, Massachusetts": null,
+ "venue|Baltimore, Maryland": null,
+ "venue|Sudbury, Massachusetts": null,
+ "venue|Beverly, Massachusetts": null,
+ "venue|Mount Olive, New Jersey": null,
+ "venue|Gloucester City, New Jersey": null,
+ "venue|New Milford, Connecticut": null,
+ "venue|North Hampton, New Hampshire": null,
+ "venue|Rochester, New York": null,
+ "venue|Cumberland, Maryland": null,
+ "venue|Bristol, Rhode Island": null,
+ "venue|Chatham, New York": null,
+ "venue|Bethlehem Township, New Jersey": null,
+ "venue|Baldwinsville, New York": null,
+ "venue|Wrightsville, Pennsylvania": null,
+ "venue|Scranton, Pennsylvania": null,
+ "venue|Pittsburgh, Pennsylvania": null,
+ "venue|Providence, Rhode Island": null,
+ "venue|Spring City, Pennsylvania": null,
+ "venue|Smithfield, Rhode Island": null,
+ "venue|Franklin, Connecticut": null,
+ "venue|Freeland, Maryland": null,
+ "venue|Lewiston, Maine": null,
+ "venue|Rockville, Maryland": null,
+ "venue|Malvern, Pennsylvania": null,
+ "venue|Milford, New Hampshire": null,
+ "venue|Turners Falls, Massachusetts": null,
+ "venue|Lancaster, New Hampshire": null,
+ "venue|Westford, Massachusetts": null,
+ "venue|North Beach, Maryland": null,
+ "venue|Atlantic City, New Jersey": null,
+ "venue|Chepachet, Rhode Island": null,
+ "venue|West Warwick, Rhode Island": null,
+ "venue|Dundalk, Maryland": null,
+ "venue|Malden, Massachusetts": null,
+ "venue|Pattenburg, New Jersey": null,
+ "venue|Takoma Park, Maryland": null,
+ "venue|Bellingham, Massachusetts": null,
+ "venue|Housatonic, Massachusetts": null,
+ "venue|Groton, Massachusetts": null,
+ "venue|Bolton, Massachusetts": null,
+ "venue|Altamont, New York": null,
+ "venue|Middletown, Connecticut": null,
+ "venue|Littleton, Massachusetts": null,
+ "venue|Newtown, Pennsylvania": null,
+ "venue|Portsmouth, Massachusetts": null,
+ "venue|Stroudsburg, Pennsylvania": null,
+ "venue|Medford, New Jersey": null,
+ "venue|Bethlehem, Pennsylvania": null,
+ "venue|Newton, Massachusetts": null,
+ "venue|Stockton, New Jersey": null,
+ "venue|Watervliet, New York": null,
+ "venue|Northborough, Massachusetts": null,
+ "venue|Wakefield, Rhode Island": null,
+ "venue|Philadelphia, Pennsylvania": null,
+ "venue|Deer Isle, Maine": null,
+ "venue|Lebanon, Pennsylvania": null,
+ "venue|PROVIDENCE, Rhode Island": null,
+ "venue|Manchester, Connecticut": null,
+ "venue|Unity, Maine": null,
+ "venue|North Creek, New York": null,
+ "venue|Montague, Massachusetts": null,
+ "venue|Portsmouth, New Hampshire": null,
+ "venue|Dennis, Massachusetts": null,
+ "venue|Warren, Rhode Island": null,
+ "venue|Jackson, New Jersey": null,
+ "venue|Waterville, Maine": null,
+ "venue|The Whaling Museum and Education Center, Cold Spring Harbor, New York": null,
+ "venue|Sisters of St.Joseph Brentwood Campus, Brentwood, New York": null,
+ "venue|Huntington Moose Lodge, Greenlawn, New York": null,
+ "venue|Arts Council of Princeton, Princeton, New Jersey": null,
+ "venue|Solley Theater &#8211; Arts Council of Princeton, Princeton, New Jersey": null,
+ "venue|Mandala Yoga Center for Healing Arts, Amagansett, New York": null,
+ "venue|Five Points Arts Center, Torrington, Connecticut": {
+  "lat": 41.840563,
+  "lng": -73.160183,
+  "matched": "Five Points Arts Center, Five Points Connector Trail, Torrington, Northwest Hills Planning Region, Connecticut, 06094, U",
+  "how": "venue"
+ },
+ "address|440 19th St, Brooklyn, NY": {
+  "lat": 40.65799,
+  "lng": -73.984953,
+  "matched": "440 19TH ST, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "venue|Squeaky Wheel, Buffalo, New York": {
+  "lat": 42.935935,
+  "lng": -78.842113,
+  "matched": "Squeaky Wheel, 2495, Main Street, North Buffalo, Buffalo, Erie County, New York, 14214, United States",
+  "how": "venue"
+ },
+ "address|253 Broadway, New York, NY": {
+  "lat": 40.713134,
+  "lng": -74.007248,
+  "matched": "253 BROADWAY, NEW YORK, NY, 10007",
+  "how": "address"
+ },
+ "address|42-09 28th Street, New York, NY": {
+  "lat": 40.745073,
+  "lng": -73.988069,
+  "matched": "9 W 28TH ST, NEW YORK, NY, 10001",
+  "how": "address"
+ },
+ "address|100 Church St, New York, NY": {
+  "lat": 43.106678,
+  "lng": -75.293167,
+  "matched": "100 CHURCH ST, NEW YORK MILLS, NY, 13417",
+  "how": "address"
+ },
+ "address|1 Centre St, New York, NY": null,
+ "address|100 Gold Street, New York, NY": {
+  "lat": 40.710536,
+  "lng": -74.003724,
+  "matched": "100 GOLD ST, NEW YORK, NY, 10038",
+  "how": "address"
+ },
+ "venue|Land Port of Entry, Coburn Gore, Maine": null,
+ "venue|Manhattan, New York, New York": null,
+ "venue|Ithaca, New York": null,
+ "venue|Tarrytown, New York": null,
+ "venue|Acra, New York": null,
+ "venue|Riverhead, New York": null,
+ "venue|Freeport, Nassau, New York": null,
+ "venue|Selden, Suffolk, New York": null,
+ "venue|Point Pleasant Borough, New Jersey": {
+  "lat": 40.077944,
+  "lng": -74.068413,
+  "matched": "Point Pleasant Borough Public Library, Taylor Avenue, West Point Pleasant, Point Pleasant, Ocean County, New Jersey, 087",
+  "how": "venue"
+ },
+ "venue|Enfield, Connecticut": null,
+ "venue|Greenwich, Washington County, New York": null,
+ "venue|Manhasset, Nassau, New York": null,
+ "venue|Bronx, Bronx, New York": null,
+ "venue|Branford / Guilford / Madison, Connecticut": null,
+ "venue|Patchogue, Suffolk, New York": null,
+ "venue|Coventry, Connecticut": null,
+ "venue|Westport, Connecticut": null,
+ "venue|Derby, Connecticut": null,
+ "venue|North Bergen, New Jersey": null,
+ "venue|Bridgewater, New Jersey": {
+  "lat": 40.559813,
+  "lng": -74.551715,
+  "matched": "Bridgewater, Main Street, Bridgewater Township, Somerset County, New Jersey, 08805, United States",
+  "how": "venue"
+ },
+ "venue|Princeton, New Jersey": null,
+ "venue|New Haven, Connecticut": null,
+ "venue|Lakewood, New Jersey": null,
+ "venue|Byrdcliffe Arts Colony, Woodstock, New York": null,
+ "venue|Westbury Arts, Westbury, New York": null,
+ "venue|Patchogue, New York": null,
+ "venue|Steepletop, Austerlitz, New York": {
+  "lat": 42.321349,
+  "lng": -73.444144,
+  "matched": "Steepletop, 427, East Hill Road, Town of Austerlitz, Columbia County, New York, 12017, United States",
+  "how": "venue"
+ },
+ "venue|Culture Lab LIC, Queens, New York": {
+  "lat": 40.747594,
+  "lng": -73.954378,
+  "matched": "Culture Lab LIC, 46th Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11109, United States",
+  "how": "venue"
+ },
+ "venue|Spring Street, Princeton, New Jersey": {
+  "lat": 40.351217,
+  "lng": -74.659023,
+  "matched": "Spring Street, Princeton Center, Princeton, Mercer County, New Jersey, 08542, United States",
+  "how": "venue"
+ },
+ "address|323 West 39th Street, New York, NY 10018": {
+  "lat": 40.755664,
+  "lng": -73.991815,
+  "matched": "323 W 39TH ST, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "address|250 W 54th St, New York, NY 10019": {
+  "lat": 40.764218,
+  "lng": -73.983067,
+  "matched": "250 W 54TH ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "venue|Bay Ridge, Brooklyn, New York": null,
+ "address|199 14th Street, Brooklyn, NY": {
+  "lat": 40.667357,
+  "lng": -73.991127,
+  "matched": "199 14TH ST, BROOKLYN, NY, 11215",
+  "how": "address"
+ },
+ "address|55 Richmond Terrace, Staten Island, NY 10301": {
+  "lat": 40.644429,
+  "lng": -74.076714,
+  "matched": "55 RICHMOND TER, STATEN ISLAND, NY, 10301",
+  "how": "address"
+ },
+ "venue|The Tank NYC, New York, New York": {
+  "lat": 40.753663,
+  "lng": -73.99329,
+  "matched": "The Tank, 312, West 36th Street, Hudson Yards, Manhattan Community Board 4, Manhattan, New York County, New York, 10119,",
+  "how": "venue"
+ },
+ "venue|Norfolk, New York, New York": null,
+ "venue|Vero Beach, New York, New York": null,
+ "venue|White River Junction, New York, Vermont": null,
+ "address|520 8th Avenue, New York, NY": {
+  "lat": 40.753533,
+  "lng": -73.992398,
+  "matched": "520 8TH AVE, NEW YORK, NY, 10018",
+  "how": "address"
+ },
+ "venue|Gene Frankel One Act Festival, New York, New York": null,
+ "venue|Teatro Latea, New York, New York": {
+  "lat": 40.719061,
+  "lng": -73.986235,
+  "matched": "Teatro LATEA, 107, Suffolk Street, Lower East Side, Manhattan Community Board 3, Manhattan, New York County, New York, 1",
+  "how": "venue"
+ },
+ "venue|Midtown Manhattan, New York, New York": {
+  "lat": 40.752694,
+  "lng": -73.977253,
+  "matched": "Grand Central Terminal, 89, East 42nd Street, Midtown, Manhattan Community Board 5, Manhattan, New York County, New York",
+  "how": "venue"
+ },
+ "venue|New York City and Los Angeles, New York, New York": null,
+ "venue|Times Square, New York, New York": {
+  "lat": 40.75701,
+  "lng": -73.985972,
+  "matched": "Times Square, Manhattan Community Board 5, Manhattan, New York County, New York, 10036, United States",
+  "how": "venue"
+ },
+ "venue|New York City auditions, New York, New York": null,
+ "address|115 MacDougal St, New York, NY 10012": {
+  "lat": 40.730067,
+  "lng": -74.000522,
+  "matched": "115 MACDOUGAL ST, NEW YORK, NY, 10012",
+  "how": "address"
+ },
+ "address|254 West 54th Street, New York, NY 10019": {
+  "lat": 40.764259,
+  "lng": -73.983166,
+  "matched": "254 W 54TH ST, NEW YORK, NY, 10019",
+  "how": "address"
+ },
+ "venue|Teaching throughout NYC and the boroughs, New York, New York": null,
+ "venue|Teaching in Manhattan, New York, New York": null,
+ "area|Teaneck, New Jersey": {
+  "lat": 40.886016,
+  "lng": -74.007257,
+  "matched": "Teaneck Township, Bergen County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hoboken, New Jersey": {
+  "lat": 40.743307,
+  "lng": -74.032375,
+  "matched": "Hoboken, Hudson County, New Jersey, 07030, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newtown, Connecticut": {
+  "lat": 41.413476,
+  "lng": -73.308644,
+  "matched": "Newtown, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Brunswick, New Jersey": {
+  "lat": 40.493612,
+  "lng": -74.443642,
+  "matched": "New Brunswick, Middlesex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Woodstock, New York": {
+  "lat": 42.041058,
+  "lng": -74.118249,
+  "matched": "Town of Woodstock, Ulster County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Scarsdale, New York": {
+  "lat": 40.988522,
+  "lng": -73.808561,
+  "matched": "Village of Scarsdale, Westchester County, New York, 10583, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Rochelle, New York": {
+  "lat": 40.911539,
+  "lng": -73.782636,
+  "matched": "New Rochelle, Westchester County, New York, 10801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethel, Connecticut": {
+  "lat": 41.371206,
+  "lng": -73.41401,
+  "matched": "Bethel, Western Connecticut Planning Region, Connecticut, 06801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Mattituck, New York": {
+  "lat": 41.011905,
+  "lng": -72.550539,
+  "matched": "Mattituck, Town of Southold, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Southold, New York": {
+  "lat": 41.067221,
+  "lng": -72.440801,
+  "matched": "Southold, Town of Southold, Suffolk County, New York, 11971, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Paltz, New York": {
+  "lat": 41.746497,
+  "lng": -74.084489,
+  "matched": "Town of New Paltz, Ulster County, New York, 12561, United States (approximate)",
+  "how": "area"
+ },
+ "area|Greenport, New York": {
+  "lat": 41.103296,
+  "lng": -72.359309,
+  "matched": "Village of Greenport, Town of Southold, Suffolk County, New York, 11944, United States (approximate)",
+  "how": "area"
+ },
+ "area|Red Bank, New Jersey": {
+  "lat": 40.347054,
+  "lng": -74.064307,
+  "matched": "Red Bank, Monmouth County, New Jersey, 07701, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bridgeport, Connecticut": {
+  "lat": 41.179269,
+  "lng": -73.188786,
+  "matched": "Bridgeport, Greater Bridgeport Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Montclair, New Jersey": {
+  "lat": 40.816446,
+  "lng": -74.221064,
+  "matched": "Montclair, Essex County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Glocester, Rhode Island": {
+  "lat": 41.910429,
+  "lng": -71.717637,
+  "matched": "Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Allentown, Pennsylvania": {
+  "lat": 40.602255,
+  "lng": -75.471611,
+  "matched": "Allentown, Lehigh County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Revere, Massachusetts": {
+  "lat": 42.40843,
+  "lng": -71.011995,
+  "matched": "Revere, Suffolk County, Massachusetts, 02151, United States (approximate)",
+  "how": "area"
+ },
+ "area|Fawn Grove, Pennsylvania": {
+  "lat": 39.727882,
+  "lng": -76.451908,
+  "matched": "Fawn Grove, York County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Methuen, Massachusetts": {
+  "lat": 42.726202,
+  "lng": -71.190892,
+  "matched": "Methuen, Essex County, Massachusetts, 01844, United States (approximate)",
+  "how": "area"
+ },
+ "area|Phoenixville, Pennsylvania": {
+  "lat": 40.133878,
+  "lng": -75.517283,
+  "matched": "Phoenixville, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Marlborough, Massachusetts": {
+  "lat": 42.346859,
+  "lng": -71.552519,
+  "matched": "Marlborough, Middlesex County, Massachusetts, 01752, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newburyport, Massachusetts": {
+  "lat": 42.811659,
+  "lng": -70.871927,
+  "matched": "Newburyport, Essex County, Massachusetts, 01950, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newmarket, New Hampshire": {
+  "lat": 43.079618,
+  "lng": -70.935784,
+  "matched": "Newmarket, Rockingham County, New Hampshire, 03857, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nashua, New Hampshire": {
+  "lat": 42.765625,
+  "lng": -71.467703,
+  "matched": "Nashua, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Harrison, Maine": {
+  "lat": 44.110761,
+  "lng": -70.679855,
+  "matched": "Harrison, Cumberland County, Maine, 04040, United States (approximate)",
+  "how": "area"
+ },
+ "area|Johnston, Rhode Island": {
+  "lat": 41.83104,
+  "lng": -71.54121,
+  "matched": "Johnston, Providence County, Rhode Island, 02919, United States (approximate)",
+  "how": "area"
+ },
+ "area|Frederick, Maryland": {
+  "lat": 39.415779,
+  "lng": -77.412756,
+  "matched": "Frederick, Frederick County, Maryland, 21709, United States (approximate)",
+  "how": "area"
+ },
+ "area|Killingworth, Connecticut": {
+  "lat": 41.358154,
+  "lng": -72.563702,
+  "matched": "Killingworth, Lower Connecticut River Valley Planning Region, Connecticut, 06419, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pembroke, Massachusetts": {
+  "lat": 42.071491,
+  "lng": -70.809207,
+  "matched": "Pembroke, Plymouth County, Massachusetts, 02359, United States (approximate)",
+  "how": "area"
+ },
+ "area|Shermans Dale, Pennsylvania": {
+  "lat": 40.324253,
+  "lng": -77.173037,
+  "matched": "Shermans Dale, Carroll Township, Perry County, Pennsylvania, 17090, United States (approximate)",
+  "how": "area"
+ },
+ "area|Middletown, Rhode Island": {
+  "lat": 41.545658,
+  "lng": -71.291439,
+  "matched": "Middletown, Newport County, Rhode Island, 02842, United States (approximate)",
+  "how": "area"
+ },
+ "area|Annapolis, Maryland": {
+  "lat": 38.97864,
+  "lng": -76.492786,
+  "matched": "Annapolis, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|East Greenwich, Rhode Island": {
+  "lat": 41.660379,
+  "lng": -71.455891,
+  "matched": "East Greenwich, Kent County, Rhode Island, 02818, United States (approximate)",
+  "how": "area"
+ },
+ "area|Toms River, New Jersey": {
+  "lat": 39.952839,
+  "lng": -74.196741,
+  "matched": "Toms River, Ocean County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Washington, District of Columbia": {
+  "lat": 38.895098,
+  "lng": -77.036385,
+  "matched": "Washington, District of Columbia, United States (approximate)",
+  "how": "area"
+ },
+ "area|Athens, Pennsylvania": {
+  "lat": 41.957296,
+  "lng": -76.517999,
+  "matched": "Athens, Bradford County, Pennsylvania, 18810, United States (approximate)",
+  "how": "area"
+ },
+ "area|Levittown, Pennsylvania": {
+  "lat": 40.157556,
+  "lng": -74.832129,
+  "matched": "Levittown, Bristol Township, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Burlington, Vermont": {
+  "lat": 44.47616,
+  "lng": -73.212906,
+  "matched": "Burlington, Chittenden County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "area|Glens Falls, New York": {
+  "lat": 43.309941,
+  "lng": -73.644447,
+  "matched": "City of Glens Falls, Warren County, New York, 12801, United States (approximate)",
+  "how": "area"
+ },
+ "area|Templeton, Massachusetts": {
+  "lat": 42.555725,
+  "lng": -72.067393,
+  "matched": "Templeton, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|West Chester, Pennsylvania": {
+  "lat": 39.959739,
+  "lng": -75.604461,
+  "matched": "West Chester, Chester County, Pennsylvania, 19383, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Providence, Rhode Island": {
+  "lat": 41.8501,
+  "lng": -71.46617,
+  "matched": "North Providence, Providence County, Rhode Island, 02911, United States (approximate)",
+  "how": "area"
+ },
+ "area|Leominster, Massachusetts": {
+  "lat": 42.526744,
+  "lng": -71.761489,
+  "matched": "Leominster, Worcester County, Massachusetts, 01453, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hampton, New Hampshire": {
+  "lat": 42.94172,
+  "lng": -70.837875,
+  "matched": "Hampton, Rockingham County, New Hampshire, 03842, United States (approximate)",
+  "how": "area"
+ },
+ "area|Foxborough, Massachusetts": {
+  "lat": 42.065377,
+  "lng": -71.247831,
+  "matched": "Foxborough, Norfolk County, Massachusetts, 02035, United States (approximate)",
+  "how": "area"
+ },
+ "area|Berlin, Connecticut": {
+  "lat": 41.621488,
+  "lng": -72.745652,
+  "matched": "Berlin, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hanover, Pennsylvania": {
+  "lat": 39.800532,
+  "lng": -76.983257,
+  "matched": "Hanover, York County, Pennsylvania, 17331, United States (approximate)",
+  "how": "area"
+ },
+ "area|Manchester, New Hampshire": {
+  "lat": 42.99564,
+  "lng": -71.454789,
+  "matched": "Manchester, Hillsborough County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Langhorne, Pennsylvania": {
+  "lat": 40.176181,
+  "lng": -74.920248,
+  "matched": "Langhorne, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|hudson, Massachusetts": {
+  "lat": 42.39135,
+  "lng": -71.56769,
+  "matched": "Hudson, Middlesex County, Massachusetts, 01749, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ardmore, Pennsylvania": {
+  "lat": 40.004128,
+  "lng": -75.288289,
+  "matched": "Ardmore, Lower Merion Township, Montgomery County, Pennsylvania, 19003, United States (approximate)",
+  "how": "area"
+ },
+ "area|Framingham, Massachusetts": {
+  "lat": 42.277318,
+  "lng": -71.41659,
+  "matched": "Framingham, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Franconia, New Hampshire": {
+  "lat": 44.227392,
+  "lng": -71.747847,
+  "matched": "Franconia, Grafton County, New Hampshire, 03580, United States (approximate)",
+  "how": "area"
+ },
+ "area|Berlin, Massachusetts": {
+  "lat": 42.381366,
+  "lng": -71.637264,
+  "matched": "Berlin, Worcester County, Massachusetts, 01503, United States (approximate)",
+  "how": "area"
+ },
+ "area|Brattleboro, Vermont": {
+  "lat": 42.850759,
+  "lng": -72.557291,
+  "matched": "Brattleboro, Windham County, Vermont, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lynn, Massachusetts": {
+  "lat": 42.466763,
+  "lng": -70.949494,
+  "matched": "Lynn, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ephrata, Pennsylvania": {
+  "lat": 40.179911,
+  "lng": -76.178924,
+  "matched": "Ephrata, Lancaster County, Pennsylvania, 17522, United States (approximate)",
+  "how": "area"
+ },
+ "area|Milford, Massachusetts": {
+  "lat": 42.142891,
+  "lng": -71.516462,
+  "matched": "Milford, Worcester County, Massachusetts, 01757, United States (approximate)",
+  "how": "area"
+ },
+ "area|Severna Park, Maryland": {
+  "lat": 39.082619,
+  "lng": -76.571968,
+  "matched": "Severna Park, Anne Arundel County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Forked River, New Jersey": {
+  "lat": 39.824676,
+  "lng": -74.14797,
+  "matched": "Forked River, Lacey Township, Ocean County, New Jersey, 08731, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newport, Rhode Island": {
+  "lat": 41.489983,
+  "lng": -71.313771,
+  "matched": "Newport, Newport County, Rhode Island, 02840, United States (approximate)",
+  "how": "area"
+ },
+ "area|Albany, New York": {
+  "lat": 42.651167,
+  "lng": -73.754968,
+  "matched": "City of Albany, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Danvers, Massachusetts": {
+  "lat": 42.566498,
+  "lng": -70.936296,
+  "matched": "Danvers, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wellesley, Massachusetts": {
+  "lat": 42.296486,
+  "lng": -71.292557,
+  "matched": "Wellesley, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Blue Bell, Pennsylvania": {
+  "lat": 40.147809,
+  "lng": -75.272781,
+  "matched": "Blue Bell, Center Square, Whitpain Township, Montgomery County, Pennsylvania, 19422, United States (approximate)",
+  "how": "area"
+ },
+ "area|Old Town, Maine": {
+  "lat": 44.935398,
+  "lng": -68.645891,
+  "matched": "Old Town, Penobscot County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Sherman, Connecticut": {
+  "lat": 41.579261,
+  "lng": -73.495679,
+  "matched": "Sherman, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pepperell, Massachusetts": {
+  "lat": 42.665032,
+  "lng": -71.578592,
+  "matched": "Pepperell, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nether Providence Township, Pennsylvania": {
+  "lat": 39.900437,
+  "lng": -75.369624,
+  "matched": "Nether Providence Township, Delaware County, Pennsylvania, 19086, United States (approximate)",
+  "how": "area"
+ },
+ "area|Weymouth, Massachusetts": {
+  "lat": 42.221219,
+  "lng": -70.939162,
+  "matched": "Weymouth, Norfolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hawley, Pennsylvania": {
+  "lat": 41.475922,
+  "lng": -75.182119,
+  "matched": "Hawley, Wayne County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Worcester, Massachusetts": {
+  "lat": 42.262562,
+  "lng": -71.801888,
+  "matched": "Worcester, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westbrook, Connecticut": {
+  "lat": 41.286031,
+  "lng": -72.448787,
+  "matched": "Westbrook, Lower Connecticut River Valley Planning Region, Connecticut, 06498, United States (approximate)",
+  "how": "area"
+ },
+ "area|Gilford, New Hampshire": {
+  "lat": 43.54805,
+  "lng": -71.407013,
+  "matched": "Gilford, Belknap County, New Hampshire, 03249, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bath, Pennsylvania": {
+  "lat": 40.726519,
+  "lng": -75.393491,
+  "matched": "Bath, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Saratoga Springs, New York": {
+  "lat": 43.082231,
+  "lng": -73.785373,
+  "matched": "City of Saratoga Springs, Saratoga County, New York, 12866, United States (approximate)",
+  "how": "area"
+ },
+ "area|Plainfield, Connecticut": {
+  "lat": 41.679937,
+  "lng": -71.914728,
+  "matched": "Plainfield, Northeastern Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Woodbury Heights, New Jersey": {
+  "lat": 39.817058,
+  "lng": -75.155178,
+  "matched": "Woodbury Heights, Gloucester County, New Jersey, 08097, United States (approximate)",
+  "how": "area"
+ },
+ "area|Brentwood, Maryland": {
+  "lat": 38.942968,
+  "lng": -76.955803,
+  "matched": "Brentwood, Prince George's County, Maryland, 20722, United States (approximate)",
+  "how": "area"
+ },
+ "area|Hamburg, Pennsylvania": {
+  "lat": 40.555308,
+  "lng": -75.982408,
+  "matched": "Hamburg, Berks County, Pennsylvania, 19526, United States (approximate)",
+  "how": "area"
+ },
+ "area|Warminster, Pennsylvania": {
+  "lat": 40.206775,
+  "lng": -75.099616,
+  "matched": "Warminster Township, Bucks County, Pennsylvania, 18974, United States (approximate)",
+  "how": "area"
+ },
+ "area|Frostburg, Maryland": {
+  "lat": 39.658333,
+  "lng": -78.928424,
+  "matched": "Frostburg, Allegany County, Maryland, 21532, United States (approximate)",
+  "how": "area"
+ },
+ "area|Schenectady, New York": {
+  "lat": 42.814243,
+  "lng": -73.939569,
+  "matched": "City of Schenectady, Schenectady County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Troy, New York": {
+  "lat": 42.728412,
+  "lng": -73.691788,
+  "matched": "City of Troy, Rensselaer County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lima, New York": {
+  "lat": 42.905006,
+  "lng": -77.611668,
+  "matched": "Town of Lima, Livingston County, New York, 14485, United States (approximate)",
+  "how": "area"
+ },
+ "area|Great Barrington, Massachusetts": {
+  "lat": 42.193936,
+  "lng": -73.362773,
+  "matched": "Great Barrington, Berkshire County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Old Orchard Beach, Maine": {
+  "lat": 43.507557,
+  "lng": -70.356157,
+  "matched": "Old Orchard Beach, York County, Maine, 04064, United States (approximate)",
+  "how": "area"
+ },
+ "area|Killington, Vermont": {
+  "lat": 43.67433,
+  "lng": -72.778445,
+  "matched": "Killington, Rutland County, Vermont, 05751, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wayland, Massachusetts": {
+  "lat": 42.363206,
+  "lng": -71.360672,
+  "matched": "Wayland, Middlesex County, Massachusetts, 01778, United States (approximate)",
+  "how": "area"
+ },
+ "area|Cohoes, New York": {
+  "lat": 42.774245,
+  "lng": -73.700119,
+  "matched": "City of Cohoes, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Melrose, Massachusetts": {
+  "lat": 42.456432,
+  "lng": -71.064182,
+  "matched": "Melrose, Middlesex County, Massachusetts, 02176, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Reading, Massachusetts": {
+  "lat": 42.575094,
+  "lng": -71.078665,
+  "matched": "North Reading, Middlesex County, Massachusetts, 01864, United States (approximate)",
+  "how": "area"
+ },
+ "area|Baltimore, Maryland": {
+  "lat": 39.290882,
+  "lng": -76.610759,
+  "matched": "Baltimore, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Sudbury, Massachusetts": {
+  "lat": 42.383428,
+  "lng": -71.416173,
+  "matched": "Sudbury, Middlesex County, Massachusetts, 01776, United States (approximate)",
+  "how": "area"
+ },
+ "area|Beverly, Massachusetts": {
+  "lat": 42.548974,
+  "lng": -70.878188,
+  "matched": "Beverly, Essex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Mount Olive, New Jersey": {
+  "lat": 40.846255,
+  "lng": -74.743306,
+  "matched": "Mount Olive, Morris County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Gloucester City, New Jersey": {
+  "lat": 39.891862,
+  "lng": -75.11619,
+  "matched": "Gloucester City, Camden County, New Jersey, 08030, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Milford, Connecticut": {
+  "lat": 41.577099,
+  "lng": -73.41058,
+  "matched": "New Milford, Western Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Hampton, New Hampshire": {
+  "lat": 42.968981,
+  "lng": -70.835949,
+  "matched": "North Hampton, Rockingham County, New Hampshire, 03862, United States (approximate)",
+  "how": "area"
+ },
+ "area|Rochester, New York": {
+  "lat": 43.157285,
+  "lng": -77.615214,
+  "matched": "City of Rochester, Monroe County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Cumberland, Maryland": {
+  "lat": 39.65265,
+  "lng": -78.762383,
+  "matched": "Cumberland, Allegany County, Maryland, 21502, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bristol, Rhode Island": {
+  "lat": 41.677046,
+  "lng": -71.26616,
+  "matched": "Bristol, Bristol County, Rhode Island, 02809, United States (approximate)",
+  "how": "area"
+ },
+ "area|Chatham, New York": {
+  "lat": 42.364252,
+  "lng": -73.594839,
+  "matched": "Town of Chatham, Columbia County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethlehem Township, New Jersey": {
+  "lat": 40.668599,
+  "lng": -75.010278,
+  "matched": "Bethlehem Township, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Baldwinsville, New York": {
+  "lat": 43.158679,
+  "lng": -76.33271,
+  "matched": "Village of Baldwinsville, Town of Lysander, Onondaga County, New York, 13027, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wrightsville, Pennsylvania": {
+  "lat": 40.026681,
+  "lng": -76.533439,
+  "matched": "Wrightsville, York County, Pennsylvania, 17368, United States (approximate)",
+  "how": "area"
+ },
+ "area|Scranton, Pennsylvania": {
+  "lat": 41.408687,
+  "lng": -75.662129,
+  "matched": "Scranton, Lackawanna County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pittsburgh, Pennsylvania": {
+  "lat": 40.440697,
+  "lng": -80.002567,
+  "matched": "Pittsburgh, Allegheny County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Providence, Rhode Island": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Spring City, Pennsylvania": {
+  "lat": 40.177828,
+  "lng": -75.545644,
+  "matched": "Spring City, Chester County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Smithfield, Rhode Island": {
+  "lat": 41.922043,
+  "lng": -71.549507,
+  "matched": "Smithfield, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Franklin, Connecticut": {
+  "lat": 41.609055,
+  "lng": -72.14619,
+  "matched": "Franklin, Southeastern Connecticut Planning Region, Connecticut, 06254, United States (approximate)",
+  "how": "area"
+ },
+ "area|Freeland, Maryland": {
+  "lat": 39.704826,
+  "lng": -76.68386,
+  "matched": "Freeland, Baltimore County, Maryland, 21105, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lewiston, Maine": {
+  "lat": 44.099072,
+  "lng": -70.21771,
+  "matched": "Lewiston, Androscoggin County, Maine, 04240, United States (approximate)",
+  "how": "area"
+ },
+ "area|Rockville, Maryland": {
+  "lat": 39.081798,
+  "lng": -77.151684,
+  "matched": "Rockville, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Malvern, Pennsylvania": {
+  "lat": 40.036202,
+  "lng": -75.513896,
+  "matched": "Malvern, Chester County, Pennsylvania, 19355, United States (approximate)",
+  "how": "area"
+ },
+ "area|Milford, New Hampshire": {
+  "lat": 42.835577,
+  "lng": -71.649535,
+  "matched": "Milford, Hillsborough County, New Hampshire, 03055, United States (approximate)",
+  "how": "area"
+ },
+ "area|Turners Falls, Massachusetts": {
+  "lat": 42.608309,
+  "lng": -72.556788,
+  "matched": "Turners Falls, Montague, Franklin County, Massachusetts, 01376, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lancaster, New Hampshire": {
+  "lat": 44.489906,
+  "lng": -71.569451,
+  "matched": "Lancaster, Coös County, New Hampshire, 03584, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westford, Massachusetts": {
+  "lat": 42.579258,
+  "lng": -71.437841,
+  "matched": "Westford, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Beach, Maryland": {
+  "lat": 38.70488,
+  "lng": -76.533174,
+  "matched": "North Beach, Calvert County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Atlantic City, New Jersey": {
+  "lat": 39.364285,
+  "lng": -74.422935,
+  "matched": "Atlantic City, Atlantic County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Chepachet, Rhode Island": {
+  "lat": 41.909763,
+  "lng": -71.665667,
+  "matched": "Chepachet, Glocester, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|West Warwick, Rhode Island": {
+  "lat": 41.70613,
+  "lng": -71.522145,
+  "matched": "West Warwick, Kent County, Rhode Island, 02893, United States (approximate)",
+  "how": "area"
+ },
+ "area|Dundalk, Maryland": {
+  "lat": 39.262435,
+  "lng": -76.487059,
+  "matched": "Dundalk, North Point Village, Baltimore County, Maryland, 21222, United States (approximate)",
+  "how": "area"
+ },
+ "area|Malden, Massachusetts": {
+  "lat": 42.426848,
+  "lng": -71.068374,
+  "matched": "Malden, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Pattenburg, New Jersey": {
+  "lat": 40.636212,
+  "lng": -75.016282,
+  "matched": "Pattenburg, Union, Hunterdon County, New Jersey, 08802, United States (approximate)",
+  "how": "area"
+ },
+ "area|Takoma Park, Maryland": {
+  "lat": 38.977888,
+  "lng": -77.007476,
+  "matched": "Takoma Park, Montgomery County, Maryland, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bellingham, Massachusetts": {
+  "lat": 42.086949,
+  "lng": -71.474644,
+  "matched": "Bellingham, Norfolk County, Massachusetts, 02019, United States (approximate)",
+  "how": "area"
+ },
+ "area|Housatonic, Massachusetts": {
+  "lat": 42.254931,
+  "lng": -73.366539,
+  "matched": "Housatonic, Great Barrington, Berkshire County, Massachusetts, 01236, United States (approximate)",
+  "how": "area"
+ },
+ "area|Groton, Massachusetts": {
+  "lat": 42.611224,
+  "lng": -71.57454,
+  "matched": "Groton, Middlesex County, Massachusetts, 01450, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bolton, Massachusetts": {
+  "lat": 42.434234,
+  "lng": -71.609774,
+  "matched": "Bolton, Worcester County, Massachusetts, 01740, United States (approximate)",
+  "how": "area"
+ },
+ "area|Altamont, New York": {
+  "lat": 42.700632,
+  "lng": -74.033738,
+  "matched": "Village of Altamont, Town of Guilderland, Albany County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Middletown, Connecticut": {
+  "lat": 41.562318,
+  "lng": -72.650906,
+  "matched": "Middletown, Lower Connecticut River Valley Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Littleton, Massachusetts": {
+  "lat": 42.537592,
+  "lng": -71.51201,
+  "matched": "Littleton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newtown, Pennsylvania": {
+  "lat": 40.229405,
+  "lng": -74.936533,
+  "matched": "Newtown, Bucks County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Portsmouth, Massachusetts": {
+  "lat": 42.359394,
+  "lng": -71.145409,
+  "matched": "Portsmouth Street Playground, Brighton, Boston, Suffolk County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Stroudsburg, Pennsylvania": {
+  "lat": 40.986426,
+  "lng": -75.194665,
+  "matched": "Stroudsburg, Monroe County, Pennsylvania, 18360, United States (approximate)",
+  "how": "area"
+ },
+ "area|Medford, New Jersey": {
+  "lat": 39.900947,
+  "lng": -74.823496,
+  "matched": "Medford Township, Burlington County, New Jersey, 08055, United States (approximate)",
+  "how": "area"
+ },
+ "area|Bethlehem, Pennsylvania": {
+  "lat": 40.617891,
+  "lng": -75.378652,
+  "matched": "Bethlehem, Northampton County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Newton, Massachusetts": {
+  "lat": 42.330044,
+  "lng": -71.194862,
+  "matched": "Newton, Middlesex County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Stockton, New Jersey": {
+  "lat": 40.405879,
+  "lng": -74.977359,
+  "matched": "Stockton, Hunterdon County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Watervliet, New York": {
+  "lat": 42.730078,
+  "lng": -73.70123,
+  "matched": "City of Watervliet, Albany County, New York, 12189, United States (approximate)",
+  "how": "area"
+ },
+ "area|Northborough, Massachusetts": {
+  "lat": 42.319601,
+  "lng": -71.642241,
+  "matched": "Northborough, Worcester County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Wakefield, Rhode Island": {
+  "lat": 41.437324,
+  "lng": -71.501447,
+  "matched": "Wakefield, South Kingstown, South County, Rhode Island, 02879, United States (approximate)",
+  "how": "area"
+ },
+ "area|Philadelphia, Pennsylvania": {
+  "lat": 39.952724,
+  "lng": -75.163526,
+  "matched": "Philadelphia, Philadelphia County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|Deer Isle, Maine": {
+  "lat": 44.224044,
+  "lng": -68.677597,
+  "matched": "Deer Isle, Hancock County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lebanon, Pennsylvania": {
+  "lat": 40.375713,
+  "lng": -76.462612,
+  "matched": "Lebanon County, Pennsylvania, United States (approximate)",
+  "how": "area"
+ },
+ "area|PROVIDENCE, Rhode Island": {
+  "lat": 41.823989,
+  "lng": -71.412834,
+  "matched": "Providence, Providence County, Rhode Island, United States (approximate)",
+  "how": "area"
+ },
+ "area|Manchester, Connecticut": {
+  "lat": 41.783402,
+  "lng": -72.523197,
+  "matched": "Manchester, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Unity, Maine": {
+  "lat": 44.611269,
+  "lng": -69.334425,
+  "matched": "Unity, Waldo County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Creek, New York": {
+  "lat": 43.691484,
+  "lng": -73.986727,
+  "matched": "North Creek, Town of Johnsburg, Town of Chester, Warren County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Montague, Massachusetts": {
+  "lat": 42.590123,
+  "lng": -72.549733,
+  "matched": "Montague, Franklin County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Portsmouth, New Hampshire": {
+  "lat": 43.075131,
+  "lng": -70.760183,
+  "matched": "Portsmouth, Rockingham County, New Hampshire, United States (approximate)",
+  "how": "area"
+ },
+ "area|Dennis, Massachusetts": {
+  "lat": 41.735387,
+  "lng": -70.193909,
+  "matched": "Dennis, Barnstable County, Massachusetts, United States (approximate)",
+  "how": "area"
+ },
+ "area|Warren, Rhode Island": {
+  "lat": 41.730379,
+  "lng": -71.282549,
+  "matched": "Warren, Bristol County, Rhode Island, 02885, United States (approximate)",
+  "how": "area"
+ },
+ "area|Jackson, New Jersey": {
+  "lat": 39.776505,
+  "lng": -74.862385,
+  "matched": "Jackson, Waterford Township, Camden County, New Jersey, 08004, United States (approximate)",
+  "how": "area"
+ },
+ "area|Waterville, Maine": {
+  "lat": 44.550577,
+  "lng": -69.630317,
+  "matched": "Waterville, Kennebec County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Princeton, New Jersey": {
+  "lat": 40.349695,
+  "lng": -74.659738,
+  "matched": "Princeton, Mercer County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|Coburn Gore, Maine": {
+  "lat": 45.379215,
+  "lng": -70.803407,
+  "matched": "Coburn Gore, Franklin County, Maine, United States (approximate)",
+  "how": "area"
+ },
+ "area|Ithaca, New York": {
+  "lat": 42.437418,
+  "lng": -76.548372,
+  "matched": "Town of Ithaca, Tompkins County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Tarrytown, New York": {
+  "lat": 41.076208,
+  "lng": -73.858746,
+  "matched": "Village of Tarrytown, Town of Greenburgh, Westchester County, New York, 10591, United States (approximate)",
+  "how": "area"
+ },
+ "area|Acra, New York": {
+  "lat": 42.310919,
+  "lng": -74.055413,
+  "matched": "Acra, Town of Cairo, Greene County, New York, 12405, United States (approximate)",
+  "how": "area"
+ },
+ "area|Riverhead, New York": {
+  "lat": 40.916869,
+  "lng": -72.662419,
+  "matched": "Town of Riverhead, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Nassau, New York": {
+  "lat": 40.735299,
+  "lng": -73.561578,
+  "matched": "Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Suffolk, New York": {
+  "lat": 40.883232,
+  "lng": -72.857803,
+  "matched": "Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Enfield, Connecticut": {
+  "lat": 41.976772,
+  "lng": -72.591711,
+  "matched": "Enfield, Capitol Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Washington County, New York": {
+  "lat": 43.229454,
+  "lng": -73.447134,
+  "matched": "Washington County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Coventry, Connecticut": {
+  "lat": 41.770099,
+  "lng": -72.30508,
+  "matched": "Coventry, Capitol Planning Region, Connecticut, 06238, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westport, Connecticut": {
+  "lat": 41.141486,
+  "lng": -73.357895,
+  "matched": "Westport, Western Connecticut Planning Region, Connecticut, 06880, United States (approximate)",
+  "how": "area"
+ },
+ "area|Derby, Connecticut": {
+  "lat": 41.322361,
+  "lng": -73.089032,
+  "matched": "Derby, Naugatuck Valley Planning Region, Connecticut, 06418, United States (approximate)",
+  "how": "area"
+ },
+ "area|North Bergen, New Jersey": {
+  "lat": 40.804267,
+  "lng": -74.012084,
+  "matched": "North Bergen, Hudson County, New Jersey, United States (approximate)",
+  "how": "area"
+ },
+ "area|New Haven, Connecticut": {
+  "lat": 41.308214,
+  "lng": -72.925052,
+  "matched": "New Haven, South Central Connecticut Planning Region, Connecticut, United States (approximate)",
+  "how": "area"
+ },
+ "area|Lakewood, New Jersey": {
+  "lat": 40.094099,
+  "lng": -74.214989,
+  "matched": "Lakewood Township, Ocean County, New Jersey, 08701, United States (approximate)",
+  "how": "area"
+ },
+ "area|Westbury, New York": {
+  "lat": 40.755656,
+  "lng": -73.587627,
+  "matched": "Village of Westbury, Town of North Hempstead, Nassau County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "area|Patchogue, New York": {
+  "lat": 40.765654,
+  "lng": -73.015108,
+  "matched": "Village of Patchogue, Town of Brookhaven, Suffolk County, New York, United States (approximate)",
+  "how": "area"
+ },
+ "address|552 Grandview Ave, NY": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
+ "address|50-20 39th Ave, NY": {
+  "lat": 40.748843,
+  "lng": -73.913521,
+  "matched": "50-20 39TH AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|27-16 23rd Ave, NY": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|28-48 31st St, NY": {
+  "lat": 40.767374,
+  "lng": -73.921085,
+  "matched": "28-48 31ST ST, ASTORIA, NY, 11102",
+  "how": "address"
+ },
+ "address|31-83 34th St, NY": {
+  "lat": 40.761235,
+  "lng": -73.922592,
+  "matched": "31-83 34TH ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
+ "address|5420 Roosevelt Ave, NY": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|36-15 Ditmars Blvd, NY": {
+  "lat": 40.774301,
+  "lng": -73.907998,
+  "matched": "36-15 DITMARS BLVD, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|47-22 30th Ave, NY": {
+  "lat": 40.761115,
+  "lng": -73.909216,
+  "matched": "47-22 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|25-27 Steinway St, NY": {
+  "lat": 40.767251,
+  "lng": -73.912171,
+  "matched": "25-27 STEINWAY ST, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|8-01 Seneca Ave, NY": {
+  "lat": 43.003786,
+  "lng": -78.176527,
+  "matched": "1 SENECA AVE, BATAVIA, NY, 14020",
+  "how": "address"
+ },
+ "address|111-30 Beach Channel Dr, NY": null,
+ "address|13-02 44th Ave, NY": {
+  "lat": 40.749614,
+  "lng": -73.947557,
+  "matched": "13-02 44TH AVE, LONG ISLAND CITY, NY, 11101",
+  "how": "address"
+ },
+ "address|40-12 Bell Blvd, NY": {
+  "lat": 40.764124,
+  "lng": -73.771333,
+  "matched": "40-12 BELL BLVD, BAYSIDE, NY, 11361",
+  "how": "address"
+ },
+ "address|147-02 Liberty Ave, NY": {
+  "lat": 40.696197,
+  "lng": -73.804351,
+  "matched": "147-02 LIBERTY AVE, JAMAICA, NY, 11435",
+  "how": "address"
+ },
+ "address|40-19 Gleane St, NY": {
+  "lat": 40.74747,
+  "lng": -73.881978,
+  "matched": "40-19 GLEANE ST, ELMHURST, NY, 11373",
+  "how": "address"
+ },
+ "address|552 Grandview Ave, Ridgewood, NY 11385": {
+  "lat": 40.708985,
+  "lng": -73.906579,
+  "matched": "5-52 GRANDVIEW AVE, RIDGEWOOD, NY, 11385",
+  "how": "address"
+ },
+ "address|27-16 23rd Ave, Astoria, NY 11105": {
+  "lat": 40.775885,
+  "lng": -73.915136,
+  "matched": "27-16 23RD AVE, ASTORIA, NY, 11105",
+  "how": "address"
+ },
+ "address|71-22 Myrtle Ave, Glendale, NY 11385": {
+  "lat": 40.702003,
+  "lng": -73.879351,
+  "matched": "71-22 MYRTLE AVE, GLENDALE, NY, 11385",
+  "how": "address"
+ },
+ "address|54-20 Roosevelt Ave, Woodside, NY 11377": {
+  "lat": 40.744747,
+  "lng": -73.910287,
+  "matched": "54-20 ROOSEVELT AVE, WOODSIDE, NY, 11377",
+  "how": "address"
+ },
+ "address|35-55 31st St, Astoria, NY 11106": {
+  "lat": 40.757251,
+  "lng": -73.929121,
+  "matched": "35-55 31ST ST, ASTORIA, NY, 11106",
+  "how": "address"
+ },
+ "address|38-14 30th Ave, Astoria, NY 11103": {
+  "lat": 40.764144,
+  "lng": -73.915671,
+  "matched": "38-14 30TH AVE, ASTORIA, NY, 11103",
+  "how": "address"
+ },
+ "address|214-35 40th Ave, Bayside, NY 11361": {
+  "lat": 40.764618,
+  "lng": -73.769537,
+  "matched": "214-35 40TH AVE, BAYSIDE, NY, 11361",
+  "how": "address"
+ },
+ "address|137-35 Northern Blvd, Flushing, NY 11354": {
+  "lat": 40.763618,
+  "lng": -73.83016,
+  "matched": "137-35 NORTHERN BLVD, FLUSHING, NY, 11354",
+  "how": "address"
+ }
+}

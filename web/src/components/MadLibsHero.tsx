@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import FindLink from "@/components/FindLink";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import styles from "./MadLibsHero.module.css";
 import { ART_SRC, useArt } from "./designArt";
@@ -62,9 +62,11 @@ function Pill({ tone, text, delay }: { tone: Tone; text: string; delay: number }
   );
 }
 
-export default function MadLibsHero() {
+/** `fixedArt` pins the main picture (the real home page uses it); without it the dev Versions panel can swap the picture. */
+export default function MadLibsHero({ fixedArt }: { fixedArt?: string } = {}) {
   const reduced = useSyncExternalStore(subscribeReduced, reducedNow, reducedOnServer);
-  const art = useArt();
+  const panelArt = useArt();
+  const art = fixedArt ?? panelArt;
   // The Graphic section of the dev Versions panel can swap the picture on whichever layout is showing.
   const pic = (src: string, w: number, h: number) => {
     const a = ART_SRC[art];
@@ -110,9 +112,11 @@ export default function MadLibsHero() {
     <div className={`${styles.page} hero-page`}>
       <div className={styles.glow} aria-hidden="true" />
       <Image className={styles.figure} {...pic("/brand/figure-nyc.png", 800, 1042)} alt="" priority />
-      {DEV && (
-        // Saved layout versions for the dev Versions panel. Only one shows at a time (see the CSS); production skips these.
-        <div className={styles.vx} aria-hidden="true">
+      {/* Saved layout versions for the dev Versions panel. Only one shows at a time (see the CSS). Production keeps just the faded
+          picture, which the real home page uses (look "Final 4", see lib/finalFour.ts). */}
+      <div className={styles.vx} aria-hidden="true">
+        {DEV && (
+          <>
           <div className={styles.vstack}>
             <Image {...pic("/brand/figure-clean.png", 800, 1218)} alt="" />
             <Image src="/brand/wordmark-lg.png" alt="" width={900} height={492} />
@@ -123,9 +127,10 @@ export default function MadLibsHero() {
           <div className={styles.vdisc}>
             <Image {...pic("/brand/figure-echo.png", 900, 866)} alt="" />
           </div>
-          <Image className={styles.vfade} {...pic("/brand/figure-echo.png", 900, 866)} alt="" />
-        </div>
-      )}
+          </>
+        )}
+        <Image className={styles.vfade} {...pic("/brand/figure-echo.png", 900, 866)} alt="" />
+      </div>
       <div className="wrap">
         <div className={styles.content}>
           {DEV && <Image className={styles.vwordabove} src="/brand/wordmark-lg.png" alt="" width={900} height={492} aria-hidden="true" />}
@@ -165,9 +170,9 @@ export default function MadLibsHero() {
           </div>
 
           <div className={styles.actions}>
-            <Link href="/find" className={styles.cta}>
+            <FindLink className={styles.cta}>
               Find opportunities <span className={styles.arrow}>&rarr;</span>
-            </Link>
+            </FindLink>
           </div>
         </div>
       </div>

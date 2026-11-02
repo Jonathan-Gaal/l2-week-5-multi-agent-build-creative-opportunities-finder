@@ -5,13 +5,17 @@ const dev = process.env.NODE_ENV !== "production";
 // Every page is served from this origin: fonts are self-hosted by next/font, the browser never calls the results
 // API (the Next.js server does), and result links open in a new tab. Next's own inline bootstrap scripts need
 // 'unsafe-inline' (no nonces, so pages stay cacheable); dev mode also needs eval and a websocket for hot reload.
+// The results map (MapLibre) loads its dark street map from CARTO's free basemap host, and runs in a worker built from a blob.
+const MAP_HOST = "https://*.basemaps.cartocdn.com https://basemaps.cartocdn.com";
+
 const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  `img-src 'self' data: blob: ${MAP_HOST}`,
   "font-src 'self'",
-  `connect-src 'self'${dev ? " ws: wss:" : ""}`,
+  `connect-src 'self' ${MAP_HOST}${dev ? " ws: wss:" : ""}`,
+  "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

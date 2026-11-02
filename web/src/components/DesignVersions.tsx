@@ -3,22 +3,33 @@
 import { useEffect, useState } from "react";
 import repoVersions from "@/data/design-versions.json";
 import { announceArt } from "./designArt";
+import { FINAL4 } from "@/lib/finalFour";
 
 /** TEMPORARY, dev only: flips between design versions while Mara works. Everything is kept in this browser. */
 const GROUPS = [
   {
     key: "hdr",
     label: "Logo",
-    options: [["original", "Original bar"], ["original2", "Original bar 2"], ["full", "Full logo"], ["wordmark", "Lettering"], ["icon-nyc", "Icon + NYC"], ["icon", "Icon only"], ["none", "None"]],
+    options: [["original", "Original bar"], ["original2", "Original bar 2"], ["full", "Full logo"], ["wordmark", "Lettering"], ["wordmark-white", "Lettering, bright white"], ["icon-nyc", "Icon + NYC"], ["icon", "Icon only"], ["none", "None"]],
   },
   { key: "corner", label: "Logo corner", options: [["left", "Left"], ["right", "Right"]] },
   { key: "authcorner", label: "Sign up / Log in corner", options: [["left", "Left"], ["right", "Right"]] },
+  {
+    key: "authbtn",
+    label: "Login / Sign up look",
+    options: [["today", "Today"], ["1", "1 Pink outline pill"], ["2", "2 Sign up as plain text"], ["3", "3 Both plain text"], ["4", "4 Italic serif words"], ["5", "5 Poster buttons"], ["6", "6 Text and a lime pill"], ["7", "7 One joined pill"], ["8", "8 Quiet Log in, pink Sign up"], ["9", "9 Colour lines"], ["10", "10 Neon tubes"], ["11", "11 Plain text in colour"], ["12", "12 Plain text, colours switched"], ["13", "13 White Log in, yellow Sign up"]],
+  },
   {
     key: "art",
     label: "Picture",
     options: [["default", "Layout's own"], ["globe", "Man + globe"], ["globe-nyc", "Man + globe + NYC"], ["whole", "Whole logo"], ["wordmark", "Wordmark only"], ["fade", "Man + globe, faded"]],
   },
-  { key: "bg", label: "Background", options: [["purple", "Original (purple + circle)"], ["solid", "Solid brand purple"], ["spotlight", "Plum spotlight"]] },
+  {
+    key: "ctabtn",
+    label: "Find opportunities look",
+    options: [["today", "Today"], ["1", "1 Solid pink pill"], ["2", "2 Solid lime pill"], ["3", "3 Pink outline pill"], ["4", "4 Italic serif words"], ["5", "5 Poster button"], ["6", "6 Round arrow"], ["7", "7 Marquee lights"], ["8", "8 Colour line"], ["9", "9 Neon tube"], ["10", "10 Ticket"], ["11", "11 Lime highlighter"]],
+  },
+  { key: "bg", label: "Background", options: [["purple", "Original (purple + circle)"], ["solid", "Solid brand purple"], ["spotlight", "Plum spotlight"], ["fade", "Fade from the top"], ["corner", "Corner glow"], ["rising", "Rising glow"], ["diagonal", "Diagonal blend"], ["stripes", "Faint stripes"]] },
   { key: "hero", label: "Home page", options: [["figure", "Figure (current)"], ["plain", "Sentence only"], ["p1-1", "1 Rebuilt original"], ["p1-3", "1-3 Peeking in"], ["p1-8", "1-8 Giant lettering"], ["p2-4", "2-4 Spotlight circle"], ["p2-8", "2-8 Faded behind"]] },
 ] as const;
 
@@ -42,27 +53,36 @@ type Settings = {
   cta: Pos;
   /** Sentence text size, 1 = normal. */
   sentSize: number;
+  /** Extra width (vw) added to the sentence on its right, so more words fit on each line. */
+  sentWide: number;
   /** How far down (px) the corner logo is nudged; negative moves it up. */
   logoY: number;
   /** How far (px) the corner logo is nudged sideways; positive moves it right. */
   logoX: number;
   /** Nudge (px) for the Sign up / Login buttons. */
   auth: Pos;
+  /** Size of the Sign up / Login buttons, 1 = normal. */
+  authSize: number;
+  /** How see-through the main graphic is, 0 (invisible) to 100 (solid). Older saved versions do not have it. */
+  figAlpha?: number;
 };
 const ORIGINAL: Fig = { x: 0, y: 0, s: 1 }; // a version's built-in starting spot, as built from its mockup
 type Saved = { id: string; name: string; at: number; settings: Settings };
 
 const DEFAULTS: Settings = {
-  pick: { hdr: "wordmark", corner: "right", authcorner: "right", hero: "figure", bg: "purple", art: "default", devtools: "off", navlinks: "on", auth: "on" },
+  pick: { hdr: "wordmark", corner: "right", authcorner: "right", authbtn: "today", ctabtn: "today", hero: "figure", bg: "purple", art: "default", devtools: "off", navlinks: "on", auth: "on" },
   size: 1,
   btn: 1,
   figs: {},
   sent: NO_MOVE,
   cta: NO_MOVE,
   sentSize: 1,
+  sentWide: 0,
   logoY: 0,
   logoX: 0,
   auth: NO_MOVE,
+  authSize: 1,
+  figAlpha: 100,
 };
 
 const store = {
@@ -87,12 +107,21 @@ const applySettings = (s: Settings) => {
     root.dataset[k] = v;
     store.set(k, v);
   }
+  // versions saved before the Login / Sign up and Find opportunities looks existed do not carry them, so they get today's look
+  for (const k of ["authbtn", "ctabtn"]) {
+    if (!(k in s.pick)) {
+      root.dataset[k] = "today";
+      store.set(k, "today");
+    }
+  }
   root.style.setProperty("--logo-scale", String(s.size));
   root.style.setProperty("--cta-scale", String(s.btn));
   const f = s.figs[s.pick.hero!] ?? ORIGINAL;
   root.style.setProperty("--fig-x", `${f.x}vw`);
   root.style.setProperty("--fig-y", `${f.y}vh`);
   root.style.setProperty("--fig-scale", String(f.s));
+  root.style.setProperty("--fig-alpha", String((s.figAlpha ?? 100) / 100));
+  store.set("figalpha", String(s.figAlpha ?? 100));
   root.style.setProperty("--sent-x", `${s.sent.x}vw`);
   root.style.setProperty("--sent-y", `${s.sent.y}vh`);
   root.style.setProperty("--cta-x", `${s.cta.x}vw`);
@@ -103,10 +132,14 @@ const applySettings = (s: Settings) => {
   root.style.setProperty("--auth-y", `${s.auth.y}px`);
   store.set("logox", String(s.logoX));
   store.set("authpos", JSON.stringify(s.auth));
+  root.style.setProperty("--auth-scale", String(s.authSize ?? 1)); // versions saved before this had no size
+  store.set("authsize", String(s.authSize ?? 1));
   root.style.setProperty("--logo-y", `${s.logoY}px`);
   store.set("logoy", String(s.logoY));
   root.style.setProperty("--sent-scale", String(s.sentSize));
   store.set("sentsize", String(s.sentSize));
+  root.style.setProperty("--sent-wide", `${s.sentWide ?? 0}vw`); // versions saved before this had no extra width
+  store.set("sentwide", String(s.sentWide ?? 0));
   store.set("sent", JSON.stringify(s.sent));
   store.set("ctapos", JSON.stringify(s.cta));
   store.set("size", String(s.size));
@@ -153,7 +186,7 @@ const readPx = (raw: string): Pos => {
 };
 
 /** Backgrounds that no longer exist (an earlier try) fall back to the original. */
-const validBg = (v: string) => (["purple", "solid", "spotlight"].includes(v) ? v : "purple");
+const validBg = (v: string) => (["purple", "solid", "spotlight", "fade", "corner", "rising", "diagonal", "stripes"].includes(v) ? v : "purple");
 
 const readSettings = (): Settings => ({
   pick: {
@@ -165,6 +198,8 @@ const readSettings = (): Settings => ({
     devtools: store.get("devtools", DEFAULTS.pick.devtools!),
     navlinks: store.get("navlinks", DEFAULTS.pick.navlinks!),
     authcorner: store.get("authcorner", DEFAULTS.pick.authcorner!),
+    authbtn: store.get("authbtn", DEFAULTS.pick.authbtn!),
+    ctabtn: store.get("ctabtn", DEFAULTS.pick.ctabtn!),
     auth: store.get("auth", DEFAULTS.pick.auth!),
   },
   size: num(store.get("size", "1"), 1, 0.4, 4),
@@ -173,9 +208,12 @@ const readSettings = (): Settings => ({
   sent: readPos(store.get("sent", "{}")),
   cta: readPos(store.get("ctapos", "{}")),
   sentSize: num(store.get("sentsize", "1"), 1, 0.4, 3),
+  sentWide: num(store.get("sentwide", "0"), 0, 0, 40),
   logoY: num(store.get("logoy", "0"), 0, -60, 200),
   logoX: num(store.get("logox", "0"), 0, -400, 400),
   auth: readPx(store.get("authpos", "{}")),
+  authSize: num(store.get("authsize", "1"), 1, 0.5, 3),
+  figAlpha: num(store.get("figalpha", "100"), 100, 0, 100),
 });
 
 /** Looks saved in the repo (design-versions.json) show up for everyone; ones saved only in this browser are added, and win on the same id. */
@@ -242,15 +280,19 @@ export default function DesignVersions() {
   const [playIdx, setPlayIdx] = useState(0);
   const [label, setLabel] = useState("");
   const [hidden, setHidden] = useState(false); // the "Hide" button hides the whole panel for a few seconds
+  const [shrunk, setShrunk] = useState(true); // the whole panel is a tiny sun in the corner until it is opened
   const [sec, setSec] = useState("home"); // which section is expanded (one at a time keeps the panel short)
 
   // Reads this browser's saved settings once after mount. It has to happen in an effect (not the initial state) so the
   // first render matches the server's and does not cause a hydration mismatch; this is a dev-only panel.
   useEffect(() => {
-    const now = readSettings();
+    // Only /design-test plays with the browser's own settings. Everywhere else the top bar is fixed (Final 4 on the home page, the
+    // site top bar on the rest: lib/finalFour.ts), so the panel shows Final 4 and leaves the page and the browser's settings alone.
+    const playground = window.location.pathname.startsWith("/design-test");
+    const now = playground ? readSettings() : (FINAL4 as unknown as Settings);
     // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of localStorage after mount
     setS(now);
-    applySettings(now);
+    if (playground) applySettings(now);
     setSaved(mergeSaved(readSaved()));
     setOpen(window.location.pathname.startsWith("/design-test")); // elsewhere it starts collapsed so it never covers the page's own buttons
   }, []);
@@ -385,6 +427,14 @@ export default function DesignVersions() {
     return () => window.clearTimeout(t);
   }, [label]);
 
+  // Hides Next's round "N" dev badge (it still shows warnings in the terminal). Dev-only, like the rest of this panel.
+  useEffect(() => {
+    const el = document.createElement("style");
+    el.textContent = "nextjs-portal { display: none !important; }";
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, []);
+
   const hideForAWhile = () => {
     setHidden(true);
     window.setTimeout(() => setHidden(false), HIDE_MS);
@@ -402,6 +452,28 @@ export default function DesignVersions() {
         {label}
       </div>
     ) : null;
+  }
+
+  // Shrunk: just a tiny sun in the corner, so the panel never covers the page until it is opened.
+  if (shrunk) {
+    return (
+      <button
+        type="button"
+        onClick={() => setShrunk(false)}
+        aria-label="Open the design panel"
+        title="Open the design panel"
+        style={{
+          position: "fixed", left: 12, bottom: 12, zIndex: 50, width: 26, height: 26, borderRadius: "50%", padding: 0,
+          background: "#2e1556", border: "1px solid #46297a", cursor: "pointer", opacity: 0.8, boxShadow: "0 2px 8px rgba(0,0,0,.4)",
+          display: "grid", placeItems: "center",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dcfc05" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+        </svg>
+      </button>
+    );
   }
 
   const group = (key: string) => GROUPS.find((g) => g.key === key)!;
@@ -478,6 +550,15 @@ export default function DesignVersions() {
           >
             Hide 4s
           </button>
+          <button
+            type="button"
+            onClick={() => setShrunk(true)}
+            aria-label="Shrink the panel to a small sun"
+            title="Shrink to a small sun in the corner"
+            style={{ background: "none", border: "1px solid #46297a", borderRadius: 6, color: "#dcfc05", font: "500 13px var(--font-dm-sans), sans-serif", cursor: "pointer", padding: "0 7px", lineHeight: "20px" }}
+          >
+            –
+          </button>
         </div>
         <button type="button" aria-label="Next home page version" onClick={() => step(1)} style={arrowStyle}>
           ›
@@ -547,17 +628,32 @@ export default function DesignVersions() {
                 </option>
               ))}
             </select>
-            {reset("Reset this layout's graphic to original", () => setFig(ORIGINAL))}
+            <Slider id="fig-alpha" label="Transparency (0 clear, 100 solid)" min={0} max={100} step={1} value={s.figAlpha ?? 100} shown={`${s.figAlpha ?? 100}`} onChange={(v) => change({ ...s, figAlpha: v })} />
+            {reset("Reset this layout's graphic to original", () => change({ ...s, figs: { ...s.figs, [hero]: ORIGINAL }, figAlpha: 100 }))}
           </Section>
 
           <Section id="sentence" title="Sentence" hint="Moves and resizes the “I’m a … looking for …” text" open={sec === "sentence"} onToggle={setSec}>
             <Slider id="sent-x" label="Left / right" min={-40} max={40} step={0.5} value={s.sent.x} shown={`${s.sent.x}`} onChange={(v) => change({ ...s, sent: { ...s.sent, x: v } })} />
             <Slider id="sent-y" label="Up / down" min={-45} max={45} step={0.5} value={s.sent.y} shown={`${s.sent.y}`} onChange={(v) => change({ ...s, sent: { ...s.sent, y: v } })} />
+            <Slider id="sent-wide" label="Width (words per line)" min={0} max={40} step={0.5} value={s.sentWide ?? 0} shown={`${s.sentWide ?? 0}`} onChange={(v) => change({ ...s, sentWide: v })} />
             <Slider id="sent-size" label="Size" min={0.4} max={3} step={0.05} value={s.sentSize} shown={`${Math.round(s.sentSize * 100)}%`} onChange={(v) => change({ ...s, sentSize: v })} />
-            {reset("Reset sentence", () => change({ ...s, sent: NO_MOVE, sentSize: 1 }))}
+            {reset("Reset sentence", () => change({ ...s, sent: NO_MOVE, sentSize: 1, sentWide: 0 }))}
           </Section>
 
-          <Section id="button" title="Find opportunities button" hint="Moves and resizes the big underlined link on the page" open={sec === "button"} onToggle={setSec}>
+          <Section id="button" title="Find opportunities button" hint="Its look, and moves and resizes the button on the page" open={sec === "button"} onToggle={setSec}>
+            {sub("Look")}
+            <select
+              aria-label="Find opportunities look"
+              value={s.pick.ctabtn ?? "today"}
+              onChange={(e) => choose("ctabtn", e.target.value)}
+              style={{ width: 260, border: "2px solid #dcfc05", borderRadius: 8, padding: "6px 8px", font: "inherit", background: "#220e43", color: "#fef9ef", cursor: "pointer" }}
+            >
+              {group("ctabtn").options.map(([value, label]) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+            </select>
             <Slider id="cta-x" label="Left / right" min={-40} max={40} step={0.5} value={s.cta.x} shown={`${s.cta.x}`} onChange={(v) => change({ ...s, cta: { ...s.cta, x: v } })} />
             <Slider id="cta-y" label="Up / down" min={-45} max={45} step={0.5} value={s.cta.y} shown={`${s.cta.y}`} onChange={(v) => change({ ...s, cta: { ...s.cta, y: v } })} />
             <Slider id="btn-size" label="Size" min={0.4} max={4} step={0.05} value={s.btn} shown={`${Math.round(s.btn * 100)}%`} onChange={(v) => change({ ...s, btn: v })} />
@@ -589,11 +685,25 @@ export default function DesignVersions() {
 
           <Section id="account" title="Sign up / Login buttons" hint="Show or hide the two buttons, move them, and pick their corner" open={sec === "account"} onToggle={setSec}>
             {toggle("auth", "Show them")}
+            <Slider id="auth-size" label="Size" min={0.5} max={3} step={0.05} value={s.authSize ?? 1} shown={`${Math.round((s.authSize ?? 1) * 100)}%`} onChange={(v) => change({ ...s, authSize: v })} />
             <Slider id="auth-x" label="Left / right" min={-400} max={400} step={1} value={s.auth.x} shown={`${s.auth.x}`} onChange={(v) => change({ ...s, auth: { ...s.auth, x: v } })} />
             <Slider id="auth-y" label="Up / down" min={-60} max={200} step={1} value={s.auth.y} shown={`${s.auth.y}`} onChange={(v) => change({ ...s, auth: { ...s.auth, y: v } })} />
             {sub("Corner")}
             {options("authcorner")}
-            {reset("Reset buttons position", () => change({ ...s, auth: NO_MOVE }))}
+            {sub("Look (hover each one on the page)")}
+            <select
+              aria-label="Login and Sign up look"
+              value={s.pick.authbtn ?? "today"}
+              onChange={(e) => choose("authbtn", e.target.value)}
+              style={{ width: 260, border: "2px solid #dcfc05", borderRadius: 8, padding: "6px 8px", font: "inherit", background: "#220e43", color: "#fef9ef", cursor: "pointer" }}
+            >
+              {group("authbtn").options.map(([value, label]) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+            </select>
+            {reset("Reset buttons size and position", () => change({ ...s, auth: NO_MOVE, authSize: 1 }))}
           </Section>
 
           <Section id="other" title="Other top bar links" hint="Extra links next to the logo" open={sec === "other"} onToggle={setSec}>

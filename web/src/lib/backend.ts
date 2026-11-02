@@ -12,6 +12,7 @@ import "server-only";
 
 import { after, connection } from "next/server";
 import type { API_ROUTES, ErrorCode, ErrorResponse, MetaResponse, SearchResponse } from "@api/types";
+import { ClaudeCodeModel } from "../../server/agents/claude-code-model.ts";
 import { ClaudeModel, missingCredentials } from "../../server/agents/model.ts";
 import { type TraceSink, dailyFileSink } from "../../server/agents/trace.ts";
 import { createApp, META } from "../../server/api/app.ts";
@@ -75,6 +76,18 @@ type Api = ReturnType<typeof createApp>;
 let api: Api | null = null;
 
 /**
+ * Local development only, with Claude Code as the model: DEMO_AS_OF=2026-11-01 makes the site's "today" that day (the clock still
+ * runs, so rate limits and the cache behave), so a saved run's prompts, which carry "as of <date>", match on any day it is replayed.
+ */
+function demoClock(byClaudeCode: boolean): (() => number) | null {
+  const day = process.env.DEMO_AS_OF?.trim();
+  if (!byClaudeCode || !day || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return null;
+  const base = new Date(`${day}T12:00:00`).getTime();
+  const started = Date.now();
+  return () => base + (Date.now() - started);
+}
+
+/**
  * The API, built once per server process from the environment (web/.env.example): the record source (Postgres, or
  * the JSON snapshot with DATA_SOURCE=json or without DATABASE_URL) and the Claude model unless RANKER_MODE=baseline or credentials are
  * missing (then the code baseline, Tier 2). Its cache, rate limits and daily budget live in this process. Throws on
@@ -88,14 +101,19 @@ function getApi(): Api {
   const useJson = config.dataSource === "json";
   // Missing Claude credentials degrade an LLM mode to the code baseline (Tier 2) instead of throwing, so the app
   // always serves results; resolveMode warns once per process when it does. RANKER_MODE=baseline stays baseline.
-  const mode = resolveMode(config, missingCredentials());
+  // Local development only: CLAUDE_CODE_AS_MODEL=1 lets the Claude Code session answer the Ranker and Reviewer through a
+  // queue folder (server/agents/claude-code-model.ts), so the full pipeline runs with no key.
+  const byClaudeCode = process.env.CLAUDE_CODE_AS_MODEL === "1" && process.env.NODE_ENV !== "production";
+  const mode = byClaudeCode ? config.mode : resolveMode(config, missingCredentials());
   api = createApp({
     source: useJson ? jsonSource(config.snapshotId!) : postgresSource(getPool()),
-    model: mode === "baseline" ? null : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
+    model: mode === "baseline" ? null : byClaudeCode ? new ClaudeCodeModel(`${process.cwd()}/.claude-code-queue`, `${process.cwd()}/../runs/claude-code-live-answers`)
+      : new ClaudeModel(undefined, "medium", config.modelCallTimeoutMs),
     mode,
     snapshotId: config.snapshotId,
     trace: traceSink(config),
     limits: config.limits,
+    ...(demoClock(byClaudeCode) ? { now: demoClock(byClaudeCode)! } : {}),
   });
   return api;
 }
@@ -168,6 +186,7 @@ export function visitorClient(headers: Headers): Client {
 export function searchQuery(input: SearchInput): string {
   const q = new URLSearchParams({ places: input.places.join(","), types: input.types.join(",") });
   if (input.disciplines.length) q.set("disciplines", input.disciplines.join(","));
+  if (input.subtypes?.length) q.set("subtypes", input.subtypes.join(","));
   return q.toString().replaceAll("%2C", ",");
 }
 
@@ -180,6 +199,9 @@ export async function searchBackend(input: SearchInput, opts: { visitor: Client;
     tier: g.tier,
     cards: g.results.map((o) => toCard(o, res.as_of, opts.labels)),
     removed: g.removed,
+    expired: (g.expired_results ?? []).map((o) => toCard(o, res.as_of, opts.labels)),
+    total: g.total_matches ?? g.results.length,
+    more: (g.more_results ?? []).map((o) => toCard(o, res.as_of, opts.labels)),
     reason: g.tier === 3 ? g.reason : null,
   }));
   const calls: CallLog[] = res.groups.map((g) => ({

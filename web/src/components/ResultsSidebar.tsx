@@ -1,42 +1,40 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import type { MetaResponse } from "@api/types";
+import { chipList, chipText, chipsFor } from "@/lib/disciplineWords";
+import { TRI_IDS, WIDE_IDS, placeOn, spellOut } from "@/lib/places";
 import { TYPE_PILLS } from "@/lib/typePills";
-import { type Choice, queryFor } from "./find/FindStep";
+import type { Choice } from "./find/FindStep";
 import r from "./ResultsLive.module.css";
 
-const toggle = (list: string[], id: string) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
-const WAIT_MS = 1000; // wait for the person to finish picking before searching again
+const WIGGLE_MS = 700;
 
 /**
- * Your answers as chips you can change. The list on the right updates itself a moment after the last tap, so there is no
- * next button. The wait keeps a quick run of taps from asking the results service (and its rate limit) once per tap.
+ * Your answers, set in place. Every chip is shown, with the ones you picked outlined in colour. They cannot be changed
+ * here, because a change means ranking the results again: tapping one makes Start over wiggle, which is the way to
+ * change them (it goes back through the three steps with your picks kept).
  */
-export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; initial: Choice }) {
-  const router = useRouter();
-  const [c, setC] = useState<Choice>(initial);
-  const [pending, startTransition] = useTransition();
-  const [waiting, setWaiting] = useState(false);
+export default function ResultsSidebar({ meta, initial, startOverHref }: { meta: MetaResponse; initial: Choice; startOverHref: string }) {
+  const picked = { ...initial, p: spellOut(initial.p) };
+  const keys = initial.d.flatMap((id) => chipsFor(id).map((x) => x.key));
+  const [wiggle, setWiggle] = useState(false);
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
 
-  // After the last tap, wait a moment, then search again. Each tap changes `c`, which restarts the wait.
-  useEffect(() => {
-    if (!waiting) return;
-    const t = window.setTimeout(() => {
-      setWaiting(false);
-      startTransition(() => router.replace(`/results?${queryFor(c)}`, { scroll: false }));
-    }, WAIT_MS);
-    return () => window.clearTimeout(t);
-  }, [c, waiting, router]);
-
-  const change = (next: Choice) => {
-    setC(next);
-    setWaiting(true);
+  const nudge = () => {
+    window.clearTimeout(timer.current);
+    setWiggle(false);
+    // Restart the animation even when a second tap comes while the first is still wiggling.
+    window.requestAnimationFrame(() => {
+      setWiggle(true);
+      timer.current = window.setTimeout(() => setWiggle(false), WIGGLE_MS);
+    });
   };
 
-  const pill = (on: boolean, tone: "lime" | "pink" | "cream", label: string, onClick: () => void, extra = "") => (
-    <button key={label} type="button" className={`${r.chip} ${r[tone]} ${extra}`} aria-pressed={on} onClick={onClick}>
+  const pill = (on: boolean, tone: "lime" | "pink" | "cream", label: string) => (
+    <button key={label} type="button" className={`${r.chip} ${r[tone]}`} aria-pressed={on} onClick={nudge}>
       {label}
     </button>
   );
@@ -44,29 +42,29 @@ export default function ResultsSidebar({ meta, initial }: { meta: MetaResponse; 
   return (
     <aside className={r.side} aria-label="Your choices">
       <div>
-        <h2 className={r.label}>I make</h2>
+        <h2 className={r.label}>I&apos;m a</h2>
         <div className={r.chips} role="group" aria-label="Disciplines">
-          {meta.disciplines.map((d) => pill(c.d.includes(d.value), "lime", d.label, () => change({ ...c, d: toggle(c.d, d.value) })))}
+          {chipList(meta.disciplines.map((d) => d.value)).map((x) => pill(keys.includes(x.key), "lime", chipText(x)))}
         </div>
       </div>
       <div>
         <h2 className={r.label}>I want</h2>
         <div className={r.chips} role="group" aria-label="Kinds of opportunity">
-          {TYPE_PILLS.filter((p) => meta.types.some((t) => t.value === p.type)).map((p) =>
-            pill(c.s.includes(p.id), "pink", p.label, () => change({ ...c, s: toggle(c.s, p.id) })),
-          )}
+          {TYPE_PILLS.filter((p) => meta.types.some((t) => p.types.includes(t.value))).map((p) => pill(picked.s.includes(p.id), "pink", p.label))}
         </div>
       </div>
       <div>
         <h2 className={r.label}>Where</h2>
         <div className={r.chips} role="group" aria-label="Places">
-          {meta.boroughs.map((b) => pill(c.p.includes(b.value), "cream", b.label, () => change({ ...c, p: toggle(c.p, b.value) })))}
-          {meta.place_groups.map((g) => pill(c.p.includes(g.value), "cream", g.label, () => change({ ...c, p: toggle(c.p, g.value) }), r.wider))}
+          {meta.boroughs.map((b) => pill(placeOn(picked.p, b.value), "cream", b.label))}
+          {[...TRI_IDS, ...WIDE_IDS].map((id) => pill(picked.p.includes(id), "cream", meta.regions.find((x) => x.value === id)?.label ?? id))}
         </div>
       </div>
-      <p className={r.status} role="status" aria-live="polite">
-        {waiting || pending ? <b>Updating your list…</b> : "Tap a chip to add or remove it. The list updates by itself."}
-      </p>
+      <div className={r.sideActions}>
+        <Link className={`${r.startOver} ${wiggle ? r.wiggle : ""}`} href={startOverHref}>
+          <span aria-hidden="true">&larr;</span> Start over
+        </Link>
+      </div>
     </aside>
   );
 }

@@ -33,9 +33,14 @@ MAX_PAGE_CHARS = 60000
 # Never take a deadline from a list card on these (INVALIDATORS.md, "Aggregator dates"): cards omit the year
 # and "Rolling" is often wrong. The record is kept without a date so the primary page can be read next.
 # Subtypes already in the snapshot (manifest by_type); the Ranker and the type labels read them.
-SUBTYPES = ("open_mic", "paid_gig", "audition", "workshop", "dance_night", "jam", "class", "drawing_session",
-            "fellowship", "competition", "commission", "studio_access", "teaching_gig", "open_studio",
-            "full_time", "internship")
+SUBTYPES = ("open_mic", "paid_gig", "audition", "casting_call", "workshop", "dance_night", "jam", "class",
+            "drawing_session", "fellowship", "grant", "competition", "commission", "festival", "gallery_submission",
+            "writing_submission", "performance_call", "collaboration", "model_call", "general_call", "residency",
+            "studio_access", "teaching_artist", "open_studio", "full_time", "internship")
+# Artist types the snapshot now uses (the app's chips read these). The final labels are set by
+# scripts/recategorize_snapshot.py after extraction; these words just give it a good starting point.
+DISCIPLINES = ("music", "singer", "comedy", "dance", "theater", "literary", "poet", "visual", "photographer",
+               "videographer", "film", "crew", "model", "craft", "all")
 LIST_CATEGORIES = ("aggregator", "newsletter", "discovery_source", "api_discovery_source")
 
 
@@ -59,7 +64,7 @@ RECORD_SCHEMA = {
             "type": "object",
             "properties": {"requirement": _text(False), "quote": _text(False)},
             "required": ["requirement", "quote"], "additionalProperties": False}},
-        "disciplines": {"type": "array", "items": {"type": "string"}},
+        "disciplines": {"type": "array", "items": {"type": "string", "enum": list(DISCIPLINES)}},
         "location": _text(),
         "event_dates": {"type": "array", "items": {"type": "string"}},
         "recurrence": _text(),
@@ -86,7 +91,9 @@ Rules for every field:
 - title: the opportunity's own name as the page writes it.
 - opportunity_type: one of {", ".join(TYPES)}. A salaried or hourly position is "job"; put the pay in award.
 - subtype: one of {", ".join(SUBTYPES)} when one fits (an open mic is an event with subtype open_mic; a paid
-  gig or casting is an open_call with subtype paid_gig or audition), otherwise null.
+  gig is an open_call with subtype paid_gig; an acting or on-screen role is casting_call, a try-out for a
+  performance is audition; a call to apply or submit to a festival is festival, and a call to show visual work
+  in a gallery, juried show or market is gallery_submission), otherwise null.
 - region: one of {", ".join(REGIONS)}. Skip opportunities outside these regions.
 - borough: for region "nyc" give one of {", ".join(BOROUGHS)}, "citywide" (open to any NYC resident) or
   "unknown". For every other region use null.
@@ -98,7 +105,11 @@ Rules for every field:
 - award: the pay, stipend, or prize as written, or null.
 - eligibility: each stated requirement, with a quote copied word for word from the page. Never paraphrase a
   quote, and drop a requirement you cannot quote.
-- disciplines: short lowercase words such as "visual", "music", "dance", "theater", "writing", or "all".
+- disciplines: the artists who could take part, from {", ".join(DISCIPLINES)}. Use "singer" for vocal work
+  (choirs, singing gigs, vocal open mics) and "music" for instrumentalists and bands; "poet" for poetry and
+  spoken word and "literary" for other writing; "photographer", "videographer" and "crew" (production
+  assistants, stylists, set work) for those jobs; "model" for modeling calls; "visual" also covers designers.
+  Use "all" only when the page opens it to any artist.
 - caveat: a short note when the listing is unclear or partly missing, otherwise null.
 
 Which listings to leave out (return nothing for them):

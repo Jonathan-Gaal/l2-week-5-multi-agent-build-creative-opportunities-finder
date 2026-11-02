@@ -1,0 +1,8 @@
+{
+ "savedAt": "2026-11-02T03:38:17.520Z",
+ "request": "Request: Queens open call opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Smack Mellon Emerging Artist ",
+ "reply": {
+  "verdict": "accept",
+  "critique": "The ranking fits the request. The two organisation-run calls with the most detail (Smack Mellon and Culture Lab LIC) lead, followed by the Harmony Blossom performance call. The Craigslist post at $400 is the only unverified listing with a stated amount and date, and the reason tells the reader to confirm it. No clearly better listing was left out; the remaining Craigslist posts state no pay or are services or band-forming ads."
+ }
+}

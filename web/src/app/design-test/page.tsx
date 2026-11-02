@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import MadLibsHero from "@/components/MadLibsHero";
 
 export const metadata: Metadata = {
@@ -9,5 +10,6 @@ export const metadata: Metadata = {
 
 /** Design test: canvas artboard 1 as a live, animated home page. Not linked from the app. */
 export default function DesignTest() {
+  if (process.env.NODE_ENV === "production") notFound(); // dev-only, like /dev
   return <MadLibsHero />;
 }

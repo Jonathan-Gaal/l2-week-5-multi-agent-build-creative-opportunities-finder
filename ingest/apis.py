@@ -164,7 +164,7 @@ def city_record():
 JOB_DESIGN = re.compile(r"\b(graphic|multimedia|visual|ux|ui|web|exhibit\w*|data visualization|motion|art|creative)\s+(designer|director)\b|\bdirector of design\b", re.I)
 # Engineering "design" and procurement, policy or technical "writer" titles are not creative work.
 NOT_CREATIVE_JOB = re.compile(r"\b(engineer\w*|construction|reviewer|structural|civil|electrical|mechanical|plumb\w*|solicitation|proposal|policy|technical|grants?)\b", re.I)
-JOB_DISCIPLINE = [(re.compile(r"design", re.I), "design"), (re.compile(r"video|film|media", re.I), "film"), (re.compile(r"photo", re.I), "visual"),
+JOB_DISCIPLINE = [(re.compile(r"design", re.I), "visual"), (re.compile(r"video|film|media", re.I), "film"), (re.compile(r"photo", re.I), "photographer"),
                   (re.compile(r"music", re.I), "music"), (re.compile(r"theat|dance|perform", re.I), "theater"), (re.compile(r"writer|poet|editor", re.I), "literary")]
 QUEENS = re.compile(r"\b(queens|long island city|jamaica|flushing|astoria|kew gardens|corona|ridgewood|far rockaway)\b", re.I)
 
@@ -311,7 +311,7 @@ def nyc_events():
 # A personal key without a SAM.gov role allows 10 requests a day, so search by creative industry (one request each)
 # nationwide and filter to scope locally, rather than one request per state.
 # Title searches catch creative work filed under unrelated codes (a mural under construction). 9 requests, leaving 1 spare.
-SAM_NAICS = {"711510": ["all"], "711130": ["music"], "541430": ["design"], "512110": ["film"], "541922": ["visual"], "611610": ["all"]}
+SAM_NAICS = {"711510": ["all"], "711130": ["music"], "541430": ["visual"], "512110": ["film"], "541922": ["visual"], "611610": ["all"]}
 SAM_TITLES = ("art in architecture", "mural", "artist")
 SAM_QUERIES = [({"ncode": code}, disc) for code, disc in SAM_NAICS.items()] + [({"title": t}, ["all"]) for t in SAM_TITLES]
 

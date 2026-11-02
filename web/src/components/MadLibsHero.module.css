@@ -65,7 +65,8 @@
   font-size: calc(clamp(26px, 3vw, 46px) * var(--sent-scale, 1)); /* size slider in the dev Versions panel */
   line-height: 1.5;
   letter-spacing: -0.01em;
-  max-width: 1060px;
+  max-width: calc(1060px + var(--sent-wide, 0vw));
+  width: calc(100% + var(--sent-wide, 0vw)); /* "Width" slider in the dev Versions panel: a wider sentence fits more words on each line */
   min-height: 6.4em; /* room for the longest scene so the page does not jump */
 }
 
@@ -217,6 +218,7 @@
 .vfade {
   translate: var(--fig-x, 0) var(--fig-y, 0);
   scale: var(--fig-scale, 1);
+  filter: opacity(var(--fig-alpha, 1)); /* transparency slider; a filter so it stacks with a layout's own fade */
 }
 
 /* The wide wordmark is sized by width, not height, when the Graphic section picks it. */
@@ -228,4 +230,9 @@
 
 /* The corner circle belongs to the original background only. */
 :global(html[data-bg="solid"]) .glow,
-:global(html[data-bg="spotlight"]) .glow { display: none; }
+:global(html[data-bg="spotlight"]) .glow,
+:global(html[data-bg="fade"]) .glow,
+:global(html[data-bg="corner"]) .glow,
+:global(html[data-bg="rising"]) .glow,
+:global(html[data-bg="diagonal"]) .glow,
+:global(html[data-bg="stripes"]) .glow { display: none; }

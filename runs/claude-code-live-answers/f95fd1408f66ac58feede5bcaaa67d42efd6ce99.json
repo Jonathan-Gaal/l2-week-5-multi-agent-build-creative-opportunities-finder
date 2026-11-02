@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T03:48:53.701Z",
+ "request": "Request: Manhattan, Brooklyn, Queens, The Bronx, Staten Island, Long Island, New Jersey, Massachusetts open call (Music,",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r1",
+    "reason": "Non-union audition on Nov 5 at Ripley-Grier Studios in Manhattan, paying a starting $125 per show; limited to ages 18 to 30, and the nearest date of the open calls that pay."
+   },
+   {
+    "id": "r26",
+    "reason": "Open to Equity and non-Equity performers, pays $200 to $800 a day, auditions by Zoom, and prefers people local to the five boroughs; the deadline is Dec 31."
+   },
+   {
+    "id": "r25",
+    "reason": "Non-union performers are paid $100 per gig for Brooklyn performances on Dec 4, 9 and 13, with rehearsals starting Nov 5."
+   },
+   {
+    "id": "r38",
+    "reason": "A non-union Twelfth Night with a $700 stipend, auditions Dec 7 and 8 at The Players Theatre, and a clear schedule through March."
+   },
+   {
+    "id": "r44",
+    "reason": "Roulette takes performance proposals for music and theater on a rolling basis and programs them into its Brooklyn season; no pay is stated, but anyone can apply at any time."
+   }
+  ]
+ }
+}
