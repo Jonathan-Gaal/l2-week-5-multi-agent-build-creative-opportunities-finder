@@ -11,11 +11,17 @@
 .pinTop:hover { transform: scale(1.15); }
 .tipHead { font-weight: 800; margin-bottom: 4px; }
 .tipRow { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 3px 0; font: 600 13px var(--sans); color: #000; }
+.tipList { max-height: 124px; overflow-y: auto; overscroll-behavior: contain; padding-right: 6px; scrollbar-width: thin; scrollbar-color: var(--pink) transparent; }
+.tipList::-webkit-scrollbar { width: 8px; }
+.tipList::-webkit-scrollbar-track { background: transparent; }
+.tipList::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 999px; border: 2px solid var(--paper); }
 .tipMore { font-size: 12px; color: #555; padding-top: 3px; }
 .pin:focus-visible, .pinMany:focus-visible, .pinTop:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
 
 .tip :global(.maplibregl-popup-content) { background: var(--paper); color: #000; font: 700 13px var(--sans); border-radius: 8px; padding: 6px 10px; max-width: 240px; }
 .tip :global(.maplibregl-popup-tip) { border-top-color: var(--paper); border-bottom-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-left) :global(.maplibregl-popup-tip) { border-right-color: var(--paper); }
+.tip:global(.maplibregl-popup-anchor-right) :global(.maplibregl-popup-tip) { border-left-color: var(--paper); }
 
 @media (max-width: 900px) { .map { height: 260px; } }
 @media (prefers-reduced-motion: reduce) { .pin, .pinTop { transition: none; } }

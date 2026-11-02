@@ -87,18 +87,26 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
       // splits apart as the map zooms in. Hovering or clicking a numbered pin lists its listings.
       const draw = () => {
         for (const d of drawn.splice(0)) { d.popup.remove(); d.marker.remove(); }
-        const NEAR = 16;     // pixels (pins are square boxes, so the test is on each axis)
+        // Two pins merge when their boxes touch: a ranked pin is 28px wide, a numbered group 24px, a single listing 12px. Merging
+        // repeats until no two pins touch, so a pin never sits half-hidden under its neighbour.
         const pts = pins.map((p) => ({ p, xy: map!.project([p.lng, p.lat]) })).sort((x, y) => Number(y.p.top) - Number(x.p.top));
-        const taken = new Set<string>();
-        const clusters: Pin[][] = [];
-        for (const seed of pts) {
-          if (taken.has(seed.p.key)) continue;
-          const g = pts.filter((o) => !taken.has(o.p.key) && Math.max(Math.abs(o.xy.x - seed.xy.x), Math.abs(o.xy.y - seed.xy.y)) < NEAR).map((o) => o.p);
-          g.forEach((p) => taken.add(p.key));
-          clusters.push(g);
+        type Cluster = { at: { x: number; y: number }; members: Pin[] };
+        const clusters: Cluster[] = pts.map(({ p, xy }) => ({ at: xy, members: [p] }));
+        const radius = (c: Cluster) => (c.members.some((p) => p.top) ? 14 : c.members.length > 1 ? 12 : 6);
+        const touching = (x: Cluster, y: Cluster) => Math.max(Math.abs(x.at.x - y.at.x), Math.abs(x.at.y - y.at.y)) < radius(x) + radius(y);
+        for (let merged = true; merged;) {
+          merged = false;
+          for (let i = 0; i < clusters.length && !merged; i++) {
+            for (let j = i + 1; j < clusters.length && !merged; j++) {
+              if (!touching(clusters[i]!, clusters[j]!)) continue;
+              clusters[i]!.members.push(...clusters[j]!.members);
+              clusters.splice(j, 1);
+              merged = true;
+            }
+          }
         }
         // Pink pins first so the numbered lime pins sit on top of them.
-        const groups = clusters.sort((x, y) => Number(x.some((p) => p.top)) - Number(y.some((p) => p.top)));
+        const groups = clusters.map((c) => c.members).sort((x, y) => Number(x.some((p) => p.top)) - Number(y.some((p) => p.top)));
       for (const g of groups) {
         const ranked = g.filter((p) => p.top).sort((x, y) => (x.n ?? 0) - (y.n ?? 0));
         const ordered = [...ranked, ...g.filter((p) => !p.top)];
@@ -121,9 +129,8 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         } else {
           el.className = m.pin;
         }
-        // What shows when the pointer is over a pin: at most two listings at this address, each with a "Go to this listing" link.
-        // Two keeps the card short enough to sit inside the map; the rest are in the list under the map.
-        const SHOWN = 2;
+        // What shows when the pointer is over a pin: every listing at this address, each with a "Go to this listing" link. The
+        // card is two listings tall; with more, the list scrolls inside it.
         const listing = () => {
           const box = document.createElement("div");
           if (g.length > 1) {
@@ -132,7 +139,10 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
             head.textContent = `${g.length} listings here`;
             box.append(head);
           }
-          for (const p of ordered.slice(0, SHOWN)) {
+          const list = document.createElement("div");
+          list.className = m.tipList;
+          box.append(list);
+          for (const p of ordered) {
             const row = document.createElement("a");
             row.className = m.tipRow;
             const title = document.createElement("span");
@@ -149,13 +159,7 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
             go.className = m.tipGo;
             go.textContent = "Go to this listing →";
             row.append(title, go);
-            box.append(row);
-          }
-          if (ordered.length > SHOWN) {
-            const more = document.createElement("div");
-            more.className = m.tipMore;
-            more.textContent = `and ${ordered.length - SHOWN} more here`;
-            box.append(more);
+            list.append(row);
           }
           return box;
         };
@@ -168,13 +172,13 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
         const open = () => {
           window.clearTimeout(closing);
           if (popup.isOpen()) return;
-          // Put the card on the side of the pin with the most room (below a pin in the top half of the map, above one in the
-          // bottom half, and tucked in from the left or right edge), so it is never cut off by the edge of the map.
+          // Put the card beside the pin, pointing at it, never on top of it: to the right of the pin, or to its left when the
+          // right is too tight. Near the top or bottom edge its corner lines up with the pin instead, so it stays inside the map.
           const pt = map!.project(at);
           const size = map!.getContainer().getBoundingClientRect();
-          const v = pt.y < size.height / 2 ? "top" : "bottom";
-          const h = pt.x < 130 ? "-left" : pt.x > size.width - 130 ? "-right" : "";
-          popup.options.anchor = `${v}${h}` as "top";
+          const side = pt.x > size.width - 270 ? "right" : "left";
+          const v = pt.y < 90 ? "top-" : pt.y > size.height - 90 ? "bottom-" : "";
+          popup.options.anchor = `${v}${side}` as "left";
           popup.setLngLat(at).addTo(map!);
         };
         const closeSoon = () => { window.clearTimeout(closing); closing = window.setTimeout(() => popup.remove(), 350); };
@@ -199,7 +203,14 @@ export default function ResultsMap({ pins, missing }: { pins: Pin[]; missing: nu
       };
       if (pins.length > 1) {
         map.fitBounds(bounds, { padding: 40, maxZoom: 13, duration: 0 });
-        map.jumpTo({ zoom: Math.min(map.getZoom() + 0.5, 13.5) });     // opens half a step closer than "everything just fits"
+        // Opens up to half a step closer than "everything just fits", but never so close that a pin falls off the edge.
+        const fit = map.getZoom();
+        const w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+        for (let z = Math.min(fit + 0.5, 13.5); z > fit; z -= 0.1) {
+          map.jumpTo({ zoom: z });
+          if (pins.every((p) => { const q = map!.project([p.lng, p.lat]); return q.x >= 20 && q.x <= w - 20 && q.y >= 20 && q.y <= h - 20; })) break;
+          map.jumpTo({ zoom: fit });
+        }
       }
       else map.jumpTo({ center: [pins[0].lng, pins[0].lat], zoom: 13 });
       draw();
