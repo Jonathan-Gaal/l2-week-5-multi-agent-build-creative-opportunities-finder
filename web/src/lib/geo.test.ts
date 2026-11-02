@@ -18,7 +18,13 @@ test("deployed map coordinates work without the repository data directory", asyn
   }
 });
 
-test("a missing snapshot never borrows another snapshot's map pins", async () => {
-  assert.deepEqual(await loadPoints("missing-demo-snapshot"), {});
+test("a snapshot with no points of its own uses the newest bundled ones, matched by listing key", async () => {
+  const bundled = await loadPoints("2026-11-01b");
+  const borrowed = await loadPoints("a-later-snapshot-loaded-after-the-build");
+  assert.deepEqual(borrowed, bundled);
+});
+
+test("a malformed snapshot id gets no pins", async () => {
   assert.deepEqual(await loadPoints("../2026-11-01b"), {});
+  assert.deepEqual(await loadPoints("a/b"), {});
 });

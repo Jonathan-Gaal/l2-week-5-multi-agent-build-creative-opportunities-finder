@@ -2,13 +2,13 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { demoKey } from "@/lib/demoPresets";
+import { demoKey, replaySession } from "@/lib/demoPresets";
 import s from "./DemoReplays.module.css";
 
 type Demo = { name: string; url: string; href: string; top: string[] };
 
 /** Both entry points use the same saved runs and the existing cursor replay flow. */
-export default function DemoReplays({ panel = false }: { panel?: boolean }) {
+export default function DemoReplays({ panel = false, label = "Replay a demo", fallback = false }: { panel?: boolean; label?: string; fallback?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -36,13 +36,12 @@ export default function DemoReplays({ panel = false }: { panel?: boolean }) {
     return () => { document.removeEventListener("mousedown", close); document.removeEventListener("keydown", escape); };
   }, [open]);
   const visible = panel ? runs.filter((r) => demoKey(r.url) !== demoKey(`/results?${params}`)) : runs;
-  if (!visible.length) return null;
+  if (!visible.length) return fallback ? <span className="pill pill-lime">{label}</span> : null;
   const list = (
     <ul className={s.list} aria-label={panel ? "More demos" : "Saved demo replays"}>
       {visible.map((r) => <li key={r.href}>
-        <button type="button" onClick={() => { setOpen(false); router.push(r.href); }}>
+        <button type="button" onClick={() => { setOpen(false); router.push(replaySession(r.href, crypto.randomUUID())); }}>
           <strong>{r.name}</strong>
-          <span>{r.top.join(" · ")}</span>
         </button>
       </li>)}
     </ul>
@@ -50,7 +49,7 @@ export default function DemoReplays({ panel = false }: { panel?: boolean }) {
   return (
     <div ref={box} className={panel ? s.panel : s.menu}>
       {panel ? <><h2>More demos</h2>{list}</> : <>
-        <button type="button" className={s.trigger} aria-expanded={open} aria-controls="demo-replay-options" onClick={() => setOpen(!open)}>Replay a demo <span aria-hidden="true">▾</span></button>
+        <button type="button" className={s.trigger} aria-expanded={open} aria-controls="demo-replay-options" onClick={() => setOpen(!open)}>{label} <span aria-hidden="true">▾</span></button>
         {open && <div id="demo-replay-options" className={s.dropdown}>{list}</div>}
       </>}
     </div>

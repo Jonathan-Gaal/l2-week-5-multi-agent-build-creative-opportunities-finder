@@ -3,7 +3,7 @@
 Node 24+ is required. From `web/`, run `npm ci`, then `npm run demo` (`npm.cmd` in Windows PowerShell).
 Open http://localhost:3010/login. Login and signup are prefilled with fictional demo details; submitting those exact values enters the demo rather than creating a Firebase email account.
 
-Click **Demo mode three times** to open the replay list, or use **Replay a demo** beside it on the first find step. Selecting a run closes the menu and plays the cursor through the three real find pages to results. The results sidebar offers **More demos**, excluding the current search.
+Click **Demo mode three times** to open the replay list, or use **Replay a demo** beside it on the first find step. Selecting a run closes the menu and plays the cursor through the three real find pages to results. Each launch has a fresh session and resets the choices before clicking, including when Next.js retained an older find page. The cursor only clicks within the active step. The results sidebar offers **More demos**, excluding the current search.
 
 - Alex: Actor, Auditions, Manhattan.
 - Sam: Visual artist + Writer, Submissions/Open calls, NYC + Long Island + NJ + Upstate NY + Westchester/Hudson + CT.

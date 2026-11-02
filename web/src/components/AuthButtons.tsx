@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import DemoReplays from "./DemoReplays";
+import { replaySession } from "@/lib/demoPresets";
 
 type SavedRun = { name: string; savedAt: string; href: string; top: string[] };
 
@@ -84,11 +85,10 @@ function DemoBadge({ link }: { link: boolean }) {
                 type="button"
                 onClick={() => {
                   setOpen(false);     // the list goes away and the replay starts
-                  router.push(r.href);
+                  router.push(replaySession(r.href, crypto.randomUUID()));
                 }}
               >
                 <strong>{r.name}</strong>
-                <span>{r.top.join(" · ")}</span>
               </button>
             </li>
           ))}
@@ -111,7 +111,7 @@ export default function AuthButtons() {
   const onResults = pathname.startsWith("/results"); // the results page shows Login and Sign up (after the Demo mode tag, in demo mode)
   const [signingOut, setSigningOut] = useState(false);
 
-  if (status === "loading") return <div className="auth-slot" />;
+  if (status === "loading") return <div className="auth-slot"><Link href="/login" className="btn btn-ghost btn-small">Login</Link><Link href="/signup" className="btn btn-small">Sign up</Link></div>;
 
   if (status === "signed-in" && !user?.isAnonymous) {
     const out = async () => {
@@ -137,11 +137,14 @@ export default function AuthButtons() {
   }
 
   const demo = status === "guest" || status === "signed-in"; // signed-in here means an anonymous (demo) session
+  // On the find pages the top right is just "Demo mode" with a drop-down arrow listing the replays by title, so it never crowds the question.
+  if (demo && pathname.startsWith("/find")) {
+    return <div className="auth-slot"><DemoReplays label="Demo mode" fallback /></div>;
+  }
   if (demo && !onResults) {
     return (
       <div className="auth-slot">
         <DemoBadge link />
-        {(pathname === "/find" || pathname === "/find/discipline") && <DemoReplays />}
         <Link href="/login" className="btn btn-ghost btn-small" aria-current={pathname === "/login" ? "page" : undefined}>Login</Link>
         <Link href="/signup" className="btn btn-small" aria-current={pathname === "/signup" ? "page" : undefined}>Sign up</Link>
       </div>
