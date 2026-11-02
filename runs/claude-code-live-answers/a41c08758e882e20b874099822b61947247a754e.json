@@ -1,0 +1,8 @@
+{
+ "savedAt": "2026-11-02T17:19:14.950Z",
+ "request": "Request: Nyc residency (Dance) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Movement Research Artist",
+ "reply": {
+  "verdict": "accept",
+  "critique": "The ranking fits a dancer living in NYC and follows the rubric. The Movement Research residency is dance-specific with fees, space and commissioning support. Triangle and LEIMAY are open to dance artists and state what they give. The last two are open to any discipline, and Mabou Mines states who can apply. The two dance-only listings left out (KTCO and Unrehearsed) have no organization, award or stated eligibility, so they are less complete to act on. The Center for Performance Research residency is closed to the public and its date has passed, so leaving it out is right."
+ }
+}

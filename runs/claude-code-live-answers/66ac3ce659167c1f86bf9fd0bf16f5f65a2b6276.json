@@ -1,0 +1,28 @@
+{
+ "savedAt": "2026-11-02T17:18:26.431Z",
+ "request": "Request: Nyc grant (Dance) opportunities, as of 2026-11-01.\n\n<listings>\n{\"id\":\"r1\",\"title\":\"Obremski/Works 2027 VISION a",
+ "reply": {
+  "ranking": [
+   {
+    "id": "r2",
+    "reason": "Performing-arts only, so dance fits. $20,000 over two years of unrestricted support for Manhattan-based individual artists. Closes Nov 12."
+   },
+   {
+    "id": "r3",
+    "reason": "Made for dancers and choreographers. Up to $8,000. Bronx-based individuals (Bronx County residents, 18+) can apply. Closes Nov 20."
+   },
+   {
+    "id": "r9",
+    "reason": "Names dance (choreography) among its fields. One-time grant of up to $5,000 for a medical emergency, open to U.S. residents with income of $80,000 or less. Closes Nov 17."
+   },
+   {
+    "id": "r4",
+    "reason": "Open to all disciplines. $1,000 to $20,000 of project funding for Manhattan-based individual artists and collectives. Closes Nov 12."
+   },
+   {
+    "id": "r11",
+    "reason": "$5,000 per artist for individual artists who live in Queens. Open to any discipline, so dance counts. Closes Dec 1."
+   }
+  ]
+ }
+}

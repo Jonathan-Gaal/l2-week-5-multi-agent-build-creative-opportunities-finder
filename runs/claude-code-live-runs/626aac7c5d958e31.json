@@ -1,0 +1,38 @@
+{
+ "name": "Denise · Dance grants and residencies in NYC",
+ "url": "/results?d=dance&t=grant%2Cresidency&p=nyc&s=grants%2Cfellowships%2Cresidencies",
+ "artists": [
+  "dancer"
+ ],
+ "wants": [
+  "Grants",
+  "Fellowships",
+  "Residencies"
+ ],
+ "places": [
+  "Anywhere in NYC"
+ ],
+ "top": [
+  {
+   "n": 1,
+   "title": "LMCC 2027 Manhattan Arts Grants: Creative Unrestricted"
+  },
+  {
+   "n": 2,
+   "title": "Movement Research Artist-in-Residence 2027-2028"
+  },
+  {
+   "n": 3,
+   "title": "2027 Bronx Dance Fund"
+  },
+  {
+   "n": 4,
+   "title": "Triangle 2027-2028 Open Call (studio residency)"
+  },
+  {
+   "n": 5,
+   "title": "Rauschenberg Medical Emergency Grants Cycle 39"
+  }
+ ],
+ "savedAt": "2026-11-02T17:19:15.078Z"
+}
