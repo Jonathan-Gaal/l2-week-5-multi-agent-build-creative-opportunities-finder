@@ -157,7 +157,8 @@ export default function Home() {
           </div>
           <p className={s.kicker}>From stuck to booked</p>
           <h2 id="go">
-            Ready to find <em>your next creative opportunity?</em>
+            Ready to find<br />
+            <em>your next opportunity?</em>
           </h2>
           <div className={s.row}>
             <Link className="btn btn-ghost" href="/login">Let&apos;s go →</Link>
