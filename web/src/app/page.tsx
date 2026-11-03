@@ -43,7 +43,7 @@ export default function Home() {
             <div>
               <p className={s.kicker}>Why Artist Atlas</p>
               <h2 id="why" className={s.title}>
-                The calls are out there. <em>Finding them is the weight.</em>
+                The gigs are out there. <em>Finding them is the hard part.</em>
               </h2>
               <ul className={s.problems}>
                 <li><span><b>Scattered</b> across hundreds of sites</span></li>
