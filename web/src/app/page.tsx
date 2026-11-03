@@ -149,7 +149,7 @@ export default function Home() {
 
         <section className={s.end} aria-labelledby="go">
           <div className={s.happy} aria-hidden="true">
-            <Image src="/brand/gig-confirmed-clean.png" alt="" width={1536} height={1024} className={s.photo} />
+            <Image src="/brand/crowd-applauds-after.png" alt="" width={1536} height={1024} className={s.photo} />
             {CONFETTI.map(([x, y, c, r], i) => (
               <i key={i} className={s.confetti} style={{ left: `${x}%`, top: `${y}%`, background: c, transform: `rotate(${r}deg)`, animationDelay: `${i * 0.15}s` }} />
             ))}
